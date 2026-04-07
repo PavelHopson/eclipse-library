@@ -32,6 +32,7 @@
 | Проект | Описание | Звёзды |
 |--------|----------|--------|
 | [oh-my-claudecode](https://github.com/PavelHopson/oh-my-claudecode) | Multi-agent оркестрация для Claude Code — 5 режимов, 19 агентов, eco mode | [![Stars](https://img.shields.io/github/stars/yeachan-heo/oh-my-claudecode?style=flat)](https://github.com/yeachan-heo/oh-my-claudecode) |
+| [ai-website-cloner-template](https://github.com/JCodesMore/ai-website-cloner-template) | Клонирует **любой** сайт за один промпт — скилл `/clone-website` для Claude Code. Параллельные агенты в worktrees, `getComputedStyle()`, pixel-perfect вывод. | [![Stars](https://img.shields.io/github/stars/JCodesMore/ai-website-cloner-template?style=flat)](https://github.com/JCodesMore/ai-website-cloner-template) |
 
 **Режимы oh-my-claudecode:**
 - `/autopilot "задача"` — верхнеуровневая задача, Claude всё делает сам
@@ -39,6 +40,19 @@
 - `/ultrawork "задача"` — pipeline: research → plan → code → verify
 - `/deep-interview "идея"` — Сократовские вопросы перед стартом, уточняет требования
 - Eco mode — автоматически использует Haiku для мелких задач, Opus для сложных
+
+**ai-website-cloner-template — 5-фазный конвейер:**
+- **Reconnaissance** — скриншоты на всех брейкпоинтах, sweep по hover/scroll/click
+- **Foundation** — скачивает все ассеты, токены, шрифты, настраивает глобальные стили
+- **Component Specs** — для каждого компонента пишет `.SPEC.md` с точными `getComputedStyle()` значениями
+- **Parallel Build** — отдельный агент на каждый компонент в изолированном git worktree
+- **Assembly & QA** — мержит всё, visual diff, TypeScript check, `npm run build`
+
+```bash
+# Запуск (нужен Chrome MCP)
+claude --chrome
+/clone-website https://linear.app
+```
 
 **Установка:**
 ```bash
