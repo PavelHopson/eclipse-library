@@ -46,6 +46,12 @@
 | [ClawRouter](https://github.com/BlockRunAI/ClawRouter) | Локальный LLM-роутер — 55+ моделей, <1ms роутинг по 15 параметрам, OpenAI-compatible API, профили auto/eco/premium, экономия до 92% | [![Stars](https://img.shields.io/github/stars/BlockRunAI/ClawRouter?style=flat)](https://github.com/BlockRunAI/ClawRouter) |
 | [MetaClaw](https://github.com/aiming-lab/MetaClaw) | Meta-learning прокси — создаёт скиллы из диалогов, инжектит в промпт, опционально LoRA-дообучение (GRPO). 3 режима: skills_only / rl / auto | [![Stars](https://img.shields.io/github/stars/aiming-lab/MetaClaw?style=flat)](https://github.com/aiming-lab/MetaClaw) |
 
+### Финансовый AI
+
+| Проект | Описание | Звёзды |
+|--------|----------|--------|
+| [Dexter](https://github.com/virattt/dexter) | Автономный AI-агент для инвестиционного ресёрча — 3 агента (action/validation/answer), финансовая отчётность, самопроверка, TypeScript/Bun, MIT | [![Stars](https://img.shields.io/github/stars/virattt/dexter?style=flat)](https://github.com/virattt/dexter) |
+
 ### AI-поиск и исследования
 
 | Проект | Описание | Звёзды |
@@ -301,6 +307,7 @@ Frontend: React 19 · TypeScript · Vite · Tailwind CSS 4 · Zustand
 | **Text2Image** | Генератор изображений по тексту — Gemini / DALL-E / Flux + каталог промптов | [→](https://github.com/PavelHopson/Text2Image) |
 | **Eclipse AI Hub** | 7 AI-модулей: Chat, Arena, RAG, Code Review, Copywriter, Security, Image Studio | [→](https://github.com/PavelHopson/eclipse-ai-hub) |
 | **Eclipse Hopson Sentinel** | Локальный AI-оператор — coding agent + voice (TTS/STT/PTT) + Bridge API + Rust runtime | [→](https://github.com/PavelHopson/eclipse-hopson-sentinel) |
+| **CryptoPulse 2077** | Финансовый терминал с AI-аналитикой — крипто/форекс/фьючерсы, симулятор торговли, Cyberpunk стиль | [→](https://github.com/PavelHopson/CryptoPulse) |
 
 ---
 
