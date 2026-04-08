@@ -215,6 +215,7 @@ ai-setup reverse owner/repo --stdout
 |--------|------|----------|
 | [OwnCord](https://github.com/cofedish/OwnCord) | Go + TypeScript (Tauri) | Self-hosted Discord — голос/видео, каналы, DMs. Early alpha |
 | [Eclipse Chat](https://github.com/PavelHopson/eclipse-chat) | React 19 + Fastify + Socket.io | Наш Discord-альтернатив — в разработке |
+| [Office Website](https://github.com/baotlake/office-website) | Web | Self-hosted офисный пакет — документы, таблицы, презентации, PDF прямо в браузере | [![Stars](https://img.shields.io/github/stars/baotlake/office-website?style=flat)](https://github.com/baotlake/office-website) |
 
 **Eclipse Chat — планируемый стек:**
 ```
