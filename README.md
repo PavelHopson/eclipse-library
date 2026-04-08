@@ -58,6 +58,7 @@
 | Проект | Описание | Звёзды |
 |--------|----------|--------|
 | [Perplexica](https://github.com/ItzCrazyKns/Perplexica) | Self-hosted клон Perplexity — AI-поиск с источниками и фактчекингом, Ollama / OpenAI / Anthropic, загрузка файлов/видео/аудио, полная приватность | [![Stars](https://img.shields.io/github/stars/ItzCrazyKns/Perplexica?style=flat)](https://github.com/ItzCrazyKns/Perplexica) |
+| [Open Researcher](https://github.com/firecrawl/open-researcher) | AI-исследователь от FireCrawl — парсинг всего (фото/видео/статьи/соцсети), анализ, отчёт с источниками, экран раздумий | [![Stars](https://img.shields.io/github/stars/firecrawl/open-researcher?style=flat)](https://github.com/firecrawl/open-researcher) |
 
 ### Мультиагентные платформы
 
