@@ -236,6 +236,7 @@ ai-setup reverse owner/repo --stdout
 | [Translumo](https://github.com/ramjke/Translumo) | C# / .NET | Перевод текста на экране в реальном времени — фильмы, игры, аниме. EN/JP/ZH/KO → RU, несколько движков | [![Stars](https://img.shields.io/github/stars/ramjke/Translumo?style=flat)](https://github.com/ramjke/Translumo) |
 | [ACE-Step 1.5](https://github.com/ACE-Step/ACE-Step-1.5) | Python / ML | AI-генератор музыки — 10 сек на трек, до 10 мин длительность, 1000 инструментов, 50 языков, коммерческое использование | [![Stars](https://img.shields.io/github/stars/ACE-Step/ACE-Step-1.5?style=flat)](https://github.com/ACE-Step/ACE-Step-1.5) |
 | [Comic-translate](https://github.com/ogkalu2/comic-translate) | Python | AI-перевод манги и комиксов — сохраняет шрифты и форматирование, нужен API (Gemini/OpenAI) | [![Stars](https://img.shields.io/github/stars/ogkalu2/comic-translate?style=flat)](https://github.com/ogkalu2/comic-translate) |
+| [Final2x](https://github.com/EutropicAI/Final2x) | Python | AI-апскейлер изображений — восстановление деталей из пиксельных фото, Win/Mac/Linux | [![Stars](https://img.shields.io/github/stars/EutropicAI/Final2x?style=flat)](https://github.com/EutropicAI/Final2x) |
 | [WhisperLiveKit](https://github.com/QuentinFuxa/WhisperLiveKit) | Python / FastAPI | Real-time STT с разделением спикеров — Whisper + diarization, WebSocket, 200+ языков, локально | [![Stars](https://img.shields.io/github/stars/QuentinFuxa/WhisperLiveKit?style=flat)](https://github.com/QuentinFuxa/WhisperLiveKit) |
 
 **Улучшения Eclipse Media над Reclip:**
