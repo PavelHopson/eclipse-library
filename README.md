@@ -83,6 +83,12 @@
 |--------|----------|--------|
 | [Awesome Nano Banana](https://github.com/PicoTrex/Awesome-Nano-Banana-images) | 110+ промптов для Google Nano Banana — манга, пиксель-арт, продуктовое фото, 3D, комиксы, миниатюры, LEGO, стиль-трансфер и др. | [![Stars](https://img.shields.io/github/stars/PicoTrex/Awesome-Nano-Banana-images?style=flat)](https://github.com/PicoTrex/Awesome-Nano-Banana-images) |
 
+### OpenClaw экосистема
+
+| Проект | Описание | Звёзды |
+|--------|----------|--------|
+| [awesome-openclaw-usecases](https://github.com/hesamsheikh/awesome-openclaw-usecases) | 42+ реальных юзкейсов OpenClaw — соцсети, креатив, DevOps, продуктивность, ресёрч, финансы | [![Stars](https://img.shields.io/github/stars/hesamsheikh/awesome-openclaw-usecases?style=flat)](https://github.com/hesamsheikh/awesome-openclaw-usecases) |
+
 ### AI Coding Agents
 
 | Проект | Описание | Звёзды |
