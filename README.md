@@ -27,6 +27,12 @@
 
 ## 🤖 AI & Claude Code
 
+### ML Training & Research
+
+| Проект | Описание | Звёзды |
+|--------|----------|--------|
+| [autoresearch](https://github.com/karpathy/autoresearch) | Автономный AI-инженер от Андрея Карпаты — 100 тренировок модели за ночь, 630 строк кода, 1 GPU. Обучает, оптимизирует, сравнивает и улучшает нейросети 24/7 | [![Stars](https://img.shields.io/github/stars/karpathy/autoresearch?style=flat)](https://github.com/karpathy/autoresearch) |
+
 ### LLM роутинг и оптимизация
 
 | Проект | Описание | Звёзды |
