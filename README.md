@@ -27,6 +27,12 @@
 
 ## 🤖 AI & Claude Code
 
+### Генерация изображений
+
+| Проект | Описание | Звёзды |
+|--------|----------|--------|
+| [Awesome Nano Banana](https://github.com/PicoTrex/Awesome-Nano-Banana-images) | 110+ промптов для Google Nano Banana — манга, пиксель-арт, продуктовое фото, 3D, комиксы, миниатюры, LEGO, стиль-трансфер и др. | [![Stars](https://img.shields.io/github/stars/PicoTrex/Awesome-Nano-Banana-images?style=flat)](https://github.com/PicoTrex/Awesome-Nano-Banana-images) |
+
 ### Оркестрация и агенты
 
 | Проект | Описание | Звёзды |
@@ -210,6 +216,9 @@ Frontend: React 19 · TypeScript · Vite · Tailwind CSS 4 · Zustand
 | **Eclipse Chat** | Self-hosted Discord-альтернатив (вдохновлён OwnCord) | [→](https://github.com/PavelHopson/eclipse-chat) |
 | **ai-setup** | CLI генерации AI-конфигов + reverse команда (вдохновлён GitReverse) | [→](https://github.com/PavelHopson/ai-setup) |
 | **oh-my-claudecode** | Форк OMC оркестратора | [→](https://github.com/PavelHopson/oh-my-claudecode) |
+| **Shotforge** | AI-фотограф: 14 стилевых пресетов (Old Money, Manga, Product...) + Gemini + Flux | [→](https://github.com/PavelHopson/shotforge) |
+| **Text2Image** | Генератор изображений по тексту — Gemini / DALL-E / Flux + каталог промптов | [→](https://github.com/PavelHopson/Text2Image) |
+| **Eclipse AI Hub** | 7 AI-модулей: Chat, Arena, RAG, Code Review, Copywriter, Security, Image Studio | [→](https://github.com/PavelHopson/eclipse-ai-hub) |
 
 ---
 
