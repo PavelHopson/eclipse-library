@@ -352,6 +352,7 @@ Frontend: React 19 · TypeScript · Vite · Tailwind CSS 4 · Zustand
 | **Eclipse AI Hub** | 7 AI-модулей: Chat, Arena, RAG, Code Review, Copywriter, Security, Image Studio | [→](https://github.com/PavelHopson/eclipse-ai-hub) |
 | **Eclipse Hopson Sentinel** | Локальный AI-оператор — coding agent + voice (TTS/STT/PTT) + Bridge API + Rust runtime | [→](https://github.com/PavelHopson/eclipse-hopson-sentinel) |
 | **CryptoPulse 2077** | Финансовый терминал с AI-аналитикой — крипто/форекс/фьючерсы, симулятор торговли, Cyberpunk стиль | [→](https://github.com/PavelHopson/CryptoPulse) |
+| **Eclipse DnD Forge** | AI D&D Campaign Manager — карта мира, таймлайн, генератор NPC/квестов (форк VisualStoryWriting) | [→](https://github.com/PavelHopson/eclipse-dnd-forge) |
 
 ---
 
