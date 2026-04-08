@@ -117,6 +117,7 @@
 | Проект | Описание | Звёзды |
 |--------|----------|--------|
 | [OpenCode](https://github.com/anomalyco/opencode) | Open-source AI coding agent — provider-agnostic (Claude/OpenAI/Google/локальные), client/server архитектура, remote с телефона, MCP + LSP, MIT | [![Stars](https://img.shields.io/github/stars/anomalyco/opencode?style=flat)](https://github.com/anomalyco/opencode) |
+| [OpenDevin](https://github.com/AI-App/OpenDevin.OpenDevin) | Автономный AI-разработчик — терминал + редактор + браузер, уточняющие вопросы, open-source | [![Stars](https://img.shields.io/github/stars/AI-App/OpenDevin.OpenDevin?style=flat)](https://github.com/AI-App/OpenDevin.OpenDevin) |
 
 ### Claude Code Channels (Telegram & Discord)
 
