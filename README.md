@@ -70,6 +70,7 @@
 |--------|----------|
 | [Telegram Channel](https://github.com/anthropics/claude-plugins-official/blob/main/external_plugins/telegram/README.md) | Официальный MCP-мост Telegram ↔ Claude Code — управляй агентом с телефона 24/7, файлы до 50MB, pairing + allowlist |
 | [Discord Channel](https://github.com/anthropics/claude-plugins-official/blob/main/external_plugins/discord/README.md) | Официальный MCP-мост Discord ↔ Claude Code — треды, история (100 сообщений), файлы до 25MB, реакции |
+| [claudecode-telegram](https://github.com/hanxiao/claudecode-telegram) | Альтернативный Telegram-мост — Cloudflare Tunnel для безопасного удалённого доступа, standalone бот без MCP | [![Stars](https://img.shields.io/github/stars/hanxiao/claudecode-telegram?style=flat)](https://github.com/hanxiao/claudecode-telegram) |
 
 **Быстрый старт (Telegram):**
 ```bash
