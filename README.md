@@ -75,6 +75,7 @@
 | Ресурс | Описание |
 |--------|----------|
 | [9 промптов для презентаций](https://github.com/PavelHopson/eclipse-library#-промпт-коллекции) | План, хук, сценарий слайдов, упрощение, визуал из данных, убийство возражений, 1-слайд сводка, сюжетная арка, речь — встроены как пресеты в [Eclipse AI Hub](https://github.com/PavelHopson/eclipse-ai-hub) Copywriter |
+| [Auto Prompt](https://github.com/AIDotNet/auto-prompt) | Оптимизатор промптов — классифицирует, переписывает, переводит, добавляет reasoning-команды, сотни готовых шаблонов | [![Stars](https://img.shields.io/github/stars/AIDotNet/auto-prompt?style=flat)](https://github.com/AIDotNet/auto-prompt) |
 
 ### Генерация изображений
 
