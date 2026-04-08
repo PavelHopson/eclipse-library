@@ -321,6 +321,7 @@ Frontend: React 19 · TypeScript · Vite · Tailwind CSS 4 · Zustand
 | [elements of ai](https://elementsofai.com) | AI основы | Курс от Хельсинкского университета — основы AI понятным языком, без кода |
 | [NVIDIA DLI](https://www.nvidia.com/en-us/training/) | AI / ML / Робототехника | Бесплатные курсы от NVIDIA — обработка видео, приложения, робототехника + сертификат |
 | [LLM Interview Questions](https://github.com/Devinterview-io/llms-interview-questions) | LLM / AI | 63 вопроса к собесу — Transformer, tokenization, attention, fine-tuning, prompt engineering | [![Stars](https://img.shields.io/github/stars/Devinterview-io/llms-interview-questions?style=flat)](https://github.com/Devinterview-io/llms-interview-questions) |
+| [AI Agents for Beginners](https://github.com/microsoft/ai-agents-for-beginners) | AI-агенты | Курс от Microsoft — 11 уроков с видео и кодом: проектирование, создание и деплой агентов (Azure, Python) | [![Stars](https://img.shields.io/github/stars/microsoft/ai-agents-for-beginners?style=flat)](https://github.com/microsoft/ai-agents-for-beginners) |
 | [TryHackMe](https://tryhackme.com) | Кибербезопасность | Геймифицированное обучение этичному взлому с реальными симуляциями |
 | [Linux Journey](https://linuxjourney.com) | Linux | Пошаговый маршрут от нуля до уверенного администрирования |
 | [CryptoZombies](https://cryptozombies.io) | Web3 / Solidity | Смарт-контракты через геймификацию — собираешь армию зомби |
