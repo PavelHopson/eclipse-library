@@ -323,7 +323,11 @@ Frontend: React 19 · TypeScript · Vite · Tailwind CSS 4 · Zustand
 | [NVIDIA DLI](https://www.nvidia.com/en-us/training/) | AI / ML / Робототехника | Бесплатные курсы от NVIDIA — обработка видео, приложения, робототехника + сертификат |
 | [LLM Interview Questions](https://github.com/Devinterview-io/llms-interview-questions) | LLM / AI | 63 вопроса к собесу — Transformer, tokenization, attention, fine-tuning, prompt engineering | [![Stars](https://img.shields.io/github/stars/Devinterview-io/llms-interview-questions?style=flat)](https://github.com/Devinterview-io/llms-interview-questions) |
 | [AI Agents for Beginners](https://github.com/microsoft/ai-agents-for-beginners) | AI-агенты | Курс от Microsoft — 11 уроков с видео и кодом: проектирование, создание и деплой агентов (Azure, Python) | [![Stars](https://img.shields.io/github/stars/microsoft/ai-agents-for-beginners?style=flat)](https://github.com/microsoft/ai-agents-for-beginners) |
-| [TryHackMe](https://tryhackme.com) | Кибербезопасность | Геймифицированное обучение этичному взлому с реальными симуляциями |
+| [FastAI](https://course.fast.ai/) | Deep Learning | Лучший практический курс по DL — от нуля до реальных моделей, top-down подход |
+| [DeepLearning.AI](https://deeplearning.ai/) | ML / AI | Курсы Эндрю Ына — специализации по ML, DL, NLP, LLM, промпт-инженерия |
+| [Hugging Face Learn](https://huggingface.co/learn) | NLP / Transformers | Официальные курсы HF — NLP, Transformers, Diffusion, RL, Audio |
+| [OpenAI Cookbook](https://github.com/openai/openai-cookbook) | API / Промпты | Рецепты и примеры кода для OpenAI API — embeddings, fine-tuning, agents | [![Stars](https://img.shields.io/github/stars/openai/openai-cookbook?style=flat)](https://github.com/openai/openai-cookbook) |
+| [TryHackMe](https://tryhackme.com) | Кибербезопасность | Геймифицированное обуче��ие этичному взлому с реальными симуляциями |
 | [Linux Journey](https://linuxjourney.com) | Linux | Пошаговый маршрут от нуля до уверенного администрирования |
 | [CryptoZombies](https://cryptozombies.io) | Web3 / Solidity | Смарт-контракты через геймификацию — собираешь армию зомби |
 
