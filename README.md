@@ -46,6 +46,24 @@
 |--------|----------|--------|
 | [OpenCode](https://github.com/anomalyco/opencode) | Open-source AI coding agent — provider-agnostic (Claude/OpenAI/Google/локальные), client/server архитектура, remote с телефона, MCP + LSP, MIT | [![Stars](https://img.shields.io/github/stars/anomalyco/opencode?style=flat)](https://github.com/anomalyco/opencode) |
 
+### Claude Code Channels (Telegram & Discord)
+
+| Плагин | Описание |
+|--------|----------|
+| [Telegram Channel](https://github.com/anthropics/claude-plugins-official/blob/main/external_plugins/telegram/README.md) | Официальный MCP-мост Telegram ↔ Claude Code — управляй агентом с телефона 24/7, файлы до 50MB, pairing + allowlist |
+| [Discord Channel](https://github.com/anthropics/claude-plugins-official/blob/main/external_plugins/discord/README.md) | Официальный MCP-мост Discord ↔ Claude Code — треды, история (100 сообщений), файлы до 25MB, реакции |
+
+**Быстрый старт (Telegram):**
+```bash
+# В Claude Code сессии
+/plugin install telegram@claude-plugins-official
+/reload-plugins
+/telegram:configure <BOT_TOKEN_FROM_BOTFATHER>
+# Перезапустить
+claude --channels plugin:telegram@claude-plugins-official
+# В Telegram: написать боту → получить код → в Claude: /telegram:access pair <code>
+```
+
 ### Оркестрация и агенты
 
 | Проект | Описание | Звёзды |
