@@ -88,6 +88,11 @@
 | Проект | Описание | Звёзды |
 |--------|----------|--------|
 | [awesome-openclaw-usecases](https://github.com/hesamsheikh/awesome-openclaw-usecases) | 42+ реальных юзкейсов OpenClaw — соцсети, креатив, DevOps, продуктивность, ресёрч, финансы | [![Stars](https://img.shields.io/github/stars/hesamsheikh/awesome-openclaw-usecases?style=flat)](https://github.com/hesamsheikh/awesome-openclaw-usecases) |
+| [Composio](https://github.com/ComposioHQ/openclaw-composio) | Авто-авторизация API-сервисов (Google, GitHub...) — без ручного ввода ключей |  |
+| [Memory LanceDB](https://github.com/openclaw/openclaw/blob/main/extensions/memory-lancedb) | Векторная память для OpenClaw — долгосрочный контекст вместо встроенной памяти |  |
+| [MemOS Cloud](https://github.com/MemTensor/MemOS-Cloud-OpenClaw-Plugin) | Облачная память с изоляцией между агентами, синхронизация между устройствами |  |
+| [OpenClaw Foundry](https://github.com/lekt9/openclaw-foundry) | Агент сам наблюдает за паттернами работы и пишет себе новые инструменты |  |
+| [Better Gateway](https://github.com/ThisIsJeron/openclaw-better-gateway) | Стабильный шлюз — авто-переподключение, не теряет соединения |  |
 
 ### AI Coding Agents
 
