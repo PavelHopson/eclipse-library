@@ -64,6 +64,7 @@
 | Проект | Описание | Звёзды |
 |--------|----------|--------|
 | [Paperclip](https://github.com/paperclipai/paperclip) | AI-компания из виртуальных сотрудников — босс нанимает агентов (инженеры, маркетологи, дизайнеры), панель управления, бюджет, поддержка любых AI-агентов | [![Stars](https://img.shields.io/github/stars/paperclipai/paperclip?style=flat)](https://github.com/paperclipai/paperclip) |
+| [Agent Orchestrator](https://github.com/ComposioHQ/agent-orchestrator) | 30 параллельных кодинг-агентов на одном ПК — PR, баги, тесты, задачи. TypeScript, 40K строк, 17 плагинов, панель управления | [![Stars](https://img.shields.io/github/stars/ComposioHQ/agent-orchestrator?style=flat)](https://github.com/ComposioHQ/agent-orchestrator) |
 
 ### Парсинг и данные
 
