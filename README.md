@@ -70,6 +70,12 @@
 |--------|----------|--------|
 | [Apify Agent Skills](https://github.com/apify/agent-skills) | Скиллы парсинга для AI-агентов — 55+ платформ (Twitter, TikTok, YouTube, Google Maps, Amazon...), Claude Code плагин, Apify Store | [![Stars](https://img.shields.io/github/stars/apify/agent-skills?style=flat)](https://github.com/apify/agent-skills) |
 
+### Презентации и документы
+
+| Проект | Описание | Звёзды |
+|--------|----------|--------|
+| [Allweone Presentation AI](https://github.com/allweonedev/presentation-ai) | Локальный генератор презентаций — OpenAI/Gemini/локальные модели, поиск через Tavily, бесплатная альтернатива Gamma | [![Stars](https://img.shields.io/github/stars/allweonedev/presentation-ai?style=flat)](https://github.com/allweonedev/presentation-ai) |
+
 ### Промпт-коллекции
 
 | Ресурс | Описание |
