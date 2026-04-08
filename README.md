@@ -73,6 +73,12 @@
 |--------|----------|--------|
 | [Apify Agent Skills](https://github.com/apify/agent-skills) | Скиллы парсинга для AI-агентов — 55+ платформ (Twitter, TikTok, YouTube, Google Maps, Amazon...), Claude Code плагин, Apify Store | [![Stars](https://img.shields.io/github/stars/apify/agent-skills?style=flat)](https://github.com/apify/agent-skills) |
 
+### Видеопродакшн и VFX
+
+| Проект | Описание | Звёзды |
+|--------|----------|--------|
+| [Director's Console](https://github.com/NickPittas/DirectorsConsole) | AI VFX-студия — 67 кинопресетов (Interstellar, Parasite...), 43 анимационных (Pixar, Ghibli...), storyboard canvas, 13 LLM для промптов, multi-model генерация | [![Stars](https://img.shields.io/github/stars/NickPittas/DirectorsConsole?style=flat)](https://github.com/NickPittas/DirectorsConsole) |
+
 ### Презентации и документы
 
 | Проект | Описание | Звёзды |
