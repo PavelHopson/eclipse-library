@@ -94,6 +94,7 @@ ai-setup reverse owner/repo --stdout
 
 | Проект | Стек | Описание |
 |--------|------|----------|
+| [LocalSend](https://github.com/localsend/localsend) | Flutter/Dart | Передача файлов по локальной сети без интернета — HTTPS, P2P discovery, все платформы | [![Stars](https://img.shields.io/github/stars/localsend/localsend?style=flat)](https://github.com/localsend/localsend) |
 | [Eclipse Claw](https://github.com/PavelHopson/Eclipse-Claw) | Rust | Высокопроизводительный веб-парсер — CLI + API |
 
 ---
