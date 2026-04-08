@@ -65,6 +65,7 @@
 |--------|----------|--------|
 | [Paperclip](https://github.com/paperclipai/paperclip) | AI-компания из виртуальных сотрудников — босс нанимает агентов (инженеры, маркетологи, дизайнеры), панель управления, бюджет, поддержка любых AI-агентов | [![Stars](https://img.shields.io/github/stars/paperclipai/paperclip?style=flat)](https://github.com/paperclipai/paperclip) |
 | [Agent Orchestrator](https://github.com/ComposioHQ/agent-orchestrator) | 30 параллельных кодинг-агентов на одном ПК — PR, баги, тесты, задачи. TypeScript, 40K строк, 17 плагинов, панель управления | [![Stars](https://img.shields.io/github/stars/ComposioHQ/agent-orchestrator?style=flat)](https://github.com/ComposioHQ/agent-orchestrator) |
+| [Maestro](https://github.com/RunMaestro/Maestro) | GUI-оркестратор агентов — параллельный запуск, git worktrees, playbooks, групповой чат, remote с телефона, Win/Mac/Linux | [![Stars](https://img.shields.io/github/stars/RunMaestro/Maestro?style=flat)](https://github.com/RunMaestro/Maestro) |
 
 ### Парсинг и данные
 
