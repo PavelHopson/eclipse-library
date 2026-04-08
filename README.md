@@ -27,6 +27,12 @@
 
 ## 🤖 AI & Claude Code
 
+### LLM роутинг и оптимизация
+
+| Проект | Описание | Звёзды |
+|--------|----------|--------|
+| [ClawRouter](https://github.com/BlockRunAI/ClawRouter) | Локальный LLM-роутер — 55+ моделей, <1ms роутинг по 15 параметрам, OpenAI-compatible API, профили auto/eco/premium, экономия до 92% | [![Stars](https://img.shields.io/github/stars/BlockRunAI/ClawRouter?style=flat)](https://github.com/BlockRunAI/ClawRouter) |
+
 ### Генерация изображений
 
 | Проект | Описание | Звёзды |
