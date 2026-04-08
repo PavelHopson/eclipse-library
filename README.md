@@ -38,6 +38,7 @@
 | Проект | Описание | Звёзды |
 |--------|----------|--------|
 | [autoresearch](https://github.com/karpathy/autoresearch) | Автономный AI-инженер от Андрея Карпаты — 100 тренировок модели за ночь, 630 строк кода, 1 GPU. Обучает, оптимизирует, сравнивает и улучшает нейросети 24/7 | [![Stars](https://img.shields.io/github/stars/karpathy/autoresearch?style=flat)](https://github.com/karpathy/autoresearch) |
+| [HuggingFace Skills](https://github.com/huggingface/skills) | ML-скиллы для AI-агентов — файн-тюнинг (SFT/DPO/GRPO), создание датасетов, бенчмарки, публикация на arXiv, мониторинг обучения | [![Stars](https://img.shields.io/github/stars/huggingface/skills?style=flat)](https://github.com/huggingface/skills) |
 
 ### LLM роутинг и оптимизация
 
