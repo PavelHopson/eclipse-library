@@ -218,6 +218,7 @@ ai-setup reverse owner/repo --stdout
 | [Scrapling](https://github.com/D4Vinci/Scrapling) | Python | Лёгкий парсер без зависимостей — точечный поиск элементов, таблицы, текст, картинки, кастомные запросы | [![Stars](https://img.shields.io/github/stars/D4Vinci/Scrapling?style=flat)](https://github.com/D4Vinci/Scrapling) |
 | [Scraping APIs](https://github.com/cporter202/scraping-apis-for-devs) | Каталог | 2622 API для парсинга — соцсети, маркетплейсы, новости, игры, БД и др. | [![Stars](https://img.shields.io/github/stars/cporter202/scraping-apis-for-devs?style=flat)](https://github.com/cporter202/scraping-apis-for-devs) |
 | [ScraperAI](https://github.com/scraperai/scraperai) | Python | AI-парсер с локальными моделями — Selenium, минимизация HTML, маскировка, гибкие настройки | [![Stars](https://img.shields.io/github/stars/scraperai/scraperai?style=flat)](https://github.com/scraperai/scraperai) |
+| [TGSpyder](https://github.com/Darksight-Analytics/tgspyder) | Python | Telegram-парсер — участники чатов, история сообщений, инвайт-ссылки, поиск по ID, экспорт в CSV | [![Stars](https://img.shields.io/github/stars/Darksight-Analytics/tgspyder?style=flat)](https://github.com/Darksight-Analytics/tgspyder) |
 
 ---
 
