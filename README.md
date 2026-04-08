@@ -177,6 +177,14 @@ ai-setup reverse owner/repo --stdout
 
 ---
 
+## 📈 SEO & Маркетинг
+
+| Проект | Описание | Звёзды |
+|--------|----------|--------|
+| [awesome-seo-tools](https://github.com/serpapi/awesome-seo-tools) | Полная коллекция SEO-инструментов — ключевые слова, анализ ссылок, оптимизация контента, рейтинги, расширения для браузера | [![Stars](https://img.shields.io/github/stars/serpapi/awesome-seo-tools?style=flat)](https://github.com/serpapi/awesome-seo-tools) |
+
+---
+
 ## 🛠️ Dev Tools & CLI
 
 | Проект | Стек | Описание |
