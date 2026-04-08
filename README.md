@@ -169,6 +169,7 @@ ai-setup reverse owner/repo --stdout
 | [Eclipse Media](https://github.com/PavelHopson/eclipse-media) | React 19 + FastAPI | Self-hosted загрузчик видео/аудио — 1000+ сайтов, SSE прогресс, TTL |
 | [Reclip](https://github.com/averygan/reclip) | Python + Flask | Оригинальный минималистичный загрузчик (вдохновение для Eclipse Media) |
 | [TADA](https://huggingface.co/collections/HumeAI/tada) | Python / HuggingFace | Open-source TTS — до 700 сек экспрессивной речи, 5x быстрее аналогов, без галлюцинаций |
+| [Frame](https://github.com/66HEX/frame) | Electron / FFmpeg | GUI-комбайн для видео — сжатие, конвертация, апскейл, русский язык, Win/Mac | [![Stars](https://img.shields.io/github/stars/66HEX/frame?style=flat)](https://github.com/66HEX/frame) |
 | [WhisperLiveKit](https://github.com/QuentinFuxa/WhisperLiveKit) | Python / FastAPI | Real-time STT с разделением спикеров — Whisper + diarization, WebSocket, 200+ языков, локально | [![Stars](https://img.shields.io/github/stars/QuentinFuxa/WhisperLiveKit?style=flat)](https://github.com/QuentinFuxa/WhisperLiveKit) |
 
 **Улучшения Eclipse Media над Reclip:**
