@@ -143,6 +143,7 @@ claude --channels plugin:telegram@claude-plugins-official
 | [oh-my-claudecode](https://github.com/PavelHopson/oh-my-claudecode) | Multi-agent оркестрация для Claude Code — 5 режимов, 19 агентов, eco mode | [![Stars](https://img.shields.io/github/stars/yeachan-heo/oh-my-claudecode?style=flat)](https://github.com/yeachan-heo/oh-my-claudecode) |
 | [claude-code-best-practice](https://github.com/shanraisshan/claude-code-best-practice) | Рабочие имплементации + сравнение 10+ workflow фреймворков — агенты, скиллы, хуки, MCP, примеры `.claude/` конфигов | [![Stars](https://img.shields.io/github/stars/shanraisshan/claude-code-best-practice?style=flat)](https://github.com/shanraisshan/claude-code-best-practice) |
 | [Antigravity Awesome Skills](https://github.com/sickn33/antigravity-awesome-skills) | 860+ скиллов для любых AI-агентов — Claude Code, OpenCode, Gemini, Codex, Cursor. Разработка, DevOps, SEO, бизнес | [![Stars](https://img.shields.io/github/stars/sickn33/antigravity-awesome-skills?style=flat)](https://github.com/sickn33/antigravity-awesome-skills) |
+| [Auto Claude](https://github.com/AndyMik90/Auto-Claude) | 19 AI-агентов в параллельных терминалах — авто-трекинг задач, логи, roadmap, 24/7 кодинг | [![Stars](https://img.shields.io/github/stars/AndyMik90/Auto-Claude?style=flat)](https://github.com/AndyMik90/Auto-Claude) |
 
 **Маркетплейсы скиллов для AI-агентов:**
 - [skills.sh](https://skills.sh/) · [skillhub.club](https://skillhub.club/) · [skillsmp.com](https://skillsmp.com/)
