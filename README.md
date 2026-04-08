@@ -243,6 +243,12 @@ Frontend: React 19 · TypeScript · Vite · Tailwind CSS 4 · Zustand
 |--------|----------|--------|
 | [Claude Code Game Studios](https://github.com/Donchitos/Claude-Code-Game-Studios) | 49 AI-агентов = виртуальная игровая студия — директора, дизайнеры, программисты, QA. 72 команды, 39 шаблонов (GDD, ADR), Godot 4 / Unity / UE5 | [![Stars](https://img.shields.io/github/stars/Donchitos/Claude-Code-Game-Studios?style=flat)](https://github.com/Donchitos/Claude-Code-Game-Studios) |
 
+### Нарративные инструменты
+
+| Проект | Стек | Описание | Звёзды |
+|--------|------|----------|--------|
+| [VisualStoryWriting](https://github.com/m-damien/VisualStoryWriting) | React + Vite + Tailwind + GPT-4o | AI-генератор рассказов с интерактивной картой мира и таймлайном — таскай персонажей, история меняется | [![Stars](https://img.shields.io/github/stars/m-damien/VisualStoryWriting?style=flat)](https://github.com/m-damien/VisualStoryWriting) |
+
 ### Ресурсы
 
 > 10 лет кураторской работы энтузиастов — крупнейшая подборка ресурсов по геймдеву
