@@ -228,6 +228,7 @@ ai-setup reverse owner/repo --stdout
 | [TADA](https://huggingface.co/collections/HumeAI/tada) | Python / HuggingFace | Open-source TTS — до 700 сек экспрессивной речи, 5x быстрее аналогов, без галлюцинаций |
 | [Frame](https://github.com/66HEX/frame) | Electron / FFmpeg | GUI-комбайн для видео — сжатие, конвертация, апскейл, русский язык, Win/Mac | [![Stars](https://img.shields.io/github/stars/66HEX/frame?style=flat)](https://github.com/66HEX/frame) |
 | [Linly-Dubbing](https://github.com/Kedreamix/Linly-Dubbing) | Python / ML | AI-дубляж видео на 100+ языков — перевод речи, клон голоса, липсинк, авто-субтитры | [![Stars](https://img.shields.io/github/stars/Kedreamix/Linly-Dubbing?style=flat)](https://github.com/Kedreamix/Linly-Dubbing) |
+| [Translumo](https://github.com/ramjke/Translumo) | C# / .NET | Перевод текста на экране в реальном времени — фильмы, игры, аниме. EN/JP/ZH/KO → RU, несколько движков | [![Stars](https://img.shields.io/github/stars/ramjke/Translumo?style=flat)](https://github.com/ramjke/Translumo) |
 | [WhisperLiveKit](https://github.com/QuentinFuxa/WhisperLiveKit) | Python / FastAPI | Real-time STT с разделением спикеров — Whisper + diarization, WebSocket, 200+ языков, локально | [![Stars](https://img.shields.io/github/stars/QuentinFuxa/WhisperLiveKit?style=flat)](https://github.com/QuentinFuxa/WhisperLiveKit) |
 
 **Улучшения Eclipse Media над Reclip:**
