@@ -279,6 +279,7 @@ Frontend: React 19 · TypeScript · Vite · Tailwind CSS 4 · Zustand
 | Проект | Стек | Описание | Звёзды |
 |--------|------|----------|--------|
 | [VisualStoryWriting](https://github.com/m-damien/VisualStoryWriting) | React + Vite + Tailwind + GPT-4o | AI-генератор рассказов с интерактивной картой мира и таймлайном — таскай персонажей, история меняется | [![Stars](https://img.shields.io/github/stars/m-damien/VisualStoryWriting?style=flat)](https://github.com/m-damien/VisualStoryWriting) |
+| [VIGA](https://github.com/Fugtemypt123/VIGA) | Python / Blender | AI-генератор 3D-сцен из фото — автономно создаёт модели, анимации и физику в Blender | [![Stars](https://img.shields.io/github/stars/Fugtemypt123/VIGA?style=flat)](https://github.com/Fugtemypt123/VIGA) |
 
 ### Ресурсы
 
