@@ -291,6 +291,7 @@ Frontend: React 19 · TypeScript · Vite · Tailwind CSS 4 · Zustand
 | [refactoring.guru](https://refactoring.guru) | Паттерны / Архитектура | Паттерны проектирования и рефакторинг — с визуальными схемами и примерами на 10 языках |
 | [roadmap.sh](https://roadmap.sh) | Карьерные карты | Структурированные роадмапы: Frontend, Backend, DevOps, AI — что учить и в каком порядке |
 | [elements of ai](https://elementsofai.com) | AI основы | Курс от Хельсинкского университета — основы AI понятным языком, без кода |
+| [NVIDIA DLI](https://www.nvidia.com/en-us/training/) | AI / ML / Робототехника | Бесплатные курсы от NVIDIA — обработка видео, приложения, робототехника + сертификат |
 | [TryHackMe](https://tryhackme.com) | Кибербезопасность | Геймифицированное обучение этичному взлому с реальными симуляциями |
 | [Linux Journey](https://linuxjourney.com) | Linux | Пошаговый маршрут от нуля до уверенного администрирования |
 | [CryptoZombies](https://cryptozombies.io) | Web3 / Solidity | Смарт-контракты через геймификацию — собираешь армию зомби |
