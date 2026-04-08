@@ -27,6 +27,12 @@
 
 ## 🤖 AI & Claude Code
 
+### Бесплатные API
+
+| Ресурс | Описание | Звёзды |
+|--------|----------|--------|
+| [free-llm-api-resources](https://github.com/cheahjs/free-llm-api-resources) | 26 провайдеров бесплатных LLM API — OpenRouter, Google AI Studio, NVIDIA NIM, Mistral, Groq, Cohere и др. Лимиты и условия | [![Stars](https://img.shields.io/github/stars/cheahjs/free-llm-api-resources?style=flat)](https://github.com/cheahjs/free-llm-api-resources) |
+
 ### ML Training & Research
 
 | Проект | Описание | Звёзды |
