@@ -33,6 +33,7 @@
 | Ресурс | Описание | Звёзды |
 |--------|----------|--------|
 | [free-llm-api-resources](https://github.com/cheahjs/free-llm-api-resources) | 26 провайдеров бесплатных LLM API — OpenRouter, Google AI Studio, NVIDIA NIM, Mistral, Groq, Cohere и др. Лимиты и условия | [![Stars](https://img.shields.io/github/stars/cheahjs/free-llm-api-resources?style=flat)](https://github.com/cheahjs/free-llm-api-resources) |
+| [NVIDIA Build (95 моделей)](https://build.nvidia.com/models) | 95 бесплатных API: Qwen, GLM, DeepSeek, Kimi, Gemma, Mistral, Nemotron — без лимитов на момент публикации (проверять условия) | — |
 
 ### ML Training & Research
 
@@ -60,6 +61,7 @@
 |--------|----------|--------|
 | [Perplexica](https://github.com/ItzCrazyKns/Perplexica) | Self-hosted клон Perplexity — AI-поиск с источниками и фактчекингом, Ollama / OpenAI / Anthropic, загрузка файлов/видео/аудио, полная приватность | [![Stars](https://img.shields.io/github/stars/ItzCrazyKns/Perplexica?style=flat)](https://github.com/ItzCrazyKns/Perplexica) |
 | [Open Researcher](https://github.com/firecrawl/open-researcher) | AI-исследователь от FireCrawl — парсинг всего (фото/видео/статьи/соцсети), анализ, отчёт с источниками, экран раздумий | [![Stars](https://img.shields.io/github/stars/firecrawl/open-researcher?style=flat)](https://github.com/firecrawl/open-researcher) |
+| [Sci-Bot](https://sci-bot.ru/) | Научный AI-ассистент поверх Sci-Hub — 85М исследований, цитаты со ссылками. **Грей-зона:** для академического ресёрча, не для коммерческой репликации | — |
 
 ### Мультиагентные платформы
 
@@ -80,6 +82,8 @@
 | Проект | Описание | Звёзды |
 |--------|----------|--------|
 | [Director's Console](https://github.com/NickPittas/DirectorsConsole) | AI VFX-студия — 67 кинопресетов (Interstellar, Parasite...), 43 анимационных (Pixar, Ghibli...), storyboard canvas, 13 LLM для промптов, multi-model генерация | [![Stars](https://img.shields.io/github/stars/NickPittas/DirectorsConsole?style=flat)](https://github.com/NickPittas/DirectorsConsole) |
+| [HY-World 2.0](https://github.com/Tencent-Hunyuan/HY-World-2.0) | Tencent — 3D миры за один клик из промпта/фото/видео, экспорт в Unreal/Unity, интерактивная физика | [![Stars](https://img.shields.io/github/stars/Tencent-Hunyuan/HY-World-2.0?style=flat)](https://github.com/Tencent-Hunyuan/HY-World-2.0) |
+| [CADAM](https://github.com/Adam-CAD/CADAM) | 3D-моделирование по тексту/картинке — экспорт STL/SCAD, локально, опенсорс | [![Stars](https://img.shields.io/github/stars/Adam-CAD/CADAM?style=flat)](https://github.com/Adam-CAD/CADAM) |
 
 ### Презентации и документы
 
@@ -94,6 +98,8 @@
 | [9 промптов для презентаций](https://github.com/PavelHopson/eclipse-library#-промпт-коллекции) | План, хук, сценарий слайдов, упрощение, визуал из данных, убийство возражений, 1-слайд сводка, сюжетная арка, речь — встроены как пресеты в [Eclipse AI Hub](https://github.com/PavelHopson/eclipse-ai-hub) Copywriter |
 | [Auto Prompt](https://github.com/AIDotNet/auto-prompt) | Оптимизатор промптов — классифицирует, переписывает, переводит, добавляет reasoning-команды, сотни готовых шаблонов | [![Stars](https://img.shields.io/github/stars/AIDotNet/auto-prompt?style=flat)](https://github.com/AIDotNet/auto-prompt) |
 | [Awesome ChatGPT Prompts](https://github.com/f/awesome-chatgpt-prompts) | Александрийская библиотека промптов — сотни шаблонов: IT, тексты, карьера, образование, креатив и др. | [![Stars](https://img.shields.io/github/stars/f/awesome-chatgpt-prompts?style=flat)](https://github.com/f/awesome-chatgpt-prompts) |
+| [GPT-5.5 Prompt Guide (OpenAI)](https://developers.openai.com/api/docs/guides/prompt-guidance?model=gpt-5.5) | Официальный гайд OpenAI: НЕ переиспользовать старые длинные промпты, минимизировать инструкции, давать данные + ожидаемый формат |
+| [Nano Banana Upscaling Prompt](https://arena.ai/ru/image/direct) | Шаблон «Аналитическая Реконструкция Микро-Деталей» — апскейл фото с сохранением идентичности |
 
 ### Генерация изображений
 
@@ -113,6 +119,7 @@
 | [MemOS Cloud](https://github.com/MemTensor/MemOS-Cloud-OpenClaw-Plugin) | Облачная память с изоляцией между агентами, синхронизация между устройствами |  |
 | [OpenClaw Foundry](https://github.com/lekt9/openclaw-foundry) | Агент сам наблюдает за паттернами работы и пишет себе новые инструменты |  |
 | [Better Gateway](https://github.com/ThisIsJeron/openclaw-better-gateway) | Стабильный шлюз — авто-переподключение, не теряет соединения |  |
+| [QClaw (Tencent)](https://qclawsg.qq.com/) | Локальный Computer Use агент на базе OpenClaw — мессенджер-управление (Telegram/Discord), долгосрочная память |  |
 
 ### AI Coding Agents
 
@@ -424,6 +431,7 @@ Frontend: React 19 · TypeScript · Vite · Tailwind CSS 4 · Zustand
 |--------|----------|
 | [design.md (Google Labs)](https://github.com/google-labs-code/design.md) | Формат DESIGN.md, чтобы агент собирал UI по спецификации |
 | [designdotmd.directory](http://designdotmd.directory/) | Каталог стилей и примеров под `design.md` |
+| [neuform.ai](https://neuform.ai/) | 400+ DESIGN.md шаблонов с UI-дизайнами — копируй промпт под секцию/блок/анимацию |
 
 ### Медиа, 3D, монтаж, транскрипция
 
