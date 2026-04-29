@@ -244,6 +244,12 @@ ai-setup reverse owner/repo --stdout
 | [ScraperAI](https://github.com/scraperai/scraperai) | Python | AI-парсер с локальными моделями — Selenium, минимизация HTML, маскировка, гибкие настройки | [![Stars](https://img.shields.io/github/stars/scraperai/scraperai?style=flat)](https://github.com/scraperai/scraperai) |
 | [TGSpyder](https://github.com/Darksight-Analytics/tgspyder) | Python | Telegram-парсер — участники чатов, история сообщений, инвайт-ссылки, поиск по ID, экспорт в CSV | [![Stars](https://img.shields.io/github/stars/Darksight-Analytics/tgspyder?style=flat)](https://github.com/Darksight-Analytics/tgspyder) |
 | [Telegram Files](https://github.com/jarvis2f/telegram-files) | — | Telegram-загрузчик — все типы файлов, параллельная загрузка, превью, локально | [![Stars](https://img.shields.io/github/stars/jarvis2f/telegram-files?style=flat)](https://github.com/jarvis2f/telegram-files) |
+| [Repomix](https://github.com/yamadashy/repomix) | Node.js / CLI | Упаковщик кодбазы в один MD-файл — для AI-ревью больших модулей, фильтры по include/exclude | [![Stars](https://img.shields.io/github/stars/yamadashy/repomix?style=flat)](https://github.com/yamadashy/repomix) |
+| [AB Download Manager](https://abdownloadmanager.com/) | Multi-platform | Менеджер загрузок: одновременные потоки, планировщик, авто-сортировка по папкам, Android | — |
+| [hackingtool](https://github.com/Z4nzu/hackingtool) | Python | 185 инструментов пентеста — OSINT, веб-аудит, Wi-Fi, реверс. **Только для своих систем, в обучающих целях** | [![Stars](https://img.shields.io/github/stars/Z4nzu/hackingtool?style=flat)](https://github.com/Z4nzu/hackingtool) |
+| [TorBot](https://github.com/DedSecInside/TorBot) | Python | OSINT-бот для onion-сегмента — карта переходов, проверка живости, JSON-экспорт. **Только для легальных pentest-сценариев** | [![Stars](https://img.shields.io/github/stars/DedSecInside/TorBot?style=flat)](https://github.com/DedSecInside/TorBot) |
+| [Donutbrowser](https://github.com/zhom/donutbrowser) | Chromium/Firefox | Опенсорс-антидетект-браузер — изолированные профили, e2e-синхронизация, без телеметрии | [![Stars](https://img.shields.io/github/stars/zhom/donutbrowser?style=flat)](https://github.com/zhom/donutbrowser) |
+| [awesome-free-apps](https://github.com/Axorax/awesome-free-apps) | Каталог | Бесплатный софт по категориям (видео, фото, музыка, игры, утилиты) для всех ОС | [![Stars](https://img.shields.io/github/stars/Axorax/awesome-free-apps?style=flat)](https://github.com/Axorax/awesome-free-apps) |
 
 ---
 
@@ -263,6 +269,9 @@ ai-setup reverse owner/repo --stdout
 | [Comic-translate](https://github.com/ogkalu2/comic-translate) | Python | AI-перевод манги и комиксов — сохраняет шрифты и форматирование, нужен API (Gemini/OpenAI) | [![Stars](https://img.shields.io/github/stars/ogkalu2/comic-translate?style=flat)](https://github.com/ogkalu2/comic-translate) |
 | [Final2x](https://github.com/EutropicAI/Final2x) | Python | AI-апскейлер изображений — восстановление деталей из пиксельных фото, Win/Mac/Linux | [![Stars](https://img.shields.io/github/stars/EutropicAI/Final2x?style=flat)](https://github.com/EutropicAI/Final2x) |
 | [WhisperLiveKit](https://github.com/QuentinFuxa/WhisperLiveKit) | Python / FastAPI | Real-time STT с разделением спикеров — Whisper + diarization, WebSocket, 200+ языков, локально | [![Stars](https://img.shields.io/github/stars/QuentinFuxa/WhisperLiveKit?style=flat)](https://github.com/QuentinFuxa/WhisperLiveKit) |
+| [MOSS-TTS-Nano](https://github.com/OpenMOSS/MOSS-TTS-Nano) | Python / OpenMOSS | TTS на CPU без GPU — 100M параметров, 20 языков (русский), 48 кГц, real-time, клонирование голоса | [![Stars](https://img.shields.io/github/stars/OpenMOSS/MOSS-TTS-Nano?style=flat)](https://github.com/OpenMOSS/MOSS-TTS-Nano) |
+| [TranslateBooksWithLLMs](https://github.com/hydropix/TranslateBooksWithLLMs) | Python | Переводчик документов через GPT/Gemini/Mistral/DeepSeek/Ollama — EPUB / SRT / DOCX / TXT | [![Stars](https://img.shields.io/github/stars/hydropix/TranslateBooksWithLLMs?style=flat)](https://github.com/hydropix/TranslateBooksWithLLMs) |
+| [sliceyt](https://sliceyt.com/) | Web | Скачивание YouTube + кусочный отрез (например 30 сек) — MP4 / MP3, любое качество, в браузере | — |
 
 **Улучшения Eclipse Media над Reclip:**
 
@@ -283,6 +292,8 @@ ai-setup reverse owner/repo --stdout
 | [OwnCord](https://github.com/cofedish/OwnCord) | Go + TypeScript (Tauri) | Self-hosted Discord — голос/видео, каналы, DMs. Early alpha |
 | [Eclipse Chat](https://github.com/PavelHopson/eclipse-chat) | React 19 + Fastify + Socket.io | Наш Discord-альтернатив — в разработке |
 | [Office Website](https://github.com/baotlake/office-website) | Web | Self-hosted офисный пакет — документы, таблицы, презентации, PDF прямо в браузере | [![Stars](https://img.shields.io/github/stars/baotlake/office-website?style=flat)](https://github.com/baotlake/office-website) |
+| [MiroTalk P2P](https://p2p.mirotalk.com/) | Web / WebRTC | P2P-звонки в браузере — 4К видео, e2e-шифрование, передача файлов без лимитов, без регистрации | — |
+| [Viseron](https://github.com/roflcoopter/viseron) | Python / Docker | Умное видеонаблюдение с AI — запись только при событиях (человек/животное), всё локально, opensource | [![Stars](https://img.shields.io/github/stars/roflcoopter/viseron?style=flat)](https://github.com/roflcoopter/viseron) |
 
 **Eclipse Chat — планируемый стек:**
 ```
