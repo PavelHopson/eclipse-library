@@ -19,6 +19,7 @@
 - [🛠️ Dev Tools & CLI](#️-dev-tools--cli)
 - [🎬 Media & Download](#-media--download)
 - [💬 Self-hosted Платформы](#-self-hosted-платформы)
+- [🛡 Privacy / OPSEC](#-privacy--opsec)
 - [🎮 GameDev](#-gamedev)
 - [🎓 Компьютерные науки (MIT)](#-компьютерные-науки-mit)
 - [📥 Подборка Eclipse (апрель 2026)](#-подборка-eclipse-апрель-2026)
@@ -250,7 +251,6 @@ ai-setup reverse owner/repo --stdout
 | [AB Download Manager](https://abdownloadmanager.com/) | Multi-platform | Менеджер загрузок: одновременные потоки, планировщик, авто-сортировка по папкам, Android | — |
 | [hackingtool](https://github.com/Z4nzu/hackingtool) | Python | 185 инструментов пентеста — OSINT, веб-аудит, Wi-Fi, реверс. **Только для своих систем, в обучающих целях** | [![Stars](https://img.shields.io/github/stars/Z4nzu/hackingtool?style=flat)](https://github.com/Z4nzu/hackingtool) |
 | [TorBot](https://github.com/DedSecInside/TorBot) | Python | OSINT-бот для onion-сегмента — карта переходов, проверка живости, JSON-экспорт. **Только для легальных pentest-сценариев** | [![Stars](https://img.shields.io/github/stars/DedSecInside/TorBot?style=flat)](https://github.com/DedSecInside/TorBot) |
-| [Donutbrowser](https://github.com/zhom/donutbrowser) | Chromium/Firefox | Опенсорс-антидетект-браузер — изолированные профили, e2e-синхронизация, без телеметрии | [![Stars](https://img.shields.io/github/stars/zhom/donutbrowser?style=flat)](https://github.com/zhom/donutbrowser) |
 | [awesome-free-apps](https://github.com/Axorax/awesome-free-apps) | Каталог | Бесплатный софт по категориям (видео, фото, музыка, игры, утилиты) для всех ОС | [![Stars](https://img.shields.io/github/stars/Axorax/awesome-free-apps?style=flat)](https://github.com/Axorax/awesome-free-apps) |
 
 ---
@@ -304,6 +304,41 @@ Frontend: React 19 · TypeScript · Vite · Tailwind CSS 4 · Zustand
 Файлы:    MinIO (self-hosted S3)
 Инфра:    Docker Compose · Caddy
 ```
+
+---
+
+## 🛡 Privacy / OPSEC
+
+> Инструменты и гайды для приватности, изоляции профилей и контроля цифрового следа. **Используем только в рамках закона и ToS площадок.**
+
+### Антидетект и изоляция
+
+| Ресурс | Стек | Описание | Звёзды |
+|--------|------|----------|--------|
+| [Donutbrowser](https://github.com/zhom/donutbrowser) | Chromium / Firefox | Опенсорс антидетект-браузер — изолированные профили (свой fingerprint, куки, плагины), e2e-облачная синхронизация, без телеметрии | [![Stars](https://img.shields.io/github/stars/zhom/donutbrowser?style=flat)](https://github.com/zhom/donutbrowser) |
+| [Shelter](https://f-droid.org/ru/packages/net.typeblog.shelter/) | Android | Песочница для приложений — клонирует Android-апп в изолированный work-профиль (изоляция от VPN, основного профиля) | — |
+| [Anubis](https://github.com/sogonov/anubis) | Android | VPN-страж: гарантирует, что российские приложения не запустятся пока активен VPN. [Habr-обзор](https://habr.com/ru/articles/1023352/) | [![Stars](https://img.shields.io/github/stars/sogonov/anubis?style=flat)](https://github.com/sogonov/anubis) |
+
+**iOS «Команды» VPN-trick** — авто-отключение VPN при открытии нужных приложений через Shortcuts → авто-включение при закрытии.
+
+### Email-алиасы и одноразовые контакты
+
+| Ресурс | Описание |
+|--------|----------|
+| [SimpleLogin](https://simplelogin.io/) | Email-алиасы — одноразовая почта на каждую регистрацию, при утечке просто удаляется |
+| [Hide My Email (Apple)](https://support.apple.com/en-us/HT210425) | Алиасы Apple — встроены в iCloud+, прячут реальный email |
+| [email-fake.com](https://email-fake.com/) | Временная почта (см. также «Тесты регистраций» в Подборке Eclipse) |
+
+### Гайды по чистке цифрового следа
+
+**7-step гайд** (источник: Telegram «Не баг, а фича», апрель 2026):
+1. **GetContact / Truecaller** — отписаться: Управление профилем → Скрыть данные / Unlist phone number
+2. **Google removal form** — «Запрос на удаление личной информации Google» по страницам с телефоном/адресом/почтой
+3. **Забытые аккаунты** — поиск в почте `подтвердите ваш email` / `verify email`, удалить ненужные
+4. **Утечки** — [haveibeenpwned.com](https://haveibeenpwned.com/) → проверить email на утечки, скомпрометированные пароли сменить
+5. **Слежка Google** — [myactivity.google.com](https://myactivity.google.com/) → Удалить всё → За всё время; отключить историю поиска / местоположения / YouTube
+6. **Старые посты** — Twitter/X через TweetDelete (авто >30 дней); VK История активности → фильтр по годам → удалить
+7. **Защита от будущих утечек** — SimpleLogin / Hide My Email, Brave (трекеры по умолчанию)
 
 ---
 
