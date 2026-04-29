@@ -21,6 +21,7 @@
 - [💬 Self-hosted Платформы](#-self-hosted-платформы)
 - [🎮 GameDev](#-gamedev)
 - [🎓 Компьютерные науки (MIT)](#-компьютерные-науки-mit)
+- [📥 Подборка Eclipse (апрель 2026)](#-подборка-eclipse-апрель-2026)
 - [📦 Наши проекты](#-наши-проекты)
 
 ---
@@ -146,6 +147,7 @@ claude --channels plugin:telegram@claude-plugins-official
 | [oh-my-claudecode](https://github.com/PavelHopson/oh-my-claudecode) | Multi-agent оркестрация для Claude Code — 5 режимов, 19 агентов, eco mode | [![Stars](https://img.shields.io/github/stars/yeachan-heo/oh-my-claudecode?style=flat)](https://github.com/yeachan-heo/oh-my-claudecode) |
 | [claude-code-best-practice](https://github.com/shanraisshan/claude-code-best-practice) | Рабочие имплементации + сравнение 10+ workflow фреймворков — агенты, скиллы, хуки, MCP, примеры `.claude/` конфигов | [![Stars](https://img.shields.io/github/stars/shanraisshan/claude-code-best-practice?style=flat)](https://github.com/shanraisshan/claude-code-best-practice) |
 | [Antigravity Awesome Skills](https://github.com/sickn33/antigravity-awesome-skills) | 860+ скиллов для любых AI-агентов — Claude Code, OpenCode, Gemini, Codex, Cursor. Разработка, DevOps, SEO, бизнес | [![Stars](https://img.shields.io/github/stars/sickn33/antigravity-awesome-skills?style=flat)](https://github.com/sickn33/antigravity-awesome-skills) |
+| [claude-skills](https://github.com/alirezarezvani/claude-skills) | 230+ skills по категориям: дизайн, маркетинг, бизнес, копирайт, кибербез, Dev — установка из шаблона в терминале | [![Stars](https://img.shields.io/github/stars/alirezarezvani/claude-skills?style=flat)](https://github.com/alirezarezvani/claude-skills) |
 | [Auto Claude](https://github.com/AndyMik90/Auto-Claude) | 19 AI-агентов в параллельных терминалах — авто-трекинг задач, логи, roadmap, 24/7 кодинг | [![Stars](https://img.shields.io/github/stars/AndyMik90/Auto-Claude?style=flat)](https://github.com/AndyMik90/Auto-Claude) |
 
 **Маркетплейсы скиллов для AI-агентов:**
@@ -207,6 +209,7 @@ ai-setup reverse owner/repo --stdout
 | Проект | Описание | Звёзды |
 |--------|----------|--------|
 | [awesome-seo-tools](https://github.com/serpapi/awesome-seo-tools) | Полная коллекция SEO-инструментов — ключевые слова, анализ ссылок, оптимизация контента, рейтинги, расширения для браузера | [![Stars](https://img.shields.io/github/stars/serpapi/awesome-seo-tools?style=flat)](https://github.com/serpapi/awesome-seo-tools) |
+| [ai-marketing-skills](https://github.com/ericosiu/ai-marketing-skills) | Skills для Claude Code под маркетолога: стратегия, трафик, SMM, контент, shortы, аналитика, SEO (подборка) | [![Stars](https://img.shields.io/github/stars/ericosiu/ai-marketing-skills?style=flat)](https://github.com/ericosiu/ai-marketing-skills) |
 
 ---
 
@@ -331,6 +334,7 @@ Frontend: React 19 · TypeScript · Vite · Tailwind CSS 4 · Zustand
 | [TryHackMe](https://tryhackme.com) | Кибербезопасность | Геймифицированное обуче��ие этичному взлому с реальными симуляциями |
 | [Linux Journey](https://linuxjourney.com) | Linux | Пошаговый маршрут от нуля до уверенного администрирования |
 | [CryptoZombies](https://cryptozombies.io) | Web3 / Solidity | Смарт-контракты через геймификацию — собираешь армию зомби |
+| [everything-ai-ml](https://github.com/viveknaskar/everything-ai-ml) | AI / ML карьера | Курсы, статьи, роадмапы, собесы, агенты, бизнес-кейсы — разветвлённая база | [![Stars](https://img.shields.io/github/stars/viveknaskar/everything-ai-ml?style=flat)](https://github.com/viveknaskar/everything-ai-ml) |
 
 ---
 
@@ -382,6 +386,64 @@ Frontend: React 19 · TypeScript · Vite · Tailwind CSS 4 · Zustand
 | Введение в теорию вероятностей | [YouTube](https://www.youtube.com/playlist?list=PLUl4u3cNGP60hI9ATjSFgLZpbNJ7myAg6) |
 | Статистика | [YouTube](https://www.youtube.com/playlist?list=PLUl4u3cNGP60uVBMaoNERc6knT_MgPKS0) |
 | Теория вероятностей и статистика | [YouTube](https://www.youtube.com/playlist?list=PLl8XY7QVSa4aUyZAtL2Hlf_mx3LaSix9B) |
+
+---
+
+## 📥 Подборка Eclipse (апрель 2026)
+
+> Сводка находок (в т.ч. [Telegram: Не баг, а фича](https://t.me/bugnotfeature)) — детали частично дублируют строки в [SEO & Маркетинг](#-seo--маркетинг), [Оркестрация и агенты](#оркестрация-и-агенты) и [Обучение IT](#-обучение-it-бесплатно).
+
+### Skills, маркетинг, агенты
+
+| Ресурс | Описание |
+|--------|----------|
+| [ai-marketing-skills](https://github.com/ericosiu/ai-marketing-skills) | Скиллы под маркетолога / таргет / SMM / контент в Claude Code |
+| [claude-skills (230+)](https://github.com/alirezarezvani/claude-skills) | Каталог по категориям; см. также таблицу «Оркестрация и агенты» выше |
+| [Kimi K2.6](https://www.kimi.com/) | Долгие сессии, много tool-calls, Agent Swarm — проверяйте актуальные условия и API |
+| [DeepSeek — чат](https://chat.deepseek.com/) | V4 Pro / Flash, длинный контекст (уточняйте цены и лимиты) |
+
+### Модели для локального запуска (GGUF, Ollama, LM Studio, Colab)
+
+| Ресурс | Описание |
+|--------|----------|
+| [Qwen3.6-35B Opus-style reasoning (GGUF)](https://huggingface.co/hesamation/Qwen3.6-35B-A3B-Claude-4.6-Opus-Reasoning-Distilled-GGUF) | Дистилляция под reasoning; Ollama / LM Studio; качество оценивайте сами |
+| [Qwen3.6-Max-Preview](https://chat.qwen.ai/) | Облачный чат Alibaba — код и длинный контекст |
+
+### Дизайн-спеки для агентов
+
+| Ресурс | Описание |
+|--------|----------|
+| [design.md (Google Labs)](https://github.com/google-labs-code/design.md) | Формат DESIGN.md, чтобы агент собирал UI по спецификации |
+| [designdotmd.directory](http://designdotmd.directory/) | Каталог стилей и примеров под `design.md` |
+
+### Медиа, 3D, монтаж, транскрипция
+
+| Ресурс | Тип | Описание |
+|--------|------|----------|
+| [Edit-Banana](https://github.com/BIT-DataLab/Edit-Banana) | GitHub | Правка текста на картинках, таблицы, экспорт в Drawio / SVG / PPT; [веб](https://editbanana.anxin6.cn/app) |
+| [Modly](https://github.com/lightningpixel/modly) | GitHub | Фото → 3D, локальный запуск |
+| [OpenShorts](https://github.com/mutonby/openshorts) | GitHub | Рилзы из длинного видео, сабы, 9:16, сценарий, озвучка |
+| [Buzz](https://github.com/chidiwilliams/buzz) | GitHub | Транскрипция (Whisper), офлайн, шумодав, real-time |
+| [Dreamina](https://dreamina.capcut.com/) | Web | Картинки / видео / музыка (ByteDance) — внешний сервис |
+| [Blender Buddy](https://superhivemarket.com/products/blenderbuddy) | Add-on | Помощник в Blender, контекст сцены, локально |
+
+### Тесты регистраций, приватность, хостинг
+
+| Ресурс | Описание |
+|--------|----------|
+| [email-fake.com](https://email-fake.com/) | Временная почта для OTP при e2e и сомнительных регистрациях |
+| **Receive-SMS (тесты)** | [SMSCodeOnline](https://smscodeonline.com/) · [receive-sms-online](https://www.receive-sms-online.info/) · [mianfeijiema](https://mianfeijiema.com/) · [us-phone-number](https://us-phone-number.com/) · [sms24](https://www.sms24.me/) · [receive-sms](https://receive-sms.cc/) · [tempsmss](https://tempsmss.com/) — только **в рамках ToS площадок и применимого права** |
+| [WispByte](https://wispbyte.com/) | Бесплатный зарубежный хостинг (реклама, мало RAM/диска) — пет-проекты, боты |
+
+**Про бесплатные форки с обходом оплаты API** (например, публичные *free-claude-code*): юридические и ToS-риски; для продуктивной работы разумнее официальные клиенты, OpenRouter, Ollama и т.д.
+
+### Языки, EdTech (вне репозиториев кода)
+
+| Ресурс | Описание |
+|--------|----------|
+| [AO3 Reader (Android)](https://play.google.com/store/apps/details?id=com.katkrasner.ao3_reader) | Чтение с AO3, слова в словарь, карточки; iOS в планах у авторов |
+
+**С оговорками:** сервисы вроде [humanizer.org](https://humanizer.org/ru) — пересекаются с политикой академической честности. Онлайн-скрининги здоровья (в т.ч. RAADS-R) не заменяют специалиста.
 
 ---
 
