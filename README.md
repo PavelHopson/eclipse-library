@@ -226,6 +226,8 @@ ai-setup reverse owner/repo --stdout
 |--------|----------|--------|
 | [awesome-seo-tools](https://github.com/serpapi/awesome-seo-tools) | Полная коллекция SEO-инструментов — ключевые слова, анализ ссылок, оптимизация контента, рейтинги, расширения для браузера | [![Stars](https://img.shields.io/github/stars/serpapi/awesome-seo-tools?style=flat)](https://github.com/serpapi/awesome-seo-tools) |
 | [ai-marketing-skills](https://github.com/ericosiu/ai-marketing-skills) | Skills для Claude Code под маркетолога: стратегия, трафик, SMM, контент, shortы, аналитика, SEO (подборка) | [![Stars](https://img.shields.io/github/stars/ericosiu/ai-marketing-skills?style=flat)](https://github.com/ericosiu/ai-marketing-skills) |
+| [geo-seo-claude](https://github.com/zubair-trabzada/geo-seo-claude) | SEO-аудит на видимость для AI-поиска — ChatGPT, Perplexity, Bing AI Overviews. Скоринг 0-10 + план оптимизации | [![Stars](https://img.shields.io/github/stars/zubair-trabzada/geo-seo-claude?style=flat)](https://github.com/zubair-trabzada/geo-seo-claude) |
+| [job-ops](https://github.com/DaKheera47/job-ops) | Авто-поиск работы — AI прочёсывает сайты, адаптирует CV под вакансию, обходит ATS-скрининг, локально | [![Stars](https://img.shields.io/github/stars/DaKheera47/job-ops?style=flat)](https://github.com/DaKheera47/job-ops) |
 
 ---
 
@@ -339,6 +341,18 @@ Frontend: React 19 · TypeScript · Vite · Tailwind CSS 4 · Zustand
 | **Книги** | Большая подборка книг по геймдеву — бесплатно |
 | **Ассеты** | Бесплатные спрайты, текстуры, модели |
 
+### Концепты и эмуляторы
+
+| Ресурс | Описание |
+|--------|----------|
+| [WenWare](https://wen-ware.com/) | GeoGuessr во времени — угадай место и год, реконструкция исторических панорам через GPT Image 2 (концепт-вдохновение) |
+| [vibesail](https://vibesail.com/lang/ru/) | Браузерный симулятор парусника на любой точке мира |
+| [javagames.cc](https://javagames.cc/) | Архив Java-игр кнопочных телефонов — графика 240×320 |
+| [play-cs.com](https://play-cs.com/) | CS 1.6 в браузере — десятки серверов |
+| [Flashpoint Archive](https://flashpointarchive.org/) | 170К Flash-игр — сохранённая эпоха 2020 |
+| [dos.zone](https://dos.zone/) | DOS-эмулятор: GTA Vice City, Half-Life, Doom, HoMM3, Duke Nukem 3D, UT99 |
+| [segazona.ru](https://segazona.ru/) | Эмулятор Sega Mega Drive 2 в браузере |
+
 ---
 
 ## 🎓 Обучение IT (бесплатно)
@@ -362,6 +376,7 @@ Frontend: React 19 · TypeScript · Vite · Tailwind CSS 4 · Zustand
 | [Linux Journey](https://linuxjourney.com) | Linux | Пошаговый маршрут от нуля до уверенного администрирования |
 | [CryptoZombies](https://cryptozombies.io) | Web3 / Solidity | Смарт-контракты через геймификацию — собираешь армию зомби |
 | [everything-ai-ml](https://github.com/viveknaskar/everything-ai-ml) | AI / ML карьера | Курсы, статьи, роадмапы, собесы, агенты, бизнес-кейсы — разветвлённая база | [![Stars](https://img.shields.io/github/stars/viveknaskar/everything-ai-ml?style=flat)](https://github.com/viveknaskar/everything-ai-ml) |
+| [engoo](http://engoo.com/) | Языки | Изучение английского / японского / китайского по новостям. Уровни A1+, тренажёры с диалогами и грамматикой |
 
 ---
 
