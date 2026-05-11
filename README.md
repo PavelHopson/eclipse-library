@@ -525,6 +525,49 @@ Frontend: React 19 · TypeScript · Vite · Tailwind CSS 4 · Zustand
 
 ---
 
+## 📥 Подборка Eclipse (май 2026)
+
+> Новые находки, которые полезны как R&D-база, дизайн-референсы и вспомогательные пайплайны. Сюда не включены сомнительные вещи с ToS/юридическими рисками вроде hacked API, обходов лимитов и серых форков.
+
+### AI, навыки, ресёрч
+
+| Ресурс | Описание |
+|--------|----------|
+| [caveman](https://github.com/JuliusBrussee/caveman) | Сжатие ответов и экономия токенов для AI-агентов — полезно для cost-control, agent loops и долгих сессий |
+| [Autoskill](https://github.com/midudev/autoskills) | Автоподбор skills под проект — сканирует кодовую базу и подтягивает подходящие способности из curated-реестра |
+| [Local Deep Research](https://github.com/LearningCircuit/local-deep-research) | Локальный research-агент: PubMed / arXiv / PDF / книги, проверка качества источников, отчёт в PDF/Markdown |
+
+### Дизайн и UI для агентов
+
+| Ресурс | Описание |
+|--------|----------|
+| [Design MD Generator](https://www.figma.com/community/plugin/1612814320994608244/design-md-generator) | Плагин Figma → DESIGN.md / SKILL.md для передачи полного визуального контекста AI-агентам |
+| [Open Design](https://github.com/nexu-io/open-design) | Open-source набор DESIGN.md-шаблонов, skills и визуальных стилей для AI-first интерфейсов |
+| [Refero Styles](https://styles.refero.design/) | 2000+ UI-стилей и design-файлов как база для визуальных референсов и direction-setting |
+| [thesvg](https://github.com/glincker/thesvg) | Большая библиотека SVG-иконок и логотипов с API/CDN/React-пакетами |
+
+### Медиа, аватары, монтаж
+
+| Ресурс | Тип | Описание |
+|--------|------|----------|
+| [video-use](https://github.com/browser-use/video-use) | GitHub | Агентный видеомонтаж: чистка пауз, субтитры, цветокор, работа по папке с сырьём, память в `project.md` |
+| [PrunaAI p-video-avatar](https://replicate.com/prunaai/p-video-avatar) | Web / API | Генерация видео-аватара из фото и аудио — полезно для talking avatars, NPC и медиапрезентаций |
+| [AdventureGen AI Upscaler](https://www.adventuregen.ai/dashboard/upscaler) | Web | Апскейл изображений и восстановление деталей — пригодится для артов, скриншотов, портретов и карт |
+
+### Утилиты и проверки
+
+| Ресурс | Описание |
+|--------|----------|
+| [AI File Sorter](https://github.com/hyperfield/ai-file-sorter) | Поиск, сортировка, переименование и группировка файлов по содержимому; есть preview перед действиями |
+| [WhatIsMyIPAddress Security Check](https://whatismy-ipaddress.com/learn-more-security.html#term-privacy) | Проверка IP, DNS, WebRTC, fingerprint, blacklist и утечек — полезно для privacy/QA-сценариев |
+| [OpenPostings](https://github.com/Masterjx9/OpenPostings) | Парсер и агрегатор вакансий — интересен как reference для data ingestion и large-scale job scraping |
+
+### GameDev / DnD inspiration
+
+| Ресурс | Описание |
+|--------|----------|
+| [Unity AI](https://unity.com/features/ai?utm_campaign=unity-ai-beta) | Генерация сцен, ассетов и AI-помощник внутри Unity — референс для AI-assisted worldbuilding и scene pipelines |
+
 ## 📦 Наши проекты
 
 > Проекты Eclipse Forge, связанные с ресурсами из этой библиотеки
