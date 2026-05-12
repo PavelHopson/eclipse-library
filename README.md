@@ -20,6 +20,7 @@
 - [🎬 Media & Download](#-media--download)
 - [💬 Self-hosted Платформы](#-self-hosted-платформы)
 - [🛡 Privacy / OPSEC](#-privacy--opsec)
+- [🖥️ Hardware & Workstation](#️-hardware--workstation)
 - [🎮 GameDev](#-gamedev)
 - [🎓 Компьютерные науки (MIT)](#-компьютерные-науки-mit)
 - [📥 Подборка Eclipse (апрель 2026)](#-подборка-eclipse-апрель-2026)
@@ -55,6 +56,12 @@
 | Проект | Описание | Звёзды |
 |--------|----------|--------|
 | [Dexter](https://github.com/virattt/dexter) | Автономный AI-агент для инвестиционного ресёрча — 3 агента (action/validation/answer), финансовая отчётность, самопроверка, TypeScript/Bun, MIT | [![Stars](https://img.shields.io/github/stars/virattt/dexter?style=flat)](https://github.com/virattt/dexter) |
+
+### AI Security
+
+| Проект | Описание |
+|--------|----------|
+| [OpenAI Daybreak](https://openai.com/daybreak/) | OpenAI security-агент — GPT-5.5 Cyber + Codex Security, поиск уязвимостей в сервисах. Sales-gated (нужно общаться с отделом продаж). Reference для security-pipeline в Hopson Sentinel / внутренних аудитах |
 
 ### AI-поиск и исследования
 
@@ -101,6 +108,7 @@
 | [Awesome ChatGPT Prompts](https://github.com/f/awesome-chatgpt-prompts) | Александрийская библиотека промптов — сотни шаблонов: IT, тексты, карьера, образование, креатив и др. | [![Stars](https://img.shields.io/github/stars/f/awesome-chatgpt-prompts?style=flat)](https://github.com/f/awesome-chatgpt-prompts) |
 | [GPT-5.5 Prompt Guide (OpenAI)](https://developers.openai.com/api/docs/guides/prompt-guidance?model=gpt-5.5) | Официальный гайд OpenAI: НЕ переиспользовать старые длинные промпты, минимизировать инструкции, давать данные + ожидаемый формат |
 | [Nano Banana Upscaling Prompt](https://arena.ai/ru/image/direct) | Шаблон «Аналитическая Реконструкция Микро-Деталей» — апскейл фото с сохранением идентичности |
+| [Humanize Rewriter](prompts/humanize-rewriter.md) | Промпт для humanize-rewrite текста под автоответы маркетплейсов / SMM / контент. **С оговоркой:** широко распространяется в студенческой среде как обход AI-детекторов — используем только в операторских/контент-задачах, не для академического обхода (та же планка, что у `talk-normal` в разделе агентов) |
 
 ### Генерация изображений
 
@@ -229,6 +237,7 @@ ai-setup reverse owner/repo --stdout
 | [ai-marketing-skills](https://github.com/ericosiu/ai-marketing-skills) | Skills для Claude Code под маркетолога: стратегия, трафик, SMM, контент, shortы, аналитика, SEO (подборка) | [![Stars](https://img.shields.io/github/stars/ericosiu/ai-marketing-skills?style=flat)](https://github.com/ericosiu/ai-marketing-skills) |
 | [geo-seo-claude](https://github.com/zubair-trabzada/geo-seo-claude) | SEO-аудит на видимость для AI-поиска — ChatGPT, Perplexity, Bing AI Overviews. Скоринг 0-10 + план оптимизации | [![Stars](https://img.shields.io/github/stars/zubair-trabzada/geo-seo-claude?style=flat)](https://github.com/zubair-trabzada/geo-seo-claude) |
 | [job-ops](https://github.com/DaKheera47/job-ops) | Авто-поиск работы — AI прочёсывает сайты, адаптирует CV под вакансию, обходит ATS-скрининг, локально | [![Stars](https://img.shields.io/github/stars/DaKheera47/job-ops?style=flat)](https://github.com/DaKheera47/job-ops) |
+| [Higgsfield Virality Predictor](https://higgsfield.ai/apps/virality-predictor) | Скоринг хука / удержания / виральности видео до релиза + Ad Reference перемонтаж. **С оговоркой:** "карта зон мозга" — маркетинговая обёртка (без EEG никаких реальных активационных карт), но как hook/retention heuristic годится. Free trial на момент находки | — |
 
 ---
 
@@ -263,6 +272,7 @@ ai-setup reverse owner/repo --stdout
 | [Reclip](https://github.com/averygan/reclip) | Python + Flask | Оригинальный минималистичный загрузчик (вдохновение для Eclipse Media) |
 | [TADA](https://huggingface.co/collections/HumeAI/tada) | Python / HuggingFace | Open-source TTS — до 700 сек экспрессивной речи, 5x быстрее аналогов, без галлюцинаций |
 | [Qwen3-TTS](https://github.com/QwenLM/Qwen3-TTS) | Python / Alibaba | TTS нового поколения — 10 языков (вкл. русский), 49 голосов, 97ms задержка, клонирование голоса, 5 моделей | [![Stars](https://img.shields.io/github/stars/QwenLM/Qwen3-TTS?style=flat)](https://github.com/QwenLM/Qwen3-TTS) |
+| [Inworld Realtime TTS-2](https://inworld.ai/blog/realtime-tts-2) | Cloud API | TTS на живых диалогах — принимает на вход аудио предыдущей реплики, prompt-controlled подача (`[говори уставшим, но теплым голосом]`), 100+ языков с тембром, смена языка в середине предложения, клон голоса с 15 сек. **Не self-hosted** — облачный сервис | — |
 | [CosyVoice 3](https://github.com/FunAudioLLM/CosyVoice) | Python / Alibaba | Мини-TTS 0.5B — 9 языков (русский!), zero-shot клон голоса за 3 сек, 150ms стриминг, запускается на слабом железе | [![Stars](https://img.shields.io/github/stars/FunAudioLLM/CosyVoice?style=flat)](https://github.com/FunAudioLLM/CosyVoice) |
 | [Frame](https://github.com/66HEX/frame) | Electron / FFmpeg | GUI-комбайн для видео — сжатие, конвертация, апскейл, русский язык, Win/Mac | [![Stars](https://img.shields.io/github/stars/66HEX/frame?style=flat)](https://github.com/66HEX/frame) |
 | [Linly-Dubbing](https://github.com/Kedreamix/Linly-Dubbing) | Python / ML | AI-дубляж видео на 100+ языков — перевод речи, клон голоса, липсинк, авто-субтитры | [![Stars](https://img.shields.io/github/stars/Kedreamix/Linly-Dubbing?style=flat)](https://github.com/Kedreamix/Linly-Dubbing) |
@@ -271,6 +281,7 @@ ai-setup reverse owner/repo --stdout
 | [Comic-translate](https://github.com/ogkalu2/comic-translate) | Python | AI-перевод манги и комиксов — сохраняет шрифты и форматирование, нужен API (Gemini/OpenAI) | [![Stars](https://img.shields.io/github/stars/ogkalu2/comic-translate?style=flat)](https://github.com/ogkalu2/comic-translate) |
 | [Final2x](https://github.com/EutropicAI/Final2x) | Python | AI-апскейлер изображений — восстановление деталей из пиксельных фото, Win/Mac/Linux | [![Stars](https://img.shields.io/github/stars/EutropicAI/Final2x?style=flat)](https://github.com/EutropicAI/Final2x) |
 | [WhisperLiveKit](https://github.com/QuentinFuxa/WhisperLiveKit) | Python / FastAPI | Real-time STT с разделением спикеров — Whisper + diarization, WebSocket, 200+ языков, локально | [![Stars](https://img.shields.io/github/stars/QuentinFuxa/WhisperLiveKit?style=flat)](https://github.com/QuentinFuxa/WhisperLiveKit) |
+| [Hearica](https://hearica.com/) | Desktop / Cloud | Live-субтитры поверх любых приложений (Zoom / Meet / игры / мессенджеры), перевод на 60+ языков на лету, разделение спикеров цветом, экспорт PDF/DOC/TXT/SRT. Автор глухой → дизайн ориентирован на accessibility. **Cloud-based** — для конфиденциальных созвонов оценивать отдельно; для self-hosted альтернативы — WhisperLiveKit выше | — |
 | [MOSS-TTS-Nano](https://github.com/OpenMOSS/MOSS-TTS-Nano) | Python / OpenMOSS | TTS на CPU без GPU — 100M параметров, 20 языков (русский), 48 кГц, real-time, клонирование голоса | [![Stars](https://img.shields.io/github/stars/OpenMOSS/MOSS-TTS-Nano?style=flat)](https://github.com/OpenMOSS/MOSS-TTS-Nano) |
 | [TranslateBooksWithLLMs](https://github.com/hydropix/TranslateBooksWithLLMs) | Python | Переводчик документов через GPT/Gemini/Mistral/DeepSeek/Ollama — EPUB / SRT / DOCX / TXT | [![Stars](https://img.shields.io/github/stars/hydropix/TranslateBooksWithLLMs?style=flat)](https://github.com/hydropix/TranslateBooksWithLLMs) |
 | [sliceyt](https://sliceyt.com/) | Web | Скачивание YouTube + кусочный отрез (например 30 сек) — MP4 / MP3, любое качество, в браузере | — |
@@ -339,6 +350,16 @@ Frontend: React 19 · TypeScript · Vite · Tailwind CSS 4 · Zustand
 5. **Слежка Google** — [myactivity.google.com](https://myactivity.google.com/) → Удалить всё → За всё время; отключить историю поиска / местоположения / YouTube
 6. **Старые посты** — Twitter/X через TweetDelete (авто >30 дней); VK История активности → фильтр по годам → удалить
 7. **Защита от будущих утечек** — SimpleLogin / Hide My Email, Brave (трекеры по умолчанию)
+
+---
+
+## 🖥️ Hardware & Workstation
+
+> Не AI, не automation — но полезное при сборке/апгрейде рабочих машин под Eclipse-нагрузку.
+
+| Ресурс | Описание |
+|--------|----------|
+| [BuildCores](https://www.buildcores.com/) | Конфигуратор ПК — 3000+ компонентов с проверкой совместимости, 3D-режим (вращать сборку), визуализация воздушных потоков для расстановки вентиляторов. Полезно при сборке workstation под локальные LLM / video-pipeline |
 
 ---
 
@@ -545,6 +566,7 @@ Frontend: React 19 · TypeScript · Vite · Tailwind CSS 4 · Zustand
 | [Open Design](https://github.com/nexu-io/open-design) | Open-source набор DESIGN.md-шаблонов, skills и визуальных стилей для AI-first интерфейсов |
 | [Refero Styles](https://styles.refero.design/) | 2000+ UI-стилей и design-файлов как база для визуальных референсов и direction-setting |
 | [thesvg](https://github.com/glincker/thesvg) | Большая библиотека SVG-иконок и логотипов с API/CDN/React-пакетами |
+| [LazyWeb](https://www.lazyweb.com/) | 250К+ скринов реальных приложений, поиск похожих UI-паттернов, генерация интерфейса по запросу, MCP-подключение к Claude / Cursor. Reference-кладовая для design-pipeline и UI-research |
 
 ### Медиа, аватары, монтаж
 
