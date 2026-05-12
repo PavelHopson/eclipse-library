@@ -37,6 +37,14 @@
 | [free-llm-api-resources](https://github.com/cheahjs/free-llm-api-resources) | 26 провайдеров бесплатных LLM API — OpenRouter, Google AI Studio, NVIDIA NIM, Mistral, Groq, Cohere и др. Лимиты и условия | [![Stars](https://img.shields.io/github/stars/cheahjs/free-llm-api-resources?style=flat)](https://github.com/cheahjs/free-llm-api-resources) |
 | [NVIDIA Build (95 моделей)](https://build.nvidia.com/models) | 95 бесплатных API: Qwen, GLM, DeepSeek, Kimi, Gemma, Mistral, Nemotron — без лимитов на момент публикации (проверять условия) | — |
 
+### Grey-zone API-прокси (только для pet-проектов)
+
+> ⚠️ **Юридические и ToS-риски.** Эти проекты обходят официальные лимиты Anthropic / OpenAI / Windsurf через ротацию аккаунтов или нелегальные эндпоинты. **Не использовать** в Star CRM, Eclipse AI Hub, Hopson Sentinel, любых коммерческих / продуктивных средах — гарантированный путь к cease-and-desist или внезапной потере доступа. Только для личных экспериментов на свой риск. Легитимные бесплатные альтернативы — таблица **Бесплатные API** выше + локальные модели (Ollama, LM Studio).
+
+| Проект | Описание | Звёзды |
+|--------|----------|--------|
+| [WindsurfAPI](https://github.com/dwgx/WindsurfAPI) | Прокси-доступ к Claude Opus / GPT-5 / 50+ моделям с автоматической ротацией между чужими аккаунтами при исчерпании лимитов. Та же категория, что *free-claude-code* — может перестать работать в любой момент | [![Stars](https://img.shields.io/github/stars/dwgx/WindsurfAPI?style=flat)](https://github.com/dwgx/WindsurfAPI) |
+
 ### ML Training & Research
 
 | Проект | Описание | Звёзды |
@@ -259,6 +267,7 @@ ai-setup reverse owner/repo --stdout
 | [Repomix](https://github.com/yamadashy/repomix) | Node.js / CLI | Упаковщик кодбазы в один MD-файл — для AI-ревью больших модулей, фильтры по include/exclude | [![Stars](https://img.shields.io/github/stars/yamadashy/repomix?style=flat)](https://github.com/yamadashy/repomix) |
 | [AB Download Manager](https://abdownloadmanager.com/) | Multi-platform | Менеджер загрузок: одновременные потоки, планировщик, авто-сортировка по папкам, Android | — |
 | [hackingtool](https://github.com/Z4nzu/hackingtool) | Python | 185 инструментов пентеста — OSINT, веб-аудит, Wi-Fi, реверс. **Только для своих систем, в обучающих целях** | [![Stars](https://img.shields.io/github/stars/Z4nzu/hackingtool?style=flat)](https://github.com/Z4nzu/hackingtool) |
+| [GTweak](https://github.com/Greedeks/GTweak) | C# / WPF | Windows-комбайн: debloat (OneDrive / Edge / Copilot / Recall / UWP-апы), блокировка телеметрии (MS / NVIDIA / Intel), отключение служб, темы. **С оговоркой:** содержит HWID/KMS-активацию (нарушение Microsoft EULA) и опции выключения Defender/SmartScreen/UAC (ослабление защиты) — **эти модули не используем**, только debloat / privacy. Альтернативы без активаторов — Win11Debloat / privacy.sexy | [![Stars](https://img.shields.io/github/stars/Greedeks/GTweak?style=flat)](https://github.com/Greedeks/GTweak) |
 | [TorBot](https://github.com/DedSecInside/TorBot) | Python | OSINT-бот для onion-сегмента — карта переходов, проверка живости, JSON-экспорт. **Только для легальных pentest-сценариев** | [![Stars](https://img.shields.io/github/stars/DedSecInside/TorBot?style=flat)](https://github.com/DedSecInside/TorBot) |
 | [awesome-free-apps](https://github.com/Axorax/awesome-free-apps) | Каталог | Бесплатный софт по категориям (видео, фото, музыка, игры, утилиты) для всех ОС | [![Stars](https://img.shields.io/github/stars/Axorax/awesome-free-apps?style=flat)](https://github.com/Axorax/awesome-free-apps) |
 
