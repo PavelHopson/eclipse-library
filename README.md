@@ -19,8 +19,11 @@
 - [🛠️ Dev Tools & CLI](#️-dev-tools--cli)
 - [🎬 Media & Download](#-media--download)
 - [💬 Self-hosted Платформы](#-self-hosted-платформы)
+- [🛡 Privacy / OPSEC](#-privacy--opsec)
+- [🖥️ Hardware & Workstation](#️-hardware--workstation)
 - [🎮 GameDev](#-gamedev)
 - [🎓 Компьютерные науки (MIT)](#-компьютерные-науки-mit)
+- [📥 Подборка Eclipse (апрель 2026)](#-подборка-eclipse-апрель-2026)
 - [📦 Наши проекты](#-наши-проекты)
 
 ---
@@ -32,6 +35,15 @@
 | Ресурс | Описание | Звёзды |
 |--------|----------|--------|
 | [free-llm-api-resources](https://github.com/cheahjs/free-llm-api-resources) | 26 провайдеров бесплатных LLM API — OpenRouter, Google AI Studio, NVIDIA NIM, Mistral, Groq, Cohere и др. Лимиты и условия | [![Stars](https://img.shields.io/github/stars/cheahjs/free-llm-api-resources?style=flat)](https://github.com/cheahjs/free-llm-api-resources) |
+| [NVIDIA Build (95 моделей)](https://build.nvidia.com/models) | 95 бесплатных API: Qwen, GLM, DeepSeek, Kimi, Gemma, Mistral, Nemotron — без лимитов на момент публикации (проверять условия) | — |
+
+### Grey-zone API-прокси (только для pet-проектов)
+
+> ⚠️ **Юридические и ToS-риски.** Эти проекты обходят официальные лимиты Anthropic / OpenAI / Windsurf через ротацию аккаунтов или нелегальные эндпоинты. **Не использовать** в Star CRM, Eclipse AI Hub, Hopson Sentinel, любых коммерческих / продуктивных средах — гарантированный путь к cease-and-desist или внезапной потере доступа. Только для личных экспериментов на свой риск. Легитимные бесплатные альтернативы — таблица **Бесплатные API** выше + локальные модели (Ollama, LM Studio).
+
+| Проект | Описание | Звёзды |
+|--------|----------|--------|
+| [WindsurfAPI](https://github.com/dwgx/WindsurfAPI) | Прокси-доступ к Claude Opus / GPT-5 / 50+ моделям с автоматической ротацией между чужими аккаунтами при исчерпании лимитов. Та же категория, что *free-claude-code* — может перестать работать в любой момент | [![Stars](https://img.shields.io/github/stars/dwgx/WindsurfAPI?style=flat)](https://github.com/dwgx/WindsurfAPI) |
 
 ### ML Training & Research
 
@@ -53,12 +65,19 @@
 |--------|----------|--------|
 | [Dexter](https://github.com/virattt/dexter) | Автономный AI-агент для инвестиционного ресёрча — 3 агента (action/validation/answer), финансовая отчётность, самопроверка, TypeScript/Bun, MIT | [![Stars](https://img.shields.io/github/stars/virattt/dexter?style=flat)](https://github.com/virattt/dexter) |
 
+### AI Security
+
+| Проект | Описание |
+|--------|----------|
+| [OpenAI Daybreak](https://openai.com/daybreak/) | OpenAI security-агент — GPT-5.5 Cyber + Codex Security, поиск уязвимостей в сервисах. Sales-gated (нужно общаться с отделом продаж). Reference для security-pipeline в Hopson Sentinel / внутренних аудитах |
+
 ### AI-поиск и исследования
 
 | Проект | Описание | Звёзды |
 |--------|----------|--------|
 | [Perplexica](https://github.com/ItzCrazyKns/Perplexica) | Self-hosted клон Perplexity — AI-поиск с источниками и фактчекингом, Ollama / OpenAI / Anthropic, загрузка файлов/видео/аудио, полная приватность | [![Stars](https://img.shields.io/github/stars/ItzCrazyKns/Perplexica?style=flat)](https://github.com/ItzCrazyKns/Perplexica) |
 | [Open Researcher](https://github.com/firecrawl/open-researcher) | AI-исследователь от FireCrawl — парсинг всего (фото/видео/статьи/соцсети), анализ, отчёт с источниками, экран раздумий | [![Stars](https://img.shields.io/github/stars/firecrawl/open-researcher?style=flat)](https://github.com/firecrawl/open-researcher) |
+| [Sci-Bot](https://sci-bot.ru/) | Научный AI-ассистент поверх Sci-Hub — 85М исследований, цитаты со ссылками. **Грей-зона:** для академического ресёрча, не для коммерческой репликации | — |
 
 ### Мультиагентные платформы
 
@@ -79,6 +98,16 @@
 | Проект | Описание | Звёзды |
 |--------|----------|--------|
 | [Director's Console](https://github.com/NickPittas/DirectorsConsole) | AI VFX-студия — 67 кинопресетов (Interstellar, Parasite...), 43 анимационных (Pixar, Ghibli...), storyboard canvas, 13 LLM для промптов, multi-model генерация | [![Stars](https://img.shields.io/github/stars/NickPittas/DirectorsConsole?style=flat)](https://github.com/NickPittas/DirectorsConsole) |
+| [HY-World 2.0](https://github.com/Tencent-Hunyuan/HY-World-2.0) | Tencent — 3D миры за один клик из промпта/фото/видео, экспорт в Unreal/Unity, интерактивная физика | [![Stars](https://img.shields.io/github/stars/Tencent-Hunyuan/HY-World-2.0?style=flat)](https://github.com/Tencent-Hunyuan/HY-World-2.0) |
+| [CADAM](https://github.com/Adam-CAD/CADAM) | 3D-моделирование по тексту/картинке — экспорт STL/SCAD, локально, опенсорс | [![Stars](https://img.shields.io/github/stars/Adam-CAD/CADAM?style=flat)](https://github.com/Adam-CAD/CADAM) |
+
+### Uncensored generative models (high-risk)
+
+> 🚨 **Высокий риск злоупотребления.** Эти модели идут на HuggingFace с маркетинговой подачей «без цензуры» — то есть safety-фильтры намеренно сняты. Возможные вектора злоупотребления: **non-consensual deepfakes**, **NSFW без согласия моделируемого лица**, **CSAM** (при определённых датасетах и промптах). HuggingFace такие модели иногда снимает по abuse-report — ссылка может отвалиться. **Не использовать** в продуктах для публичного релиза (Star CRM, Eclipse AI Hub, eclipse-chat, eclipse-dnd-forge, любой клиентский deliverable). Допустимая зона — закрытый R&D, fantasy-сцены без узнаваемых лиц, тесты ограничений генеративных пайплайнов. Для legit video-gen задач в наших продуктах есть [HY-World 2.0](#видеопродакшн-и-vfx) выше и open-source альтернативы вне «uncensored» позиционирования (Hunyuan Video, Mochi-1, CogVideoX, LTX-Video — добавим при первом реальном продуктовом use-case).
+
+| Модель | Описание |
+|--------|----------|
+| [Sulphur-2-base](https://huggingface.co/SulphurAI/Sulphur-2-base) | Open-weights text-to-video / image-to-video без safety-фильтров. Локальный запуск + ComfyUI-интеграция. **Карантин:** только closed-R&D без распознаваемых лиц / детских образов. Любое использование с лицами реальных людей требует их письменного согласия (deepfake-законодательство в РФ, EU AI Act, US state laws) |
 
 ### Презентации и документы
 
@@ -93,6 +122,9 @@
 | [9 промптов для презентаций](https://github.com/PavelHopson/eclipse-library#-промпт-коллекции) | План, хук, сценарий слайдов, упрощение, визуал из данных, убийство возражений, 1-слайд сводка, сюжетная арка, речь — встроены как пресеты в [Eclipse AI Hub](https://github.com/PavelHopson/eclipse-ai-hub) Copywriter |
 | [Auto Prompt](https://github.com/AIDotNet/auto-prompt) | Оптимизатор промптов — классифицирует, переписывает, переводит, добавляет reasoning-команды, сотни готовых шаблонов | [![Stars](https://img.shields.io/github/stars/AIDotNet/auto-prompt?style=flat)](https://github.com/AIDotNet/auto-prompt) |
 | [Awesome ChatGPT Prompts](https://github.com/f/awesome-chatgpt-prompts) | Александрийская библиотека промптов — сотни шаблонов: IT, тексты, карьера, образование, креатив и др. | [![Stars](https://img.shields.io/github/stars/f/awesome-chatgpt-prompts?style=flat)](https://github.com/f/awesome-chatgpt-prompts) |
+| [GPT-5.5 Prompt Guide (OpenAI)](https://developers.openai.com/api/docs/guides/prompt-guidance?model=gpt-5.5) | Официальный гайд OpenAI: НЕ переиспользовать старые длинные промпты, минимизировать инструкции, давать данные + ожидаемый формат |
+| [Nano Banana Upscaling Prompt](https://arena.ai/ru/image/direct) | Шаблон «Аналитическая Реконструкция Микро-Деталей» — апскейл фото с сохранением идентичности |
+| [Humanize Rewriter](prompts/humanize-rewriter.md) | Промпт для humanize-rewrite текста под автоответы маркетплейсов / SMM / контент. **С оговоркой:** широко распространяется в студенческой среде как обход AI-детекторов — используем только в операторских/контент-задачах, не для академического обхода (та же планка, что у `talk-normal` в разделе агентов) |
 
 ### Генерация изображений
 
@@ -112,6 +144,7 @@
 | [MemOS Cloud](https://github.com/MemTensor/MemOS-Cloud-OpenClaw-Plugin) | Облачная память с изоляцией между агентами, синхронизация между устройствами |  |
 | [OpenClaw Foundry](https://github.com/lekt9/openclaw-foundry) | Агент сам наблюдает за паттернами работы и пишет себе новые инструменты |  |
 | [Better Gateway](https://github.com/ThisIsJeron/openclaw-better-gateway) | Стабильный шлюз — авто-переподключение, не теряет соединения |  |
+| [QClaw (Tencent)](https://qclawsg.qq.com/) | Локальный Computer Use агент на базе OpenClaw — мессенджер-управление (Telegram/Discord), долгосрочная память |  |
 
 ### AI Coding Agents
 
@@ -146,7 +179,18 @@ claude --channels plugin:telegram@claude-plugins-official
 | [oh-my-claudecode](https://github.com/PavelHopson/oh-my-claudecode) | Multi-agent оркестрация для Claude Code — 5 режимов, 19 агентов, eco mode | [![Stars](https://img.shields.io/github/stars/yeachan-heo/oh-my-claudecode?style=flat)](https://github.com/yeachan-heo/oh-my-claudecode) |
 | [claude-code-best-practice](https://github.com/shanraisshan/claude-code-best-practice) | Рабочие имплементации + сравнение 10+ workflow фреймворков — агенты, скиллы, хуки, MCP, примеры `.claude/` конфигов | [![Stars](https://img.shields.io/github/stars/shanraisshan/claude-code-best-practice?style=flat)](https://github.com/shanraisshan/claude-code-best-practice) |
 | [Antigravity Awesome Skills](https://github.com/sickn33/antigravity-awesome-skills) | 860+ скиллов для любых AI-агентов — Claude Code, OpenCode, Gemini, Codex, Cursor. Разработка, DevOps, SEO, бизнес | [![Stars](https://img.shields.io/github/stars/sickn33/antigravity-awesome-skills?style=flat)](https://github.com/sickn33/antigravity-awesome-skills) |
+| [claude-skills](https://github.com/alirezarezvani/claude-skills) | 230+ skills по категориям: дизайн, маркетинг, бизнес, копирайт, кибербез, Dev — установка из шаблона в терминале | [![Stars](https://img.shields.io/github/stars/alirezarezvani/claude-skills?style=flat)](https://github.com/alirezarezvani/claude-skills) |
+| [designer-skills (87)](https://github.com/Owl-Listener/designer-skills) | 87 узкоспециализированных дизайн-скиллов для Claude Code от практикующих дизайнеров: типографика, верстка, композиция, цветовые палитры, дизайн-ресёрч, сайты / приложения / баннеры / соцсети. Дополняет более общие каталоги — берём конкретно когда нужна дизайн-плоскость в Claude Code workflow (eclipse-ai-hub Copywriter / Image Studio, Romark лендинг, Shotforge, маркетплейс-карточки в Star CRM) | [![Stars](https://img.shields.io/github/stars/Owl-Listener/designer-skills?style=flat)](https://github.com/Owl-Listener/designer-skills) |
 | [Auto Claude](https://github.com/AndyMik90/Auto-Claude) | 19 AI-агентов в параллельных терминалах — авто-трекинг задач, логи, roadmap, 24/7 кодинг | [![Stars](https://img.shields.io/github/stars/AndyMik90/Auto-Claude?style=flat)](https://github.com/AndyMik90/Auto-Claude) |
+| [everything-claude-code](https://github.com/worldflowai/everything-claude-code) | 28 агентов + 119 навыков + хуки + MCP-конфиги одним пакетом — готовые `.claude/` конфиги | [![Stars](https://img.shields.io/github/stars/worldflowai/everything-claude-code?style=flat)](https://github.com/worldflowai/everything-claude-code) |
+| [awesome-claude-code-subagents](https://github.com/VoltAgent/awesome-claude-code-subagents) | 100+ субагентов под конкретные задачи: qa, security, db-migration, api-contract, devops | [![Stars](https://img.shields.io/github/stars/VoltAgent/awesome-claude-code-subagents?style=flat)](https://github.com/VoltAgent/awesome-claude-code-subagents) |
+| [Anthropic Skills](https://github.com/anthropics/skills) | Официальный репозиторий скиллов от Anthropic — каноничные паттерны | [![Stars](https://img.shields.io/github/stars/anthropics/skills?style=flat)](https://github.com/anthropics/skills) |
+| [awesome-claude-code](https://github.com/jqueryscript/awesome-claude-code) | Агрегатор всего лучшего по теме Claude Code — meta-каталог | [![Stars](https://img.shields.io/github/stars/jqueryscript/awesome-claude-code?style=flat)](https://github.com/jqueryscript/awesome-claude-code) |
+| [Superpowers](https://github.com/obra/superpowers) | Фреймворк навыков для Claude Code и Cursor — агент сначала уточняет требования, потом действует | [![Stars](https://img.shields.io/github/stars/obra/superpowers?style=flat)](https://github.com/obra/superpowers) |
+| [Get Shit Done](https://github.com/gsd-build/get-shit-done) | Контекст-инжиниринг — чтобы AI не забывал задачу на третьем шаге, дисциплина для длинных сессий | [![Stars](https://img.shields.io/github/stars/gsd-build/get-shit-done?style=flat)](https://github.com/gsd-build/get-shit-done) |
+| [claude-mem](https://github.com/thedotmack/claude-mem) | Плагин памяти для Claude Code — persistent context между сессиями | [![Stars](https://img.shields.io/github/stars/thedotmack/claude-mem?style=flat)](https://github.com/thedotmack/claude-mem) |
+| [andrej-karpathy-skills](https://github.com/forrestchang/andrej-karpathy-skills) | Гайдлайны Карпаты, портированные в скиллы Claude Code — best practices от автора nanoGPT | [![Stars](https://img.shields.io/github/stars/forrestchang/andrej-karpathy-skills?style=flat)](https://github.com/forrestchang/andrej-karpathy-skills) |
+| [talk-normal](https://github.com/hexiecs/talk-normal) | Скиллы humanize-генерации текста (обход AI-детекторов). **С оговоркой:** пересекается с политикой академической честности | [![Stars](https://img.shields.io/github/stars/hexiecs/talk-normal?style=flat)](https://github.com/hexiecs/talk-normal) |
 
 **Маркетплейсы скиллов для AI-агентов:**
 - [skills.sh](https://skills.sh/) · [skillhub.club](https://skillhub.club/) · [skillsmp.com](https://skillsmp.com/)
@@ -207,6 +251,10 @@ ai-setup reverse owner/repo --stdout
 | Проект | Описание | Звёзды |
 |--------|----------|--------|
 | [awesome-seo-tools](https://github.com/serpapi/awesome-seo-tools) | Полная коллекция SEO-инструментов — ключевые слова, анализ ссылок, оптимизация контента, рейтинги, расширения для браузера | [![Stars](https://img.shields.io/github/stars/serpapi/awesome-seo-tools?style=flat)](https://github.com/serpapi/awesome-seo-tools) |
+| [ai-marketing-skills](https://github.com/ericosiu/ai-marketing-skills) | Skills для Claude Code под маркетолога: стратегия, трафик, SMM, контент, shortы, аналитика, SEO (подборка) | [![Stars](https://img.shields.io/github/stars/ericosiu/ai-marketing-skills?style=flat)](https://github.com/ericosiu/ai-marketing-skills) |
+| [geo-seo-claude](https://github.com/zubair-trabzada/geo-seo-claude) | SEO-аудит на видимость для AI-поиска — ChatGPT, Perplexity, Bing AI Overviews. Скоринг 0-10 + план оптимизации | [![Stars](https://img.shields.io/github/stars/zubair-trabzada/geo-seo-claude?style=flat)](https://github.com/zubair-trabzada/geo-seo-claude) |
+| [job-ops](https://github.com/DaKheera47/job-ops) | Авто-поиск работы — AI прочёсывает сайты, адаптирует CV под вакансию, обходит ATS-скрининг, локально | [![Stars](https://img.shields.io/github/stars/DaKheera47/job-ops?style=flat)](https://github.com/DaKheera47/job-ops) |
+| [Higgsfield Virality Predictor](https://higgsfield.ai/apps/virality-predictor) | Скоринг хука / удержания / виральности видео до релиза + Ad Reference перемонтаж. **С оговоркой:** "карта зон мозга" — маркетинговая обёртка (без EEG никаких реальных активационных карт), но как hook/retention heuristic годится. Free trial на момент находки | — |
 
 ---
 
@@ -225,6 +273,18 @@ ai-setup reverse owner/repo --stdout
 | [ScraperAI](https://github.com/scraperai/scraperai) | Python | AI-парсер с локальными моделями — Selenium, минимизация HTML, маскировка, гибкие настройки | [![Stars](https://img.shields.io/github/stars/scraperai/scraperai?style=flat)](https://github.com/scraperai/scraperai) |
 | [TGSpyder](https://github.com/Darksight-Analytics/tgspyder) | Python | Telegram-парсер — участники чатов, история сообщений, инвайт-ссылки, поиск по ID, экспорт в CSV | [![Stars](https://img.shields.io/github/stars/Darksight-Analytics/tgspyder?style=flat)](https://github.com/Darksight-Analytics/tgspyder) |
 | [Telegram Files](https://github.com/jarvis2f/telegram-files) | — | Telegram-загрузчик — все типы файлов, параллельная загрузка, превью, локально | [![Stars](https://img.shields.io/github/stars/jarvis2f/telegram-files?style=flat)](https://github.com/jarvis2f/telegram-files) |
+| [Repomix](https://github.com/yamadashy/repomix) | Node.js / CLI | Упаковщик кодбазы в один MD-файл — для AI-ревью больших модулей, фильтры по include/exclude | [![Stars](https://img.shields.io/github/stars/yamadashy/repomix?style=flat)](https://github.com/yamadashy/repomix) |
+| [AB Download Manager](https://abdownloadmanager.com/) | Multi-platform | Менеджер загрузок: одновременные потоки, планировщик, авто-сортировка по папкам, Android | — |
+| [hackingtool](https://github.com/Z4nzu/hackingtool) | Python | 185 инструментов пентеста — OSINT, веб-аудит, Wi-Fi, реверс. **Только для своих систем, в обучающих целях** | [![Stars](https://img.shields.io/github/stars/Z4nzu/hackingtool?style=flat)](https://github.com/Z4nzu/hackingtool) |
+| [GTweak](https://github.com/Greedeks/GTweak) | C# / WPF | Windows-комбайн: debloat (OneDrive / Edge / Copilot / Recall / UWP-апы), блокировка телеметрии (MS / NVIDIA / Intel), отключение служб, темы. **С оговоркой:** содержит HWID/KMS-активацию (нарушение Microsoft EULA) и опции выключения Defender/SmartScreen/UAC (ослабление защиты) — **эти модули не используем**, только debloat / privacy. Альтернативы без активаторов — Win11Debloat / privacy.sexy | [![Stars](https://img.shields.io/github/stars/Greedeks/GTweak?style=flat)](https://github.com/Greedeks/GTweak) |
+| [CloakBrowser](https://github.com/CloakHQ/CloakBrowser) | Python / Chromium | Антидетект-браузер на пропатченном Chromium: реалистичный TLS, прохождение reCAPTCHA v3 (~0.9), Cloudflare Turnstile, drop-in под Playwright. **С оговоркой:** инструмент по дизайну обходит антибот-защиту чужих сайтов, что нарушает их ToS (Cloudflare / Google) и в ряде юрисдикций сближается с CFAA-составами. Допустимые сценарии: тестирование собственных сайтов; автоматизация **собственных авторизованных** аккаунтов на маркетплейсах (Star CRM use-case: валидный токен селлера + сайт с антибот-слоем). **Не для** скрапинга чужих защищённых данных, mass-registration, обхода ATS / CAPTCHA на платформах без собственной авторизации | [![Stars](https://img.shields.io/github/stars/CloakHQ/CloakBrowser?style=flat)](https://github.com/CloakHQ/CloakBrowser) |
+| [TorBot](https://github.com/DedSecInside/TorBot) | Python | OSINT-бот для onion-сегмента — карта переходов, проверка живости, JSON-экспорт. **Только для легальных pentest-сценариев** | [![Stars](https://img.shields.io/github/stars/DedSecInside/TorBot?style=flat)](https://github.com/DedSecInside/TorBot) |
+| [awesome-free-apps](https://github.com/Axorax/awesome-free-apps) | Каталог | Бесплатный софт по категориям (видео, фото, музыка, игры, утилиты) для всех ОС | [![Stars](https://img.shields.io/github/stars/Axorax/awesome-free-apps?style=flat)](https://github.com/Axorax/awesome-free-apps) |
+
+**CloakBrowser — integration points в наших проектах** (только в допустимых сценариях из дисклеймера):
+- **Eclipse Claw** — antibot-обход как опциональный backend поверх Playwright-пути; полезно когда целевые сайты для собственной валидной автоматизации добавили Turnstile.
+- **Star CRM AutoReply** — продакшн-кейс: валидные WB / Ozon токены продавца, но маркетплейсы катят антибот-слой даже на авторизованные сессии. Собственный токен + собственный аккаунт + оплаченные API-операции = legit-зона.
+- **Eclipse-webclaw / Lead-Sniper** — web-scraping с явным ToS-claim'ом со своей стороны (договорной парсинг, открытые источники).
 
 ---
 
@@ -236,6 +296,7 @@ ai-setup reverse owner/repo --stdout
 | [Reclip](https://github.com/averygan/reclip) | Python + Flask | Оригинальный минималистичный загрузчик (вдохновение для Eclipse Media) |
 | [TADA](https://huggingface.co/collections/HumeAI/tada) | Python / HuggingFace | Open-source TTS — до 700 сек экспрессивной речи, 5x быстрее аналогов, без галлюцинаций |
 | [Qwen3-TTS](https://github.com/QwenLM/Qwen3-TTS) | Python / Alibaba | TTS нового поколения — 10 языков (вкл. русский), 49 голосов, 97ms задержка, клонирование голоса, 5 моделей | [![Stars](https://img.shields.io/github/stars/QwenLM/Qwen3-TTS?style=flat)](https://github.com/QwenLM/Qwen3-TTS) |
+| [Inworld Realtime TTS-2](https://inworld.ai/blog/realtime-tts-2) | Cloud API | TTS на живых диалогах — принимает на вход аудио предыдущей реплики, prompt-controlled подача (`[говори уставшим, но теплым голосом]`), 100+ языков с тембром, смена языка в середине предложения, клон голоса с 15 сек. **Не self-hosted** — облачный сервис | — |
 | [CosyVoice 3](https://github.com/FunAudioLLM/CosyVoice) | Python / Alibaba | Мини-TTS 0.5B — 9 языков (русский!), zero-shot клон голоса за 3 сек, 150ms стриминг, запускается на слабом железе | [![Stars](https://img.shields.io/github/stars/FunAudioLLM/CosyVoice?style=flat)](https://github.com/FunAudioLLM/CosyVoice) |
 | [Frame](https://github.com/66HEX/frame) | Electron / FFmpeg | GUI-комбайн для видео — сжатие, конвертация, апскейл, русский язык, Win/Mac | [![Stars](https://img.shields.io/github/stars/66HEX/frame?style=flat)](https://github.com/66HEX/frame) |
 | [Linly-Dubbing](https://github.com/Kedreamix/Linly-Dubbing) | Python / ML | AI-дубляж видео на 100+ языков — перевод речи, клон голоса, липсинк, авто-субтитры | [![Stars](https://img.shields.io/github/stars/Kedreamix/Linly-Dubbing?style=flat)](https://github.com/Kedreamix/Linly-Dubbing) |
@@ -244,6 +305,10 @@ ai-setup reverse owner/repo --stdout
 | [Comic-translate](https://github.com/ogkalu2/comic-translate) | Python | AI-перевод манги и комиксов — сохраняет шрифты и форматирование, нужен API (Gemini/OpenAI) | [![Stars](https://img.shields.io/github/stars/ogkalu2/comic-translate?style=flat)](https://github.com/ogkalu2/comic-translate) |
 | [Final2x](https://github.com/EutropicAI/Final2x) | Python | AI-апскейлер изображений — восстановление деталей из пиксельных фото, Win/Mac/Linux | [![Stars](https://img.shields.io/github/stars/EutropicAI/Final2x?style=flat)](https://github.com/EutropicAI/Final2x) |
 | [WhisperLiveKit](https://github.com/QuentinFuxa/WhisperLiveKit) | Python / FastAPI | Real-time STT с разделением спикеров — Whisper + diarization, WebSocket, 200+ языков, локально | [![Stars](https://img.shields.io/github/stars/QuentinFuxa/WhisperLiveKit?style=flat)](https://github.com/QuentinFuxa/WhisperLiveKit) |
+| [Hearica](https://hearica.com/) | Desktop / Cloud | Live-субтитры поверх любых приложений (Zoom / Meet / игры / мессенджеры), перевод на 60+ языков на лету, разделение спикеров цветом, экспорт PDF/DOC/TXT/SRT. Автор глухой → дизайн ориентирован на accessibility. **Cloud-based** — для конфиденциальных созвонов оценивать отдельно; для self-hosted альтернативы — WhisperLiveKit выше | — |
+| [MOSS-TTS-Nano](https://github.com/OpenMOSS/MOSS-TTS-Nano) | Python / OpenMOSS | TTS на CPU без GPU — 100M параметров, 20 языков (русский), 48 кГц, real-time, клонирование голоса | [![Stars](https://img.shields.io/github/stars/OpenMOSS/MOSS-TTS-Nano?style=flat)](https://github.com/OpenMOSS/MOSS-TTS-Nano) |
+| [TranslateBooksWithLLMs](https://github.com/hydropix/TranslateBooksWithLLMs) | Python | Переводчик документов через GPT/Gemini/Mistral/DeepSeek/Ollama — EPUB / SRT / DOCX / TXT | [![Stars](https://img.shields.io/github/stars/hydropix/TranslateBooksWithLLMs?style=flat)](https://github.com/hydropix/TranslateBooksWithLLMs) |
+| [sliceyt](https://sliceyt.com/) | Web | Скачивание YouTube + кусочный отрез (например 30 сек) — MP4 / MP3, любое качество, в браузере | — |
 
 **Улучшения Eclipse Media над Reclip:**
 
@@ -264,6 +329,8 @@ ai-setup reverse owner/repo --stdout
 | [OwnCord](https://github.com/cofedish/OwnCord) | Go + TypeScript (Tauri) | Self-hosted Discord — голос/видео, каналы, DMs. Early alpha |
 | [Eclipse Chat](https://github.com/PavelHopson/eclipse-chat) | React 19 + Fastify + Socket.io | Наш Discord-альтернатив — в разработке |
 | [Office Website](https://github.com/baotlake/office-website) | Web | Self-hosted офисный пакет — документы, таблицы, презентации, PDF прямо в браузере | [![Stars](https://img.shields.io/github/stars/baotlake/office-website?style=flat)](https://github.com/baotlake/office-website) |
+| [MiroTalk P2P](https://p2p.mirotalk.com/) | Web / WebRTC | P2P-звонки в браузере — 4К видео, e2e-шифрование, передача файлов без лимитов, без регистрации | — |
+| [Viseron](https://github.com/roflcoopter/viseron) | Python / Docker | Умное видеонаблюдение с AI — запись только при событиях (человек/животное), всё локально, opensource | [![Stars](https://img.shields.io/github/stars/roflcoopter/viseron?style=flat)](https://github.com/roflcoopter/viseron) |
 
 **Eclipse Chat — планируемый стек:**
 ```
@@ -272,6 +339,51 @@ Frontend: React 19 · TypeScript · Vite · Tailwind CSS 4 · Zustand
 Файлы:    MinIO (self-hosted S3)
 Инфра:    Docker Compose · Caddy
 ```
+
+---
+
+## 🛡 Privacy / OPSEC
+
+> Инструменты и гайды для приватности, изоляции профилей и контроля цифрового следа. **Используем только в рамках закона и ToS площадок.**
+
+### Антидетект и изоляция
+
+| Ресурс | Стек | Описание | Звёзды |
+|--------|------|----------|--------|
+| [Donutbrowser](https://github.com/zhom/donutbrowser) | Chromium / Firefox | Опенсорс антидетект-браузер — изолированные профили (свой fingerprint, куки, плагины), e2e-облачная синхронизация, без телеметрии | [![Stars](https://img.shields.io/github/stars/zhom/donutbrowser?style=flat)](https://github.com/zhom/donutbrowser) |
+| [Shelter](https://f-droid.org/ru/packages/net.typeblog.shelter/) | Android | Песочница для приложений — клонирует Android-апп в изолированный work-профиль (изоляция от VPN, основного профиля) | — |
+| [Anubis](https://github.com/sogonov/anubis) | Android | VPN-страж: гарантирует, что российские приложения не запустятся пока активен VPN. [Habr-обзор](https://habr.com/ru/articles/1023352/) | [![Stars](https://img.shields.io/github/stars/sogonov/anubis?style=flat)](https://github.com/sogonov/anubis) |
+
+**iOS «Команды» VPN-trick** — авто-отключение VPN при открытии нужных приложений через Shortcuts → авто-включение при закрытии.
+
+### Email-алиасы и одноразовые контакты
+
+| Ресурс | Описание |
+|--------|----------|
+| [SimpleLogin](https://simplelogin.io/) | Email-алиасы — одноразовая почта на каждую регистрацию, при утечке просто удаляется |
+| [Hide My Email (Apple)](https://support.apple.com/en-us/HT210425) | Алиасы Apple — встроены в iCloud+, прячут реальный email |
+| [email-fake.com](https://email-fake.com/) | Временная почта (см. также «Тесты регистраций» в Подборке Eclipse) |
+
+### Гайды по чистке цифрового следа
+
+**7-step гайд** (источник: Telegram «Не баг, а фича», апрель 2026):
+1. **GetContact / Truecaller** — отписаться: Управление профилем → Скрыть данные / Unlist phone number
+2. **Google removal form** — «Запрос на удаление личной информации Google» по страницам с телефоном/адресом/почтой
+3. **Забытые аккаунты** — поиск в почте `подтвердите ваш email` / `verify email`, удалить ненужные
+4. **Утечки** — [haveibeenpwned.com](https://haveibeenpwned.com/) → проверить email на утечки, скомпрометированные пароли сменить
+5. **Слежка Google** — [myactivity.google.com](https://myactivity.google.com/) → Удалить всё → За всё время; отключить историю поиска / местоположения / YouTube
+6. **Старые посты** — Twitter/X через TweetDelete (авто >30 дней); VK История активности → фильтр по годам → удалить
+7. **Защита от будущих утечек** — SimpleLogin / Hide My Email, Brave (трекеры по умолчанию)
+
+---
+
+## 🖥️ Hardware & Workstation
+
+> Не AI, не automation — но полезное при сборке/апгрейде рабочих машин под Eclipse-нагрузку.
+
+| Ресурс | Описание |
+|--------|----------|
+| [BuildCores](https://www.buildcores.com/) | Конфигуратор ПК — 3000+ компонентов с проверкой совместимости, 3D-режим (вращать сборку), визуализация воздушных потоков для расстановки вентиляторов. Полезно при сборке workstation под локальные LLM / video-pipeline |
 
 ---
 
@@ -309,6 +421,18 @@ Frontend: React 19 · TypeScript · Vite · Tailwind CSS 4 · Zustand
 | **Книги** | Большая подборка книг по геймдеву — бесплатно |
 | **Ассеты** | Бесплатные спрайты, текстуры, модели |
 
+### Концепты и эмуляторы
+
+| Ресурс | Описание |
+|--------|----------|
+| [WenWare](https://wen-ware.com/) | GeoGuessr во времени — угадай место и год, реконструкция исторических панорам через GPT Image 2 (концепт-вдохновение) |
+| [vibesail](https://vibesail.com/lang/ru/) | Браузерный симулятор парусника на любой точке мира |
+| [javagames.cc](https://javagames.cc/) | Архив Java-игр кнопочных телефонов — графика 240×320 |
+| [play-cs.com](https://play-cs.com/) | CS 1.6 в браузере — десятки серверов |
+| [Flashpoint Archive](https://flashpointarchive.org/) | 170К Flash-игр — сохранённая эпоха 2020 |
+| [dos.zone](https://dos.zone/) | DOS-эмулятор: GTA Vice City, Half-Life, Doom, HoMM3, Duke Nukem 3D, UT99 |
+| [segazona.ru](https://segazona.ru/) | Эмулятор Sega Mega Drive 2 в браузере |
+
 ---
 
 ## 🎓 Обучение IT (бесплатно)
@@ -331,6 +455,8 @@ Frontend: React 19 · TypeScript · Vite · Tailwind CSS 4 · Zustand
 | [TryHackMe](https://tryhackme.com) | Кибербезопасность | Геймифицированное обуче��ие этичному взлому с реальными симуляциями |
 | [Linux Journey](https://linuxjourney.com) | Linux | Пошаговый маршрут от нуля до уверенного администрирования |
 | [CryptoZombies](https://cryptozombies.io) | Web3 / Solidity | Смарт-контракты через геймификацию — собираешь армию зомби |
+| [everything-ai-ml](https://github.com/viveknaskar/everything-ai-ml) | AI / ML карьера | Курсы, статьи, роадмапы, собесы, агенты, бизнес-кейсы — разветвлённая база | [![Stars](https://img.shields.io/github/stars/viveknaskar/everything-ai-ml?style=flat)](https://github.com/viveknaskar/everything-ai-ml) |
+| [engoo](http://engoo.com/) | Языки | Изучение английского / японского / китайского по новостям. Уровни A1+, тренажёры с диалогами и грамматикой |
 
 ---
 
@@ -384,6 +510,109 @@ Frontend: React 19 · TypeScript · Vite · Tailwind CSS 4 · Zustand
 | Теория вероятностей и статистика | [YouTube](https://www.youtube.com/playlist?list=PLl8XY7QVSa4aUyZAtL2Hlf_mx3LaSix9B) |
 
 ---
+
+## 📥 Подборка Eclipse (апрель 2026)
+
+> Сводка находок (в т.ч. [Telegram: Не баг, а фича](https://t.me/bugnotfeature)) — детали частично дублируют строки в [SEO & Маркетинг](#-seo--маркетинг), [Оркестрация и агенты](#оркестрация-и-агенты) и [Обучение IT](#-обучение-it-бесплатно).
+
+### Skills, маркетинг, агенты
+
+| Ресурс | Описание |
+|--------|----------|
+| [ai-marketing-skills](https://github.com/ericosiu/ai-marketing-skills) | Скиллы под маркетолога / таргет / SMM / контент в Claude Code |
+| [claude-skills (230+)](https://github.com/alirezarezvani/claude-skills) | Каталог по категориям; см. также таблицу «Оркестрация и агенты» выше |
+| [Kimi K2.6](https://www.kimi.com/) | Долгие сессии, много tool-calls, Agent Swarm — проверяйте актуальные условия и API |
+| [DeepSeek — чат](https://chat.deepseek.com/) | V4 Pro / Flash, длинный контекст (уточняйте цены и лимиты) |
+
+### Модели для локального запуска (GGUF, Ollama, LM Studio, Colab)
+
+| Ресурс | Описание |
+|--------|----------|
+| [Qwen3.6-35B Opus-style reasoning (GGUF)](https://huggingface.co/hesamation/Qwen3.6-35B-A3B-Claude-4.6-Opus-Reasoning-Distilled-GGUF) | Дистилляция под reasoning; Ollama / LM Studio; качество оценивайте сами |
+| [Qwen3.6-Max-Preview](https://chat.qwen.ai/) | Облачный чат Alibaba — код и длинный контекст |
+
+### Дизайн-спеки для агентов
+
+| Ресурс | Описание |
+|--------|----------|
+| [design.md (Google Labs)](https://github.com/google-labs-code/design.md) | Формат DESIGN.md, чтобы агент собирал UI по спецификации |
+| [designdotmd.directory](http://designdotmd.directory/) | Каталог стилей и примеров под `design.md` |
+| [neuform.ai](https://neuform.ai/) | 400+ DESIGN.md шаблонов с UI-дизайнами — копируй промпт под секцию/блок/анимацию |
+
+### Медиа, 3D, монтаж, транскрипция
+
+| Ресурс | Тип | Описание |
+|--------|------|----------|
+| [Edit-Banana](https://github.com/BIT-DataLab/Edit-Banana) | GitHub | Правка текста на картинках, таблицы, экспорт в Drawio / SVG / PPT; [веб](https://editbanana.anxin6.cn/app) |
+| [Modly](https://github.com/lightningpixel/modly) | GitHub | Фото → 3D, локальный запуск |
+| [OpenShorts](https://github.com/mutonby/openshorts) | GitHub | Рилзы из длинного видео, сабы, 9:16, сценарий, озвучка |
+| [Buzz](https://github.com/chidiwilliams/buzz) | GitHub | Транскрипция (Whisper), офлайн, шумодав, real-time |
+| [Dreamina](https://dreamina.capcut.com/) | Web | Картинки / видео / музыка (ByteDance) — внешний сервис |
+| [Blender Buddy](https://superhivemarket.com/products/blenderbuddy) | Add-on | Помощник в Blender, контекст сцены, локально |
+
+### Тесты регистраций, приватность, хостинг
+
+| Ресурс | Описание |
+|--------|----------|
+| [email-fake.com](https://email-fake.com/) | Временная почта для OTP при e2e и сомнительных регистрациях |
+| **Receive-SMS (тесты)** | [SMSCodeOnline](https://smscodeonline.com/) · [receive-sms-online](https://www.receive-sms-online.info/) · [mianfeijiema](https://mianfeijiema.com/) · [us-phone-number](https://us-phone-number.com/) · [sms24](https://www.sms24.me/) · [receive-sms](https://receive-sms.cc/) · [tempsmss](https://tempsmss.com/) — только **в рамках ToS площадок и применимого права** |
+| [WispByte](https://wispbyte.com/) | Бесплатный зарубежный хостинг (реклама, мало RAM/диска) — пет-проекты, боты |
+
+**Про бесплатные форки с обходом оплаты API** (например, публичные *free-claude-code*): юридические и ToS-риски; для продуктивной работы разумнее официальные клиенты, OpenRouter, Ollama и т.д.
+
+### Языки, EdTech (вне репозиториев кода)
+
+| Ресурс | Описание |
+|--------|----------|
+| [AO3 Reader (Android)](https://play.google.com/store/apps/details?id=com.katkrasner.ao3_reader) | Чтение с AO3, слова в словарь, карточки; iOS в планах у авторов |
+
+**С оговорками:** сервисы вроде [humanizer.org](https://humanizer.org/ru) — пересекаются с политикой академической честности. Онлайн-скрининги здоровья (в т.ч. RAADS-R) не заменяют специалиста.
+
+---
+
+## 📥 Подборка Eclipse (май 2026)
+
+> Новые находки, которые полезны как R&D-база, дизайн-референсы и вспомогательные пайплайны. Сюда не включены сомнительные вещи с ToS/юридическими рисками вроде hacked API, обходов лимитов и серых форков.
+
+### AI, навыки, ресёрч
+
+| Ресурс | Описание |
+|--------|----------|
+| [caveman](https://github.com/JuliusBrussee/caveman) | Сжатие ответов и экономия токенов для AI-агентов — полезно для cost-control, agent loops и долгих сессий |
+| [Autoskill](https://github.com/midudev/autoskills) | Автоподбор skills под проект — сканирует кодовую базу и подтягивает подходящие способности из curated-реестра |
+| [Local Deep Research](https://github.com/LearningCircuit/local-deep-research) | Локальный research-агент: PubMed / arXiv / PDF / книги, проверка качества источников, отчёт в PDF/Markdown |
+
+### Дизайн и UI для агентов
+
+| Ресурс | Описание |
+|--------|----------|
+| [Design MD Generator](https://www.figma.com/community/plugin/1612814320994608244/design-md-generator) | Плагин Figma → DESIGN.md / SKILL.md для передачи полного визуального контекста AI-агентам |
+| [Open Design](https://github.com/nexu-io/open-design) | Open-source набор DESIGN.md-шаблонов, skills и визуальных стилей для AI-first интерфейсов |
+| [Refero Styles](https://styles.refero.design/) | 2000+ UI-стилей и design-файлов как база для визуальных референсов и direction-setting |
+| [thesvg](https://github.com/glincker/thesvg) | Большая библиотека SVG-иконок и логотипов с API/CDN/React-пакетами |
+| [LazyWeb](https://www.lazyweb.com/) | 250К+ скринов реальных приложений, поиск похожих UI-паттернов, генерация интерфейса по запросу, MCP-подключение к Claude / Cursor. Reference-кладовая для design-pipeline и UI-research |
+
+### Медиа, аватары, монтаж
+
+| Ресурс | Тип | Описание |
+|--------|------|----------|
+| [video-use](https://github.com/browser-use/video-use) | GitHub | Агентный видеомонтаж: чистка пауз, субтитры, цветокор, работа по папке с сырьём, память в `project.md` |
+| [PrunaAI p-video-avatar](https://replicate.com/prunaai/p-video-avatar) | Web / API | Генерация видео-аватара из фото и аудио — полезно для talking avatars, NPC и медиапрезентаций |
+| [AdventureGen AI Upscaler](https://www.adventuregen.ai/dashboard/upscaler) | Web | Апскейл изображений и восстановление деталей — пригодится для артов, скриншотов, портретов и карт |
+
+### Утилиты и проверки
+
+| Ресурс | Описание |
+|--------|----------|
+| [AI File Sorter](https://github.com/hyperfield/ai-file-sorter) | Поиск, сортировка, переименование и группировка файлов по содержимому; есть preview перед действиями |
+| [WhatIsMyIPAddress Security Check](https://whatismy-ipaddress.com/learn-more-security.html#term-privacy) | Проверка IP, DNS, WebRTC, fingerprint, blacklist и утечек — полезно для privacy/QA-сценариев |
+| [OpenPostings](https://github.com/Masterjx9/OpenPostings) | Парсер и агрегатор вакансий — интересен как reference для data ingestion и large-scale job scraping |
+
+### GameDev / DnD inspiration
+
+| Ресурс | Описание |
+|--------|----------|
+| [Unity AI](https://unity.com/features/ai?utm_campaign=unity-ai-beta) | Генерация сцен, ассетов и AI-помощник внутри Unity — референс для AI-assisted worldbuilding и scene pipelines |
 
 ## 📦 Наши проекты
 
