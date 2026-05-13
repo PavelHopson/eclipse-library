@@ -101,6 +101,14 @@
 | [HY-World 2.0](https://github.com/Tencent-Hunyuan/HY-World-2.0) | Tencent — 3D миры за один клик из промпта/фото/видео, экспорт в Unreal/Unity, интерактивная физика | [![Stars](https://img.shields.io/github/stars/Tencent-Hunyuan/HY-World-2.0?style=flat)](https://github.com/Tencent-Hunyuan/HY-World-2.0) |
 | [CADAM](https://github.com/Adam-CAD/CADAM) | 3D-моделирование по тексту/картинке — экспорт STL/SCAD, локально, опенсорс | [![Stars](https://img.shields.io/github/stars/Adam-CAD/CADAM?style=flat)](https://github.com/Adam-CAD/CADAM) |
 
+### Uncensored generative models (high-risk)
+
+> 🚨 **Высокий риск злоупотребления.** Эти модели идут на HuggingFace с маркетинговой подачей «без цензуры» — то есть safety-фильтры намеренно сняты. Возможные вектора злоупотребления: **non-consensual deepfakes**, **NSFW без согласия моделируемого лица**, **CSAM** (при определённых датасетах и промптах). HuggingFace такие модели иногда снимает по abuse-report — ссылка может отвалиться. **Не использовать** в продуктах для публичного релиза (Star CRM, Eclipse AI Hub, eclipse-chat, eclipse-dnd-forge, любой клиентский deliverable). Допустимая зона — закрытый R&D, fantasy-сцены без узнаваемых лиц, тесты ограничений генеративных пайплайнов. Для legit video-gen задач в наших продуктах есть [HY-World 2.0](#видеопродакшн-и-vfx) выше и open-source альтернативы вне «uncensored» позиционирования (Hunyuan Video, Mochi-1, CogVideoX, LTX-Video — добавим при первом реальном продуктовом use-case).
+
+| Модель | Описание |
+|--------|----------|
+| [Sulphur-2-base](https://huggingface.co/SulphurAI/Sulphur-2-base) | Open-weights text-to-video / image-to-video без safety-фильтров. Локальный запуск + ComfyUI-интеграция. **Карантин:** только closed-R&D без распознаваемых лиц / детских образов. Любое использование с лицами реальных людей требует их письменного согласия (deepfake-законодательство в РФ, EU AI Act, US state laws) |
+
 ### Презентации и документы
 
 | Проект | Описание | Звёзды |
@@ -268,8 +276,14 @@ ai-setup reverse owner/repo --stdout
 | [AB Download Manager](https://abdownloadmanager.com/) | Multi-platform | Менеджер загрузок: одновременные потоки, планировщик, авто-сортировка по папкам, Android | — |
 | [hackingtool](https://github.com/Z4nzu/hackingtool) | Python | 185 инструментов пентеста — OSINT, веб-аудит, Wi-Fi, реверс. **Только для своих систем, в обучающих целях** | [![Stars](https://img.shields.io/github/stars/Z4nzu/hackingtool?style=flat)](https://github.com/Z4nzu/hackingtool) |
 | [GTweak](https://github.com/Greedeks/GTweak) | C# / WPF | Windows-комбайн: debloat (OneDrive / Edge / Copilot / Recall / UWP-апы), блокировка телеметрии (MS / NVIDIA / Intel), отключение служб, темы. **С оговоркой:** содержит HWID/KMS-активацию (нарушение Microsoft EULA) и опции выключения Defender/SmartScreen/UAC (ослабление защиты) — **эти модули не используем**, только debloat / privacy. Альтернативы без активаторов — Win11Debloat / privacy.sexy | [![Stars](https://img.shields.io/github/stars/Greedeks/GTweak?style=flat)](https://github.com/Greedeks/GTweak) |
+| [CloakBrowser](https://github.com/CloakHQ/CloakBrowser) | Python / Chromium | Антидетект-браузер на пропатченном Chromium: реалистичный TLS, прохождение reCAPTCHA v3 (~0.9), Cloudflare Turnstile, drop-in под Playwright. **С оговоркой:** инструмент по дизайну обходит антибот-защиту чужих сайтов, что нарушает их ToS (Cloudflare / Google) и в ряде юрисдикций сближается с CFAA-составами. Допустимые сценарии: тестирование собственных сайтов; автоматизация **собственных авторизованных** аккаунтов на маркетплейсах (Star CRM use-case: валидный токен селлера + сайт с антибот-слоем). **Не для** скрапинга чужих защищённых данных, mass-registration, обхода ATS / CAPTCHA на платформах без собственной авторизации | [![Stars](https://img.shields.io/github/stars/CloakHQ/CloakBrowser?style=flat)](https://github.com/CloakHQ/CloakBrowser) |
 | [TorBot](https://github.com/DedSecInside/TorBot) | Python | OSINT-бот для onion-сегмента — карта переходов, проверка живости, JSON-экспорт. **Только для легальных pentest-сценариев** | [![Stars](https://img.shields.io/github/stars/DedSecInside/TorBot?style=flat)](https://github.com/DedSecInside/TorBot) |
 | [awesome-free-apps](https://github.com/Axorax/awesome-free-apps) | Каталог | Бесплатный софт по категориям (видео, фото, музыка, игры, утилиты) для всех ОС | [![Stars](https://img.shields.io/github/stars/Axorax/awesome-free-apps?style=flat)](https://github.com/Axorax/awesome-free-apps) |
+
+**CloakBrowser — integration points в наших проектах** (только в допустимых сценариях из дисклеймера):
+- **Eclipse Claw** — antibot-обход как опциональный backend поверх Playwright-пути; полезно когда целевые сайты для собственной валидной автоматизации добавили Turnstile.
+- **Star CRM AutoReply** — продакшн-кейс: валидные WB / Ozon токены продавца, но маркетплейсы катят антибот-слой даже на авторизованные сессии. Собственный токен + собственный аккаунт + оплаченные API-операции = legit-зона.
+- **Eclipse-webclaw / Lead-Sniper** — web-scraping с явным ToS-claim'ом со своей стороны (договорной парсинг, открытые источники).
 
 ---
 
