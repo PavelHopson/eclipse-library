@@ -26,6 +26,7 @@
 - [📥 Подборка Eclipse (апрель 2026)](#-подборка-eclipse-апрель-2026)
 - [📥 Подборка Eclipse (май 2026)](#-подборка-eclipse-май-2026)
 - [📥 Подборка Eclipse (27.05.2026)](#-подборка-eclipse-27052026)
+- [📥 Подборка Eclipse (28.05–05.06.2026)](#-подборка-eclipse-280505062026)
 - [📦 Наши проекты](#-наши-проекты)
 
 ---
@@ -756,6 +757,164 @@ Frontend: React 19 · TypeScript · Vite · Tailwind CSS 4 · Zustand
 | **Anti-AI-Text 6 prompts** | Eclipse AI Hub Copywriter · Star CRM AutoReply · Eclipse Chat AI bot personality | Add as preprocessing step → user text → Lyra Optimizer → Anti-AI-text chain → output |
 | **Google AI Studio Apps** | Smart-Fitness-Booking-Agent prototype · Educator-AI MVP · любой mobile-first concept | Rapid prototyping only — production остаётся Tauri/Capacitor |
 | **100-free-OSS-repos** | Reference библиотека | Периодически listать на новые tools |
+
+---
+
+## 📥 Подборка Eclipse (28.05–05.06.2026)
+
+> Недельный дроп Telegram-каналов «Не баг, а фича» / «PushEnter» (28.05–05.06).
+> ~33 находки; после верификации провенанса (часть репо хайп-канал переврал
+> или перезалил) оставлено ядро по разделам ниже + сводка применимости в
+> [наши проекты](#-наши-проекты). Маркетинговые гиперболы помечены, пиратское
+> и закрыто-серое — в карантине внизу.
+
+### Claude Code — security & skill-governance
+
+| Ресурс | Описание | Stars |
+|---|---|---|
+| [Security Guidance (Anthropic, официальный)](https://code.claude.com/docs/en/security-guidance) | **Бесплатный** plugin в составе [anthropics/claude-code](https://github.com/anthropics/claude-code/tree/main/plugins/security-guidance): pre-tool hook перехватывает Write/Edit/MultiEdit и ловит 25 опасных паттернов в 8 категориях (command injection в GitHub Actions, `child_process.exec`, `eval`/`new Function`, `dangerouslySetInnerHTML`/`innerHTML` XSS, Python `pickle`, `os.system`). 3 уровня ревью (inline → анализ → подтверждение на коммите). У Anthropic −30–40% security-комментов на PR. **Ставим сразу** во все наши Claude Code workflow | — |
+| [NVIDIA/skills](https://github.com/NVIDIA/skills) | Каталог из 110 **верифицированных** скиллов по 24 продуктам: каждый перед попаданием прогоняется через SkillSpector + криптоподпись (OpenSSF Model Signing) + machine-readable skill cards. Решает ровно ту боль, что у нас с community-каталогами (754 кибербез-скилла, 1700+ openclaw) — «проверять каждый skill» | [![Stars](https://img.shields.io/github/stars/NVIDIA/skills?style=flat)](https://github.com/NVIDIA/skills) |
+| [NVIDIA/SkillSpector](https://github.com/NVIDIA/SkillSpector) | Сам сканер (open-source): 64 паттерна уязвимостей в 16 категориях — vulnerable deps, suspicious scripts, credential access, data exfiltration + agent-native (hidden instructions, prompt injection, tool poisoning, excessive agency, mismatch declared-purpose↔access). 2 стадии: быстрый static → опциональный LLM-семантический разбор. **Гоняем по ЛЮБЫМ скиллам**, в т.ч. своим и из community-каталогов перед install | [![Stars](https://img.shields.io/github/stars/NVIDIA/SkillSpector?style=flat)](https://github.com/NVIDIA/SkillSpector) |
+| [ECC — Everything Claude Code](https://github.com/affaan-m/ECC) | Сетап победителя хакатона Anthropic (Affaan Mustafa), 10 мес работы, ~160K+ stars: **249 скиллов · 63 сабагента · 79 слеш-команд · 14 MCP-конфигов · trigger-автоматизации · Continuous Learning** (замечает паттерны → пишет скиллы). Запускается в Claude Code / Cursor / OpenCode / Codex из одного конфига. Числа из ТГ (183/48/69) устарели — репо растёт | [![Stars](https://img.shields.io/github/stars/affaan-m/ECC?style=flat)](https://github.com/affaan-m/ECC) |
+| [AgentShield (часть ECC)](https://github.com/affaan-m/agentshield) | Отдельный security-аудитор из ECC: сканит `.claude/` на уязвимости, prompt injection, config drift, guardrail gaps. Red-team/blue-team/auditor pipeline на Opus 4.6, 102 static rules, 1282 теста (98% coverage). CLI / GitHub Action / ECC-plugin / GitHub App. **Прямой конкурент-дополнение** к нашему `/ultrareview` и NVIDIA SkillSpector | [![Stars](https://img.shields.io/github/stars/affaan-m/agentshield?style=flat)](https://github.com/affaan-m/agentshield) |
+
+### Claude Code — мега-стек оркестрации (single drop)
+
+> Pavel-каталог «гигантский стек для Claude Code». Распределение по нишам
+> (дополняет наши [oh-my-claudecode](https://github.com/PavelHopson/oh-my-claudecode),
+> [Auto Claude](#оркестрация-и-агенты), [everything-claude-code](#оркестрация-и-агенты)):
+
+| Проект | Ниша | Stars |
+|---|---|---|
+| [Claude Flow (ruvnet)](https://github.com/ruvnet/claude-flow) | 100+ агентов и навыков, hive-mind оркестрация, swarm-режимы. Самый «тяжёлый» из стека | [![Stars](https://img.shields.io/github/stars/ruvnet/claude-flow?style=flat)](https://github.com/ruvnet/claude-flow) |
+| [SuperClaude Framework](https://github.com/SuperClaude-Org/SuperClaude_Framework) | «Команда разработчиков» — роли + команды + персоны поверх Claude Code | [![Stars](https://img.shields.io/github/stars/SuperClaude-Org/SuperClaude_Framework?style=flat)](https://github.com/SuperClaude-Org/SuperClaude_Framework) |
+| [Claude Code Router (musistudio)](https://github.com/musistudio/claude-code-router) | Роутинг Claude Code на другие модели/провайдеры (OpenRouter, локальные). Мастхэв когда нужен не-Anthropic бэкенд | [![Stars](https://img.shields.io/github/stars/musistudio/claude-code-router?style=flat)](https://github.com/musistudio/claude-code-router) |
+| [CCPlugins](https://github.com/brennercruvinel/CCPlugins) | Готовые команды/плагины под рутину (cleanup, review, refactor) — экономия часов | [![Stars](https://img.shields.io/github/stars/brennercruvinel/CCPlugins?style=flat)](https://github.com/brennercruvinel/CCPlugins) |
+| [Claude Code Action (Anthropic)](https://github.com/anthropics/claude-code-action) | Официальный GitHub Action — Claude в CI/PR (ревью, фиксы по комментам). **Реальный кандидат** в наши репозитории на CI-gate | [![Stars](https://img.shields.io/github/stars/anthropics/claude-code-action?style=flat)](https://github.com/anthropics/claude-code-action) |
+| [Claude Squad (smtg-ai)](https://github.com/smtg-ai/claude-squad) | TUI для управления несколькими агентами параллельно (git worktrees, как наш Maestro-кейс) | [![Stars](https://img.shields.io/github/stars/smtg-ai/claude-squad?style=flat)](https://github.com/smtg-ai/claude-squad) |
+| [Claude Code Templates (davila7)](https://github.com/davila7/claude-code-templates) | Шаблоны `.claude/` конфигов под стеки/задачи — быстрый bootstrap новых проектов | [![Stars](https://img.shields.io/github/stars/davila7/claude-code-templates?style=flat)](https://github.com/davila7/claude-code-templates) |
+| [Agentic Project Management](https://github.com/sdi2200262/agentic-project-management) | Превращает Claude Code в PM — раздаёт задачи остальным агентам, ведёт roadmap | [![Stars](https://img.shields.io/github/stars/sdi2200262/agentic-project-management?style=flat)](https://github.com/sdi2200262/agentic-project-management) |
+
+**Выбор под задачу:** не-Anthropic бэкенд → **Claude Code Router**; CI/PR-автоматизация → **Claude Code Action**; параллельные агенты → **Claude Squad**; bootstrap → **Templates**; тяжёлая оркестрация → **Claude Flow**. Не ставить всё разом — конфликты команд/хуков с уже стоящим `oh-my-claudecode`.
+
+### Память для агентов
+
+| Ресурс | Описание | Stars |
+|---|---|---|
+| [agentmemory (rohitg00)](https://github.com/rohitg00/agentmemory) | «#1 persistent memory» для кодинг-агентов: тихо пишет действия → сжимает в searchable память → инжектит контекст в начале новой сессии. MCP-сервер на 53 tools, 6 lifecycle-хуков (SessionStart/PreToolUse/PreCompact/Stop…), 8 скиллов (`/recall`, `/remember`, `/handoff`, `/recap`…), knowledge-graph + health dashboard. Подключается к Claude Code / Cursor / Gemini CLI / Codex / Hermes / OpenClaw / pi / OpenCode. **Гипербола канала «−95% токенов, в 20× дешевле» — маркетинг**, реальный выигрыш зависит от задачи. Пересекается с нашей file-based памятью и [Memory LanceDB](#openclaw-экосистема)/[MemOS](#openclaw-экосистема) — оценить, не плодит ли дубль | [![Stars](https://img.shields.io/github/stars/rohitg00/agentmemory?style=flat)](https://github.com/rohitg00/agentmemory) |
+
+### AI-воркспейсы и автономные агенты
+
+| Ресурс | Описание | Stars |
+|---|---|---|
+| [Odysseus (PewDiePie)](https://github.com/pewdiepie-archdaemon/odysseus) | Self-hosted AI-воркспейс: чат + автономные агенты (bash/files/web/memory + любой MCP), serving 270+ моделей в один клик, hardware-aware рекомендации, редактор документов, long-term память, работа с телефона/офлайн. Local-first, no telemetry, Python 3.11+. **Прямой reference/конкурент** для [Eclipse AI Hub](#-наши-проекты) — посмотреть архитектуру model-serving и MCP-слоя. Маркетинг «закопал ChatGPT» — гипербола | [![Stars](https://img.shields.io/github/stars/pewdiepie-archdaemon/odysseus?style=flat)](https://github.com/pewdiepie-archdaemon/odysseus) |
+| [Hermes Agent (Nous Research)](https://github.com/nousresearch/hermes-agent) | Самый быстрорастущий OSS-агент 2026 (~180K stars): теперь **desktop-приложение** (Mac/Win) поверх общего ядра — та же память/скиллы/сессии из CLI и GUI. Запуск в Docker/Modal/SSH, голосовой режим, GEPA self-improvement loop (агент дорабатывает себя по ходу). **Канал давал `hermes-ai.net` — официальное это `nousresearch/hermes-agent`.** Reference для [Eclipse Hopson Sentinel](#-наши-проекты) (локальный AI-оператор + память + голос — та же ниша) | [![Stars](https://img.shields.io/github/stars/nousresearch/hermes-agent?style=flat)](https://github.com/nousresearch/hermes-agent) |
+
+### Локальный запуск больших моделей
+
+| Ресурс | Описание | Stars |
+|---|---|---|
+| [AirLLM](https://github.com/lyogavin/airllm) | Послойный инференс: гоняет 70B–405B модели на GPU от 4 ГБ (грузит слои по очереди, не всю модель). Любые HF-модели, все форматы. **Важная оговорка:** «405B летает на 4 ГБ» вводит в заблуждение — это размен памяти на **скорость** (диск↔GPU своп каждый слой → медленно, не realtime). Юзкейс: разовый batch-inference больших моделей на слабом железе, а не интерактив. Для Hopson Sentinel / Eclipse AI Hub local — нишево | [![Stars](https://img.shields.io/github/stars/lyogavin/airllm?style=flat)](https://github.com/lyogavin/airllm) |
+
+### Голос / TTS (для Hopson Sentinel · Eclipse Chat voice)
+
+| Ресурс | Стек | Описание |
+|---|---|---|
+| [GPT-SoVITS (RVC-Boss)](https://github.com/RVC-Boss/GPT-SoVITS) | Python / WebUI / Local | Few-shot клон голоса: 5–10 сек → zero-shot, 1 мин → fine-tune. Кросс-лингвальный (RU↔ZH↔EN↔JP↔KO), сохраняет тембр/паузы/эмоции, локально. **Провенанс:** канал давал перезалив `huggingface.co/fuckSelf/GPT-SoVITS-Russian` — берём **upstream RVC-Boss** (реуплоады со случайными именами = риск подменённых весов). Сильнейший RU-вариант на свой хост; дополняет уже залистанные [CosyVoice 3](#-media--download) / [MOSS-TTS-Nano](#-media--download) / [Supertonic 3](#-media--download) |
+| [MisoTTS 8B (MisoLabs)](https://github.com/MisoLabsAI/MisoTTS) | Python / Local | 8B эмотивный TTS (RVQ Transformer на Llama-3.2 + Sesame CSM), one-shot клон с ~10 сек, латентность 110 мс, modified MIT. Под аудиокниги/озвучки/подкасты. **Только английский** на 28.05–05.06 → для RU остаётся GPT-SoVITS / CosyVoice. На радар как самый «человечный» по эмоциям ([HF demo](https://huggingface.co/MisoLabs/MisoTTS)) |
+
+### Генерация изображений
+
+| Ресурс | Описание |
+|---|---|
+| [Reve 2.0](https://app.reve.com/) | Layout-based генератор: представляет картинку как **код/слои** (у каждого элемента позиция+размер+описание) → каждый элемент addressable и редактируется отдельно. #2 на Text-to-Image Arena (03.06, 1280 — обошёл Nano Banana, уступил GPT Image 2), 4K/16MP под печать, ~$0.0067/img. **Закрытый SaaS** (не локально). Differentiator vs Nano Banana — точное редактирование композиции и текста. Кандидат в [Shotforge](#-наши-проекты) / [Text2Image](#-наши-проекты) / Eclipse AI Hub Image Studio / карточки Star CRM (где важна правка отдельных зон) |
+
+### Media-промпты и enhancers
+
+| Ресурс | Описание | Stars |
+|---|---|---|
+| [awesome-video-prompts](https://github.com/songguoxs/awesome-video-prompts) | Большая коллекция промптов для Veo 3.1 / SeeDance 2 / Kling и др.: реклама, LEGO, аниме-баттлы — с разбором света/камеры/движения/звука/реплик и видео-примером на каждый. Промпты EN, описания CN. Для [Shotforge](#-наши-проекты) image→video, StreamForge-AI, маркетинг-роликов | [![Stars](https://img.shields.io/github/stars/songguoxs/awesome-video-prompts?style=flat)](https://github.com/songguoxs/awesome-video-prompts) |
+| [Gemini Voyager (Nagi-ovo)](https://github.com/Nagi-ovo/gemini-voyager) | Браузер-расширение, прокачка Gemini-веба: фикс рендера Markdown/диаграмм, экспорт чатов в PDF/MD/JSON, выгрузка reasoning из Deep Research, избранное промптов, навигация/содержание, синхронизация папок через Drive, удаление вотермарок (Nano Banana). **С оговоркой:** удаление вотермарок — grey; sync через Drive = расширение видит контент. Полезно тем, кто гоняет Gemini-модули | [![Stars](https://img.shields.io/github/stars/Nagi-ovo/gemini-voyager?style=flat)](https://github.com/Nagi-ovo/gemini-voyager) |
+
+### Dev-утилиты
+
+| Ресурс | Стек | Описание |
+|---|---|---|
+| [browserytools (aghyad97)](https://github.com/aghyad97/browserytools) | Web / Local | 130+ браузерных утилит без облака: PDF/ZIP/CSV-Excel, конвертеры, сжатие картинок, формат кода, аудио, запись экрана, текст, date/math. Всё клиент-сайд (приватно, работает на рабочей машине без установки софта). Дополняет уже залистанный [Office Website](#-self-hosted-платформы); годится как reference для собственного self-hosted utility-набора | [![Stars](https://img.shields.io/github/stars/aghyad97/browserytools?style=flat)](https://github.com/aghyad97/browserytools) |
+| [LocalSend Web](https://web.localsend.org/) | Web | Браузерная версия уже залистанного [LocalSend](#️-dev-tools--cli) — передача файлов любого размера между устройствами в одной Wi-Fi-сети без установки приложения. Удобно для разовых передач на чужой/новый машине |
+
+### Privacy / OPSEC
+
+| Ресурс | Описание |
+|---|---|
+| [Burner Emails / burnermail.io](https://burnermail.io/) | Расширение Chrome: генерит одноразовые адреса, письма форвардятся на реальную почту (email-прокси), любой алиас отключается от спама. Та же ниша, что уже залистанные [SimpleLogin](#email-алиасы-и-одноразовые-контакты) / Hide My Email — **SimpleLogin предпочтительнее** (open-source, можно self-host); burnermail — закрытый SaaS (видит метаданные форвардинга), для не-критичных регистраций |
+| [OSINT-библиотека (1387 парсеров)](https://osint.juanmathewsrebellosantos.com/) | 1387 OSINT-инструментов в 52 категориях с поиском: парсеры соцсетей/Telegram, поисковики утечек/метаданных, сетевые анализаторы. **⚠️ Grey/высокий риск:** среди категорий — «пробив» (people-search/деанон), что в РФ-контексте незаконно (152-ФЗ о перс. данных). Допустимо только: legit OSINT по **открытым** источникам, авторизованный pentest, проверка собственного цифрового следа (как наш [7-step гайд](#гайды-по-чистке-цифрового-следа)). **Не для** деанона физлиц / mass-сбора ПДн. Та же планка, что [hackingtool](#️-dev-tools--cli) / [TorBot](#️-dev-tools--cli) |
+
+### Meta-каталоги
+
+| Ресурс | Описание |
+|---|---|
+| [TrendShift](https://trendshift.io/) | Агрегатор трендов GitHub: срезы за день/неделю/месяц, живая лента из Twitter, поиск по темам (AI agent / RAG / MCP), топы кодинг-ассистентов и скиллов. **Прямой инструмент для пополнения этой библиотеки** — периодический skim, как [100-free-OSS-repos](#meta-каталоги). Ловит годноту до того, как её разнесут хайп-каналы |
+
+### Промпт-коллекции
+
+| Ресурс | Описание |
+|---|---|
+| [Skeptical Verifier](prompts/skeptical-verifier.md) | System-промпт против sycophancy: модель перепроверяет каждое утверждение, явно помечает неопределённость, не подмахивает «ты прав». Для Eclipse AI Hub (Code Review/RAG/Security), Hopson Sentinel, CryptoPulse. Комплемент к [Lyra](prompts/lyra-prompt-optimizer.md) |
+| [Feedback Protocols — 6 промптов](prompts/feedback-protocols-6.md) | Управление диалогом: сбор контекста до ответа, анти-«угадайка», лаконичность, стоп-краны «Дум-Дум» / «Подожди, блин». Ловят главную проблему долгих агентных сессий — агент понёсся не туда. Дополняет [skeptical-verifier](prompts/skeptical-verifier.md) |
+| [Resume Toolkit — 7 промптов](prompts/resume-toolkit-7.md) | Полный путь найма: аудит резюме → ATS-обход → опыт в результаты → summary → адаптация → сопроводительное → STAR-симулятор. Связка с [job-ops](#-seo--маркетинг) + пресеты в Eclipse AI Hub Copywriter |
+
+> **Дубли / не добавлены отдельно:** «4 промпта для презентаций» из дропа 04.06 — подмножество уже залистанных [9 промптов для презентаций](#промпт-коллекции) (Eclipse AI Hub Copywriter). Академический «humanizer для диплома» — тот же класс, что [Humanize Rewriter](prompts/humanize-rewriter.md) / [Anti-AI-Text](prompts/anti-ai-text-6-prompts.md), но с прямой рамкой «обход AI-детектора для курсовой» → **не листаем** (наша планка: операторские/контент-задачи, не academic-обход).
+
+### Возможности доступа
+
+| Ресурс | Описание |
+|---|---|
+| [Codex for OSS (OpenAI)](https://openai.com/form/codex-for-oss/) | OpenAI раздаёт ChatGPT Pro + Codex + GPT-5.5 Pro + API-кредиты + Codex Security на ~полгода для open-source проектов (заявка: ссылка на репо, звёзды/загрузки, как ИИ поможет). **Актуально для нас** — у `PavelHopson` куча OSS-репозиториев (eclipse-library, eclipse-chat, eclipse-media, oh-my-claudecode, shotforge…). Низкий риск, прямая выгода — стоит подать на самый заметный репо |
+
+### Feature-инспирация (не репозиторий)
+
+| Источник | Идея для нашего продукта |
+|---|---|
+| Discord — пространственный звук | **Eclipse Chat voice-каналы:** spatial audio (слышишь тиммейта «из его точки в комнате») — настройка размера помещения, позиций и дистанции. Дифференциатор vs голый WebRTC-микс; реализуемо через WebAudio `PannerNode` (HRTF) поверх Socket.io-сигналинга. В бэклог voice-фич рядом с [баннер-identity](https://github.com/PavelHopson/eclipse-chat) |
+
+### Mapping → наши проекты
+
+> Где находки 28.05–05.06 реально применяются:
+
+| Tool | Project(s) | Integration pattern |
+|---|---|---|
+| **Security Guidance (Anthropic)** | Все Claude Code workflow · Star CRM build · Eclipse AI Hub Security · Hopson Sentinel | `/plugin install` → pre-tool hook авто-ловит vuln-паттерны при Write/Edit. Ставим первым |
+| **NVIDIA/skills + SkillSpector** | Eclipse AI Hub Security · Hopson Sentinel · любой skill-install | SkillSpector как gate перед подключением community-скиллов (754-кибербез, 1700+ openclaw); skills как trusted-источник |
+| **ECC + AgentShield** | oh-my-claudecode (сравнить/cherry-pick) · CI-аудит `.claude/` | AgentShield в CI на репозитории с `.claude/`; из ECC брать скиллы точечно, не весь конфиг (конфликт с OMC) |
+| **Claude Code мега-стек (8)** | oh-my-claudecode · все репо | Router → не-Anthropic бэкенд; Action → CI/PR; Squad → параллельные агенты; Templates → bootstrap. Не ставить всё разом |
+| **agentmemory** | Hopson Sentinel · oh-my-claudecode · личный workflow | Оценить vs текущая file-based память + MemOS — взять, если меньше дублирует и реально экономит контекст (не верить «−95%») |
+| **Odysseus** | Eclipse AI Hub (reference архитектуры) | Изучить model-serving (270+) + MCP-слой; не replace, а заимствовать паттерны |
+| **Hermes Agent** | Eclipse Hopson Sentinel (reference) | Та же ниша (локальный оператор + память + голос) — изучить GEPA self-improve loop и desktop-shell поверх ядра |
+| **AirLLM** | Hopson Sentinel · Eclipse AI Hub local (нишево) | Только batch-inference больших моделей на слабом GPU; не для realtime |
+| **GPT-SoVITS / MisoTTS** | Hopson Sentinel (TTS/STT/PTT) · Eclipse Chat voice · Educator-AI · DnD Forge (NPC-голоса) | GPT-SoVITS (RVC-Boss upstream) для RU-озвучек на свой хост; MisoTTS — EN-эмоции на радар |
+| **Reve 2.0** | Shotforge · Text2Image · Eclipse AI Hub Image Studio · Star CRM карточки | API opt-in где нужна правка отдельных зон/текста (layout-edit), pay-per-image через прокси |
+| **awesome-video-prompts** | Shotforge (img→video) · StreamForge-AI · маркетинг | Каталог пресетов; cherry-pick под сцену |
+| **Gemini Voyager** | Личный Gemini-workflow · reference UX для Eclipse AI Hub | Расширение для удобства; вотермарк/Drive-sync — на свой риск |
+| **browserytools / LocalSend Web** | Office-утилиты · reference для self-hosted utility-набора · разовые передачи файлов | browserytools — образец клиент-сайд тулз; LocalSend Web — без установки |
+| **Burner Emails** | Регистрации (не критичные) | SimpleLogin приоритетнее (self-host); burnermail — закрытый, для мелочей |
+| **OSINT 1387** | Авторизованный OSINT · проверка своего следа | Только открытые источники / pentest; «пробив» — НЕ использовать (152-ФЗ) |
+| **TrendShift** | Пополнение eclipse-library | Периодический skim трендов по AI agent / MCP / RAG |
+| **Skeptical Verifier / Feedback / Resume промпты** | Eclipse AI Hub Copywriter · Hopson Sentinel · личный workflow | System-пресеты «Критик» / «Карьера»; feedback-протоколы — стоп-краны в `/loop` |
+| **Codex for OSS** | Заявка на PavelHopson OSS-репо | Подать на самый звёздный репо → ChatGPT Pro + Codex на полгода |
+| **Discord spatial audio** | Eclipse Chat voice (фича) | WebAudio `PannerNode`/HRTF поверх Socket.io — в бэклог voice |
+
+### ⛔ Карантин — НЕ добавлено (с обоснованием)
+
+| Находка | Почему не листаем |
+|---|---|
+| **SFF / «Пиратский Steam»** ([Midrags/SFF](https://github.com/Midrags/SFF)) | Прямое пиратство: взлом Denuvo, обход лицензий, «взлом мультиплеера». Нарушение авторских прав + типичный вектор малвари в подобных репо. **Не используем и не листаем** — несовместимо с легальным продуктовым контуром Eclipse |
+| **KuKuTool** (dy.kukutool.com) | Закрытый веб-сервис: качает чужой контент + **снимает вотермарки** (нарушение прав авторов) + грузит ваши URL на их сервер (приватность). Для легальной задачи «скачать своё» есть наш [Eclipse Media](#-наши-проекты) (yt-dlp, self-hosted). Не листаем |
+| **Epicure** (рецепты по фото холодильника) | Вне scope наших проектов. Любопытно архитектурно (vision→structured data, как анализ товарных фото в Star CRM), но как продукт нерелевантно |
+| **Kaspersky «AI vs AI» стрим** (02.06) | Событие, не инструмент; на 05.06 уже прошло. Тема (LLM в атаке/защите, SOC-автоматизация) релевантна Hopson Sentinel — как reference-доклад, не библиотечная запись |
+| **Selectel «домен за рубль»** | Платная реклама хостера. У нас уже есть [FreeDomain](#infrastructure) для prototype-доменов |
+| **Opus 4.8 «взлом за 7 минут»** | Не инструмент — security-новость (Opus 4.7 джейлбрейкнул 4.8 атакой «продолжи главу учебника»). Ценно как **red-team reference** для Eclipse AI Hub Security / Hopson Sentinel: тест на устойчивость к textbook-continuation jailbreak. Не библиотечная запись |
+| **«Вайб-кодинг» подборка (YouTube-промо)** | Гейтед-документ + motion-graphics starter (Remotion-style, 195 паттернов, 5 Claude-промптов) без чистого репо. Концепт (генерация `.tsx`-анимаций через Claude) полезен для UI-роликов — но без верифицируемого источника не листаем; легит-аналог уже есть — [transitions.dev](#media--content) |
 
 ---
 
