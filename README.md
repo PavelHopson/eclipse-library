@@ -27,6 +27,7 @@
 - [📥 Подборка Eclipse (май 2026)](#-подборка-eclipse-май-2026)
 - [📥 Подборка Eclipse (27.05.2026)](#-подборка-eclipse-27052026)
 - [📥 Подборка Eclipse (28.05–05.06.2026)](#-подборка-eclipse-280505062026)
+- [📥 Подборка Eclipse (08.06.2026)](#-подборка-eclipse-08062026)
 - [📦 Наши проекты](#-наши-проекты)
 
 ---
@@ -920,6 +921,47 @@ Frontend: React 19 · TypeScript · Vite · Tailwind CSS 4 · Zustand
 | **Selectel «домен за рубль»** ([slc.tl](https://slc.tl/fuhsm)) | Платное промо хостера (перенос/продление домена ₽1 до 30.06, бесплатный DNS+SSL). Альтернатива нашему бесплатному [FreeDomain](#infrastructure) для prototype-доменов |
 | **Opus 4.8 jailbreak** ([новость](https://claude.com/)) | Red-team **reference** (не инструмент): Opus 4.7 сломал 4.8 атакой «продолжи обрывки глав учебника» → выдача запрещённого контента. Тест-кейс устойчивости к textbook-continuation jailbreak для Eclipse AI Hub Security / Hopson Sentinel |
 | **«Вайб-кодинг» подборка** ([YouTube](https://youtu.be/QkyTCTH2kWY)) | Reference. Motion-graphics starter (Remotion-style: 195 анимационных паттернов, kinetic typography + dashboard, 5 Claude-промптов для `.tsx`) через гейтед-док. Полезно для UI-роликов; верифицируемый легит-аналог уже листан — [transitions.dev](#media--content) |
+
+---
+
+## 📥 Подборка Eclipse (08.06.2026)
+
+> Дроп Telegram «Не баг, а фича» от 08.06 — 4 находки. Провенанс верифицирован
+> веб-поиском. Jina Reader **уже внедрён** в Eclipse AI Hub RAG (PR), остальное —
+> по разделам ниже + mapping. Маркетинг канала помечен.
+
+### Agent skills — коннекторы приложений
+
+| Ресурс | Описание | Stars |
+|---|---|---|
+| [application-skills (membranedev)](https://github.com/membranedev/application-skills) | 3000+ app-скиллов по Agent Skills spec: один скилл на приложение (gmail, slack, hubspot, salesforce, github…) — описывает структуру и действия аппки, агент сам понимает «как работать». Claude Code / Cursor / Copilot / Gemini CLI / OpenClaw. **⚠️ Ключевой нюанс:** «больше не передаём ключи вручную» работает через **Membrane** — сторонний брокер учёток (OAuth/токены идут через их сервис). Для прода это означает доверие third-party к вашим креденшелам — оценивать отдельно по каждому коннектору; для не-чувствительных аппок ок. Дополняет [NVIDIA/skills](#claude-code--security--skill-governance) (но те верифицированы SkillSpector'ом, а эти — нет → прогнать перед install) | [![Stars](https://img.shields.io/github/stars/membranedev/application-skills?style=flat)](https://github.com/membranedev/application-skills) |
+
+### Web-extraction / RAG
+
+| Ресурс | Описание | Stars |
+|---|---|---|
+| [Jina Reader (jina-ai/reader)](https://github.com/jina-ai/reader) | Любой URL → LLM-friendly Markdown префиксом `https://r.jina.ai/<url>`. Free-tier без ключа (~20 req/min; 200 + 1M токенов с бесплатным API-ключом), парсит и `.pdf` (PDF.js). Mainstream-инструмент для RAG/агентов. **Канал подал как «обход всех пейволов»** — серверная выборка действительно проходит soft-paywalls и CORS (та же grey-зона, что [bypass-paywalls](#privacy--opsec) — в рамках закона/ToS источника). **✅ Внедрён** в [Eclipse AI Hub](#-наши-проекты) RAG (`parseUrl` + UI «Загрузить из URL»). Кандидат также в Eclipse-webclaw / business-data-platform / Lead-Sniper / Open Researcher как fallback-экстрактор | [![Stars](https://img.shields.io/github/stars/jina-ai/reader?style=flat)](https://github.com/jina-ai/reader) |
+
+### ML training & research
+
+| Ресурс | Описание | Stars |
+|---|---|---|
+| [ml-intern (HuggingFace)](https://github.com/huggingface/ml-intern) | Официальный HF — автономный ML-инженер на smolagents: читает статьи, исследует HF-доки/датасеты/репы, пишет/правит код, запускает fine-tuning, тестит/деплоит. 170k auto-compaction контекста, **Doom-Loop detector** (ловит зацикленные tool-call'ы), ToolRouter к HF-экосистеме + sandbox-исполнение. Обошёл Claude Code на GPQA (Qwen3-1.7B 10%→32% за <10ч на 1×H100). **🔑 Нужен серьёзный GPU** (H100-класс) для реального обучения. Фит → [ModelForge](#-наши-проекты) (управление/обучение моделей); дополняет [HuggingFace Skills](#ml-training--research) / [autoresearch](#ml-training--research). Есть community-порт в Claude Code skill ([AlexWortega/claude-ml-intern-skill](https://github.com/AlexWortega/claude-ml-intern-skill)) | [![Stars](https://img.shields.io/github/stars/huggingface/ml-intern?style=flat)](https://github.com/huggingface/ml-intern) |
+
+### Reference (провенанс под вопросом)
+
+| Ресурс | Статус / дисклеймер |
+|---|---|
+| **Учебник по разработке ИИ-агентов** ([Google Drive PDF](https://drive.google.com/file/d/1949IkidExSJSLj091OO30eUQOAahptf8/view)) | Темы: планирование, память, инструменты, мультизадачность, многосостоянные задачи, отличия от LLM. **⚠️ Неверифицируемый источник:** случайный Drive-дамп без автора/лицензии — возможен копирайт (пиратская книга) или подменённый файл. **Не эндорсю скачивание.** Для тех же тем есть верифицируемые источники в библиотеке: [Build Your Own OpenClaw](#openclaw-экосистема), [awesome-openclaw-usecases](#openclaw-экосистема), [OpenAI Codex Use-Cases](#ai-coding-agents), [claude-code-best-practice](#оркестрация-и-агенты). Скачивать Drive-PDF — на свой риск, проверив в sandbox |
+
+### Mapping → наши проекты
+
+| Tool | Project(s) | Integration pattern |
+|---|---|---|
+| **Jina Reader** | ✅ Eclipse AI Hub RAG (сделано) · Eclipse-webclaw · business-data-platform-mvp · Lead-Sniper · Open Researcher | `r.jina.ai/<url>` → markdown fallback-экстрактор где сейчас raw HTML; free-tier без ключа |
+| **application-skills** | Eclipse AI Hub (app-коннекторы) · Hopson Sentinel · oh-my-claudecode | Cherry-pick коннекторы → прогнать [SkillSpector](#claude-code--security--skill-governance) перед install; оценить Membrane-брокер для чувствительных учёток |
+| **ml-intern** | ModelForge (обучение моделей) · Eclipse AI Hub local | 🔑 Нужен GPU H100-класс; автономный fine-tuning loop под свои small-модели |
+| **Agents textbook** | Reference (с осторожностью) | Предпочесть верифицируемые источники из библиотеки |
 
 ---
 
