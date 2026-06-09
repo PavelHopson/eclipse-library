@@ -28,6 +28,7 @@
 - [📥 Подборка Eclipse (27.05.2026)](#-подборка-eclipse-27052026)
 - [📥 Подборка Eclipse (28.05–05.06.2026)](#-подборка-eclipse-280505062026)
 - [📥 Подборка Eclipse (08.06.2026)](#-подборка-eclipse-08062026)
+- [📥 Подборка Eclipse (09.06.2026)](#-подборка-eclipse-09062026)
 - [📦 Наши проекты](#-наши-проекты)
 
 ---
@@ -962,6 +963,21 @@ Frontend: React 19 · TypeScript · Vite · Tailwind CSS 4 · Zustand
 | **application-skills** | Eclipse AI Hub (app-коннекторы) · Hopson Sentinel · oh-my-claudecode | Cherry-pick коннекторы → прогнать [SkillSpector](#claude-code--security--skill-governance) перед install; оценить Membrane-брокер для чувствительных учёток |
 | **ml-intern** | ModelForge (обучение моделей) · Eclipse AI Hub local | 🔑 Нужен GPU H100-класс; автономный fine-tuning loop под свои small-модели |
 | **Agents textbook** | Reference (с осторожностью) | Предпочесть верифицируемые источники из библиотеки |
+
+---
+
+## 📥 Подборка Eclipse (09.06.2026)
+
+> Дроп Telegram «PushEnter» от 09.06 — 3 поста, но **2 из 3 — повтор батча
+> [08.06](#-подборка-eclipse-08062026):** учебник по ИИ-агентам (тот же
+> Google Drive-линк, уже в reference с провенанс-оговоркой) и [ml-intern](#ml-training--research)
+> (уже листан, фит → ModelForge, нужен GPU). Новое — одно.
+
+### Генерация рукописного текста
+
+| Ресурс | Описание | Stars |
+|---|---|---|
+| [HandwritingGeneration (NastyBoget)](https://github.com/NastyBoget/HandwritingGeneration) | Генерация рукописного **кириллического** текста: `write_text()` (абзацы/страницы), `write_word()` (слова), `transforms.py` (наклон, загогулины, разрывы, шум «ручка перестала писать», контраст), дообучение на своём почерке. Локально, тянет слабый ПК. **Легит-применение:** синтетическая **аугментация данных для OCR** — у того же автора есть [hrtr](https://github.com/NastyBoget/hrtr) (распознавание рукописного русского), для обучения которого такая генерация и нужна. **⚠️ Grey-рамка канала** («студентам — генерить конспекты/лекции») = подделка рукописных работ (academic integrity) — та же планка, что [humanize-промпты](#промпт-коллекции): **не для** обхода проверок/выдачи за рукописное. **Фит в наши проекты:** прямого нет (никто не делает handwriting-OCR) — листаем как reference на случай OCR-датасетов | [![Stars](https://img.shields.io/github/stars/NastyBoget/HandwritingGeneration?style=flat)](https://github.com/NastyBoget/HandwritingGeneration) |
 
 ---
 
