@@ -43,11 +43,13 @@
     grey:   'grey / risk',
     oss:    'open-source',
     tool:   'инструмент',
+    shop:   'e-commerce',
   };
   function inferType(r, cat, sub) {
     const ctx = (cat.label + ' ' + (sub ? sub.title : '')).toLowerCase();
     let host = ''; try { if (r.url) host = new URL(r.url).hostname; } catch (e) {}
     if (r.risk) return 'grey';
+    if (/интернет-магазин|e-?commerce|storefront|checkout|headless.*commerce|платеж|payment|корзин|магазин/.test(ctx)) return 'shop';
     if (/промпт|prompt/.test(ctx)) return 'prompt';
     if (/skill|скилл/.test(ctx)) return 'skill';
     if (/оркестрац|агент|agent|мультиагент/.test(ctx)) return 'agent';
@@ -81,12 +83,18 @@
         const icon = hasIcon ? first : '';
         const label = (hasIcon ? full.slice(first.length).trim() : full);
         if (/^Содержание$/i.test(label)) { cat = null; sub = null; continue; }
-        cat = { id: slug(label) || `c${cats.length}`, icon, label, subs: [] };
+        cat = { id: slug(label) || `c${cats.length}`, icon, label, intro: '', subs: [] };
         cats.push(cat); sub = null; continue;
       }
-      if (h3 && cat) { sub = { title: h3[1].trim(), resources: [] }; cat.subs.push(sub); continue; }
+      if (h3 && cat) { sub = { title: h3[1].trim(), intro: '', resources: [] }; cat.subs.push(sub); continue; }
       if (!cat) continue;
       const t = line.trim();
+      if (t.startsWith('>')) {
+        const q = t.replace(/^>\s?/, '');
+        if (sub && !sub.resources.length) sub.intro += (sub.intro ? ' ' : '') + q;
+        else if (!sub && cat) cat.intro += (cat.intro ? ' ' : '') + q;
+        continue;
+      }
       if (t.startsWith('|')) {
         if (isSep(t)) continue;
         if (lines[i + 1] && isSep(lines[i + 1].trim())) continue;
@@ -145,11 +153,13 @@
       const head = el('header', 'cat-head');
       head.innerHTML = `<h2>${cat.icon ? `<span class="ch-ico" aria-hidden="true">${cat.icon}</span> ` : ''}${esc(cat.label)}</h2><span class="cat-cnt">${cnt} ${plural(cnt)}</span>`;
       section.appendChild(head);
+      if (cat.intro) section.appendChild(el('p', 'cat-intro', inline(cat.intro)));
 
       cat.subs.forEach((s) => {
         if (!s.resources.length) return;
         const subWrap = el('div', 'sub');
         if (s.title) subWrap.appendChild(el('h3', null, esc(s.title.replace(/[*`]/g, ''))));
+        if (s.intro) subWrap.appendChild(el('p', 'sub-intro', inline(s.intro)));
         const grid = el('div', 'grid');
         s.resources.forEach((r) => {
           typeCounts[r.type] = (typeCounts[r.type] || 0) + 1;
@@ -288,7 +298,10 @@
       try { md = await (await fetch(RAW, { cache: 'no-cache' })).text(); }
       catch (e2) { const s = $('#status'); s.className = 'status err'; s.innerHTML = `Не удалось загрузить библиотеку. <a href="${REPO_URL}" target="_blank" rel="noopener">Открыть на GitHub →</a>`; return; }
     }
-    try { render(parse(md)); spotlight(); }
+    try {
+      render(parse(md)); spotlight();
+      if (location.hash) requestAnimationFrame(() => { const t = document.getElementById(decodeURIComponent(location.hash.slice(1))); if (t) t.scrollIntoView({ block: 'start' }); });
+    }
     catch (e) { $('#status').className = 'status err'; $('#status').textContent = 'Ошибка разбора README: ' + e.message; }
   }
 

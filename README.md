@@ -19,6 +19,7 @@
 ## Содержание
 
 - [🤖 AI & Claude Code](#-ai--claude-code)
+- [🛒 Разработка интернет-магазинов](#-разработка-интернет-магазинов)
 - [🛠️ Dev Tools & CLI](#️-dev-tools--cli)
 - [🎬 Media & Download](#-media--download)
 - [💬 Self-hosted Платформы](#-self-hosted-платформы)
@@ -262,6 +263,122 @@ ai-setup reverse owner/repo --stdout
 ```
 
 ---
+
+## 🛒 Разработка интернет-магазинов
+
+> **Раздел для команды: как и на чём делать интернет-магазин — бесплатно на старте.** Ниже путь по шагам и инструменты по этапам. **👉 Рекомендованный путь под наш React/Vite/TS-стек:** витрина на **Next.js (App Router) + Tailwind** из готового стартера → каталог/корзина на **Medusa** (Node/TS) → платежи **ЮKassa** (РФ) / **Stripe** (global) → база **Postgres (Neon)** → хостинг витрины на **Vercel / нашем VPS**, бэкенд — на **нашем VPS / Railway**. Всё с бесплатным стартом. Полный гайд по шагам → [guides/ecommerce-dev.md](guides/ecommerce-dev.md).
+
+### С чего начать — путь (бесплатно)
+
+| Шаг | Что делать |
+|---|---|
+| **1 · Выбери подход** | **No-code** (клиенту срочно, без кода) · **Open-source-движок** (готовый магазин, self-host) · **Headless** (макс. контроль, наш путь — отдельный фронт + API-бэкенд) |
+| **2 · Витрина (frontend)** | Next.js App Router + Tailwind. Берём **готовый бесплатный стартер** (ниже), не пишем с нуля |
+| **3 · Каталог + корзина (backend)** | Headless-движок (**Medusa / Saleor / Vendure**) ИЛИ корзина-как-сервис (**Snipcart**), если витрина статическая |
+| **4 · Платежи** | РФ — **ЮKassa / Тинькофф / CloudPayments**; global — **Stripe**. Подключается готовым SDK/плагином |
+| **5 · База данных** | **Postgres** на бесплатном тарифе **Neon / Supabase** (или наш VPS) |
+| **6 · Хостинг** | Витрина → **Vercel / Cloudflare / наш VPS**; бэкенд → **наш VPS / Railway / Render** |
+| **7 · Запуск** | Поддомен `*.eclipse-forge.ru` + SEO (см. раздел ниже) + аналитика + платёжный аккаунт |
+
+### Headless-движки (для разработчиков · self-host · бесплатно)
+
+| Ресурс | Описание | Stars |
+|---|---|---|
+| [Medusa](https://medusajs.com) | API-first commerce на **Node/TypeScript** (REST). Полный контроль, модульная архитектура, официальный Next.js-стартер. **Наш дефолт** под кастомные магазины — стартует за минуты | [![Stars](https://img.shields.io/github/stars/medusajs/medusa?style=flat)](https://github.com/medusajs/medusa) |
+| [Saleor](https://saleor.io) | Headless на **Python/Django**, весь API — **GraphQL**. Мультиканальность/мультивалюта в ядре. Self-host бесплатно (Saleor Cloud — enterprise) | [![Stars](https://img.shields.io/github/stars/saleor/saleor?style=flat)](https://github.com/saleor/saleor) |
+| [Vendure](https://www.vendure.io) | **NestJS + GraphQL + Postgres**, маленькое ядро, чистый plugin-API. Если команда любит TS и хочет модульный бэкенд | [![Stars](https://img.shields.io/github/stars/vendure-ecommerce/vendure?style=flat)](https://github.com/vendure-ecommerce/vendure) |
+| [Sylius](https://sylius.com) | **PHP/Symfony**, гибкий, под сложную бизнес-логику и нестандартные процессы | [![Stars](https://img.shields.io/github/stars/Sylius/Sylius?style=flat)](https://github.com/Sylius/Sylius) |
+| [Bagisto](https://bagisto.com) | **Laravel**, быстрый старт, многоязычный, есть marketplace-расширение | [![Stars](https://img.shields.io/github/stars/bagisto/bagisto?style=flat)](https://github.com/bagisto/bagisto) |
+
+### Готовые витрины / стартеры (Next.js · React · free)
+
+| Ресурс | Описание | Stars |
+|---|---|---|
+| [Vercel Next.js Commerce](https://github.com/vercel/commerce) | Эталонная Next.js-витрина от Vercel (App Router + React Server Components), 11k+⭐. База под headless-Shopify или любой API. **С неё проще всего начать** | [![Stars](https://img.shields.io/github/stars/vercel/commerce?style=flat)](https://github.com/vercel/commerce) |
+| [Saleor Storefront](https://github.com/saleor/storefront) | **Next.js 16 + React 19 + TS + Tailwind + GraphQL**, готовый многошаговый checkout (гость/аккаунт), мультиканал/мультивалюта, варианты, a11y | [![Stars](https://img.shields.io/github/stars/saleor/storefront?style=flat)](https://github.com/saleor/storefront) |
+| [Medusa Next.js Storefront](https://docs.medusajs.com/learn/installation) | Официальная витрина к Medusa: мультирегион, каталог с вариантами, корзина, checkout, аккаунты, заказы. Ставится `npx create-medusa-app` (бэкенд+фронт в одном) | — |
+| [Payload (e-commerce шаблон)](https://payloadcms.com) | Full-stack Next.js-шаблон с визуальным редактированием + Stripe (Payload CMS на TS) | [![Stars](https://img.shields.io/github/stars/payloadcms/payload?style=flat)](https://github.com/payloadcms/payload) |
+| [Your Next Store](https://yournextstore.com) | Минималистичная Next.js-витрина под Stripe, без тяжёлого бэкенда — для быстрых магазинов | — |
+
+### Классические open-source движки («магазин из коробки» · self-host)
+
+| Ресурс | Описание | Stars |
+|---|---|---|
+| [WooCommerce](https://woocommerce.com) | Плагин для **WordPress** — самый массовый способ. Тысячи тем/расширений, низкий порог входа, бесплатно | [![Stars](https://img.shields.io/github/stars/woocommerce/woocommerce?style=flat)](https://github.com/woocommerce/woocommerce) |
+| [PrestaShop](https://prestashop.com) | Самостоятельная CMS-платформа (PHP), популярна в Европе и РФ | [![Stars](https://img.shields.io/github/stars/PrestaShop/PrestaShop?style=flat)](https://github.com/PrestaShop/PrestaShop) |
+| [OpenCart](https://www.opencart.com) | Лёгкая PHP-платформа, простой старт для небольших магазинов | [![Stars](https://img.shields.io/github/stars/opencart/opencart?style=flat)](https://github.com/opencart/opencart) |
+| [Spree](https://spreecommerce.org) | **Ruby on Rails**, headless-friendly, API-first | [![Stars](https://img.shields.io/github/stars/spree/spree?style=flat)](https://github.com/spree/spree) |
+| [nopCommerce](https://www.nopcommerce.com) | **.NET / C#**, корпоративная, бесплатная | [![Stars](https://img.shields.io/github/stars/nopSolutions/nopCommerce?style=flat)](https://github.com/nopSolutions/nopCommerce) |
+
+### No-code / быстрый старт (бесплатный план)
+
+| Ресурс | Описание |
+|---|---|
+| [Ecwid (Lightspeed)](https://www.ecwid.com) | Виджет-магазин, встраивается на любой сайт, есть бесплатный план — для срочной задачи без кода |
+| [Tilda](https://tilda.cc) | RU-конструктор сайтов со встроенным магазином: быстрый лендинг + корзина |
+| [Square Online](https://squareup.com/online-store) | Бесплатный конструктор магазина на платёжке Square |
+| [Gumroad](https://gumroad.com) · [Lemon Squeezy](https://www.lemonsqueezy.com) | Для **цифровых товаров** (файлы, подписки) — берут платежи и налоги на себя |
+
+### Корзина / checkout как сервис (на статичную витрину без бэкенда)
+
+| Ресурс | Описание |
+|---|---|
+| [Snipcart](https://snipcart.com) | Корзина + checkout на любой статичный сайт через `data-`атрибуты. Free на dev/тест |
+| [Swell](https://www.swell.is) | Headless-commerce API + JS SDK, есть free-план |
+| [Reflow](https://reflowhq.com) | Корзина/платежи поверх статики, простой JS-SDK |
+| [Shopify Buy Button](https://www.shopify.com/buy-button) | Если у клиента Shopify — встроить товары на свой сайт скриптом |
+
+### Платежи
+
+> **РФ:** подключаются готовым SDK/плагином; нужен договор (ИП/ООО/самозанятость). **Global:** Stripe — стандарт для разработки; MoR-сервисы берут налоги мира на себя.
+
+| Ресурс | Описание |
+|---|---|
+| [ЮKassa (YooMoney)](https://yookassa.ru) | Самый ходовой РФ-эквайринг: карты, СБП, кошельки. Готовые SDK/плагины под все движки. **Наш дефолт для РФ** |
+| [Тинькофф Касса (T-Bank)](https://www.tbank.ru/kassa/) | РФ-эквайринг, быстрый онбординг, хорошее API/SDK |
+| [CloudPayments](https://cloudpayments.ru) | РФ-эквайринг, гибкое API, виджет-форма |
+| [Robokassa](https://robokassa.com) | РФ-агрегатор, простой старт для мелких продаж |
+| [Stripe](https://stripe.com) | Мировой стандарт для dev: карты, подписки, отличное API и тест-режим (РФ — через зарубежное юрлицо) |
+| [Paddle](https://www.paddle.com) · [Lemon Squeezy](https://www.lemonsqueezy.com) | Merchant of Record: продаёшь цифровое — они берут НДС/налоги на себя |
+
+### Контент / Headless CMS (товары, страницы, блог)
+
+| Ресурс | Описание | Stars |
+|---|---|---|
+| [Strapi](https://strapi.io) | OSS headless CMS на Node, REST/GraphQL, self-host бесплатно | [![Stars](https://img.shields.io/github/stars/strapi/strapi?style=flat)](https://github.com/strapi/strapi) |
+| [Directus](https://directus.io) | OSS data-platform поверх своей БД: админка + автоматический API | [![Stars](https://img.shields.io/github/stars/directus/directus?style=flat)](https://github.com/directus/directus) |
+| [Payload](https://payloadcms.com) | OSS headless CMS на Next/TS — идеально с нашим стеком | [![Stars](https://img.shields.io/github/stars/payloadcms/payload?style=flat)](https://github.com/payloadcms/payload) |
+| [Sanity](https://www.sanity.io) | Структурированный контент, щедрый free-tier, real-time | — |
+
+### База данных + хостинг (бесплатный старт)
+
+| Ресурс | Описание | Stars |
+|---|---|---|
+| [Neon](https://neon.tech) | Serverless **Postgres**, щедрый free-tier, ветки БД. Дефолт под Medusa/Vendure | — |
+| [Supabase](https://supabase.com) | Postgres + auth + storage + API на free-tier | [![Stars](https://img.shields.io/github/stars/supabase/supabase?style=flat)](https://github.com/supabase/supabase) |
+| [Vercel](https://vercel.com) | Лучший хост для Next.js-витрины: free-tier, превью-деплои | — |
+| [Cloudflare Pages](https://pages.cloudflare.com) | Бесплатный статик/SSR-хостинг без лимита бэндвидса | — |
+| [Railway](https://railway.app) · [Render](https://render.com) | PaaS под **бэкенд** (Medusa/Saleor) + БД, free-tier/кредит | — |
+| [Coolify](https://coolify.io) | OSS self-host PaaS («свой Heroku») — поднять Medusa+Postgres на **нашем VPS** одной панелью | [![Stars](https://img.shields.io/github/stars/coollabsio/coolify?style=flat)](https://github.com/coollabsio/coolify) |
+| Eclipse Forge VPS | Наш VPS (Mara): фронт через Caddy, бэкенд systemd-сервисом, поддомен `*.eclipse-forge.ru` | — |
+
+### Дизайн / UI (бесплатно)
+
+| Ресурс | Описание |
+|---|---|
+| [Tailwind CSS](https://tailwindcss.com) · [shadcn/ui](https://ui.shadcn.com) | База стилей + копируемые компоненты (карточки/формы/диалоги) — на них все стартеры |
+| [Flowbite](https://flowbite.com) · [Preline](https://preline.co) | Готовые e-commerce-блоки (товар, корзина, checkout) на Tailwind, free |
+| [Untitled UI](https://www.untitledui.com) · Figma e-commerce kits | Бесплатные Figma-киты под магазины — дизайн до кода |
+
+### Обучение / гайды (бесплатно)
+
+| Ресурс | Описание |
+|---|---|
+| [Medusa docs](https://docs.medusajs.com) | Официальный гайд «магазин с нуля», шаг за шагом — **начинать отсюда** |
+| [Saleor docs](https://docs.saleor.io) · [Vendure docs](https://docs.vendure.io) | Официальная документация с quickstart |
+| [Next.js Commerce](https://github.com/vercel/commerce) | Эталонный код-референс — учиться по нему |
+| [roadmap.sh](https://roadmap.sh) | Карты навыков frontend/backend — видеть пробелы в команде |
+| [freeCodeCamp](https://www.freecodecamp.org) | Полные бесплатные видео-сборки магазина «build an e-commerce» |
 
 ## 📈 SEO & Маркетинг
 
