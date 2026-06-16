@@ -1,0 +1,47 @@
+name: Deploy library web to VPS (eclipse-forge.ru)
+
+# Статический сайт library.eclipse-forge.ru (web/ + копия README.md как источник данных).
+# Без сборки. Перезаливается при изменении web/ или README (курация → сайт сам обновляется).
+# Секреты: VPS_SSH_KEY, VPS_HOST, VPS_USER, VPS_PATH (=/var/www/library).
+
+on:
+  push:
+    branches: [master]
+    paths:
+      - 'web/**'
+      - 'README.md'
+      - '.github/workflows/deploy-vps.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: deploy-vps
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Build static payload (web/ + README.md as data)
+        run: |
+          mkdir -p _site
+          cp -r web/. _site/
+          cp README.md _site/README.md
+          rm -f _site/.gitignore _site/_preview*.png _site/_edge.log
+
+      - name: Setup SSH
+        run: |
+          mkdir -p ~/.ssh
+          printf '%s\n' "${{ secrets.VPS_SSH_KEY }}" > ~/.ssh/id_deploy
+          chmod 600 ~/.ssh/id_deploy
+          ssh-keyscan -H "${{ secrets.VPS_HOST }}" >> ~/.ssh/known_hosts 2>/dev/null
+
+      - name: Deploy via rsync
+        run: |
+          rsync -avz --delete \
+            -e "ssh -i ~/.ssh/id_deploy -o StrictHostKeyChecking=no" \
+            _site/ "${{ secrets.VPS_USER }}@${{ secrets.VPS_HOST }}:${{ secrets.VPS_PATH }}/"
