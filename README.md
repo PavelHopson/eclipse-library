@@ -20,6 +20,7 @@
 
 - [🤖 AI & Claude Code](#-ai--claude-code)
 - [🛒 Разработка интернет-магазинов](#-разработка-интернет-магазинов)
+- [🎯 Лендинги — учебный курс](#-лендинги--учебный-курс)
 - [🛠️ Dev Tools & CLI](#️-dev-tools--cli)
 - [🎬 Media & Download](#-media--download)
 - [💬 Self-hosted Платформы](#-self-hosted-платформы)
@@ -405,6 +406,92 @@ ai-setup reverse owner/repo --stdout
 | [Next.js Commerce](https://github.com/vercel/commerce) | Эталонный код-референс — учиться по нему |
 | [roadmap.sh](https://roadmap.sh) | Карты навыков frontend/backend — видеть пробелы в команде |
 | [freeCodeCamp](https://www.freecodecamp.org) | Полные бесплатные видео-сборки магазина «build an e-commerce» |
+
+## 🎯 Лендинги — учебный курс
+
+> **Учебный раздел для команды: научиться делать продающие лендинги.** Полный курс по шагам (модули → уроки, формат «🎯 научишься · 📖 теория · 🛠 практика с нейросетью · ✅ чек») → **[🎓 открыть курс на сайте](guides/landing-course.md)**. Ниже — программа и бесплатные инструменты по этапам. **Наш стек:** Next.js / Astro + Tailwind, собираем нейросетью.
+
+### Программа курса
+
+| Модуль | О чём |
+|---|---|
+| **0 · Что такое лендинг** | анатомия, секции, зачем каждая |
+| **1 · Первый лендинг за час** | стек + сборка нейросетью из шаблона |
+| **2 · Контент, который продаёт** | оффер (AIDA/PAS), структура, визуал |
+| **3 · Дизайн «дорого»** | типографика, UI-киты, анимации |
+| **4 · Конверсия и аналитика** | формы, SEO, скорость, метрики |
+| **5 · Запуск** | хостинг, домен, чеклист |
+| **6 · Дальше** | переиспользование, A/B, дизайн-система |
+| **🏁 Финальный проект** | реальный лендинг под клиента |
+
+Полностью, с уроками и готовыми промптами → [🎓 Курс «Лендинги с нуля»](guides/landing-course.md).
+
+### 🤖 Собрать лендинг нейросетью (Claude · Codex · Kimi)
+
+| Ресурс | Описание |
+|---|---|
+| [Claude (Claude Code)](https://claude.com/product/claude-code) · [Codex](https://openai.com/codex/) · [Kimi](https://www.kimi.com/products/kimi-work) | Агенты-программисты собирают лендинг по твоим словам: дай стартер → веди задачами («сделай hero», «добавь форму», «задеплой»). **Главный путь** |
+| [Стартер: Astro](https://github.com/withastro/astro) / [Next.js](https://github.com/vercel/next.js) | Дай нейросети готовый фреймворк-стартер — не пишем с нуля |
+
+### 🟣 Наши сервисы для лендинга
+
+| Задача | Наш сервис |
+|---|---|
+| Фото / предметка для hero | [Shotforge](https://shotforge.eclipse-forge.ru) |
+| Баннеры, иллюстрации | [Text2Image](https://text2image.eclipse-forge.ru) |
+| Оффер, заголовки, тексты | [Eclipse AI Hub](https://hub.eclipse-forge.ru) — Copywriter |
+| Анимации (lottie из промпта) | skill [diffusionstudio/lottie](https://github.com/diffusionstudio/lottie) |
+| Хостинг + домен | **Eclipse Forge VPS** — поддомен `*.eclipse-forge.ru` |
+
+### Фреймворки и UI-киты (бесплатно)
+
+| Ресурс | Описание | Stars |
+|---|---|---|
+| [Astro](https://astro.build) | Заточен под быстрые маркетинг-сайты/лендинги, нулевой JS по умолчанию. **Топ-выбор для лендинга** | [![Stars](https://img.shields.io/github/stars/withastro/astro?style=flat)](https://github.com/withastro/astro) |
+| [shadcn/ui](https://ui.shadcn.com) | Копируемые компоненты (Radix + Tailwind): карточки, формы, диалоги | [![Stars](https://img.shields.io/github/stars/shadcn-ui/ui?style=flat)](https://github.com/shadcn-ui/ui) |
+| [Flowbite](https://flowbite.com) | Готовые секции (hero, pricing, CTA, footer) на Tailwind | [![Stars](https://img.shields.io/github/stars/themesberg/flowbite?style=flat)](https://github.com/themesberg/flowbite) |
+| [HyperUI](https://www.hyperui.dev) | Бесплатные копипаст-компоненты для маркетинга на Tailwind | [![Stars](https://img.shields.io/github/stars/markmead/hyperui?style=flat)](https://github.com/markmead/hyperui) |
+| [Preline](https://preline.co) · [DaisyUI](https://daisyui.com) | Ещё наборы Tailwind-компонентов и блоков | — |
+
+### Анимации (premium-ощущение)
+
+| Ресурс | Описание | Stars |
+|---|---|---|
+| [Motion (framer-motion)](https://motion.dev) | Анимации для React: появление при скролле, hover, переходы | [![Stars](https://img.shields.io/github/stars/framer/motion?style=flat)](https://github.com/framer/motion) |
+| [GSAP](https://gsap.com) | Мощные scroll-анимации/таймлайны (vanilla/любой фреймворк) | [![Stars](https://img.shields.io/github/stars/greensock/GSAP?style=flat)](https://github.com/greensock/GSAP) |
+| [AOS](https://michalsnik.github.io/aos/) | Animate-On-Scroll одним атрибутом — для статики | [![Stars](https://img.shields.io/github/stars/michalsnik/aos?style=flat)](https://github.com/michalsnik/aos) |
+| [lottie skill](https://github.com/diffusionstudio/lottie) | Готовая Lottie-анимация из промпта/SVG | [![Stars](https://img.shields.io/github/stars/diffusionstudio/lottie?style=flat)](https://github.com/diffusionstudio/lottie) |
+
+### Формы заявок (без бэкенда)
+
+| Ресурс | Описание |
+|---|---|
+| [Web3Forms](https://web3forms.com) · [Formspree](https://formspree.io) · [Getform](https://getform.io) | Принимают submit формы и шлют тебе на почту — бесплатный тариф |
+| Telegram-бот / Google-таблица | Заявки прямо в чат/таблицу (попроси нейросеть подключить) |
+
+### Хостинг (бесплатный старт)
+
+| Ресурс | Описание |
+|---|---|
+| [Vercel](https://vercel.com) · [Cloudflare Pages](https://pages.cloudflare.com) · [Netlify](https://netlify.com) | Бесплатный хостинг статики/SSR + превью-деплои |
+| Eclipse Forge VPS | Наш сервер, поддомен `*.eclipse-forge.ru` через Caddy |
+
+### Дизайн-инспирация и ассеты
+
+| Ресурс | Описание |
+|---|---|
+| [Land-book](https://land-book.com) · [Godly](https://godly.website) · [Lapa Ninja](https://www.lapa.ninja) | Галереи лучших лендингов — насмотренность и идеи |
+| [Mobbin](https://mobbin.com) · [Awwwards](https://www.awwwards.com) | Паттерны и топовые сайты |
+| [Unsplash](https://unsplash.com) · [Pexels](https://www.pexels.com) | Бесплатные фото |
+| [Haikei](https://haikei.app) · [Hero Patterns](https://heropatterns.com) | SVG-волны/блобы/паттерны для фонов |
+| [Lucide](https://lucide.dev) · [Phosphor](https://phosphoricons.com) | Иконки единого стиля |
+
+### Аналитика и скорость
+
+| Ресурс | Описание |
+|---|---|
+| Яндекс.Метрика / [GA4](https://analytics.google.com) | Счётчик + цели на отправку формы; тепловые карты (Метрика) |
+| [Lighthouse](https://developer.chrome.com/docs/lighthouse) · [PageSpeed Insights](https://pagespeed.web.dev) | Проверка скорости/SEO/доступности (цель 90+) |
 
 ## 📈 SEO & Маркетинг
 
