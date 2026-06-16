@@ -280,6 +280,17 @@ ai-setup reverse owner/repo --stdout
 | **6 · Хостинг** | Витрина → **Vercel / Cloudflare / наш VPS**; бэкенд → **наш VPS / Railway / Render** |
 | **7 · Запуск** | Поддомен `*.eclipse-forge.ru` + SEO (см. раздел ниже) + аналитика + платёжный аккаунт |
 
+### 🤖 Собрать магазин нейросетью (Claude · Codex · Kimi) — главный путь
+
+> Не верстаем руками и не возимся с конструктором — **нейросеть пишет код магазина по твоим словам**. Берёшь готовый стартер (Vercel Commerce / Medusa), объясняешь обычным языком («добавь товары», «подключи ЮKassa», «задеплой») — AI делает и объясняет. Подробно, с готовыми промптами → [руководство для чайников](guides/ecommerce-beginners.md).
+
+| Ресурс | Описание |
+|---|---|
+| [Claude (Claude Code)](https://claude.com/product/claude-code) | Агент-программист: сам пишет файлы, ставит зависимости, чинит, деплоит. **Наш основной инструмент** для сборки магазина по описанию |
+| [Codex (OpenAI)](https://openai.com/codex/) | Кодинг-агент OpenAI — в ChatGPT и как `codex` CLI. Скаффолдит и дорабатывает витрину |
+| [Kimi (Moonshot)](https://www.kimi.com/products/kimi-work) | Kimi Code CLI + браузерный агент WebBridge (сам кликает в браузере) — сборка + автоматизация |
+| [Стартер для AI: Vercel Commerce](https://github.com/vercel/commerce) | Дай нейросети этот шаблон (или Medusa) — она развернёт и допилит под тебя, не писать с нуля |
+
 ### 🟣 Наши сервисы для магазина (бери их — бесплатно и под рукой)
 
 > Для удобства команды: где можно — берём свои сервисы Eclipse Forge и инструменты из этой библиотеки, а не плодим зоопарк.
@@ -325,7 +336,7 @@ ai-setup reverse owner/repo --stdout
 | [Spree](https://spreecommerce.org) | **Ruby on Rails**, headless-friendly, API-first | [![Stars](https://img.shields.io/github/stars/spree/spree?style=flat)](https://github.com/spree/spree) |
 | [nopCommerce](https://www.nopcommerce.com) | **.NET / C#**, корпоративная, бесплатная | [![Stars](https://img.shields.io/github/stars/nopSolutions/nopCommerce?style=flat)](https://github.com/nopSolutions/nopCommerce) |
 
-### No-code / быстрый старт (бесплатный план)
+### No-code / без программирования (запасной вариант — если не хочешь даже нейросеть)
 
 | Ресурс | Описание |
 |---|---|
