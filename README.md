@@ -29,6 +29,7 @@
 - [📥 Подборка Eclipse (28.05–05.06.2026)](#-подборка-eclipse-280505062026)
 - [📥 Подборка Eclipse (08.06.2026)](#-подборка-eclipse-08062026)
 - [📥 Подборка Eclipse (09.06.2026)](#-подборка-eclipse-09062026)
+- [📥 Подборка Eclipse (10–16.06.2026)](#-подборка-eclipse-1016062026)
 - [📦 Наши проекты](#-наши-проекты)
 
 ---
@@ -978,6 +979,121 @@ Frontend: React 19 · TypeScript · Vite · Tailwind CSS 4 · Zustand
 | Ресурс | Описание | Stars |
 |---|---|---|
 | [HandwritingGeneration (NastyBoget)](https://github.com/NastyBoget/HandwritingGeneration) | Генерация рукописного **кириллического** текста: `write_text()` (абзацы/страницы), `write_word()` (слова), `transforms.py` (наклон, загогулины, разрывы, шум «ручка перестала писать», контраст), дообучение на своём почерке. Локально, тянет слабый ПК. **Легит-применение:** синтетическая **аугментация данных для OCR** — у того же автора есть [hrtr](https://github.com/NastyBoget/hrtr) (распознавание рукописного русского), для обучения которого такая генерация и нужна. **⚠️ Grey-рамка канала** («студентам — генерить конспекты/лекции») = подделка рукописных работ (academic integrity) — та же планка, что [humanize-промпты](#промпт-коллекции): **не для** обхода проверок/выдачи за рукописное. **Фит в наши проекты:** прямого нет (никто не делает handwriting-OCR) — листаем как reference на случай OCR-датасетов | [![Stars](https://img.shields.io/github/stars/NastyBoget/HandwritingGeneration?style=flat)](https://github.com/NastyBoget/HandwritingGeneration) |
+
+---
+
+## 📥 Подборка Eclipse (10–16.06.2026)
+
+> Дропы Telegram «Не баг, а фича» / «PushEnter» за **09.06 (вечер) – 16.06** — большой батч
+> с сильным внутренним дублированием (LocallyUncensored · Pi-hole · Ponytail · loops · Stack AI
+> повторялись по дням). **Уже в библиотеке** (не дублируем): [SkillSpector](#claude-code--security--skill-governance),
+> [Kimi WebBridge](#ai-coding-agents) / [Kimi K2.6](#модели-для-локального-запуска-gguf-ollama-lm-studio-colab),
+> [application-skills](#agent-skills--коннекторы-приложений), [Jina Reader](#web-extraction--rag),
+> [ml-intern](#ml-training--research), учебник-PDF, [HandwritingGeneration](#генерация-рукописного-текста).
+> Провенанс проверен где возможно, хайп канала помечен. Промпт-коллекции вынесены в `prompts/`.
+
+### Claude Code — skills & оркестрация
+
+| Ресурс | Описание | Stars |
+|---|---|---|
+| [Ponytail (DietrichGebert)](https://github.com/DietrichGebert/ponytail) | Skill против «графомании» в коде: прогоняет задачу через вопросы «точно нужно? есть в stdlib? нативная фича платформы? одной строкой?» → агент пишет минимально необходимое. Заявлено −80–94% генерации, −47–77% стоимости, ×3–6 скорость (числа из ТГ — проверять на своих задачах). Cursor / Windsurf / Cline / Copilot / Antigravity / OpenCode / Claude Code. **Фит:** [oh-my-claudecode](#-наши-проекты) + любой dev-workflow | [![Stars](https://img.shields.io/github/stars/DietrichGebert/ponytail?style=flat)](https://github.com/DietrichGebert/ponytail) |
+| [supergoal (robzilla1738)](https://github.com/robzilla1738/supergoal) | Skill для Claude Code / Codex: `/supergoal` смотрит проект+тулзы+цель → делит на фазы, создаёт файлы плана/состояния/контекста; `/goal` исполняет + финальный аудит + пишет ошибки в память проекта. **Пересекается** с нашим [oh-my-claudecode](#-наши-проекты) (та же ниша roadmap-оркестрации) — cherry-pick идею файлов состояния, не ставить весь конфиг поверх OMC | [![Stars](https://img.shields.io/github/stars/robzilla1738/supergoal?style=flat)](https://github.com/robzilla1738/supergoal) |
+| [lottie skill (diffusionstudio)](https://github.com/diffusionstudio/lottie) | Skill: собирает Lottie-анимацию из текстового промпта или SVG (графики, анимированный текст, живой логотип). Claude Code / Codex / skill-агенты. **Фит:** [Shotforge](#-наши-проекты) / [Text2Image](#-наши-проекты) (анимэйшн-ассеты), EclipseForgeLanding и любой фронт (лоадеры, micro-interactions) | [![Stars](https://img.shields.io/github/stars/diffusionstudio/lottie?style=flat)](https://github.com/diffusionstudio/lottie) |
+| [loops.elorm.xyz](https://loops.elorm.xyz/) | Сайт-каталог популярных community «loops» — готовых последовательностей действий для Claude Code (автоматизация рутины без повторных объяснений). Веб, не репо. **Фит:** reference для oh-my-claudecode / личных `/loop`-сценариев | — |
+
+### AI Coding Agents (терминальные / альтернативы)
+
+| Ресурс | Описание | Stars |
+|---|---|---|
+| [CodeWhale (Hmbown)](https://github.com/Hmbown/CodeWhale) | Терминальный кодинг-агент «Claude Code для DeepSeek/локалок»: API DeepSeek / OpenRouter / Ollama, привязка «личности» к сессии, долгосрочная память, суб-агенты, skills + tools + MCP. `npm i -g codewhale`, активная разработка. **Фит:** [ai-setup](#-наши-проекты) (цель конфигов), oh-my-claudecode (сравнить), Hopson Sentinel (локальный оператор — reference) | [![Stars](https://img.shields.io/github/stars/Hmbown/CodeWhale?style=flat)](https://github.com/Hmbown/CodeWhale) |
+| [MiMo Code (Xiaomi)](https://mimo.xiaomi.com/coder) | Терминальный кодинг-агент Xiaomi. **⚠️ Маркетинг:** «база Claude Sonnet 4.6» неправдоподобно (Xiaomi не строит на закрытой модели Anthropic — вероятно своя модель + Claude-совместимый агентский UX); «безлимитный контекст» и «обходит по 3 бенчам» — непроверяемый хайп. Держать на радаре как альтернативу, не эндорсить | — |
+
+### Модели / LLM
+
+| Ресурс | Описание | Stars |
+|---|---|---|
+| [GLM 5.2 (Z.ai / Zcode)](https://zcode.z.ai/en) | Китайская опен-модель (Zhipu/Z.ai), бесплатна в клиенте Zcode, токены кратно дешевле. **⚠️ Хайп канала** («сильнее Fable 5 в ризонинге, 42.8 по „Bridgebench" с отрывом») — бенч непроверяемый. GLM-серия реально конкурентна, но «> Fable 5» — на веру не брать. **Фит:** ai-setup (опция модели), free-API роутинг | — |
+
+### Мультиагентные платформы
+
+| Ресурс | Описание | Stars |
+|---|---|---|
+| [Kimi Work (Moonshot)](https://www.kimi.com/products/kimi-work) | Продукт Moonshot: Agent Swarm до 300 агентов локально + браузерный контроль (расширение WebBridge — **уже листан** [Kimi WebBridge](#ai-coding-agents)), встроенные данные Yahoo Finance + World Bank без API, память, Python-исполнение, планировщик. **Фит:** [CryptoPulse](#-наши-проекты) (Yahoo Finance / World Bank — релевантно), Hopson Sentinel (browser-control reference), oh-my-claudecode (swarm reference). Оценить локальное vs облако | — |
+| [Stack AI](https://www.stackai.com/) | No-code платформа агентов: бесплатно 500 запусков/мес + (по словам юзеров) 1M токенов/день, библиотека шаблонов (финансы, ресёрч, Excel, почта…), бэкенды GPT-5.5 / Gemini 3.5 Flash / Grok 4.3. **Фит:** reference — шаблоны как инспирация для [Eclipse AI Hub](#-наши-проекты); SaaS, не self-host | — |
+
+### Бесплатный доступ к моделям / гранты
+
+| Ресурс | Описание |
+|---|---|
+| [Claude Max для OSS](https://claude.com/contact-sales/claude-for-oss) | **🎯 Actionable.** Anthropic даёт 6 мес Claude Max (~$1200) разрабам опен-сорса: публичный репо с коммитами/релизами/ревью за последние 3 мес. До **30.06**, 10 000 разрабов. **Подать на самый активный/звёздный репо PavelHopson** (аналог листанного [Codex for OSS](#mapping--наши-проекты-1)) |
+| [Notion — Opus 4.8 free](https://app.notion.com/) | Notion раздаёт Opus 4.8 бесплатно в AI-меню (+ Gemini 3.1 Pro, GPT-5.5, DeepSeek V4). Reference — бесплатный доступ к топ-моделям для разовых задач |
+| [OpenAI API credits (data-sharing)](https://platform.openai.com/) | Data Controls → Sharing: включаешь шаринг данных → API-кредиты (250k tok/день GPT-5.5, до 10M на mini). **⚠️ Цена:** твои промпты/данные идут в обучение OpenAI. **Не включать** для чувствительных/клиентских данных — только некритичные эксперименты |
+
+### Prompt-engineering (official + reference)
+
+| Ресурс | Статус / описание |
+|---|---|
+| [Claude Fable 5 prompting guide](https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/prompting-claude-fable-5) | **Официальный** гайд Anthropic по промптингу Fable 5: актуальные шаблоны, особенности модели, «длинные промпты теперь могут мешать». (Mythos=Fable 5 во всех подписках до 22.06, потом кредиты.) **Фит:** prompt-eng reference для [Eclipse AI Hub](#-наши-проекты) / Hopson Sentinel / промпт-файлов |
+| [Fable 5 system prompt (leak)](https://github.com/elder-plinius/CL4R1T4S/blob/main/ANTHROPIC/CLAUDE-FABLE-5.md) | **⚠️ Reference, провенанс/копирайт под вопросом** (утечка IP Anthropic). Полезно для изучения структуры system-промпта. **Дебанк хайпа:** «Mythos = самая опасная нейронка, скорректируй запрос и получишь Mythos» — чушь: слитый системный промпт не «разблокирует» другую модель, это просто инструкции |
+
+### Обучение / гайды
+
+| Ресурс | Описание | Stars |
+|---|---|---|
+| [Hands-On-AI-Engineering (Sumanth077)](https://github.com/Sumanth077/Hands-On-AI-Engineering) | 50+ гайдов: AI-агенты, RAG, OCR, голос — с кодом и инструкцией запуска. Бесплатно. **Фит:** reference/обучение — паттерны для Eclipse AI Hub, Hopson Sentinel | [![Stars](https://img.shields.io/github/stars/Sumanth077/Hands-On-AI-Engineering?style=flat)](https://github.com/Sumanth077/Hands-On-AI-Engineering) |
+| [Kaggle 5-day AI Agents (vibecoding, Google)](https://www.kaggle.com/competitions/5-day-ai-agents-intensive-vibecoding-course-with-google) | Бесплатный 5-дневный интенсив Kaggle×Google: агентный кодинг, скиллы/память/контекст, безопасность агентов; задания + трансляции + сертификат. Старт 15.06 | — |
+
+### Генерация изображений
+
+| Ресурс | Описание |
+|---|---|
+| [ImageToPrompt (Chrome ext)](https://chromewebstore.google.com/detail/ImageToPrompt/pgabcjhpgdcgbflabemecpficpknnpfn) | Расширение: картинка → промпт для генерации похожей. **Фит:** [Shotforge](#-наши-проекты) / [Text2Image](#-наши-проекты) (reverse-prompt / «повторить стиль»). **⚠️** закрытое расширение, грузит изображение на свой сервис — для некритичных пикч |
+
+### Privacy / OPSEC / Self-hosted
+
+| Ресурс | Описание | Stars |
+|---|---|---|
+| [Pi-hole (docker)](https://github.com/pi-hole/docker-pi-hole) | Сетевой блок рекламы/телеметрии: лёгкий приватный DNS, фильтрует на уровне подключения для всех устройств, Docker одной командой, авто-обновление блок-листов. **Фит:** можно поднять на VPS Mara (сетевой адблок для своих устройств) или reference. Mainstream, легит | [![Stars](https://img.shields.io/github/stars/pi-hole/docker-pi-hole?style=flat)](https://github.com/pi-hole/docker-pi-hole) |
+| [Universal Android Debloater NG](https://github.com/Universal-Debloater-Alliance/universal-android-debloater-next-generation) | Удаляет OEM-блоат/телеметрию (Samsung/Xiaomi/Huawei…) **без root** через ADB, показывает утечки, экономит батарею. **Фит:** личное / Hardware reference. Легит OSS | [![Stars](https://img.shields.io/github/stars/Universal-Debloater-Alliance/universal-android-debloater-next-generation?style=flat)](https://github.com/Universal-Debloater-Alliance/universal-android-debloater-next-generation) |
+
+### Промпт-коллекции (вынесено в `prompts/`)
+
+| Коллекция | Описание |
+|---|---|
+| [finance-15.md](prompts/finance-15.md) | 15 промптов личных финансов: распределение зарплаты, долги, инвестиции, подушка, рост дохода. **Фит:** пресет-персона «Финансовый стратег» в Eclipse AI Hub. (Это **не** трейдинг CryptoPulse — бытовое планирование) |
+| [travel-hacking-10.md](prompts/travel-hacking-10.md) | 10 промптов travel: дешёвые билеты, отели, маршруты. **⚠️** hidden-city / mistake fares нарушают ToS авиакомпаний — каркас риска сохранён в файле |
+| [resume-boost-3.md](prompts/resume-boost-3.md) | 3 промпта подгонки CV под вакансию (gap-анализ, ключевые слова, achievements). Дополняют [resume-toolkit-7.md](prompts/resume-toolkit-7.md). **Фит:** InterviewForge, Eclipse AI Hub Copywriter |
+| [2r.ru — анализатор HH](https://2r.ru/top-skills-and-resumes/) | Веб-сервис: сканит профили топ-соискателей по специальности → рейтинг ключевых скиллов + готовые резюме. Закрытый RU-сервис. **Фит:** InterviewForge / resume reference |
+
+### Mapping → наши проекты
+
+| Tool | Project(s) | Integration pattern |
+|---|---|---|
+| **Ponytail** | oh-my-claudecode · весь dev-workflow | Skill-гейт «минимальный код» — экономия токенов на всех репо; поставить рано в цепочку |
+| **supergoal** | oh-my-claudecode (сравнить) | Cherry-pick идею файлов фаз/состояния; не ставить поверх OMC целиком (конфликт ниши) |
+| **lottie skill** | Shotforge · Text2Image · EclipseForgeLanding | Анимэйшн-ассеты из промпта/SVG; лоадеры / micro-interactions на фронте |
+| **CodeWhale** | ai-setup · Hopson Sentinel (ref) | «Claude Code для DeepSeek/Ollama» — локальный кодинг-агент; сравнить с нашим стеком |
+| **Kimi Work** | CryptoPulse · Hopson Sentinel · oh-my-claudecode | Yahoo Finance / World Bank данные → CryptoPulse; browser-control + swarm как reference |
+| **Claude Fable 5 guide** | Все AI-проекты · prompts/ | Ревизия system-пресетов по официальным шаблонам; короче ≠ хуже |
+| **Claude Max OSS** | 🎯 Заявка на топ-репо PavelHopson | До 30.06 — 6 мес Max за публичный активный репо (коммиты/релизы за 3 мес) |
+| **finance-15 / resume-boost-3** | Eclipse AI Hub (пресеты) · InterviewForge | Персоны «Финансовый стратег» / «Карьера» |
+| **Pi-hole** | VPS Mara (опц.) | Сетевой адблок на сервере для своих устройств; Docker один-команда |
+| **ImageToPrompt** | Shotforge · Text2Image | Reverse-prompt фича «повторить стиль картинки» (своя реализация, не расширение) |
+| **Hands-On-AI-Engineering** | Eclipse AI Hub · Hopson Sentinel (ref) | Паттерны RAG / agents / voice / OCR |
+
+### ⚠️ Grey / high-risk и reference — внесено по запросу владельца
+
+> Маркеры риска сохранены: листинг = документация для полноты подборки, не рекомендация.
+> Пиратское / уязвимое — на свой риск и в рамках закона; **вне продуктового контура Eclipse**.
+
+| Находка | Статус / дисклеймер |
+|---|---|
+| **Gemma 4 Obliterated** ([HF OBLITERATUS](https://huggingface.co/OBLITERATUS/Gemma-4-12B-OBLITERATED)) | ⚠️ **Uncensored.** Abliteration сняла safety-слой («0 отказов из 842»), 22ГБ, ollama / LM Studio / llama.cpp. Только reference / исследование устойчивости — **не** в продуктовый контур. Та же планка, что [Uncensored generative models](#uncensored-generative-models-high-risk) |
+| **LocallyUncensored** ([repo](https://github.com/PurpleDoubleD/locally-uncensored) · [сайт](https://locallyuncensored.com/)) | ⚠️ **High-risk.** Агрегатор 80+ моделей без цензуры, генерит 18+; закрытый сайт + OSS-репо, авто-подбор под железо. Reference, вне scope продуктов |
+| **flac.music.hi.cn** | 🚨 **Пиратство.** Нелицензионная музыка (китайский сайт) + классический вектор малвари. Не в продуктовом контуре; легальная задача «скачать своё» → наш [Eclipse Media](#-наши-проекты) (yt-dlp) |
+| **«Fable 5 на торрентах 3.4ТБ»** | 🃏 **Фейк/хоакс** — автор поста с Reddit сам признал, что это шутка (UPD в самом дропе). Не ресурс, листаем чтобы не приняли всерьёз |
+| **Hidden-city / mistake fares** (в [travel-hacking-10](prompts/travel-hacking-10.md)) | ⚠️ Нарушают условия авиакомпаний — риск аннуляции обратного билета / бана аккаунта. Для личного использования на свой риск, не для делового тревела |
+| **OpenAI $50k credits** | Не grey, но **приватность**: шаринг данных = обучение на твоих промптах. Только некритичные данные |
 
 ---
 
