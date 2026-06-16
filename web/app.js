@@ -293,6 +293,80 @@
     }, { passive: true });
   }
 
+  // ---- courses & guides feature band (auto-discovered from README guide links) ----
+  async function renderGuides(md) {
+    const seen = new Map();
+    const re = /\[([^\]]+)\]\((?:\.\/)?guides\/([\w-]+)\.md(?:#[\w-]+)?\)/g;
+    let m;
+    while ((m = re.exec(md))) {
+      const label = m[1].replace(/[*`]/g, '').trim(), name = m[2];
+      const prev = seen.get(name);
+      if (!prev || (/курс|гайд/i.test(label) && !/курс|гайд/i.test(prev))) seen.set(name, label);
+    }
+    if (!seen.size) return;
+    const pl = (n, a, b, c) => (n % 10 === 1 && n % 100 !== 11) ? a : (n % 10 >= 2 && n % 10 <= 4 && (n % 100 < 10 || n % 100 >= 20)) ? b : c;
+
+    const guides = await Promise.all([...seen.entries()].map(async ([name, label]) => {
+      const g = { name, title: label, blurb: '', modules: 0, lessons: 0 };
+      try {
+        const r = await fetch(`guides/${name}.md`, { cache: 'no-cache' });
+        if (r.ok) {
+          const t = await r.text();
+          const h1 = t.match(/^#\s+(.+)$/m); if (h1) g.title = h1[1];
+          const bqm = t.match(/^(>.*(?:\n>.*)*)/m);
+          if (bqm) {
+            let b = bqm[1].replace(/^>\s?/gm, '').replace(/\n/g, ' ')
+              .replace(/\[([^\]]+)\]\([^)]+\)/g, '$1').replace(/[*`<>]/g, '').replace(/\s+/g, ' ').trim();
+            const dot = b.search(/\.\s/);
+            if (dot > 40 && dot < 190) b = b.slice(0, dot + 1);
+            else if (b.length > 175) b = b.slice(0, 174).replace(/\s+\S*$/, '').replace(/[\s.,;:—–-]+$/, '') + '…';
+            g.blurb = b;
+          }
+          // \s (not \b) — Cyrillic words have no ASCII word-boundary after them
+          g.modules = (t.match(/^##\s+(?:Модуль|Module)\s/gmi) || []).length;
+          g.lessons = (t.match(/^###\s+(?:Урок|Lesson)\s/gmi) || []).length;
+        }
+      } catch (e) {}
+      g.title = g.title.replace(/[#*`]/g, '').trim();
+      return g;
+    }));
+    guides.sort((a, b) => (b.modules - a.modules) || a.title.localeCompare(b.title, 'ru'));
+
+    const hero = $('#hero');
+    let band = $('#guidesFeat');
+    if (!band) { band = el('section', 'guides-feat'); band.id = 'guidesFeat'; hero.insertAdjacentElement('afterend', band); }
+    band.innerHTML =
+      `<div class="gf-head"><h2><span aria-hidden="true">📚</span> Курсы и гайды</h2>` +
+      `<span class="gf-sub">учебные материалы — открываются прямо на сайте</span></div>` +
+      `<div class="gf-grid">` + guides.map((g) => {
+        const course = g.modules > 0;
+        const meta = course
+          ? `<div class="cc-meta"><span><b>${g.modules}</b> ${pl(g.modules, 'модуль', 'модуля', 'модулей')}</span>` +
+            (g.lessons ? `<span><b>${g.lessons}</b> ${pl(g.lessons, 'урок', 'урока', 'уроков')}</span>` : '') + `</div>`
+          : '';
+        return `<a class="course-card" href="#guide/${g.name}">` +
+          `<span class="cc-kicker">${course ? '🎓 курс' : '📖 гайд'}</span>` +
+          `<h3 class="cc-title">${esc(g.title)}</h3>` +
+          (g.blurb ? `<p class="cc-blurb">${esc(g.blurb)}</p>` : '') +
+          meta +
+          `<span class="cc-cta">Открыть →</span>` +
+        `</a>`;
+      }).join('') + `</div>`;
+
+    const nav = $('#nav');
+    if (nav && !$('#navGuides')) {
+      const a = el('a'); a.id = 'navGuides'; a.href = '#guidesFeat';
+      a.innerHTML = `<span class="ico" aria-hidden="true">📚</span><span class="label">Курсы и гайды</span><span class="cnt">${guides.length}</span>`;
+      nav.insertBefore(a, nav.firstChild);
+    }
+    const catgrid = $('#catgrid');
+    if (catgrid && !$('#tileGuides')) {
+      const tile = el('a', 'cat-tile'); tile.id = 'tileGuides'; tile.href = '#guidesFeat';
+      tile.innerHTML = `<span class="ct-ico" aria-hidden="true">📚</span><span class="ct-label">Курсы и гайды</span><span class="ct-cnt">${guides.length}</span>`;
+      catgrid.insertBefore(tile, catgrid.firstChild);
+    }
+  }
+
   // ---- guide viewer (markdown → premium doc) ----
   function splitRow(l) { return l.replace(/^\||\|$/g, '').split('|').map((c) => c.trim()); }
   function inlineG(s) {
@@ -368,6 +442,7 @@
     }
     try {
       render(parse(md)); spotlight();
+      renderGuides(md);
       requestAnimationFrame(route);
     }
     catch (e) { $('#status').className = 'status err'; $('#status').textContent = 'Ошибка разбора README: ' + e.message; }

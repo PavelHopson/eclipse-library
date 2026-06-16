@@ -242,6 +242,31 @@ body.noscroll { overflow: hidden; }
 .guide-doc tbody tr:last-child td { border-bottom: none; }
 .guide-doc td strong { color: var(--text); }
 
+/* ===== Courses & guides feature band ===== */
+.guides-feat { margin: 4px 0 34px; }
+.guides-feat .gf-head { display: flex; align-items: baseline; gap: 13px; margin: 0 0 16px; padding-bottom: 13px; border-bottom: 1px solid var(--line-2); }
+.guides-feat .gf-head h2 { font-family: var(--display); font-size: clamp(18px, 2.3vw, 24px); font-weight: 600; letter-spacing: -.5px; margin: 0; }
+.guides-feat .gf-sub { color: var(--muted-2); font-size: 12.5px; }
+.gf-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 16px; }
+.course-card {
+  position: relative; display: flex; flex-direction: column; gap: 9px;
+  padding: 20px 20px 17px; border-radius: var(--r-card);
+  background: linear-gradient(155deg, var(--violet-soft), var(--surface) 62%);
+  border: 1px solid var(--violet-line); overflow: hidden;
+  transition: transform .16s var(--ease), border-color .16s, box-shadow .16s;
+}
+.course-card::before { content: ""; position: absolute; inset: 0 0 auto; height: 2px; background: linear-gradient(90deg, var(--violet), var(--gold)); opacity: .75; }
+.course-card:hover { transform: translateY(-3px); border-color: var(--violet); box-shadow: var(--shadow-hi); color: var(--text); }
+.cc-kicker { font-size: 10.5px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--violet-2); }
+.cc-title { font-family: var(--display); font-size: 16.5px; font-weight: 600; line-height: 1.24; letter-spacing: -.3px; color: var(--text); margin: 0; }
+.course-card:hover .cc-title { color: var(--violet-2); }
+.cc-blurb { color: var(--muted); font-size: 13.6px; line-height: 1.6; margin: 0; flex: 1; }
+.cc-meta { display: flex; flex-wrap: wrap; gap: 6px 14px; font-family: var(--mono); font-size: 11.5px; color: var(--muted-2); font-variant-numeric: tabular-nums; }
+.cc-meta b { color: var(--violet-2); font-weight: 600; }
+.cc-cta { display: inline-flex; align-items: center; gap: 6px; align-self: flex-start; margin-top: 3px; font-size: 13px; font-weight: 700; color: var(--violet-2); }
+.course-card:hover .cc-cta { color: #cdbcff; transform: translateX(2px); }
+.cc-cta { transition: transform .16s var(--ease), color .16s; }
+
 /* ===== Responsive ===== */
 /* prevent horizontal overflow from long words / URLs */
 .card-title, .desc, .cat-intro, .sub-intro, .cat-head h2, .guide-doc p, .guide-doc li, .guide-title { overflow-wrap: break-word; }
@@ -273,6 +298,9 @@ body.noscroll { overflow: hidden; }
   .stats { gap: 14px; }
   .stat b { font-size: 21px; }
   .grid { grid-template-columns: 1fr; }
+  .gf-grid { grid-template-columns: 1fr; }
+  .course-card { padding: 16px 16px 14px; }
+  .guides-feat .gf-head { flex-wrap: wrap; gap: 4px 13px; }
   .cat-grid { grid-template-columns: 1fr 1fr; gap: 8px; }
   .cat-tile { padding: 11px 12px; }
   .result-count { width: 100%; margin: 6px 0 0; text-align: right; }
