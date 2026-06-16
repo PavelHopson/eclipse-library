@@ -243,22 +243,55 @@ body.noscroll { overflow: hidden; }
 .guide-doc td strong { color: var(--text); }
 
 /* ===== Responsive ===== */
+/* prevent horizontal overflow from long words / URLs */
+.card-title, .desc, .cat-intro, .sub-intro, .cat-head h2, .guide-doc p, .guide-doc li, .guide-title { overflow-wrap: break-word; }
+.desc code, .guide-doc code { overflow-wrap: anywhere; }
+
+/* Tablet & below: sidebar → top scroller, filters non-sticky (no overlap with wrapped topbar) */
 @media (max-width: 960px) {
-  .layout { grid-template-columns: 1fr; gap: 0; }
-  .sidebar { position: static; height: auto; overflow: visible; padding: 0 0 16px; margin-bottom: 14px; border-bottom: 1px solid var(--line-2); }
+  .layout { grid-template-columns: 1fr; gap: 0; padding: 22px 22px 72px; }
+  .sidebar { position: static; height: auto; overflow: visible; padding: 0 0 14px; margin-bottom: 16px; border-bottom: 1px solid var(--line-2); }
   .side-label { display: none; }
-  .nav { flex-direction: row; flex-wrap: nowrap; overflow-x: auto; gap: 6px; padding-bottom: 6px; scrollbar-width: none; }
+  .nav { flex-direction: row; flex-wrap: nowrap; overflow-x: auto; gap: 6px; padding-bottom: 8px; scrollbar-width: none; -webkit-overflow-scrolling: touch; }
   .nav::-webkit-scrollbar { display: none; }
-  .nav a { white-space: nowrap; flex-shrink: 0; border: 1px solid var(--line); }
+  .nav a { white-space: nowrap; flex-shrink: 0; border: 1px solid var(--line); padding: 9px 13px; }
   .nav a .cnt { display: none; }
-  .filters { top: 0; }
+  .filters { position: static; padding: 8px 0 14px; background: none; }
+  .grid { grid-template-columns: repeat(auto-fill, minmax(min(100%, 300px), 1fr)); }
 }
-@media (max-width: 600px) {
-  .topbar-inner { flex-wrap: wrap; gap: 12px; padding: 12px 16px; }
+
+/* Phones */
+@media (max-width: 620px) {
+  .topbar-inner { flex-wrap: wrap; gap: 10px 12px; padding: 11px 15px; }
   .search-wrap { order: 3; max-width: none; flex-basis: 100%; margin: 0; }
+  #search { font-size: 16px; padding-top: 11px; padding-bottom: 11px; } /* 16px = no iOS zoom on focus */
   .brand-text small { display: none; }
-  .layout { padding: 20px 16px 60px; }
+  .layout { padding: 18px 15px 60px; }
+  .hero { padding: 10px 0 22px; }
+  .hero h1 { font-size: 22px; letter-spacing: -.5px; }
+  .hero-sub { font-size: 15px; }
+  .stats { gap: 14px; }
+  .stat b { font-size: 21px; }
   .grid { grid-template-columns: 1fr; }
-  .cat-grid { grid-template-columns: 1fr 1fr; }
-  .result-count { width: 100%; margin: 4px 0 0; }
+  .cat-grid { grid-template-columns: 1fr 1fr; gap: 8px; }
+  .cat-tile { padding: 11px 12px; }
+  .result-count { width: 100%; margin: 6px 0 0; text-align: right; }
+  .card { padding: 15px 15px 14px; }
+  .chip { padding: 7px 13px; }
+  .to-top { right: 14px; bottom: 14px; }
+  /* guide viewer */
+  .guide-head { padding: 11px 15px; gap: 10px; }
+  .guide-back { padding: 9px 13px; font-size: 13px; }
+  .guide-doc { padding: 28px 16px 80px; font-size: 16px; line-height: 1.72; }
+  .guide-doc h2 { margin: 38px 0 12px; padding-top: 20px; }
+  .guide-doc pre { padding: 13px 14px; border-radius: 11px; }
+  .guide-doc ul, .guide-doc ol { padding-left: 22px; }
+}
+
+/* Small phones */
+@media (max-width: 380px) {
+  .cat-grid { grid-template-columns: 1fr; }
+  .hero h1 { font-size: 20px; letter-spacing: -.4px; }
+  .guide-title { display: none; }
+  .brand-mark { width: 36px; height: 36px; }
 }
