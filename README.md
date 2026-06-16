@@ -6,6 +6,9 @@
 
 *Собираем лучшее — ничего не теряем*
 
+### 🌐 [library.eclipse-forge.ru](https://library.eclipse-forge.ru) — веб-версия с поиском и навигацией
+
+[![Web](https://img.shields.io/badge/%F0%9F%8C%90_веб--версия-library.eclipse--forge.ru-8b5cf6?style=flat)](https://library.eclipse-forge.ru)
 [![Awesome](https://cdn.rawgit.com/sindresorhus/awesome/d7305f38d29fed78fa85652e3a63e154dd8e8829/media/badge.svg)](https://github.com/sindresorhus/awesome)
 [![License: MIT](https://img.shields.io/badge/License-MIT-22c55e?style=flat)](LICENSE)
 
