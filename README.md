@@ -280,6 +280,21 @@ ai-setup reverse owner/repo --stdout
 | **6 · Хостинг** | Витрина → **Vercel / Cloudflare / наш VPS**; бэкенд → **наш VPS / Railway / Render** |
 | **7 · Запуск** | Поддомен `*.eclipse-forge.ru` + SEO (см. раздел ниже) + аналитика + платёжный аккаунт |
 
+### 🟣 Наши сервисы для магазина (бери их — бесплатно и под рукой)
+
+> Для удобства команды: где можно — берём свои сервисы Eclipse Forge и инструменты из этой библиотеки, а не плодим зоопарк.
+
+| Задача в магазине | Наш сервис / инструмент |
+|---|---|
+| **Фото товаров** | [Shotforge](https://shotforge.eclipse-forge.ru) — AI-фотограф (предметка, стили) |
+| **Картинки, баннеры, иллюстрации** | [Text2Image](https://text2image.eclipse-forge.ru) — генерация изображений по тексту |
+| **Описания товаров, тексты, SEO-копирайт** | [Eclipse AI Hub](https://hub.eclipse-forge.ru) — модуль Copywriter |
+| **Парсинг поставщиков/конкурентов** | [Eclipse-Claw](https://github.com/PavelHopson/Eclipse-Claw) — веб-парсер на Rust |
+| **Хостинг магазина** | **Eclipse Forge VPS** — поддомен `*.eclipse-forge.ru` (фронт через Caddy, бэкенд systemd/Coolify) |
+| **Устойчивые запросы к API платёжек/доставки** | [`retry-http`](https://github.com/PavelHopson/retry-http) — наш npm: ретраи с backoff |
+| **AI-конфиги проекта (CLAUDE.md и т.п.)** | [ai-setup](https://github.com/PavelHopson/ai-setup) |
+| **Любой инструмент по этапу** | эта **[библиотека](https://library.eclipse-forge.ru)** — поиск + фильтры по типам |
+
 ### Headless-движки (для разработчиков · self-host · бесплатно)
 
 | Ресурс | Описание | Stars |

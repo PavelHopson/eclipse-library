@@ -21,8 +21,11 @@
   function inline(md) {
     let s = esc(md || '');
     s = s.replace(/!\[[^\]]*\]\([^)]+\)/g, '');
-    s = s.replace(/\[([^\]]+)\]\(([^)\s]+)\)/g, (_, t, u) =>
-      `<a href="${absUrl(u)}" target="_blank" rel="noopener">${t}</a>`);
+    s = s.replace(/\[([^\]]+)\]\(([^)\s]+)\)/g, (_, t, u) => {
+      const g = u.match(/guides\/([\w-]+)\.md/);
+      if (g) return `<a href="#guide/${g[1]}">${t}</a>`;
+      return `<a href="${absUrl(u)}" target="_blank" rel="noopener">${t}</a>`;
+    });
     s = s.replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>');
     s = s.replace(/`([^`]+)`/g, '<code>$1</code>');
     return s.replace(/^\s*[·—-]\s*/, '').trim();
@@ -290,6 +293,71 @@
     }, { passive: true });
   }
 
+  // ---- guide viewer (markdown → premium doc) ----
+  function splitRow(l) { return l.replace(/^\||\|$/g, '').split('|').map((c) => c.trim()); }
+  function inlineG(s) {
+    s = esc(s || '');
+    s = s.replace(/!\[[^\]]*\]\([^)]+\)/g, '');
+    s = s.replace(/\[([^\]]+)\]\(([^)\s]+)\)/g, (_, t, u) => {
+      if (/README\.md/.test(u)) { const a = (u.match(/#(.+)$/) || [])[1]; return `<a href="#${a || 'top'}">${t}</a>`; }
+      const g = u.match(/(?:^|\/)([\w-]+)\.md(?:#[\w-]+)?$/);
+      if (g && !/^https?:/.test(u)) return `<a href="#guide/${g[1]}">${t}</a>`;
+      return `<a href="${/^https?:/.test(u) ? u : absUrl(u)}" target="_blank" rel="noopener">${t}</a>`;
+    });
+    s = s.replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>');
+    s = s.replace(/`([^`]+)`/g, '<code>$1</code>');
+    return s;
+  }
+  function mdToHtml(md) {
+    const L = md.replace(/\r/g, '').split('\n'); let out = ''; let i = 0;
+    const stop = (l) => /^(#{1,6}\s|```|>|\||\s*[-*]\s|\s*\d+\.\s|---+\s*$|\s*$)/.test(l);
+    while (i < L.length) {
+      const l = L[i];
+      if (/^```/.test(l)) { i++; let c = ''; while (i < L.length && !/^```/.test(L[i])) { c += L[i] + '\n'; i++; } i++; out += `<pre><code>${esc(c.replace(/\n$/, ''))}</code></pre>`; continue; }
+      const h = l.match(/^(#{1,6})\s+(.*)$/); if (h) { const n = h[1].length; out += `<h${n}>${inlineG(h[2])}</h${n}>`; i++; continue; }
+      if (/^---+\s*$/.test(l)) { out += '<hr>'; i++; continue; }
+      if (/^>\s?/.test(l)) { let q = ''; while (i < L.length && /^>\s?/.test(L[i])) { q += L[i].replace(/^>\s?/, '') + '\n'; i++; } out += `<blockquote>${mdToHtml(q)}</blockquote>`; continue; }
+      if (/^\|/.test(l) && L[i + 1] && /^\|?[\s:|-]+\|?$/.test(L[i + 1]) && L[i + 1].includes('-')) {
+        const hd = splitRow(l); i += 2; const rows = [];
+        while (i < L.length && /^\|/.test(L[i])) { rows.push(splitRow(L[i])); i++; }
+        out += `<div class="t-wrap"><table><thead><tr>${hd.map((c) => `<th>${inlineG(c)}</th>`).join('')}</tr></thead><tbody>${rows.map((r) => `<tr>${r.map((c) => `<td>${inlineG(c)}</td>`).join('')}</tr>`).join('')}</tbody></table></div>`; continue;
+      }
+      if (/^\s*([-*]|\d+\.)\s+/.test(l)) {
+        const ol = /^\s*\d+\./.test(l); let items = '';
+        while (i < L.length && /^\s*([-*]|\d+\.)\s+/.test(L[i])) {
+          let it = L[i].replace(/^\s*([-*]|\d+\.)\s+/, '');
+          const tk = it.match(/^\[([ xX])\]\s+(.*)$/);
+          items += tk ? `<li class="task"><span class="cb${tk[1].trim() ? ' on' : ''}"></span>${inlineG(tk[2])}</li>` : `<li>${inlineG(it)}</li>`;
+          i++;
+        }
+        out += `<${ol ? 'ol' : 'ul'}>${items}</${ol ? 'ol' : 'ul'}>`; continue;
+      }
+      if (/^\s*$/.test(l)) { i++; continue; }
+      let p = ''; while (i < L.length && !stop(L[i])) { p += L[i] + ' '; i++; }
+      if (p.trim()) out += `<p>${inlineG(p.trim())}</p>`;
+    }
+    return out;
+  }
+  async function openGuide(name) {
+    const v = $('#guideView'), b = $('#guideBody'), t = $('#guideTitle');
+    v.hidden = false; document.body.classList.add('noscroll'); v.scrollTop = 0;
+    $('#guideGh').href = `${REPO_URL}/blob/master/guides/${name}.md`;
+    b.innerHTML = '<div class="status">Загружаю гайд…</div>';
+    let md;
+    try { const r = await fetch(`guides/${name}.md`, { cache: 'no-cache' }); if (!r.ok) throw 0; md = await r.text(); }
+    catch (e) { try { md = await (await fetch(`https://raw.githubusercontent.com/${REPO}/master/guides/${name}.md`)).text(); } catch (e2) { b.innerHTML = '<div class="status err">Гайд не найден.</div>'; return; } }
+    const m = md.match(/^#\s+(.+)$/m);
+    t.textContent = m ? m[1].replace(/[#*\x60]/g, '').replace(/\p{Extended_Pictographic}/gu, '').trim() : name;
+    b.innerHTML = mdToHtml(md); v.scrollTop = 0;
+  }
+  function closeGuide() { const v = $('#guideView'); if (v.hidden) return; v.hidden = true; document.body.classList.remove('noscroll'); }
+  function route() {
+    const h = location.hash;
+    if (/^#guide\//.test(h)) { openGuide(decodeURIComponent(h.slice(7))); return; }
+    closeGuide();
+    if (h.length > 1) { const t = document.getElementById(decodeURIComponent(h.slice(1))); if (t) t.scrollIntoView(); }
+  }
+
   // ---- boot ----
   async function load() {
     let md;
@@ -300,7 +368,7 @@
     }
     try {
       render(parse(md)); spotlight();
-      if (location.hash) requestAnimationFrame(() => { const t = document.getElementById(decodeURIComponent(location.hash.slice(1))); if (t) t.scrollIntoView({ block: 'start' }); });
+      requestAnimationFrame(route);
     }
     catch (e) { $('#status').className = 'status err'; $('#status').textContent = 'Ошибка разбора README: ' + e.message; }
   }
@@ -310,9 +378,12 @@
   let timer;
   search.addEventListener('input', () => { clearTimeout(timer); timer = setTimeout(() => { query = search.value; applyFilters(); }, 110); });
   document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && !$('#guideView').hidden) { closeGuide(); history.replaceState(null, '', location.pathname + location.search); return; }
     if (e.key === '/' && document.activeElement !== search) { e.preventDefault(); search.focus(); }
     if (e.key === 'Escape' && document.activeElement === search) { search.value = ''; query = ''; applyFilters(); search.blur(); }
   });
+  window.addEventListener('hashchange', route);
+  $('#guideBack').addEventListener('click', () => { closeGuide(); history.replaceState(null, '', location.pathname + location.search); });
   $('#emptyClear').addEventListener('click', () => { search.value = ''; query = ''; activeType = null; document.querySelectorAll('.chip').forEach((x) => x.classList.toggle('active', !x.dataset.type)); applyFilters(); search.focus(); });
 
   const toTop = $('#toTop');

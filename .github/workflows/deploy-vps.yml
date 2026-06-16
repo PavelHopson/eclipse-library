@@ -31,7 +31,8 @@ jobs:
           mkdir -p _site
           cp -r web/. _site/
           cp README.md _site/README.md
-          rm -f _site/.gitignore _site/_preview*.png _site/_edge.log
+          cp -r guides _site/guides
+          rm -f _site/.gitignore _site/_*.png _site/_edge.log
 
       - name: Setup SSH
         run: |

@@ -44,6 +44,12 @@ npm run dev            # backend:9000 (admin на /app), storefront:8000
 (или [Supabase Storage](https://supabase.com) на free-tier). Тексты/блог — можно отдельной
 [Strapi](https://strapi.io)/[Payload](https://payloadcms.com), но на старте хватит полей Medusa.
 
+> **🟣 Наши сервисы (для удобства):** фото товаров — [Shotforge](https://shotforge.eclipse-forge.ru),
+> баннеры/иллюстрации — [Text2Image](https://text2image.eclipse-forge.ru), описания и SEO-тексты —
+> [Eclipse AI Hub](https://hub.eclipse-forge.ru) (Copywriter), парсинг поставщиков/конкурентов —
+> [Eclipse-Claw](https://github.com/PavelHopson/Eclipse-Claw). Запросы к API платёжек/доставки
+> оборачивай ретраями — наш [`retry-http`](https://github.com/PavelHopson/retry-http).
+
 ### 1.3 Платежи
 - **РФ → [ЮKassa](https://yookassa.ru):** ставим community-плагин платёжного провайдера Medusa,
   кладём `shopId` + `secretKey` из ЛК ЮKassa в `.env`, включаем провайдер в регионе RU.
