@@ -242,6 +242,29 @@ body.noscroll { overflow: hidden; }
 .guide-doc tbody tr:last-child td { border-bottom: none; }
 .guide-doc td strong { color: var(--text); }
 
+/* ===== Guide table of contents (clickable module nav) ===== */
+.guide-toc { max-width: 808px; margin: 0 auto 6px; }
+.guide-toc[hidden] { display: none; }
+.gt-details { background: var(--surface); border: 1px solid var(--line); border-radius: 13px; padding: 5px 7px; }
+.gt-head { font-family: var(--display); font-size: 13px; font-weight: 600; letter-spacing: -.2px; color: var(--text); padding: 8px 10px; cursor: pointer; list-style: none; display: flex; align-items: center; gap: 8px; }
+.gt-head::-webkit-details-marker { display: none; }
+.gt-head::before { content: "📑"; font-family: var(--font); }
+.gt-list { display: flex; flex-direction: column; gap: 1px; padding: 3px; }
+.gt-link { display: block; width: 100%; text-align: left; background: none; border: none; color: var(--muted); font: 500 13px/1.4 var(--font); padding: 8px 11px; border-radius: 9px; cursor: pointer; transition: background .14s, color .14s; }
+.gt-link:hover { background: var(--surface-hi); color: var(--text); }
+.gt-link.active { background: var(--violet-soft); color: var(--violet-2); font-weight: 600; }
+.guide-doc h2, .guide-doc h3 { scroll-margin-top: 82px; }
+
+@media (min-width: 1080px) {
+  .guide-wrap { display: grid; grid-template-columns: 250px minmax(0, 808px); gap: 40px; justify-content: center; align-items: start; }
+  .guide-toc { max-width: none; margin: 0; position: sticky; top: 82px; max-height: calc(100vh - 116px); overflow-y: auto; padding-right: 2px; }
+  .guide-toc::-webkit-scrollbar { width: 6px; }
+  .guide-toc::-webkit-scrollbar-thumb { background: var(--line); border-radius: 4px; }
+  .guide-doc { margin: 0; max-width: none; padding-top: 36px; }
+  .gt-details { background: none; border: none; padding: 0; }
+  .gt-head { padding: 2px 11px 11px; font-size: 11px; letter-spacing: .14em; text-transform: uppercase; color: var(--muted-2); pointer-events: none; }
+}
+
 /* ===== Courses & guides feature band ===== */
 .guides-feat { margin: 4px 0 34px; }
 .guides-feat .gf-head { display: flex; align-items: baseline; gap: 13px; margin: 0 0 16px; padding-bottom: 13px; border-bottom: 1px solid var(--line-2); }

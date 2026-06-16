@@ -412,9 +412,41 @@
     }
     return out;
   }
+  // clickable table of contents (modules) for the guide viewer
+  let guideTocObs = null;
+  function buildGuideToc(body) {
+    const toc = $('#guideToc'); if (!toc) return;
+    if (guideTocObs) { guideTocObs.disconnect(); guideTocObs = null; }
+    const heads = [...body.querySelectorAll('h2, h3')];
+    const h2s = heads.filter((h) => h.tagName === 'H2');
+    if (h2s.length < 3) { toc.hidden = true; toc.innerHTML = ''; return; }
+    const used = new Set();
+    heads.forEach((h) => {
+      if (h.id) { used.add(h.id); return; }
+      let base = slug(h.textContent) || 'sec', id = base, n = 2;
+      while (used.has(id)) id = `${base}-${n++}`;
+      used.add(id); h.id = id;
+    });
+    toc.hidden = false;
+    toc.innerHTML = `<details class="gt-details" open><summary class="gt-head">Содержание</summary><div class="gt-list">` +
+      h2s.map((h) => `<button type="button" class="gt-link" data-target="${h.id}">${esc(h.textContent.trim())}</button>`).join('') +
+      `</div></details>`;
+    const map = new Map(h2s.map((h) => [h.id, toc.querySelector(`.gt-link[data-target="${h.id}"]`)]));
+    guideTocObs = new IntersectionObserver((entries) => {
+      entries.forEach((e) => {
+        if (!e.isIntersecting) return;
+        toc.querySelectorAll('.gt-link.active').forEach((x) => x.classList.remove('active'));
+        const link = map.get(e.target.id);
+        if (link) { link.classList.add('active'); link.scrollIntoView({ block: 'nearest' }); }
+      });
+    }, { root: $('#guideView'), rootMargin: '-82px 0px -70% 0px' });
+    h2s.forEach((h) => guideTocObs.observe(h));
+  }
+
   async function openGuide(name) {
-    const v = $('#guideView'), b = $('#guideBody'), t = $('#guideTitle');
+    const v = $('#guideView'), b = $('#guideBody'), t = $('#guideTitle'), toc = $('#guideToc');
     v.hidden = false; document.body.classList.add('noscroll'); v.scrollTop = 0;
+    if (toc) { toc.hidden = true; toc.innerHTML = ''; }
     $('#guideGh').href = `${REPO_URL}/blob/master/guides/${name}.md`;
     b.innerHTML = '<div class="status">Загружаю гайд…</div>';
     let md;
@@ -422,9 +454,9 @@
     catch (e) { try { md = await (await fetch(`https://raw.githubusercontent.com/${REPO}/master/guides/${name}.md`)).text(); } catch (e2) { b.innerHTML = '<div class="status err">Гайд не найден.</div>'; return; } }
     const m = md.match(/^#\s+(.+)$/m);
     t.textContent = m ? m[1].replace(/[#*\x60]/g, '').replace(/\p{Extended_Pictographic}/gu, '').trim() : name;
-    b.innerHTML = mdToHtml(md); v.scrollTop = 0;
+    b.innerHTML = mdToHtml(md); buildGuideToc(b); v.scrollTop = 0;
   }
-  function closeGuide() { const v = $('#guideView'); if (v.hidden) return; v.hidden = true; document.body.classList.remove('noscroll'); }
+  function closeGuide() { const v = $('#guideView'); if (v.hidden) return; v.hidden = true; document.body.classList.remove('noscroll'); if (guideTocObs) { guideTocObs.disconnect(); guideTocObs = null; } }
   function route() {
     const h = location.hash;
     if (/^#guide\//.test(h)) { openGuide(decodeURIComponent(h.slice(7))); return; }
@@ -459,6 +491,11 @@
   });
   window.addEventListener('hashchange', route);
   $('#guideBack').addEventListener('click', () => { closeGuide(); history.replaceState(null, '', location.pathname + location.search); });
+  $('#guideToc').addEventListener('click', (e) => {
+    const b = e.target.closest('.gt-link'); if (!b) return;
+    const target = document.getElementById(b.dataset.target);
+    if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  });
   $('#emptyClear').addEventListener('click', () => { search.value = ''; query = ''; activeType = null; document.querySelectorAll('.chip').forEach((x) => x.classList.toggle('active', !x.dataset.type)); applyFilters(); search.focus(); });
 
   const toTop = $('#toTop');
