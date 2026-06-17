@@ -35,6 +35,7 @@
 - [📥 Подборка Eclipse (08.06.2026)](#-подборка-eclipse-08062026)
 - [📥 Подборка Eclipse (09.06.2026)](#-подборка-eclipse-09062026)
 - [📥 Подборка Eclipse (10–16.06.2026)](#-подборка-eclipse-1016062026)
+- [📥 Подборка Eclipse (17.06.2026)](#-подборка-eclipse-17062026)
 - [📦 Наши проекты](#-наши-проекты)
 
 ---
@@ -1368,6 +1369,48 @@ Frontend: React 19 · TypeScript · Vite · Tailwind CSS 4 · Zustand
 | **Hidden-city / mistake fares** (в [travel-hacking-10](prompts/travel-hacking-10.md)) | ⚠️ Нарушают условия авиакомпаний — риск аннуляции обратного билета / бана аккаунта. Для личного использования на свой риск, не для делового тревела |
 | **Teleprompter-оверлеи** ([Virtual Teleprompter](https://www.vtpapps.com/) · [NotchPrompt](https://notchprompt.vercel.app/) · [teleprompter.works](https://teleprompter.works/online/)) | ⚠️ **Этически серо.** Прозрачный текст поверх Zoom / Teams / Meet (не виден при шеринге экрана). Легит для презентаций / стримов / съёмок; канал подаёт как шпаргалку на собесах и экзаменах — это нарушает правила работодателя / вуза и репутационно рискованно. Reference для полноты, **не** рекомендация |
 | **OpenAI $50k credits** | Не grey, но **приватность**: шаринг данных = обучение на твоих промптах. Только некритичные данные |
+
+---
+
+## 📥 Подборка Eclipse (17.06.2026)
+
+> Дроп Telegram «Eclipse Hopson» за **17.06**. Ни одна находка ещё не была в библиотеке (проверено grep'ом). Провенанс по репозиториям проверен, хайп канала помечен и дебанкнут.
+
+### Claude Code — skills & инструменты
+
+| Ресурс | Описание | Stars |
+|---|---|---|
+| [effective-html (plannotator)](https://github.com/plannotator/effective-html) | 3 скилла Claude Code / Codex для самодостаточных HTML-деливеров: **`html`** (любая страница в стиле «effective HTML»), **`html-diagram`** (полноэкранные SVG-схемы архитектуры/планов, минимум текста), **`html-plan`** (роадмапы / планы / стратегии). MIT, ставится `npx skills add plannotator/effective-html` или `/plugin marketplace add`. **⚠️ Дебанк:** демо-видео сделано Fable 5, а не самими скиллами — оценивать по реальному выводу. **Фит:** [EclipseForgeLanding](#-наши-проекты) + slides, `html-diagram` для арх-доков, `html-plan` для роадмапов | [![Stars](https://img.shields.io/github/stars/plannotator/effective-html?style=flat)](https://github.com/plannotator/effective-html) |
+| [Understand-Anything (Egonex-AI)](https://github.com/Egonex-AI/Understand-Anything) | Строит интерактивный граф знаний кодовой базы (файлы/функции/классы/зависимости): tree-sitter (структура) + LLM (семантика) → force-directed визуализация по слоям, guided-tours по зависимостям, семантический поиск, diff-impact «что сломается перед изменением», бизнес-домен-маппинг. Плагины Claude Code / Cursor / VS Code+Copilot / Codex / Gemini CLI; MIT, `/plugin install understand-anything` или curl; пишет `.understand-anything/knowledge-graph.json` (шарится в команде). **⚠️ Дебанк:** «хватит читать код вслепую» — оверселл; структурный слой (tree-sitter) надёжен, семантические (guided-tours, бизнес-домен) LLM-зависимы и плавают. **Фит:** онбординг крупных репо (eclipse-chat, монорепо), [oh-my-claudecode](#-наши-проекты) | [![Stars](https://img.shields.io/github/stars/Egonex-AI/Understand-Anything?style=flat)](https://github.com/Egonex-AI/Understand-Anything) |
+
+### Генерация музыки / аудио
+
+| Ресурс | Описание | Stars |
+|---|---|---|
+| [StableDAW (Pinokio)](https://pinokio.co/posts/01kty98bwb20619q6274768kcm) | Локальная ИИ-аудиостудия на **Stable Audio 3** (Stability AI): генерация музыки по тексту/голосу + редактор (микс, DJ-инструменты, свои MIDI, ручная доводка, выгрузка нот). Один клик через Pinokio, всё локально (промпты/модели на машине), MIT. Модели: **Small ~3.5 ГБ** (CPU, до 120 с), **Medium ~10.4 ГБ** (NVIDIA ~8 ГБ VRAM, до 380 с). **⚠️ Дебанк «убийца Suno»:** сам пост такого не заявляет — это хайп канала; StableDAW про локальное владение и глубину правок, а не клауд «одной кнопкой». Для длинных треков нужен GPU. **Фит:** standalone ИИ-инструмент / reference для возможного аудио-модуля Eclipse | — |
+
+### Обучение / гайды
+
+| Ресурс | Описание |
+|---|---|
+| [«How to AI» — Ruben Hassid (Substack)](https://ruben.substack.com/archive?sort=new) | Ньюслеттер по Claude на практике: Claude Code / Cowork / Design, коннекторы (Gmail и пр.), интеграции с Excel / Word / PowerPoint, промптинг, сравнения моделей, объяснение skills / MCP. **⚠️** часть постов платная (free + Paid) — бесплатных достаточно для старта. **Фит:** обучение / референс для [Eclipse AI Hub](#-наши-проекты) и промпт-файлов |
+
+### Mapping → наши проекты
+
+| Tool | Project(s) | Integration pattern |
+|---|---|---|
+| **effective-html** | EclipseForgeLanding · slides · arch-доки | `html-diagram` для схем архитектуры, `html-plan` для роадмапов, `html` для лендинг-блоков; ставить как skill в dev-workflow |
+| **Understand-Anything** | oh-my-claudecode · eclipse-chat (онбординг) | Граф знаний перед рефактором/онбордингом крупного репо; коммитить `knowledge-graph.json` для команды. Доверять структуре, перепроверять семантику |
+| **StableDAW** | reference / возможный аудио-модуль | Локальная генерация на Stable Audio 3; оценить как движок, если появится аудио-фича в Hub |
+| **«How to AI» (Ruben)** | Eclipse AI Hub · prompts/ | Реальные паттерны Claude-интеграций (Office, коннекторы) → пресеты/гайды Hub |
+
+### ⚠️ Reference — внесено по запросу владельца
+
+> Легитимно, но вне AI/dev-контура Eclipse: листинг = документация для полноты, не продуктовый ресурс.
+
+| Находка | Статус / дисклеймер |
+|---|---|
+| **Entry Conditions** ([entryconditions.com](https://entryconditions.com/)) | ✅ **Легит, вне AI/dev-контура** — тревел-справочник: визовые требования по паспорту, government-sourced с дословными цитатами офиц. источников + ссылки на офиц. порталы э-виз, бесплатно, есть репорт правок. **⚠️ Дебанк «убийца Passport Index / ВСЯ инфа»:** хорошая верифицированная база, но критичные правила въезда сверять с офиц. порталом перед поездкой (данные могут отставать). Reference для владельца |
 
 ---
 
