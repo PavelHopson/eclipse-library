@@ -320,6 +320,7 @@ ai-setup reverse owner/repo --stdout
 | **Хостинг магазина** | **Eclipse Forge VPS** — поддомен `*.eclipse-forge.ru` (фронт через Caddy, бэкенд systemd/Coolify) |
 | **Устойчивые запросы к API платёжек/доставки** | [`retry-http`](https://github.com/PavelHopson/retry-http) — наш npm: ретраи с backoff |
 | **AI-конфиги проекта (CLAUDE.md и т.п.)** | [ai-setup](https://github.com/PavelHopson/ai-setup) |
+| **Подключить свой AI-ключ к нашим сервисам** | [🔌 Гайд: как подключить AI](guides/ai-services.md) — Shotforge / Hub и др. работают на вашем ключе (вставляется в Настройках) |
 | **Любой инструмент по этапу** | эта **[библиотека](https://library.eclipse-forge.ru)** — поиск + фильтры по типам |
 
 ### Headless-движки (для разработчиков · self-host · бесплатно)
