@@ -43,10 +43,30 @@
 
 ### Бесплатные API
 
+> **Где взять бесплатный AI-ключ** под наши и любые приложения — без карты, по бесплатному тиру провайдера. Как вставить ключ в Eclipse AI Hub / Shotforge → [🔌 гайд «Как подключить AI»](guides/ai-services.md). Бесплатные лимиты меняются — сверяйтесь на странице провайдера.
+
+**Получить ключ напрямую (бесплатно, обычно без карты):**
+
+| Ресурс | Описание | Звёзды |
+|--------|----------|--------|
+| [Google AI Studio · Gemini](https://aistudio.google.com/apikey) | **Лучший старт.** Ключ за минуту без карты, ~1500 запросов/день на Gemini Flash, контекст 1M. Текст — бесплатно; картинки — у младшей модели Nano Banana, Pro-картинки платные | — |
+| [Groq](https://console.groq.com/keys) | Без карты, **самый быстрый** инференс (LPU), тысячи запросов/день — Llama, Qwen, GPT-OSS и др. | — |
+| [OpenRouter](https://openrouter.ai/keys) | Один ключ → 20+ **бесплатных** моделей (пометка `:free`), без карты. Удобно как фолбэк | — |
+| [Cerebras](https://cloud.cerebras.ai/) | Без карты, очень быстрый инференс крупных опен-моделей, ~30 запросов/мин | — |
+| [GitHub Models](https://github.com/marketplace/models) | Ключ = твой GitHub-токен (без карты). GPT / Llama / Mistral / Phi и др. для разработки | — |
+| [Mistral · La Plateforme](https://console.mistral.ai/) | Бесплатный экспериментальный тир без карты; сильные код-модели, контекст до 256K | — |
+| [Cohere](https://dashboard.cohere.com/api-keys) | Бесплатные trial-ключи (rate-limited) — Command / Embed / Rerank | — |
+| [Cloudflare Workers AI](https://dash.cloudflare.com/) | Бесплатная дневная квота на инференс, OpenAI-совместимый эндпоинт | — |
+| [NVIDIA Build (95 моделей)](https://build.nvidia.com/models) | Бесплатные API: Qwen, GLM, DeepSeek, Kimi, Gemma, Mistral, Nemotron (проверять условия) | — |
+| [HuggingFace Inference](https://huggingface.co/settings/tokens) | Бесплатный rate-limited инференс тысяч моделей по токену | — |
+
+> **Без ключа вообще — локально, бесплатно, без лимитов:** [Ollama](https://ollama.com) · [LM Studio](https://lmstudio.ai) · [Jan](https://jan.ai) · [GPT4All](https://gpt4all.io) (текст) · [ComfyUI](https://github.com/comfyanonymous/ComfyUI) (картинки, Stable Diffusion). Работают на твоём ПК — ключи не нужны. Жонглировать своими ключами автоматически → [freellmapi](#llm-роутинг-и-оптимизация) ниже.
+
+**Списки и агрегаторы:**
+
 | Ресурс | Описание | Звёзды |
 |--------|----------|--------|
 | [free-llm-api-resources](https://github.com/cheahjs/free-llm-api-resources) | 26 провайдеров бесплатных LLM API — OpenRouter, Google AI Studio, NVIDIA NIM, Mistral, Groq, Cohere и др. Лимиты и условия | [![Stars](https://img.shields.io/github/stars/cheahjs/free-llm-api-resources?style=flat)](https://github.com/cheahjs/free-llm-api-resources) |
-| [NVIDIA Build (95 моделей)](https://build.nvidia.com/models) | 95 бесплатных API: Qwen, GLM, DeepSeek, Kimi, Gemma, Mistral, Nemotron — без лимитов на момент публикации (проверять условия) | — |
 | [Open-Generative-AI](https://github.com/Anil-matcha/Open-Generative-AI) | Агрегатор 200+ моделей для генерации видео и картинок — Seedance Pro, Kling, Veo, Flux, Midjourney и др. Подключение к Claude Code / Codex одним кликом. **С оговоркой:** проверять статус каждой модели — у части могут отключиться бесплатные эндпоинты | [![Stars](https://img.shields.io/github/stars/Anil-matcha/Open-Generative-AI?style=flat)](https://github.com/Anil-matcha/Open-Generative-AI) |
 
 ### Grey-zone API-прокси (только для pet-проектов)
@@ -1342,6 +1362,7 @@ Frontend: React 19 · TypeScript · Vite · Tailwind CSS 4 · Zustand
 | **flac.music.hi.cn** | 🚨 **Пиратство.** Нелицензионная музыка (китайский сайт) + классический вектор малвари. Не в продуктовом контуре; легальная задача «скачать своё» → наш [Eclipse Media](#-наши-проекты) (yt-dlp) |
 | **«Fable 5 на торрентах 3.4ТБ»** | 🃏 **Фейк/хоакс** — автор поста с Reddit сам признал, что это шутка (UPD в самом дропе). Не ресурс, листаем чтобы не приняли всерьёз |
 | **Hidden-city / mistake fares** (в [travel-hacking-10](prompts/travel-hacking-10.md)) | ⚠️ Нарушают условия авиакомпаний — риск аннуляции обратного билета / бана аккаунта. Для личного использования на свой риск, не для делового тревела |
+| **Teleprompter-оверлеи** ([Virtual Teleprompter](https://www.vtpapps.com/) · [NotchPrompt](https://notchprompt.vercel.app/) · [teleprompter.works](https://teleprompter.works/online/)) | ⚠️ **Этически серо.** Прозрачный текст поверх Zoom / Teams / Meet (не виден при шеринге экрана). Легит для презентаций / стримов / съёмок; канал подаёт как шпаргалку на собесах и экзаменах — это нарушает правила работодателя / вуза и репутационно рискованно. Reference для полноты, **не** рекомендация |
 | **OpenAI $50k credits** | Не grey, но **приватность**: шаринг данных = обучение на твоих промптах. Только некритичные данные |
 
 ---
