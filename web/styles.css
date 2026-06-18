@@ -63,7 +63,7 @@ a:hover { color: #cdbcff; }
 kbd { font-family: var(--mono); font-size: 10.5px; color: var(--muted); border: 1px solid var(--line); border-radius: 5px; padding: 1px 6px; background: var(--surface); }
 
 /* ===== Topbar (glass) ===== */
-.topbar { position: sticky; top: 0; z-index: 50; background: rgba(10,10,14,.72); backdrop-filter: blur(16px) saturate(140%); border-bottom: 1px solid var(--line-2); box-shadow: 0 1px 0 rgba(255,255,255,.03) inset; }
+.topbar { position: sticky; top: 0; z-index: 50; padding-top: env(safe-area-inset-top); background: rgba(10,10,14,.72); backdrop-filter: blur(16px) saturate(140%); border-bottom: 1px solid var(--line-2); box-shadow: 0 1px 0 rgba(255,255,255,.03) inset; }
 .topbar-inner { max-width: var(--maxw); margin: 0 auto; display: flex; align-items: center; gap: 20px; padding: 13px 26px; }
 .brand { display: flex; align-items: center; gap: 12px; color: var(--text); flex-shrink: 0; }
 .brand:hover { color: var(--text); }
@@ -313,7 +313,7 @@ body.noscroll { overflow: hidden; }
   .side-label { display: none; }
   .nav { flex-direction: row; flex-wrap: nowrap; overflow-x: auto; gap: 6px; padding-bottom: 8px; scrollbar-width: none; -webkit-overflow-scrolling: touch; }
   .nav::-webkit-scrollbar { display: none; }
-  .nav a { white-space: nowrap; flex-shrink: 0; border: 1px solid var(--line); padding: 9px 13px; }
+  .nav a { white-space: nowrap; flex-shrink: 0; border: 1px solid var(--line); padding: 10px 15px; }
   .nav a .cnt { display: none; }
   .filters { position: static; padding: 8px 0 14px; background: none; }
   .grid { grid-template-columns: repeat(auto-fill, minmax(min(100%, 300px), 1fr)); }
@@ -327,7 +327,7 @@ body.noscroll { overflow: hidden; }
   .brand-text small { display: none; }
   .layout { padding: 18px 15px 60px; }
   .hero { padding: 10px 0 22px; }
-  .hero h1 { font-size: 22px; letter-spacing: -.5px; }
+  .hero h1 { font-size: clamp(20px, 5.6vw, 28px); letter-spacing: -.5px; }
   .hero-sub { font-size: 15px; }
   .stats { gap: 14px; }
   .stat b { font-size: 21px; }
@@ -339,8 +339,8 @@ body.noscroll { overflow: hidden; }
   .cat-tile { padding: 11px 12px; }
   .result-count { width: 100%; margin: 6px 0 0; text-align: right; }
   .card { padding: 15px 15px 14px; }
-  .chip { padding: 7px 13px; }
-  .to-top { right: 14px; bottom: 14px; }
+  .chip { padding: 9px 14px; }
+  .to-top { right: max(14px, env(safe-area-inset-right)); bottom: max(14px, env(safe-area-inset-bottom)); }
   /* guide viewer */
   .guide-head { padding: 11px 15px; gap: 10px; }
   .guide-back { padding: 9px 13px; font-size: 13px; }
@@ -353,7 +353,7 @@ body.noscroll { overflow: hidden; }
 /* Small phones */
 @media (max-width: 380px) {
   .cat-grid { grid-template-columns: 1fr; }
-  .hero h1 { font-size: 20px; letter-spacing: -.4px; }
+  .hero h1 { font-size: clamp(18px, 5.4vw, 22px); letter-spacing: -.4px; }
   .guide-title { display: none; }
   .brand-mark { width: 36px; height: 36px; }
 }
