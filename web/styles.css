@@ -308,8 +308,8 @@ body.noscroll { overflow: hidden; }
 
 /* Tablet & below: sidebar → top scroller, filters non-sticky (no overlap with wrapped topbar) */
 @media (max-width: 960px) {
-  .layout { grid-template-columns: 1fr; gap: 0; padding: 22px 22px 72px; }
-  .sidebar { position: static; height: auto; overflow: visible; padding: 0 0 14px; margin-bottom: 16px; border-bottom: 1px solid var(--line-2); }
+  .layout { grid-template-columns: minmax(0, 1fr); gap: 0; padding: 22px 22px 72px; }
+  .sidebar { position: static; height: auto; overflow: visible; min-width: 0; padding: 0 0 14px; margin-bottom: 16px; border-bottom: 1px solid var(--line-2); }
   .side-label { display: none; }
   .nav { flex-direction: row; flex-wrap: nowrap; overflow-x: auto; gap: 6px; padding-bottom: 8px; scrollbar-width: none; -webkit-overflow-scrolling: touch; }
   .nav::-webkit-scrollbar { display: none; }
