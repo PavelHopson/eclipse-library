@@ -38,6 +38,7 @@
 - [📥 Подборка Eclipse (17.06.2026)](#-подборка-eclipse-17062026)
 - [📥 Подборка Eclipse (19.06.2026)](#-подборка-eclipse-19062026)
 - [📥 Подборка Eclipse (21.06.2026)](#-подборка-eclipse-21062026)
+- [📥 Подборка Eclipse (23–27.06.2026)](#-подборка-eclipse-2327062026)
 - [📦 Наши проекты](#-наши-проекты)
 
 ---
@@ -1489,6 +1490,92 @@ Frontend: React 19 · TypeScript · Vite · Tailwind CSS 4 · Zustand
 | **MiMo-V2.5** ([mimo.mi.com](https://mimo.mi.com/)) | ⚠️ **Дебанк хайпа** «Opus-уровень, в 28× дешевле, 482₽ за 4 МЛРД токенов». «Уровня Opus» = **бенчмарк-заявление вендора** (Xiaomi), проверять на своих задачах. Цена «482₽ / 4 млрд токенов» (≈$0.0014 за 1M) — **неправдоподобна**, похоже на промо/ошибку подачи; реальные тарифы сверять на сайте. Уже на радаре (INSTALL-16.06) — **держим на радаре, не эндорсим** |
 | **Qwythos-9B-Claude-Mythos-5-1M** ([HF empero-ai](https://huggingface.co/empero-ai/Qwythos-9B-Claude-Mythos-5-1M)) | 🚩 **High-risk uncensored + фейк-«Claude»-провенанс.** Файн-тюн **Qwen3.5-9B** (НЕ Claude); «обучен на Claude Mythos / Claude Fable» — **таких моделей Anthropic НЕ существует** (внутренние обозначения Empero / синтетика, не официальный Claude). 1M контекст = YaRN rope-scaling поверх нативных 262K (качество на полном 1M под вопросом). **Намеренно без alignment** («deeply uncensored», cybersec/фарма/клиника без отказов; авторы прямо предупреждают — не safety-aligned). Apache-2.0, ~1.9k загрузок/мес. Тот же класс, что Gemma-4-OBLITERATED / gemma-4-12B-fable5 / HuiHui (см. Grey 10–16.06) — reference / личный R&D, **вне продуктового контура**. «Сделает ЛЮБУЮ задачу» = хайп (9B — скромная модель) |
 | **KillerPDF · loops · GLM via z.ai · gemma-4-12B-fable5** | ♻️ **Дубли** — уже в библиотеке (см. шапку секции). «HuiHui убил цензуру Fable 5 / соберёт ядерное оружие» = тот же abliterated `gemma-4-12B` (это **НЕ** настоящая Fable 5 — она проприетарна; см. Grey 10–16.06); high-risk uncensored, вне продуктового контура |
+
+---
+
+## 📥 Подборка Eclipse (23–27.06.2026)
+
+> Дроп Telegram «Eclipse Hopson» за **23–27.06**. Провенанс ключевых репозиториев
+> проверен (WebFetch: звёзды/лицензия/активность), хайп помечен/дебанкнут, пиратка
+> вынесена в Grey, дедуп grep'ом. **Уже в библиотеке — не дублируем:**
+> *Qwythos-9B* (Grey-таблица 21.06 — фейк-«Claude»-провенанс), *agent-skills от
+> Apify* ([AI & Claude Code](#-ai--claude-code) — это ДРУГОЙ репо, парсинг-скиллы;
+> ниже — `tech-leads-club` с упором на безопасность).
+
+### Мониторинг моделей и роутинг
+
+| Ресурс | Описание | Stars |
+|---|---|---|
+| [AI Stupid Level](https://aistupidlevel.info/) | **«Тупометр» нейросетей в реальном времени** + smart-router. Отслеживает качество официальных моделей по категориям (reasoning, coding, agentic, цена) и **наглядно показывает просадки** — напр. модель «отупела» на 32% сегодня. Бесплатно, без регистрации. **Зачем нам:** подбор модели под агентов и фолбэк-цепочки — видно, кто сейчас топ, а кто деградировал. Прямо ложится на наш `AI_PROVIDER=auto` (StarCRM) и выбор модели для AI-советника FinFlow / модулей Hub | — |
+
+### OCR и парсинг страниц (для парсеров и RAG)
+
+| Ресурс | Описание | Stars |
+|---|---|---|
+| [Baidu Unlimited-OCR](https://github.com/baidu/Unlimited-OCR) | **OCR целого документа за один проход** (на базе DeepSeek-OCR), multi-page/PDF, контекст 32K, анти-галлюцинация (no-repeat n-gram). MIT, 11k★, есть paper + HF Space. **Зачем нам:** распознавание чеков/счетов/документов — будущая фича FinFlow (скан чека → авто-операция), парсинг документов в StarCRM | [![Stars](https://img.shields.io/github/stars/baidu/Unlimited-OCR?style=flat)](https://github.com/baidu/Unlimited-OCR) |
+| [PixelRAG (StarTrail-org)](https://github.com/StarTrail-org/PixelRAG) | **RAG по СКРИНШОТАМ страниц**, а не по HTML — сохраняет таблицы/вёрстку/элементы, которые ломают обычные парсеры. CLI `pixelshot` + плагин Claude Code **pixelbrowse** (даёт Claude визуальное чтение страниц), VL-модель Qwen3-VL-Embedding. Apache-2.0, 5.5k★. **Зачем нам:** парсинг карточек WB/Ozon/ЯМ в StarMarket и card-audit StarCRM, когда HTML/анти-бот ломает текстовый парсинг (вспомни таймауты WB-баскетов) | [![Stars](https://img.shields.io/github/stars/StarTrail-org/PixelRAG?style=flat)](https://github.com/StarTrail-org/PixelRAG) |
+
+### Агенты, скиллы, dev-инструменты
+
+| Ресурс | Описание | Stars |
+|---|---|---|
+| [agent-skills (tech-leads-club)](https://github.com/tech-leads-club/agent-skills) | **Библиотека ПРОВЕРЕННЫХ SKILL.md** для код-агентов (Claude Code / Cursor / Cline / Codex). Упор на безопасность: авторы приводят, что **>13% скиллов с маркетплейсов содержат критические уязвимости**, а тут — static analysis + Snyk Agent Scan + ручная курация, без бинарников. Установка `npx @tech-leads-club/agent-skills` (интерактивный визард). MIT (движок) / CC-BY-4.0 (скиллы), 4.8k★. **Зачем нам:** прямой ответ на риск «вирусы в SKILL.md» (см. наш разбор [ui-skills.com] — ставить по одному с ревью); тут — verified-набор на все проекты | [![Stars](https://img.shields.io/github/stars/tech-leads-club/agent-skills?style=flat)](https://github.com/tech-leads-club/agent-skills) |
+| [Cua (trycua/cua)](https://github.com/trycua/cua) | **Computer-Use агент** — управляет любым приложением на ПК по скриншоту (определяет кнопки визуально), работает в изолированной среде/VM, CLI + MCP, Win/macOS/Linux. Cua Drivers интегрируются с Claude Code/Codex. MIT, 19.1k★. **Зачем нам:** UI-автоматизация и **QA/SDET** — прогон сценариев в реальном приложении (EC/FinFlow на устройстве), скриншот-driven проверки | [![Stars](https://img.shields.io/github/stars/trycua/cua?style=flat)](https://github.com/trycua/cua) |
+| [ARGithub / alphaXiv](https://www.alphaxiv.org/) | Замени в ссылке `github` → `argithub` — ИИ-агент **прочитает код репо, разберёт структуру и попробует запустить**. Бесплатно. **Зачем нам:** быстрый разбор чужих репозиториев перед форком/интеграцией (мы часто форкаем — OMC, VisualStoryWriting и др.) | — |
+
+### Обучение, курсы, сертификаты
+
+| Ресурс | Описание | Stars |
+|---|---|---|
+| [Open Culture — Free Courses](https://www.openculture.com/freeonlinecourses) | **1700+ бесплатных курсов** топ-универов (Harvard, MIT, Oxford, Yale…) по всем специальностям. **Зачем нам:** источник учебного контента и тем для **Educator-AI** (educator.eclipse-forge.ru) | — |
+| [Free-Certifications (ArslanYM)](https://github.com/ArslanYM/Free-Certifications) | Репозиторий **бесплатных сертификаций** (HubSpot, Google, Cisco, Fortinet, AWS, MongoDB, FreeCodeCamp, Scrum/Agile…) + экзамены под любой уровень. **Зачем нам:** карьерный модуль/референс для Educator-AI; прокачка стека команды | [![Stars](https://img.shields.io/github/stars/ArslanYM/Free-Certifications?style=flat)](https://github.com/ArslanYM/Free-Certifications) |
+| [🗣️ 6 промптов для языка](prompts/language-learning-6.md) | Превращают любую нейросеть в репетитора (разговор, уроки, карточки, разбор ошибок, мок-экзамены, погружение) — для **любого** языка. Очищены/параметризованы. **Зачем нам:** пресет «Языковой репетитор» для Educator-AI | — |
+| **Приём: «Gemini делает курсы»** | [Gemini](https://gemini.google.com/) собирает обучающую программу по любой теме блоками (лекции, иллюстрации, код, квизы), бесплатно. Не сервис, а **техника** — референс для генератора курсов Educator-AI (мы используем Gemini-ключ в Hub/Shotforge) | — |
+
+### Privacy / Self-hosted
+
+| Ресурс | Описание | Stars |
+|---|---|---|
+| [SimpleX Chat](https://github.com/simplex-chat/simplex-chat) | **Самый анонимный мессенджер** — без регистрации, без номера/логина/ID; чаты по одноразовой ссылке/QR; переписка хранится локально, сервер метаданных не видит; iOS/Android/desktop/terminal. **Зачем нам:** архитектурный референс приватности для **Eclipse Chat** — модель «нет идентификаторов / нет метаданных на сервере» как идея для эфемерных/temp-каналов и privacy-постуры | [![Stars](https://img.shields.io/github/stars/simplex-chat/simplex-chat?style=flat)](https://github.com/simplex-chat/simplex-chat) |
+
+### Media & Download
+
+| Ресурс | Описание | Stars |
+|---|---|---|
+| [pytube-downloader](https://github.com/thisal-d/pytube-downloader) | GUI-загрузчик YouTube: одиночные ролики и **плейлисты**, качество 144p–8K, MP4/MP3, мультизагрузка, запоминает качество. **Зачем нам:** референс/паритет фич для **Eclipse Media** (наш yt-dlp-загрузчик). ⚠️ Скачивание с YouTube — серая зона по ToS площадки; для личного использования | [![Stars](https://img.shields.io/github/stars/thisal-d/pytube-downloader?style=flat)](https://github.com/thisal-d/pytube-downloader) |
+
+### Гайды
+
+| Ресурс | Описание |
+|---|---|
+| [📸 Настройки камеры iPhone для контента](guides/iphone-camera-content.md) | Лучшие настройки фото/видео (4K/60, HDR-off, HEIF, 24Мп, сетка/уровень…) для визуального контента. **Зачем нам:** кадры для демо Shotforge, соцсетей и лендингов — меньше зависимость от стоков |
+
+### Mapping → наши проекты
+
+| Tool | Project(s) | Integration pattern |
+|---|---|---|
+| **AI Stupid Level** | StarCRM · FinFlow · Hub | Выбор модели для `AI_PROVIDER=auto` и AI-советника; мониторить деградацию провайдеров, переставлять порядок фолбэка |
+| **Baidu Unlimited-OCR** | FinFlow · StarCRM | Скан чека/документа → текст → авто-операция (FinFlow attachments, будущее); парсинг документов CRM |
+| **PixelRAG** | StarMarket · StarCRM | Скриншот-парсинг карточек WB/Ozon/ЯМ, когда HTML/анти-бот ломает текстовый парсер; card-audit |
+| **agent-skills (tech-leads-club)** | Все репо (dev) · Security | Verified-скиллы вместо случайных SKILL.md (анти-малварь); единый набор на все проекты |
+| **Cua** | EC · FinFlow (QA) · автоматизация | Computer-use для SDET-прогонов в реальном app + скриншот-проверки |
+| **ARGithub / alphaXiv** | Все репо (онбординг) | Быстрый разбор чужих репо перед форком/интеграцией |
+| **Open Culture · Free-Certifications · язык-промпты · Gemini-курсы** | Educator-AI | Источники контента + пресеты (репетитор, генератор курсов, сертификации) |
+| **SimpleX Chat** | Eclipse Chat | Референс privacy-архитектуры (no-id / no-metadata) для temp-каналов |
+| **pytube-downloader** | Eclipse Media | Референс фич (8K, плейлисты) для нашего загрузчика |
+| **iPhone-камера гайд** | Shotforge · маркетинг | Свои кадры для демо/соцсетей вместо стоков |
+
+### ⚠️ Grey / дебанк — НЕ рекомендуется / пиратка
+
+> Часть дропа — маркетинговый хайп, пиратка или дубли. Листинг для полноты.
+
+| Находка | Статус / дисклеймер |
+|---|---|
+| **Sakana Fugu Ultra** ([sakana.ai/fugu](https://sakana.ai/fugu/)) | ⚠️ **Дебанк хайпа «японцы унизили Mythos».** Fugu Ultra — **не модель, а оркестратор**: раздаёт задачу Gemini/ChatGPT/Claude и выбирает лучший ответ. Не умеет перестраивать логику решения → при «тупняке» системы **жжёт миллионы токенов впустую**. Плюс — работает из РФ без VPN. У нас уже есть локальный/дешёвый роутер [ClawRouter](#llm-роутинг-и-оптимизация); концепт meta-роутинга — reference, не для прода (цена + зависимость от 3 чужих API сразу) |
+| **Qwythos-9B-Claude-Mythos-5-1M** | ♻️ **Дубль** — уже в Grey-таблице 21.06 (фейк-«Claude»-провенанс, uncensored, вне продуктового контура). Не вносим повторно |
+| **Bookracy** ([bookracy.com](https://bookracy.com/)) | 🏴‍☠️ **Пиратка.** Бесплатные книги/комиксы/манга «без оплат» = распространение копирайт-контента без лицензии. **Не интегрируем и не рекламируем** (правовой риск); листинг — чтобы не приняли как рекомендацию |
+| **Streambert** ([truelockmc/streambert](https://github.com/truelockmc/streambert)) | 🏴‍☠️ **Пиратка-агрегатор.** «Свой Netflix» тянет стримы с неофициальных источников (VidSrc / 2Embed / AllManga), метаданные с TMDB. Дисклеймер автора «только поиск, не хостим контент» не снимает копирайт-риск у пользователя. GPL, 5.5k★. **Не для интеграции**; TMDB-токен сам по себе легитимен (его можно брать для своих афиш/каталогов) |
+| **pytube-downloader** | ⚠️ Полезен (внесён в Media выше), но скачивание с YouTube — **серая зона ToS**; только личное использование, не как публичная фича без правовой оценки |
 
 ---
 
