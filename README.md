@@ -1520,7 +1520,7 @@ Frontend: React 19 · TypeScript · Vite · Tailwind CSS 4 · Zustand
 | Ресурс | Описание | Stars |
 |---|---|---|
 | [agent-skills (tech-leads-club)](https://github.com/tech-leads-club/agent-skills) | **Библиотека ПРОВЕРЕННЫХ SKILL.md** для код-агентов (Claude Code / Cursor / Cline / Codex). Упор на безопасность: авторы приводят, что **>13% скиллов с маркетплейсов содержат критические уязвимости**, а тут — static analysis + Snyk Agent Scan + ручная курация, без бинарников. Установка `npx @tech-leads-club/agent-skills` (интерактивный визард). MIT (движок) / CC-BY-4.0 (скиллы), 4.8k★. **Зачем нам:** прямой ответ на риск «вирусы в SKILL.md» (см. наш разбор [ui-skills.com] — ставить по одному с ревью); тут — verified-набор на все проекты | [![Stars](https://img.shields.io/github/stars/tech-leads-club/agent-skills?style=flat)](https://github.com/tech-leads-club/agent-skills) |
-| [Cua (trycua/cua)](https://github.com/trycua/cua) | **Computer-Use агент** — управляет любым приложением на ПК по скриншоту (определяет кнопки визуально), работает в изолированной среде/VM, CLI + MCP, Win/macOS/Linux. Cua Drivers интегрируются с Claude Code/Codex. MIT, 19.1k★. **Зачем нам:** UI-автоматизация и **QA/SDET** — прогон сценариев в реальном приложении (EC/FinFlow на устройстве), скриншот-driven проверки | [![Stars](https://img.shields.io/github/stars/trycua/cua?style=flat)](https://github.com/trycua/cua) |
+| [Cua (trycua/cua)](https://github.com/trycua/cua) | **Computer-Use агент** — управляет любым приложением на ПК по скриншоту (определяет кнопки визуально), работает в изолированной среде/VM, CLI + MCP, Win/macOS/Linux. Cua Drivers интегрируются с Claude Code/Codex. MIT, 19.1k★. **Зачем нам:** UI-автоматизация и **QA/SDET** — прогон сценариев в реальном приложении (EC/FinFlow на устройстве), скриншот-driven проверки. **Гайд (device-QA + Claude Code):** [guides/cua-device-qa.md](guides/cua-device-qa.md) | [![Stars](https://img.shields.io/github/stars/trycua/cua?style=flat)](https://github.com/trycua/cua) |
 | [ARGithub / alphaXiv](https://www.alphaxiv.org/) | Замени в ссылке `github` → `argithub` — ИИ-агент **прочитает код репо, разберёт структуру и попробует запустить**. Бесплатно. **Зачем нам:** быстрый разбор чужих репозиториев перед форком/интеграцией (мы часто форкаем — OMC, VisualStoryWriting и др.) | — |
 
 ### Обучение, курсы, сертификаты
@@ -1549,6 +1549,7 @@ Frontend: React 19 · TypeScript · Vite · Tailwind CSS 4 · Zustand
 | Ресурс | Описание |
 |---|---|
 | [📸 Настройки камеры iPhone для контента](guides/iphone-camera-content.md) | Лучшие настройки фото/видео (4K/60, HDR-off, HEIF, 24Мп, сетка/уровень…) для визуального контента. **Зачем нам:** кадры для демо Shotforge, соцсетей и лендингов — меньше зависимость от стоков |
+| [🤖 Cua для device-QA (+ Claude Code)](guides/cua-device-qa.md) | Computer-use агент гоняет smoke-сценарии в реальном app (Android-песочница = мобильная проверка PWA). Пути: MCP-драйвер в Claude Code или Python SDK. **Зачем нам:** снять с Pavel ручные пост-деплой проверки EC/FinFlow. ⚠️ Только изолированная среда + тестовые аккаунты |
 
 ### Mapping → наши проекты
 
@@ -1558,7 +1559,7 @@ Frontend: React 19 · TypeScript · Vite · Tailwind CSS 4 · Zustand
 | **Baidu Unlimited-OCR** | FinFlow · StarCRM | Скан чека/документа → текст → авто-операция (FinFlow attachments, будущее); парсинг документов CRM |
 | **PixelRAG** | StarMarket · StarCRM | Скриншот-парсинг карточек WB/Ozon/ЯМ, когда HTML/анти-бот ломает текстовый парсер; card-audit |
 | **agent-skills (tech-leads-club)** | Все репо (dev) · Security | Verified-скиллы вместо случайных SKILL.md (анти-малварь); единый набор на все проекты |
-| **Cua** | EC · FinFlow (QA) · автоматизация | Computer-use для SDET-прогонов в реальном app + скриншот-проверки |
+| **Cua** | EC · FinFlow (QA) · автоматизация | Computer-use для SDET-прогонов в реальном app + скриншот-проверки → [гайд](guides/cua-device-qa.md) |
 | **ARGithub / alphaXiv** | Все репо (онбординг) | Быстрый разбор чужих репо перед форком/интеграцией |
 | **Open Culture · Free-Certifications · язык-промпты · Gemini-курсы** | Educator-AI | Источники контента + пресеты (репетитор, генератор курсов, сертификации) |
 | **SimpleX Chat** | Eclipse Chat | Референс privacy-архитектуры (no-id / no-metadata) для temp-каналов |
