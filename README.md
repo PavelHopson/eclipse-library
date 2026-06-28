@@ -165,6 +165,7 @@
 | [Nano Banana Upscaling Prompt](https://arena.ai/ru/image/direct) | Шаблон «Аналитическая Реконструкция Микро-Деталей» — апскейл фото с сохранением идентичности |
 | [Humanize Rewriter](prompts/humanize-rewriter.md) | Промпт для humanize-rewrite текста под автоответы маркетплейсов / SMM / контент. **С оговоркой:** широко распространяется в студенческой среде как обход AI-детекторов — используем только в операторских/контент-задачах, не для академического обхода (та же планка, что у `talk-normal` в разделе агентов) |
 | [Lyra Prompt Optimizer](prompts/lyra-prompt-optimizer.md) | Мета-промпт: «промпт, который пишет промпты». 4-D методология (Deconstruct → Diagnose → Develop → Deliver), 2 режима (DETAIL / BASIC), универсальный — ChatGPT / Claude / Gemini. Используем как препроцессор в Eclipse AI Hub Copywriter и как первый шаг в `/ultrawork` (oh-my-claudecode) |
+| [⚡ Vibe Coding — мастер-промпты для сайтов](prompts/vibe-coding-website-prompts.md) | Два мастер-промпта: прямая генерация кода сайта (Next.js 14/15 + TS + Tailwind + shadcn/ui, Schema.org SEO, Error Boundaries) и AI-агент «WebCraft», который ведёт клиента по брифу и выдаёт готовый код. Вычищено + курор-фиксы (депрекейт `source.unsplash.com` → `picsum.photos`, обобщены имена моделей). **Фит:** быстрый каркас лендингов Eclipse Forge |
 
 ### Генерация изображений
 
