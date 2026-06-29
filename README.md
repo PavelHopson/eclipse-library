@@ -1584,10 +1584,10 @@ Frontend: React 19 · TypeScript · Vite · Tailwind CSS 4 · Zustand
 
 ## 📥 Подборка Eclipse (28.06.2026)
 
-> Дроп Telegram «Не баг, а фича» от 28.06 — 4 находки. Провенанс верифицирован
-> (WebFetch: звёзды/лицензия/активность). Маркетинг/хайп канала помечен и
-> дебанкнут; OSINT-«пробив» переоформлен в защитную рамку (self-audit), не как
-> инструмент слежки за людьми.
+> Дроп Telegram «Не баг, а фича» от 28.06 — 4 находки + разбор Habr по
+> видео-классификации. Провенанс верифицирован (WebFetch: звёзды/лицензия/
+> активность). Маркетинг/хайп канала помечен и дебанкнут; OSINT-«пробив»
+> переоформлен в защитную рамку (self-audit), не как инструмент слежки за людьми.
 
 ### OCR и парсинг документов
 
@@ -1613,6 +1613,12 @@ Frontend: React 19 · TypeScript · Vite · Tailwind CSS 4 · Zustand
 |---|---|---|
 | [Aliens Eye (arxhr007)](https://github.com/arxhr007/Aliens_eye) | **OSINT-перечисление аккаунтов по нику** на 840+ площадках (соцсети/форумы/сайты) — ML + 25 эвристик (HTTP-статус, DOM, фингерпринты) вместо тупой проверки кода ответа; Tor/proxy, экспорт JSON/CSV/HTML/MD. MIT, ~870★, активен. Класс инструмента — как Sherlock/Maigret; в README автора дисклеймер «для образовательных целей и легитимного OSINT». **⚠️ Подача канала («пробить любого», «прощаемся с конфиденциальностью», «без ограничений») = doxxing-рамка — дебанкаем.** Легитимно: **аудит СВОЕГО цифрового следа** (что о вас находится по нику) и authorized pentest/OSINT-разведка с согласия. Масс-пробив чужих людей = doxxing + нарушение **152-ФЗ** (обработка персданных в РФ) и ToS площадок. **Не интегрируем** в продукты; ценность для нас — **сигнал «проверь свой/клиентский след»** + awareness в security-постуре (Hopson Sentinel) | [![Stars](https://img.shields.io/github/stars/arxhr007/Aliens_eye?style=flat)](https://github.com/arxhr007/Aliens_eye) |
 
+### Видео-аналитика / классификация (ML)
+
+| Ресурс | Описание |
+|---|---|
+| [Видео-трансформеры: ViViT / TimeSFormer / VideoMAE](https://habr.com/ru/articles/827474/) (разбор Habr) | Классификация видео тремя предобученными моделями HuggingFace (Kinetics-400): **ViViT** (`google/vivit`, 3D-патчи, точнее всех 90.55%, дорого — CPU 5.85с), **TimeSFormer** (`facebook/timesformer`, раздельное spatial+temporal внимание, длинные видео — 1.25с), **VideoMAE** (`MCG-NJU/videomae`, masked autoencoder self-supervised, **самый быстрый** — CPU 0.77с / GPU 0.17с). Transfer learning: feature-extractor + лёгкий классификатор (triplet loss, кэш эмбеддингов) дешевле полного дообучения. **Зачем нам:** авто-модерация/тегирование видео-обзоров **StarMarket** («товар vs мусор», NSFW, категория) перед публикацией — VideoMAE-эмбеддинги + свой классификатор. ⚠️ GPU для масштаба/обучения (на CPU VideoMAE ~0.77с/видео ОК для async-очереди MVP). **POC-рецепт:** [guides/starmarket-video-moderation.md](guides/starmarket-video-moderation.md) |
+
 ### Mapping → наши проекты
 
 | Tool | Project(s) | Integration pattern |
@@ -1621,6 +1627,7 @@ Frontend: React 19 · TypeScript · Vite · Tailwind CSS 4 · Zustand
 | **Learn Git Branching** | Команда (онбординг) · Educator-AI · Eclipse Chat (training) | Тренажёр git-флоу; референс интерактивной обучающей механики |
 | **Seed-Audio 1.0** | Shotforge · Eclipse Media · Hopson Sentinel (TTS) | Озвучка/диалоги через fal.ai (платно); ⚠️ consent-гейт на клонирование голоса |
 | **Aliens Eye** | Reference / awareness (НЕ интеграция) | Self-audit цифрового следа; масс-пробив чужих — doxxing/152-ФЗ, не делаем |
+| **Видео-трансформеры (VideoMAE и др.)** | StarMarket (видео-модерация) · Reference | Async-очередь: VideoMAE-эмбеддинги + лёгкий классификатор перед публикацией; GPU для масштаба → [POC](guides/starmarket-video-moderation.md) |
 
 ---
 
