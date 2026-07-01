@@ -1637,7 +1637,8 @@ Frontend: React 19 · TypeScript · Vite · Tailwind CSS 4 · Zustand
 > Дроп Telegram «Eclipse Hopson / PushEnter» за **30.06–01.07**.
 > Логика разбора: отделяем реально полезные референсы для наших систем от хайпа,
 > grey-zone и duplicate-находок. Куда внедрять - см. отдельный снапшот
-> [INSTALL-2026-07-01.md](INSTALL-2026-07-01.md).
+> [INSTALL-2026-07-01.md](INSTALL-2026-07-01.md) и сайт-гайд
+> [July 2026 project integration](guides/july-2026-project-integration.md).
 >
 > Уже были в библиотеке и не дублируются как новые интеграции: **SimpleX Chat**
 > (privacy-архитектура для Eclipse Chat), **Seed-Audio 1.0** (голос/диалоги),
@@ -1696,6 +1697,12 @@ Frontend: React 19 · TypeScript · Vite · Tailwind CSS 4 · Zustand
 | **Aliens Eye** ([arxhr007/Aliens_eye](https://github.com/arxhr007/Aliens_eye)) | Уже внесён в 28.06 как **self-audit цифрового следа**, не как инструмент “пробива людей”. Не интегрируем в продукты |
 | **Seed-Audio 1.0** ([fal.ai](https://fal.ai/models/bytedance/seed-audio-1.0)) | Уже внесён в 28.06 как аудио/TTS reference. Важное ограничение остаётся: voice cloning только со своим голосом или явным согласием |
 | **Torlink** | Полезен как CLI/download reference, но продуктово - grey-zone; не делать публичный “скачать всё” сервис |
+
+### Гайд внедрения
+
+| Ресурс | Описание |
+|---|---|
+| [July 2026 project integration](guides/july-2026-project-integration.md) | Короткий план, куда раскладываем этот батч: Eclipse Chat, Hopson Sentinel, DnD Forge, Shotforge/Text2Image/Eclipse Media, Educator-AI и oh-my-claudecode. Открывается прямо на сайте библиотеки |
 
 ### Mapping → наши проекты
 
