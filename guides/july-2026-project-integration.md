@@ -14,6 +14,8 @@
 - **OmniRoute** - provider-router для AI agents: fallback, cost-aware routing, context compression.
 - **TREK** - project/client rooms как workspace вокруг процесса: планы, опросы, чеклисты, budget/table layer.
 - **Cloudflare Agent Ready** - проверять public landing/download/docs на AI Search, Web Bot Auth, MCP и agent discoverability.
+- **PPT Master** - client/project reports: история проекта, решения, задачи и deliverables -> редактируемая PPTX-презентация.
+- **Claude Science** - reference для execution rooms: проверяемые артефакты, код, окружение и conversation history рядом с результатом.
 
 ## Hopson Sentinel
 
@@ -39,6 +41,13 @@
 ## Educator-AI
 
 - **Large Language Model Course** - учебный трек "LLM Engineer": fundamentals, fine-tuning, quantization, evals, deployment, продажа AI-сервисов.
+- **Claude Science** - reference для проверяемых исследовательских проектов: источник -> анализ -> график -> отчёт -> ревью цитат/расчётов.
+- **PPT Master** - учебные слайды из PDF/конспекта/курса, editable PPTX вместо картинки-слайда.
+
+## Eclipse AI Hub
+
+- **Claude Science** - reference для отдельного Research/RAG workspace: scientific sources, notebooks, charts, reviewer, full trace.
+- **PPT Master** - модуль "Document -> Deck": документ, отчёт или исследование превращается в редактируемую презентацию.
 
 ## oh-my-claudecode
 
@@ -54,3 +63,4 @@
 - **Aliens Eye** - только self-audit цифрового следа с согласием, не инструмент "пробива".
 - **Torlink** - не публичный downloader.
 - **Voice cloning** - только свой голос или явное согласие.
+- **Claude Science** - закрытая beta-среда, не open-source; сначала тестируем доступ/планы/экспорт.

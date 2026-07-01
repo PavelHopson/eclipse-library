@@ -1650,6 +1650,12 @@ Frontend: React 19 · TypeScript · Vite · Tailwind CSS 4 · Zustand
 |---|---|---|
 | [Large Language Model Course (mlabonne)](https://github.com/mlabonne/llm-course?tab=readme-ov-file) | Структурный курс по LLM: fundamentals, training/fine-tuning, quantization, evaluation, deployment, LLM Engineer-путь и продуктовая упаковка AI-сервисов. **Зачем нам:** база для внутреннего обучения команды, контентный фундамент для **Educator-AI**, методички для **Eclipse AI Hub** и AI-агентов **Eclipse Chat**. Это не “фича”, а knowledge-layer: стандартизировать словарь, практики и onboarding в AI-инженерию | [![Stars](https://img.shields.io/github/stars/mlabonne/llm-course?style=flat)](https://github.com/mlabonne/llm-course) |
 
+### Scientific research / reproducible workflows
+
+| Ресурс | Описание |
+|---|---|
+| [Claude Science beta](https://claude.com/product/claude-science) | Официальная Anthropic-среда для научного workflow: анализы, поиск по научным базам, scientific renderers, Python/R kernels, работа с HPC/SSH/Modal, сохранение артефактов вместе с кодом, окружением и историей диалога. Есть background reviewer для некорректных цитат, untraceable numbers и фигур, не совпадающих с кодом. **Зачем нам:** reference для **Eclipse AI Hub Research/RAG**, **Educator-AI** (исследовательские курсы/проверяемые отчёты), **Eclipse Chat execution rooms** (реплицируемые артефакты с историей), **Hopson Sentinel** (оператор, который оставляет audit trail). **Оговорка:** beta, macOS/Linux, часть фич может быть sales/plan-gated; не считать open-source и не строить продукт на закрытых claims без теста |
+
 ### Agent memory / operator layer
 
 | Ресурс | Описание | Stars |
@@ -1682,6 +1688,12 @@ Frontend: React 19 · TypeScript · Vite · Tailwind CSS 4 · Zustand
 | Ресурс | Описание | Stars |
 |---|---|---|
 | [TREK](https://github.com/mauriceboe/TREK) | Travel-workspace: карты, маршруты, бюджет, split expenses, погода, импорт мест, журнал, общий чат и опросы. **Зачем нам:** UX-референс для **Smart Life Assistant** (life-planning workspace), **Eclipse Chat client/project rooms** (shared planning + polls + budget tables) и **Eclipse DnD Forge** (party travel log, route planning, quest itinerary). Ценность не в туризме, а в паттерне “workspace вокруг процесса” | [![Stars](https://img.shields.io/github/stars/mauriceboe/TREK?style=flat)](https://github.com/mauriceboe/TREK) |
+
+### Presentations / reports
+
+| Ресурс | Описание | Stars |
+|---|---|---|
+| [PPT Master](https://github.com/hugohe3/ppt-master) | AI skill/workflow для генерации **реального редактируемого PowerPoint**, а не картинок-слайдов: native shapes/text/charts, анимации, speaker notes, audio narration, можно использовать свой `.pptx` template. Pipeline в основном локальный, кроме общения с выбранной AI-моделью; работает с Claude Code, Cursor, VS Code Copilot и разными моделями. MIT. **Зачем нам:** **Eclipse Chat** client reports/project recap → PPTX, **Educator-AI** учебные слайды из материала, **Eclipse AI Hub** как “document → deck” инструмент, коммерческие презентации Eclipse Forge. **Оговорка:** лучшие результаты зависят от сильной модели и нормального design spec; это не магическая кнопка без редакторского контроля | [![Stars](https://img.shields.io/github/stars/hugohe3/ppt-master?style=flat)](https://github.com/hugohe3/ppt-master) |
 
 ### Media / download (grey-zone)
 
@@ -1718,6 +1730,8 @@ Frontend: React 19 · TypeScript · Vite · Tailwind CSS 4 · Zustand
 | **SimpleX Chat** | Eclipse Chat | Ephemeral/private rooms, одноразовые invite links, минимизация метаданных |
 | **TREK** | Smart Life Assistant · Eclipse DnD Forge · Eclipse Chat | Workspace-pattern: маршруты/планы/бюджеты/опросы вокруг процесса |
 | **Torlink** | Eclipse Media (reference only) | Очереди загрузки/source health-check; не публичный downloader “любых файлов” |
+| **Claude Science beta** | Eclipse AI Hub · Educator-AI · Eclipse Chat · Hopson Sentinel | Reproducible research workflow: artifacts + code + environment + conversation history; citation/figure reviewer |
+| **PPT Master** | Eclipse Chat · Educator-AI · Eclipse AI Hub · Eclipse Forge sales | Document/project history/course material → editable PPTX, reports, client decks |
 | **Uncensored Qwen/HF модель** | Safety reference only | Не интегрировать; максимум isolated red-team без продуктового доступа |
 
 ---
