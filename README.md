@@ -40,6 +40,7 @@
 - [📥 Подборка Eclipse (21.06.2026)](#-подборка-eclipse-21062026)
 - [📥 Подборка Eclipse (23–27.06.2026)](#-подборка-eclipse-2327062026)
 - [📥 Подборка Eclipse (28.06.2026)](#-подборка-eclipse-28062026)
+- [📥 Подборка Eclipse (30.06–01.07.2026)](#-подборка-eclipse-300601072026)
 - [📦 Наши проекты](#-наши-проекты)
 
 ---
@@ -1628,6 +1629,89 @@ Frontend: React 19 · TypeScript · Vite · Tailwind CSS 4 · Zustand
 | **Seed-Audio 1.0** | Shotforge · Eclipse Media · Hopson Sentinel (TTS) | Озвучка/диалоги через fal.ai (платно); ⚠️ consent-гейт на клонирование голоса |
 | **Aliens Eye** | Reference / awareness (НЕ интеграция) | Self-audit цифрового следа; масс-пробив чужих — doxxing/152-ФЗ, не делаем |
 | **Видео-трансформеры (VideoMAE и др.)** | StarMarket (видео-модерация) · Reference | Async-очередь: VideoMAE-эмбеддинги + лёгкий классификатор перед публикацией; GPU для масштаба → [POC](guides/starmarket-video-moderation.md) |
+
+---
+
+## 📥 Подборка Eclipse (30.06–01.07.2026)
+
+> Дроп Telegram «Eclipse Hopson / PushEnter» за **30.06–01.07**.
+> Логика разбора: отделяем реально полезные референсы для наших систем от хайпа,
+> grey-zone и duplicate-находок. Куда внедрять - см. отдельный снапшот
+> [INSTALL-2026-07-01.md](INSTALL-2026-07-01.md).
+>
+> Уже были в библиотеке и не дублируются как новые интеграции: **SimpleX Chat**
+> (privacy-архитектура для Eclipse Chat), **Seed-Audio 1.0** (голос/диалоги),
+> **Aliens Eye** (только self-audit / security awareness).
+
+### LLM обучение и инженерия
+
+| Ресурс | Описание | Stars |
+|---|---|---|
+| [Large Language Model Course (mlabonne)](https://github.com/mlabonne/llm-course?tab=readme-ov-file) | Структурный курс по LLM: fundamentals, training/fine-tuning, quantization, evaluation, deployment, LLM Engineer-путь и продуктовая упаковка AI-сервисов. **Зачем нам:** база для внутреннего обучения команды, контентный фундамент для **Educator-AI**, методички для **Eclipse AI Hub** и AI-агентов **Eclipse Chat**. Это не “фича”, а knowledge-layer: стандартизировать словарь, практики и onboarding в AI-инженерию | [![Stars](https://img.shields.io/github/stars/mlabonne/llm-course?style=flat)](https://github.com/mlabonne/llm-course) |
+
+### Agent memory / operator layer
+
+| Ресурс | Описание | Stars |
+|---|---|---|
+| [OpenHuman](https://github.com/tinyhumansai/OpenHuman) | Персональный AI-ассистент с долгим контекстом: память между чатами, чтение документации/логов/почты, screen context, цели, интеграции с приложениями. **Зачем нам:** сильный референс для **Eclipse Chat AI Memory** (“since you were away”, room memory, project memory), **Hopson Sentinel** (локальный оператор с привычками пользователя) и **Smart Life Assistant**. Внедрять не “как есть”, а как архитектурную идею: memory store + consent + scoped permissions + audit trail | [![Stars](https://img.shields.io/github/stars/tinyhumansai/OpenHuman?style=flat)](https://github.com/tinyhumansai/OpenHuman) |
+| [OpenClaw Mobile](https://apps.apple.com/us/app/openclaw-ai-that-does-things/id6780396132) / [Android](https://play.google.com/store/apps/details?id=ai.openclaw.app) | Мобильный control-plane для AI-агента: команды с телефона, approval flow, камера/геолокация/голос, контроль действий без компьютера. **Зачем нам:** референс мобильного пульта для **Hopson Sentinel** и будущего **Eclipse Chat operator mode**: “агент предлагает действие - человек подтверждает с телефона”. Не кодовая зависимость, а UX/permission-pattern | — |
+| [Loopy](https://github.com/Forward-Future/loopy) | Аудит и оптимизация набора MCP/skills/automations: ищет дубли, пересечения, рискованные действия, сломанные циклы, предлагает fixes и новые loops. **Зачем нам:** governance для **oh-my-claudecode**, **eclipse-library** и всех агентских рабочих контуров. Перед массовым внедрением скиллов - прогонять через Loopy/SkillSpector-логику, чтобы агентская среда не стала свалкой | [![Stars](https://img.shields.io/github/stars/Forward-Future/loopy?style=flat)](https://github.com/Forward-Future/loopy) |
+
+### LLM routing / model access
+
+| Ресурс | Описание | Stars |
+|---|---|---|
+| [OmniRoute](https://github.com/diegosouzapw/OmniRoute) | Один API-слой для множества моделей, fallback между провайдерами, контекстное сжатие, MCP/skills support. **Зачем нам:** референс для **Eclipse AI Hub**, **Hopson Sentinel** и **Eclipse Chat AI Agents**: provider-router, cost-aware fallback, compression-before-call. **Оговорка:** claims про “бесплатные токены” и автоматический обход лимитов проверять по ToS; в продуктах использовать только легальные ключи/провайдеры и собственные квоты | [![Stars](https://img.shields.io/github/stars/diegosouzapw/OmniRoute?style=flat)](https://github.com/diegosouzapw/OmniRoute) |
+| [Google Gemini image/video low-cost tier](https://deepmind.google/models/gemini-image/flash-lite/) | Дешёвый слой генерации/редактирования изображений и видео (канал называет Nano Banana 2 Lite / Omni Flash). **Зачем нам:** **Shotforge**, **Text2Image**, **Eclipse Media**, ассеты для **Eclipse Forge Landing** и project cards. **Проверка перед внедрением:** актуальные тарифы, доступность API, watermark/usage rights, качество текста на изображениях. В продукт - только после тестового набора промптов и расчёта unit economics | — |
+
+### Agent-ready web / discoverability
+
+| Ресурс | Описание |
+|---|---|
+| [Cloudflare Is It Agent Ready?](https://isitagentready.com/) | Проверка сайта на готовность к AI-агентам: SEO/AI Search, bot access, MCP/Web Bot Auth и рекомендации с промптом для правок. **Зачем нам:** прогонять **Eclipse Forge Landing**, **Eclipse Library**, **Eclipse Chat landing**, будущие продуктовые сайты и клиентские лендинги. Это напрямую ложится в позиционирование “строим системы для эпохи агентов”, а не просто красивые страницы |
+
+### Privacy / communication references
+
+| Ресурс | Описание | Stars |
+|---|---|---|
+| [SimpleX Chat](https://github.com/simplex-chat/simplex-chat) | Уже внесён в библиотеку как privacy-референс. В этом батче фиксируем конкретнее: для **Eclipse Chat** полезна не попытка “скопировать SimpleX”, а идеи **одноразовых ссылок**, **ephemeral rooms**, **минимизации метаданных**, локального хранения чувствительного контекста и режима “client/private channel” без лишних идентификаторов | [![Stars](https://img.shields.io/github/stars/simplex-chat/simplex-chat?style=flat)](https://github.com/simplex-chat/simplex-chat) |
+
+### Product / UX references
+
+| Ресурс | Описание | Stars |
+|---|---|---|
+| [TREK](https://github.com/mauriceboe/TREK) | Travel-workspace: карты, маршруты, бюджет, split expenses, погода, импорт мест, журнал, общий чат и опросы. **Зачем нам:** UX-референс для **Smart Life Assistant** (life-planning workspace), **Eclipse Chat client/project rooms** (shared planning + polls + budget tables) и **Eclipse DnD Forge** (party travel log, route planning, quest itinerary). Ценность не в туризме, а в паттерне “workspace вокруг процесса” | [![Stars](https://img.shields.io/github/stars/mauriceboe/TREK?style=flat)](https://github.com/mauriceboe/TREK) |
+
+### Media / download (grey-zone)
+
+| Ресурс | Описание | Stars |
+|---|---|---|
+| [Torlink](https://github.com/baairon/torlink) | CLI-клиент для поиска источников/сидов и загрузки файлов из терминала. **Зачем нам:** максимум как референс очередей загрузки, source health-check и CLI UX для **Eclipse Media**. **Не внедрять как публичную фичу скачивания “любых файлов”**: высокий риск пиратского контента, malware и нарушений ToS/закона. Если тестировать - только на легальных public-domain/open-data файлах и в sandbox | [![Stars](https://img.shields.io/github/stars/baairon/torlink?style=flat)](https://github.com/baairon/torlink) |
+
+### Grey / дебанк - не интегрируем в продукты
+
+| Находка | Статус / дисклеймер |
+|---|---|
+| [Qwen3.5-9B-Claude-4.6-HighIQ-THINKING-HERETIC-UNCENSORED](https://huggingface.co/DavidAU/Qwen3.5-9B-Claude-4.6-HighIQ-THINKING-HERETIC-UNCENSORED) | 🚩 **High-risk uncensored + сомнительный “Claude/Opus” провенанс.** Это не официальный Claude/Opus, а локальный fine-tune с маркетинговым названием. Не использовать в коммерческих продуктах, клиентских данных, Eclipse Chat agents или Sentinel по умолчанию. Допустимый контур - isolated red-team / safety-eval на своём железе без внешнего доступа, если вообще понадобится |
+| **Aliens Eye** ([arxhr007/Aliens_eye](https://github.com/arxhr007/Aliens_eye)) | Уже внесён в 28.06 как **self-audit цифрового следа**, не как инструмент “пробива людей”. Не интегрируем в продукты |
+| **Seed-Audio 1.0** ([fal.ai](https://fal.ai/models/bytedance/seed-audio-1.0)) | Уже внесён в 28.06 как аудио/TTS reference. Важное ограничение остаётся: voice cloning только со своим голосом или явным согласием |
+| **Torlink** | Полезен как CLI/download reference, но продуктово - grey-zone; не делать публичный “скачать всё” сервис |
+
+### Mapping → наши проекты
+
+| Tool | Project(s) | Integration pattern |
+|---|---|---|
+| **LLM Course** | Educator-AI · Eclipse AI Hub · команда | Учебный трек “LLM Engineer”; контент для AI-курсов и внутреннего onboarding |
+| **OpenHuman** | Eclipse Chat · Hopson Sentinel · Smart Life Assistant | Room/project/user memory, consent-based context, экран/логи/доки как controlled inputs |
+| **OpenClaw Mobile** | Hopson Sentinel · Eclipse Chat mobile/operator mode | Mobile approval/control-plane: агент предлагает действие, пользователь подтверждает |
+| **OmniRoute** | Eclipse AI Hub · Hopson Sentinel · Eclipse Chat AI agents | Provider-router + fallback + compression; только легальные ключи и ToS-safe режим |
+| **Loopy** | oh-my-claudecode · eclipse-library · все агентские репо | Аудит skills/MCP/loops, дедуп, risk scan перед установкой автоматизаций |
+| **Cloudflare Agent Ready** | Eclipse Forge Landing · Eclipse Library · Eclipse Chat landing · клиентские сайты | Проверка AI-search/agent readiness и список правок для SEO/MCP/Web Bot Auth |
+| **Google image/video low-cost tier** | Shotforge · Text2Image · Eclipse Media · Forge Landing | Дешёвый генератор ассетов; внедрять после price/quality/watermark теста |
+| **SimpleX Chat** | Eclipse Chat | Ephemeral/private rooms, одноразовые invite links, минимизация метаданных |
+| **TREK** | Smart Life Assistant · Eclipse DnD Forge · Eclipse Chat | Workspace-pattern: маршруты/планы/бюджеты/опросы вокруг процесса |
+| **Torlink** | Eclipse Media (reference only) | Очереди загрузки/source health-check; не публичный downloader “любых файлов” |
+| **Uncensored Qwen/HF модель** | Safety reference only | Не интегрировать; максимум isolated red-team без продуктового доступа |
 
 ---
 
