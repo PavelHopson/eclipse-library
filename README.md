@@ -41,6 +41,7 @@
 - [📥 Подборка Eclipse (23–27.06.2026)](#-подборка-eclipse-2327062026)
 - [📥 Подборка Eclipse (28.06.2026)](#-подборка-eclipse-28062026)
 - [📥 Подборка Eclipse (30.06–01.07.2026)](#-подборка-eclipse-300601072026)
+- [📥 Подборка Eclipse (02.07.2026)](#-подборка-eclipse-02072026)
 - [📥 Подборка Eclipse (05.07.2026)](#-подборка-eclipse-05072026)
 - [📦 Наши проекты](#-наши-проекты)
 
@@ -1734,6 +1735,70 @@ Frontend: React 19 · TypeScript · Vite · Tailwind CSS 4 · Zustand
 | **Claude Science beta** | Eclipse AI Hub · Educator-AI · Eclipse Chat · Hopson Sentinel | Reproducible research workflow: artifacts + code + environment + conversation history; citation/figure reviewer |
 | **PPT Master** | Eclipse Chat · Educator-AI · Eclipse AI Hub · Eclipse Forge sales | Document/project history/course material → editable PPTX, reports, client decks |
 | **Uncensored Qwen/HF модель** | Safety reference only | Не интегрировать; максимум isolated red-team без продуктового доступа |
+
+---
+
+## 📥 Подборка Eclipse (02.07.2026)
+
+> Хвост батча **25.06–02.07**. Большая часть ссылок уже была внесена в предыдущие
+> подборки, поэтому здесь фиксируем только недостающие полезные референсы и явно
+> помечаем grey-zone. План внедрения: [INSTALL-2026-07-02.md](INSTALL-2026-07-02.md),
+> проектный радар: [July 2026 learning/security/product radar](guides/july-2026-learning-security-product-radar.md).
+
+### Learning / knowledge systems
+
+| Ресурс | Описание | Stars |
+|---|---|---|
+| [Computer Science Video Courses](https://github.com/Developer-Y/cs-video-courses) | Большой curated-каталог университетских CS-курсов с видео: algorithms, systems, databases, AI/ML, networks, security, graphics, robotics и др. **Зачем нам:** база для внутреннего engineering onboarding, **Educator-AI** curriculum, training rooms в **Eclipse Chat**. Не продуктовая фича, а источник структурированных учебных треков | [![Stars](https://img.shields.io/github/stars/Developer-Y/cs-video-courses?style=flat)](https://github.com/Developer-Y/cs-video-courses) |
+| [InsightsLM](https://github.com/theaiautomators/insights-lm-public) | Open-source/self-hosted альтернатива NotebookLM: chat with documents, grounded answers, audio summaries; стек Supabase + n8n + React. **Зачем нам:** reference для **Eclipse AI Hub RAG**, **Educator-AI** и **Eclipse Chat knowledge rooms**. Проверить качество ingestion, privacy модель и зависимость от n8n перед внедрением | [![Stars](https://img.shields.io/github/stars/theaiautomators/insights-lm-public?style=flat)](https://github.com/theaiautomators/insights-lm-public) |
+| [Gemini](https://gemini.google.com/) Learn / course generation | Канал подал как “Gemini делает курсы”: лекции, иллюстрации, примеры кода, квизы. **Зачем нам:** UX benchmark для **Educator-AI**: тема → программа → уроки → задания → quiz. Не отдельная интеграция, а конкурентный паттерн |
+| [Atlas3D](https://atlas3d.space/) | Сервис из дропа: 3D-модель → объяснение объекта → детали → мини-квиз. **Зачем нам:** reference для **Educator-AI** и будущих 3D/engineering lessons; потенциально полезно для **DnD Forge** как “interactive object lore”. **Проверка:** публичная страница нестабильно открывается; перед интеграцией проверить доступ, privacy и формат входных 3D-файлов |
+
+### Agent / dev productivity
+
+| Ресурс | Описание | Stars |
+|---|---|---|
+| [Council of High Intelligence](https://github.com/0xNyk/council-of-high-intelligence) | Claude Code plugin: 18 AI-персон обсуждают сложное решение в несколько раундов и дают confidence-weighted verdicts. **Зачем нам:** reference для **Eclipse Chat decision rooms**, **Hopson Sentinel architecture review**, **oh-my-claudecode** “council review” команды. **Оговорка:** persona council легко превращается в красивый театр; нужен строгий output: assumptions, risks, dissent, decision log | [![Stars](https://img.shields.io/github/stars/0xNyk/council-of-high-intelligence?style=flat)](https://github.com/0xNyk/council-of-high-intelligence) |
+| [ZCode 3.0](https://zcode.z.ai/en) | Уже есть в AI/model radar как GLM/Z.ai reference, но батч уточняет продуктовую сторону: coding-agent UI, long-running tasks, bot control через Telegram/WeChat, GLM-5.2 optimization. **Зачем нам:** benchmark для **Hopson Sentinel**, **oh-my-claudecode**, **Eclipse Chat operator mode**. Не “хороним Claude Code”, а изучаем UX и pricing/agent loop |
+| [GFusion / Sber diffusion LLM](https://tass.ru/nauka/27878487) | По сообщению ТАСС: Сбер выложил open-source инструменты/модель с diffusion-подходом к генерации текста. **Зачем нам:** держать в **Eclipse AI Hub / ai-setup model radar** как альтернативную архитектуру. **Проверка перед добавлением как модели:** найти официальный repo, license, weights, inference recipe и независимые evals |
+| [caveman](https://github.com/JuliusBrussee/caveman) | Уже есть в библиотеке как cost-control для AI-агентов. В этом батче фиксируем: полезен не как “магия 75%”, а как reminder о compression modes для дорогих agent loops. В production включать только там, где стиль ответа не важен и не теряется точность |
+
+### Privacy / security / workstation
+
+| Ресурс | Описание | Stars |
+|---|---|---|
+| [Fingerprint Detector](https://github.com/mr-r3b00t/fingerprintdetector) | Chrome extension для наблюдения за fingerprinting attempts; README сам предупреждает, что проект “very in development/test” и “use at own risk”. **Зачем нам:** reference для **Hopson Sentinel privacy/security doctor** и self-audit браузера. Не обещать “полную анонимность” и не ставить как обязательную защиту | [![Stars](https://img.shields.io/github/stars/mr-r3b00t/fingerprintdetector?style=flat)](https://github.com/mr-r3b00t/fingerprintdetector) |
+| [FMHY Privacy](https://fmhy.net/privacy) | Кураторский список adblocking/privacy/security-инструментов: DNS filters, adblock lists, anti-telemetry, scanners, password/SMS/privacy notes. **Зачем нам:** checklist для личной workstation hygiene и справочник для **Hopson Sentinel security doctor**. **Оговорка:** FMHY - community list, каждый инструмент проверять отдельно |
+| [TechTool Lite](https://www.micromat.com/products/techtool-lite/) | Бесплатная macOS-диагностика от Micromat: battery, storage, cache/system health style checks. **Зачем нам:** reference для workstation diagnostics в **Hopson Sentinel**; актуально только для Mac-контуров, не для наших Windows/Linux серверов |
+| [edu mail benefits navigator](https://nav.edumails.cn/) | 🚩 **Do-not-use / grey.** Каталог скидок по student email сам по себе ок, но подача “получить студенческую почту, если вы не студент” = риск fraud/ToS violation. **Не используем** в проектах и не рекомендуем обход права на образовательные скидки |
+
+### Product UX / hardware references
+
+| Ресурс | Описание |
+|---|---|
+| [BoardRepo](https://boardrepo.com/browse) | Каталог open hardware / PCB проектов. **Зачем нам:** reference для **Educator-AI electronics track**: плата → схема → BOM → объяснение → мини-проект. Можно использовать как источник идей для hardware-learning, не как срочный продуктовый модуль |
+| [Audio Guide](https://audio-guide.ykj13.ru/podbor/) | Мини-сервис подбора наушников по формату и бюджету. **Зачем нам:** UX reference для recommendation flows: короткий input → ограниченный shortlist → объяснение выбора. Может пригодиться **Smart Life Assistant** и AI Hub как простой product-advisor паттерн |
+
+### Уже внесено, не дублируем
+
+| Находка | Где уже учтено |
+|---|---|
+| pytube-downloader, agent-skills, ARGithub/alphaXiv | Подборка **23–27.06.2026** |
+| SimpleX Chat, Aliens Eye, MinerU, Seed-Audio | Подборка **28.06.2026** / позже уточнено в **30.06–01.07** |
+| TREK, OmniRoute, LLM Course, Torlink, OpenHuman, OpenClaw Mobile, Google image/video low-cost tier, Cloudflare Agent Ready, Loopy, Claude Science, PPT Master, uncensored Qwen/HF | Подборка **30.06–01.07.2026** |
+
+### Mapping → наши проекты
+
+| Tool | Project(s) | Integration pattern |
+|---|---|---|
+| **InsightsLM** | Eclipse AI Hub · Eclipse Chat · Educator-AI | Self-hosted document chat / grounded notes / audio summaries |
+| **CS Video Courses / Gemini Learn / Atlas3D** | Educator-AI · Eclipse Chat training rooms | Curriculum generation, interactive lessons, quizzes, 3D learning mechanics |
+| **Council of High Intelligence** | Eclipse Chat · Hopson Sentinel · oh-my-claudecode | Decision room / architecture council with assumptions, dissent and decision log |
+| **Fingerprint Detector / FMHY / TechTool Lite** | Hopson Sentinel · workstation hygiene | Security doctor checklist, browser privacy audit, local machine diagnostics |
+| **BoardRepo** | Educator-AI · hardware learning | Electronics course modules: board → explanation → build task |
+| **Audio Guide** | Smart Life Assistant · AI Hub | Compact recommendation UX pattern |
+| **ZCode / GFusion** | ai-setup · Eclipse AI Hub · Sentinel | Provider/model radar, agent UX benchmark; verify licenses/evals |
+| **edu mail navigator** | None | Do-not-use: student-benefit abuse risk |
 
 ---
 
