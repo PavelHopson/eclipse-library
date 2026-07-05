@@ -41,6 +41,7 @@
 - [📥 Подборка Eclipse (23–27.06.2026)](#-подборка-eclipse-2327062026)
 - [📥 Подборка Eclipse (28.06.2026)](#-подборка-eclipse-28062026)
 - [📥 Подборка Eclipse (30.06–01.07.2026)](#-подборка-eclipse-300601072026)
+- [📥 Подборка Eclipse (05.07.2026)](#-подборка-eclipse-05072026)
 - [📦 Наши проекты](#-наши-проекты)
 
 ---
@@ -1733,6 +1734,74 @@ Frontend: React 19 · TypeScript · Vite · Tailwind CSS 4 · Zustand
 | **Claude Science beta** | Eclipse AI Hub · Educator-AI · Eclipse Chat · Hopson Sentinel | Reproducible research workflow: artifacts + code + environment + conversation history; citation/figure reviewer |
 | **PPT Master** | Eclipse Chat · Educator-AI · Eclipse AI Hub · Eclipse Forge sales | Document/project history/course material → editable PPTX, reports, client decks |
 | **Uncensored Qwen/HF модель** | Safety reference only | Не интегрировать; максимум isolated red-team без продуктового доступа |
+
+---
+
+## 📥 Подборка Eclipse (05.07.2026)
+
+> Дроп Telegram «Eclipse Hopson» от **05.07.2026**. Разбор: что реально полезно,
+> что является дублем уже внесённых находок, а что оставляем только как grey/reference.
+> Куда внедрять - см. [INSTALL-2026-07-05.md](INSTALL-2026-07-05.md) и сайт-гайд
+> [July 2026 audio/ops/agent radar](guides/july-2026-audio-ops-agent-radar.md).
+
+### Voice / transcription / calls
+
+| Ресурс | Описание |
+|---|---|
+| [Fish Audio API](https://fish.audio/ru/app/api-keys/) | TTS/API-ключи Fish Audio. Канал заявляет promo-доступ к S2.1 Pro до 24.07, 83 языка, RU, клонирование голоса, эмоции/интонации и realtime latency. **Проверка:** публичная страница API показывает key management/login, но промо/лимиты надо сверить внутри аккаунта перед интеграцией. **Зачем нам:** **Hopson Sentinel** (TTS/STT voice loop), **Eclipse Chat voice/AI transcription**, **DnD Forge** NPC-голоса, **Educator-AI** озвучка уроков, **Eclipse Media/Shotforge** voiceover. **Guardrail:** voice cloning только свой голос или явное согласие |
+| [Audio Transcriber AI](https://audiotranscriber.io/) | Онлайн-транскрибация без установки: сайт заявляет no-signup, 120+ языков, speaker detection, summary/export; на странице встречаются разные лимиты (100 MB в форме и 5GB в feature-блоке) - перед workflow проверить фактический upload limit. **Зачем нам:** **Eclipse Chat** meeting transcripts, **Eclipse Media** video/audio → text, **Educator-AI** лекции → задания, **InterviewForge** интервью → structured notes. **Оговорка:** closed SaaS, не грузить чувствительные созвоны без privacy review |
+| [Tactiq Russian Translate](https://tactiq.io/translate/russian-translate) / [YouTube transcript](https://tactiq.io/tools/youtube-transcript) | Browser-level real-time translation/transcripts, summaries and task extraction. **Зачем нам:** UX reference для **Eclipse Chat calls**: live captions, translation, action items, export PDF/TXT. Не core dependency - сначала как benchmark и ручной инструмент |
+
+### Prompting / coding / content
+
+| Ресурс | Описание |
+|---|---|
+| [Claude Code Prompt Library](https://code.claude.com/docs/en/prompt-library) | Официальная библиотека Anthropic с copy-paste prompts для Claude Code, tags by task/role, explanation “why this works”. **Зачем нам:** **oh-my-claudecode**, **Hopson Sentinel**, **eclipse-library/prompts**, onboarding команды. Ценность не в копировании промптов, а в паттернах: outcome-first, verification, reference files, measurable targets |
+| [Editor Stylist Humanizer](prompts/editor-stylist-humanizer.md) | Новый более строгий prompt-asset для редактуры: убрать канцелярит, AI-ритм, симметричные абзацы, “не просто X, а Y”, сохранить голос автора. **Зачем нам:** **Eclipse AI Hub Copywriter**, **Star CRM AutoReply**, Telegram/LinkedIn тексты, landing copy. **Оговорка:** не использовать для академического обхода AI-detectors |
+| [Google AI Studio API Keys](https://aistudio.google.com/api-keys) | ♻️ **Дубль/напоминание:** уже есть в блоке бесплатных API. Полезно держать как baseline provider для pet/POC проектов: **Eclipse AI Hub**, **Shotforge**, **Text2Image**, **Educator-AI**, агенты. Проверять актуальные квоты/модели в AI Studio |
+| [Fable 5 system prompt leak](https://github.com/elder-plinius/CL4R1T4S/blob/main/ANTHROPIC/CLAUDE-FABLE-5.md) | ♻️ **Уже внесено как grey/reference.** Не “превращает Opus в Fable”. Это leak/сомнительный провенанс + возможная IP-проблема. Допустимо как study material по структуре system prompt, не как production prompt |
+
+### Operational tables / business validation
+
+| Ресурс | Описание |
+|---|---|
+| [MWS Tables](https://mws.ru/dev-tools/mws-tables/) | Платформа рабочих таблиц/процессов: совместная работа, базы, задачи, аналитика, шаблоны. Канал заявляет “Большие таблицы” до 1M строк / 200 столбцов / 1000 пользователей; на публичной странице виден общий product positioning, точные лимиты надо проверять в документации/тарифах. **Зачем нам:** сильный reference для **Eclipse Chat Tables/Databases**, **Business Data Platform**, **Star CRM**, **FinFlow**, client portals |
+| [Draper Idea Validation](https://draper.chat/use-cases/idea-validation) | AI-чат для проверки бизнес-идей. **Зачем нам:** reference для **Eclipse AI Hub** / **Eclipse Forge sales intake**: idea → risks → questions → next experiment. Не интеграция, а шаблон discovery-flow |
+| **AI career survival playbook** | Не сервис, а заметка: автоматизировать рутину, предлагать AI-улучшения руководству, держаться ближе к бизнес-процессам, проверять AI outputs вручную. **Зачем нам:** контент для **Educator-AI** и внутреннего “AI adoption” гайда |
+
+### Browser automation / scraping
+
+| Ресурс | Описание | Stars |
+|---|---|---|
+| [Obscura](https://github.com/h4ckf0r0day/obscura) | Rust headless browser for AI agents/web scraping: V8, Chrome DevTools Protocol, Puppeteer/Playwright compatibility, lightweight memory/binary, built-in anti-detect. **Зачем нам:** **Eclipse-webclaw**, **business-data-platform**, **Lead-Sniper**, QA agents. **Оговорка:** stealth/anti-detect - dual-use; использовать только для своих/авторизованных источников и legal scraping, не для обхода чужих защит | [![Stars](https://img.shields.io/github/stars/h4ckf0r0day/obscura?style=flat)](https://github.com/h4ckf0r0day/obscura) |
+| [pxpipe](https://github.com/teamchong/pxpipe) | Эксперимент: рендерить bulk context как images для моделей, где vision-token path дешевле текста. В README прямо указаны caveats: lossy, byte-exact строки/хэши/секреты должны оставаться text, Opus/GPT модели могут читать хуже. **Зачем нам:** только R&D для **oh-my-claudecode/Hopson Sentinel** cost experiments. Не для production, не для кода/секретов/точных чисел | [![Stars](https://img.shields.io/github/stars/teamchong/pxpipe?style=flat)](https://github.com/teamchong/pxpipe) |
+
+### Security / workstation diagnostics
+
+| Ресурс | Описание | Stars |
+|---|---|---|
+| [NtWarden](https://github.com/mrT4ntr4/NtWarden) | Windows Analysis and Research Toolkit: processes, services, network, kernel internals, local/remote via WinSysServer. README автора предупреждает: kernel driver only in Test VM; network protocol has no auth and should run only in isolated lab/VM. **Зачем нам:** reference для **Hopson Sentinel security doctor** и workstation diagnostics; не ставить на рабочую машину без lab-песочницы | [![Stars](https://img.shields.io/github/stars/mrT4ntr4/NtWarden?style=flat)](https://github.com/mrT4ntr4/NtWarden) |
+
+### Japan AI landscape watch
+
+| Ресурс | Описание |
+|---|---|
+| [Sakana AI](https://sakana.ai/) · [Preferred Networks](https://preferred.jp/en) · [ABEJA](https://www.abejainc.com/) · [Rinna / Raena](https://raena.ai/) · LINE CLOVA | Радар японского AI-рынка: research/industrial AI, Japanese business/culture, creative language models, LINE ecosystem. **Зачем нам:** **Eclipse AI Hub provider radar**, **business localization**, international content. **Оговорка:** это watchlist, не интеграция. LINE CLOVA из дропа ведёт на Aptoide APK - не использовать как источник установки; искать официальный vendor channel |
+
+### Mapping → наши проекты
+
+| Tool | Project(s) | Integration pattern |
+|---|---|---|
+| **Fish Audio** | Hopson Sentinel · Eclipse Chat · DnD Forge · Educator-AI · Eclipse Media | TTS/voiceover/provider spike; consent gate for cloning |
+| **Audio Transcriber / Tactiq** | Eclipse Chat · Eclipse Media · Educator-AI · InterviewForge | Calls/video/audio → transcript → summary/action items/export |
+| **Claude Prompt Library** | oh-my-claudecode · Hopson Sentinel · all repos | Prompt patterns for coding tasks, verification and onboarding |
+| **Editor Stylist Humanizer** | Eclipse AI Hub · Star CRM · content workflows | Final rewriter step after fact-checking; not academic bypass |
+| **MWS Tables** | Eclipse Chat · Business Data Platform · Star CRM · FinFlow | Operational tables/databases reference: permissions, filters, analytics, collaboration |
+| **Obscura** | Eclipse-webclaw · business-data-platform · Lead-Sniper · QA agents | Lightweight browser automation; only authorized/legal scraping |
+| **pxpipe** | oh-my-claudecode · Hopson Sentinel R&D | Cost experiment only; no exact strings/secrets/code-critical contexts |
+| **NtWarden** | Hopson Sentinel · workstation security | Security doctor reference; lab/VM only |
+| **Draper Idea Validation / AI career playbook** | Eclipse AI Hub · Educator-AI · Eclipse Forge sales | Discovery prompts, business validation, AI adoption content |
+| **Japan AI watchlist** | Eclipse AI Hub · localization/content | Market radar, no immediate integration |
 
 ---
 
