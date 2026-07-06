@@ -9,9 +9,9 @@
 **Добавить в стратегический backlog:**
 
 - **OpenHuman** - референс для AI Memory: room memory, project memory, "since you were away", semantic search, память решений и файлов.
-- **SimpleX Chat** - privacy-модель: ephemeral/private rooms, одноразовые invites/QR, минимизация метаданных.
+- **SimpleX Chat** - privacy-модель. ✅ **УЖЕ СДЕЛАНО (не backlog):** реализовано и в проде как 3 приватность-среза EC — одноразовые/истекающие invites (PR #106), исчезающие сообщения по TTL канала (PR #107), temp-комнаты. Остаётся опц-полиш: QR/одноразовые ссылки в UI, пер-сообщение TTL-override, дальнейшая минимизация метаданных.
 - **OpenClaw Mobile** - mobile operator control: подтверждение действий агента с телефона, voice/camera/location только через явные permissions.
-- **OmniRoute** - provider-router для AI agents: fallback, cost-aware routing, context compression.
+- **OmniRoute** - provider-router для AI agents: fallback, cost-aware routing, context compression. ⚠️ Пересекается с уже листнутым **ClawRouter** и `AI_PROVIDER=auto` (StarCRM, фолбэк Groq→Gemini) — не плодить второй роутер; взять как источник доп-идей (context compression, cost-метрики) поверх существующего.
 - **TREK** - project/client rooms как workspace вокруг процесса: планы, опросы, чеклисты, budget/table layer.
 - **Cloudflare Agent Ready** - проверять public landing/download/docs на AI Search, Web Bot Auth, MCP и agent discoverability.
 - **PPT Master** - client/project reports: история проекта, решения, задачи и deliverables -> редактируемая PPTX-презентация.
