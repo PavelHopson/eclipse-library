@@ -479,6 +479,7 @@ ai-setup reverse owner/repo --stdout
 | Ресурс | Описание |
 |---|---|
 | [Claude (Claude Code)](https://claude.com/product/claude-code) · [Codex](https://openai.com/codex/) · [Kimi](https://www.kimi.com/products/kimi-work) | Агенты-программисты собирают лендинг по твоим словам: дай стартер → веди задачами («сделай hero», «добавь форму», «задеплой»). **Главный путь** |
+| [Open Design + Codex — пошаговая шпаргалка](guides/open-design-codex-workflow.md) | Как развернуть Open Design внутри Codex, сгенерировать первый сайт на канве и дорабатывать дизайн точечными правками по блокам |
 | [Стартер: Astro](https://github.com/withastro/astro) / [Next.js](https://github.com/vercel/next.js) | Дай нейросети готовый фреймворк-стартер — не пишем с нуля |
 
 ### 🟣 Наши сервисы для лендинга
@@ -907,7 +908,7 @@ Frontend: React 19 · TypeScript · Vite · Tailwind CSS 4 · Zustand
 | Ресурс | Описание |
 |--------|----------|
 | [Design MD Generator](https://www.figma.com/community/plugin/1612814320994608244/design-md-generator) | Плагин Figma → DESIGN.md / SKILL.md для передачи полного визуального контекста AI-агентам |
-| [Open Design](https://github.com/nexu-io/open-design) | Open-source набор DESIGN.md-шаблонов, skills и визуальных стилей для AI-first интерфейсов |
+| [Open Design](https://github.com/nexu-io/open-design) | Open-source набор DESIGN.md-шаблонов, skills и визуальных стилей для AI-first интерфейсов. Практический workflow → [гайд Open Design + Codex](guides/open-design-codex-workflow.md) |
 | [Refero Styles](https://styles.refero.design/) | 2000+ UI-стилей и design-файлов как база для визуальных референсов и direction-setting |
 | [thesvg](https://github.com/glincker/thesvg) | Большая библиотека SVG-иконок и логотипов с API/CDN/React-пакетами |
 | [LazyWeb](https://www.lazyweb.com/) | 250К+ скринов реальных приложений, поиск похожих UI-паттернов, генерация интерфейса по запросу, MCP-подключение к Claude / Cursor. Reference-кладовая для design-pipeline и UI-research |
