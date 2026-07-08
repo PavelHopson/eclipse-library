@@ -310,6 +310,7 @@ ai-setup reverse owner/repo --stdout
 | [Remotion Video Skill](https://github.com/wshuyi/remotion-video-skill) | Генерация анимированных видео через Remotion: текст, переходы, motion-сцены, шаблоны под серийный контент | Eclipse Media, Shotforge, промо Eclipse Forge, обучающие ролики Educator-AI |
 | [Context Engineering Skills](https://github.com/muratcankoylan/agent-skills-for-context-engineering) | Context-engineering skills для длинных задач: меньше потери нити, меньше токенов, лучше структура агентских сессий | oh-my-claudecode, Hopson Sentinel, большие сессии по eclipse-chat |
 | [Continuous Discovery Interview](https://awesomeskill.ai/skill/parcadei-continuous-claude-v3-discovery-interview) | Discovery-интервью: вытаскивает ТЗ из сырой идеи через 10-15 вопросов и превращает его в план разработки | Любой новый MVP, клиентский проект, kwork discovery, Eclipse DnD Forge mechanics |
+| [Novitckii · 42 Claude design skills](https://www.novitckii.com/resources/claude-design-skills/) | Gated resource с картой 6 слоёв design-skills: frontend taste, motion, canvas, AI product interaction, prompt architecture, trust & safety. **Не ставить всё:** собирать стек из 3–4 скиллов под задачу. Разбор для наших проектов → [гайд](guides/claude-design-skills-map.md) | EclipseForgeLanding, Eclipse Chat, Eclipse DnD Forge, Eclipse Media, Shotforge, Hopson Sentinel, oh-my-claudecode |
 
 ## 🛒 Разработка интернет-магазинов
 
