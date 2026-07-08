@@ -44,6 +44,7 @@
 - [📥 Подборка Eclipse (30.06–01.07.2026)](#-подборка-eclipse-300601072026)
 - [📥 Подборка Eclipse (02.07.2026)](#-подборка-eclipse-02072026)
 - [📥 Подборка Eclipse (05.07.2026)](#-подборка-eclipse-05072026)
+- [📥 Подборка Eclipse (08.07.2026)](#-подборка-eclipse-08072026)
 - [📦 Наши проекты](#-наши-проекты)
 
 ---
@@ -171,6 +172,8 @@
 | [Humanize Rewriter](prompts/humanize-rewriter.md) | Промпт для humanize-rewrite текста под автоответы маркетплейсов / SMM / контент. **С оговоркой:** широко распространяется в студенческой среде как обход AI-детекторов — используем только в операторских/контент-задачах, не для академического обхода (та же планка, что у `talk-normal` в разделе агентов) |
 | [Lyra Prompt Optimizer](prompts/lyra-prompt-optimizer.md) | Мета-промпт: «промпт, который пишет промпты». 4-D методология (Deconstruct → Diagnose → Develop → Deliver), 2 режима (DETAIL / BASIC), универсальный — ChatGPT / Claude / Gemini. Используем как препроцессор в Eclipse AI Hub Copywriter и как первый шаг в `/ultrawork` (oh-my-claudecode) |
 | [⚡ Vibe Coding — мастер-промпты для сайтов](prompts/vibe-coding-website-prompts.md) | Два мастер-промпта: прямая генерация кода сайта (Next.js 14/15 + TS + Tailwind + shadcn/ui, Schema.org SEO, Error Boundaries) и AI-агент «WebCraft», который ведёт клиента по брифу и выдаёт готовый код. Вычищено + курор-фиксы (депрекейт `source.unsplash.com` → `picsum.photos`, обобщены имена моделей). **Фит:** быстрый каркас лендингов Eclipse Forge |
+| [Photo Restoration Prompt](prompts/photo-restoration-upscale.md) | Промпт реставрации старых фото: убрать царапины/шум, восстановить повреждения, мягко повысить резкость и реалистично колоризировать. **Фит:** Shotforge, Text2Image, Eclipse Media |
+| [Claude Finance — 6 prompts](prompts/finance-claude-6.md) | 6 практичных сценариев личных финансов: долги, аудит расходов, бюджет, анти-импульсные покупки, автосбережения, dashboard. **Фит:** Eclipse AI Hub / Smart Life Assistant, не финансовый совет |
 
 ### Генерация изображений
 
@@ -1883,6 +1886,65 @@ Frontend: React 19 · TypeScript · Vite · Tailwind CSS 4 · Zustand
 | **NtWarden** | Hopson Sentinel · workstation security | Security doctor reference; lab/VM only |
 | **Draper Idea Validation / AI career playbook** | Eclipse AI Hub · Educator-AI · Eclipse Forge sales | Discovery prompts, business validation, AI adoption content |
 | **Japan AI watchlist** | Eclipse AI Hub · localization/content | Market radar, no immediate integration |
+
+---
+
+## 📥 Подборка Eclipse (08.07.2026)
+
+> Дроп Telegram «Eclipse Hopson» от **08.07.2026**. Здесь главное — агентский поиск,
+> media-pipeline prompts и несколько risk/reference находок. Бесплатные AI API из дропа
+> отдельно не дублируем: они уже собраны в разделе [Бесплатные API](#бесплатные-api).
+
+### Agent search / актуальный контекст
+
+| Ресурс | Описание | Stars |
+|---|---|---|
+| [OpenSERP](https://github.com/karust/openserp) | Поисковый JSON API/CLI для AI-агентов поверх Google, Yandex, Baidu, Bing и DuckDuckGo без официальных search API-ключей. Есть HTTP/SOCKS5 proxy support, фильтры языка/региона/даты и выдача в формате, который легко кормить агенту. **Зачем нам:** **Eclipse Chat Knowledge/AI rooms**, **Hopson Sentinel**, Kwork #18 research-agent, Eclipse Library enrichment. **Риск:** проверять ToS поисковиков, captcha/proxy устойчивость и не строить критичный production-flow только на парсинге SERP | [![Stars](https://img.shields.io/github/stars/karust/openserp?style=flat)](https://github.com/karust/openserp) |
+
+### Storage / privacy reference
+
+| Ресурс | Описание | Stars |
+|---|---|---|
+| [unlim-cloud](https://github.com/inulute/unlim-cloud) | Desktop-приложение, которое использует Telegram как файловое хранилище: папки, gallery, фото/видео, загрузка через Telegram session/chat/bot. **Reference-only:** идея chat-backed personal vault интересная для UX, но не брать как production-storage из-за ToS, privacy, лимитов Telegram и риска потери доступа. **Зачем нам:** заметка для Eclipse Chat files/attachments и personal archive UX, не интеграция | [![Stars](https://img.shields.io/github/stars/inulute/unlim-cloud?style=flat)](https://github.com/inulute/unlim-cloud) |
+
+### Security / OPSEC
+
+| Ресурс | Описание | Stars |
+|---|---|---|
+| [T3MP3ST](https://github.com/elder-plinius/T3MP3ST) | Multi-agent cybersecurity research system от Pliny/elder-plinius. Позиционируется как набор агентов для поиска уязвимостей и тестирования защит. **High-risk:** только authorized security lab / собственные стенды / defensive review. Не запускать по чужим целям и не превращать в автоматический exploit-tool. **Зачем нам:** reference для Hopson Sentinel security pipeline, threat-model prompts и codex-security playbooks | [![Stars](https://img.shields.io/github/stars/elder-plinius/T3MP3ST?style=flat)](https://github.com/elder-plinius/T3MP3ST) |
+| [SpamBlocker](https://github.com/aj3423/SpamBlocker) | Open-source Android blocker для spam calls/SMS: правила по оператору, стране, частоте, номеру и содержимому. **Зачем нам:** Privacy/OPSEC reference, личная защита, идея notification-safety слоя для мобильных сценариев. Не core product, но полезный бытовой инструмент | [![Stars](https://img.shields.io/github/stars/aj3423/SpamBlocker?style=flat)](https://github.com/aj3423/SpamBlocker) |
+
+### Media / image generation
+
+| Ресурс | Описание |
+|---|---|
+| [Seedream 5.0 Lite / Pro](https://higgsfield.ai/seedream-5.0) | Image generation/editing: region editing, layer-like правки, multi-image composition, изменение объекта по описанию, текст/инфографика/схемы, RU-friendly prompts. **Зачем нам:** **Shotforge**, **Text2Image**, **Eclipse Media**. Lite можно тестировать через Higgsfield / Dreamina, Pro API — только после проверки доступа, цены и лицензии |
+| [Dreamina Seedream entry](https://dreamina.capcut.com/) | Альтернативная точка входа для теста Seedream Lite. **Зачем нам:** быстрый ручной benchmark качества до решения об API-интеграции |
+| [Photo Restoration Prompt](prompts/photo-restoration-upscale.md) | Пресет для восстановления старых фото: царапины, пятна, шум, мягкое sharpening, естественная колоризация. **Зачем нам:** Shotforge/Text2Image/Eclipse Media как готовый prompt-asset для “restore old photo” workflow |
+
+### Prompt assets / личные финансы
+
+| Ресурс | Описание |
+|---|---|
+| [Claude Finance — 6 prompts](prompts/finance-claude-6.md) | Долги, аудит расходов, простой бюджет, фильтр импульсных покупок, автосбережения, личный financial dashboard. **Зачем нам:** Eclipse AI Hub / Smart Life Assistant. Это бытовой planning-flow, не трейдинг и не финансовая рекомендация |
+| [finance-15.md](prompts/finance-15.md) | ♻️ Уже внесённый основной набор из 15 промптов. Новый файл выше добавлен как “операционный слой”: меньше теории, больше конкретных сценариев и действий |
+
+### Уже учтено, не дублируем
+
+| Находка | Где уже учтено |
+|---|---|
+| OpenRouter, NVIDIA NIM, GitHub Models, Cerebras, Groq, Mistral AI, Cloudflare Workers AI, Hugging Face Inference Providers | Раздел [Бесплатные API](#бесплатные-api). Если нужно — потом сделаем отдельный “provider decision matrix” для Eclipse AI Hub / Eclipse Chat, но сам список уже есть |
+
+### Mapping → наши проекты
+
+| Tool | Project(s) | Integration pattern |
+|---|---|---|
+| **OpenSERP** | Eclipse Chat · Hopson Sentinel · Kwork #18 research-agent · Eclipse Library | Agent search provider: query → JSON SERP → source ranking → citations / memory |
+| **Seedream 5.0 / Photo Restoration Prompt** | Shotforge · Text2Image · Eclipse Media | Image editing benchmark, old-photo restore preset, infographic/text rendering tests |
+| **Claude Finance 6** | Eclipse AI Hub · Smart Life Assistant | Financial action-flow: debt plan, expense audit, dashboard, savings ritual |
+| **SpamBlocker** | Privacy/OPSEC · mobile safety references | Anti-spam rule UX, notification trust, personal device hygiene |
+| **unlim-cloud** | Eclipse Chat files/attachments reference | UX reference only; do not use Telegram as production object storage |
+| **T3MP3ST** | Hopson Sentinel · codex-security notes | Authorized security lab reference only; defensive workflows and guardrails |
 
 ---
 
