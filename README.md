@@ -243,6 +243,19 @@ claude --channels plugin:telegram@claude-plugins-official
 | [andrej-karpathy-skills](https://github.com/forrestchang/andrej-karpathy-skills) | Гайдлайны Карпаты, портированные в скиллы Claude Code — best practices от автора nanoGPT | [![Stars](https://img.shields.io/github/stars/forrestchang/andrej-karpathy-skills?style=flat)](https://github.com/forrestchang/andrej-karpathy-skills) |
 | [talk-normal](https://github.com/hexiecs/talk-normal) | Скиллы humanize-генерации текста (обход AI-детекторов). **С оговоркой:** пересекается с политикой академической честности | [![Stars](https://img.shields.io/github/stars/hexiecs/talk-normal?style=flat)](https://github.com/hexiecs/talk-normal) |
 
+### Скиллы для Claude — рабочий набор (kirill.leeks)
+
+> Shortlist из 6 скиллов, которые превращают Claude из универсального помощника в набор мини-специалистов. Не ставить всё подряд в production-контур: сначала проверить провенанс, лицензии, системные промпты и пересечения через SkillSpector / Loopy.
+
+| Skill | Что делает | Куда полезно нам |
+|---|---|---|
+| [Marketing Skills (coreyhaines31)](https://github.com/coreyhaines31/marketingskills) | Набор примерно из 40 marketing-skills: аудитория, боли, возражения, email-цепочки, SEO, конверсия, лид-магниты. Сильная идея — базовый product-context skill, на который опираются остальные | EclipseForgeLanding, kwork-офферы, Eclipse AI Hub Copywriter, StarMarket/Star CRM marketing flows |
+| [Stop Slop Skill](https://github.com/hardikpandya/stop-slop) | Редакторский skill против нейро-шаблонного текста: проверяет прямоту, ритм, плотность, клише и переписывает без “AI-воды” | README, лендинги, автоответы, Telegram-посты, case copy |
+| [UI UX Pro Max](https://github.com/nextlevelbuilder/ui-ux-pro-max-skill) | UI/UX skill с готовыми стилями, палитрами, шрифтовыми парами, UX-принципами и генератором дизайн-системы. Уже есть выше в библиотеке, здесь — как часть рабочего shortlist | Eclipse Chat, EclipseForgeLanding, Eclipse DnD Forge, все React/Vite интерфейсы |
+| [Remotion Video Skill](https://github.com/wshuyi/remotion-video-skill) | Генерация анимированных видео через Remotion: текст, переходы, motion-сцены, шаблоны под серийный контент | Eclipse Media, Shotforge, промо Eclipse Forge, обучающие ролики Educator-AI |
+| [Context Engineering Skills](https://github.com/muratcankoylan/agent-skills-for-context-engineering) | Context-engineering skills для длинных задач: меньше потери нити, меньше токенов, лучше структура агентских сессий | oh-my-claudecode, Hopson Sentinel, большие сессии по eclipse-chat |
+| [Continuous Discovery Interview](https://awesomeskill.ai/skill/parcadei-continuous-claude-v3-discovery-interview) | Discovery-интервью: вытаскивает ТЗ из сырой идеи через 10-15 вопросов и превращает его в план разработки | Любой новый MVP, клиентский проект, kwork discovery, Eclipse DnD Forge mechanics |
+
 **Маркетплейсы скиллов для AI-агентов:**
 - [skills.sh](https://skills.sh/) · [skillhub.club](https://skillhub.club/) · [skillsmp.com](https://skillsmp.com/)
 | [ai-website-cloner-template](https://github.com/JCodesMore/ai-website-cloner-template) | Клонирует **любой** сайт за один промпт — скилл `/clone-website` для Claude Code. Параллельные агенты в worktrees, `getComputedStyle()`, pixel-perfect вывод. | [![Stars](https://img.shields.io/github/stars/JCodesMore/ai-website-cloner-template?style=flat)](https://github.com/JCodesMore/ai-website-cloner-template) |
