@@ -15,7 +15,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Unbounded:wght@500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css?v=4" />
+  <link rel="stylesheet" href="styles.css?v=5" />
 </head>
 <body>
   <a class="skip" href="#results">Перейти к каталогу</a>
@@ -43,7 +43,12 @@
   <div id="top" class="layout">
     <aside class="sidebar" aria-label="Категории">
       <div class="side-label">Навигация</div>
+      <div class="side-tools">
+        <input id="navSearch" type="search" placeholder="Найти раздел..." autocomplete="off" spellcheck="false" aria-label="Поиск по разделам" />
+        <button id="navClear" class="side-clear" type="button" hidden>Сбросить</button>
+      </div>
       <nav id="nav" class="nav"></nav>
+      <div id="navEmpty" class="nav-empty" hidden>Такого раздела нет. Попробуйте поиск сверху по находкам.</div>
     </aside>
 
     <main class="content">
@@ -52,7 +57,11 @@
         <h1 id="hero-h1">Библиотека инструментов,<br><span class="grad">ресурсов и знаний</span></h1>
         <p class="hero-sub">Навигируемый каталог AI &amp; Claude Code инструментов, моделей, self-hosted платформ и промптов. Каждая находка проверена на провенанс, размечена по типу и применению, с честными пометками риска. Ищите, фильтруйте по типам, переходите к категориям.</p>
         <div id="stats" class="stats"></div>
-        <nav id="catgrid" class="cat-grid" aria-label="Быстрый переход к категориям"></nav>
+        <div id="quickRoutes" class="quick-routes" aria-label="Быстрые сценарии"></div>
+        <details class="cat-browser">
+          <summary>Все разделы <span id="catBrowserCount"></span></summary>
+          <nav id="catgrid" class="cat-grid" aria-label="Быстрый переход к категориям"></nav>
+        </details>
       </section>
 
       <div id="filters" class="filters" role="toolbar" aria-label="Фильтр по типам" hidden></div>
@@ -86,6 +95,6 @@
     Eclipse Forge · обновляется по мере находок · данные из <a href="https://github.com/PavelHopson/eclipse-library" target="_blank" rel="noopener">README</a>
   </footer>
 
-  <script src="app.js?v=2"></script>
+  <script src="app.js?v=3"></script>
 </body>
 </html>

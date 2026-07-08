@@ -48,6 +48,26 @@
     tool:   'инструмент',
     shop:   'e-commerce',
   };
+
+  const NAV_GROUPS = [
+    { id: 'start', title: 'Быстрый старт' },
+    { id: 'build', title: 'Разработка и рост' },
+    { id: 'ops', title: 'Инфра и безопасность' },
+    { id: 'learn', title: 'Обучение' },
+    { id: 'drops', title: 'Подборки по датам' },
+    { id: 'own', title: 'Наши проекты' },
+    { id: 'other', title: 'Остальное' },
+  ];
+  function navGroupId(label) {
+    const l = label.toLowerCase();
+    if (/наши проекты/.test(l)) return 'own';
+    if (/подборка eclipse/.test(l)) return 'drops';
+    if (/ai & claude|скиллы для claude/.test(l)) return 'start';
+    if (/интернет-магазин|лендинг|seo|маркетинг|dev tools|cli|media|download|gamedev/.test(l)) return 'build';
+    if (/self-hosted|privacy|opsec|hardware|workstation/.test(l)) return 'ops';
+    if (/обучение|компьютерные науки/.test(l)) return 'learn';
+    return 'other';
+  }
   function inferType(r, cat, sub) {
     const ctx = (cat.label + ' ' + (sub ? sub.title : '')).toLowerCase();
     let host = ''; try { if (r.url) host = new URL(r.url).hostname; } catch (e) {}
@@ -134,18 +154,18 @@
   function render(cats) {
     allCats = cats;
     const nav = $('#nav'), results = $('#results'), catgrid = $('#catgrid');
+    cards.length = 0;
     nav.innerHTML = ''; results.innerHTML = ''; catgrid.innerHTML = '';
     let total = 0;
     const typeCounts = {};
+    const navEntries = [];
 
     cats.forEach((cat) => {
       const cnt = cat.subs.reduce((a, s) => a + s.resources.length, 0);
       total += cnt;
 
       // sidebar nav
-      const a = el('a'); a.href = `#${cat.id}`;
-      a.innerHTML = `<span class="ico" aria-hidden="true">${cat.icon || '·'}</span><span class="label">${esc(cat.label)}</span><span class="cnt">${cnt}</span>`;
-      nav.appendChild(a);
+      navEntries.push({ cat, cnt });
 
       // hero quick-grid tile
       const tile = el('a', 'cat-tile'); tile.href = `#${cat.id}`;
@@ -199,6 +219,9 @@
       });
       results.appendChild(section);
     });
+    renderSideNav(navEntries);
+    const catBrowserCount = $('#catBrowserCount');
+    if (catBrowserCount) catBrowserCount.textContent = `${cats.length} разделов`;
 
     // stats
     $('#stats').innerHTML =
@@ -207,21 +230,90 @@
       stat(Object.keys(typeCounts).length, 'типов');
 
     buildFilters(typeCounts);
+    buildQuickRoutes(cats, typeCounts);
     $('#status').hidden = true;
     requestAnimationFrame(() => { scrollSpy(); entryReveal(); });
+  }
+
+  function renderSideNav(entries) {
+    const nav = $('#nav');
+    const byGroup = new Map(NAV_GROUPS.map((g) => [g.id, []]));
+    entries.forEach((entry) => {
+      const gid = navGroupId(entry.cat.label);
+      (byGroup.get(gid) || byGroup.get('other')).push(entry);
+    });
+    nav.innerHTML = '';
+    NAV_GROUPS.forEach((group) => {
+      const items = byGroup.get(group.id) || [];
+      if (!items.length) return;
+      const wrap = el('div', 'nav-group');
+      wrap.dataset.group = group.id;
+      const count = items.reduce((sum, x) => sum + x.cnt, 0);
+      wrap.appendChild(el('div', 'nav-group-title', `<span>${esc(group.title)}</span><i>${count}</i>`));
+      items.forEach(({ cat, cnt }) => wrap.appendChild(makeNavLink(cat, cnt)));
+      nav.appendChild(wrap);
+    });
+  }
+
+  function makeNavLink(cat, cnt) {
+    const a = el('a');
+    a.href = `#${cat.id}`;
+    a.dataset.navText = `${cat.label} ${cnt}`.toLowerCase();
+    a.innerHTML = `<span class="ico" aria-hidden="true">${cat.icon || '·'}</span><span class="label">${esc(cat.label)}</span><span class="cnt">${cnt}</span>`;
+    return a;
+  }
+
+  function findCat(cats, re) {
+    return cats.find((c) => re.test(c.label.toLowerCase()));
+  }
+
+  function buildQuickRoutes(cats, typeCounts) {
+    const box = $('#quickRoutes');
+    if (!box) return;
+    const ai = findCat(cats, /ai & claude/);
+    const skills = findCat(cats, /скиллы для claude/);
+    const ecommerce = findCat(cats, /интернет-магазин/);
+    const projects = findCat(cats, /наши проекты/);
+    const latestDrop = [...cats].reverse().find((c) => /подборка eclipse/.test(c.label.toLowerCase()));
+    const routes = [
+      ai && { label: 'AI & Claude', hint: 'скиллы, агенты, LLM', href: `#${ai.id}`, count: ai.subs.reduce((a, s) => a + s.resources.length, 0) },
+      skills && { label: 'Скиллы Claude', hint: 'готовые роли и команды', href: `#${skills.id}`, count: skills.subs.reduce((a, s) => a + s.resources.length, 0) },
+      { label: 'Курсы и гайды', hint: 'длинные материалы на сайте', href: '#guidesFeat', count: 'guide' },
+      latestDrop && { label: 'Свежая подборка', hint: latestDrop.label.replace(/^Подборка Eclipse\s*/i, ''), href: `#${latestDrop.id}`, count: latestDrop.subs.reduce((a, s) => a + s.resources.length, 0) },
+      typeCounts.grey && { label: 'Риски', hint: 'grey-zone и спорные находки', type: 'grey', count: typeCounts.grey },
+      typeCounts.oss && { label: 'Open-source', hint: 'репозитории и self-host', type: 'oss', count: typeCounts.oss },
+      ecommerce && { label: 'E-commerce', hint: 'магазины, платежи, storefront', href: `#${ecommerce.id}`, count: ecommerce.subs.reduce((a, s) => a + s.resources.length, 0) },
+      projects && { label: 'Наши проекты', hint: 'куда внедрять находки', href: `#${projects.id}`, count: projects.subs.reduce((a, s) => a + s.resources.length, 0) },
+    ].filter(Boolean);
+    box.innerHTML = routes.map((r) => {
+      const meta = typeof r.count === 'number' ? `${r.count} ${plural(r.count)}` : 'гайды';
+      const attrs = r.type ? `button type="button" data-type="${r.type}"` : `a href="${r.href}"`;
+      const close = r.type ? 'button' : 'a';
+      return `<${attrs} class="quick-route"><span><b>${esc(r.label)}</b><small>${esc(r.hint)}</small></span><i>${esc(meta)}</i></${close}>`;
+    }).join('');
+    box.querySelectorAll('[data-type]').forEach((b) => {
+      b.addEventListener('click', () => {
+        setTypeFilter(b.dataset.type);
+        $('#filters').scrollIntoView({ behavior: 'smooth', block: 'start' });
+      });
+    });
   }
 
   const plural = (n) => (n % 10 === 1 && n % 100 !== 11) ? 'находка' : (n % 10 >= 2 && n % 10 <= 4 && (n % 100 < 10 || n % 100 >= 20)) ? 'находки' : 'находок';
   const stat = (n, l) => `<div class="stat"><b>${n}</b><span>${l}</span></div>`;
 
   // ---- filters (тип + поиск) ----
-  let activeType = null, query = '';
+  let activeType = null, query = '', navQuery = '';
   function buildFilters(typeCounts) {
     const bar = $('#filters'); bar.innerHTML = '';
     bar.appendChild(chip(null, 'Все', cards.length, true));
     Object.keys(typeCounts).sort((a, b) => typeCounts[b] - typeCounts[a]).forEach((t) => {
       bar.appendChild(chip(t, TYPES[t] || t, typeCounts[t], false));
     });
+    const reset = el('button', 'filter-reset', 'Сбросить фильтры');
+    reset.id = 'filterReset'; reset.type = 'button'; reset.hidden = true;
+    reset.addEventListener('click', () => clearLibraryFilters({ focus: true }));
+    bar.appendChild(reset);
     const rc = el('span', 'result-count'); rc.id = 'resultcount'; bar.appendChild(rc);
     bar.hidden = false;
   }
@@ -230,10 +322,31 @@
     c.dataset.type = type || '';
     c.addEventListener('click', () => {
       activeType = (activeType === type) ? null : type;
-      document.querySelectorAll('.chip').forEach((x) => x.classList.toggle('active', (x.dataset.type || null) === activeType || (activeType === null && !x.dataset.type)));
+      updateChipState();
       applyFilters();
     });
     return c;
+  }
+
+  function updateChipState() {
+    document.querySelectorAll('.chip').forEach((x) => x.classList.toggle('active', (x.dataset.type || null) === activeType || (activeType === null && !x.dataset.type)));
+  }
+
+  function setTypeFilter(type) {
+    activeType = type || null;
+    query = '';
+    if (search) search.value = '';
+    updateChipState();
+    applyFilters();
+  }
+
+  function clearLibraryFilters(opts = {}) {
+    activeType = null;
+    query = '';
+    if (search) search.value = '';
+    updateChipState();
+    applyFilters();
+    if (opts.focus && search) search.focus();
   }
 
   function applyFilters() {
@@ -245,14 +358,34 @@
     });
     document.querySelectorAll('.sub').forEach((s) => { s.hidden = !s.querySelector('.card:not([hidden])'); });
     document.querySelectorAll('.cat').forEach((s) => { s.hidden = !s.querySelector('.card:not([hidden])'); });
-    document.querySelectorAll('#nav a').forEach((a) => { const sec = document.getElementById(a.getAttribute('href').slice(1)); a.hidden = sec && sec.hidden; });
+    updateNavVisibility();
     const filtering = !!(q || activeType);
     $('#hero').classList.toggle('dim', filtering);
     $('#resultcount').textContent = filtering ? `${visible} ${plural(visible)}` : '';
+    const reset = $('#filterReset');
+    if (reset) reset.hidden = !filtering;
     const empty = $('#empty');
     empty.hidden = !(filtering && visible === 0);
     if (!empty.hidden) $('#emptyQ').textContent = q || (TYPES[activeType] || '');
     entryReveal();
+  }
+
+  function updateNavVisibility() {
+    const q = navQuery.trim().toLowerCase();
+    let visible = 0;
+    document.querySelectorAll('#nav a').forEach((a) => {
+      const id = (a.getAttribute('href') || '').slice(1);
+      const sec = document.getElementById(id);
+      const hiddenByFilter = sec && sec.hidden;
+      const hiddenByQuery = q && !(a.dataset.navText || a.textContent || '').toLowerCase().includes(q);
+      a.hidden = !!(hiddenByFilter || hiddenByQuery);
+      if (!a.hidden) visible++;
+    });
+    document.querySelectorAll('.nav-group').forEach((g) => { g.hidden = !g.querySelector('a:not([hidden])'); });
+    const empty = $('#navEmpty');
+    if (empty) empty.hidden = !(q && visible === 0);
+    const clear = $('#navClear');
+    if (clear) clear.hidden = !q;
   }
 
   // ---- entry reveal (staggered) ----
@@ -356,8 +489,11 @@
     const nav = $('#nav');
     if (nav && !$('#navGuides')) {
       const a = el('a'); a.id = 'navGuides'; a.href = '#guidesFeat';
+      a.className = 'nav-pinned';
+      a.dataset.navText = `курсы и гайды ${guides.length}`.toLowerCase();
       a.innerHTML = `<span class="ico" aria-hidden="true">📚</span><span class="label">Курсы и гайды</span><span class="cnt">${guides.length}</span>`;
       nav.insertBefore(a, nav.firstChild);
+      updateNavVisibility();
     }
     const catgrid = $('#catgrid');
     if (catgrid && !$('#tileGuides')) {
@@ -482,12 +618,21 @@
 
   // ---- events ----
   const search = $('#search');
+  const navSearch = $('#navSearch');
   let timer;
   search.addEventListener('input', () => { clearTimeout(timer); timer = setTimeout(() => { query = search.value; applyFilters(); }, 110); });
+  if (navSearch) {
+    let navTimer;
+    navSearch.addEventListener('input', () => {
+      clearTimeout(navTimer);
+      navTimer = setTimeout(() => { navQuery = navSearch.value; updateNavVisibility(); }, 90);
+    });
+  }
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape' && !$('#guideView').hidden) { closeGuide(); history.replaceState(null, '', location.pathname + location.search); return; }
     if (e.key === '/' && document.activeElement !== search) { e.preventDefault(); search.focus(); }
     if (e.key === 'Escape' && document.activeElement === search) { search.value = ''; query = ''; applyFilters(); search.blur(); }
+    if (e.key === 'Escape' && document.activeElement === navSearch) { navSearch.value = ''; navQuery = ''; updateNavVisibility(); navSearch.blur(); }
   });
   window.addEventListener('hashchange', route);
   $('#guideBack').addEventListener('click', () => { closeGuide(); history.replaceState(null, '', location.pathname + location.search); });
@@ -496,7 +641,8 @@
     const target = document.getElementById(b.dataset.target);
     if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
   });
-  $('#emptyClear').addEventListener('click', () => { search.value = ''; query = ''; activeType = null; document.querySelectorAll('.chip').forEach((x) => x.classList.toggle('active', !x.dataset.type)); applyFilters(); search.focus(); });
+  $('#emptyClear').addEventListener('click', () => clearLibraryFilters({ focus: true }));
+  $('#navClear').addEventListener('click', () => { if (!navSearch) return; navSearch.value = ''; navQuery = ''; updateNavVisibility(); navSearch.focus(); });
 
   const toTop = $('#toTop');
   toTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
