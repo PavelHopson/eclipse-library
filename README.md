@@ -307,6 +307,7 @@ ai-setup reverse owner/repo --stdout
 > Рабочий shortlist от kirill.leeks: 6 скиллов, которые превращают Claude из универсального помощника в набор мини-специалистов. Не ставить всё подряд в production-контур: сначала проверить провенанс, лицензии, системные промпты и пересечения через SkillSpector / Loopy.
 >
 > **Token-saving стандарт для Codex / Claude:** [гайд по применению Ponytail, Context Engineering, caveman, sqz, Loopy и router-слоя](guides/token-saving-agent-stack.md). Это не “ставим всё подряд”, а рабочий режим: меньше лишнего контекста, меньше повторных чтений, меньше болтовни агента, больше проверяемого результата.
+> **Что именно внедряем в проекты:** [Applied project plan — 2026-07-13](guides/applied-project-plan-2026-07-13.md).
 
 | Skill | Что делает | Куда полезно нам |
 |---|---|---|
