@@ -45,6 +45,7 @@
 - [📥 Подборка Eclipse (02.07.2026)](#-подборка-eclipse-02072026)
 - [📥 Подборка Eclipse (05.07.2026)](#-подборка-eclipse-05072026)
 - [📥 Подборка Eclipse (08.07.2026)](#-подборка-eclipse-08072026)
+- [📥 Подборка Eclipse (09–13.07.2026)](#-подборка-eclipse-0913072026)
 - [📦 Наши проекты](#-наши-проекты)
 
 ---
@@ -304,6 +305,8 @@ ai-setup reverse owner/repo --stdout
 ## 🧩 Скиллы для Claude
 
 > Рабочий shortlist от kirill.leeks: 6 скиллов, которые превращают Claude из универсального помощника в набор мини-специалистов. Не ставить всё подряд в production-контур: сначала проверить провенанс, лицензии, системные промпты и пересечения через SkillSpector / Loopy.
+>
+> **Token-saving стандарт для Codex / Claude:** [гайд по применению Ponytail, Context Engineering, caveman, sqz, Loopy и router-слоя](guides/token-saving-agent-stack.md). Это не “ставим всё подряд”, а рабочий режим: меньше лишнего контекста, меньше повторных чтений, меньше болтовни агента, больше проверяемого результата.
 
 | Skill | Что делает | Куда полезно нам |
 |---|---|---|
@@ -1945,6 +1948,75 @@ Frontend: React 19 · TypeScript · Vite · Tailwind CSS 4 · Zustand
 | **SpamBlocker** | Privacy/OPSEC · mobile safety references | Anti-spam rule UX, notification trust, personal device hygiene |
 | **unlim-cloud** | Eclipse Chat files/attachments reference | UX reference only; do not use Telegram as production object storage |
 | **T3MP3ST** | Hopson Sentinel · codex-security notes | Authorized security lab reference only; defensive workflows and guardrails |
+
+---
+
+## 📥 Подборка Eclipse (09–13.07.2026)
+
+> Дроп Telegram «Eclipse Hopson» от **09–13.07.2026**. В этом батче главный фокус:
+> token-saving для агентов, safety-guardrails, RAG-обучение, voice/live-translation и быстрые
+> прототипы. Рабочий стандарт по экономии токенов вынесен в отдельный гайд:
+> [Token-saving agent stack](guides/token-saving-agent-stack.md).
+
+### Token-saving / agent safety
+
+| Ресурс | Описание | Stars |
+|---|---|---|
+| [sqz](https://github.com/ojuschugh1/sqz) | Token-saving слой для AI-сессий: дедупликация повторно прочитанных файлов/контекста, режимы shell hook / MCP server / browser extension / IDE extension. Канал заявляет экономию до 92%, но это надо проверять на наших задачах. **Зачем нам:** Codex/Claude workflows, oh-my-claudecode, Hopson Sentinel, Eclipse Chat AI agents. **Правило:** тестировать сначала на sandbox-репо, не отдавать секреты, сверить поведение с `AGENTS.md` и логированием | [![Stars](https://img.shields.io/github/stars/ojuschugh1/sqz?style=flat)](https://github.com/ojuschugh1/sqz) |
+| [Destructive Command Guard](https://github.com/Dicklesworthstone/destructive_command_guard) | Guardrail против критических shell-команд: блокирует опасные действия до запуска и предлагает безопасную альтернативу по набору правил. **Зачем нам:** обязательный safety reference для локальных Codex/Claude/Sentinel окружений, особенно перед авто-агентами с shell-доступом. **Оговорка:** не заменяет review и sandboxing, но снижает риск “rm -rf по проекту” | [![Stars](https://img.shields.io/github/stars/Dicklesworthstone/destructive_command_guard?style=flat)](https://github.com/Dicklesworthstone/destructive_command_guard) |
+| [OpenAI Model guidance / GPT-5.6](https://developers.openai.com/api/docs/guides/latest-model) | Официальный guide OpenAI по GPT-5.6: `gpt-5.6-sol` для flagship, `terra` для баланс цены/качества, `luna` для high-volume; leaner prompts, prompt caching, persisted reasoning, Programmatic Tool Calling, intentional `reasoning.effort`. **Зачем нам:** Eclipse AI Hub, Eclipse Chat agents, Hopson Sentinel, Codex migration playbook. **Смысл:** меньше повторяющихся инструкций, меньше лишних tools, больше benchmark-настройки по cost/quality | — |
+
+### AI / RAG / learning
+
+| Ресурс | Описание | Stars |
+|---|---|---|
+| [production-agentic-rag-course](https://github.com/jamwithai/production-agentic-rag-course) | 7-недельный курс production agentic RAG: Docker, FastAPI, arXiv/PDF, базы знаний, Telegram bot, agentic retrieval. **Зачем нам:** Kwork #18 research-agent, Educator-AI, Eclipse AI Hub Research/RAG, Eclipse Chat knowledge rooms. Хорош как учебный трек и reference architecture | [![Stars](https://img.shields.io/github/stars/jamwithai/production-agentic-rag-course?style=flat)](https://github.com/jamwithai/production-agentic-rag-course) |
+| [ShipThatCode](https://shipthatcode.com/) | Практика программирования через сборку систем: Redis, Git, БД, OS kernel, game engine, blockchain и карьерные треки. **Зачем нам:** Educator-AI, portfolio-training, onboarding junior-to-middle. Closed platform, не интеграция, а learning reference | — |
+| [prompts.chat](https://github.com/f/prompts.chat) | Огромная prompt-библиотека / UI вокруг Awesome ChatGPT Prompts. **Зачем нам:** source для curated prompt-паков Eclipse AI Hub и Library. **Правило:** не импортировать “165k prompts” как мусор; брать только проверенные пресеты, классифицировать и привязывать к нашим задачам | [![Stars](https://img.shields.io/github/stars/f/prompts.chat?style=flat)](https://github.com/f/prompts.chat) |
+
+### Privacy / device / workstation
+
+| Ресурс | Описание | Stars |
+|---|---|---|
+| [privacy.sexy](https://privacy.sexy/) / [desktop repo](https://github.com/undergroundwires/privacy.sexy) | Библиотека privacy/security scripts для Windows/macOS/Linux: telemetry off, browser/app hardening, firewall/settings cleanup. **Зачем нам:** Hopson Sentinel workstation doctor, privacy checklist, личная OPSEC. **Guardrail:** не запускать “одним кликом” вслепую; делать restore point/backup, читать diff скрипта, не ломать Defender/обновления без причины | [![Stars](https://img.shields.io/github/stars/undergroundwires/privacy.sexy?style=flat)](https://github.com/undergroundwires/privacy.sexy) |
+| [RepoStore](https://github.com/samyak2403/RepoStore) | Поиск Android-приложений по GitHub-репозиториям в формате “app store”: категории, рейтинг, описание, APK. **Зачем нам:** Privacy/OPSEC app discovery, Android tooling research. **Риск:** APK supply-chain, подписи, malware; не ставить без проверки provenance | [![Stars](https://img.shields.io/github/stars/samyak2403/RepoStore?style=flat)](https://github.com/samyak2403/RepoStore) |
+| [Fast File Explorer](https://github.com/conaticus/FileExplorer) | Быстрый cross-platform file manager: поиск, preview, remote servers, checksums, templates. **Зачем нам:** workstation productivity, Hopson Sentinel file-navigation reference, checksum UX. Проверить зрелость проекта до замены проводника | [![Stars](https://img.shields.io/github/stars/conaticus/FileExplorer?style=flat)](https://github.com/conaticus/FileExplorer) |
+| [PCLink](https://github.com/BYTEDz/PCLink/) | Управление ПК с телефона: файлы, медиа, клавиатура/мышь, screenshots, reboot, QR pairing; Windows/Linux. **Зачем нам:** reference для Hopson Sentinel mobile control-plane и OpenClaw Mobile идей. **Guardrail:** только локальная сеть/VPN, auth, не открывать в публичный интернет | [![Stars](https://img.shields.io/github/stars/BYTEDz/PCLink?style=flat)](https://github.com/BYTEDz/PCLink) |
+
+### Media / voice / content
+
+| Ресурс | Описание | Stars |
+|---|---|---|
+| [MaxFusion](https://maxfusion.ai/) | AI-сервис для генерации рекламных/обучающих/разговорных роликов: идеи → вопросы → hooks/script → video variants. **Зачем нам:** Eclipse Media, Shotforge, промо Eclipse Forge, Kwork content packages. Closed SaaS, использовать как benchmark workflow, не как зависимость | — |
+| [ChatCut](https://chatcut.io/) | AI video editor/plugin: чистка речи, субтитры, inserts, motion graphics, voice/music/effects, редактирование проекта. **Зачем нам:** Eclipse Media roadmap, video-use benchmark, content ops. Проверить privacy/export/pricing перед использованием |
+| [Voicetypr](https://github.com/moinulmoin/voicetypr) | Local speech-to-text app для macOS/Windows, 99+ языков, hardware acceleration. **Зачем нам:** Eclipse Chat voice notes/call transcription, Educator-AI lectures, Eclipse Media transcripts, InterviewForge. Плюс: локальность и меньше privacy риска | [![Stars](https://img.shields.io/github/stars/moinulmoin/voicetypr?style=flat)](https://github.com/moinulmoin/voicetypr) |
+| [Sokuji](https://github.com/kizuna-ai-lab/sokuji) | Realtime speech translation + virtual microphone + subtitles; offline mode and cloud providers; Windows/macOS/Linux + browser extensions. **Зачем нам:** Eclipse Chat voice/calls, Hopson Sentinel voice operator, DnD Forge multilingual sessions. **Guardrail:** voice cloning/translation only with consent, clear disclosure in calls | [![Stars](https://img.shields.io/github/stars/kizuna-ai-lab/sokuji?style=flat)](https://github.com/kizuna-ai-lab/sokuji) |
+| **AI interior design toolkit** | Набор сервисов для ремонта/интерьера: ChatGPT, Midjourney, Reimagine Home AI, Interior AI, RoomGPT, Coolors, Khroma, Planner 5D, Homestyler, Canva AI и др. **Зачем нам:** Smart Life Assistant “home planning” module, DnD Forge locations reference, content ideas. Не отдельная интеграция, а checklist |
+
+### Deploy / web ops
+
+| Ресурс | Описание |
+|---|---|
+| [Cloudflare Drop](https://www.cloudflare.com/drop/) | Drag-and-drop deploy для статических сайтов/ZIP: быстрый прототип в браузере, temporary preview без регистрации, production через Cloudflare после входа. **Зачем нам:** мгновенные previews для EclipseForgeLanding, Kwork demos, client approvals. Не заменяет нормальный CI/CD |
+
+### Не тащим в продукт / только как заметка
+
+| Находка | Решение |
+|---|---|
+| **Steam realtime priority hack** | Не используем и не рекомендуем как системный совет. `Realtime` priority может вызвать лаги, starvation системных процессов и нестабильность. В библиотеке фиксируем только как “не продуктовый fit” |
+| **MaxFusion / ChatCut closed SaaS** | Держим как benchmark UX/workflow, но не строим core features на закрытом сервисе без API, privacy и pricing review |
+
+### Mapping → наши проекты
+
+| Tool | Project(s) | Integration pattern |
+|---|---|---|
+| **sqz + Ponytail + Context Engineering + caveman** | Все dev-репо · oh-my-claudecode · Hopson Sentinel | Token-saving stack: fewer repeated reads, minimal code, compact internal loops, scoped context |
+| **Destructive Command Guard** | Все dev-окружения · Sentinel | Safety hook before shell execution; especially for autonomous agents |
+| **GPT-5.6 guide** | Eclipse AI Hub · Eclipse Chat · Sentinel · Codex workflows | Model migration, lean prompts, caching, reasoning effort benchmarks |
+| **production-agentic-rag-course** | Kwork #18 · Educator-AI · Eclipse AI Hub · Eclipse Chat | Agentic RAG architecture, arXiv/PDF research bot, Telegram integration |
+| **privacy.sexy / RepoStore / FileExplorer / PCLink** | Hopson Sentinel · workstation hygiene · mobile control | Privacy scripts, app provenance, fast file ops, phone control-plane |
+| **Voicetypr / Sokuji** | Eclipse Chat · Eclipse Media · Educator-AI · DnD Forge | Local transcription, live translation, voice sessions with consent |
+| **Cloudflare Drop** | EclipseForgeLanding · Kwork demos · client previews | Fast static previews, not production CI/CD |
 
 ---
 
