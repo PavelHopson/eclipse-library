@@ -73,6 +73,7 @@
 
 | Сервис | Назначение |
 |--------|------------|
+| [FckSignups](https://github.com/BraveOPotato/FckSignups) | Каталог open-source browser-tools без аккаунтов, email и tracking. Хороший источник быстрых утилит и UX-паттерна “no-signup tools” |
 | [regex101.com](https://regex101.com/) | Тестирование и объяснение регулярных выражений |
 | [explainshell.com](https://explainshell.com/) | Разбор shell-команд по флагам |
 | [codebeautify.org](https://codebeautify.org/) | Форматтеры / валидаторы / конвертеры кода |
@@ -83,6 +84,12 @@
 | [builtwith.com](https://builtwith.com/) | Стек сайта — фреймворки, аналитика, CDN (конкурентный аудит) |
 | [phind.com](https://www.phind.com/) | AI-поиск, заточенный под разработчиков |
 | [roadmap.sh](https://roadmap.sh/) | Дорожные карты по специальностям — также в основном README, «Обучение IT» |
+
+## Тестовые данные и synthetic fixtures
+
+| Сервис | Назначение |
+|--------|------------|
+| [Duoguodizhi](https://duoguodizhi.com/) | Многострановые synthetic addresses/profiles. **High-risk:** не использовать для обхода регистраций, KYC, виртуальных карт или региональных ограничений. Только QA seed data / демо-формы; для продукта лучше Faker/local fixtures |
 
 ## Транскрипция, аудио, видео
 
@@ -127,6 +134,7 @@
 | [privnote.com](https://privnote.com/) | Самоуничтожающиеся заметки (читается один раз) |
 | [temp-mail.org](https://temp-mail.org/) | Временная почта для разовых регистраций |
 | [10minutemail.com](https://10minutemail.com/) | Временная почта на 10 минут |
+| [Internxt Temporary Email](https://internxt.com/temporary-email) | Disposable inbox для QA регистраций и privacy hygiene. Не использовать для fraud, обхода банов/KYC или массовых регистраций |
 | [file.io](https://www.file.io/) | Файлообмен с автоудалением после скачивания |
 
 ## Утилиты и прочее

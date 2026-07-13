@@ -44,6 +44,7 @@
 - [📥 Подборка Eclipse (30.06–01.07.2026)](#-подборка-eclipse-300601072026)
 - [📥 Подборка Eclipse (02.07.2026)](#-подборка-eclipse-02072026)
 - [📥 Подборка Eclipse (05.07.2026)](#-подборка-eclipse-05072026)
+- [📥 Подборка Eclipse (06.07.2026)](#-подборка-eclipse-06072026)
 - [📥 Подборка Eclipse (08.07.2026)](#-подборка-eclipse-08072026)
 - [📥 Подборка Eclipse (09–13.07.2026)](#-подборка-eclipse-0913072026)
 - [📦 Наши проекты](#-наши-проекты)
@@ -1893,6 +1894,33 @@ Frontend: React 19 · TypeScript · Vite · Tailwind CSS 4 · Zustand
 
 ---
 
+## 📥 Подборка Eclipse (06.07.2026)
+
+> Дроп Telegram «Eclipse Hopson» от **06.07.2026**. Это не core-AI batch, а слой
+> web utilities + risk-filter. Детальная раскладка по проектам:
+> [July 2026 tooling / risk integration](guides/july-2026-tooling-risk-integration.md).
+
+### No-signup utilities
+
+| Ресурс | Описание | Stars |
+|---|---|---|
+| [FckSignups](https://github.com/BraveOPotato/FckSignups) | Каталог open-source browser-tools без аккаунтов, email и tracking; проект на React/TypeScript, есть категории productivity/design/dev/writing/privacy/utilities/data/media/education и schema для добавления инструментов. **Зачем нам:** усилить `Eclipse Library` фильтром “no-signup”, брать UX каталогизации для web-версии, собирать клиентские подборки быстрых утилит без регистрации | [![Stars](https://img.shields.io/github/stars/BraveOPotato/FckSignups?style=flat)](https://github.com/BraveOPotato/FckSignups) |
+
+### Synthetic identity / test data
+
+| Ресурс | Описание |
+|---|---|
+| [Duoguodizhi](https://duoguodizhi.com/) | Генератор многострановых адресов/профилей. **High-risk:** не использовать для обхода KYC, регистраций, виртуальных карт, App Store/Google Play регионов и любых действий, где требуется реальная личность. Допустимый use-case: synthetic QA data для форм, демо-скриншотов, seed-данных и тестов локально. Для продукта лучше использовать Faker/local fixtures, чтобы не провоцировать fraud-сценарии |
+
+### Mapping → наши проекты
+
+| Tool | Project(s) | Integration pattern |
+|---|---|---|
+| **FckSignups** | Eclipse Library · Eclipse Forge internal ops | Навигационный паттерн “инструменты без регистрации”, теги `no-signup`, быстрые подборки для клиентов/команды |
+| **Duoguodizhi** | QA fixtures only | Только synthetic data для тестов форм/онбординга; не добавлять как публично рекомендуемый сервис |
+
+---
+
 ## 📥 Подборка Eclipse (08.07.2026)
 
 > Дроп Telegram «Eclipse Hopson» от **08.07.2026**. Здесь главное — агентский поиск,
@@ -1967,6 +1995,12 @@ Frontend: React 19 · TypeScript · Vite · Tailwind CSS 4 · Zustand
 | [Destructive Command Guard](https://github.com/Dicklesworthstone/destructive_command_guard) | Guardrail против критических shell-команд: блокирует опасные действия до запуска и предлагает безопасную альтернативу по набору правил. **Зачем нам:** обязательный safety reference для локальных Codex/Claude/Sentinel окружений, особенно перед авто-агентами с shell-доступом. **Оговорка:** не заменяет review и sandboxing, но снижает риск “rm -rf по проекту” | [![Stars](https://img.shields.io/github/stars/Dicklesworthstone/destructive_command_guard?style=flat)](https://github.com/Dicklesworthstone/destructive_command_guard) |
 | [OpenAI Model guidance / GPT-5.6](https://developers.openai.com/api/docs/guides/latest-model) | Официальный guide OpenAI по GPT-5.6: `gpt-5.6-sol` для flagship, `terra` для баланс цены/качества, `luna` для high-volume; leaner prompts, prompt caching, persisted reasoning, Programmatic Tool Calling, intentional `reasoning.effort`. **Зачем нам:** Eclipse AI Hub, Eclipse Chat agents, Hopson Sentinel, Codex migration playbook. **Смысл:** меньше повторяющихся инструкций, меньше лишних tools, больше benchmark-настройки по cost/quality | — |
 
+### Local LLM / inference R&D
+
+| Ресурс | Описание | Stars |
+|---|---|---|
+| [Colibri](https://github.com/JustVugg/colibri) | Pure C runtime для GLM-5.2 744B MoE: expert blocks лежат на диске, dense-часть держится в RAM, runtime без Python/GPU/BLAS после подготовки модели. Авторские цифры: int4 модель ~370 GB на диске, resident RAM ~9.9 GB, peak RSS ~20 GB, старт ~30s. **Reality check:** cold decode упирается в disk IO и может быть ~0.05-0.1 tok/s, поэтому это R&D/reference, а не быстрый “домашний ChatGPT”. **Зачем нам:** Hopson Sentinel, Eclipse AI Hub, oh-my-claudecode — идеи для local provider doctor, RAM/disk planning, JSON `plan/doctor`, streaming experts и safe model placement | [![Stars](https://img.shields.io/github/stars/JustVugg/colibri?style=flat)](https://github.com/JustVugg/colibri) |
+
 ### AI / RAG / learning
 
 | Ресурс | Описание | Stars |
@@ -1983,6 +2017,7 @@ Frontend: React 19 · TypeScript · Vite · Tailwind CSS 4 · Zustand
 | [RepoStore](https://github.com/samyak2403/RepoStore) | Поиск Android-приложений по GitHub-репозиториям в формате “app store”: категории, рейтинг, описание, APK. **Зачем нам:** Privacy/OPSEC app discovery, Android tooling research. **Риск:** APK supply-chain, подписи, malware; не ставить без проверки provenance | [![Stars](https://img.shields.io/github/stars/samyak2403/RepoStore?style=flat)](https://github.com/samyak2403/RepoStore) |
 | [Fast File Explorer](https://github.com/conaticus/FileExplorer) | Быстрый cross-platform file manager: поиск, preview, remote servers, checksums, templates. **Зачем нам:** workstation productivity, Hopson Sentinel file-navigation reference, checksum UX. Проверить зрелость проекта до замены проводника | [![Stars](https://img.shields.io/github/stars/conaticus/FileExplorer?style=flat)](https://github.com/conaticus/FileExplorer) |
 | [PCLink](https://github.com/BYTEDz/PCLink/) | Управление ПК с телефона: файлы, медиа, клавиатура/мышь, screenshots, reboot, QR pairing; Windows/Linux. **Зачем нам:** reference для Hopson Sentinel mobile control-plane и OpenClaw Mobile идей. **Guardrail:** только локальная сеть/VPN, auth, не открывать в публичный интернет | [![Stars](https://img.shields.io/github/stars/BYTEDz/PCLink?style=flat)](https://github.com/BYTEDz/PCLink) |
+| [Internxt Temporary Email](https://internxt.com/temporary-email) | Одноразовая временная почта: random inbox, анонимное получение писем, срок жизни зависит от активности. **Зачем нам:** QA регистраций, privacy hygiene, тесты signup-flow без засорения основного inbox. **Guardrail:** не использовать для fraud, обхода банов/KYC, массовых регистраций или действий, где нужна реальная идентичность; для production-тестов лучше controlled test inboxes | — |
 
 ### Media / voice / content
 
@@ -2014,8 +2049,9 @@ Frontend: React 19 · TypeScript · Vite · Tailwind CSS 4 · Zustand
 | **sqz + Ponytail + Context Engineering + caveman** | Все dev-репо · oh-my-claudecode · Hopson Sentinel | Token-saving stack: fewer repeated reads, minimal code, compact internal loops, scoped context |
 | **Destructive Command Guard** | Все dev-окружения · Sentinel | Safety hook before shell execution; especially for autonomous agents |
 | **GPT-5.6 guide** | Eclipse AI Hub · Eclipse Chat · Sentinel · Codex workflows | Model migration, lean prompts, caching, reasoning effort benchmarks |
+| **Colibri** | Hopson Sentinel · Eclipse AI Hub · oh-my-claudecode | Local giant-model runtime R&D: disk-streamed MoE, RAM/disk doctor, provider planning JSON |
 | **production-agentic-rag-course** | Kwork #18 · Educator-AI · Eclipse AI Hub · Eclipse Chat | Agentic RAG architecture, arXiv/PDF research bot, Telegram integration |
-| **privacy.sexy / RepoStore / FileExplorer / PCLink** | Hopson Sentinel · workstation hygiene · mobile control | Privacy scripts, app provenance, fast file ops, phone control-plane |
+| **privacy.sexy / RepoStore / FileExplorer / PCLink / Internxt Temporary Email** | Hopson Sentinel · workstation hygiene · mobile control · QA | Privacy scripts, app provenance, fast file ops, phone control-plane, disposable test inboxes |
 | **Voicetypr / Sokuji** | Eclipse Chat · Eclipse Media · Educator-AI · DnD Forge | Local transcription, live translation, voice sessions with consent |
 | **Cloudflare Drop** | EclipseForgeLanding · Kwork demos · client previews | Fast static previews, not production CI/CD |
 
