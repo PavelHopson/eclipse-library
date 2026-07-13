@@ -134,7 +134,7 @@
 | [privnote.com](https://privnote.com/) | Самоуничтожающиеся заметки (читается один раз) |
 | [temp-mail.org](https://temp-mail.org/) | Временная почта для разовых регистраций |
 | [10minutemail.com](https://10minutemail.com/) | Временная почта на 10 минут |
-| [Internxt Temporary Email](https://internxt.com/temporary-email) | Disposable inbox для QA регистраций и privacy hygiene. Не использовать для fraud, обхода банов/KYC или массовых регистраций |
+| [Internxt Temporary Email](https://internxt.com/temporary-email) | Disposable inbox для QA регистраций и privacy hygiene. Не использовать для fraud, обхода банов/KYC или массовых регистраций. Правила: [QA temporary email](../guides/qa-temporary-email.md) |
 | [file.io](https://www.file.io/) | Файлообмен с автоудалением после скачивания |
 
 ## Утилиты и прочее

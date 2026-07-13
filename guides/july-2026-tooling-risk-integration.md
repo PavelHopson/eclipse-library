@@ -11,7 +11,7 @@
 - **Claude Prompt Library** -> вытаскивать паттерны промптов, а не копировать всё подряд.
 - **Editor Stylist Humanizer** -> хранить как prompt-asset для публичных текстов, лендингов, Telegram/LinkedIn.
 - **Free AI API pack / Google AI Studio** -> держать provider-onboarding раздел свежим: где взять ключ, где лимиты, где privacy-risk.
-- **Internxt Temporary Email** -> добавить в privacy/web-utilities как disposable inbox для QA signup-flow и личной hygiene, не как инструмент обхода правил.
+- **Internxt Temporary Email** -> добавить в privacy/web-utilities как disposable inbox для QA signup-flow и личной hygiene, не как инструмент обхода правил. Checklist: [QA temporary email](qa-temporary-email.md).
 
 ### Eclipse Chat
 
