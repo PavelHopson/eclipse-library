@@ -11,6 +11,7 @@
 - Context Engineering: читать только нужные файлы, фиксировать решения в docs/roadmap, не гонять один и тот же контекст по кругу.
 - Loopy перед новыми MCP/skills/hooks: audit duplicates, risky actions, циклы автоматизаций.
 - The Taste / `design-taste-frontend`: дефолт для лендингов, портфолио, project showcase и редизайна; перед генерацией фиксировать дизайн-read, motion/density/variance и pre-flight. Для dashboards/admin/tables использовать только как polish-layer поверх продуктовых паттернов.
+- AI Code Shield: перед публикацией AI-сгенерированного кода прогонять defensive security audit текущего репозитория; critical/high блокируют deploy до fix или явного risk acceptance.
 - Caveman только для внутренних summaries/log review, не для финальных отчётов.
 
 **Sandbox only**
@@ -33,12 +34,14 @@
 - Voice clone / live translation только с consent и явной индикацией в call UI.
 - AI provider routing только через легальные ключи и видимые cost/latency diagnostics.
 - Any “agent executes action” flow требует confirmation, audit log и rollback/undo где возможно.
+- AI Code Shield перед каждым production deploy: auth, uploads, WebSocket/LiveKit, roles, AI routes, memory/actions.
 
 ## Hopson Sentinel
 
 **First slices**
 
 - Safety shell layer: Destructive Command Guard as reference для pre-command checks.
+- AI Code Shield + Anthropic Cybersecurity Skills как reference для defensive code review, MCP/skill audit и agent-action guardrails.
 - Workstation doctor: privacy.sexy / FileExplorer / NtWarden as references, но без “one click fix” по умолчанию.
 - Mobile control plane: OpenClaw Mobile / PCLink pattern — action proposal на ПК, approve с телефона.
 - Voice operator: Sokuji/Voicetypr/Fish Audio-style STT/TTS provider experiments.
