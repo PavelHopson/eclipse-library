@@ -10,6 +10,7 @@
 - Ponytail mindset: меньше кода, меньше зависимостей, меньше архитектурных перестроек без нужды.
 - Context Engineering: читать только нужные файлы, фиксировать решения в docs/roadmap, не гонять один и тот же контекст по кругу.
 - Loopy перед новыми MCP/skills/hooks: audit duplicates, risky actions, циклы автоматизаций.
+- The Taste / `design-taste-frontend`: дефолт для лендингов, портфолио, project showcase и редизайна; перед генерацией фиксировать дизайн-read, motion/density/variance и pre-flight. Для dashboards/admin/tables использовать только как polish-layer поверх продуктовых паттернов.
 - Caveman только для внутренних summaries/log review, не для финальных отчётов.
 
 **Sandbox only**
@@ -97,4 +98,3 @@
 - Uncensored/Heretic models — high-risk provenance/safety, isolated research only.
 - Aliens Eye / OSINT tools — self-audit only, no “пробив” product.
 - Torlink/downloader tools — legal/open-data reference only.
-

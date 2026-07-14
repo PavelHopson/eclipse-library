@@ -58,8 +58,21 @@ claude mcp add playwright -s user -- npx @playwright/mcp@latest
 Для наших сайтов и интерфейсов базовый слой:
 
 ```bash
-npx skills add Leonxlnx/taste-skill --skill design-taste-frontend
+npx skills add https://github.com/Leonxlnx/taste-skill --skill "design-taste-frontend"
 ```
+
+**The Taste / `design-taste-frontend`** — дефолтный anti-slop слой для лендингов, портфолио,
+маркетинговых страниц и редизайна. Он полезен не тем, что “делает красиво”, а тем, что
+заставляет агента сначала выбрать дизайн-read: продукт, аудиторию, визуальное направление,
+dials `DESIGN_VARIANCE` / `MOTION_INTENSITY` / `VISUAL_DENSITY`, затем держать типографику,
+spacing, motion и pre-flight в одном стиле.
+
+Где включать сразу: `EclipseForgeLanding`, landing/home экраны `Eclipse Chat`, промо-страницы
+`Eclipse DnD Forge`, project showcase, portfolio pages, kwork-offer pages.
+
+Где не делать главным: тяжёлые dashboards, admin-панели, таблицы, CRM/операционные базы.
+Там Taste можно использовать только для polish, а базовые паттерны брать из Carbon / Fluent /
+Atlassian / Polaris / Primer по смыслу продукта.
 
 Альтернативы:
 
@@ -107,4 +120,3 @@ npx skills add Owl-Listener/ai-design-skills --skill feedback-loops
 3. проверить, не конфликтует ли он с нашим `PRODUCT_UX_PRINCIPLES.md`;
 4. не добавлять в глобальный агент, если skill нужен только одному проекту;
 5. зафиксировать решение в roadmap проекта.
-
