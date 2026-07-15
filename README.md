@@ -103,6 +103,7 @@
 | [ClawRouter](https://github.com/BlockRunAI/ClawRouter) | Локальный LLM-роутер — 55+ моделей, <1ms роутинг по 15 параметрам, OpenAI-compatible API, профили auto/eco/premium, экономия до 92% | [![Stars](https://img.shields.io/github/stars/BlockRunAI/ClawRouter?style=flat)](https://github.com/BlockRunAI/ClawRouter) |
 | [MetaClaw](https://github.com/aiming-lab/MetaClaw) | Meta-learning прокси — создаёт скиллы из диалогов, инжектит в промпт, опционально LoRA-дообучение (GRPO). 3 режима: skills_only / rl / auto | [![Stars](https://img.shields.io/github/stars/aiming-lab/MetaClaw?style=flat)](https://github.com/aiming-lab/MetaClaw) |
 | [freellmapi](https://github.com/tashfeenahmed/freellmapi) | Агрегатор бесплатных тиров под одним API — вводишь **свои** ключи (Google, Groq, Cerebras, SambaNova, NVIDIA, Mistral, GitHub, Cohere, Cloudflare, Z.ai), система роутит, следит за лимитами, переключает провайдера и балансирует нагрузку. **Важно — это НЕ серая зона:** в отличие от `WindsurfAPI`, здесь используются собственные легально полученные ключи, а не ротация чужих аккаунтов. Маркетинговая подача «800M токенов на халяву» — гипербола, по факту это сумма ваших же free-tier лимитов. Легитимная замена ручного жонглирования ключами | [![Stars](https://img.shields.io/github/stars/tashfeenahmed/freellmapi?style=flat)](https://github.com/tashfeenahmed/freellmapi) |
+| [Claudish](https://github.com/MadAppGang/claudish) · [сайт](https://claudish.com/) | BYOK CLI для Claude Code: локальный Anthropic-compatible proxy, который подключает OpenRouter, Gemini, OpenAI, Kimi, GLM, Z.AI, OllamaCloud, Ollama, LM Studio, vLLM, MLX. **Для Codex:** не встроенный skill, а внешний CLI/R&D-инструмент; использовать через `npx claudish@latest` или npm install, не давать чувствительный код без privacy review провайдера. Разбор в [гайде Claude/Codex plugin pack](guides/claude-codex-plugin-pack.md) | [![Stars](https://img.shields.io/github/stars/MadAppGang/claudish?style=flat)](https://github.com/MadAppGang/claudish) |
 
 ### Финансовый AI
 
@@ -244,7 +245,7 @@ claude --channels plugin:telegram@claude-plugins-official
 | [awesome-claude-code-subagents](https://github.com/VoltAgent/awesome-claude-code-subagents) | 100+ субагентов под конкретные задачи: qa, security, db-migration, api-contract, devops | [![Stars](https://img.shields.io/github/stars/VoltAgent/awesome-claude-code-subagents?style=flat)](https://github.com/VoltAgent/awesome-claude-code-subagents) |
 | [Anthropic Skills](https://github.com/anthropics/skills) | Официальный репозиторий скиллов от Anthropic — каноничные паттерны | [![Stars](https://img.shields.io/github/stars/anthropics/skills?style=flat)](https://github.com/anthropics/skills) |
 | [awesome-claude-code](https://github.com/jqueryscript/awesome-claude-code) | Агрегатор всего лучшего по теме Claude Code — meta-каталог | [![Stars](https://img.shields.io/github/stars/jqueryscript/awesome-claude-code?style=flat)](https://github.com/jqueryscript/awesome-claude-code) |
-| [Superpowers](https://github.com/obra/superpowers) | Фреймворк навыков для Claude Code и Cursor — агент сначала уточняет требования, потом действует | [![Stars](https://img.shields.io/github/stars/obra/superpowers?style=flat)](https://github.com/obra/superpowers) |
+| [Superpowers](https://github.com/obra/superpowers) | Фреймворк навыков и методология разработки для Claude Code / Codex / Cursor: brainstorm → plan → implement, TDD, YAGNI, DRY. Полезен, когда задача расползается и агенту нужна дисциплина, а не ещё один “магический” промпт | [![Stars](https://img.shields.io/github/stars/obra/superpowers?style=flat)](https://github.com/obra/superpowers) |
 | [Get Shit Done](https://github.com/gsd-build/get-shit-done) | Контекст-инжиниринг — чтобы AI не забывал задачу на третьем шаге, дисциплина для длинных сессий | [![Stars](https://img.shields.io/github/stars/gsd-build/get-shit-done?style=flat)](https://github.com/gsd-build/get-shit-done) |
 | [claude-mem](https://github.com/thedotmack/claude-mem) | Плагин памяти для Claude Code — persistent context между сессиями | [![Stars](https://img.shields.io/github/stars/thedotmack/claude-mem?style=flat)](https://github.com/thedotmack/claude-mem) |
 | [andrej-karpathy-skills](https://github.com/forrestchang/andrej-karpathy-skills) | Гайдлайны Карпаты, портированные в скиллы Claude Code — best practices от автора nanoGPT | [![Stars](https://img.shields.io/github/stars/forrestchang/andrej-karpathy-skills?style=flat)](https://github.com/forrestchang/andrej-karpathy-skills) |
@@ -309,6 +310,7 @@ ai-setup reverse owner/repo --stdout
 > Рабочий shortlist от kirill.leeks: 6 скиллов, которые превращают Claude из универсального помощника в набор мини-специалистов. Не ставить всё подряд в production-контур: сначала проверить провенанс, лицензии, системные промпты и пересечения через SkillSpector / Loopy.
 >
 > **Token-saving стандарт для Codex / Claude:** [гайд по применению Ponytail, Context Engineering, caveman, sqz, Loopy и router-слоя](guides/token-saving-agent-stack.md). Это не “ставим всё подряд”, а рабочий режим: меньше лишнего контекста, меньше повторных чтений, меньше болтовни агента, больше проверяемого результата.
+> **Claude Code + Codex plugin pack:** [понятный разбор Vibecodd Skills, Claudish и install-status](guides/claude-codex-plugin-pack.md) — что ставим, что встроено, что Claude-only, что только reference.
 > **Что именно внедряем в проекты:** [Applied project plan — 2026-07-13](guides/applied-project-plan-2026-07-13.md).
 
 | Skill | Что делает | Куда полезно нам |
@@ -321,6 +323,7 @@ ai-setup reverse owner/repo --stdout
 | [Context Engineering Skills](https://github.com/muratcankoylan/agent-skills-for-context-engineering) | Context-engineering skills для длинных задач: меньше потери нити, меньше токенов, лучше структура агентских сессий | oh-my-claudecode, Hopson Sentinel, большие сессии по eclipse-chat |
 | [Continuous Discovery Interview](https://awesomeskill.ai/skill/parcadei-continuous-claude-v3-discovery-interview) | Discovery-интервью: вытаскивает ТЗ из сырой идеи через 10-15 вопросов и превращает его в план разработки | Любой новый MVP, клиентский проект, kwork discovery, Eclipse DnD Forge mechanics |
 | [Novitckii · 42 Claude design skills](https://www.novitckii.com/resources/claude-design-skills/) | Gated resource с картой 6 слоёв design-skills: frontend taste, motion, canvas, AI product interaction, prompt architecture, trust & safety. **Не ставить всё:** собирать стек из 3–4 скиллов под задачу. Разбор для наших проектов → [гайд](guides/claude-design-skills-map.md) | EclipseForgeLanding, Eclipse Chat, Eclipse DnD Forge, Eclipse Media, Shotforge, Hopson Sentinel, oh-my-claudecode |
+| [Vibecodd Skills Pack](https://vibecodd-skills.vercel.app/) | Подборка 6 плагинов под Claude Code и Codex: `skill-creator`, `superpowers`, `caveman`, `context-mode`, `claude-seo`, `security-guidance`. Главное — честно указано, где Codex работает полностью, где частично, а где нужен Claude Code hook-layer. Понятное объяснение каждого skill → [гайд](guides/claude-codex-plugin-pack.md) | Global Codex/Claude workflow, SEO-аудиты, token-saving, security release gate |
 
 ## 🛒 Разработка интернет-магазинов
 
@@ -505,6 +508,7 @@ ai-setup reverse owner/repo --stdout
 |---|---|
 | [Claude (Claude Code)](https://claude.com/product/claude-code) · [Codex](https://openai.com/codex/) · [Kimi](https://www.kimi.com/products/kimi-work) | Агенты-программисты собирают лендинг по твоим словам: дай стартер → веди задачами («сделай hero», «добавь форму», «задеплой»). **Главный путь** |
 | [Open Design + Codex — пошаговая шпаргалка](guides/open-design-codex-workflow.md) | Как развернуть Open Design внутри Codex, сгенерировать первый сайт на канве и дорабатывать дизайн точечными правками по блокам |
+| [i-want-fable](https://i-want-fable.vercel.app/) | Reference-лендинг «Креативные сайты на Claude»: moodboard для смелых hero, нестандартной композиции и анти-шаблонного визуала. **Не installable skill** и не доказательство “Fable 5”; использовать как дизайн-референс для EclipseForgeLanding / Eclipse Chat landing / portfolio pages |
 | [Стартер: Astro](https://github.com/withastro/astro) / [Next.js](https://github.com/vercel/next.js) | Дай нейросети готовый фреймворк-стартер — не пишем с нуля |
 
 ### 🟣 Наши сервисы для лендинга
@@ -2050,6 +2054,9 @@ Frontend: React 19 · TypeScript · Vite · Tailwind CSS 4 · Zustand
 | Tool | Project(s) | Integration pattern |
 |---|---|---|
 | **sqz + Ponytail + Context Engineering + caveman** | Все dev-репо · oh-my-claudecode · Hopson Sentinel | Token-saving stack: fewer repeated reads, minimal code, compact internal loops, scoped context |
+| **Vibecodd Skills Pack / Superpowers / claude-seo** | Global Codex/Claude workflow · EclipseForgeLanding · library.eclipse-forge.ru · Kwork лендинги | Skill workflow: superpowers for disciplined execution, claude-seo for SEO/GEO audits, security guidance only in Claude Code, Codex uses AI Code Shield |
+| **Claudish** | Hopson Sentinel · oh-my-claudecode · Eclipse AI Hub R&D | BYOK coding-model experiments through Claude Code proxy; use legal keys/local models only, no sensitive production code without provider privacy review |
+| **i-want-fable** | EclipseForgeLanding · Eclipse Chat landing · portfolio pages | Creative landing reference, moodboard for bolder compositions; not a production prompt leak or installable skill |
 | **Destructive Command Guard** | Все dev-окружения · Sentinel | Safety hook before shell execution; especially for autonomous agents |
 | **GPT-5.6 guide** | Eclipse AI Hub · Eclipse Chat · Sentinel · Codex workflows | Model migration, lean prompts, caching, reasoning effort benchmarks |
 | **Colibri** | Hopson Sentinel · Eclipse AI Hub · oh-my-claudecode | Local giant-model runtime R&D: disk-streamed MoE, RAM/disk doctor, provider planning JSON |

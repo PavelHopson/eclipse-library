@@ -10,7 +10,9 @@
 - Ponytail mindset: меньше кода, меньше зависимостей, меньше архитектурных перестроек без нужды.
 - Context Engineering: читать только нужные файлы, фиксировать решения в docs/roadmap, не гонять один и тот же контекст по кругу.
 - Loopy перед новыми MCP/skills/hooks: audit duplicates, risky actions, циклы автоматизаций.
+- Superpowers для больших задач: сначала brainstorm/plan, потом маленькая реализация; применять когда задача шире простого fix.
 - The Taste / `design-taste-frontend`: дефолт для лендингов, портфолио, project showcase и редизайна; перед генерацией фиксировать дизайн-read, motion/density/variance и pre-flight. Для dashboards/admin/tables использовать только как polish-layer поверх продуктовых паттернов.
+- claude-seo для релизных SEO/GEO-проходов по лендингам и библиотеке: technical SEO, Schema, AI Search, local/e-commerce checks.
 - AI Code Shield: перед публикацией AI-сгенерированного кода прогонять defensive security audit текущего репозитория; critical/high блокируют deploy до fix или явного risk acceptance.
 - Caveman только для внутренних summaries/log review, не для финальных отчётов.
 
@@ -19,6 +21,8 @@
 - `sqz` — сначала benchmark на 3 типовых задачах: small fix, UI change, repo audit.
 - `pxpipe` — только R&D, не для кода, секретов, юридических текстов, миграций и точных строк.
 - Destructive Command Guard — сначала локальная проверка команд и allowlist/denylist, потом решение о включении в Sentinel/dev окружение.
+- Claudish — R&D для сравнения моделей в Claude Code interface через BYOK/OpenRouter/local providers; не использовать для sensitive production code без privacy review.
+- context-mode MCP / Sentry MCP — подключать только под конкретный workflow, не глобально “на всякий случай”.
 
 ## Eclipse Chat
 
