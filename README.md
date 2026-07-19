@@ -47,6 +47,7 @@
 - [📥 Подборка Eclipse (06.07.2026)](#-подборка-eclipse-06072026)
 - [📥 Подборка Eclipse (08.07.2026)](#-подборка-eclipse-08072026)
 - [📥 Подборка Eclipse (09–13.07.2026)](#-подборка-eclipse-0913072026)
+- [📥 Подборка Eclipse (18–19.07.2026)](#-подборка-eclipse-1819072026)
 - [📦 Наши проекты](#-наши-проекты)
 
 ---
@@ -2064,6 +2065,66 @@ Frontend: React 19 · TypeScript · Vite · Tailwind CSS 4 · Zustand
 | **privacy.sexy / RepoStore / FileExplorer / PCLink / Internxt Temporary Email** | Hopson Sentinel · workstation hygiene · mobile control · QA | Privacy scripts, app provenance, fast file ops, phone control-plane, disposable test inboxes |
 | **Voicetypr / Sokuji** | Eclipse Chat · Eclipse Media · Educator-AI · DnD Forge | Local transcription, live translation, voice sessions with consent |
 | **Cloudflare Drop** | EclipseForgeLanding · Kwork demos · client previews | Fast static previews, not production CI/CD |
+
+---
+
+## 📥 Подборка Eclipse (18–19.07.2026)
+
+> Дроп Telegram «Eclipse Hopson» от **18–19.07.2026**. Главный фокус батча:
+> новые coding/research модели, карты кода, локальный AI-стек, anti-slop дизайн,
+> медиа-инструменты и звук. Подробная раскладка по проектам:
+> [July 2026 Kimi / Research / Media radar](guides/july-2026-kimi-research-media-radar.md).
+
+### AI models / coding / research
+
+| Ресурс | Описание | Stars |
+|---|---|---|
+| [Kimi K3 / Kimi Code](https://www.kimi.com/code) | Moonshot/Kimi модель для кода, чата и агентных задач. Канал заявляет 3T параметров, 1M context, Kimi K3 Max и K3 Swarm для ресёрча; **claims требуют проверки по официальным docs/API/pricing**. **Зачем нам:** Eclipse AI Hub provider benchmark, Hopson Sentinel coding-provider profile, oh-my-claudecode swarm reference, GameDev/DnD prototypes. Не включать в production без privacy/cost eval | — |
+| [Foglamp Scan](https://www.foglamp.dev/scan) | Инструмент для Claude Code и Codex: превращает кодовую базу в интерактивный граф нод и связей — функции, интеграции, БД, агенты, модули. **Зачем нам:** onboarding и диагностика больших репо (Eclipse Chat, Sentinel, AI Hub), архитектурные карты перед refactor, визуальный handoff для Claude/Codex | — |
+| [LLMs-local](https://github.com/0xSojalSec/LLMs-local) | Большой каталог локального AI: Ollama/LM Studio/Jan/LocalAI/llama.cpp, UI, агенты, RAG, локальный поиск, hardware calculators, гайды по контексту и оптимизации. **Зачем нам:** Hopson Sentinel local-provider doctor, Eclipse AI Hub local setup, Educator-AI трек по локальным LLM | [![Stars](https://img.shields.io/github/stars/0xSojalSec/LLMs-local?style=flat)](https://github.com/0xSojalSec/LLMs-local) |
+| [Hyper Research](https://github.com/jordan-gibbs/hyperresearch) | Claude Code skill для глубокого ресёрча: coverage matrix, сбор сотен источников, cross-review и итоговый отчёт с базой ресурсов. **Зачем нам:** Kwork #18 research-agent, Eclipse Library intake, Eclipse AI Hub Research/RAG, Educator-AI cited assignments. Проверить license/provenance перед установкой | [![Stars](https://img.shields.io/github/stars/jordan-gibbs/hyperresearch?style=flat)](https://github.com/jordan-gibbs/hyperresearch) |
+
+### Skills / design / agent workflow
+
+| Ресурс | Описание | Stars |
+|---|---|---|
+| [awesome-hermes-skills](https://github.com/ZeroPointRepo/awesome-hermes-skills#-data-science-1) | Каталог skills для Hermes Agent: канал заявляет 271 skill (built-in / optional / community), совместимость с Claude Code, OpenClaw, Cursor, Windsurf. **Зачем нам:** skill-radar для Hopson Sentinel и oh-my-claudecode. **Правило:** не ставить wholesale; сначала Loopy/SkillSpector/security review, затем точечный install | [![Stars](https://img.shields.io/github/stars/ZeroPointRepo/awesome-hermes-skills?style=flat)](https://github.com/ZeroPointRepo/awesome-hermes-skills) |
+| [Shipper anti-slop guide](https://shipper.now/) | Anti-slop `.md` для web/design генерации: режет типовые AI-паттерны вроде лишних shadows, emoji, generic LIVE pills, purple-blue gradients и заезженных слов. **Зачем нам:** дополняет The Taste для EclipseForgeLanding, Eclipse Chat landing/library UI и Kwork лендингов. **Оговорка:** применять контекстно, не механически уничтожать все shadows/акценты | — |
+
+### Learning / education
+
+| Ресурс | Описание | Stars |
+|---|---|---|
+| [AI Engineering From Scratch](https://aiengineeringfromscratch.com/) | Курс по AI engineering: канал заявляет 503 урока / 320 часов — от линейной алгебры и ML до LLM, RAG и агентов; есть практика и запускаемый код. **Зачем нам:** Educator-AI learning path, onboarding для Eclipse AI Hub/Sentinel, база для “AI Engineer track” в портфолио | — |
+| [CS Self Learning](https://github.com/PKUFlyingPig/cs-self-learning) | Университетский путь по CS: MIT/Stanford/Berkeley/CMU и др., structured roadmap, реальные проекты на C/C++/Python/Rust/Go. **Зачем нам:** Educator-AI, portfolio-training, skill gaps roadmap, junior→middle curriculum | [![Stars](https://img.shields.io/github/stars/PKUFlyingPig/cs-self-learning?style=flat)](https://github.com/PKUFlyingPig/cs-self-learning) |
+
+### Media / image / audio
+
+| Ресурс | Описание | Stars |
+|---|---|---|
+| [MaddyPix](https://github.com/Maddyrampant/MaddyPix) | Browser/local image toolkit: upscale, compression, conversion, editing, filters, без watermark, RU language. **Зачем нам:** Shotforge/Text2Image preprocessing, Eclipse Media thumbnail tools, локальная image utility внутри Eclipse AI Hub Image Studio | [![Stars](https://img.shields.io/github/stars/Maddyrampant/MaddyPix?style=flat)](https://github.com/Maddyrampant/MaddyPix) |
+| [Lucy 2.5 / Decart](https://lucy.decart.ai/) | Realtime AI video editor: object add/remove, style/effects, background/person replacement. **Зачем нам:** Eclipse Media / Shotforge benchmark для video-editing UX. **Guardrail:** deepfake/person replacement только с согласия, watermarks/disclosure, pricing/privacy review перед использованием | — |
+| [MOSS SoundEffect v2.0](https://huggingface.co/OpenMOSS-Team/MOSS-SoundEffect-v2.0) | Лёгкая 1B модель для генерации sound effects до 30 секунд: ambience, doors, creatures, короткие джинглы. **Зачем нам:** Eclipse Chat notification packs, DnD Forge ambience/SFX, Eclipse Media sound library, Shotforge promo stingers. Проверить license и локальные требования | — |
+| [Звук · Сингл](https://create.zvuk.com/?&Erid=2W5zFJUUVxM) | Генерация песни по идее: музыка, текст, название, обложка; RU/EN prompts. **Зачем нам:** Eclipse Media, DnD Forge tavern songs, promo-контент. Closed SaaS: проверить права на треки, коммерческое использование и экспорт | — |
+
+### Privacy / OPSEC research
+
+| Ресурс | Описание | Stars |
+|---|---|---|
+| [Conversation Steganography](https://github.com/nethical6/conversation-steganography) | LLM-based steganography: скрывает смысл сообщения в безобидном диалоге при общей кодовой фразе. **Зачем нам:** только privacy/threat-model reference для Eclipse Chat и OPSEC-раздела. **Не делаем продуктовой фичей** для обхода модерации, harassment, fraud или сокрытия нарушений | [![Stars](https://img.shields.io/github/stars/nethical6/conversation-steganography?style=flat)](https://github.com/nethical6/conversation-steganography) |
+
+### Mapping → наши проекты
+
+| Tool | Project(s) | Integration pattern |
+|---|---|---|
+| **Kimi K3 / Kimi Code** | Eclipse AI Hub · Hopson Sentinel · oh-my-claudecode · DnD Forge | Provider benchmark: code tasks, long context, swarm/research tasks, cost/latency/privacy matrix |
+| **Foglamp Scan** | Eclipse Chat · Hopson Sentinel · Eclipse AI Hub · all large repos | Code graph before refactor, onboarding map, dependency/entity visualization |
+| **LLMs-local** | Hopson Sentinel · Eclipse AI Hub · Educator-AI | Local provider catalog, hardware/RAM/VRAM doctor, local-first training material |
+| **Hyper Research** | Kwork #18 · Eclipse Library · Eclipse AI Hub · Educator-AI | Research pipeline: topic matrix → source base → review → cited report |
+| **Shipper anti-slop + The Taste** | EclipseForgeLanding · Eclipse Chat landing · library UI · Kwork pages | Design QA gate: remove generic AI visuals, enforce project-specific visual language |
+| **MaddyPix / MOSS SoundEffect / Звук / Lucy 2.5** | Shotforge · Text2Image · Eclipse Media · DnD Forge · Eclipse Chat | Media toolkit: local image prep, notification/SFX packs, ambience/music, video-editing benchmark |
+| **awesome-hermes-skills** | Hopson Sentinel · oh-my-claudecode | Skill catalog only after audit; install one by one with rollback |
+| **Conversation Steganography** | Eclipse Chat · Privacy/OPSEC | Threat model and abuse-prevention reference, not a default chat feature |
 
 ---
 
