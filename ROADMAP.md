@@ -7,14 +7,14 @@
 - `README.md` — канонический каталог.
 - `web/app.js` — client-side Markdown parser, search, type filters и guide viewer.
 - Deploy: GitHub Actions → VPS/Caddy из ветки `master`.
-- Production сейчас отстаёт от `master`: deploy 19.07.2026 завершился ошибкой на SSH setup.
+- Production синхронизирован с `master`: deploy 24.07.2026 успешно завершён через VPS/Caddy.
 
 ## Приоритеты
 
 ### P0
 
-- [ ] Восстановить deploy на VPS: проверить `VPS_HOST`, доступность SSH и deploy key;
-      убрать `StrictHostKeyChecking=no`, pin host key через secret/known_hosts.
+- [x] Восстановить deploy на VPS: повторный run 24.07.2026 прошёл SSH setup и rsync.
+- [ ] Убрать `StrictHostKeyChecking=no` и pin host key через secret/known_hosts.
 - [ ] Добавить link checker в CI с allowlist для rate-limited/JS-only сайтов.
 
 ### P1
@@ -49,3 +49,6 @@
 - Добавлен подробный decision radar:
   `guides/july-2026-agents-local-product-radar.md`.
 - Медицинский self-test, genealogy/doxxing prompts и low-value novelty исключены.
+- Commit `7d13e37` отправлен в `origin/master`; production deploy
+  [#30112663215](https://github.com/PavelHopson/eclipse-library/actions/runs/30112663215)
+  завершён успешно, live README/app/guide проверены.
