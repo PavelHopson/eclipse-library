@@ -144,7 +144,7 @@
     const descCells = cells.slice(1).filter((c) => c && c !== '—' && !/img\.shields\.io\/github\/stars/.test(c));
     const descHtml = inline(descCells.join(' · '));
     const ctx = `${cat.label} ${sub ? sub.title : ''} ${raw}`;
-    const risk = /grey|high-risk|uncensored|⚠️|🚨|🃏|пиратств/i.test(ctx);
+    const risk = /grey|high-risk|high privilege|risk:|supply-chain boundary|reference-only|не использовать|uncensored|⚠️|🚨|🃏|пиратств/i.test(ctx);
     return { title, url, descHtml, starsRepo, risk };
   }
 

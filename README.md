@@ -48,6 +48,7 @@
 - [📥 Подборка Eclipse (08.07.2026)](#-подборка-eclipse-08072026)
 - [📥 Подборка Eclipse (09–13.07.2026)](#-подборка-eclipse-0913072026)
 - [📥 Подборка Eclipse (18–19.07.2026)](#-подборка-eclipse-1819072026)
+- [📥 Подборка Eclipse (15–24.07.2026, продолжение)](#-подборка-eclipse-1524072026-продолжение)
 - [📦 Наши проекты](#-наши-проекты)
 
 ---
@@ -2125,6 +2126,84 @@ Frontend: React 19 · TypeScript · Vite · Tailwind CSS 4 · Zustand
 | **MaddyPix / MOSS SoundEffect / Звук / Lucy 2.5** | Shotforge · Text2Image · Eclipse Media · DnD Forge · Eclipse Chat | Media toolkit: local image prep, notification/SFX packs, ambience/music, video-editing benchmark |
 | **awesome-hermes-skills** | Hopson Sentinel · oh-my-claudecode | Skill catalog only after audit; install one by one with rollback |
 | **Conversation Steganography** | Eclipse Chat · Privacy/OPSEC | Threat model and abuse-prevention reference, not a default chat feature |
+
+---
+
+## 📥 Подборка Eclipse (15–24.07.2026, продолжение)
+
+> Проверенный intake Telegram «Eclipse Hopson» за **15–24.07.2026**. Материалы из уже
+> опубликованного блока 18–19 июля не продублированы. Заявления из постов сверены с
+> официальными страницами, model cards и репозиториями. Полная оценка применимости,
+> исключения и следующие шаги:
+> [July 2026 agents / local AI / product radar](guides/july-2026-agents-local-product-radar.md).
+
+### Local AI / media runtime
+
+| Ресурс | Описание | Stars |
+|---|---|---|
+| [Bonsai 27B](https://huggingface.co/collections/prism-ml/bonsai-27b) | Семейство 1-bit/ternary квантов Qwen3.6-27B от Prism ML: GGUF/MLX/AWQ, Apache-2.0. Заявленный footprint 1-bit GGUF — около 3.9 GB; отдельная MLX-версия ориентирована на Apple Silicon/iPhone. **Не считать vendor benchmarks независимой оценкой:** качество, скорость и 262K context нужно проверять на наших задачах и железе. **Зачем нам:** Hopson Sentinel и Eclipse AI Hub local-provider benchmark | — |
+| [TurboFieldfare](https://github.com/drumih/turbo-fieldfare) | Swift runtime для Gemma 4 26B-A4B на Apple Silicon: держит общий core/KV cache в RAM и стримит experts с SSD. Автор измеряет около 2 GB активной памяти, 14.3 GB на диске и 5.1–6.3 tok/s на 8 GB M2 MacBook Air. Apache-2.0; показатели подтверждены только проектными benchmarks. **Зачем нам:** reference для disk-streamed MoE и hardware doctor Sentinel | [![Stars](https://img.shields.io/github/stars/drumih/turbo-fieldfare?style=flat)](https://github.com/drumih/turbo-fieldfare) |
+| [ODS](https://github.com/Osmantic/ODS) | Apache-2.0 local AI server stack для Linux, Windows/WSL2 и Apple Silicon: inference, Open WebUI, voice, agents, workflows, RAG, search, image generation и observability. Cloud/hybrid режимы опциональны. **Supply-chain boundary:** не передавать remote installer напрямую в shell/PowerShell; pin tag, скачать installer, проверить checksum и compose/services в sandbox. **Зачем нам:** Hopson Sentinel / Eclipse AI Hub reference для local appliance и setup doctor | [![Stars](https://img.shields.io/github/stars/Osmantic/ODS?style=flat)](https://github.com/Osmantic/ODS) |
+| [Soprano](https://github.com/ekwek1/soprano) | Apache-2.0, 80M TTS-модель с streaming, WebUI/CLI/Python и OpenAI-compatible endpoint; проект заявляет меньше 1 GB RAM и высокую скорость CPU/GPU. Дообучение под голос/язык возможно, но это не готовое безопасное «клонирование в один клик». **Guardrail:** только голоса с согласием, disclosure для synthetic speech, отдельный benchmark RU/EN качества. **Зачем нам:** Sentinel, Eclipse Chat, Educator-AI | [![Stars](https://img.shields.io/github/stars/ekwek1/soprano?style=flat)](https://github.com/ekwek1/soprano) |
+| [AnimeGen T2V / I2V](https://huggingface.co/aidealab/AnimeGen-T2V) | Apache-2.0 anime video models AIdeaLab на базе Wan 2.2: text-to-video, [image-to-video](https://huggingface.co/aidealab/AnimeGen-I2V) и frame interpolation. Разработка действительно поддержана японской программой GENIAC (METI/NEDO), но локально рекомендована RTX 4090+; это не «государственный бесплатный сервис без требований». Запрещённые сценарии model card: deepfakes, impersonation, non-consensual и misleading content. **Зачем нам:** DnD Forge, Eclipse Media, Shotforge/Text2Image R&D | — |
+| [SongGeneration Studio](https://github.com/BazedFrog/SongGeneration-Studio) | Локальный UI для Tencent SongGeneration: песни с вокалом/текстом, instrumental/stems и reference audio; минимум 10 GB NVIDIA VRAM. **Reference-only:** в репозитории нет явной лицензии, поэтому нельзя считать его open-source или безопасно встраивать/перераспространять; права на reference audio и generated tracks требуют отдельной проверки | [![Stars](https://img.shields.io/github/stars/BazedFrog/SongGeneration-Studio?style=flat)](https://github.com/BazedFrog/SongGeneration-Studio) |
+| [Reiverr](https://github.com/aleksilassila/reiverr) | AGPL-3.0 self-hosted интерфейс для Jellyfin, TMDB, Radarr и Sonarr; карточки, discovery/recommendations, watch progress и Tizen TV build. Сам контент не предоставляет. **Guardrail:** подключать только законные media sources; не позиционировать как способ получать пиратские фильмы. **Зачем нам:** reference для Eclipse Media home/discovery/TV UX | [![Stars](https://img.shields.io/github/stars/aleksilassila/reiverr?style=flat)](https://github.com/aleksilassila/reiverr) |
+
+### Agent skills / coding workflow
+
+| Ресурс | Описание | Stars |
+|---|---|---|
+| [Cursor Team Kit](https://cursor.com/marketplace/cursor/cursor-team-kit) | Официальный MIT plugin от Cursor: 18 skills, 2 subagents и 2 rules для CI, code review, CLI/UI control, verification, test reliability и deslop. Не требует сторонних integrations, но skill-тексты всё равно являются исполняемыми инструкциями — переносить выборочно после review, а не ставить wholesale. **Зачем нам:** all dev repos, особенно UI QA и CI triage | [![Stars](https://img.shields.io/github/stars/cursor/plugins?style=flat)](https://github.com/cursor/plugins/tree/main/cursor-team-kit) |
+| [kill-ai-slop](https://github.com/yetone/kill-ai-slop) | Apache-2.0 field guide + Agent Skill для ревью визуальных и текстовых AI-тиков. Это эвристика, не объективный quality gate: не удалять shadows, gradients или copy механически, если они принадлежат design system. **Зачем нам:** дополняет The Taste для EclipseForgeLanding, Library UI, Kwork pages и frontend review | [![Stars](https://img.shields.io/github/stars/yetone/kill-ai-slop?style=flat)](https://github.com/yetone/kill-ai-slop) |
+| [Apple Design Skill](https://github.com/emilkowalski/skills/blob/main/skills/apple-design/SKILL.md) | MIT-набор design-engineering skills Эмиля Ковальски; `apple-design` конспектирует паттерны и принципы из WWDC с кодовыми примерами. Это не официальный Apple skill и не замена проектному design system. **Зачем нам:** mobile/desktop polish для Eclipse Chat, Sentinel и портфолио | [![Stars](https://img.shields.io/github/stars/emilkowalski/skills?style=flat)](https://github.com/emilkowalski/skills) |
+| [Kimi Code CLI](https://github.com/MoonshotAI/kimi-code) | Актуальный MIT CLI MoonshotAI с MCP-конфигурацией в диалоге, built-in `coder`/`explore`/`plan` subagents и ACP для IDE. Старый `MoonshotAI/kimi-cli` официально сворачивается в пользу этого репозитория. **Supply-chain boundary:** не pipe install scripts в shell; использовать npm/manual package, pin version, проверить plugins/MCP и privacy API-провайдера. **Зачем нам:** Sentinel / oh-my-claudecode provider benchmark, не production default | [![Stars](https://img.shields.io/github/stars/MoonshotAI/kimi-code?style=flat)](https://github.com/MoonshotAI/kimi-code) |
+| [Bolt Slides](https://github.com/stackblitz/bolt-slides) | MIT skill/template от StackBlitz для responsive интерактивных HTML-презентаций: React components, themes, charts, code/browser frames и обычный web deploy. **Зачем нам:** Kwork demos, Eclipse Forge portfolio cases, product/architecture presentations; binary PPTX не генерирует | [![Stars](https://img.shields.io/github/stars/stackblitz/bolt-slides?style=flat)](https://github.com/stackblitz/bolt-slides) |
+| [Claude Code Prompt Improver](https://github.com/severity1/claude-code-prompt-improver) | MIT Claude Code plugin/hooks: добавляет короткий evaluation layer и подгружает skill только для расплывчатых запросов. Автор заявляет 31% token reduction, независимого benchmark нет. **Risk:** hooks меняют каждый prompt/tool/subagent turn; сначала прочитать hook payloads и тестировать на sandbox repo. Для Codex напрямую не предназначен | [![Stars](https://img.shields.io/github/stars/severity1/claude-code-prompt-improver?style=flat)](https://github.com/severity1/claude-code-prompt-improver) |
+| [Obsidian Mind](https://github.com/breferrari/obsidian-mind) | MIT Obsidian vault для persistent agent memory с hooks для Claude Code, Codex CLI и Gemini CLI; knowledge хранится в Markdown/git, optional QMD добавляет semantic search/MCP. **Risk:** hooks и MCP читают рабочий контекст; secrets, персональные данные и client payloads нельзя автоматически писать в vault/git. **Зачем нам:** архитектурный reference для Sentinel и oh-my-claudecode memory | [![Stars](https://img.shields.io/github/stars/breferrari/obsidian-mind?style=flat)](https://github.com/breferrari/obsidian-mind) |
+| [beautify-github-readme](https://github.com/oil-oil/beautify-github-readme) | MIT Agent Skill для README: project-native SVG hero/diagrams, реальные screenshots и evidence-first copy. Поддерживает asset-only режим и требует отдельного разрешения на изменение README. **Зачем нам:** портфолио Eclipse Forge; применять после fact-check, accessibility и GitHub rendering review | [![Stars](https://img.shields.io/github/stars/oil-oil/beautify-github-readme?style=flat)](https://github.com/oil-oil/beautify-github-readme) |
+| [awesome-hermes-agent](https://github.com/0xNyk/awesome-hermes-agent) | Независимый CC BY 4.0 каталог Hermes Agent: skills, plugins, memory providers, integrations и maturity labels (`production`/`beta`/`experimental`). Сам каталог прямо предупреждает, что listing не равен security endorsement. **Зачем нам:** intake radar для Sentinel/oh-my-claudecode; каждую зависимость проверять отдельно | [![Stars](https://img.shields.io/github/stars/0xNyk/awesome-hermes-agent?style=flat)](https://github.com/0xNyk/awesome-hermes-agent) |
+| [awesome-ai-agents](https://github.com/slavakurilyak/awesome-ai-agents) | MIT-каталог 300+ agentic resources. Полезен для discovery, но основная выдача обновлялась в 2025 году и содержит дубли, поэтому не является актуальным рейтингом. **Зачем нам:** Eclipse Library intake source, не production dependency | [![Stars](https://img.shields.io/github/stars/slavakurilyak/awesome-ai-agents?style=flat)](https://github.com/slavakurilyak/awesome-ai-agents) |
+| [Work, in progress](https://work-in-progress.openai.chatgpt.site/) | Галерея реальных ChatGPT/Codex workflows и community experiments с фильтрами по продукту, теме, surface и автору. Сайт включает материалы OpenAI/OpenAI Developers и внешних авторов — это **не** набор «внутренних промптов OpenAI» и не гарантия качества каждого linked X-поста. **Зачем нам:** workflow discovery для Library, Sentinel, AI Hub и portfolio demos | — |
+| [Claude Cowork · Record a Skill](https://claude.com/product/cowork) | Функция Claude Desktop/Cowork: запись экрана, действий и голосового объяснения превращается в reusable skill; rollout заявлен для Pro/Max/Team. **Privacy boundary:** не записывать пароли, private chats, client data и production consoles; один happy-path recording не покрывает validation/error/recovery. **Зачем нам:** reference для future workflow recorder в Sentinel | — |
+
+### Devices / workstation / file transfer
+
+| Ресурс | Описание | Stars |
+|---|---|---|
+| [PairDrop](https://github.com/schlagmichdoch/PairDrop) | GPL-3.0 cross-platform P2P file/text transfer через WebRTC: same-network discovery, public rooms и persistent pairing; доступен public web и self-host. Файлы идут peer-to-peer, но signaling/room metadata проходят через instance. **Зачем нам:** Eclipse Chat/Eclipse Media WebRTC transfer reference; sensitive data — через self-host + threat model | [![Stars](https://img.shields.io/github/stars/schlagmichdoch/PairDrop?style=flat)](https://github.com/schlagmichdoch/PairDrop) |
+| [OpenDroid](https://github.com/yashab-cyber/opendroid) | Apache-2.0 Android agent с local/remote LLM providers, multi-tier memory, voice и Accessibility-driven automation. Для vision он снимает screenshots и может нажимать, печатать, открывать приложения, отправлять сообщения и совершать звонки. **High privilege:** только отдельное test-device/profile, минимальные API scopes, без банковских/2FA приложений и production secrets. **Зачем нам:** Sentinel Android companion reference | [![Stars](https://img.shields.io/github/stars/yashab-cyber/opendroid?style=flat)](https://github.com/yashab-cyber/opendroid) |
+| [Kudu](https://github.com/AdventDevInc/kudu) | MIT system cleaner/security scanner для Windows/macOS/Linux; проект заявляет отсутствие telemetry и предлагает preview/history/restore points. Cleanup, registry/service changes, debloat и secure delete остаются разрушительными операциями. **Reference-only:** проверять подписанные releases/checksums, начинать в VM, делать backup/restore point; не интегрировать в Sentinel как auto-clean | [![Stars](https://img.shields.io/github/stars/AdventDevInc/kudu?style=flat)](https://github.com/AdventDevInc/kudu) |
+
+### Product research / security learning
+
+| Ресурс | Описание | Stars |
+|---|---|---|
+| [AI Agents Security Week · ШАД](https://shad.yandex.ru/agentsecurityweek) | Бесплатный онлайн-интенсив Яндекса по архитектуре и безопасности AI agents: threat model, data leaks, configuration risks и secure SDLC; регистрация до 27.07.2026, лекции 27–31.07.2026, сертификат/финальное задание требуют отбора. **Зачем нам:** P0 learning action для Sentinel, AI Hub, Eclipse Chat agents и Library review process | — |
+| [PriceGhost](https://github.com/clucraft/PriceGhost) | Self-hosted price tracker: multi-strategy extraction, stock/history/alerts и optional AI extraction/verification через Claude/OpenAI/Ollama. Telegram-описание про «сотни площадок и команду агентов» не подтверждено. **Reference-only:** лицензия в репозитории отсутствует; scraping зависит от ToS/robots/rate limits, URL fetch требует SSRF-защиты, API keys — только server-side | [![Stars](https://img.shields.io/github/stars/clucraft/PriceGhost?style=flat)](https://github.com/clucraft/PriceGhost) |
+| [Déjà View](https://dejaview.bsct.so/) | Closed web tool на Biscuit: по описанию startup idea ищет предшественников, survivors/failures и источники. **Reference-only:** публичных license/privacy/methodology деталей на landing нет; не отправлять confidential ideas и проверять каждую компанию/причину закрытия по первичным источникам. **Зачем нам:** discovery reference для Kwork #18 research-agent и продуктового анализа | — |
+
+### High-risk / не использовать как default
+
+| Ресурс | Описание | Stars |
+|---|---|---|
+| [Claudexor](https://github.com/razzant/claudexor) | MIT local-first control plane для Claude Code/Codex/Cursor/OpenCode, shared context и cross-model review. Поддерживает несколько subscription logins и quota-aware rotation. **Не внедрять сейчас:** возможные ToS/account-sharing риски, хранение auth sessions и широкий control-plane доступ; маркетинговая экономия «8×» не подтверждена. Допустим только изолированный архитектурный review без production credentials | [![Stars](https://img.shields.io/github/stars/razzant/claudexor?style=flat)](https://github.com/razzant/claudexor) |
+
+### Mapping → наши проекты
+
+| Tool | Project(s) | Integration pattern |
+|---|---|---|
+| **Cursor Team Kit / kill-ai-slop / Apple Design / beautify README** | Все dev-репо · EclipseForgeLanding · Eclipse Library · Kwork pages | Выборочно перенести проверяемые CI/UI/design/README patterns; не ставить skills wholesale |
+| **Bonsai 27B / TurboFieldfare / ODS** | Hopson Sentinel · Eclipse AI Hub | Local runtime benchmark: quality/latency/RAM/VRAM/disk/privacy matrix и hardware doctor |
+| **Kimi Code CLI** | Hopson Sentinel · oh-my-claudecode · Eclipse AI Hub R&D | ACP/MCP/subagent benchmark в sandbox; не production default до privacy/cost/tool audit |
+| **Soprano** | Hopson Sentinel · Eclipse Chat · Educator-AI | RU/EN TTS benchmark, streaming latency, CPU/RAM budget, consent-first custom voice policy |
+| **AnimeGen / SongGeneration Studio** | Eclipse Media · DnD Forge · Shotforge · Text2Image | Anime previs and media-generation R&D; license/VRAM/output-rights gate before integration |
+| **Reiverr / PairDrop** | Eclipse Media · Eclipse Chat | TV/discovery/watch-progress UX и WebRTC P2P transfer reference; legal content/self-host boundary |
+| **OpenDroid** | Hopson Sentinel | Android companion/reference: accessibility action protocol, explicit approvals, isolated test device |
+| **Obsidian Mind** | Hopson Sentinel · oh-my-claudecode · Eclipse Library intake | Vault-first durable memory with data classification, secret redaction and scoped hooks |
+| **Bolt Slides / Work in progress** | EclipseForgeLanding · Kwork demos · portfolio | Interactive HTML demos and verified workflow examples; keep binary PPTX as separate pipeline |
+| **AI Agents Security Week** | Sentinel · AI Hub · Eclipse Chat agents · all agent repos | Register now; turn lessons into threat-model checklist and regression cases |
+| **PriceGhost / Déjà View** | Kwork #18 · Eclipse Library · future marketplace research | Architecture/methodology reference only; verify sources, ToS, SSRF and licensing |
+| **awesome-hermes-agent / awesome-ai-agents** | Eclipse Library · Sentinel · oh-my-claudecode | Discovery feeds only; maturity, license and security audit per linked project |
 
 ---
 
