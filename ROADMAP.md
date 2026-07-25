@@ -10,7 +10,9 @@
 - `web/catalog-details.json` — проверенный структурированный слой для приоритетных
   материалов; старые записи получают честную пометку о необходимости аудита.
 - Deploy: GitHub Actions → VPS/Caddy из ветки `master`.
-- Production синхронизирован с `master`: deploy 24.07.2026 успешно завершён через VPS/Caddy.
+- Production синхронизирован с `master`: deploy
+  [#30151809770](https://github.com/PavelHopson/eclipse-library/actions/runs/30151809770)
+  от 25.07.2026 успешно завершён через VPS/Caddy.
 
 ## Приоритеты
 
@@ -54,6 +56,9 @@
   сообщает, что подробный редакторский аудит ещё не выполнен.
 - Добавлен CI-validator структурированного каталога, обязательных полей, enum,
   повторов URL/id и уникальности HTML id.
+- Commit `257f302` отправлен в `origin/master`; CI validation
+  [#30151809774](https://github.com/PavelHopson/eclipse-library/actions/runs/30151809774)
+  и production deploy `#30151809770` завершены успешно.
 
 ### 2026-07-24
 
