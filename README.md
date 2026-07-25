@@ -6,7 +6,11 @@
 
 *Собираем лучшее — ничего не теряем*
 
-### 🌐 [library.eclipse-forge.ru](https://library.eclipse-forge.ru) — веб-версия с поиском и навигацией
+### 🌐 [library.eclipse-forge.ru](https://library.eclipse-forge.ru) — понятные карточки, поиск и фильтры
+
+В веб-версии можно сначала выбрать задачу или проект, а затем открыть карточку:
+там простыми словами объяснено, что делает инструмент, кому он пригодится, как
+безопасно начать и какие ограничения проверить до установки.
 
 [![Web](https://img.shields.io/badge/%F0%9F%8C%90_веб--версия-library.eclipse--forge.ru-8b5cf6?style=flat)](https://library.eclipse-forge.ru)
 [![Awesome](https://cdn.rawgit.com/sindresorhus/awesome/d7305f38d29fed78fa85652e3a63e154dd8e8829/media/badge.svg)](https://github.com/sindresorhus/awesome)

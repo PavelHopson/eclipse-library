@@ -15,7 +15,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Unbounded:wght@500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css?v=6" />
+  <link rel="stylesheet" href="styles.css?v=8" />
 </head>
 <body>
   <a class="skip" href="#results">Перейти к каталогу</a>
@@ -58,7 +58,12 @@
       <section id="hero" class="hero" aria-labelledby="hero-h1">
         <div class="eyebrow">Eclipse Forge · кураторская подборка</div>
         <h1 id="hero-h1">Библиотека инструментов,<br><span class="grad">ресурсов и знаний</span></h1>
-        <p class="hero-sub">Навигируемый каталог AI &amp; Claude Code инструментов, моделей, self-hosted платформ и промптов. Каждая находка проверена на провенанс, размечена по типу и применению, с честными пометками риска. Ищите, фильтруйте по типам, переходите к категориям.</p>
+        <p class="hero-sub">Найдите нужный инструмент и сразу поймите: что он делает, бесплатный ли он, где запускается, можно ли ему доверять и как применить в проектах Eclipse Forge.</p>
+        <ol class="how-it-works" aria-label="Как пользоваться библиотекой">
+          <li><b>1. Опишите задачу</b><span>Например: «локальная модель», «передать файл» или «skill для review».</span></li>
+          <li><b>2. Сузьте выбор</b><span>Используйте простые фильтры по платформе, лицензии, доверию и проекту.</span></li>
+          <li><b>3. Откройте карточку</b><span>Получите понятное описание, ограничения и безопасные первые шаги.</span></li>
+        </ol>
         <div id="stats" class="stats"></div>
         <div id="quickRoutes" class="quick-routes" aria-label="Быстрые сценарии"></div>
         <details class="cat-browser">
@@ -67,7 +72,39 @@
         </details>
       </section>
 
-      <div id="filters" class="filters" role="toolbar" aria-label="Фильтр по типам" hidden></div>
+      <section id="filters" class="filters" aria-label="Фильтры каталога" hidden>
+        <div class="filter-head">
+          <div>
+            <b>Что вы ищете?</b>
+            <span>Выберите один или несколько понятных признаков.</span>
+          </div>
+          <span id="resultcount" class="result-count" aria-live="polite"></span>
+        </div>
+        <div id="typeFilters" class="type-filters" role="toolbar" aria-label="Фильтр по типу"></div>
+        <div class="filter-selects">
+          <label>Где работает
+            <select id="platformFilter" aria-label="Где работает">
+              <option value="">Любая платформа</option>
+            </select>
+          </label>
+          <label>Лицензия
+            <select id="licenseFilter" aria-label="Лицензия">
+              <option value="">Любая лицензия</option>
+            </select>
+          </label>
+          <label>Доверие
+            <select id="trustFilter" aria-label="Уровень доверия">
+              <option value="">Любой уровень</option>
+            </select>
+          </label>
+          <label>Проект Eclipse
+            <select id="projectFilter" aria-label="Проект Eclipse Forge">
+              <option value="">Любой проект</option>
+            </select>
+          </label>
+          <button id="filterReset" class="filter-reset" type="button" hidden>Сбросить всё</button>
+        </div>
+      </section>
 
       <div id="status" class="status">Загружаю библиотеку…</div>
       <div id="results"></div>
@@ -92,12 +129,21 @@
     </div>
   </section>
 
+  <section id="itemView" class="item-overlay" hidden role="dialog" aria-modal="true" aria-labelledby="itemTitle">
+    <div class="item-head">
+      <button id="itemBack" class="guide-back" type="button">← К каталогу</button>
+      <span class="item-head-label">Понятно о сервисе</span>
+      <a id="itemSourceTop" class="item-source-top" href="#" target="_blank" rel="noopener">Открыть источник ↗</a>
+    </div>
+    <article id="itemBody" class="item-body"></article>
+  </section>
+
   <button id="toTop" class="to-top" type="button" hidden aria-label="Наверх">↑</button>
 
   <footer class="footer">
     Eclipse Forge · обновляется по мере находок · данные из <a href="https://github.com/PavelHopson/eclipse-library" target="_blank" rel="noopener">README</a>
   </footer>
 
-  <script src="app.js?v=5"></script>
+  <script src="app.js?v=7"></script>
 </body>
 </html>

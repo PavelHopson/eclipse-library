@@ -1,11 +1,14 @@
 # Eclipse Library Roadmap
 
-Последнее обновление: **24.07.2026**
+Последнее обновление: **25.07.2026**
 
 ## Текущее состояние
 
 - `README.md` — канонический каталог.
-- `web/app.js` — client-side Markdown parser, search, type filters и guide viewer.
+- `web/app.js` — client-side каталог, полнотекстовый поиск, составные фильтры,
+  подробные карточки и guide viewer.
+- `web/catalog-details.json` — проверенный структурированный слой для приоритетных
+  материалов; старые записи получают честную пометку о необходимости аудита.
 - Deploy: GitHub Actions → VPS/Caddy из ветки `master`.
 - Production синхронизирован с `master`: deploy 24.07.2026 успешно завершён через VPS/Caddy.
 
@@ -19,22 +22,38 @@
 
 ### P1
 
-- [ ] Перевести записи из неструктурированных Markdown-описаний в schema с полями:
+- [ ] Частично: перевести все записи из неструктурированных Markdown-описаний в schema с полями:
       `type`, `category`, `platform`, `license`, `trust`, `risk`, `projects`, `verifiedAt`.
-- [ ] Добавить автоматический duplicate check по canonical URL, GitHub `owner/repo`,
+- [ ] Частично: добавить автоматический duplicate check по canonical URL, GitHub `owner/repo`,
       normalized title и redirect target.
-- [ ] Добавить фильтры по platform, license, trust/risk и Eclipse project applicability.
-- [ ] Добавить visible badges «официальный источник», «лицензия», «risk» и
+- [x] Добавить фильтры по platform, license, trust/risk и Eclipse project applicability.
+- [x] Добавить visible badges «официальный источник», «лицензия», «risk» и
       «проверено <дата>», не заставляя пользователя читать всю карточку.
 
 ### P2
 
-- [ ] Стабильные deep links на каждую запись.
+- [x] Стабильные deep links на каждую запись.
 - [ ] Freshness review: помечать archived/stale/dead-link ресурсы и изменившиеся лицензии.
 - [ ] Автоматический GitHub metadata refresh без доверия к stars как quality score.
 - [ ] Отдельные landing routes для skills, MCP, models, prompts, courses и security.
 
 ## Changelog
+
+### 2026-07-25
+
+- Каталог очищен от служебных строк и повторов по canonical URL: в интерфейсе
+  отображаются 502 уникальные записи вместо 776 смешанных строк README.
+- Для 26 материалов из последней пачки добавлены расширенные карточки простым языком:
+  назначение, сценарии, платформа, лицензия/цена, доверие к источнику, риски,
+  быстрый безопасный старт и применимость к Eclipse Forge.
+- Добавлены фильтры по платформе, лицензии, доверию и проекту, понятный счётчик
+  результатов, reset и отдельное no-results состояние.
+- Добавлены стабильные ссылки `#item/<id>` и полноэкранный reader с возвратом фокуса,
+  keyboard navigation и адаптивной mobile-раскладкой.
+- Старые непроверенные записи больше не выглядят подтверждёнными: интерфейс явно
+  сообщает, что подробный редакторский аудит ещё не выполнен.
+- Добавлен CI-validator структурированного каталога, обязательных полей, enum,
+  повторов URL/id и уникальности HTML id.
 
 ### 2026-07-24
 

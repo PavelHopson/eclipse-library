@@ -6,13 +6,59 @@
   const REPO = 'PavelHopson/eclipse-library';
   const RAW = `https://raw.githubusercontent.com/${REPO}/master/README.md`;
   const REPO_URL = `https://github.com/${REPO}`;
+  const DETAILS_URL = 'catalog-details.json';
+  const DECISIONS = {
+    now: 'Внедрить сейчас',
+    roadmap: 'Добавить в roadmap',
+    reference: 'Оставить как reference',
+    no: 'Не использовать',
+  };
+  const TRUST = {
+    official: 'Официальный источник',
+    verified: 'Источник проверен',
+    community: 'Community-проект',
+    caution: 'Нужна осторожность',
+    unknown: 'Нужна проверка',
+  };
+  const RISK = {
+    low: 'Низкий риск',
+    medium: 'Средний риск',
+    high: 'Высокий риск',
+  };
+  let detailsByUrl = new Map();
+  let duplicateCount = 0;
 
   const $ = (s, r = document) => r.querySelector(s);
   const el = (tag, cls, html) => { const n = document.createElement(tag); if (cls) n.className = cls; if (html != null) n.innerHTML = html; return n; };
   const slug = (s) => s.toLowerCase().replace(/[^\wа-яё]+/gi, '-').replace(/^-+|-+$/g, '').slice(0, 60);
+  const canonicalUrl = (url) => {
+    try {
+      const u = new URL(url);
+      u.hash = '';
+      ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term', 'ref', 'erid'].forEach((key) => u.searchParams.delete(key));
+      u.hostname = u.hostname.toLowerCase().replace(/^www\./, '');
+      u.pathname = u.pathname.replace(/\/+$/, '') || '/';
+      return u.toString().replace(/\/$/, '');
+    } catch (e) { return (url || '').trim().toLowerCase().replace(/#.*$/, '').replace(/\/$/, ''); }
+  };
+  const plain = (s) => (s || '')
+    .replace(/!\[[^\]]*\]\([^)]+\)/g, '')
+    .replace(/\[([^\]]+)\]\([^)]+\)/g, '$1')
+    .replace(/[*`\x60]/g, '')
+    .replace(/<[^>]+>/g, ' ')
+    .replace(/\s+/g, ' ')
+    .trim();
+  const firstSentence = (s, max = 230) => {
+    const text = plain(s);
+    const stop = text.search(/[.!?]\s/);
+    const candidate = stop > 45 ? text.slice(0, stop + 1) : text;
+    if (candidate.length <= max) return candidate;
+    return candidate.slice(0, max - 1).replace(/\s+\S*$/, '') + '…';
+  };
 
   // ---- markdown inline → safe-ish HTML ----
   function esc(s) { return s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;'); }
+  function escAttr(s) { return esc(String(s || '')).replace(/"/g, '&quot;').replace(/'/g, '&#39;'); }
   function absUrl(u) {
     if (/^https?:\/\//.test(u)) return u;
     if (u.startsWith('#')) return REPO_URL + '/blob/master/README.md' + u;
@@ -87,6 +133,132 @@
     return 'tool';
   }
 
+  function inferPlatforms(ctx) {
+    const rules = [
+      ['Windows', /windows|win32|powershell/],
+      ['macOS', /macos|mac os|macbook/],
+      ['Apple Silicon', /apple silicon|m[1-9]\b/],
+      ['Linux', /linux|ubuntu|debian/],
+      ['Android', /android/],
+      ['iOS', /\bios\b|iphone|ipad/],
+      ['Web', /\bweb\b|browser|браузер|website|сайт/],
+      ['CLI', /\bcli\b|terminal|командн.*строк/],
+      ['Self-host', /self-host|локальн|local-first|docker/],
+      ['NVIDIA GPU', /nvidia|cuda|rtx|vram/],
+    ];
+    const found = rules.filter(([, re]) => re.test(ctx)).map(([name]) => name);
+    return found.length ? found : ['Web'];
+  }
+
+  function inferLicense(ctx) {
+    const match = ctx.match(/\b(AGPL-3\.0|GPL-3\.0|Apache-2\.0|Apache 2\.0|MIT|CC BY 4\.0|BSD-3-Clause|MPL-2\.0)\b/i);
+    if (match) {
+      const normalized = match[1].toLowerCase().replace('apache 2.0', 'apache-2.0');
+      return {
+        'agpl-3.0': 'AGPL-3.0',
+        'gpl-3.0': 'GPL-3.0',
+        'apache-2.0': 'Apache-2.0',
+        mit: 'MIT',
+        'cc by 4.0': 'CC BY 4.0',
+        'bsd-3-clause': 'BSD-3-Clause',
+        'mpl-2.0': 'MPL-2.0',
+      }[normalized] || match[1];
+    }
+    if (/нет (?:явной )?лицензии|лицензия .*отсутств/i.test(ctx)) return 'Не указана';
+    return 'Уточнить';
+  }
+
+  function inferProjects(ctx) {
+    const rules = [
+      ['Eclipse Chat', /eclipse chat/],
+      ['Eclipse AI Hub', /eclipse ai hub|ai hub/],
+      ['Hopson Sentinel', /hopson sentinel|sentinel/],
+      ['Eclipse DnD Forge', /dnd forge|eclipse dnd/],
+      ['Eclipse Forge Landing', /eclipseforge landing|eclipse forge landing|landing/],
+      ['Eclipse Media', /eclipse media/],
+      ['Shotforge', /shotforge/],
+      ['Text2Image', /text2image/],
+      ['Educator-AI', /educator-ai/],
+      ['oh-my-claudecode', /oh-my-claudecode|\bomc\b/],
+      ['Eclipse Library', /eclipse library|\blibrary\b/],
+    ];
+    return rules.filter(([, re]) => re.test(ctx)).map(([name]) => name);
+  }
+
+  function defaultUseCases(type) {
+    const cases = {
+      skill: ['Добавить повторяемую инструкцию в workflow агента', 'Проверить skill вручную на тестовом репозитории'],
+      agent: ['Автоматизировать многошаговую задачу', 'Сравнить orchestration и контроль tools'],
+      model: ['Проверить качество на своих примерах', 'Сравнить скорость, память и стоимость'],
+      api: ['Подключить возможность через API', 'Сначала проверить лимиты, privacy и стоимость'],
+      prompt: ['Скопировать промпт и заменить примеры своими данными', 'Сравнить результат с базовым запросом'],
+      learn: ['Пройти материал по порядку', 'Закрепить знания небольшим практическим заданием'],
+      media: ['Сделать тестовый media workflow', 'Проверить качество и права на входные данные'],
+      privacy: ['Запустить в изолированном окружении', 'Проверить какие данные покидают устройство'],
+      shop: ['Собрать небольшой proof of concept', 'Проверить checkout, данные и ограничения провайдера'],
+      oss: ['Изучить README и архитектуру', 'Запустить pinned release только в sandbox'],
+      tool: ['Решить одну небольшую задачу', 'Сравнить результат с текущим способом работы'],
+      grey: ['Использовать только как reference', 'Сначала провести ручной security/legal review'],
+    };
+    return cases[type] || cases.tool;
+  }
+
+  function defaultSteps(r) {
+    if (r.type === 'prompt') return ['Откройте источник и прочитайте ограничения.', 'Скопируйте промпт без личных и секретных данных.', 'Проверьте результат на небольшом примере.'];
+    if (r.type === 'learn') return ['Откройте материал и выберите один раздел.', 'Повторите пример самостоятельно.', 'Зафиксируйте результат в небольшом проекте.'];
+    if (r.type === 'model') return ['Проверьте лицензию и требования к железу.', 'Возьмите pinned model version.', 'Прогоните свой небольшой eval до интеграции.'];
+    if (r.starsRepo) return ['Прочитайте README, LICENSE и последние issues.', 'Скачайте pinned release или commit в sandbox.', 'Проверьте permissions, network calls и данные до основного использования.'];
+    return ['Откройте официальный источник.', 'Проверьте тариф, privacy и ограничения.', 'Начните с одной небольшой тестовой задачи.'];
+  }
+
+  function enrichResource(r, cat, sub) {
+    const ctx = plain(`${cat.label} ${sub ? sub.title : ''} ${r.rawText || ''}`).toLowerCase();
+    const detail = detailsByUrl.get(canonicalUrl(r.url)) || null;
+    const host = (() => { try { return new URL(r.url).hostname.replace(/^www\./, ''); } catch (e) { return ''; } })();
+    const inferredTrust = r.risk ? 'caution' : (r.starsRepo ? 'community' : 'unknown');
+    const inferredLicense = inferLicense(ctx);
+    r.detail = detail;
+    r.id = detail?.id || slug(`${r.title}-${host}`) || `item-${Math.random().toString(36).slice(2, 9)}`;
+    r.simpleDescription = detail?.simpleDescription || firstSentence(r.rawText) || 'Краткое описание пока не заполнено. Откройте источник и проверьте назначение перед использованием.';
+    r.useCases = detail?.useCases || defaultUseCases(r.type);
+    r.platforms = detail?.platforms || inferPlatforms(ctx);
+    r.license = detail?.license || inferredLicense;
+    r.pricing = detail?.pricing || (r.starsRepo ? 'Репозиторий доступен бесплатно; hosting и внешние API могут оплачиваться отдельно' : 'Проверьте актуальные условия на официальном сайте');
+    r.trust = detail?.trust || inferredTrust;
+    r.trustReason = detail?.trustReason || (r.risk ? 'Материал содержит признаки повышенного риска или неполные условия использования.' : 'Ссылка присутствует в каталоге, но подробный редакторский аудит продукта ещё не выполнен.');
+    r.projects = detail?.projects || inferProjects(ctx);
+    r.decision = detail?.decision || (r.risk ? 'reference' : 'reference');
+    r.riskLevel = detail?.riskLevel || (r.risk ? 'high' : 'medium');
+    r.risks = detail?.risks || (r.risk ? ['Проверьте лицензию, permissions и обработку данных до запуска.'] : ['Условия, цена и возможности могут измениться после даты проверки.']);
+    r.verifiedAt = detail?.verifiedAt || null;
+    r.quickStart = detail?.quickStart || defaultSteps(r);
+    return r;
+  }
+
+  function deduplicate(cats) {
+    const best = new Map();
+    cats.forEach((cat) => cat.subs.forEach((sub) => sub.resources.forEach((r) => {
+      const key = canonicalUrl(r.url);
+      const score = (r.detail ? 10000 : 0) + (!/подборка/i.test(cat.label) ? 1000 : 0) + plain(r.rawText).length;
+      const current = best.get(key);
+      if (!current || score > current.score) best.set(key, { resource: r, score });
+    })));
+    const seen = new Set();
+    let rawCount = 0;
+    cats.forEach((cat) => cat.subs.forEach((sub) => {
+      rawCount += sub.resources.length;
+      sub.resources = sub.resources.filter((r) => {
+        const key = canonicalUrl(r.url);
+        if (best.get(key)?.resource !== r || seen.has(key)) return false;
+        seen.add(key);
+        return true;
+      });
+    }));
+    duplicateCount = Math.max(0, rawCount - seen.size);
+    cats.forEach((cat) => { cat.subs = cat.subs.filter((sub) => sub.resources.length); });
+    return cats.filter((cat) => cat.subs.length);
+  }
+
   // ---- parser ----
   function parse(md) {
     const lines = md.split('\n');
@@ -124,7 +296,12 @@
         const cells = t.split('|').slice(1, -1).map((c) => c.trim());
         if (!cells.length) continue;
         const res = parseRow(cells, t, cat, sub);
-        if (res) { ensureSub(); res.type = inferType(res, cat, sub); sub.resources.push(res); }
+        if (res) {
+          ensureSub();
+          res.type = inferType(res, cat, sub);
+          enrichResource(res, cat, sub);
+          sub.resources.push(res);
+        }
       }
     }
     return cats.filter((c) => c.subs.some((s) => s.resources.length));
@@ -139,13 +316,15 @@
     if (!title || title === '—') return null;
     let url = link ? link[2] : null;
     if (url && !/^https?:/.test(url)) url = absUrl(url);
+    if (!url) return null;
     const stars = raw.match(/img\.shields\.io\/github\/stars\/([\w.-]+)\/([\w.-]+)/);
     const starsRepo = stars ? `${stars[1]}/${stars[2]}` : null;
     const descCells = cells.slice(1).filter((c) => c && c !== '—' && !/img\.shields\.io\/github\/stars/.test(c));
+    const rawText = descCells.join(' · ');
     const descHtml = inline(descCells.join(' · '));
     const ctx = `${cat.label} ${sub ? sub.title : ''} ${raw}`;
     const risk = /grey|high-risk|high privilege|risk:|supply-chain boundary|reference-only|не использовать|uncensored|⚠️|🚨|🃏|пиратств/i.test(ctx);
-    return { title, url, descHtml, starsRepo, risk };
+    return { title, url, descHtml, rawText, starsRepo, risk };
   }
 
   // ---- render ----
@@ -186,11 +365,13 @@
         const grid = el('div', 'grid');
         s.resources.forEach((r) => {
           typeCounts[r.type] = (typeCounts[r.type] || 0) + 1;
-          const card = el('article', 'card' + (r.risk ? ' risk' : ''));
+          const card = el('article', 'card' + (r.riskLevel === 'high' || r.trust === 'caution' ? ' risk' : '') + (r.detail ? ' enriched' : ''));
           card.dataset.type = r.type;
+          card.dataset.itemId = r.id;
 
           const top = el('div', 'card-top');
           top.appendChild(el('span', 'type-chip t-' + r.type, esc(TYPES[r.type] || r.type)));
+          top.appendChild(el('span', `trust-chip trust-${r.trust}`, esc(TRUST[r.trust] || TRUST.unknown)));
           if (r.starsRepo) {
             const img = el('img', 'stars'); img.loading = 'lazy'; img.alt = 'GitHub stars';
             img.src = `https://img.shields.io/github/stars/${r.starsRepo}?style=flat&color=8b5cf6&labelColor=15151c&logo=github&logoColor=cfcfe0`;
@@ -199,20 +380,42 @@
           card.appendChild(top);
 
           const h = el('h4', 'card-title');
-          if (r.url) {
-            h.innerHTML = `<a href="${r.url}" target="_blank" rel="noopener">${esc(r.title)}<svg class="ext" viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M14 4h6v6M20 4l-9 9M19 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1h5"/></svg></a>`;
-          } else { h.innerHTML = `<span>${esc(r.title)}</span>`; }
+          h.innerHTML = `<a href="#item/${encodeURIComponent(r.id)}">${esc(r.title)}<svg class="ext" viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M9 18l6-6-6-6"/></svg></a>`;
           card.appendChild(h);
 
-          card.appendChild(el('p', 'desc', r.descHtml));
+          card.appendChild(el('p', 'desc', esc(r.simpleDescription)));
 
-          if (r.url) {
-            let dom = ''; try { dom = new URL(r.url).hostname.replace(/^www\./, ''); } catch (e) {}
-            if (dom) card.appendChild(el('div', 'card-foot', `<span class="dom"><svg viewBox="0 0 24 24" aria-hidden="true" width="13" height="13"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="1.7"/><path d="M3 12h18M12 3c2.5 2.5 2.5 16 0 18M12 3c-2.5 2.5-2.5 16 0 18" fill="none" stroke="currentColor" stroke-width="1.4"/></svg>${esc(dom)}</span>`));
-          }
+          const pricingShort = /бесплат/i.test(r.pricing) ? 'Есть бесплатный доступ' : (/подпис|платн|оплач/i.test(r.pricing) ? 'Есть платные условия' : 'Условия нужно проверить');
+          const meta = el('div', 'card-meta');
+          r.platforms.slice(0, 2).forEach((platform) => meta.appendChild(el('span', 'meta-chip', esc(platform))));
+          meta.appendChild(el('span', 'meta-chip', esc(r.license)));
+          meta.appendChild(el('span', 'meta-chip meta-price', esc(pricingShort)));
+          card.appendChild(meta);
+
+          let dom = ''; try { dom = new URL(r.url).hostname.replace(/^www\./, ''); } catch (e) {}
+          const foot = el('div', 'card-foot');
+          foot.innerHTML =
+            `<a class="detail-link" href="#item/${encodeURIComponent(r.id)}">Понять и применить →</a>` +
+            `<a class="source-link" href="${escAttr(r.url)}" target="_blank" rel="noopener" aria-label="Открыть официальный источник">${esc(dom || 'Источник')} ↗</a>`;
+          card.appendChild(foot);
 
           grid.appendChild(card);
-          cards.push({ node: card, type: r.type, text: (r.title + ' ' + r.descHtml.replace(/<[^>]+>/g, ' ')).toLowerCase(), sub: subWrap, cat: section });
+          const searchText = [
+            r.title, r.rawText, r.simpleDescription, r.type, r.license, r.pricing,
+            r.platforms.join(' '), r.projects.join(' '), r.useCases.join(' '), TRUST[r.trust],
+          ].join(' ').toLowerCase();
+          cards.push({
+            node: card,
+            resource: r,
+            type: r.type,
+            platforms: r.platforms,
+            license: r.license,
+            trust: r.trust,
+            projects: r.projects,
+            text: searchText,
+            sub: subWrap,
+            cat: section,
+          });
         });
         subWrap.appendChild(grid);
         section.appendChild(subWrap);
@@ -225,8 +428,8 @@
 
     // stats
     $('#stats').innerHTML =
-      stat(total, 'находок') + stat(cats.length, 'категорий') +
-      stat(cats.filter((c) => /подборка/i.test(c.label)).length, 'подборок') +
+      stat(total, 'уникальных материалов') + stat(detailsByUrl.size, 'подробно проверено') +
+      stat(cats.length, 'категорий') +
       stat(Object.keys(typeCounts).length, 'типов');
 
     buildFilters(typeCounts);
@@ -302,23 +505,48 @@
   const plural = (n) => (n % 10 === 1 && n % 100 !== 11) ? 'находка' : (n % 10 >= 2 && n % 10 <= 4 && (n % 100 < 10 || n % 100 >= 20)) ? 'находки' : 'находок';
   const stat = (n, l) => `<div class="stat"><b>${n}</b><span>${l}</span></div>`;
 
-  // ---- filters (тип + поиск) ----
-  let activeType = null, query = '', navQuery = '';
+  // ---- filters (type + platform + license + trust + project + search) ----
+  let activeType = null, activePlatform = '', activeLicense = '', activeTrust = '', activeProject = '';
+  let query = '', navQuery = '';
   function buildFilters(typeCounts) {
-    const bar = $('#filters'); bar.innerHTML = '';
-    bar.appendChild(chip(null, 'Все', cards.length, true));
+    const bar = $('#filters');
+    const typeBar = $('#typeFilters');
+    typeBar.innerHTML = '';
+    typeBar.appendChild(chip(null, 'Все', cards.length, true));
     Object.keys(typeCounts).sort((a, b) => typeCounts[b] - typeCounts[a]).forEach((t) => {
-      bar.appendChild(chip(t, TYPES[t] || t, typeCounts[t], false));
+      typeBar.appendChild(chip(t, TYPES[t] || t, typeCounts[t], false));
     });
-    const reset = el('button', 'filter-reset', 'Сбросить фильтры');
-    reset.id = 'filterReset'; reset.type = 'button'; reset.hidden = true;
+
+    fillSelect($('#platformFilter'), [...new Set(cards.flatMap((c) => c.platforms))]);
+    fillSelect($('#licenseFilter'), [...new Set(cards.map((c) => c.license))]);
+    fillSelect($('#trustFilter'), [...new Set(cards.map((c) => c.trust))], (value) => TRUST[value] || value);
+    fillSelect($('#projectFilter'), [...new Set(cards.flatMap((c) => c.projects))]);
+
+    const reset = $('#filterReset');
     reset.addEventListener('click', () => clearLibraryFilters({ focus: true }));
-    bar.appendChild(reset);
-    const rc = el('span', 'result-count'); rc.id = 'resultcount'; bar.appendChild(rc);
+    $('#platformFilter').addEventListener('change', (e) => { activePlatform = e.target.value; applyFilters(); });
+    $('#licenseFilter').addEventListener('change', (e) => { activeLicense = e.target.value; applyFilters(); });
+    $('#trustFilter').addEventListener('change', (e) => { activeTrust = e.target.value; applyFilters(); });
+    $('#projectFilter').addEventListener('change', (e) => { activeProject = e.target.value; applyFilters(); });
     bar.hidden = false;
+    $('#resultcount').textContent = `${cards.length} материалов`;
   }
+
+  function fillSelect(select, values, format = (value) => value) {
+    const first = select.options[0];
+    select.innerHTML = '';
+    select.appendChild(first);
+    values.filter(Boolean).sort((a, b) => format(a).localeCompare(format(b), 'ru')).forEach((value) => {
+      const option = document.createElement('option');
+      option.value = value;
+      option.textContent = format(value);
+      select.appendChild(option);
+    });
+  }
+
   function chip(type, label, n, active) {
     const c = el('button', 'chip' + (active ? ' active' : ''), `${esc(label)} <i>${n}</i>`);
+    c.type = 'button';
     c.dataset.type = type || '';
     c.addEventListener('click', () => {
       activeType = (activeType === type) ? null : type;
@@ -342,8 +570,16 @@
 
   function clearLibraryFilters(opts = {}) {
     activeType = null;
+    activePlatform = '';
+    activeLicense = '';
+    activeTrust = '';
+    activeProject = '';
     query = '';
     if (search) search.value = '';
+    $('#platformFilter').value = '';
+    $('#licenseFilter').value = '';
+    $('#trustFilter').value = '';
+    $('#projectFilter').value = '';
     updateChipState();
     applyFilters();
     if (opts.focus && search) search.focus();
@@ -353,20 +589,26 @@
     const q = query.trim().toLowerCase();
     let visible = 0;
     cards.forEach((c) => {
-      const show = (!q || c.text.includes(q)) && (!activeType || c.type === activeType);
+      const show =
+        (!q || c.text.includes(q)) &&
+        (!activeType || c.type === activeType) &&
+        (!activePlatform || c.platforms.includes(activePlatform)) &&
+        (!activeLicense || c.license === activeLicense) &&
+        (!activeTrust || c.trust === activeTrust) &&
+        (!activeProject || c.projects.includes(activeProject));
       c.node.hidden = !show; if (show) visible++;
     });
     document.querySelectorAll('.sub').forEach((s) => { s.hidden = !s.querySelector('.card:not([hidden])'); });
     document.querySelectorAll('.cat').forEach((s) => { s.hidden = !s.querySelector('.card:not([hidden])'); });
     updateNavVisibility();
-    const filtering = !!(q || activeType);
+    const filtering = !!(q || activeType || activePlatform || activeLicense || activeTrust || activeProject);
     $('#hero').classList.toggle('dim', filtering);
-    $('#resultcount').textContent = filtering ? `${visible} ${plural(visible)}` : '';
+    $('#resultcount').textContent = `${visible} ${visible === 1 ? 'материал' : 'материалов'}`;
     const reset = $('#filterReset');
     if (reset) reset.hidden = !filtering;
     const empty = $('#empty');
     empty.hidden = !(filtering && visible === 0);
-    if (!empty.hidden) $('#emptyQ').textContent = q || (TYPES[activeType] || '');
+    if (!empty.hidden) $('#emptyQ').textContent = q || activeProject || activePlatform || activeLicense || (TRUST[activeTrust] || '') || (TYPES[activeType] || '');
     entryReveal();
   }
 
@@ -579,8 +821,70 @@
     h2s.forEach((h) => guideTocObs.observe(h));
   }
 
+  function itemList(items) {
+    return `<ul>${items.map((item) => `<li>${esc(item)}</li>`).join('')}</ul>`;
+  }
+
+  function formatVerifiedAt(value) {
+    if (!value) return 'Дата подробной проверки не указана';
+    const [year, month, day] = value.split('-');
+    return `Проверено ${day}.${month}.${year}`;
+  }
+
+  let itemReturnFocus = null;
+  function openItem(id) {
+    const entry = cards.find((card) => card.resource.id === id);
+    if (!entry) return;
+    closeGuide();
+    itemReturnFocus = document.activeElement instanceof HTMLElement ? document.activeElement : null;
+    const r = entry.resource;
+    const view = $('#itemView');
+    const body = $('#itemBody');
+    const sourceTop = $('#itemSourceTop');
+    sourceTop.href = r.url;
+    const trustClass = `trust-${r.trust}`;
+    const projectHtml = r.projects.length
+      ? `<div class="project-list">${r.projects.map((project) => `<span>${esc(project)}</span>`).join('')}</div>`
+      : '<p class="item-muted">Прямая применимость к проектам Eclipse Forge пока не подтверждена.</p>';
+    body.innerHTML =
+      `<div class="item-kicker"><span class="type-chip t-${r.type}">${esc(TYPES[r.type] || r.type)}</span>` +
+        `<span class="trust-chip ${trustClass}">${esc(TRUST[r.trust] || TRUST.unknown)}</span>` +
+        `<span class="verify-date">${esc(formatVerifiedAt(r.verifiedAt))}</span></div>` +
+      `<h1 id="itemTitle">${esc(r.title)}</h1>` +
+      `<p class="item-lead">${esc(r.simpleDescription)}</p>` +
+      `<div class="fact-grid">` +
+        `<div><span>Где работает</span><b>${esc(r.platforms.join(', '))}</b></div>` +
+        `<div><span>Стоимость</span><b>${esc(r.pricing)}</b></div>` +
+        `<div><span>Лицензия</span><b>${esc(r.license)}</b></div>` +
+        `<div><span>Решение Eclipse</span><b>${esc(DECISIONS[r.decision] || DECISIONS.reference)}</b></div>` +
+      `</div>` +
+      `<section class="item-section"><h2>Когда пригодится</h2>${itemList(r.useCases)}</section>` +
+      `<section class="item-section"><h2>Как начать безопасно</h2><ol>${r.quickStart.map((step) => `<li>${esc(step)}</li>`).join('')}</ol></section>` +
+      `<section class="item-section"><h2>Для каких проектов Eclipse</h2>${projectHtml}</section>` +
+      `<section class="item-section item-risk-section"><h2>Что важно знать до запуска</h2>` +
+        `<div class="risk-summary risk-${r.riskLevel}"><b>${esc(RISK[r.riskLevel] || RISK.medium)}</b><span>${esc(r.trustReason)}</span></div>` +
+        `${itemList(r.risks)}</section>` +
+      `<details class="original-note"><summary>Показать исходное техническое описание</summary><p>${esc(plain(r.rawText))}</p></details>` +
+      `<div class="item-cta"><a href="${escAttr(r.url)}" target="_blank" rel="noopener">Открыть официальный источник ↗</a>` +
+        `<span>${r.detail ? 'Карточка проверена и дополнена редактором Eclipse Library.' : 'Это базовая карточка. Перед внедрением нужна дополнительная проверка.'}</span></div>`;
+    view.hidden = false;
+    view.scrollTop = 0;
+    document.body.classList.add('noscroll');
+    requestAnimationFrame(() => $('#itemBack').focus());
+  }
+
+  function closeItem() {
+    const view = $('#itemView');
+    if (view.hidden) return;
+    view.hidden = true;
+    document.body.classList.remove('noscroll');
+    if (itemReturnFocus && document.contains(itemReturnFocus)) itemReturnFocus.focus();
+    itemReturnFocus = null;
+  }
+
   async function openGuide(name) {
     const v = $('#guideView'), b = $('#guideBody'), t = $('#guideTitle'), toc = $('#guideToc');
+    closeItem();
     v.hidden = false; document.body.classList.add('noscroll'); v.scrollTop = 0;
     if (toc) { toc.hidden = true; toc.innerHTML = ''; }
     $('#guideGh').href = `${REPO_URL}/blob/master/guides/${name}.md`;
@@ -596,7 +900,9 @@
   function route() {
     const h = location.hash;
     if (/^#guide\//.test(h)) { openGuide(decodeURIComponent(h.slice(7))); return; }
+    if (/^#item\//.test(h)) { openItem(decodeURIComponent(h.slice(6))); return; }
     closeGuide();
+    closeItem();
     if (h.length > 1) { const t = document.getElementById(decodeURIComponent(h.slice(1))); if (t) t.scrollIntoView(); }
   }
 
@@ -609,8 +915,18 @@
       catch (e2) { const s = $('#status'); s.className = 'status err'; s.innerHTML = `Не удалось загрузить библиотеку. <a href="${REPO_URL}" target="_blank" rel="noopener">Открыть на GitHub →</a>`; return; }
     }
     try {
-      render(parse(md)); spotlight();
-      renderGuides(md);
+      try {
+        const detailsResponse = await fetch(DETAILS_URL, { cache: 'no-cache' });
+        if (detailsResponse.ok) {
+          const details = await detailsResponse.json();
+          if (!Array.isArray(details)) throw new Error('catalog-details.json должен содержать массив');
+          detailsByUrl = new Map(details.map((detail) => [canonicalUrl(detail.url), detail]));
+        }
+      } catch (detailsError) {
+        console.warn('Structured catalog details are unavailable; using safe inferred metadata.', detailsError);
+      }
+      render(deduplicate(parse(md))); spotlight();
+      await renderGuides(md);
       requestAnimationFrame(route);
     }
     catch (e) { $('#status').className = 'status err'; $('#status').textContent = 'Ошибка разбора README: ' + e.message; }
@@ -629,6 +945,15 @@
     });
   }
   document.addEventListener('keydown', (e) => {
+    if (e.key === 'Tab' && !$('#itemView').hidden) {
+      const focusable = [...$('#itemView').querySelectorAll('a[href], button:not([disabled]), summary')].filter((node) => !node.hidden);
+      if (focusable.length) {
+        const first = focusable[0], last = focusable[focusable.length - 1];
+        if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+        else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+      }
+    }
+    if (e.key === 'Escape' && !$('#itemView').hidden) { closeItem(); history.replaceState(null, '', location.pathname + location.search); return; }
     if (e.key === 'Escape' && !$('#guideView').hidden) { closeGuide(); history.replaceState(null, '', location.pathname + location.search); return; }
     if (e.key === '/' && document.activeElement !== search) { e.preventDefault(); search.focus(); }
     if (e.key === 'Escape' && document.activeElement === search) { search.value = ''; query = ''; applyFilters(); search.blur(); }
@@ -636,6 +961,7 @@
   });
   window.addEventListener('hashchange', route);
   $('#guideBack').addEventListener('click', () => { closeGuide(); history.replaceState(null, '', location.pathname + location.search); });
+  $('#itemBack').addEventListener('click', () => { closeItem(); history.replaceState(null, '', location.pathname + location.search); });
   $('#guideToc').addEventListener('click', (e) => {
     const b = e.target.closest('.gt-link'); if (!b) return;
     const target = document.getElementById(b.dataset.target);

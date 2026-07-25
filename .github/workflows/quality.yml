@@ -1,0 +1,28 @@
+name: Validate library catalog
+
+on:
+  pull_request:
+  push:
+    branches: [master]
+    paths:
+      - 'README.md'
+      - 'web/**'
+      - 'scripts/**'
+      - '.github/workflows/quality.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-node@v6
+        with:
+          node-version: 24
+      - name: Check JavaScript syntax
+        run: node --check web/app.js
+      - name: Validate structured catalog
+        run: node scripts/validate-catalog.mjs
