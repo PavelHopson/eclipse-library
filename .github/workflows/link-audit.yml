@@ -21,7 +21,7 @@ jobs:
         run: node scripts/check-links.mjs --network
       - name: Upload detailed report
         if: always()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v6
         with:
           name: eclipse-library-link-audit
           path: .artifacts/link-check-report.json
