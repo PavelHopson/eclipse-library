@@ -73,6 +73,11 @@
 - Устаревшие claims Security Guidance и AgentShield исправлены по актуальной документации:
   reviews не считаются blocking gate, model-backed этапы расходуют usage, community findings требуют
   ручной проверки. Для skill installers зафиксированы sandbox, pinning и least-privilege defaults.
+- Commit `33e2ee2` отправлен в `origin/master`; CI
+  [#30295183804](https://github.com/PavelHopson/eclipse-library/actions/runs/30295183804) и production deploy
+  [#30295183765](https://github.com/PavelHopson/eclipse-library/actions/runs/30295183765) завершены успешно.
+  Read-only production smoke подтвердил `app.js?v=17`, 51 detail entry и все пять новых ID.
+  Визуальный live browser QA не засчитан: Browser URL-policy заблокировала local и production URL.
 - Stage 6 discovery завершён: Ollama, LM Studio, Jan, GPT4All и ComfyUI получили подробные карточки
   простым языком — с безопасным стартом, лицензией/условиями, ограничениями, рисками и применимостью
   к Eclipse Forge. Каталог вырос с 499 до 504 материалов, structured details — с 41 до 46.
