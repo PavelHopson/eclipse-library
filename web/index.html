@@ -15,7 +15,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Unbounded:wght@500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css?v=8" />
+  <link rel="stylesheet" href="styles.css?v=9" />
 </head>
 <body>
   <a class="skip" href="#results">Перейти к каталогу</a>
@@ -72,6 +72,11 @@
         </details>
       </section>
 
+      <aside id="topicContext" class="topic-context" hidden aria-live="polite">
+        <div><span id="topicEyebrow">Тематическая подборка</span><b id="topicTitle"></b><p id="topicDescription"></p></div>
+        <button id="topicClear" type="button">Показать весь каталог</button>
+      </aside>
+
       <section id="filters" class="filters" aria-label="Фильтры каталога" hidden>
         <div class="filter-head">
           <div>
@@ -100,6 +105,11 @@
           <label>Проект Eclipse
             <select id="projectFilter" aria-label="Проект Eclipse Forge">
               <option value="">Любой проект</option>
+            </select>
+          </label>
+          <label>Актуальность
+            <select id="freshnessFilter" aria-label="Актуальность проверки">
+              <option value="">Любая актуальность</option>
             </select>
           </label>
           <button id="filterReset" class="filter-reset" type="button" hidden>Сбросить всё</button>
@@ -144,6 +154,6 @@
     Eclipse Forge · обновляется по мере находок · данные из <a href="https://github.com/PavelHopson/eclipse-library" target="_blank" rel="noopener">README</a>
   </footer>
 
-  <script src="app.js?v=7"></script>
+  <script src="app.js?v=8"></script>
 </body>
 </html>

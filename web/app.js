@@ -25,6 +25,19 @@
     medium: 'Средний риск',
     high: 'Высокий риск',
   };
+  const FRESHNESS = {
+    fresh: 'Проверено недавно',
+    review: 'Нужно перепроверить',
+    unknown: 'Без даты проверки',
+  };
+  const TOPIC_ROUTES = {
+    skills: { title: 'Skills для AI-агентов', description: 'Готовые инструкции и повторяемые workflows. Перед установкой проверьте permissions и содержимое skill.', type: 'skill', match: (c) => c.type === 'skill' },
+    mcp: { title: 'MCP и интеграции', description: 'Серверы и инструменты, которые подключают AI к внешним данным и действиям. Начинайте с минимальных прав.', match: (c) => /\bmcp\b/i.test(c.text) },
+    models: { title: 'AI-модели', description: 'Локальные и облачные модели. Сравнивайте качество, требования к железу, стоимость и лицензию.', type: 'model', match: (c) => c.type === 'model' },
+    prompts: { title: 'Промпты', description: 'Готовые запросы для типовых задач. Не вставляйте секреты и проверяйте результат перед использованием.', type: 'prompt', match: (c) => c.type === 'prompt' },
+    security: { title: 'Security и privacy', description: 'Защитные инструменты и рискованные материалы с явными ограничениями и безопасным сценарием проверки.', match: (c) => c.type === 'grey' || c.type === 'privacy' || /security|безопас|privacy|opsec/i.test(c.text) },
+    courses: { title: 'Курсы и обучение', description: 'Практические материалы, которые можно пройти по порядку и закрепить небольшим проектом.', type: 'learn', match: (c) => c.type === 'learn' },
+  };
   let detailsByUrl = new Map();
   let duplicateCount = 0;
 
@@ -55,6 +68,13 @@
     if (candidate.length <= max) return candidate;
     return candidate.slice(0, max - 1).replace(/\s+\S*$/, '') + '…';
   };
+  function freshnessState(value) {
+    if (!value) return 'unknown';
+    const verified = new Date(`${value}T00:00:00Z`);
+    if (Number.isNaN(verified.getTime())) return 'unknown';
+    const days = Math.floor((Date.now() - verified.getTime()) / 86400000);
+    return days <= 180 ? 'fresh' : 'review';
+  }
 
   // ---- markdown inline → safe-ish HTML ----
   function esc(s) { return s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;'); }
@@ -231,6 +251,7 @@
     r.riskLevel = detail?.riskLevel || (r.risk ? 'high' : 'medium');
     r.risks = detail?.risks || (r.risk ? ['Проверьте лицензию, permissions и обработку данных до запуска.'] : ['Условия, цена и возможности могут измениться после даты проверки.']);
     r.verifiedAt = detail?.verifiedAt || null;
+    r.freshness = freshnessState(r.verifiedAt);
     r.quickStart = detail?.quickStart || defaultSteps(r);
     return r;
   }
@@ -368,6 +389,7 @@
           const card = el('article', 'card' + (r.riskLevel === 'high' || r.trust === 'caution' ? ' risk' : '') + (r.detail ? ' enriched' : ''));
           card.dataset.type = r.type;
           card.dataset.itemId = r.id;
+          card.dataset.freshness = r.freshness;
 
           const top = el('div', 'card-top');
           top.appendChild(el('span', 'type-chip t-' + r.type, esc(TYPES[r.type] || r.type)));
@@ -412,6 +434,7 @@
             license: r.license,
             trust: r.trust,
             projects: r.projects,
+            freshness: r.freshness,
             text: searchText,
             sub: subWrap,
             cat: section,
@@ -474,39 +497,31 @@
     const box = $('#quickRoutes');
     if (!box) return;
     const ai = findCat(cats, /ai & claude/);
-    const skills = findCat(cats, /скиллы для claude/);
     const ecommerce = findCat(cats, /интернет-магазин/);
     const projects = findCat(cats, /наши проекты/);
     const latestDrop = [...cats].reverse().find((c) => /подборка eclipse/.test(c.label.toLowerCase()));
     const routes = [
-      ai && { label: 'AI & Claude', hint: 'скиллы, агенты, LLM', href: `#${ai.id}`, count: ai.subs.reduce((a, s) => a + s.resources.length, 0) },
-      skills && { label: 'Скиллы Claude', hint: 'готовые роли и команды', href: `#${skills.id}`, count: skills.subs.reduce((a, s) => a + s.resources.length, 0) },
-      { label: 'Курсы и гайды', hint: 'длинные материалы на сайте', href: '#guidesFeat', count: 'guide' },
+      { label: 'Skills', hint: 'готовые роли и workflows', href: '#browse/skills', count: typeCounts.skill || 0 },
+      { label: 'MCP', hint: 'данные и внешние действия', href: '#browse/mcp', count: cards.filter(TOPIC_ROUTES.mcp.match).length },
+      { label: 'AI-модели', hint: 'local и cloud inference', href: '#browse/models', count: typeCounts.model || 0 },
+      { label: 'Промпты', hint: 'готовые сценарии запросов', href: '#browse/prompts', count: typeCounts.prompt || 0 },
+      { label: 'Security', hint: 'риски, privacy и защита', href: '#browse/security', count: cards.filter(TOPIC_ROUTES.security.match).length },
+      { label: 'Курсы', hint: 'обучение по шагам', href: '#browse/courses', count: typeCounts.learn || 0 },
       latestDrop && { label: 'Свежая подборка', hint: latestDrop.label.replace(/^Подборка Eclipse\s*/i, ''), href: `#${latestDrop.id}`, count: latestDrop.subs.reduce((a, s) => a + s.resources.length, 0) },
-      typeCounts.grey && { label: 'Риски', hint: 'grey-zone и спорные находки', type: 'grey', count: typeCounts.grey },
-      typeCounts.oss && { label: 'Open-source', hint: 'репозитории и self-host', type: 'oss', count: typeCounts.oss },
       ecommerce && { label: 'E-commerce', hint: 'магазины, платежи, storefront', href: `#${ecommerce.id}`, count: ecommerce.subs.reduce((a, s) => a + s.resources.length, 0) },
       projects && { label: 'Наши проекты', hint: 'куда внедрять находки', href: `#${projects.id}`, count: projects.subs.reduce((a, s) => a + s.resources.length, 0) },
     ].filter(Boolean);
     box.innerHTML = routes.map((r) => {
       const meta = typeof r.count === 'number' ? `${r.count} ${plural(r.count)}` : 'гайды';
-      const attrs = r.type ? `button type="button" data-type="${r.type}"` : `a href="${r.href}"`;
-      const close = r.type ? 'button' : 'a';
-      return `<${attrs} class="quick-route"><span><b>${esc(r.label)}</b><small>${esc(r.hint)}</small></span><i>${esc(meta)}</i></${close}>`;
+      return `<a href="${r.href}" class="quick-route"><span><b>${esc(r.label)}</b><small>${esc(r.hint)}</small></span><i>${esc(meta)}</i></a>`;
     }).join('');
-    box.querySelectorAll('[data-type]').forEach((b) => {
-      b.addEventListener('click', () => {
-        setTypeFilter(b.dataset.type);
-        $('#filters').scrollIntoView({ behavior: 'smooth', block: 'start' });
-      });
-    });
   }
 
   const plural = (n) => (n % 10 === 1 && n % 100 !== 11) ? 'находка' : (n % 10 >= 2 && n % 10 <= 4 && (n % 100 < 10 || n % 100 >= 20)) ? 'находки' : 'находок';
   const stat = (n, l) => `<div class="stat"><b>${n}</b><span>${l}</span></div>`;
 
   // ---- filters (type + platform + license + trust + project + search) ----
-  let activeType = null, activePlatform = '', activeLicense = '', activeTrust = '', activeProject = '';
+  let activeType = null, activePlatform = '', activeLicense = '', activeTrust = '', activeProject = '', activeFreshness = '', activeTopic = '';
   let query = '', navQuery = '';
   function buildFilters(typeCounts) {
     const bar = $('#filters');
@@ -521,6 +536,7 @@
     fillSelect($('#licenseFilter'), [...new Set(cards.map((c) => c.license))]);
     fillSelect($('#trustFilter'), [...new Set(cards.map((c) => c.trust))], (value) => TRUST[value] || value);
     fillSelect($('#projectFilter'), [...new Set(cards.flatMap((c) => c.projects))]);
+    fillSelect($('#freshnessFilter'), [...new Set(cards.map((c) => c.freshness))], (value) => FRESHNESS[value] || value);
 
     const reset = $('#filterReset');
     reset.addEventListener('click', () => clearLibraryFilters({ focus: true }));
@@ -528,6 +544,7 @@
     $('#licenseFilter').addEventListener('change', (e) => { activeLicense = e.target.value; applyFilters(); });
     $('#trustFilter').addEventListener('change', (e) => { activeTrust = e.target.value; applyFilters(); });
     $('#projectFilter').addEventListener('change', (e) => { activeProject = e.target.value; applyFilters(); });
+    $('#freshnessFilter').addEventListener('change', (e) => { activeFreshness = e.target.value; applyFilters(); });
     bar.hidden = false;
     $('#resultcount').textContent = `${cards.length} материалов`;
   }
@@ -549,6 +566,7 @@
     c.type = 'button';
     c.dataset.type = type || '';
     c.addEventListener('click', () => {
+      clearTopicRoute();
       activeType = (activeType === type) ? null : type;
       updateChipState();
       applyFilters();
@@ -557,7 +575,11 @@
   }
 
   function updateChipState() {
-    document.querySelectorAll('.chip').forEach((x) => x.classList.toggle('active', (x.dataset.type || null) === activeType || (activeType === null && !x.dataset.type)));
+    const highlightedType = activeType || TOPIC_ROUTES[activeTopic]?.type || null;
+    document.querySelectorAll('.chip').forEach((x) => {
+      const active = highlightedType ? x.dataset.type === highlightedType : (!activeTopic && !x.dataset.type);
+      x.classList.toggle('active', active);
+    });
   }
 
   function setTypeFilter(type) {
@@ -574,12 +596,15 @@
     activeLicense = '';
     activeTrust = '';
     activeProject = '';
+    activeFreshness = '';
+    clearTopicRoute();
     query = '';
     if (search) search.value = '';
     $('#platformFilter').value = '';
     $('#licenseFilter').value = '';
     $('#trustFilter').value = '';
     $('#projectFilter').value = '';
+    $('#freshnessFilter').value = '';
     updateChipState();
     applyFilters();
     if (opts.focus && search) search.focus();
@@ -595,21 +620,48 @@
         (!activePlatform || c.platforms.includes(activePlatform)) &&
         (!activeLicense || c.license === activeLicense) &&
         (!activeTrust || c.trust === activeTrust) &&
-        (!activeProject || c.projects.includes(activeProject));
+        (!activeProject || c.projects.includes(activeProject)) &&
+        (!activeFreshness || c.freshness === activeFreshness) &&
+        (!activeTopic || TOPIC_ROUTES[activeTopic]?.match(c));
       c.node.hidden = !show; if (show) visible++;
     });
     document.querySelectorAll('.sub').forEach((s) => { s.hidden = !s.querySelector('.card:not([hidden])'); });
     document.querySelectorAll('.cat').forEach((s) => { s.hidden = !s.querySelector('.card:not([hidden])'); });
     updateNavVisibility();
-    const filtering = !!(q || activeType || activePlatform || activeLicense || activeTrust || activeProject);
+    const filtering = !!(q || activeType || activePlatform || activeLicense || activeTrust || activeProject || activeFreshness || activeTopic);
     $('#hero').classList.toggle('dim', filtering);
     $('#resultcount').textContent = `${visible} ${visible === 1 ? 'материал' : 'материалов'}`;
     const reset = $('#filterReset');
     if (reset) reset.hidden = !filtering;
     const empty = $('#empty');
     empty.hidden = !(filtering && visible === 0);
-    if (!empty.hidden) $('#emptyQ').textContent = q || activeProject || activePlatform || activeLicense || (TRUST[activeTrust] || '') || (TYPES[activeType] || '');
+    if (!empty.hidden) $('#emptyQ').textContent = q || TOPIC_ROUTES[activeTopic]?.title || activeProject || activePlatform || activeLicense || (FRESHNESS[activeFreshness] || '') || (TRUST[activeTrust] || '') || (TYPES[activeType] || '');
     entryReveal();
+  }
+
+  function applyTopicRoute(topic) {
+    const config = TOPIC_ROUTES[topic];
+    if (!config) return false;
+    activeTopic = topic;
+    updateChipState();
+    const context = $('#topicContext');
+    $('#topicTitle').textContent = config.title;
+    $('#topicDescription').textContent = config.description;
+    context.hidden = false;
+    const guidesBand = $('#guidesFeat');
+    if (guidesBand) guidesBand.hidden = topic !== 'courses';
+    applyFilters();
+    requestAnimationFrame(() => context.scrollIntoView({ block: 'start' }));
+    return true;
+  }
+
+  function clearTopicRoute() {
+    activeTopic = '';
+    const context = $('#topicContext');
+    if (context) context.hidden = true;
+    const guidesBand = $('#guidesFeat');
+    if (guidesBand) guidesBand.hidden = false;
+    updateChipState();
   }
 
   function updateNavVisibility() {
@@ -709,7 +761,11 @@
 
     const hero = $('#hero');
     let band = $('#guidesFeat');
-    if (!band) { band = el('section', 'guides-feat'); band.id = 'guidesFeat'; hero.insertAdjacentElement('afterend', band); }
+    if (!band) {
+      band = el('section', 'guides-feat');
+      band.id = 'guidesFeat';
+      ($('#topicContext') || hero).insertAdjacentElement('afterend', band);
+    }
     band.innerHTML =
       `<div class="gf-head"><h2><span aria-hidden="true">📚</span> Курсы и гайды</h2>` +
       `<span class="gf-sub">учебные материалы — открываются прямо на сайте</span></div>` +
@@ -727,6 +783,7 @@
           `<span class="cc-cta">Открыть →</span>` +
         `</a>`;
       }).join('') + `</div>`;
+    if (activeTopic) band.hidden = activeTopic !== 'courses';
 
     const nav = $('#nav');
     if (nav && !$('#navGuides')) {
@@ -857,6 +914,7 @@
         `<div><span>Стоимость</span><b>${esc(r.pricing)}</b></div>` +
         `<div><span>Лицензия</span><b>${esc(r.license)}</b></div>` +
         `<div><span>Решение Eclipse</span><b>${esc(DECISIONS[r.decision] || DECISIONS.reference)}</b></div>` +
+        `<div><span>Актуальность</span><b>${esc(FRESHNESS[r.freshness] || FRESHNESS.unknown)}</b></div>` +
       `</div>` +
       `<section class="item-section"><h2>Когда пригодится</h2>${itemList(r.useCases)}</section>` +
       `<section class="item-section"><h2>Как начать безопасно</h2><ol>${r.quickStart.map((step) => `<li>${esc(step)}</li>`).join('')}</ol></section>` +
@@ -901,6 +959,8 @@
     const h = location.hash;
     if (/^#guide\//.test(h)) { openGuide(decodeURIComponent(h.slice(7))); return; }
     if (/^#item\//.test(h)) { openItem(decodeURIComponent(h.slice(6))); return; }
+    if (/^#browse\//.test(h)) { closeGuide(); closeItem(); applyTopicRoute(decodeURIComponent(h.slice(8))); return; }
+    clearTopicRoute();
     closeGuide();
     closeItem();
     if (h.length > 1) { const t = document.getElementById(decodeURIComponent(h.slice(1))); if (t) t.scrollIntoView(); }
@@ -969,6 +1029,7 @@
   });
   $('#emptyClear').addEventListener('click', () => clearLibraryFilters({ focus: true }));
   $('#navClear').addEventListener('click', () => { if (!navSearch) return; navSearch.value = ''; navQuery = ''; updateNavVisibility(); navSearch.focus(); });
+  $('#topicClear').addEventListener('click', () => { clearLibraryFilters({ focus: true }); history.replaceState(null, '', location.pathname + location.search); });
 
   const toTop = $('#toTop');
   toTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));

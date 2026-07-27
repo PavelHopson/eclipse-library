@@ -10,7 +10,9 @@
 
 В веб-версии можно сначала выбрать задачу или проект, а затем открыть карточку:
 там простыми словами объяснено, что делает инструмент, кому он пригодится, как
-безопасно начать и какие ограничения проверить до установки.
+безопасно начать и какие ограничения проверить до установки. Для быстрых сценариев
+есть отдельные ссылки на Skills, MCP, AI-модели, промпты, security и курсы, а фильтр
+актуальности отделяет недавно проверенные карточки от материалов без даты аудита.
 
 [![Web](https://img.shields.io/badge/%F0%9F%8C%90_веб--версия-library.eclipse--forge.ru-8b5cf6?style=flat)](https://library.eclipse-forge.ru)
 [![Awesome](https://cdn.rawgit.com/sindresorhus/awesome/d7305f38d29fed78fa85652e3a63e154dd8e8829/media/badge.svg)](https://github.com/sindresorhus/awesome)
@@ -176,7 +178,6 @@
 |--------|----------|
 | [9 промптов для презентаций](https://github.com/PavelHopson/eclipse-library#-промпт-коллекции) | План, хук, сценарий слайдов, упрощение, визуал из данных, убийство возражений, 1-слайд сводка, сюжетная арка, речь — встроены как пресеты в [Eclipse AI Hub](https://github.com/PavelHopson/eclipse-ai-hub) Copywriter |
 | [Auto Prompt](https://github.com/AIDotNet/auto-prompt) | Оптимизатор промптов — классифицирует, переписывает, переводит, добавляет reasoning-команды, сотни готовых шаблонов | [![Stars](https://img.shields.io/github/stars/AIDotNet/auto-prompt?style=flat)](https://github.com/AIDotNet/auto-prompt) |
-| [Awesome ChatGPT Prompts](https://github.com/f/awesome-chatgpt-prompts) | Александрийская библиотека промптов — сотни шаблонов: IT, тексты, карьера, образование, креатив и др. | [![Stars](https://img.shields.io/github/stars/f/awesome-chatgpt-prompts?style=flat)](https://github.com/f/awesome-chatgpt-prompts) |
 | [GPT-5.5 Prompt Guide (OpenAI)](https://developers.openai.com/api/docs/guides/prompt-guidance?model=gpt-5.5) | Официальный гайд OpenAI: НЕ переиспользовать старые длинные промпты, минимизировать инструкции, давать данные + ожидаемый формат |
 | [Nano Banana Upscaling Prompt](https://arena.ai/ru/image/direct) | Шаблон «Аналитическая Реконструкция Микро-Деталей» — апскейл фото с сохранением идентичности |
 | [Humanize Rewriter](prompts/humanize-rewriter.md) | Промпт для humanize-rewrite текста под автоответы маркетплейсов / SMM / контент. **С оговоркой:** широко распространяется в студенческой среде как обход AI-детекторов — используем только в операторских/контент-задачах, не для академического обхода (та же планка, что у `talk-normal` в разделе агентов) |
@@ -201,7 +202,7 @@
 | [Composio](https://github.com/ComposioHQ/openclaw-composio) | Авто-авторизация API-сервисов (Google, GitHub...) — без ручного ввода ключей |  |
 | [Memory LanceDB](https://github.com/openclaw/openclaw/blob/main/extensions/memory-lancedb) | Векторная память для OpenClaw — долгосрочный контекст вместо встроенной памяти |  |
 | [MemOS Cloud](https://github.com/MemTensor/MemOS-Cloud-OpenClaw-Plugin) | Облачная память с изоляцией между агентами, синхронизация между устройствами |  |
-| [OpenClaw Foundry](https://github.com/lekt9/openclaw-foundry) | Агент сам наблюдает за паттернами работы и пишет себе новые инструменты |  |
+| [Foundry](https://github.com/unbrowse-ai/foundry) | Self-writing extension для OpenClaw: ищет повторяющиеся workflows в локальной истории сессий и предлагает reusable skills. **Важно:** generated skills автоматически устанавливаются в host skill directory по умолчанию — сначала запускать с `--no-install`, проверить redaction, permissions и код результата |  |
 | [Better Gateway](https://github.com/ThisIsJeron/openclaw-better-gateway) | Стабильный шлюз — авто-переподключение, не теряет соединения |  |
 | [QClaw (Tencent)](https://qclawsg.qq.com/) | Локальный Computer Use агент на базе OpenClaw — мессенджер-управление (Telegram/Discord), долгосрочная память |  |
 
@@ -1238,7 +1239,6 @@ Frontend: React 19 · TypeScript · Vite · Tailwind CSS 4 · Zustand
 | **KuKuTool** ([dy.kukutool.com](https://dy.kukutool.com/ru)) | ⚠️ **Grey.** Закрытый веб-сервис: качает чужой контент + **снимает вотермарки** (нарушение прав авторов) + грузит ваши URL на свой сервер (приватность). Для легальной задачи «скачать своё» приоритетен наш self-hosted [Eclipse Media](#-наши-проекты) (yt-dlp) |
 | **Epicure** ([epicure.kaikaku.ai](https://epicure.kaikaku.ai/)) | Reference. Рецепт по фото холодильника (4M рецептов / 1790 ингредиентов). Вне scope продуктов, но архитектурно любопытно: vision→structured data — тот же паттерн, что анализ товарных фото в Star CRM / Shotforge |
 | **Kaspersky «AI vs AI» стрим** ([lp.kaspersky.com](https://lp.kaspersky.com/ru/ai-vs-ai)) | Reference-событие (02.06, прошло). Темы — LLM в кибератаках, ИИ для SOC-команд, исследование Kaspersky × К2 — релевантны Hopson Sentinel как доклад/материал, не инструмент |
-| **Selectel «домен за рубль»** ([slc.tl](https://slc.tl/fuhsm)) | Платное промо хостера (перенос/продление домена ₽1 до 30.06, бесплатный DNS+SSL). Альтернатива нашему бесплатному [FreeDomain](#infrastructure) для prototype-доменов |
 | **Opus 4.8 jailbreak** ([новость](https://claude.com/)) | Red-team **reference** (не инструмент): Opus 4.7 сломал 4.8 атакой «продолжи обрывки глав учебника» → выдача запрещённого контента. Тест-кейс устойчивости к textbook-continuation jailbreak для Eclipse AI Hub Security / Hopson Sentinel |
 | **«Вайб-кодинг» подборка** ([YouTube](https://youtu.be/QkyTCTH2kWY)) | Reference. Motion-graphics starter (Remotion-style: 195 анимационных паттернов, kinetic typography + dashboard, 5 Claude-промптов для `.tsx`) через гейтед-док. Полезно для UI-роликов; верифицируемый легит-аналог уже листан — [transitions.dev](#media--content) |
 

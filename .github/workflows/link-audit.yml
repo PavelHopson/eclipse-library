@@ -1,0 +1,29 @@
+name: Audit catalog links
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '17 4 * * 1'
+
+permissions:
+  contents: read
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-node@v6
+        with:
+          node-version: 24
+      - name: Check redirects, availability and duplicate targets
+        run: node scripts/check-links.mjs --network
+      - name: Upload detailed report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: eclipse-library-link-audit
+          path: .artifacts/link-check-report.json
+          if-no-files-found: error
+          retention-days: 14

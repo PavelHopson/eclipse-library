@@ -1,6 +1,6 @@
 # Eclipse Library Roadmap
 
-Последнее обновление: **25.07.2026**
+Последнее обновление: **27.07.2026**
 
 ## Текущее состояние
 
@@ -20,7 +20,8 @@
 
 - [x] Восстановить deploy на VPS: повторный run 24.07.2026 прошёл SSH setup и rsync.
 - [ ] Убрать `StrictHostKeyChecking=no` и pin host key через secret/known_hosts.
-- [ ] Добавить link checker в CI с allowlist для rate-limited/JS-only сайтов.
+- [x] Добавить scheduled link checker с redirect resolution, retry и честным разделением
+      `broken` / `unavailable` / `unknown` / rate-limited сайтов.
 
 ### P1
 
@@ -35,11 +36,28 @@
 ### P2
 
 - [x] Стабильные deep links на каждую запись.
-- [ ] Freshness review: помечать archived/stale/dead-link ресурсы и изменившиеся лицензии.
+- [ ] Частично: freshness review — UI уже различает недавно проверенные карточки и
+      записи без даты; archived/stale/dead-link metadata ещё нужно переносить из audit report.
 - [ ] Автоматический GitHub metadata refresh без доверия к stars как quality score.
-- [ ] Отдельные landing routes для skills, MCP, models, prompts, courses и security.
+- [x] Отдельные landing routes для skills, MCP, models, prompts, courses и security.
 
 ## Changelog
+
+### 2026-07-27
+
+- Добавлены стабильные тематические routes `#browse/skills`, `mcp`, `models`,
+  `prompts`, `security` и `courses` с коротким объяснением назначения и автоматическим
+  применением нужной выборки.
+- Добавлен фильтр актуальности: «Проверено недавно», «Нужно перепроверить» и
+  «Без даты проверки»; состояние также видно в подробной карточке.
+- Добавлен weekly/manual link audit для 480 canonical URL: HEAD/GET fallback,
+  retry с меньшей параллельностью, redirect-target duplicates, GitHub repo/title
+  identity report, rate-limit allowlist и JSON artifact на 14 дней.
+- Удалены redirect-дубликат старого `Awesome ChatGPT Prompts` и просроченная реклама
+  Selectel; OpenClaw Foundry обновлён на canonical `unbrowse-ai/foundry` с явным
+  безопасным запуском `--no-install`.
+- Desktop/mobile QA: topic routes, combined freshness filters, reset, detail reader,
+  focus management и отсутствие horizontal overflow проверены в браузере.
 
 ### 2026-07-25
 

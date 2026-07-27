@@ -26,3 +26,5 @@ jobs:
         run: node --check web/app.js
       - name: Validate structured catalog
         run: node scripts/validate-catalog.mjs
+      - name: Audit catalog identity offline
+        run: node scripts/check-links.mjs

@@ -1,0 +1,7 @@
+{
+  "skipDomains": [
+    "localhost",
+    "127.0.0.1"
+  ],
+  "acceptedStatuses": [401, 403, 405, 418, 429]
+}
