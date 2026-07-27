@@ -45,6 +45,15 @@
 
 ### 2026-07-27
 
+- Weekly link audit теперь является release gate: подтверждённые HTTP 4xx и переходы на
+  private/link-local/reserved destinations завершают job с ошибкой; временные 5xx,
+  rate limits и network unknown остаются диагностикой. Добавлены regression cases для
+  IPv4/IPv6 destination guard.
+- Все используемые `actions/checkout`, `actions/setup-node` и `actions/upload-artifact`
+  закреплены по immutable commit SHA с сохранением версии в комментарии.
+- Открытый риск deploy не скрыт: `StrictHostKeyChecking=no` можно убрать только после
+  добавления проверенного VPS host key/fingerprint в GitHub secret.
+
 - Добавлены стабильные тематические routes `#browse/skills`, `mcp`, `models`,
   `prompts`, `security` и `courses` с коротким объяснением назначения и автоматическим
   применением нужной выборки.

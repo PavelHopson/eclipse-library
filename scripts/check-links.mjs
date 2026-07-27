@@ -74,15 +74,42 @@ function isPrivateAddress(value) {
   if (isIP(address) === 4) {
     const [a, b] = address.split('.').map(Number);
     return a === 0 || a === 10 || a === 127 || (a === 169 && b === 254) ||
-      (a === 172 && b >= 16 && b <= 31) || (a === 192 && b === 168) || a >= 224;
+      (a === 100 && b >= 64 && b <= 127) || (a === 172 && b >= 16 && b <= 31) ||
+      (a === 192 && (b === 0 || b === 168)) || (a === 198 && (b === 18 || b === 19)) ||
+      a >= 224;
   }
   if (isIP(address) === 6) {
     return address === '::' || address === '::1' || address.startsWith('fc') ||
       address.startsWith('fd') || address.startsWith('fe8') || address.startsWith('fe9') ||
-      address.startsWith('fea') || address.startsWith('feb');
+      address.startsWith('fea') || address.startsWith('feb') || address.startsWith('ff');
   }
   return true;
 }
+
+function assertAddressSafetyRules() {
+  const cases = [
+    ['127.0.0.1', true],
+    ['10.0.0.1', true],
+    ['169.254.169.254', true],
+    ['100.100.100.200', true],
+    ['172.16.0.1', true],
+    ['192.168.1.1', true],
+    ['::1', true],
+    ['fc00::1', true],
+    ['fe80::1', true],
+    ['ff02::1', true],
+    ['1.1.1.1', false],
+    ['8.8.8.8', false],
+    ['2606:4700:4700::1111', false],
+  ];
+  cases.forEach(([address, expected]) => {
+    if (isPrivateAddress(address) !== expected) {
+      throw new Error(`address safety regression for ${address}`);
+    }
+  });
+}
+
+assertAddressSafetyRules();
 
 async function assertPublicDestination(value) {
   const url = new URL(value);
@@ -231,3 +258,7 @@ const summary = [
 if (process.env.GITHUB_STEP_SUMMARY) await appendFile(process.env.GITHUB_STEP_SUMMARY, summary, 'utf8');
 console.log(summary);
 if (!extracted.length) process.exitCode = 1;
+if (networkEnabled && (report.totals.broken > 0 || report.totals.blocked > 0)) {
+  console.error(`Link audit gate failed: ${report.totals.broken} broken and ${report.totals.blocked} blocked unsafe destination(s).`);
+  process.exitCode = 1;
+}
