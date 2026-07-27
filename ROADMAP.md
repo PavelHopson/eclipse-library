@@ -72,6 +72,10 @@
 - Локальный browser QA пройден на 1440×900 и 390×844: direct link, related cards, compare action,
   mobile horizontal scroll и отсутствие page overflow; console warnings/errors отсутствуют.
   XSS-focused security pass не выявил новых уязвимых sinks или утечек секретов.
+- Commit `3bb0233` отправлен в `origin/master`; CI
+  [#30294357154](https://github.com/PavelHopson/eclipse-library/actions/runs/30294357154) и production deploy
+  [#30294356925](https://github.com/PavelHopson/eclipse-library/actions/runs/30294356925) завершены успешно.
+  Live QA подтвердил `app.js?v=16`, Ollama deep link, три related cards и отсутствие overflow на 390×844.
 - Stage 5 interaction завершён: стартовая панель объединяет избранное и до 8 последних просмотров,
   история хранится только в `localStorage` и очищается одним действием. Сравнение поддерживает 2–3
   материала, доступно из карточек и detail view и показывает 9 практических критериев без скрытого score.
