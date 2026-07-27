@@ -61,6 +61,10 @@
   Browser QA пройден на 1440×900 и 390×844: 18 project cards, поиск проектов, 36→72 результатов,
   отсутствие horizontal overflow. Сетевая проверка нашла и позволила исправить ошибочный repository URL
   главного лендинга; фактический remote подтверждён через `git ls-remote`.
+- Commit `9a0e9c9` отправлен в `origin/master`; CI
+  [#30286323277](https://github.com/PavelHopson/eclipse-library/actions/runs/30286323277) и production deploy
+  [#30286322878](https://github.com/PavelHopson/eclipse-library/actions/runs/30286322878) завершены успешно.
+  Live QA подтвердил 18 проектов, 36 из 499 стартовых resource cards и отсутствие horizontal overflow на 390×844.
 
 - Weekly link audit теперь публикует минимальный `web/link-health.json`, а сайт показывает
   доступность источника на каждой карточке и дату проверки. Trust и link health разведены явно;
