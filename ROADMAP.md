@@ -13,7 +13,7 @@
   показывается отдельно от редакторского доверия и не считается security endorsement.
 - Deploy: GitHub Actions → VPS/Caddy из ветки `master`.
 - Production синхронизирован с `master`: deploy
-  [#30293358121](https://github.com/PavelHopson/eclipse-library/actions/runs/30293358121)
+  [#30296773866](https://github.com/PavelHopson/eclipse-library/actions/runs/30296773866)
   от 27.07.2026 успешно завершён через VPS/Caddy.
 
 ## Приоритеты
@@ -80,6 +80,11 @@
 - Live QA выявил и устранил нерелевантную cross-topic рекомендацию: для подробной MCP-карточки
   related materials теперь сначала выбираются по MCP-названию, а не по случайному упоминанию MCP
   в security-тексте; записи с решением «Не использовать» исключены из рекомендаций.
+- Commits `5f902a0`, `00fc0d4` и `c63a550` отправлены в `origin/master`; финальные CI
+  [#30296774021](https://github.com/PavelHopson/eclipse-library/actions/runs/30296774021) и production deploy
+  [#30296773866](https://github.com/PavelHopson/eclipse-library/actions/runs/30296773866) завершены успешно.
+  Production QA подтвердил 509 карточек, 33 MCP-материала, `app.js?v=20`, тематические related cards
+  и отсутствие horizontal overflow на desktop и 390×844; browser console без warnings/errors.
 - Stage 7 discovery завершён: Security Guidance, NVIDIA Skills, SkillSpector, AgentShield и
   Anthropic Cybersecurity Skills получили подробные карточки с provenance, условиями, ограничениями,
   safe start и применимостью. Structured details выросли с 46 до 51 без новых URL-дублей.
