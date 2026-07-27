@@ -218,6 +218,51 @@
       "audience": ["администраторы", "небольшие команды"],
       "tech": ["WireGuard", "Telegram Bot", "automation"],
       "repoUrl": "https://github.com/PavelHopson/wireguard-telegram-bot"
+    },
+    {
+      "id": "eclipse-chat",
+      "name": "Eclipse Chat",
+      "kind": "Продукт",
+      "status": "live",
+      "summary": "Self-hosted пространство для командного общения с каналами, звонками, задачами и встроенными AI-участниками.",
+      "problem": "Даёт команде контроль над коммуникацией и рабочими данными без зависимости от закрытой облачной платформы.",
+      "audience": ["продуктовые команды", "небольшие компании", "self-hosted пользователи"],
+      "tech": ["React", "Node.js", "PostgreSQL"],
+      "repoUrl": "https://github.com/PavelHopson/eclipse-chat",
+      "featured": true
+    },
+    {
+      "id": "eclipse-dnd-forge",
+      "name": "Eclipse DnD Forge",
+      "kind": "AI-система",
+      "status": "active",
+      "summary": "AI-помощник ведущего настольной RPG: хранит мир, персонажей, события, квесты и историю кампании.",
+      "problem": "Снижает ручную нагрузку на ведущего и помогает не терять связи между событиями длинной кампании.",
+      "audience": ["ведущие D&D", "игровые группы", "создатели миров"],
+      "tech": ["AI", "world state", "timeline"],
+      "repoUrl": "https://github.com/PavelHopson/eclipse-dnd-forge"
+    },
+    {
+      "id": "ai-setup",
+      "name": "ai-setup",
+      "kind": "Инструмент",
+      "status": "active",
+      "summary": "CLI для быстрого создания и восстановления конфигурации AI-инструментов в проектах.",
+      "problem": "Убирает повторяющуюся ручную настройку AI-окружения и делает конфигурацию воспроизводимой.",
+      "audience": ["разработчики", "команды с несколькими AI-инструментами"],
+      "tech": ["CLI", "Node.js", "configuration"],
+      "repoUrl": "https://github.com/PavelHopson/ai-setup"
+    },
+    {
+      "id": "oh-my-claudecode",
+      "name": "oh-my-claudecode",
+      "kind": "Инструмент",
+      "status": "active",
+      "summary": "Оркестрационный слой для Claude Code: роли, workflows и повторяемые сценарии разработки.",
+      "problem": "Помогает вести длинные инженерные задачи последовательно и не собирать рабочий процесс заново для каждого репозитория.",
+      "audience": ["AI-assisted разработчики", "технические команды"],
+      "tech": ["Claude Code", "agents", "workflows"],
+      "repoUrl": "https://github.com/PavelHopson/oh-my-claudecode"
     }
   ]
 }

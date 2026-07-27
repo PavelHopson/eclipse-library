@@ -65,6 +65,9 @@
   [#30286323277](https://github.com/PavelHopson/eclipse-library/actions/runs/30286323277) и production deploy
   [#30286322878](https://github.com/PavelHopson/eclipse-library/actions/runs/30286322878) завершены успешно.
   Live QA подтвердил 18 проектов, 36 из 499 стартовых resource cards и отсутствие horizontal overflow на 390×844.
+- Каталог проектов расширен с 18 до 22 записей: добавлены Eclipse Chat, Eclipse DnD Forge,
+  ai-setup и oh-my-claudecode. Обратная ссылка на Library добавляется в header, mobile menu и footer
+  главного Eclipse Forge landing, чтобы переход между витриной и базой знаний работал в обе стороны.
 
 - Weekly link audit теперь публикует минимальный `web/link-health.json`, а сайт показывает
   доступность источника на каждой карточке и дату проверки. Trust и link health разведены явно;
