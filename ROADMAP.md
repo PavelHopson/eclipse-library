@@ -45,6 +45,11 @@
 
 ### 2026-07-27
 
+- Структурированный слой расширен с 26 до 32 карточек: простым языком описаны Vane,
+  Crawl4AI, Hermes Agent, Understand-Anything, MinerU и privacy.sexy, включая безопасный
+  старт, цену, лицензию, ограничения и применимость к проектам Eclipse Forge.
+- Старая запись Perplexica обновлена до актуального имени Vane и canonical repository;
+  redirect не превращён в отдельный дубликат.
 - Weekly link audit теперь является release gate: подтверждённые HTTP 4xx и переходы на
   private/link-local/reserved destinations завершают job с ошибкой; временные 5xx,
   rate limits и network unknown остаются диагностикой. Добавлены regression cases для

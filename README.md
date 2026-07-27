@@ -131,7 +131,7 @@
 
 | Проект | Описание | Звёзды |
 |--------|----------|--------|
-| [Perplexica](https://github.com/ItzCrazyKns/Perplexica) | Self-hosted клон Perplexity — AI-поиск с источниками и фактчекингом, Ollama / OpenAI / Anthropic, загрузка файлов/видео/аудио, полная приватность | [![Stars](https://img.shields.io/github/stars/ItzCrazyKns/Perplexica?style=flat)](https://github.com/ItzCrazyKns/Perplexica) |
+| [Vane (ранее Perplexica)](https://github.com/ItzCrazyKns/Vane) | Self-hosted answer engine с поиском и ссылками на источники. Подключает локальные или облачные модели и SearXNG; приватность зависит от выбранных providers и конфигурации, а не гарантируется самим названием self-hosted | [![Stars](https://img.shields.io/github/stars/ItzCrazyKns/Vane?style=flat)](https://github.com/ItzCrazyKns/Vane) |
 | [Open Researcher](https://github.com/firecrawl/open-researcher) | AI-исследователь от FireCrawl — парсинг всего (фото/видео/статьи/соцсети), анализ, отчёт с источниками, экран раздумий | [![Stars](https://img.shields.io/github/stars/firecrawl/open-researcher?style=flat)](https://github.com/firecrawl/open-researcher) |
 | [Sci-Bot](https://sci-bot.ru/) | Научный AI-ассистент поверх Sci-Hub — 85М исследований, цитаты со ссылками. **Грей-зона:** для академического ресёрча, не для коммерческой репликации | — |
 
