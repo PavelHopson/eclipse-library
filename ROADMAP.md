@@ -32,6 +32,8 @@
 - [x] Stage 2 — упростить discovery controls: объединить 13 внутренних типов в 7 пользовательских
       групп, свести лицензии к понятным категориям, скрыть advanced filters до запроса и показать
       сценарий применения прямо на карточке.
+- [x] Stage 3 — добавить понятный порядок выдачи: исходная структура каталога, редакторская
+      рекомендация, доверие, свежесть проверки и название; расширить следующую группу cloud AI API.
 
 - [ ] Частично: перевести все записи из неструктурированных Markdown-описаний в schema с полями:
       `type`, `category`, `platform`, `license`, `trust`, `risk`, `projects`, `verifiedAt`.
@@ -53,6 +55,18 @@
 ## Changelog
 
 ### 2026-07-27
+
+- Stage 3 discovery завершён: пользователь может глобально упорядочить результаты по редакторской
+  рекомендации, доверию, свежести проверки или названию и в любой момент вернуть структуру каталога.
+  Сортировка работает вместе с поиском, фильтрами и progressive results по 36 карточек.
+- Подробный слой расширен с 36 до 41 карточки: Cerebras Inference, Mistral La Plateforme, Cohere,
+  Cloudflare Workers AI и Hugging Face Inference Providers получили простые описания, use cases,
+  условия, privacy boundaries, безопасный quick start и mapping на проекты Eclipse Forge.
+- Удалены устаревшие обещания «без карты», фиксированных RPM и безусловно бесплатного inference:
+  формулировки сверены с официальными pricing/limits docs по состоянию на 27.07.2026.
+- Local desktop/mobile browser QA: global sorting, deep link Cohere, 36-result pagination,
+  0 horizontal overflow на 390×844 и отсутствие console errors. Security review не нашёл
+  Critical/High/Medium/Low findings в изменённой поверхности; секреты и исполняемый сторонний код не добавлялись.
 
 - Stage 2 discovery завершён: 13 технических типов сведены к 7 сценариям, а десятки точных
   формулировок лицензии — к группам «Open-source», «Условия сервиса» и «Лицензия неясна».

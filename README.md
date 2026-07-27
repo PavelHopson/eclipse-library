@@ -85,13 +85,13 @@
 | [Google AI Studio · Gemini](https://aistudio.google.com/apikey) | Простой способ получить Gemini API key и проверить модель в браузерном playground. Есть бесплатный tier, но доступность моделей и квоты зависят от региона, аккаунта и выбранной модели — перед интеграцией смотрите текущие limits в AI Studio | — |
 | [Groq](https://console.groq.com/keys) | Облачный API с низкой задержкой для открытых моделей. Есть ограниченный free plan; точные RPM/RPD/TPM зависят от модели и организации и видны на странице Limits | — |
 | [OpenRouter](https://openrouter.ai/keys) | Один OpenAI-compatible API для разных model providers и fallback-маршрутов. Есть free-модели с низкими лимитами; перед отправкой данных настройте provider routing и privacy policy | — |
-| [Cerebras](https://cloud.cerebras.ai/) | Без карты, очень быстрый инференс крупных опен-моделей, ~30 запросов/мин | — |
+| [Cerebras](https://cloud.cerebras.ai/) | Быстрый облачный inference API для открытых моделей. Есть free tier, но фактические RPM/TPM/RPD зависят от модели и аккаунта — смотрите страницу Limits перед использованием | — |
 | [GitHub Models](https://github.com/marketplace/models) | Каталог моделей и API для прототипов внутри GitHub. Аккаунт получает ограниченную бесплатную квоту; paid usage включается отдельно, а лимиты зависят от модели и плана | — |
-| [Mistral · La Plateforme](https://console.mistral.ai/) | Бесплатный экспериментальный тир без карты; сильные код-модели, контекст до 256K | — |
-| [Cohere](https://dashboard.cohere.com/api-keys) | Бесплатные trial-ключи (rate-limited) — Command / Embed / Rerank | — |
-| [Cloudflare Workers AI](https://dash.cloudflare.com/) | Бесплатная дневная квота на инференс, OpenAI-совместимый эндпоинт | — |
+| [Mistral · La Plateforme](https://console.mistral.ai/) | API для text, code, OCR, audio и embeddings. Free mode подходит для экспериментов; модели, контекст и rate limits зависят от текущего плана | — |
+| [Cohere](https://dashboard.cohere.com/api-keys) | Trial API для Command, Embed и Rerank. Обычно до 1 000 вызовов в месяц, а минутный лимит зависит от endpoint | — |
+| [Cloudflare Workers AI](https://dash.cloudflare.com/) | Serverless inference на инфраструктуре Cloudflare. Free allocation — 10 000 Neurons в день; расход зависит от модели и задачи | — |
 | [NVIDIA Build (95 моделей)](https://build.nvidia.com/models) | Бесплатные API: Qwen, GLM, DeepSeek, Kimi, Gemma, Mistral, Nemotron (проверять условия) | — |
-| [HuggingFace Inference](https://huggingface.co/settings/tokens) | Бесплатный rate-limited инференс тысяч моделей по токену | — |
+| [HuggingFace Inference](https://huggingface.co/settings/tokens) | Единый token и API для моделей разных inference providers. Free-аккаунт получает небольшие ежемесячные credits; дальше используется pay-as-you-go | — |
 
 > **Без ключа вообще — локально, бесплатно, без лимитов:** [Ollama](https://ollama.com) · [LM Studio](https://lmstudio.ai) · [Jan](https://jan.ai) · [GPT4All](https://gpt4all.io) (текст) · [ComfyUI](https://github.com/comfyanonymous/ComfyUI) (картинки, Stable Diffusion). Работают на твоём ПК — ключи не нужны. Жонглировать своими ключами автоматически → [freellmapi](#llm-роутинг-и-оптимизация) ниже.
 

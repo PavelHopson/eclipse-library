@@ -15,7 +15,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Unbounded:wght@500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css?v=11" />
+  <link rel="stylesheet" href="styles.css?v=12" />
 </head>
 <body>
   <a class="skip" href="#results">Перейти к каталогу</a>
@@ -119,6 +119,15 @@
           <span id="resultcount" class="result-count" aria-live="polite"></span>
         </div>
         <div id="typeFilters" class="type-filters" role="toolbar" aria-label="Фильтр по типу"></div>
+        <label class="catalog-sort">Показывать сначала
+          <select id="sortFilter" aria-label="Порядок материалов">
+            <option value="catalog">Как в каталоге</option>
+            <option value="recommended">Рекомендуемое</option>
+            <option value="trust">Самое надёжное</option>
+            <option value="freshness">Недавно проверенное</option>
+            <option value="title">По названию</option>
+          </select>
+        </label>
         <details id="advancedFilters" class="advanced-filters">
           <summary>Дополнительные фильтры <span id="advancedFilterCount">платформа, лицензия, доверие и проект</span></summary>
           <div class="filter-selects">
@@ -154,6 +163,9 @@
 
       <div id="status" class="status">Загружаю библиотеку…</div>
       <div id="results"></div>
+      <div id="sortedResults" class="sorted-results" hidden>
+        <div id="sortedGrid" class="grid"></div>
+      </div>
       <div id="loadMoreWrap" class="load-more-wrap" hidden>
         <button id="loadMore" class="load-more" type="button"></button>
       </div>
@@ -193,6 +205,6 @@
     <a href="https://eclipse-forge.ru/" target="_blank" rel="noopener">Eclipse Forge</a> · обновляется по мере находок · данные из <a href="https://github.com/PavelHopson/eclipse-library" target="_blank" rel="noopener">README</a>
   </footer>
 
-  <script src="app.js?v=12"></script>
+  <script src="app.js?v=13"></script>
 </body>
 </html>

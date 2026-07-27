@@ -6,7 +6,7 @@
   const REPO = 'PavelHopson/eclipse-library';
   const RAW = `https://raw.githubusercontent.com/${REPO}/master/README.md`;
   const REPO_URL = `https://github.com/${REPO}`;
-  const DETAILS_URL = 'catalog-details.json?v=2';
+  const DETAILS_URL = 'catalog-details.json?v=3';
   const LINK_HEALTH_URL = 'link-health.json?v=1';
   const PROJECTS_URL = 'projects.json?v=1';
   const PAGE_SIZE = 36;
@@ -392,7 +392,7 @@
   }
 
   // ---- render ----
-  const cards = []; // {node, text, type, sub, cat}
+  const cards = []; // {node, text, type, sub, cat, grid, order}
   let allCats = [];
   function render(cats) {
     allCats = cats;
@@ -482,6 +482,8 @@
           cards.push({
             node: card,
             resource: r,
+            grid,
+            order: cards.length,
             type: r.type,
             platforms: r.platforms,
             license: r.license,
@@ -594,7 +596,7 @@
   const stat = (n, l) => `<div class="stat"><b>${n}</b><span>${l}</span></div>`;
 
   // ---- filters (type + platform + license + trust + project + search) ----
-  let activeType = null, activePlatform = '', activeLicense = '', activeTrust = '', activeProject = '', activeFreshness = '', activeTopic = '';
+  let activeType = null, activePlatform = '', activeLicense = '', activeTrust = '', activeProject = '', activeFreshness = '', activeTopic = '', activeSort = 'catalog';
   let query = '', navQuery = '', visibleLimit = PAGE_SIZE;
   function buildFilters(typeCounts) {
     const bar = $('#filters');
@@ -619,6 +621,7 @@
     $('#trustFilter').addEventListener('change', (e) => { activeTrust = e.target.value; applyFilters(); });
     $('#projectFilter').addEventListener('change', (e) => { activeProject = e.target.value; applyFilters(); });
     $('#freshnessFilter').addEventListener('change', (e) => { activeFreshness = e.target.value; applyFilters(); });
+    $('#sortFilter').addEventListener('change', (e) => { activeSort = e.target.value; applyFilters(); });
     bar.hidden = false;
     $('#resultcount').textContent = `${cards.length} материалов`;
   }
@@ -672,6 +675,7 @@
     activeTrust = '';
     activeProject = '';
     activeFreshness = '';
+    activeSort = 'catalog';
     clearTopicRoute();
     query = '';
     if (search) search.value = '';
@@ -680,6 +684,7 @@
     $('#trustFilter').value = '';
     $('#projectFilter').value = '';
     $('#freshnessFilter').value = '';
+    $('#sortFilter').value = 'catalog';
     updateChipState();
     applyFilters();
     if (opts.focus && search) search.focus();
@@ -688,9 +693,7 @@
   function applyFilters(resetPage = true) {
     if (resetPage) visibleLimit = PAGE_SIZE;
     const q = query.trim().toLowerCase();
-    let matched = 0;
-    cards.forEach((c) => {
-      const show =
+    const matching = cards.filter((c) =>
         (!q || c.text.includes(q)) &&
         (!activeType || TYPE_GROUPS[activeType]?.types.includes(c.type)) &&
         (!activePlatform || c.platforms.includes(activePlatform)) &&
@@ -698,13 +701,21 @@
         (!activeTrust || c.trust === activeTrust) &&
         (!activeProject || c.projects.includes(activeProject)) &&
         (!activeFreshness || c.freshness === activeFreshness) &&
-        (!activeTopic || TOPIC_ROUTES[activeTopic]?.match(c));
-      if (show) matched++;
-      c.node.hidden = !(show && matched <= visibleLimit);
-    });
+        (!activeTopic || TOPIC_ROUTES[activeTopic]?.match(c))
+    ).sort(sortCards);
+    const visible = new Set(matching.slice(0, visibleLimit));
+    cards.sort((a, b) => a.order - b.order).forEach((c) => c.grid.appendChild(c.node));
+    cards.forEach((c) => { c.node.hidden = !visible.has(c); });
+    const sortedMode = activeSort !== 'catalog';
+    const sortedResults = $('#sortedResults');
+    const sortedGrid = $('#sortedGrid');
+    if (sortedMode) matching.slice(0, visibleLimit).forEach((c) => sortedGrid.appendChild(c.node));
+    $('#results').hidden = sortedMode;
+    sortedResults.hidden = !sortedMode;
+    const matched = matching.length;
     document.querySelectorAll('.sub').forEach((s) => { s.hidden = !s.querySelector('.card:not([hidden])'); });
     document.querySelectorAll('.cat').forEach((s) => { s.hidden = !s.querySelector('.card:not([hidden])'); });
-    updateNavVisibility();
+    if (!sortedMode) updateNavVisibility();
     const filtering = !!(q || activeType || activePlatform || activeLicense || activeTrust || activeProject || activeFreshness || activeTopic);
     $('#hero').classList.toggle('dim', filtering);
     const shown = Math.min(matched, visibleLimit);
@@ -716,7 +727,7 @@
       loadMore.textContent = `Показать ещё ${Math.min(PAGE_SIZE, matched - shown)} · осталось ${matched - shown}`;
     }
     const reset = $('#filterReset');
-    if (reset) reset.hidden = !filtering;
+    if (reset) reset.hidden = !(filtering || activeSort !== 'catalog');
     const advancedCount = [activePlatform, activeLicense, activeTrust, activeProject, activeFreshness].filter(Boolean).length;
     const advancedLabel = $('#advancedFilterCount');
     if (advancedLabel) advancedLabel.textContent = advancedCount ? `выбрано: ${advancedCount}` : 'платформа, лицензия, доверие и проект';
@@ -726,6 +737,19 @@
     empty.hidden = !(filtering && matched === 0);
     if (!empty.hidden) $('#emptyQ').textContent = q || TOPIC_ROUTES[activeTopic]?.title || activeProject || activePlatform || (LICENSE_GROUPS[activeLicense] || '') || (FRESHNESS[activeFreshness] || '') || (TRUST[activeTrust] || '') || (TYPE_GROUPS[activeType]?.label || '');
     entryReveal();
+  }
+
+  function sortCards(a, b) {
+    if (activeSort === 'catalog') return a.order - b.order;
+    if (activeSort === 'title') return a.resource.title.localeCompare(b.resource.title, 'ru');
+    const trustRank = { official: 5, verified: 4, community: 3, unknown: 2, caution: 1 };
+    const decisionRank = { now: 4, roadmap: 3, reference: 2, no: 0 };
+    const dateA = Date.parse(a.resource.verifiedAt || '') || 0;
+    const dateB = Date.parse(b.resource.verifiedAt || '') || 0;
+    if (activeSort === 'trust') return (trustRank[b.trust] || 0) - (trustRank[a.trust] || 0) || dateB - dateA || a.order - b.order;
+    if (activeSort === 'freshness') return dateB - dateA || (trustRank[b.trust] || 0) - (trustRank[a.trust] || 0) || a.order - b.order;
+    const score = (card) => (card.resource.detail ? 30 : 0) + (decisionRank[card.resource.decision] || 0) * 8 + (trustRank[card.trust] || 0) * 4 + (card.freshness === 'fresh' ? 8 : 0) - (card.resource.riskLevel === 'high' ? 8 : 0);
+    return score(b) - score(a) || dateB - dateA || a.order - b.order;
   }
 
   function renderProjects() {
@@ -779,7 +803,8 @@
     $('#hero').hidden = projectMode;
     $('#topicContext').hidden = projectMode || !activeTopic;
     $('#filters').hidden = projectMode;
-    $('#results').hidden = projectMode;
+    $('#results').hidden = projectMode || activeSort !== 'catalog';
+    $('#sortedResults').hidden = projectMode || activeSort === 'catalog';
     $('#loadMoreWrap').hidden = projectMode || Math.min(cards.length, visibleLimit) >= cards.length;
     $('#empty').hidden = true;
     document.querySelectorAll('[data-view-link]').forEach((link) => link.classList.toggle('active', link.dataset.viewLink === currentView));
@@ -859,13 +884,13 @@
   // ---- spotlight hover (cursor-follow glow) ----
   function spotlight() {
     let raf = 0, ev = null;
-    $('#results').addEventListener('pointermove', (e) => {
+    [$('#results'), $('#sortedResults')].forEach((container) => container.addEventListener('pointermove', (e) => {
       ev = e; if (raf) return;
       raf = requestAnimationFrame(() => {
         raf = 0; const card = ev.target.closest && ev.target.closest('.card');
         if (card) { const r = card.getBoundingClientRect(); card.style.setProperty('--mx', (ev.clientX - r.left) + 'px'); card.style.setProperty('--my', (ev.clientY - r.top) + 'px'); }
       });
-    }, { passive: true });
+    }, { passive: true }));
   }
 
   // ---- courses & guides feature band (auto-discovered from README guide links) ----
