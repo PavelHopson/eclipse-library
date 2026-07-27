@@ -13,7 +13,7 @@
   показывается отдельно от редакторского доверия и не считается security endorsement.
 - Deploy: GitHub Actions → VPS/Caddy из ветки `master`.
 - Production синхронизирован с `master`: deploy
-  [#30291057165](https://github.com/PavelHopson/eclipse-library/actions/runs/30291057165)
+  [#30293358121](https://github.com/PavelHopson/eclipse-library/actions/runs/30293358121)
   от 27.07.2026 успешно завершён через VPS/Caddy.
 
 ## Приоритеты
@@ -70,6 +70,10 @@
 - Security review изменённой поверхности не выявил Critical/High/Medium/Low findings: значения каталога
   в новых `innerHTML`-шаблонах проходят context-appropriate escaping, URL истории допускают только
   `http(s)` и сопоставляются с существующими карточками; секреты, telemetry и сторонние зависимости не добавлены.
+- Commit `4e42176` отправлен в `origin/master`; CI
+  [#30293358447](https://github.com/PavelHopson/eclipse-library/actions/runs/30293358447) и deploy
+  [#30293358121](https://github.com/PavelHopson/eclipse-library/actions/runs/30293358121) завершены успешно.
+  Production отдаёт `app.js?v=15` / `styles.css?v=14` и новый compare/personal markup.
 
 - Stage 4 interaction завершён: каждая карточка получила доступную кнопку-закладку, а фильтры —
   отдельное «Избранное» со счётчиком. Выбор сохраняется только в `localStorage` текущего браузера,
