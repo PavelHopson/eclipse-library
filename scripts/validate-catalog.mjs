@@ -25,6 +25,7 @@ const requiredArrays = ['useCases', 'platforms', 'projects', 'risks'];
 const allowedTrust = new Set(['official', 'verified', 'community', 'caution', 'unknown']);
 const allowedDecisions = new Set(['now', 'roadmap', 'reference', 'no']);
 const allowedRisk = new Set(['low', 'medium', 'high']);
+const allowedType = new Set(['skill', 'agent', 'model', 'api', 'prompt', 'learn', 'media', 'privacy', 'ours', 'drop', 'grey', 'oss', 'tool', 'shop']);
 
 function canonicalUrl(value) {
   try {
@@ -66,6 +67,7 @@ if (!Array.isArray(details)) {
     if (!allowedTrust.has(item?.trust)) errors.push(`${label}: unsupported trust value "${item?.trust}".`);
     if (!allowedDecisions.has(item?.decision)) errors.push(`${label}: unsupported decision value "${item?.decision}".`);
     if (!allowedRisk.has(item?.riskLevel)) errors.push(`${label}: unsupported riskLevel "${item?.riskLevel}".`);
+    if (item?.type !== undefined && !allowedType.has(item.type)) errors.push(`${label}: unsupported type "${item?.type}".`);
     if (ids.has(item?.id)) errors.push(`${label}: duplicate id.`);
     ids.add(item?.id);
     const url = canonicalUrl(item?.url);

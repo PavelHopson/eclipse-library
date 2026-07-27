@@ -98,7 +98,17 @@
 | [NVIDIA Build (95 моделей)](https://build.nvidia.com/models) | Бесплатные API: Qwen, GLM, DeepSeek, Kimi, Gemma, Mistral, Nemotron (проверять условия) | — |
 | [HuggingFace Inference](https://huggingface.co/settings/tokens) | Единый token и API для моделей разных inference providers. Free-аккаунт получает небольшие ежемесячные credits; дальше используется pay-as-you-go | — |
 
-> **Без ключа вообще — локально, бесплатно, без лимитов:** [Ollama](https://ollama.com) · [LM Studio](https://lmstudio.ai) · [Jan](https://jan.ai) · [GPT4All](https://gpt4all.io) (текст) · [ComfyUI](https://github.com/comfyanonymous/ComfyUI) (картинки, Stable Diffusion). Работают на твоём ПК — ключи не нужны. Жонглировать своими ключами автоматически → [freellmapi](#llm-роутинг-и-оптимизация) ниже.
+> **Без обязательного внешнего API — локально на своём компьютере:** [Ollama](https://ollama.com) · [LM Studio](https://lmstudio.ai) · [Jan](https://jan.ai) · [GPT4All](https://gpt4all.io) (текст) · [ComfyUI](https://github.com/Comfy-Org/ComfyUI) (изображения и другие медиа). Ключ для локального режима обычно не нужен, но возможности ограничены RAM, VRAM и лицензией выбранной модели. Управлять своими облачными ключами → [freellmapi](#llm-роутинг-и-оптимизация) ниже.
+
+### Локальный AI без внешнего API
+
+| Ресурс | Описание | Звёзды |
+|--------|----------|--------|
+| [Ollama](https://ollama.com) | CLI и REST API для локального запуска языковых и мультимодальных моделей. Основной runtime-кандидат для Eclipse AI Hub и Hopson Sentinel; model license и требования к RAM/VRAM проверяются отдельно | [![Stars](https://img.shields.io/github/stars/ollama/ollama?style=flat)](https://github.com/ollama/ollama) |
+| [LM Studio](https://lmstudio.ai) | Проприетарное desktop-приложение с локальным чатом и OpenAI-compatible server. Удобно для ручного подбора модели; не использовать как встраиваемый SaaS-компонент без проверки App Terms | — |
+| [Jan](https://jan.ai) | Apache-2.0 desktop-клиент: локальные модели, assistants, OpenAI-compatible API и optional MCP/cloud integrations. Для приватного режима cloud providers и лишние MCP permissions должны оставаться выключенными | [![Stars](https://img.shields.io/github/stars/janhq/jan?style=flat)](https://github.com/janhq/jan) |
+| [GPT4All](https://gpt4all.io) | MIT desktop-клиент и Python bindings для локальных GGUF-моделей и LocalDocs. Полезен как CPU-friendly reference для offline RAG; лицензия конкретной модели проверяется отдельно | [![Stars](https://img.shields.io/github/stars/nomic-ai/gpt4all?style=flat)](https://github.com/nomic-ai/gpt4all) |
+| [ComfyUI](https://github.com/Comfy-Org/ComfyUI) | GPL-3.0 node-based движок и API для воспроизводимых image/video/audio workflows. Внедрять в Text2Image и Shotforge через pinned core; custom nodes считать непроверенным Python-кодом | [![Stars](https://img.shields.io/github/stars/Comfy-Org/ComfyUI?style=flat)](https://github.com/Comfy-Org/ComfyUI) |
 
 **Списки и агрегаторы:**
 

@@ -461,6 +461,7 @@
     const inferredTrust = r.risk ? 'caution' : (r.starsRepo ? 'community' : 'unknown');
     const inferredLicense = inferLicense(ctx);
     r.detail = detail;
+    r.type = detail?.type || r.type;
     r.id = detail?.id || slug(`${r.title}-${host}`) || `item-${Math.random().toString(36).slice(2, 9)}`;
     r.simpleDescription = detail?.simpleDescription || firstSentence(r.rawText) || 'Краткое описание пока не заполнено. Откройте источник и проверьте назначение перед использованием.';
     r.useCases = detail?.useCases || defaultUseCases(r.type);
@@ -1281,6 +1282,49 @@
     node.innerHTML = `<span class="health-summary-dot" aria-hidden="true"></span><span><b>${totals.ok || 0} ссылок работают.</b> ${attention} требуют внимания, ${totals.restricted || 0} отвечают с ограничением. Автопроверка: ${esc(formatAutomaticCheck(linkHealthSnapshot.checkedAt))}.</span>`;
   }
 
+  function relatedCardsFor(entry, limit = 3) {
+    const verified = cards.filter((candidate) => candidate !== entry && candidate.resource.detail);
+    const sameType = verified.filter((candidate) => candidate.type === entry.type);
+    const candidates = sameType.length >= limit ? sameType : verified;
+    return candidates
+      .map((candidate) => {
+        const sharedProjects = candidate.projects.filter((project) => entry.projects.includes(project));
+        const sharedPlatforms = candidate.platforms.filter((platform) => entry.platforms.includes(platform));
+        let score = sharedProjects.length * 4 + sharedPlatforms.length;
+        if (candidate.type === entry.type) score += 6;
+        if (candidate.cat === entry.cat) score += 5;
+        if (candidate.licenseGroup === entry.licenseGroup) score += 1;
+        if (candidate.resource.decision === 'now') score += 1;
+        const reason = sharedProjects.length
+          ? `Подходит для ${sharedProjects.slice(0, 2).join(' и ')}`
+          : candidate.type === entry.type
+            ? `Похожий тип: ${TYPES[candidate.type] || candidate.type}`
+            : candidate.cat === entry.cat
+              ? 'Из того же тематического раздела'
+              : `Общая платформа: ${sharedPlatforms[0] || candidate.platforms[0]}`;
+        return { candidate, score, reason };
+      })
+      .filter((item) => item.score > 0)
+      .sort((a, b) => b.score - a.score || a.candidate.order - b.candidate.order)
+      .slice(0, limit);
+  }
+
+  function renderRelatedItems(entry) {
+    const section = $('#relatedSection');
+    const grid = $('#relatedGrid');
+    if (!section || !grid) return;
+    const related = relatedCardsFor(entry);
+    section.hidden = related.length === 0;
+    grid.innerHTML = '';
+    related.forEach(({ candidate, reason }) => {
+      const r = candidate.resource;
+      const card = el('article', 'related-card');
+      card.innerHTML = `<span>${esc(reason)}</span><h3><a href="#item/${encodeURIComponent(r.id)}">${esc(r.title)} →</a></h3><p>${esc(r.simpleDescription)}</p><div class="related-meta"><b>${esc(TRUST[r.trust] || TRUST.unknown)}</b><small>${esc(DECISIONS[r.decision] || DECISIONS.reference)}</small></div><div class="related-actions"></div>`;
+      card.querySelector('.related-actions').appendChild(compareButton(r, true));
+      grid.appendChild(card);
+    });
+  }
+
   let itemReturnFocus = null;
   function openItem(id) {
     const entry = cards.find((card) => card.resource.id === id);
@@ -1322,11 +1366,13 @@
       `<section class="item-section item-risk-section"><h2>Что важно знать до запуска</h2>` +
         `<div class="risk-summary risk-${r.riskLevel}"><b>${esc(RISK[r.riskLevel] || RISK.medium)}</b><span>${esc(r.trustReason)}</span></div>` +
         `${itemList(r.risks)}</section>` +
+      `<section id="relatedSection" class="item-section related-section" hidden><div class="related-head"><div><span>Следующий шаг</span><h2>Похожие проверенные материалы</h2></div><p>Подобраны по общей задаче, платформе и проектам Eclipse.</p></div><div id="relatedGrid" class="related-grid"></div></section>` +
       `<details class="original-note"><summary>Показать исходное техническое описание</summary><p>${esc(plain(r.rawText))}</p></details>` +
       `<div class="item-cta">${sourceBlocked ? '<strong class="blocked-source">Источник скрыт: автоматическая проверка обнаружила небезопасное назначение.</strong>' : `<a href="${escAttr(r.url)}" target="_blank" rel="noopener">Открыть официальный источник ↗</a>`}` +
         `<span>${r.detail ? 'Карточка проверена и дополнена редактором Eclipse Library.' : 'Это базовая карточка. Перед внедрением нужна дополнительная проверка.'}</span></div>`;
     $('#itemActionSlot').appendChild(favoriteButton(r, true));
     $('#itemActionSlot').appendChild(compareButton(r, true));
+    renderRelatedItems(entry);
     updateFavoritesUI();
     updateCompareUI();
     view.hidden = false;
