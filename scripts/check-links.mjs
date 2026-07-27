@@ -72,10 +72,10 @@ function isPrivateAddress(value) {
   const address = value.toLowerCase().split('%')[0];
   if (address.startsWith('::ffff:')) return isPrivateAddress(address.slice(7));
   if (isIP(address) === 4) {
-    const [a, b] = address.split('.').map(Number);
+    const [a, b, c] = address.split('.').map(Number);
     return a === 0 || a === 10 || a === 127 || (a === 169 && b === 254) ||
       (a === 100 && b >= 64 && b <= 127) || (a === 172 && b >= 16 && b <= 31) ||
-      (a === 192 && (b === 0 || b === 168)) || (a === 198 && (b === 18 || b === 19)) ||
+      (a === 192 && ((b === 0 && c === 0) || b === 168)) || (a === 198 && (b === 18 || b === 19)) ||
       a >= 224;
   }
   if (isIP(address) === 6) {
@@ -100,6 +100,7 @@ function assertAddressSafetyRules() {
     ['ff02::1', true],
     ['1.1.1.1', false],
     ['8.8.8.8', false],
+    ['192.0.66.4', false],
     ['2606:4700:4700::1111', false],
   ];
   cases.forEach(([address, expected]) => {
