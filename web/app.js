@@ -1286,8 +1286,15 @@
 
   function relatedCardsFor(entry, limit = 3) {
     const verified = cards.filter((candidate) => candidate !== entry && candidate.resource.detail);
+    const sameMcpTopic = /\bmcp\b/i.test(entry.text)
+      ? verified.filter((candidate) => /\bmcp\b/i.test(candidate.text))
+      : [];
     const sameType = verified.filter((candidate) => candidate.type === entry.type);
-    const candidates = sameType.length >= limit ? sameType : verified;
+    const candidates = sameMcpTopic.length >= limit
+      ? sameMcpTopic
+      : sameType.length >= limit
+        ? sameType
+        : verified;
     return candidates
       .map((candidate) => {
         const sharedProjects = candidate.projects.filter((project) => entry.projects.includes(project));
