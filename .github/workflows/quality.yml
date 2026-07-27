@@ -26,6 +26,8 @@ jobs:
         run: node --check web/app.js
       - name: Validate structured catalog
         run: node scripts/validate-catalog.mjs
+      - name: Validate Eclipse Forge projects
+        run: node scripts/validate-projects.mjs
       - name: Validate published link health
         run: node scripts/validate-link-health.mjs
       - name: Audit catalog identity offline

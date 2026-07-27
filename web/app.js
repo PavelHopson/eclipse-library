@@ -8,6 +8,8 @@
   const REPO_URL = `https://github.com/${REPO}`;
   const DETAILS_URL = 'catalog-details.json?v=2';
   const LINK_HEALTH_URL = 'link-health.json?v=1';
+  const PROJECTS_URL = 'projects.json?v=1';
+  const PAGE_SIZE = 36;
   const DECISIONS = {
     now: 'Внедрить сейчас',
     roadmap: 'Добавить в roadmap',
@@ -53,6 +55,9 @@
   let linkHealthByUrl = new Map();
   let linkHealthSnapshot = null;
   let duplicateCount = 0;
+  let projects = [];
+  let projectStatus = '';
+  let currentView = 'catalog';
 
   const $ = (s, r = document) => r.querySelector(s);
   const el = (tag, cls, html) => { const n = document.createElement(tag); if (cls) n.className = cls; if (html != null) n.innerHTML = html; return n; };
@@ -483,12 +488,19 @@
 
   function renderSideNav(entries) {
     const nav = $('#nav');
+    const archive = entries.filter(({ cat }) => /подборка eclipse/i.test(cat.label));
+    const primaryEntries = entries.filter(({ cat }) => !/подборка eclipse/i.test(cat.label));
     const byGroup = new Map(NAV_GROUPS.map((g) => [g.id, []]));
-    entries.forEach((entry) => {
+    primaryEntries.forEach((entry) => {
       const gid = navGroupId(entry.cat.label);
       (byGroup.get(gid) || byGroup.get('other')).push(entry);
     });
     nav.innerHTML = '';
+    const projectsLink = el('a', 'nav-pinned');
+    projectsLink.href = '#projects';
+    projectsLink.dataset.navText = 'проекты eclipse forge';
+    projectsLink.innerHTML = `<span class="ico" aria-hidden="true">◆</span><span class="label">Проекты Eclipse Forge</span><span class="cnt">${projects.length}</span>`;
+    nav.appendChild(projectsLink);
     NAV_GROUPS.forEach((group) => {
       const items = byGroup.get(group.id) || [];
       if (!items.length) return;
@@ -499,6 +511,17 @@
       items.forEach(({ cat, cnt }) => wrap.appendChild(makeNavLink(cat, cnt)));
       nav.appendChild(wrap);
     });
+    if (archive.length) {
+      const latest = archive.at(-1);
+      const count = archive.reduce((sum, entry) => sum + entry.cnt, 0);
+      const wrap = el('div', 'nav-group nav-archive');
+      wrap.appendChild(el('div', 'nav-group-title', `<span>Архив подборок</span><i>${count}</i>`));
+      const link = makeNavLink(latest.cat, latest.cnt);
+      link.querySelector('.label').textContent = 'Свежая подборка';
+      link.dataset.navText += ' архив подборок';
+      wrap.appendChild(link);
+      nav.appendChild(wrap);
+    }
   }
 
   function makeNavLink(cat, cnt) {
@@ -542,7 +565,7 @@
 
   // ---- filters (type + platform + license + trust + project + search) ----
   let activeType = null, activePlatform = '', activeLicense = '', activeTrust = '', activeProject = '', activeFreshness = '', activeTopic = '';
-  let query = '', navQuery = '';
+  let query = '', navQuery = '', visibleLimit = PAGE_SIZE;
   function buildFilters(typeCounts) {
     const bar = $('#filters');
     const typeBar = $('#typeFilters');
@@ -630,9 +653,10 @@
     if (opts.focus && search) search.focus();
   }
 
-  function applyFilters() {
+  function applyFilters(resetPage = true) {
+    if (resetPage) visibleLimit = PAGE_SIZE;
     const q = query.trim().toLowerCase();
-    let visible = 0;
+    let matched = 0;
     cards.forEach((c) => {
       const show =
         (!q || c.text.includes(q)) &&
@@ -643,20 +667,87 @@
         (!activeProject || c.projects.includes(activeProject)) &&
         (!activeFreshness || c.freshness === activeFreshness) &&
         (!activeTopic || TOPIC_ROUTES[activeTopic]?.match(c));
-      c.node.hidden = !show; if (show) visible++;
+      if (show) matched++;
+      c.node.hidden = !(show && matched <= visibleLimit);
     });
     document.querySelectorAll('.sub').forEach((s) => { s.hidden = !s.querySelector('.card:not([hidden])'); });
     document.querySelectorAll('.cat').forEach((s) => { s.hidden = !s.querySelector('.card:not([hidden])'); });
     updateNavVisibility();
     const filtering = !!(q || activeType || activePlatform || activeLicense || activeTrust || activeProject || activeFreshness || activeTopic);
     $('#hero').classList.toggle('dim', filtering);
-    $('#resultcount').textContent = `${visible} ${visible === 1 ? 'материал' : 'материалов'}`;
+    const shown = Math.min(matched, visibleLimit);
+    $('#resultcount').textContent = shown < matched ? `${shown} из ${matched}` : `${matched} ${matched === 1 ? 'материал' : 'материалов'}`;
+    const loadMoreWrap = $('#loadMoreWrap');
+    const loadMore = $('#loadMore');
+    if (loadMoreWrap && loadMore) {
+      loadMoreWrap.hidden = shown >= matched;
+      loadMore.textContent = `Показать ещё ${Math.min(PAGE_SIZE, matched - shown)} · осталось ${matched - shown}`;
+    }
     const reset = $('#filterReset');
     if (reset) reset.hidden = !filtering;
     const empty = $('#empty');
-    empty.hidden = !(filtering && visible === 0);
+    empty.hidden = !(filtering && matched === 0);
     if (!empty.hidden) $('#emptyQ').textContent = q || TOPIC_ROUTES[activeTopic]?.title || activeProject || activePlatform || activeLicense || (FRESHNESS[activeFreshness] || '') || (TRUST[activeTrust] || '') || (TYPES[activeType] || '');
     entryReveal();
+  }
+
+  function renderProjects() {
+    const grid = $('#projectGrid');
+    const filters = $('#projectFilters');
+    if (!grid || !filters) return;
+    if (!filters.childElementCount) {
+      const counts = projects.reduce((map, project) => map.set(project.status, (map.get(project.status) || 0) + 1), new Map());
+      const options = [['', 'Все'], ['live', 'Работает'], ['active', 'В разработке'], ['beta', 'Beta']];
+      filters.innerHTML = options.filter(([value]) => !value || counts.has(value)).map(([value, label]) =>
+        `<button type="button" class="chip${value === projectStatus ? ' active' : ''}" data-project-status="${value}">${label} <i>${value ? counts.get(value) : projects.length}</i></button>`
+      ).join('');
+      filters.addEventListener('click', (event) => {
+        const button = event.target.closest('[data-project-status]');
+        if (!button) return;
+        projectStatus = button.dataset.projectStatus;
+        renderProjects();
+      });
+    }
+    filters.querySelectorAll('button').forEach((button) => button.classList.toggle('active', button.dataset.projectStatus === projectStatus));
+    const q = query.trim().toLowerCase();
+    const visible = projects.filter((project) => (!projectStatus || project.status === projectStatus) && (!q || [project.name, project.kind, project.summary, project.problem, ...project.audience, ...project.tech].join(' ').toLowerCase().includes(q)));
+    grid.innerHTML = visible.map((project) => {
+      const status = project.status === 'live' ? 'Работает' : project.status === 'beta' ? 'Beta' : 'В разработке';
+      const links = [
+        project.liveUrl && `<a class="project-primary" href="${escAttr(project.liveUrl)}" target="_blank" rel="noopener">Открыть проект ↗</a>`,
+        project.repoUrl && `<a href="${escAttr(project.repoUrl)}" target="_blank" rel="noopener">Исходный код ↗</a>`,
+      ].filter(Boolean).join('');
+      return `<article class="project-card${project.featured ? ' project-featured' : ''}">
+        <div class="project-top"><span>${esc(project.kind)}</span><i class="project-status status-${project.status}">${status}</i></div>
+        <h3>${esc(project.name)}</h3><p class="project-summary">${esc(project.summary)}</p>
+        <div class="project-solves"><b>Что решает</b><p>${esc(project.problem)}</p></div>
+        <div class="project-tags">${project.tech.map((item) => `<span>${esc(item)}</span>`).join('')}</div>
+        <p class="project-audience"><b>Для кого:</b> ${esc(project.audience.join(', '))}</p>
+        <div class="project-actions">${links}</div>
+      </article>`;
+    }).join('');
+    $('#projectEmpty').hidden = visible.length > 0;
+  }
+
+  function setView(view) {
+    const nextView = view === 'projects' ? 'projects' : 'catalog';
+    if (currentView !== nextView) {
+      query = '';
+      search.value = '';
+    }
+    currentView = nextView;
+    const projectMode = currentView === 'projects';
+    document.body.classList.toggle('projects-mode', projectMode);
+    $('#projectsView').hidden = !projectMode;
+    $('#hero').hidden = projectMode;
+    $('#topicContext').hidden = projectMode || !activeTopic;
+    $('#filters').hidden = projectMode;
+    $('#results').hidden = projectMode;
+    $('#loadMoreWrap').hidden = projectMode || Math.min(cards.length, visibleLimit) >= cards.length;
+    $('#empty').hidden = true;
+    document.querySelectorAll('[data-view-link]').forEach((link) => link.classList.toggle('active', link.dataset.viewLink === currentView));
+    search.placeholder = projectMode ? 'Найти проект по задаче или технологии…' : 'Найти инструмент, модель, skill или гайд…';
+    if (projectMode) renderProjects(); else applyFilters(false);
   }
 
   function applyTopicRoute(topic) {
@@ -1002,10 +1093,13 @@
     const h = location.hash;
     if (/^#guide\//.test(h)) { openGuide(decodeURIComponent(h.slice(7))); return; }
     if (/^#item\//.test(h)) { openItem(decodeURIComponent(h.slice(6))); return; }
+    if (h === '#projects') { closeGuide(); closeItem(); clearTopicRoute(); setView('projects'); window.scrollTo({ top: 0 }); return; }
+    setView('catalog');
     if (/^#browse\//.test(h)) { closeGuide(); closeItem(); applyTopicRoute(decodeURIComponent(h.slice(8))); return; }
     clearTopicRoute();
     closeGuide();
     closeItem();
+    if (h === '#catalog') { window.scrollTo({ top: 0 }); return; }
     if (h.length > 1) { const t = document.getElementById(decodeURIComponent(h.slice(1))); if (t) t.scrollIntoView(); }
   }
 
@@ -1051,6 +1145,17 @@
             console.warn('Automatic link health is unavailable; showing an honest unknown state.', error);
           }
         })(),
+        (async () => {
+          try {
+            const response = await fetch(PROJECTS_URL, { cache: 'no-cache' });
+            if (!response.ok) throw new Error(`HTTP ${response.status}`);
+            const data = await response.json();
+            if (data.schemaVersion !== 1 || !Array.isArray(data.projects)) throw new Error('Некорректный каталог проектов');
+            projects = data.projects;
+          } catch (error) {
+            console.warn('Eclipse Forge projects are unavailable.', error);
+          }
+        })(),
       ]);
       render(deduplicate(parse(md))); spotlight();
       await renderGuides(md);
@@ -1063,7 +1168,10 @@
   const search = $('#search');
   const navSearch = $('#navSearch');
   let timer;
-  search.addEventListener('input', () => { clearTimeout(timer); timer = setTimeout(() => { query = search.value; applyFilters(); }, 110); });
+  search.addEventListener('input', () => { clearTimeout(timer); timer = setTimeout(() => {
+    query = search.value;
+    if (currentView === 'projects') renderProjects(); else applyFilters();
+  }, 110); });
   if (navSearch) {
     let navTimer;
     navSearch.addEventListener('input', () => {
@@ -1095,6 +1203,14 @@
     if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
   });
   $('#emptyClear').addEventListener('click', () => clearLibraryFilters({ focus: true }));
+  $('#loadMore').addEventListener('click', () => { visibleLimit += PAGE_SIZE; applyFilters(false); });
+  $('#projectReset').addEventListener('click', () => {
+    projectStatus = '';
+    query = '';
+    search.value = '';
+    renderProjects();
+    search.focus();
+  });
   $('#navClear').addEventListener('click', () => { if (!navSearch) return; navSearch.value = ''; navQuery = ''; updateNavVisibility(); navSearch.focus(); });
   $('#topicClear').addEventListener('click', () => { clearLibraryFilters({ focus: true }); history.replaceState(null, '', location.pathname + location.search); });
 

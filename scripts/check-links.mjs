@@ -5,6 +5,7 @@ import { isIP } from 'node:net';
 const repoRoot = new URL('../', import.meta.url);
 const networkEnabled = process.argv.includes('--network');
 const readme = await readFile(new URL('README.md', repoRoot), 'utf8');
+const projectCatalog = JSON.parse(await readFile(new URL('web/projects.json', repoRoot), 'utf8'));
 const allowlist = JSON.parse(await readFile(new URL('scripts/link-check-allowlist.json', repoRoot), 'utf8'));
 const outputDir = new URL('.artifacts/', repoRoot);
 const outputFile = new URL('link-check-report.json', outputDir);
@@ -53,6 +54,13 @@ function extractResources(markdown) {
     resources.push({ title: link[1].replace(/[*`]/g, '').trim(), url: link[2], line: index + 1 });
   });
   return resources;
+}
+
+function extractProjectLinks(data) {
+  return (data.projects || []).flatMap((project) => [
+    project.liveUrl && { title: `${project.name} — live`, url: project.liveUrl, source: 'projects.json' },
+    project.repoUrl && { title: `${project.name} — repository`, url: project.repoUrl, source: 'projects.json' },
+  ].filter(Boolean));
 }
 
 function duplicateGroups(resources, keyFn) {
@@ -201,7 +209,7 @@ async function mapConcurrent(items, concurrency, mapper) {
   return results;
 }
 
-const extracted = extractResources(readme);
+const extracted = [...extractResources(readme), ...extractProjectLinks(projectCatalog)];
 const uniqueByUrl = [...new Map(extracted.map((resource) => [canonicalUrl(resource.url), resource])).values()];
 const offlineDuplicates = {
   canonicalUrl: duplicateGroups(extracted, (item) => canonicalUrl(item.url)),
@@ -244,7 +252,7 @@ const summary = [
   '## Eclipse Library link audit',
   '',
   `- Mode: **${report.mode}**`,
-  `- Resource rows: **${report.totals.extracted}**`,
+  `- Catalog links: **${report.totals.extracted}**`,
   `- Unique canonical URLs: **${report.totals.unique}**`,
   `- Checked: **${report.totals.checked}**`,
   `- OK / restricted / broken: **${report.totals.ok} / ${report.totals.restricted} / ${report.totals.broken}**`,
