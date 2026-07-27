@@ -7,6 +7,7 @@
   const RAW = `https://raw.githubusercontent.com/${REPO}/master/README.md`;
   const REPO_URL = `https://github.com/${REPO}`;
   const DETAILS_URL = 'catalog-details.json?v=2';
+  const LINK_HEALTH_URL = 'link-health.json?v=1';
   const DECISIONS = {
     now: 'Внедрить сейчас',
     roadmap: 'Добавить в roadmap',
@@ -30,6 +31,16 @@
     review: 'Нужно перепроверить',
     unknown: 'Без даты проверки',
   };
+  const LINK_HEALTH = {
+    ok: 'Ссылка работает',
+    restricted: 'Сервис отвечает с ограничением',
+    unavailable: 'Временно недоступна',
+    unknown: 'Не удалось проверить',
+    broken: 'Ссылка не работает',
+    blocked: 'Заблокирована проверкой безопасности',
+    skipped: 'Автопроверка пропущена',
+    unchecked: 'Ещё не проверялась автоматически',
+  };
   const TOPIC_ROUTES = {
     skills: { title: 'Skills для AI-агентов', description: 'Готовые инструкции и повторяемые workflows. Перед установкой проверьте permissions и содержимое skill.', type: 'skill', match: (c) => c.type === 'skill' },
     mcp: { title: 'MCP и интеграции', description: 'Серверы и инструменты, которые подключают AI к внешним данным и действиям. Начинайте с минимальных прав.', match: (c) => /\bmcp\b/i.test(c.text) },
@@ -39,6 +50,8 @@
     courses: { title: 'Курсы и обучение', description: 'Практические материалы, которые можно пройти по порядку и закрепить небольшим проектом.', type: 'learn', match: (c) => c.type === 'learn' },
   };
   let detailsByUrl = new Map();
+  let linkHealthByUrl = new Map();
+  let linkHealthSnapshot = null;
   let duplicateCount = 0;
 
   const $ = (s, r = document) => r.querySelector(s);
@@ -253,6 +266,7 @@
     r.verifiedAt = detail?.verifiedAt || null;
     r.freshness = freshnessState(r.verifiedAt);
     r.quickStart = detail?.quickStart || defaultSteps(r);
+    r.linkHealth = linkHealthByUrl.get(canonicalUrl(r.url)) || { status: 'unchecked', httpStatus: null };
     return r;
   }
 
@@ -394,6 +408,9 @@
           const top = el('div', 'card-top');
           top.appendChild(el('span', 'type-chip t-' + r.type, esc(TYPES[r.type] || r.type)));
           top.appendChild(el('span', `trust-chip trust-${r.trust}`, esc(TRUST[r.trust] || TRUST.unknown)));
+          const health = el('span', `link-health health-${r.linkHealth.status}`, esc(LINK_HEALTH[r.linkHealth.status] || LINK_HEALTH.unchecked));
+          health.title = 'Автоматическая проверка доступности ссылки, а не гарантия безопасности продукта';
+          top.appendChild(health);
           if (r.starsRepo) {
             const img = el('img', 'stars'); img.loading = 'lazy'; img.alt = 'GitHub stars';
             img.src = `https://img.shields.io/github/stars/${r.starsRepo}?style=flat&color=8b5cf6&labelColor=15151c&logo=github&logoColor=cfcfe0`;
@@ -418,13 +435,15 @@
           const foot = el('div', 'card-foot');
           foot.innerHTML =
             `<a class="detail-link" href="#item/${encodeURIComponent(r.id)}">Понять и применить →</a>` +
-            `<a class="source-link" href="${escAttr(r.url)}" target="_blank" rel="noopener" aria-label="Открыть официальный источник">${esc(dom || 'Источник')} ↗</a>`;
+            (r.linkHealth.status === 'blocked'
+              ? '<span class="source-link source-blocked">Источник заблокирован</span>'
+              : `<a class="source-link" href="${escAttr(r.url)}" target="_blank" rel="noopener" aria-label="Открыть официальный источник">${esc(dom || 'Источник')} ↗</a>`);
           card.appendChild(foot);
 
           grid.appendChild(card);
           const searchText = [
             r.title, r.rawText, r.simpleDescription, r.type, r.license, r.pricing,
-            r.platforms.join(' '), r.projects.join(' '), r.useCases.join(' '), TRUST[r.trust],
+            r.platforms.join(' '), r.projects.join(' '), r.useCases.join(' '), TRUST[r.trust], LINK_HEALTH[r.linkHealth.status],
           ].join(' ').toLowerCase();
           cards.push({
             node: card,
@@ -454,6 +473,7 @@
       stat(total, 'уникальных материалов') + stat(detailsByUrl.size, 'подробно проверено') +
       stat(cats.length, 'категорий') +
       stat(Object.keys(typeCounts).length, 'типов');
+    renderHealthSummary();
 
     buildFilters(typeCounts);
     buildQuickRoutes(cats, typeCounts);
@@ -888,6 +908,25 @@
     return `Проверено ${day}.${month}.${year}`;
   }
 
+  function formatAutomaticCheck(value) {
+    if (!value || Number.isNaN(Date.parse(value))) return 'дата неизвестна';
+    return new Intl.DateTimeFormat('ru-RU', { day: '2-digit', month: '2-digit', year: 'numeric' }).format(new Date(value));
+  }
+
+  function renderHealthSummary() {
+    const node = $('#healthSummary');
+    if (!node) return;
+    if (!linkHealthSnapshot) {
+      node.className = 'health-summary health-summary-unknown';
+      node.innerHTML = '<span class="health-summary-dot" aria-hidden="true"></span><span><b>Автопроверка ссылок временно недоступна.</b> Каталог работает, но доступность источников нужно проверять вручную.</span>';
+      return;
+    }
+    const totals = linkHealthSnapshot.totals || {};
+    const attention = (totals.broken || 0) + (totals.blocked || 0) + (totals.unavailable || 0) + (totals.unknown || 0);
+    node.className = `health-summary${attention ? ' health-summary-attention' : ''}`;
+    node.innerHTML = `<span class="health-summary-dot" aria-hidden="true"></span><span><b>${totals.ok || 0} ссылок работают.</b> ${attention} требуют внимания, ${totals.restricted || 0} отвечают с ограничением. Автопроверка: ${esc(formatAutomaticCheck(linkHealthSnapshot.checkedAt))}.</span>`;
+  }
+
   let itemReturnFocus = null;
   function openItem(id) {
     const entry = cards.find((card) => card.resource.id === id);
@@ -898,7 +937,9 @@
     const view = $('#itemView');
     const body = $('#itemBody');
     const sourceTop = $('#itemSourceTop');
-    sourceTop.href = r.url;
+    const sourceBlocked = r.linkHealth.status === 'blocked';
+    sourceTop.hidden = sourceBlocked;
+    if (sourceBlocked) sourceTop.removeAttribute('href'); else sourceTop.href = r.url;
     const trustClass = `trust-${r.trust}`;
     const projectHtml = r.projects.length
       ? `<div class="project-list">${r.projects.map((project) => `<span>${esc(project)}</span>`).join('')}</div>`
@@ -906,6 +947,7 @@
     body.innerHTML =
       `<div class="item-kicker"><span class="type-chip t-${r.type}">${esc(TYPES[r.type] || r.type)}</span>` +
         `<span class="trust-chip ${trustClass}">${esc(TRUST[r.trust] || TRUST.unknown)}</span>` +
+        `<span class="link-health health-${r.linkHealth.status}">${esc(LINK_HEALTH[r.linkHealth.status] || LINK_HEALTH.unchecked)}</span>` +
         `<span class="verify-date">${esc(formatVerifiedAt(r.verifiedAt))}</span></div>` +
       `<h1 id="itemTitle">${esc(r.title)}</h1>` +
       `<p class="item-lead">${esc(r.simpleDescription)}</p>` +
@@ -915,6 +957,7 @@
         `<div><span>Лицензия</span><b>${esc(r.license)}</b></div>` +
         `<div><span>Решение Eclipse</span><b>${esc(DECISIONS[r.decision] || DECISIONS.reference)}</b></div>` +
         `<div><span>Актуальность</span><b>${esc(FRESHNESS[r.freshness] || FRESHNESS.unknown)}</b></div>` +
+        `<div><span>Доступность ссылки</span><b>${esc(LINK_HEALTH[r.linkHealth.status] || LINK_HEALTH.unchecked)}</b><small>Автопроверка ${esc(formatAutomaticCheck(linkHealthSnapshot?.checkedAt))}; это не гарантия безопасности.</small></div>` +
       `</div>` +
       `<section class="item-section"><h2>Когда пригодится</h2>${itemList(r.useCases)}</section>` +
       `<section class="item-section"><h2>Как начать безопасно</h2><ol>${r.quickStart.map((step) => `<li>${esc(step)}</li>`).join('')}</ol></section>` +
@@ -923,7 +966,7 @@
         `<div class="risk-summary risk-${r.riskLevel}"><b>${esc(RISK[r.riskLevel] || RISK.medium)}</b><span>${esc(r.trustReason)}</span></div>` +
         `${itemList(r.risks)}</section>` +
       `<details class="original-note"><summary>Показать исходное техническое описание</summary><p>${esc(plain(r.rawText))}</p></details>` +
-      `<div class="item-cta"><a href="${escAttr(r.url)}" target="_blank" rel="noopener">Открыть официальный источник ↗</a>` +
+      `<div class="item-cta">${sourceBlocked ? '<strong class="blocked-source">Источник скрыт: автоматическая проверка обнаружила небезопасное назначение.</strong>' : `<a href="${escAttr(r.url)}" target="_blank" rel="noopener">Открыть официальный источник ↗</a>`}` +
         `<span>${r.detail ? 'Карточка проверена и дополнена редактором Eclipse Library.' : 'Это базовая карточка. Перед внедрением нужна дополнительная проверка.'}</span></div>`;
     view.hidden = false;
     view.scrollTop = 0;
@@ -975,16 +1018,40 @@
       catch (e2) { const s = $('#status'); s.className = 'status err'; s.innerHTML = `Не удалось загрузить библиотеку. <a href="${REPO_URL}" target="_blank" rel="noopener">Открыть на GitHub →</a>`; return; }
     }
     try {
-      try {
-        const detailsResponse = await fetch(DETAILS_URL, { cache: 'no-cache' });
-        if (detailsResponse.ok) {
-          const details = await detailsResponse.json();
-          if (!Array.isArray(details)) throw new Error('catalog-details.json должен содержать массив');
-          detailsByUrl = new Map(details.map((detail) => [canonicalUrl(detail.url), detail]));
-        }
-      } catch (detailsError) {
-        console.warn('Structured catalog details are unavailable; using safe inferred metadata.', detailsError);
-      }
+      await Promise.all([
+        (async () => {
+          try {
+            const response = await fetch(DETAILS_URL, { cache: 'no-cache' });
+            if (!response.ok) throw new Error(`HTTP ${response.status}`);
+            const details = await response.json();
+            if (!Array.isArray(details)) throw new Error('catalog-details.json должен содержать массив');
+            detailsByUrl = new Map(details.map((detail) => [canonicalUrl(detail.url), detail]));
+          } catch (error) {
+            console.warn('Structured catalog details are unavailable; using safe inferred metadata.', error);
+          }
+        })(),
+        (async () => {
+          try {
+            const response = await fetch(LINK_HEALTH_URL, { cache: 'no-cache' });
+            if (!response.ok) throw new Error(`HTTP ${response.status}`);
+            const snapshot = await response.json();
+            const statuses = new Set(Object.keys(LINK_HEALTH).filter((status) => status !== 'unchecked'));
+            const totalFields = ['checked', ...statuses];
+            const validTotals = totalFields.every((field) => Number.isInteger(snapshot?.totals?.[field]) && snapshot.totals[field] >= 0);
+            const validLinks = Array.isArray(snapshot?.links) && snapshot.links.every((item) => {
+              try { return ['http:', 'https:'].includes(new URL(item.url).protocol) && statuses.has(item.status); }
+              catch { return false; }
+            });
+            if (snapshot?.schemaVersion !== 1 || !Number.isFinite(Date.parse(snapshot?.checkedAt)) || !validTotals || !validLinks || snapshot.totals.checked !== snapshot.links.length) {
+              throw new Error('Некорректный link-health snapshot');
+            }
+            linkHealthSnapshot = snapshot;
+            linkHealthByUrl = new Map(snapshot.links.map((item) => [canonicalUrl(item.url), item]));
+          } catch (error) {
+            console.warn('Automatic link health is unavailable; showing an honest unknown state.', error);
+          }
+        })(),
+      ]);
       render(deduplicate(parse(md))); spotlight();
       await renderGuides(md);
       requestAnimationFrame(route);

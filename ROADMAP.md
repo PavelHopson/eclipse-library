@@ -9,6 +9,8 @@
   подробные карточки и guide viewer.
 - `web/catalog-details.json` — проверенный структурированный слой для приоритетных
   материалов; старые записи получают честную пометку о необходимости аудита.
+- `web/link-health.json` — безопасный публичный snapshot weekly-аудита: доступность ссылки
+  показывается отдельно от редакторского доверия и не считается security endorsement.
 - Deploy: GitHub Actions → VPS/Caddy из ветки `master`.
 - Production синхронизирован с `master`: deploy
   [#30255861738](https://github.com/PavelHopson/eclipse-library/actions/runs/30255861738)
@@ -37,7 +39,8 @@
 
 - [x] Стабильные deep links на каждую запись.
 - [ ] Частично: freshness review — UI уже различает недавно проверенные карточки и
-      записи без даты; archived/stale/dead-link metadata ещё нужно переносить из audit report.
+      записи без даты, а weekly snapshot показывает `ok` / `restricted` / `unavailable` /
+      `unknown` / `broken` / `blocked`; archived repository metadata ещё нужно добавить отдельно.
 - [ ] Автоматический GitHub metadata refresh без доверия к stars как quality score.
 - [x] Отдельные landing routes для skills, MCP, models, prompts, courses и security.
 
@@ -45,6 +48,15 @@
 
 ### 2026-07-27
 
+- Weekly link audit теперь публикует минимальный `web/link-health.json`, а сайт показывает
+  доступность источника на каждой карточке и дату проверки. Trust и link health разведены явно;
+  при ошибке загрузки каталог остаётся рабочим и честно показывает «не проверялось».
+- Подробный слой расширен с 32 до 36 карточек: Google AI Studio, Groq, OpenRouter и GitHub Models
+  описаны простым языком с текущей моделью оплаты, privacy boundary, ограничениями и безопасным стартом.
+- Старые рекламные обещания о фиксированных бесплатных квотах и «самом быстром» provider удалены;
+  лимиты теперь предлагается читать в официальной панели конкретного аккаунта и модели.
+- Desktop/mobile browser QA пройден на 1440×900 и 390×844: 499 карточек, 36 подробно проверенных,
+  нет horizontal overflow; отдельно проверен отказ `link-health.json` без поломки каталога.
 - Структурированный слой расширен с 26 до 32 карточек: простым языком описаны Vane,
   Crawl4AI, Hermes Agent, Understand-Anything, MinerU и privacy.sexy, включая безопасный
   старт, цену, лицензию, ограничения и применимость к проектам Eclipse Forge.

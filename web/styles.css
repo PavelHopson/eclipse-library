@@ -288,6 +288,12 @@ button.quick-route { appearance: none; }
 .trust-official, .trust-verified { color: #8edabf; border-color: rgba(111,207,176,.27); background: rgba(111,207,176,.08); }
 .trust-community { color: #d9eaff; border-color: var(--blue-line); background: var(--blue-soft); }
 .trust-caution { color: #ffb0b2; border-color: rgba(240,132,134,.3); background: var(--risk-soft); }
+.link-health { display: inline-flex; align-items: center; gap: 6px; min-height: 23px; padding: 4px 9px; border: 1px solid var(--line); border-radius: 8px; background: rgba(255,255,255,.035); color: var(--muted); font-size: 10.5px; font-weight: 700; white-space: nowrap; }
+.link-health::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: currentColor; box-shadow: 0 0 8px currentColor; }
+.health-ok { color: #8edabf; border-color: rgba(111,207,176,.27); background: rgba(111,207,176,.08); }
+.health-restricted, .health-unavailable, .health-unknown, .health-skipped { color: var(--gold); border-color: var(--gold-line); background: var(--gold-soft); }
+.health-broken, .health-blocked { color: #ffb0b2; border-color: rgba(240,132,134,.34); background: var(--risk-soft); }
+.health-unchecked { color: var(--muted-2); }
 .card .stars { height: 18px; border-radius: 5px; opacity: .92; margin-left: auto; }
 
 .card-title { margin: 0; font-size: 16px; font-weight: 800; line-height: 1.3; letter-spacing: -.25px; }
@@ -308,6 +314,13 @@ button.quick-route { appearance: none; }
 .detail-link:hover { color: #fff; }
 .source-link { max-width: 46%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; color: var(--muted-2); font: 500 10.5px var(--mono); }
 .source-link:hover { color: var(--muted); }
+.source-blocked { color: var(--risk); }
+
+.health-summary { display: flex; align-items: flex-start; gap: 10px; margin: 0 0 18px; padding: 12px 14px; border: 1px solid rgba(111,207,176,.22); border-radius: 13px; background: rgba(111,207,176,.055); color: var(--muted); font-size: 12px; line-height: 1.5; }
+.health-summary b { color: var(--text); }
+.health-summary-dot { width: 8px; height: 8px; margin-top: 5px; flex: 0 0 auto; border-radius: 50%; background: #6fcfb0; box-shadow: 0 0 10px rgba(111,207,176,.72); }
+.health-summary-loading, .health-summary-unknown, .health-summary-attention { border-color: var(--gold-line); background: var(--gold-soft); }
+.health-summary-loading .health-summary-dot, .health-summary-unknown .health-summary-dot, .health-summary-attention .health-summary-dot { background: var(--gold); box-shadow: 0 0 10px rgba(216,181,81,.65); }
 
 /* ===== Misc ===== */
 .status { color: var(--muted); padding: 40px 0; font-size: 15px; }
@@ -380,6 +393,7 @@ body.noscroll { overflow: hidden; }
 .fact-grid > div { min-width: 0; padding: 15px 16px; border: 1px solid var(--line); border-radius: 14px; background: var(--surface); }
 .fact-grid span { display: block; margin-bottom: 5px; color: var(--muted-2); font-size: 10.5px; font-weight: 700; letter-spacing: .05em; text-transform: uppercase; }
 .fact-grid b { display: block; color: var(--text); font-size: 13px; line-height: 1.5; overflow-wrap: anywhere; }
+.fact-grid small { display: block; margin-top: 5px; color: var(--muted-2); font-size: 10.5px; line-height: 1.45; }
 .item-section { padding: 27px 0; border-top: 1px solid var(--line-2); }
 .item-section h2 { margin: 0 0 14px; font: 600 18px/1.3 var(--display); letter-spacing: -.3px; }
 .item-section ul, .item-section ol { margin: 0; padding-left: 23px; color: #c7c7d3; }
@@ -402,6 +416,7 @@ body.noscroll { overflow: hidden; }
 .item-cta a { flex-shrink: 0; padding: 10px 14px; border-radius: 10px; background: #d9eaff; color: #080a10; font-size: 12.5px; font-weight: 800; }
 .item-cta a:hover { background: #fff; color: #080a10; }
 .item-cta span { color: var(--muted); font-size: 11.5px; line-height: 1.45; }
+.blocked-source { color: #ffb0b2; font-size: 12px; line-height: 1.5; }
 
 /* ===== Guide table of contents (clickable module nav) ===== */
 .guide-toc { max-width: 808px; margin: 0 auto 6px; }

@@ -14,6 +14,11 @@
 есть отдельные ссылки на Skills, MCP, AI-модели, промпты, security и курсы, а фильтр
 актуальности отделяет недавно проверенные карточки от материалов без даты аудита.
 
+Статус ссылки обновляется автоматическим weekly-аудитом и показывает только доступность
+официального источника. Он не заменяет редакторскую оценку доверия, лицензии и безопасности:
+работающая ссылка может вести на рискованный продукт, а временно недоступный сайт не становится
+опасным автоматически.
+
 [![Web](https://img.shields.io/badge/%F0%9F%8C%90_веб--версия-library.eclipse--forge.ru-8b5cf6?style=flat)](https://library.eclipse-forge.ru)
 [![Awesome](https://cdn.rawgit.com/sindresorhus/awesome/d7305f38d29fed78fa85652e3a63e154dd8e8829/media/badge.svg)](https://github.com/sindresorhus/awesome)
 [![License: MIT](https://img.shields.io/badge/License-MIT-22c55e?style=flat)](LICENSE)
@@ -69,11 +74,11 @@
 
 | Ресурс | Описание | Звёзды |
 |--------|----------|--------|
-| [Google AI Studio · Gemini](https://aistudio.google.com/apikey) | **Лучший старт.** Ключ за минуту без карты, ~1500 запросов/день на Gemini Flash, контекст 1M. Текст — бесплатно; картинки — у младшей модели Nano Banana, Pro-картинки платные | — |
-| [Groq](https://console.groq.com/keys) | Без карты, **самый быстрый** инференс (LPU), тысячи запросов/день — Llama, Qwen, GPT-OSS и др. | — |
-| [OpenRouter](https://openrouter.ai/keys) | Один ключ → 20+ **бесплатных** моделей (пометка `:free`), без карты. Удобно как фолбэк | — |
+| [Google AI Studio · Gemini](https://aistudio.google.com/apikey) | Простой способ получить Gemini API key и проверить модель в браузерном playground. Есть бесплатный tier, но доступность моделей и квоты зависят от региона, аккаунта и выбранной модели — перед интеграцией смотрите текущие limits в AI Studio | — |
+| [Groq](https://console.groq.com/keys) | Облачный API с низкой задержкой для открытых моделей. Есть ограниченный free plan; точные RPM/RPD/TPM зависят от модели и организации и видны на странице Limits | — |
+| [OpenRouter](https://openrouter.ai/keys) | Один OpenAI-compatible API для разных model providers и fallback-маршрутов. Есть free-модели с низкими лимитами; перед отправкой данных настройте provider routing и privacy policy | — |
 | [Cerebras](https://cloud.cerebras.ai/) | Без карты, очень быстрый инференс крупных опен-моделей, ~30 запросов/мин | — |
-| [GitHub Models](https://github.com/marketplace/models) | Ключ = твой GitHub-токен (без карты). GPT / Llama / Mistral / Phi и др. для разработки | — |
+| [GitHub Models](https://github.com/marketplace/models) | Каталог моделей и API для прототипов внутри GitHub. Аккаунт получает ограниченную бесплатную квоту; paid usage включается отдельно, а лимиты зависят от модели и плана | — |
 | [Mistral · La Plateforme](https://console.mistral.ai/) | Бесплатный экспериментальный тир без карты; сильные код-модели, контекст до 256K | — |
 | [Cohere](https://dashboard.cohere.com/api-keys) | Бесплатные trial-ключи (rate-limited) — Command / Embed / Rerank | — |
 | [Cloudflare Workers AI](https://dash.cloudflare.com/) | Бесплатная дневная квота на инференс, OpenAI-совместимый эндпоинт | — |

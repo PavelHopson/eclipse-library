@@ -6,7 +6,11 @@ on:
     - cron: '17 4 * * 1'
 
 permissions:
-  contents: read
+  contents: write
+
+concurrency:
+  group: eclipse-library-link-audit
+  cancel-in-progress: false
 
 jobs:
   audit:
@@ -18,7 +22,27 @@ jobs:
         with:
           node-version: 24
       - name: Check redirects, availability and duplicate targets
+        id: link_audit
+        continue-on-error: true
         run: node scripts/check-links.mjs --network
+      - name: Build safe public status snapshot
+        id: build_snapshot
+        if: always() && hashFiles('.artifacts/link-check-report.json') != ''
+        run: |
+          node scripts/build-link-health.mjs
+          node scripts/validate-link-health.mjs
+      - name: Publish status snapshot
+        if: always() && steps.build_snapshot.outcome == 'success'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -- web/link-health.json
+          if git diff --cached --quiet; then
+            echo "Link-health snapshot is unchanged."
+          else
+            git commit -m "chore(catalog): refresh link health"
+            git push origin HEAD:master
+          fi
       - name: Upload detailed report
         if: always()
         uses: actions/upload-artifact@b7c566a772e6b6bfb58ed0dc250532a479d7789f # v6
@@ -27,3 +51,6 @@ jobs:
           path: .artifacts/link-check-report.json
           if-no-files-found: error
           retention-days: 14
+      - name: Enforce broken-link security gate
+        if: always() && steps.link_audit.outcome == 'failure'
+        run: exit 1
