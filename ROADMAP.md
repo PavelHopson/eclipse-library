@@ -50,12 +50,12 @@
   применением нужной выборки.
 - Добавлен фильтр актуальности: «Проверено недавно», «Нужно перепроверить» и
   «Без даты проверки»; состояние также видно в подробной карточке.
-- Добавлен weekly/manual link audit для 480 canonical URL: HEAD/GET fallback,
+- Добавлен weekly/manual link audit для 479 canonical URL: HEAD/GET fallback,
   retry с меньшей параллельностью, redirect-target duplicates, GitHub repo/title
   identity report, rate-limit allowlist и JSON artifact на 14 дней.
-- Удалены redirect-дубликат старого `Awesome ChatGPT Prompts` и просроченная реклама
-  Selectel; OpenClaw Foundry обновлён на canonical `unbrowse-ai/foundry` с явным
-  безопасным запуском `--no-install`.
+- Удалены redirect-дубликат старого `Awesome ChatGPT Prompts`, просроченная реклама
+  Selectel и Foundry: старый URL перенаправлял на `unbrowse-ai/foundry`, но canonical
+  repo уже отвечает 404 через официальный GitHub API.
 - Desktop/mobile QA: topic routes, combined freshness filters, reset, detail reader,
   focus management и отсутствие horizontal overflow проверены в браузере.
 

@@ -202,7 +202,6 @@
 | [Composio](https://github.com/ComposioHQ/openclaw-composio) | Авто-авторизация API-сервисов (Google, GitHub...) — без ручного ввода ключей |  |
 | [Memory LanceDB](https://github.com/openclaw/openclaw/blob/main/extensions/memory-lancedb) | Векторная память для OpenClaw — долгосрочный контекст вместо встроенной памяти |  |
 | [MemOS Cloud](https://github.com/MemTensor/MemOS-Cloud-OpenClaw-Plugin) | Облачная память с изоляцией между агентами, синхронизация между устройствами |  |
-| [Foundry](https://github.com/unbrowse-ai/foundry) | Self-writing extension для OpenClaw: ищет повторяющиеся workflows в локальной истории сессий и предлагает reusable skills. **Важно:** generated skills автоматически устанавливаются в host skill directory по умолчанию — сначала запускать с `--no-install`, проверить redaction, permissions и код результата |  |
 | [Better Gateway](https://github.com/ThisIsJeron/openclaw-better-gateway) | Стабильный шлюз — авто-переподключение, не теряет соединения |  |
 | [QClaw (Tencent)](https://qclawsg.qq.com/) | Локальный Computer Use агент на базе OpenClaw — мессенджер-управление (Telegram/Discord), долгосрочная память |  |
 
