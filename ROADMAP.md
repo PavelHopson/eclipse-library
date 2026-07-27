@@ -11,8 +11,8 @@
   материалов; старые записи получают честную пометку о необходимости аудита.
 - Deploy: GitHub Actions → VPS/Caddy из ветки `master`.
 - Production синхронизирован с `master`: deploy
-  [#30151809770](https://github.com/PavelHopson/eclipse-library/actions/runs/30151809770)
-  от 25.07.2026 успешно завершён через VPS/Caddy.
+  [#30253279596](https://github.com/PavelHopson/eclipse-library/actions/runs/30253279596)
+  от 27.07.2026 успешно завершён через VPS/Caddy.
 
 ## Приоритеты
 
@@ -58,6 +58,12 @@
   repo уже отвечает 404 через официальный GitHub API.
 - Desktop/mobile QA: topic routes, combined freshness filters, reset, detail reader,
   focus management и отсутствие horizontal overflow проверены в браузере.
+- Commits `8a56a29`, `b7f229b`, `135ddf4` отправлены в `origin/master`;
+  CI [#30253279553](https://github.com/PavelHopson/eclipse-library/actions/runs/30253279553),
+  deploy `#30253279596` и финальный link audit
+  [#30253313409](https://github.com/PavelHopson/eclipse-library/actions/runs/30253313409)
+  завершены успешно. Audit: 479 URL, 447 OK, 25 restricted, 0 broken,
+  1 временно недоступен, 6 network unknown, 0 redirect-дублей.
 
 ### 2026-07-25
 
