@@ -13,8 +13,8 @@
   показывается отдельно от редакторского доверия и не считается security endorsement.
 - Deploy: GitHub Actions → VPS/Caddy из ветки `master`.
 - Production синхронизирован с `master`: deploy
-  [#30255861738](https://github.com/PavelHopson/eclipse-library/actions/runs/30255861738)
-  от 27.07.2026 успешно завершён через VPS/Caddy.
+  [#30257385810](https://github.com/PavelHopson/eclipse-library/actions/runs/30257385810)
+  от 27.07.2026 успешно завершён через VPS/Caddy после финального link audit.
 
 ## Приоритеты
 
@@ -59,6 +59,10 @@
   лимиты теперь предлагается читать в официальной панели конкретного аккаунта и модели.
 - Desktop/mobile browser QA пройден на 1440×900 и 390×844: 499 карточек, 36 подробно проверенных,
   нет horizontal overflow; отдельно проверен отказ `link-health.json` без поломки каталога.
+- Commits `48f571d` и `45c8858` отправлены в `origin/master`; bot snapshot `9da636c` затронул только
+  `web/link-health.json`. CI [#30257051912](https://github.com/PavelHopson/eclipse-library/actions/runs/30257051912),
+  audit [#30257323630](https://github.com/PavelHopson/eclipse-library/actions/runs/30257323630) и вызванный им
+  deploy [#30257385810](https://github.com/PavelHopson/eclipse-library/actions/runs/30257385810) завершены успешно.
 - Структурированный слой расширен с 26 до 32 карточек: простым языком описаны Vane,
   Crawl4AI, Hermes Agent, Understand-Anything, MinerU и privacy.sexy, включая безопасный
   старт, цену, лицензию, ограничения и применимость к проектам Eclipse Forge.
