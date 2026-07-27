@@ -13,8 +13,8 @@
   показывается отдельно от редакторского доверия и не считается security endorsement.
 - Deploy: GitHub Actions → VPS/Caddy из ветки `master`.
 - Production синхронизирован с `master`: deploy
-  [#30257385810](https://github.com/PavelHopson/eclipse-library/actions/runs/30257385810)
-  от 27.07.2026 успешно завершён через VPS/Caddy после финального link audit.
+  [#30290065646](https://github.com/PavelHopson/eclipse-library/actions/runs/30290065646)
+  от 27.07.2026 успешно завершён через VPS/Caddy.
 
 ## Приоритеты
 
@@ -67,6 +67,11 @@
 - Local desktop/mobile browser QA: global sorting, deep link Cohere, 36-result pagination,
   0 horizontal overflow на 390×844 и отсутствие console errors. Security review не нашёл
   Critical/High/Medium/Low findings в изменённой поверхности; секреты и исполняемый сторонний код не добавлялись.
+- Commit `aff8a68` отправлен в `origin/master`; CI
+  [#30290065620](https://github.com/PavelHopson/eclipse-library/actions/runs/30290065620) и deploy
+  [#30290065646](https://github.com/PavelHopson/eclipse-library/actions/runs/30290065646) завершены успешно.
+  Live QA подтвердил asset keys `app.js?v=13` / `styles.css?v=12`, 499 карточек, 41 подробную
+  запись, рабочую сортировку и отсутствие horizontal overflow на desktop/mobile.
 
 - Stage 2 discovery завершён: 13 технических типов сведены к 7 сценариям, а десятки точных
   формулировок лицензии — к группам «Open-source», «Условия сервиса» и «Лицензия неясна».
