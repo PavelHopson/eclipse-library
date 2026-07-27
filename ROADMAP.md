@@ -11,7 +11,7 @@
   материалов; старые записи получают честную пометку о необходимости аудита.
 - Deploy: GitHub Actions → VPS/Caddy из ветки `master`.
 - Production синхронизирован с `master`: deploy
-  [#30253279596](https://github.com/PavelHopson/eclipse-library/actions/runs/30253279596)
+  [#30255861738](https://github.com/PavelHopson/eclipse-library/actions/runs/30255861738)
   от 27.07.2026 успешно завершён через VPS/Caddy.
 
 ## Приоритеты
@@ -50,6 +50,12 @@
   старт, цену, лицензию, ограничения и применимость к проектам Eclipse Forge.
 - Старая запись Perplexica обновлена до актуального имени Vane и canonical repository;
   redirect не превращён в отдельный дубликат.
+- Commits `eb1b1e1`, `07c4e45`, `f1ac15b` отправлены в `origin/master`; CI
+  [#30255861747](https://github.com/PavelHopson/eclipse-library/actions/runs/30255861747),
+  deploy `#30255861738` и blocking audit
+  [#30255872521](https://github.com/PavelHopson/eclipse-library/actions/runs/30255872521)
+  завершены успешно. Audit: 479 URL, 447 OK, 25 restricted, 0 broken, 1 временно
+  недоступен, 6 network unknown, 0 blocked/redirect-дублей.
 - Weekly link audit теперь является release gate: подтверждённые HTTP 4xx и переходы на
   private/link-local/reserved destinations завершают job с ошибкой; временные 5xx,
   rate limits и network unknown остаются диагностикой. Добавлены regression cases для
