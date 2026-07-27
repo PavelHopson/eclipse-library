@@ -41,6 +41,8 @@
       риску и применимости к проектам Eclipse Forge.
 - [x] Stage 6 — расширить подробный слой локальными AI-инструментами и добавить в detail view
       объяснимые рекомендации похожих проверенных материалов с быстрым сравнением.
+- [x] Stage 7 — добавить быстрый маршрут только по вручную проверенным материалам и расширить
+      подробный security/skill-governance слой официальными и community-инструментами.
 
 - [ ] Частично: перевести все записи из неструктурированных Markdown-описаний в schema с полями:
       `type`, `category`, `platform`, `license`, `trust`, `risk`, `projects`, `verifiedAt`.
@@ -63,6 +65,14 @@
 
 ### 2026-07-27
 
+- Stage 7 discovery завершён: Security Guidance, NVIDIA Skills, SkillSpector, AgentShield и
+  Anthropic Cybersecurity Skills получили подробные карточки с provenance, условиями, ограничениями,
+  safe start и применимостью. Structured details выросли с 46 до 51 без новых URL-дублей.
+- Быстрый маршрут `#browse/verified` показывает только материалы, для которых редактор вручную
+  проверил источник, лицензию, риски и применимость. Счётчик формируется из фактической schema.
+- Устаревшие claims Security Guidance и AgentShield исправлены по актуальной документации:
+  reviews не считаются blocking gate, model-backed этапы расходуют usage, community findings требуют
+  ручной проверки. Для skill installers зафиксированы sandbox, pinning и least-privilege defaults.
 - Stage 6 discovery завершён: Ollama, LM Studio, Jan, GPT4All и ComfyUI получили подробные карточки
   простым языком — с безопасным стартом, лицензией/условиями, ограничениями, рисками и применимостью
   к Eclipse Forge. Каталог вырос с 499 до 504 материалов, structured details — с 41 до 46.

@@ -46,6 +46,7 @@
     unchecked: 'Ещё не проверялась автоматически',
   };
   const TOPIC_ROUTES = {
+    verified: { title: 'Проверено редактором', description: 'Материалы с ручной проверкой источника, лицензии, условий, рисков и применимости к проектам Eclipse Forge.', match: (c) => Boolean(c.resource.detail) },
     skills: { title: 'Skills для AI-агентов', description: 'Готовые инструкции и повторяемые workflows. Перед установкой проверьте permissions и содержимое skill.', type: 'skill', match: (c) => c.type === 'skill' },
     mcp: { title: 'MCP и интеграции', description: 'Серверы и инструменты, которые подключают AI к внешним данным и действиям. Начинайте с минимальных прав.', match: (c) => /\bmcp\b/i.test(c.text) },
     models: { title: 'AI-модели', description: 'Локальные и облачные модели. Сравнивайте качество, требования к железу, стоимость и лицензию.', type: 'model', match: (c) => c.type === 'model' },
@@ -765,6 +766,7 @@
     const projects = findCat(cats, /наши проекты/);
     const latestDrop = [...cats].reverse().find((c) => /подборка eclipse/.test(c.label.toLowerCase()));
     const routes = [
+      { label: 'Проверено', hint: 'полный редакторский разбор', href: '#browse/verified', count: cards.filter(TOPIC_ROUTES.verified.match).length },
       { label: 'Skills', hint: 'готовые роли и workflows', href: '#browse/skills', count: typeCounts.skill || 0 },
       { label: 'MCP', hint: 'данные и внешние действия', href: '#browse/mcp', count: cards.filter(TOPIC_ROUTES.mcp.match).length },
       { label: 'AI-модели', hint: 'local и cloud inference', href: '#browse/models', count: typeCounts.model || 0 },
