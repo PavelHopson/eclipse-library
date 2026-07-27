@@ -15,7 +15,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Unbounded:wght@500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css?v=12" />
+  <link rel="stylesheet" href="styles.css?v=13" />
 </head>
 <body>
   <a class="skip" href="#results">Перейти к каталогу</a>
@@ -119,15 +119,21 @@
           <span id="resultcount" class="result-count" aria-live="polite"></span>
         </div>
         <div id="typeFilters" class="type-filters" role="toolbar" aria-label="Фильтр по типу"></div>
-        <label class="catalog-sort">Показывать сначала
-          <select id="sortFilter" aria-label="Порядок материалов">
-            <option value="catalog">Как в каталоге</option>
-            <option value="recommended">Рекомендуемое</option>
-            <option value="trust">Самое надёжное</option>
-            <option value="freshness">Недавно проверенное</option>
-            <option value="title">По названию</option>
-          </select>
-        </label>
+        <div class="catalog-actions">
+          <button id="savedToggle" class="saved-toggle" type="button" aria-pressed="false">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.8 4.5c0-1 .8-1.7 1.7-1.7h7c.9 0 1.7.8 1.7 1.7v16l-5.2-3.3-5.2 3.3z"/></svg>
+            <span>Избранное</span><i id="savedCount">0</i>
+          </button>
+          <label class="catalog-sort">Показывать сначала
+            <select id="sortFilter" aria-label="Порядок материалов">
+              <option value="catalog">Как в каталоге</option>
+              <option value="recommended">Рекомендуемое</option>
+              <option value="trust">Самое надёжное</option>
+              <option value="freshness">Недавно проверенное</option>
+              <option value="title">По названию</option>
+            </select>
+          </label>
+        </div>
         <details id="advancedFilters" class="advanced-filters">
           <summary>Дополнительные фильтры <span id="advancedFilterCount">платформа, лицензия, доверие и проект</span></summary>
           <div class="filter-selects">
@@ -170,9 +176,10 @@
         <button id="loadMore" class="load-more" type="button"></button>
       </div>
       <div id="empty" class="empty" hidden>
-        <p>Ничего не найдено по запросу «<span id="emptyQ"></span>».</p>
+        <p id="emptyMessage">Ничего не найдено.</p>
         <button id="emptyClear" class="btn" type="button">Сбросить фильтры</button>
       </div>
+      <div id="feedbackToast" class="feedback-toast" role="status" aria-live="polite" hidden></div>
     </main>
   </div>
 
@@ -205,6 +212,6 @@
     <a href="https://eclipse-forge.ru/" target="_blank" rel="noopener">Eclipse Forge</a> · обновляется по мере находок · данные из <a href="https://github.com/PavelHopson/eclipse-library" target="_blank" rel="noopener">README</a>
   </footer>
 
-  <script src="app.js?v=13"></script>
+  <script src="app.js?v=14"></script>
 </body>
 </html>

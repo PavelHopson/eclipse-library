@@ -10,6 +10,7 @@
   const LINK_HEALTH_URL = 'link-health.json?v=1';
   const PROJECTS_URL = 'projects.json?v=1';
   const PAGE_SIZE = 36;
+  const FAVORITES_KEY = 'eclipse-library:favorites:v1';
   const DECISIONS = {
     now: 'Внедрить сейчас',
     roadmap: 'Добавить в roadmap',
@@ -58,6 +59,8 @@
   let projects = [];
   let projectStatus = '';
   let currentView = 'catalog';
+  let favorites = loadFavorites();
+  let feedbackTimer = 0;
 
   const $ = (s, r = document) => r.querySelector(s);
   const el = (tag, cls, html) => { const n = document.createElement(tag); if (cls) n.className = cls; if (html != null) n.innerHTML = html; return n; };
@@ -72,6 +75,72 @@
       return u.toString().replace(/\/$/, '');
     } catch (e) { return (url || '').trim().toLowerCase().replace(/#.*$/, '').replace(/\/$/, ''); }
   };
+  function loadFavorites() {
+    try {
+      const stored = JSON.parse(localStorage.getItem(FAVORITES_KEY) || '[]');
+      return new Set(Array.isArray(stored) ? stored.filter((value) => typeof value === 'string' && /^https?:\/\//.test(value)).slice(0, 500) : []);
+    } catch (error) { return new Set(); }
+  }
+
+  function persistFavorites() {
+    try { localStorage.setItem(FAVORITES_KEY, JSON.stringify([...favorites])); }
+    catch (error) { showFeedback('Не удалось сохранить выбор в этом браузере.'); }
+  }
+
+  function pruneFavorites() {
+    const valid = new Set(cards.map((card) => card.favoriteKey));
+    const next = new Set([...favorites].filter((key) => valid.has(key)));
+    if (next.size === favorites.size) return;
+    favorites = next;
+    try { localStorage.setItem(FAVORITES_KEY, JSON.stringify([...favorites])); } catch (error) {}
+  }
+
+  function favoriteButton(resource, wide = false) {
+    const button = el('button', `save-button${wide ? ' save-button-wide' : ''}`);
+    button.type = 'button';
+    button.dataset.favoriteKey = canonicalUrl(resource.url);
+    button.dataset.favoriteTitle = resource.title;
+    button.innerHTML = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.8 4.5c0-1 .8-1.7 1.7-1.7h7c.9 0 1.7.8 1.7 1.7v16l-5.2-3.3-5.2 3.3z"/></svg><span>В избранное</span>';
+    return button;
+  }
+
+  function updateFavoritesUI() {
+    document.querySelectorAll('[data-favorite-key]').forEach((button) => {
+      const saved = favorites.has(button.dataset.favoriteKey);
+      button.classList.toggle('saved', saved);
+      button.setAttribute('aria-pressed', String(saved));
+      button.setAttribute('aria-label', `${saved ? 'Убрать из избранного' : 'Сохранить в избранное'}: ${button.dataset.favoriteTitle || 'материал'}`);
+      const label = button.querySelector('span');
+      if (label) label.textContent = saved ? 'Сохранено' : 'В избранное';
+    });
+    const toggle = $('#savedToggle');
+    if (toggle) {
+      toggle.classList.toggle('active', activeFavorites);
+      toggle.setAttribute('aria-pressed', String(activeFavorites));
+      toggle.disabled = favorites.size === 0 && !activeFavorites;
+    }
+    const count = $('#savedCount');
+    if (count) count.textContent = String(favorites.size);
+  }
+
+  function toggleFavorite(key, title) {
+    if (!cards.some((card) => card.favoriteKey === key)) return;
+    const saved = favorites.has(key);
+    if (saved) favorites.delete(key); else favorites.add(key);
+    persistFavorites();
+    updateFavoritesUI();
+    applyFilters(false);
+    showFeedback(saved ? `«${title}» убрано из избранного.` : `«${title}» сохранено на этом устройстве.`);
+  }
+
+  function showFeedback(message) {
+    const toast = $('#feedbackToast');
+    if (!toast) return;
+    toast.textContent = message;
+    toast.hidden = false;
+    clearTimeout(feedbackTimer);
+    feedbackTimer = setTimeout(() => { toast.hidden = true; }, 2600);
+  }
   const plain = (s) => (s || '')
     .replace(/!\[[^\]]*\]\([^)]+\)/g, '')
     .replace(/\[([^\]]+)\]\([^)]+\)/g, '$1')
@@ -445,6 +514,7 @@
             img.src = `https://img.shields.io/github/stars/${r.starsRepo}?style=flat&color=8b5cf6&labelColor=15151c&logo=github&logoColor=cfcfe0`;
             top.appendChild(img);
           }
+          top.appendChild(favoriteButton(r));
           card.appendChild(top);
 
           const h = el('h4', 'card-title');
@@ -482,6 +552,7 @@
           cards.push({
             node: card,
             resource: r,
+            favoriteKey: canonicalUrl(r.url),
             grid,
             order: cards.length,
             type: r.type,
@@ -514,6 +585,8 @@
 
     buildFilters(typeCounts);
     buildQuickRoutes(cats, typeCounts);
+    pruneFavorites();
+    updateFavoritesUI();
     $('#status').hidden = true;
     requestAnimationFrame(() => { scrollSpy(); entryReveal(); });
   }
@@ -596,7 +669,7 @@
   const stat = (n, l) => `<div class="stat"><b>${n}</b><span>${l}</span></div>`;
 
   // ---- filters (type + platform + license + trust + project + search) ----
-  let activeType = null, activePlatform = '', activeLicense = '', activeTrust = '', activeProject = '', activeFreshness = '', activeTopic = '', activeSort = 'catalog';
+  let activeType = null, activePlatform = '', activeLicense = '', activeTrust = '', activeProject = '', activeFreshness = '', activeTopic = '', activeSort = 'catalog', activeFavorites = false;
   let query = '', navQuery = '', visibleLimit = PAGE_SIZE;
   function buildFilters(typeCounts) {
     const bar = $('#filters');
@@ -622,6 +695,11 @@
     $('#projectFilter').addEventListener('change', (e) => { activeProject = e.target.value; applyFilters(); });
     $('#freshnessFilter').addEventListener('change', (e) => { activeFreshness = e.target.value; applyFilters(); });
     $('#sortFilter').addEventListener('change', (e) => { activeSort = e.target.value; applyFilters(); });
+    $('#savedToggle').addEventListener('click', () => {
+      activeFavorites = !activeFavorites;
+      updateFavoritesUI();
+      applyFilters();
+    });
     bar.hidden = false;
     $('#resultcount').textContent = `${cards.length} материалов`;
   }
@@ -676,6 +754,7 @@
     activeProject = '';
     activeFreshness = '';
     activeSort = 'catalog';
+    activeFavorites = false;
     clearTopicRoute();
     query = '';
     if (search) search.value = '';
@@ -685,6 +764,7 @@
     $('#projectFilter').value = '';
     $('#freshnessFilter').value = '';
     $('#sortFilter').value = 'catalog';
+    updateFavoritesUI();
     updateChipState();
     applyFilters();
     if (opts.focus && search) search.focus();
@@ -701,6 +781,7 @@
         (!activeTrust || c.trust === activeTrust) &&
         (!activeProject || c.projects.includes(activeProject)) &&
         (!activeFreshness || c.freshness === activeFreshness) &&
+        (!activeFavorites || favorites.has(c.favoriteKey)) &&
         (!activeTopic || TOPIC_ROUTES[activeTopic]?.match(c))
     ).sort(sortCards);
     const visible = new Set(matching.slice(0, visibleLimit));
@@ -716,7 +797,7 @@
     document.querySelectorAll('.sub').forEach((s) => { s.hidden = !s.querySelector('.card:not([hidden])'); });
     document.querySelectorAll('.cat').forEach((s) => { s.hidden = !s.querySelector('.card:not([hidden])'); });
     if (!sortedMode) updateNavVisibility();
-    const filtering = !!(q || activeType || activePlatform || activeLicense || activeTrust || activeProject || activeFreshness || activeTopic);
+    const filtering = !!(q || activeType || activePlatform || activeLicense || activeTrust || activeProject || activeFreshness || activeTopic || activeFavorites);
     $('#hero').classList.toggle('dim', filtering);
     const shown = Math.min(matched, visibleLimit);
     $('#resultcount').textContent = shown < matched ? `${shown} из ${matched}` : `${matched} ${matched === 1 ? 'материал' : 'материалов'}`;
@@ -735,7 +816,12 @@
     if (advanced && advancedCount) advanced.open = true;
     const empty = $('#empty');
     empty.hidden = !(filtering && matched === 0);
-    if (!empty.hidden) $('#emptyQ').textContent = q || TOPIC_ROUTES[activeTopic]?.title || activeProject || activePlatform || (LICENSE_GROUPS[activeLicense] || '') || (FRESHNESS[activeFreshness] || '') || (TRUST[activeTrust] || '') || (TYPE_GROUPS[activeType]?.label || '');
+    if (!empty.hidden) {
+      const reason = q || TOPIC_ROUTES[activeTopic]?.title || activeProject || activePlatform || (LICENSE_GROUPS[activeLicense] || '') || (FRESHNESS[activeFreshness] || '') || (TRUST[activeTrust] || '') || (TYPE_GROUPS[activeType]?.label || '');
+      $('#emptyMessage').textContent = activeFavorites && favorites.size === 0
+        ? 'В избранном пока пусто. Сохраните нужный материал кнопкой-закладкой на карточке.'
+        : `По выбранным условиям ничего не найдено${reason ? `: ${reason}` : '.'}`;
+    }
     entryReveal();
   }
 
@@ -1104,6 +1190,7 @@
         `<span class="verify-date">${esc(formatVerifiedAt(r.verifiedAt))}</span></div>` +
       `<h1 id="itemTitle">${esc(r.title)}</h1>` +
       `<p class="item-lead">${esc(r.simpleDescription)}</p>` +
+      `<div id="itemFavoriteSlot" class="item-favorite-slot"></div>` +
       `<div class="fact-grid">` +
         `<div><span>Где работает</span><b>${esc(r.platforms.join(', '))}</b></div>` +
         `<div><span>Стоимость</span><b>${esc(r.pricing)}</b></div>` +
@@ -1121,6 +1208,8 @@
       `<details class="original-note"><summary>Показать исходное техническое описание</summary><p>${esc(plain(r.rawText))}</p></details>` +
       `<div class="item-cta">${sourceBlocked ? '<strong class="blocked-source">Источник скрыт: автоматическая проверка обнаружила небезопасное назначение.</strong>' : `<a href="${escAttr(r.url)}" target="_blank" rel="noopener">Открыть официальный источник ↗</a>`}` +
         `<span>${r.detail ? 'Карточка проверена и дополнена редактором Eclipse Library.' : 'Это базовая карточка. Перед внедрением нужна дополнительная проверка.'}</span></div>`;
+    $('#itemFavoriteSlot').appendChild(favoriteButton(r, true));
+    updateFavoritesUI();
     view.hidden = false;
     view.scrollTop = 0;
     document.body.classList.add('noscroll');
@@ -1266,6 +1355,11 @@
   });
   $('#emptyClear').addEventListener('click', () => clearLibraryFilters({ focus: true }));
   $('#loadMore').addEventListener('click', () => { visibleLimit += PAGE_SIZE; applyFilters(false); });
+  document.addEventListener('click', (event) => {
+    const button = event.target.closest('[data-favorite-key]');
+    if (!button) return;
+    toggleFavorite(button.dataset.favoriteKey, button.dataset.favoriteTitle || 'Материал');
+  });
   $('#projectReset').addEventListener('click', () => {
     projectStatus = '';
     query = '';
