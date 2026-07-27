@@ -119,7 +119,9 @@
           <span id="resultcount" class="result-count" aria-live="polite"></span>
         </div>
         <div id="typeFilters" class="type-filters" role="toolbar" aria-label="Фильтр по типу"></div>
-        <div class="filter-selects">
+        <details id="advancedFilters" class="advanced-filters">
+          <summary>Дополнительные фильтры <span id="advancedFilterCount">платформа, лицензия, доверие и проект</span></summary>
+          <div class="filter-selects">
           <label>Где работает
             <select id="platformFilter" aria-label="Где работает">
               <option value="">Любая платформа</option>
@@ -146,7 +148,8 @@
             </select>
           </label>
           <button id="filterReset" class="filter-reset" type="button" hidden>Сбросить всё</button>
-        </div>
+          </div>
+        </details>
       </section>
 
       <div id="status" class="status">Загружаю библиотеку…</div>

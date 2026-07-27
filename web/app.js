@@ -132,6 +132,30 @@
     tool:   'инструмент',
     shop:   'e-commerce',
   };
+  const TYPE_GROUPS = {
+    ai: { label: 'AI и агенты', types: ['skill', 'agent', 'model', 'api', 'prompt'] },
+    tools: { label: 'Инструменты', types: ['tool', 'oss'] },
+    media: { label: 'Медиа', types: ['media'] },
+    learn: { label: 'Обучение', types: ['learn'] },
+    privacy: { label: 'Security и privacy', types: ['privacy', 'grey'] },
+    shop: { label: 'E-commerce', types: ['shop'] },
+    ecosystem: { label: 'Eclipse Forge', types: ['ours', 'drop'] },
+  };
+  const LICENSE_GROUPS = {
+    open: 'Open-source лицензия',
+    service: 'Условия сервиса',
+    unknown: 'Лицензия неясна',
+  };
+
+  function licenseGroup(value) {
+    if (/MIT|Apache|AGPL|GPL|BSD|MPL|CC BY|Open Source License/i.test(value || '')) return 'open';
+    if (/уточнить|не указана|не раскрыт/i.test(value || '')) return 'unknown';
+    return 'service';
+  }
+
+  function typeGroup(type) {
+    return Object.entries(TYPE_GROUPS).find(([, group]) => group.types.includes(type))?.[0] || 'tools';
+  }
 
   const NAV_GROUPS = [
     { id: 'start', title: 'Быстрый старт' },
@@ -428,11 +452,16 @@
           card.appendChild(h);
 
           card.appendChild(el('p', 'desc', esc(r.simpleDescription)));
+          const use = el('p', 'card-use');
+          use.innerHTML = `<b>Когда пригодится:</b> ${esc(r.useCases[0] || 'для небольшой тестовой задачи')}`;
+          card.appendChild(use);
 
           const pricingShort = /бесплат/i.test(r.pricing) ? 'Есть бесплатный доступ' : (/подпис|платн|оплач/i.test(r.pricing) ? 'Есть платные условия' : 'Условия нужно проверить');
           const meta = el('div', 'card-meta');
           r.platforms.slice(0, 2).forEach((platform) => meta.appendChild(el('span', 'meta-chip', esc(platform))));
-          meta.appendChild(el('span', 'meta-chip', esc(r.license)));
+          const license = el('span', 'meta-chip', esc(LICENSE_GROUPS[licenseGroup(r.license)]));
+          license.title = `Точные условия: ${r.license}`;
+          meta.appendChild(license);
           meta.appendChild(el('span', 'meta-chip meta-price', esc(pricingShort)));
           card.appendChild(meta);
 
@@ -456,6 +485,7 @@
             type: r.type,
             platforms: r.platforms,
             license: r.license,
+            licenseGroup: licenseGroup(r.license),
             trust: r.trust,
             projects: r.projects,
             freshness: r.freshness,
@@ -571,12 +601,13 @@
     const typeBar = $('#typeFilters');
     typeBar.innerHTML = '';
     typeBar.appendChild(chip(null, 'Все', cards.length, true));
-    Object.keys(typeCounts).sort((a, b) => typeCounts[b] - typeCounts[a]).forEach((t) => {
-      typeBar.appendChild(chip(t, TYPES[t] || t, typeCounts[t], false));
+    Object.entries(TYPE_GROUPS).forEach(([id, group]) => {
+      const count = cards.filter((card) => group.types.includes(card.type)).length;
+      if (count) typeBar.appendChild(chip(id, group.label, count, false));
     });
 
     fillSelect($('#platformFilter'), [...new Set(cards.flatMap((c) => c.platforms))]);
-    fillSelect($('#licenseFilter'), [...new Set(cards.map((c) => c.license))]);
+    fillSelect($('#licenseFilter'), [...new Set(cards.map((c) => c.licenseGroup))], (value) => LICENSE_GROUPS[value] || value);
     fillSelect($('#trustFilter'), [...new Set(cards.map((c) => c.trust))], (value) => TRUST[value] || value);
     fillSelect($('#projectFilter'), [...new Set(cards.flatMap((c) => c.projects))]);
     fillSelect($('#freshnessFilter'), [...new Set(cards.map((c) => c.freshness))], (value) => FRESHNESS[value] || value);
@@ -607,7 +638,7 @@
   function chip(type, label, n, active) {
     const c = el('button', 'chip' + (active ? ' active' : ''), `${esc(label)} <i>${n}</i>`);
     c.type = 'button';
-    c.dataset.type = type || '';
+    c.dataset.typeGroup = type || '';
     c.addEventListener('click', () => {
       clearTopicRoute();
       activeType = (activeType === type) ? null : type;
@@ -619,14 +650,15 @@
 
   function updateChipState() {
     const highlightedType = activeType || TOPIC_ROUTES[activeTopic]?.type || null;
-    document.querySelectorAll('.chip').forEach((x) => {
-      const active = highlightedType ? x.dataset.type === highlightedType : (!activeTopic && !x.dataset.type);
+    document.querySelectorAll('#typeFilters .chip').forEach((x) => {
+      const highlightedGroup = highlightedType && TYPE_GROUPS[highlightedType] ? highlightedType : typeGroup(highlightedType);
+      const active = highlightedType ? x.dataset.typeGroup === highlightedGroup : (!activeTopic && !x.dataset.typeGroup);
       x.classList.toggle('active', active);
     });
   }
 
   function setTypeFilter(type) {
-    activeType = type || null;
+    activeType = type ? typeGroup(type) : null;
     query = '';
     if (search) search.value = '';
     updateChipState();
@@ -660,9 +692,9 @@
     cards.forEach((c) => {
       const show =
         (!q || c.text.includes(q)) &&
-        (!activeType || c.type === activeType) &&
+        (!activeType || TYPE_GROUPS[activeType]?.types.includes(c.type)) &&
         (!activePlatform || c.platforms.includes(activePlatform)) &&
-        (!activeLicense || c.license === activeLicense) &&
+        (!activeLicense || c.licenseGroup === activeLicense) &&
         (!activeTrust || c.trust === activeTrust) &&
         (!activeProject || c.projects.includes(activeProject)) &&
         (!activeFreshness || c.freshness === activeFreshness) &&
@@ -685,9 +717,14 @@
     }
     const reset = $('#filterReset');
     if (reset) reset.hidden = !filtering;
+    const advancedCount = [activePlatform, activeLicense, activeTrust, activeProject, activeFreshness].filter(Boolean).length;
+    const advancedLabel = $('#advancedFilterCount');
+    if (advancedLabel) advancedLabel.textContent = advancedCount ? `выбрано: ${advancedCount}` : 'платформа, лицензия, доверие и проект';
+    const advanced = $('#advancedFilters');
+    if (advanced && advancedCount) advanced.open = true;
     const empty = $('#empty');
     empty.hidden = !(filtering && matched === 0);
-    if (!empty.hidden) $('#emptyQ').textContent = q || TOPIC_ROUTES[activeTopic]?.title || activeProject || activePlatform || activeLicense || (FRESHNESS[activeFreshness] || '') || (TRUST[activeTrust] || '') || (TYPES[activeType] || '');
+    if (!empty.hidden) $('#emptyQ').textContent = q || TOPIC_ROUTES[activeTopic]?.title || activeProject || activePlatform || (LICENSE_GROUPS[activeLicense] || '') || (FRESHNESS[activeFreshness] || '') || (TRUST[activeTrust] || '') || (TYPE_GROUPS[activeType]?.label || '');
     entryReveal();
   }
 
@@ -875,7 +912,7 @@
     if (!band) {
       band = el('section', 'guides-feat');
       band.id = 'guidesFeat';
-      ($('#topicContext') || hero).insertAdjacentElement('afterend', band);
+      ($('#results') || hero).insertAdjacentElement('afterend', band);
     }
     band.innerHTML =
       `<div class="gf-head"><h2><span aria-hidden="true">📚</span> Курсы и гайды</h2>` +
