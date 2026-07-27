@@ -15,7 +15,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Unbounded:wght@500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css?v=13" />
+  <link rel="stylesheet" href="styles.css?v=14" />
 </head>
 <body>
   <a class="skip" href="#results">Перейти к каталогу</a>
@@ -86,6 +86,18 @@
           <summary>Все разделы <span id="catBrowserCount"></span></summary>
           <nav id="catgrid" class="cat-grid" aria-label="Быстрый переход к категориям"></nav>
         </details>
+      </section>
+
+      <section id="personalPanel" class="personal-panel" hidden aria-labelledby="personalTitle">
+        <header>
+          <div><span>Ваш выбор · только на этом устройстве</span><h2 id="personalTitle">Продолжить исследование</h2></div>
+          <button id="clearRecent" type="button">Очистить историю</button>
+        </header>
+        <div class="personal-summary">
+          <button id="personalSaved" type="button"><b id="personalSavedCount">0</b><span>сохранено</span></button>
+          <div><b id="personalRecentCount">0</b><span>недавно открыто</span></div>
+        </div>
+        <nav id="recentList" class="recent-list" aria-label="Недавно просмотренные материалы"></nav>
       </section>
 
       <section id="projectsView" class="projects-view" hidden aria-labelledby="projectsTitle">
@@ -183,6 +195,22 @@
     </main>
   </div>
 
+  <aside id="compareTray" class="compare-tray" hidden aria-live="polite">
+    <div><span>Сравнение</span><b id="compareHint">Выберите ещё один материал</b></div>
+    <div id="comparePills" class="compare-pills"></div>
+    <button id="compareClear" class="compare-clear" type="button">Очистить</button>
+    <button id="compareOpen" class="compare-open" type="button" disabled>Сравнить</button>
+  </aside>
+
+  <section id="compareView" class="compare-overlay" hidden role="dialog" aria-modal="true" aria-labelledby="compareTitle">
+    <div class="item-head">
+      <button id="compareBack" class="guide-back" type="button">← К каталогу</button>
+      <span class="item-head-label">Сравнение материалов</span>
+      <button id="compareClearTop" class="compare-clear-top" type="button">Очистить выбор</button>
+    </div>
+    <article id="compareBody" class="compare-body"><h1 id="compareTitle">Сравнение</h1></article>
+  </section>
+
   <section id="guideView" class="guide-overlay" hidden aria-label="Гайд">
     <div class="guide-head">
       <button id="guideBack" class="guide-back" type="button">← К библиотеке</button>
@@ -212,6 +240,6 @@
     <a href="https://eclipse-forge.ru/" target="_blank" rel="noopener">Eclipse Forge</a> · обновляется по мере находок · данные из <a href="https://github.com/PavelHopson/eclipse-library" target="_blank" rel="noopener">README</a>
   </footer>
 
-  <script src="app.js?v=14"></script>
+  <script src="app.js?v=15"></script>
 </body>
 </html>

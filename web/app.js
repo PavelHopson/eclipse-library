@@ -11,6 +11,7 @@
   const PROJECTS_URL = 'projects.json?v=1';
   const PAGE_SIZE = 36;
   const FAVORITES_KEY = 'eclipse-library:favorites:v1';
+  const RECENT_KEY = 'eclipse-library:recent:v1';
   const DECISIONS = {
     now: 'Внедрить сейчас',
     roadmap: 'Добавить в roadmap',
@@ -60,6 +61,8 @@
   let projectStatus = '';
   let currentView = 'catalog';
   let favorites = loadFavorites();
+  let recentKeys = loadRecent();
+  const compareKeys = new Set();
   let feedbackTimer = 0;
 
   const $ = (s, r = document) => r.querySelector(s);
@@ -82,6 +85,13 @@
     } catch (error) { return new Set(); }
   }
 
+  function loadRecent() {
+    try {
+      const stored = JSON.parse(localStorage.getItem(RECENT_KEY) || '[]');
+      return Array.isArray(stored) ? stored.filter((value) => typeof value === 'string' && /^https?:\/\//.test(value)).slice(0, 8) : [];
+    } catch (error) { return []; }
+  }
+
   function persistFavorites() {
     try { localStorage.setItem(FAVORITES_KEY, JSON.stringify([...favorites])); }
     catch (error) { showFeedback('Не удалось сохранить выбор в этом браузере.'); }
@@ -95,12 +105,29 @@
     try { localStorage.setItem(FAVORITES_KEY, JSON.stringify([...favorites])); } catch (error) {}
   }
 
+  function pruneRecent() {
+    const valid = new Set(cards.map((card) => card.favoriteKey));
+    const next = recentKeys.filter((key, index) => valid.has(key) && recentKeys.indexOf(key) === index).slice(0, 8);
+    if (next.length === recentKeys.length) return;
+    recentKeys = next;
+    try { localStorage.setItem(RECENT_KEY, JSON.stringify(recentKeys)); } catch (error) {}
+  }
+
   function favoriteButton(resource, wide = false) {
     const button = el('button', `save-button${wide ? ' save-button-wide' : ''}`);
     button.type = 'button';
     button.dataset.favoriteKey = canonicalUrl(resource.url);
     button.dataset.favoriteTitle = resource.title;
     button.innerHTML = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.8 4.5c0-1 .8-1.7 1.7-1.7h7c.9 0 1.7.8 1.7 1.7v16l-5.2-3.3-5.2 3.3z"/></svg><span>В избранное</span>';
+    return button;
+  }
+
+  function compareButton(resource, wide = false) {
+    const button = el('button', `compare-button${wide ? ' compare-button-wide' : ''}`);
+    button.type = 'button';
+    button.dataset.compareKey = canonicalUrl(resource.url);
+    button.dataset.compareTitle = resource.title;
+    button.innerHTML = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4v16M17 4v16M3.5 8H10M14 16h6.5M5 6l2-2 2 2M15 18l2 2 2-2"/></svg><span>К сравнению</span>';
     return button;
   }
 
@@ -121,6 +148,28 @@
     }
     const count = $('#savedCount');
     if (count) count.textContent = String(favorites.size);
+    renderPersonalPanel();
+  }
+
+  function recordRecent(resource) {
+    const key = canonicalUrl(resource.url);
+    recentKeys = [key, ...recentKeys.filter((item) => item !== key)].slice(0, 8);
+    try { localStorage.setItem(RECENT_KEY, JSON.stringify(recentKeys)); } catch (error) {}
+    renderPersonalPanel();
+  }
+
+  function renderPersonalPanel() {
+    const panel = $('#personalPanel');
+    if (!panel) return;
+    const recent = recentKeys.map((key) => cards.find((card) => card.favoriteKey === key)).filter(Boolean);
+    panel.hidden = recent.length === 0 && favorites.size === 0;
+    $('#personalSavedCount').textContent = String(favorites.size);
+    $('#personalSaved').disabled = favorites.size === 0;
+    $('#personalRecentCount').textContent = String(recent.length);
+    $('#clearRecent').hidden = recent.length === 0;
+    $('#recentList').innerHTML = recent.map((card) =>
+      `<a href="#item/${encodeURIComponent(card.resource.id)}"><span>${esc(TYPES[card.type] || card.type)}</span><b>${esc(card.resource.title)}</b><small>${esc(card.resource.useCases[0] || card.resource.simpleDescription)}</small></a>`
+    ).join('');
   }
 
   function toggleFavorite(key, title) {
@@ -131,6 +180,69 @@
     updateFavoritesUI();
     applyFilters(false);
     showFeedback(saved ? `«${title}» убрано из избранного.` : `«${title}» сохранено на этом устройстве.`);
+  }
+
+  function updateCompareUI() {
+    document.querySelectorAll('[data-compare-key]').forEach((button) => {
+      const selected = compareKeys.has(button.dataset.compareKey);
+      button.classList.toggle('selected', selected);
+      button.setAttribute('aria-pressed', String(selected));
+      button.setAttribute('aria-label', `${selected ? 'Убрать из сравнения' : 'Добавить к сравнению'}: ${button.dataset.compareTitle || 'материал'}`);
+      const label = button.querySelector('span');
+      if (label) label.textContent = selected ? 'В сравнении' : 'К сравнению';
+    });
+    const selected = [...compareKeys].map((key) => cards.find((card) => card.favoriteKey === key)).filter(Boolean);
+    const tray = $('#compareTray');
+    tray.hidden = selected.length === 0 || !$('#compareView').hidden;
+    $('#compareHint').textContent = selected.length < 2 ? 'Выберите ещё один материал' : `${selected.length} из 3 выбрано`;
+    $('#compareOpen').disabled = selected.length < 2;
+    $('#compareOpen').textContent = selected.length < 2 ? 'Сравнить' : `Сравнить ${selected.length}`;
+    $('#comparePills').innerHTML = selected.map((card) => `<button type="button" data-compare-remove="${escAttr(card.favoriteKey)}" aria-label="Убрать из сравнения: ${escAttr(card.resource.title)}">${esc(card.resource.title)} <span>×</span></button>`).join('');
+  }
+
+  function toggleCompare(key, title) {
+    if (!cards.some((card) => card.favoriteKey === key)) return;
+    if (compareKeys.has(key)) compareKeys.delete(key);
+    else if (compareKeys.size >= 3) { showFeedback('Можно сравнить не больше трёх материалов.'); return; }
+    else compareKeys.add(key);
+    updateCompareUI();
+    showFeedback(compareKeys.has(key) ? `«${title}» добавлено к сравнению.` : `«${title}» убрано из сравнения.`);
+  }
+
+  function clearCompare() {
+    compareKeys.clear();
+    closeCompare();
+    updateCompareUI();
+  }
+
+  function openCompare() {
+    const selected = [...compareKeys].map((key) => cards.find((card) => card.favoriteKey === key)).filter(Boolean);
+    if (selected.length < 2) { showFeedback('Добавьте к сравнению ещё один материал.'); return; }
+    closeGuide(); closeItem();
+    const rows = [
+      ['Что это', (card) => card.resource.simpleDescription],
+      ['Когда пригодится', (card) => card.resource.useCases[0] || 'Не указано'],
+      ['Где работает', (card) => card.platforms.join(', ')],
+      ['Стоимость', (card) => card.resource.pricing],
+      ['Лицензия', (card) => card.license],
+      ['Доверие', (card) => TRUST[card.trust] || TRUST.unknown],
+      ['Решение Eclipse', (card) => DECISIONS[card.resource.decision] || DECISIONS.reference],
+      ['Риск', (card) => RISK[card.resource.riskLevel] || RISK.medium],
+      ['Проекты Eclipse', (card) => card.projects.join(', ') || 'Не подтверждено'],
+    ];
+    $('#compareBody').innerHTML = `<h1 id="compareTitle">Сравнение ${selected.length} материалов</h1><p>Смотрите на задачу, условия и риски — не только на список функций.</p><div class="compare-table-wrap"><table><thead><tr><th>Критерий</th>${selected.map((card) => `<th><span>${esc(TYPES[card.type] || card.type)}</span><b>${esc(card.resource.title)}</b><a href="#item/${encodeURIComponent(card.resource.id)}">Открыть карточку →</a></th>`).join('')}</tr></thead><tbody>${rows.map(([label, value]) => `<tr><th>${esc(label)}</th>${selected.map((card) => `<td>${esc(value(card))}</td>`).join('')}</tr>`).join('')}</tbody></table></div>`;
+    $('#compareView').hidden = false;
+    $('#compareTray').hidden = true;
+    document.body.classList.add('noscroll');
+    requestAnimationFrame(() => $('#compareBack').focus());
+  }
+
+  function closeCompare() {
+    const view = $('#compareView');
+    if (!view || view.hidden) return;
+    view.hidden = true;
+    document.body.classList.remove('noscroll');
+    updateCompareUI();
   }
 
   function showFeedback(message) {
@@ -514,6 +626,7 @@
             img.src = `https://img.shields.io/github/stars/${r.starsRepo}?style=flat&color=8b5cf6&labelColor=15151c&logo=github&logoColor=cfcfe0`;
             top.appendChild(img);
           }
+          top.appendChild(compareButton(r));
           top.appendChild(favoriteButton(r));
           card.appendChild(top);
 
@@ -586,7 +699,9 @@
     buildFilters(typeCounts);
     buildQuickRoutes(cats, typeCounts);
     pruneFavorites();
+    pruneRecent();
     updateFavoritesUI();
+    updateCompareUI();
     $('#status').hidden = true;
     requestAnimationFrame(() => { scrollSpy(); entryReveal(); });
   }
@@ -1171,8 +1286,10 @@
     const entry = cards.find((card) => card.resource.id === id);
     if (!entry) return;
     closeGuide();
+    closeCompare();
     itemReturnFocus = document.activeElement instanceof HTMLElement ? document.activeElement : null;
     const r = entry.resource;
+    recordRecent(r);
     const view = $('#itemView');
     const body = $('#itemBody');
     const sourceTop = $('#itemSourceTop');
@@ -1190,7 +1307,7 @@
         `<span class="verify-date">${esc(formatVerifiedAt(r.verifiedAt))}</span></div>` +
       `<h1 id="itemTitle">${esc(r.title)}</h1>` +
       `<p class="item-lead">${esc(r.simpleDescription)}</p>` +
-      `<div id="itemFavoriteSlot" class="item-favorite-slot"></div>` +
+      `<div id="itemActionSlot" class="item-action-slot"></div>` +
       `<div class="fact-grid">` +
         `<div><span>Где работает</span><b>${esc(r.platforms.join(', '))}</b></div>` +
         `<div><span>Стоимость</span><b>${esc(r.pricing)}</b></div>` +
@@ -1208,8 +1325,10 @@
       `<details class="original-note"><summary>Показать исходное техническое описание</summary><p>${esc(plain(r.rawText))}</p></details>` +
       `<div class="item-cta">${sourceBlocked ? '<strong class="blocked-source">Источник скрыт: автоматическая проверка обнаружила небезопасное назначение.</strong>' : `<a href="${escAttr(r.url)}" target="_blank" rel="noopener">Открыть официальный источник ↗</a>`}` +
         `<span>${r.detail ? 'Карточка проверена и дополнена редактором Eclipse Library.' : 'Это базовая карточка. Перед внедрением нужна дополнительная проверка.'}</span></div>`;
-    $('#itemFavoriteSlot').appendChild(favoriteButton(r, true));
+    $('#itemActionSlot').appendChild(favoriteButton(r, true));
+    $('#itemActionSlot').appendChild(compareButton(r, true));
     updateFavoritesUI();
+    updateCompareUI();
     view.hidden = false;
     view.scrollTop = 0;
     document.body.classList.add('noscroll');
@@ -1227,7 +1346,7 @@
 
   async function openGuide(name) {
     const v = $('#guideView'), b = $('#guideBody'), t = $('#guideTitle'), toc = $('#guideToc');
-    closeItem();
+    closeItem(); closeCompare();
     v.hidden = false; document.body.classList.add('noscroll'); v.scrollTop = 0;
     if (toc) { toc.hidden = true; toc.innerHTML = ''; }
     $('#guideGh').href = `${REPO_URL}/blob/master/guides/${name}.md`;
@@ -1244,7 +1363,7 @@
     const h = location.hash;
     if (/^#guide\//.test(h)) { openGuide(decodeURIComponent(h.slice(7))); return; }
     if (/^#item\//.test(h)) { openItem(decodeURIComponent(h.slice(6))); return; }
-    if (h === '#projects') { closeGuide(); closeItem(); clearTopicRoute(); setView('projects'); window.scrollTo({ top: 0 }); return; }
+    if (h === '#projects') { closeGuide(); closeItem(); closeCompare(); clearTopicRoute(); setView('projects'); window.scrollTo({ top: 0 }); return; }
     setView('catalog');
     if (/^#browse\//.test(h)) { closeGuide(); closeItem(); applyTopicRoute(decodeURIComponent(h.slice(8))); return; }
     clearTopicRoute();
@@ -1331,6 +1450,14 @@
     });
   }
   document.addEventListener('keydown', (e) => {
+    if (e.key === 'Tab' && !$('#compareView').hidden) {
+      const focusable = [...$('#compareView').querySelectorAll('a[href], button:not([disabled])')].filter((node) => !node.hidden);
+      if (focusable.length) {
+        const first = focusable[0], last = focusable[focusable.length - 1];
+        if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+        else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+      }
+    }
     if (e.key === 'Tab' && !$('#itemView').hidden) {
       const focusable = [...$('#itemView').querySelectorAll('a[href], button:not([disabled]), summary')].filter((node) => !node.hidden);
       if (focusable.length) {
@@ -1339,6 +1466,7 @@
         else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
       }
     }
+    if (e.key === 'Escape' && !$('#compareView').hidden) { closeCompare(); return; }
     if (e.key === 'Escape' && !$('#itemView').hidden) { closeItem(); history.replaceState(null, '', location.pathname + location.search); return; }
     if (e.key === 'Escape' && !$('#guideView').hidden) { closeGuide(); history.replaceState(null, '', location.pathname + location.search); return; }
     if (e.key === '/' && document.activeElement !== search) { e.preventDefault(); search.focus(); }
@@ -1348,6 +1476,23 @@
   window.addEventListener('hashchange', route);
   $('#guideBack').addEventListener('click', () => { closeGuide(); history.replaceState(null, '', location.pathname + location.search); });
   $('#itemBack').addEventListener('click', () => { closeItem(); history.replaceState(null, '', location.pathname + location.search); });
+  $('#compareBack').addEventListener('click', closeCompare);
+  $('#compareOpen').addEventListener('click', openCompare);
+  $('#compareClear').addEventListener('click', clearCompare);
+  $('#compareClearTop').addEventListener('click', clearCompare);
+  $('#clearRecent').addEventListener('click', () => {
+    recentKeys = [];
+    try { localStorage.setItem(RECENT_KEY, '[]'); } catch (error) {}
+    renderPersonalPanel();
+    showFeedback('История просмотров очищена.');
+  });
+  $('#personalSaved').addEventListener('click', () => {
+    if (!favorites.size) return;
+    activeFavorites = true;
+    updateFavoritesUI();
+    applyFilters();
+    $('#filters').scrollIntoView({ behavior: 'smooth', block: 'start' });
+  });
   $('#guideToc').addEventListener('click', (e) => {
     const b = e.target.closest('.gt-link'); if (!b) return;
     const target = document.getElementById(b.dataset.target);
@@ -1356,9 +1501,15 @@
   $('#emptyClear').addEventListener('click', () => clearLibraryFilters({ focus: true }));
   $('#loadMore').addEventListener('click', () => { visibleLimit += PAGE_SIZE; applyFilters(false); });
   document.addEventListener('click', (event) => {
-    const button = event.target.closest('[data-favorite-key]');
-    if (!button) return;
-    toggleFavorite(button.dataset.favoriteKey, button.dataset.favoriteTitle || 'Материал');
+    const favorite = event.target.closest('[data-favorite-key]');
+    if (favorite) { toggleFavorite(favorite.dataset.favoriteKey, favorite.dataset.favoriteTitle || 'Материал'); return; }
+    const compare = event.target.closest('[data-compare-key]');
+    if (compare) { toggleCompare(compare.dataset.compareKey, compare.dataset.compareTitle || 'Материал'); return; }
+    const remove = event.target.closest('[data-compare-remove]');
+    if (remove) {
+      const card = cards.find((item) => item.favoriteKey === remove.dataset.compareRemove);
+      if (card) toggleCompare(card.favoriteKey, card.resource.title);
+    }
   });
   $('#projectReset').addEventListener('click', () => {
     projectStatus = '';
