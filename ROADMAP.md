@@ -78,7 +78,8 @@
   private code/secrets в search query, Playwright MCP оставлен reference из-за уже доступного browser
   tooling и рекомендации Microsoft рассмотреть более компактный CLI + Skills workflow.
 - Live QA выявил и устранил нерелевантную cross-topic рекомендацию: для подробной MCP-карточки
-  related materials теперь сначала выбираются из MCP-кластера, а не из всех записей типа `tool`.
+  related materials теперь сначала выбираются по MCP-названию, а не по случайному упоминанию MCP
+  в security-тексте; записи с решением «Не использовать» исключены из рекомендаций.
 - Stage 7 discovery завершён: Security Guidance, NVIDIA Skills, SkillSpector, AgentShield и
   Anthropic Cybersecurity Skills получили подробные карточки с provenance, условиями, ограничениями,
   safe start и применимостью. Structured details выросли с 46 до 51 без новых URL-дублей.

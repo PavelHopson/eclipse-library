@@ -1285,9 +1285,9 @@
   }
 
   function relatedCardsFor(entry, limit = 3) {
-    const verified = cards.filter((candidate) => candidate !== entry && candidate.resource.detail);
-    const sameMcpTopic = /\bmcp\b/i.test(entry.text)
-      ? verified.filter((candidate) => /\bmcp\b/i.test(candidate.text))
+    const verified = cards.filter((candidate) => candidate !== entry && candidate.resource.detail && candidate.resource.decision !== 'no');
+    const sameMcpTopic = /\bmcp\b/i.test(entry.resource.title)
+      ? verified.filter((candidate) => /\bmcp\b/i.test(candidate.resource.title))
       : [];
     const sameType = verified.filter((candidate) => candidate.type === entry.type);
     const candidates = sameMcpTopic.length >= limit
