@@ -110,6 +110,16 @@
 | [GPT4All](https://gpt4all.io) | MIT desktop-клиент и Python bindings для локальных GGUF-моделей и LocalDocs. Полезен как CPU-friendly reference для offline RAG; лицензия конкретной модели проверяется отдельно | [![Stars](https://img.shields.io/github/stars/nomic-ai/gpt4all?style=flat)](https://github.com/nomic-ai/gpt4all) |
 | [ComfyUI](https://github.com/Comfy-Org/ComfyUI) | GPL-3.0 node-based движок и API для воспроизводимых image/video/audio workflows. Внедрять в Text2Image и Shotforge через pinned core; custom nodes считать непроверенным Python-кодом | [![Stars](https://img.shields.io/github/stars/Comfy-Org/ComfyUI?style=flat)](https://github.com/Comfy-Org/ComfyUI) |
 
+### MCP: внешние данные и действия
+
+| Ресурс | Что подключает и как начинать | Звёзды |
+|--------|-------------------------------|--------|
+| [GitHub MCP Server](https://github.com/github/github-mcp-server) | Официальный доступ агента к repositories, issues, pull requests и Actions. Начинать с fine-grained token на один repository, `--read-only`, lockdown mode и только нужных toolsets | [![Stars](https://img.shields.io/github/stars/github/github-mcp-server?style=flat)](https://github.com/github/github-mcp-server) |
+| [Filesystem MCP Server](https://github.com/modelcontextprotocol/servers/tree/main/src/filesystem) | Чтение, поиск и изменение файлов только внутри allowed directories. Давать отдельную тестовую папку или read-only Docker mount; не передавать home, корень диска, `.ssh` и каталоги с secrets | [![Stars](https://img.shields.io/github/stars/modelcontextprotocol/servers?style=flat)](https://github.com/modelcontextprotocol/servers) |
+| [Playwright MCP](https://github.com/microsoft/playwright-mcp) | Официальный Microsoft server для browser automation через accessibility snapshots. Это не security boundary: использовать отдельный browser profile без банковских, production и личных сессий; для coding workflow сначала сравнить с более компактным Playwright CLI + Skills | [![Stars](https://img.shields.io/github/stars/microsoft/playwright-mcp?style=flat)](https://github.com/microsoft/playwright-mcp) |
+| [Context7 MCP](https://github.com/upstash/context7) | Подтягивает актуальную документацию библиотек в coding-agent. Удалённый режим отправляет поисковые запросы Context7/Upstash; не включать в них исходный код, secrets и приватные бизнес-данные | [![Stars](https://img.shields.io/github/stars/upstash/context7?style=flat)](https://github.com/upstash/context7) |
+| [PostgreSQL MCP reference](https://github.com/modelcontextprotocol/servers-archived/tree/main/src/postgres) | Старый read-only reference server перенесён в архив и больше не поддерживается. Не подключать к production database; использовать только как архитектурный пример либо выбрать поддерживаемую альтернативу после отдельного аудита | — |
+
 **Списки и агрегаторы:**
 
 | Ресурс | Описание | Звёзды |

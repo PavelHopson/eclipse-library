@@ -43,6 +43,8 @@
       объяснимые рекомендации похожих проверенных материалов с быстрым сравнением.
 - [x] Stage 7 — добавить быстрый маршрут только по вручную проверенным материалам и расширить
       подробный security/skill-governance слой официальными и community-инструментами.
+- [x] Stage 8 — собрать базовый MCP-набор с явными границами доступа, secret handling,
+      tool-poisoning рисками и отдельным решением для неподдерживаемых servers.
 
 - [ ] Частично: перевести все записи из неструктурированных Markdown-описаний в schema с полями:
       `type`, `category`, `platform`, `license`, `trust`, `risk`, `projects`, `verifiedAt`.
@@ -65,6 +67,16 @@
 
 ### 2026-07-27
 
+- Stage 8 discovery завершён: добавлены GitHub MCP, Filesystem MCP, Playwright MCP, Context7 MCP
+  и архивный PostgreSQL reference. Каталог вырос с 504 до 509 материалов, structured details —
+  с 51 до 56; canonical URL-дубли отсутствуют.
+- Для каждого MCP простым языком описаны доступные действия и безопасный старт: fine-grained token,
+  read-only/lockdown, allowed directories, отдельный browser profile, data minimization, version pinning
+  и ручная проверка tool descriptions. PostgreSQL reference отмечен решением «Не использовать»:
+  canonical repository архивирован и больше не поддерживается.
+- GitHub MCP и Filesystem MCP рекомендованы к ограниченному внедрению, Context7 — к внедрению без
+  private code/secrets в search query, Playwright MCP оставлен reference из-за уже доступного browser
+  tooling и рекомендации Microsoft рассмотреть более компактный CLI + Skills workflow.
 - Stage 7 discovery завершён: Security Guidance, NVIDIA Skills, SkillSpector, AgentShield и
   Anthropic Cybersecurity Skills получили подробные карточки с provenance, условиями, ограничениями,
   safe start и применимостью. Structured details выросли с 46 до 51 без новых URL-дублей.
