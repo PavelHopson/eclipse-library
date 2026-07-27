@@ -13,7 +13,7 @@
   показывается отдельно от редакторского доверия и не считается security endorsement.
 - Deploy: GitHub Actions → VPS/Caddy из ветки `master`.
 - Production синхронизирован с `master`: deploy
-  [#30290065646](https://github.com/PavelHopson/eclipse-library/actions/runs/30290065646)
+  [#30291057165](https://github.com/PavelHopson/eclipse-library/actions/runs/30291057165)
   от 27.07.2026 успешно завершён через VPS/Caddy.
 
 ## Приоритеты
@@ -65,6 +65,11 @@
   states, keyboard focus и `prefers-reduced-motion`-совместимая анимация в существующем стиле Library.
 - Local browser QA на desktop/mobile проверил add/remove, фильтр 1 из 499, persistence после reload,
   detail view, нулевой horizontal overflow и отсутствие console errors.
+- Commit `ba48052` отправлен в `origin/master`; CI
+  [#30291057122](https://github.com/PavelHopson/eclipse-library/actions/runs/30291057122) и deploy
+  [#30291057165](https://github.com/PavelHopson/eclipse-library/actions/runs/30291057165) завершены успешно.
+  Live QA подтвердил `app.js?v=14` / `styles.css?v=13`, add/remove, фильтр 1 из 499,
+  persistence после reload и mobile layout без horizontal overflow.
 
 - Stage 3 discovery завершён: пользователь может глобально упорядочить результаты по редакторской
   рекомендации, доверию, свежести проверки или названию и в любой момент вернуть структуру каталога.
