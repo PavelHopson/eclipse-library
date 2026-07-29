@@ -53,13 +53,23 @@ if (!Array.isArray(audit?.servers) || audit.servers.length === 0) {
       if (detailUrl.toString().replace(/\/$/, '') !== canonical) errors.push(`${label}: audit URL does not match catalog detail URL.`);
     }
     if (server?.status === 'runtime-reviewed' && !/^[a-f0-9]{64}$/.test(server?.toolsetHash || '')) errors.push(`${label}: runtime-reviewed server requires a SHA-256 toolsetHash.`);
-    if (server?.status === 'runtime-scanned') {
+    if (server?.status === 'runtime-reviewed') {
+      if (server?.manualReview?.outcome !== 'passed' || server?.manualReview?.findingCount !== 0) errors.push(`${label}: runtime-reviewed server requires a passed zero-finding manual review.`);
+      if (server?.automatedScan?.activeTests?.passed !== server?.automatedScan?.activeTests?.total || server?.automatedScan?.activeTests?.total < 1) errors.push(`${label}: runtime-reviewed server requires passing active boundary tests.`);
+    }
+    if (['runtime-scanned', 'runtime-reviewed'].includes(server?.status)) {
       if (!/^[a-f0-9]{64}$/.test(server?.toolsetHash || '')) errors.push(`${label}: runtime-scanned server requires a SHA-256 toolsetHash.`);
       if (server?.automatedScan?.scanner !== 'eclipse-library-offline-inspector@1') errors.push(`${label}: unsupported automated scanner.`);
       if (!Number.isFinite(Date.parse(server?.automatedScan?.scannedAt))) errors.push(`${label}: automatedScan.scannedAt must be an ISO date.`);
       if (!Number.isInteger(server?.automatedScan?.toolCount) || server.automatedScan.toolCount < 1) errors.push(`${label}: automatedScan.toolCount must be positive.`);
       if (server?.automatedScan?.findingCount !== 0) errors.push(`${label}: runtime-scanned status requires zero automated findings.`);
       if (!/^https:\/\/github\.com\/PavelHopson\/eclipse-library\/actions\/runs\/\d+$/.test(server?.automatedScan?.runUrl || '')) errors.push(`${label}: automatedScan.runUrl is invalid.`);
+    }
+    if (server?.manualReview !== undefined) {
+      if (!['passed', 'conditional'].includes(server?.manualReview?.outcome)) errors.push(`${label}: unsupported manual review outcome.`);
+      if (!Number.isFinite(Date.parse(server?.manualReview?.reviewedAt))) errors.push(`${label}: manualReview.reviewedAt must be an ISO date.`);
+      if (typeof server?.manualReview?.reviewer !== 'string' || server.manualReview.reviewer.length < 5) errors.push(`${label}: manualReview.reviewer is required.`);
+      if (!Number.isInteger(server?.manualReview?.findingCount) || server.manualReview.findingCount < 0) errors.push(`${label}: manualReview.findingCount must be non-negative.`);
     }
     if (server?.status === 'blocked' && server?.staticReview !== 'failed') errors.push(`${label}: blocked server must have failed staticReview.`);
   });
@@ -73,5 +83,6 @@ if (errors.length) {
 
 const pending = audit.servers.filter((server) => server.status === 'runtime-pending').length;
 const scanned = audit.servers.filter((server) => server.status === 'runtime-scanned').length;
+const reviewed = audit.servers.filter((server) => server.status === 'runtime-reviewed').length;
 const blocked = audit.servers.filter((server) => server.status === 'blocked').length;
-console.log(`MCP audit validation passed: ${audit.servers.length} servers, ${scanned} automated scans, ${pending} runtime pending, ${blocked} blocked.`);
+console.log(`MCP audit validation passed: ${audit.servers.length} servers, ${reviewed} runtime reviewed, ${scanned} automated scans, ${pending} runtime pending, ${blocked} blocked.`);

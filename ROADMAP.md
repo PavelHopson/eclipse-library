@@ -97,6 +97,13 @@
   завершён успешно: Filesystem MCP — 14 tools, hash `31ebd4eb…b1324`; Context7 — 2 tools,
   hash `6d3469e…365e1`; 0 automated findings. Оба получили честный статус `runtime-scanned`, а не
   `runtime-reviewed`: private raw metadata ещё должен просмотреть человек перед рабочим подключением.
+- Ручной metadata review и активный boundary run
+  [#30467513692](https://github.com/PavelHopson/eclipse-library/actions/runs/30467513692) завершены.
+  Filesystem MCP прошёл 5/5 разрешённых тестов: scoped-directory listing и чтение внутри workspace,
+  отказ для `/etc/passwd`, parent traversal и symlink escape; hash совпал, findings нет, статус повышен до
+  `runtime-reviewed`. Context7 metadata не содержит скрытых инструкций, но явно управляет связкой двух tools
+  и передаёт query во внешний API; это Low/accepted risk, поэтому без auth/privacy verification он остаётся
+  `runtime-scanned`. Weekly workflow теперь блокирует изменение pinned toolset hash.
 - Static payload проверен в браузере: 509 карточек, 56 verified, отсутствие horizontal overflow на desktop
   и 390×844; mobile scroll остался на 790 px спустя 3 секунды и не вернул страницу наверх.
 

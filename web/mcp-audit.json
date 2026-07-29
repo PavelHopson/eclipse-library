@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-07-29T15:10:11.000Z",
+  "updatedAt": "2026-07-29T15:46:49.000Z",
   "servers": [
     {
       "id": "github-official-mcp-server",
@@ -15,17 +15,27 @@
       "id": "official-filesystem-mcp-server",
       "url": "https://github.com/modelcontextprotocol/servers/tree/main/src/filesystem",
       "version": "2026.7.10",
-      "status": "runtime-scanned",
+      "status": "runtime-reviewed",
       "staticReview": "passed",
-      "summary": "Официальный source и scoped-directory configuration проверены. Runtime audit ожидается; нельзя передавать home, корень диска, .ssh или каталоги с секретами.",
+      "summary": "Pinned metadata просмотрены вручную: скрытых инструкций и schema mismatch нет. Disposable runner подтвердил разрешённое чтение и блокировку абсолютного пути, parent traversal и symlink escape — использовать только с отдельным узким workspace.",
       "riskAreas": ["filesystem scope", "secret exposure", "write access"],
       "toolsetHash": "31ebd4eb16a16bc2bca4381b19740ae8b55191e32b408a525f85d86e292b1324",
       "automatedScan": {
         "scanner": "eclipse-library-offline-inspector@1",
-        "scannedAt": "2026-07-29T15:10:11.000Z",
+        "scannedAt": "2026-07-29T15:46:49.000Z",
         "toolCount": 14,
         "findingCount": 0,
-        "runUrl": "https://github.com/PavelHopson/eclipse-library/actions/runs/30464504976"
+        "runUrl": "https://github.com/PavelHopson/eclipse-library/actions/runs/30467513692",
+        "activeTests": {
+          "passed": 5,
+          "total": 5
+        }
+      },
+      "manualReview": {
+        "reviewedAt": "2026-07-29T15:46:49.000Z",
+        "reviewer": "Eclipse Library security review",
+        "outcome": "passed",
+        "findingCount": 0
       }
     },
     {
@@ -43,15 +53,21 @@
       "version": "3.2.5",
       "status": "runtime-scanned",
       "staticReview": "passed",
-      "summary": "Canonical source, license и data-flow документация проверены. Runtime descriptions ещё не зафиксированы; запросы не должны содержать private code, customer data или secrets.",
+      "summary": "Pinned metadata просмотрены вручную: скрытых инструкций и обфускации нет. Descriptions явно задают последовательность resolve-library-id → query-docs, а query отправляется во внешний API; до проверки auth/privacy boundary статус остаётся условным.",
       "riskAreas": ["remote query disclosure", "indirect prompt injection", "tool description changes"],
       "toolsetHash": "6d3469e7756206536bb7e11cea9606e3978aee7c6f6f86053200108d498365e1",
       "automatedScan": {
         "scanner": "eclipse-library-offline-inspector@1",
-        "scannedAt": "2026-07-29T15:10:11.000Z",
+        "scannedAt": "2026-07-29T15:46:49.000Z",
         "toolCount": 2,
         "findingCount": 0,
-        "runUrl": "https://github.com/PavelHopson/eclipse-library/actions/runs/30464504976"
+        "runUrl": "https://github.com/PavelHopson/eclipse-library/actions/runs/30467513692"
+      },
+      "manualReview": {
+        "reviewedAt": "2026-07-29T15:46:49.000Z",
+        "reviewer": "Eclipse Library security review",
+        "outcome": "conditional",
+        "findingCount": 1
       }
     },
     {

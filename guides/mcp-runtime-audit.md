@@ -69,7 +69,7 @@ Filesystem получает пустой каталог из `${{ runner.temp }}
 Runtime status можно повысить до `runtime-reviewed`, только если одновременно выполнено всё:
 
 1. Server и scanner закреплены точной версией или digest.
-2. Raw metadata просмотрены человеком.
+2. Raw metadata просмотрены вручную ответственным security reviewer.
 3. Toolset SHA-256 записан и validator принимает его.
 4. Permissions ограничены конкретным workspace/account.
 5. Secrets отсутствуют в config, output и artifacts.
