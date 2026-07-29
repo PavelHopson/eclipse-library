@@ -2,6 +2,7 @@ import { createHash } from 'node:crypto';
 import { mkdir, writeFile } from 'node:fs/promises';
 import { spawn } from 'node:child_process';
 import { join } from 'node:path';
+import { metadataFindings } from './mcp-metadata-policy.mjs';
 
 const outputDirectory = process.env.MCP_AUDIT_OUTPUT || '.artifacts/mcp-runtime';
 const scopedDirectory = process.env.MCP_FILESYSTEM_ROOT;
@@ -11,14 +12,6 @@ const servers = [
   { id: 'official-filesystem-mcp-server', version: '2026.7.10', command: 'npx', args: ['-y', '@modelcontextprotocol/server-filesystem@2026.7.10', scopedDirectory] },
   { id: 'upstash-context7-mcp', version: '3.2.5', command: 'npx', args: ['-y', '@upstash/context7-mcp@3.2.5'] },
 ];
-const suspiciousRules = [
-  ['hidden-instruction', /ignore (?:all |any )?(?:previous|prior)|do not (?:tell|show|reveal)|never mention|system prompt/i],
-  ['credential-access', /\.ssh|\.env|cookie|credential|private key|api[_ -]?key|secret|token/i],
-  ['cross-tool-request', /call (?:another|the) tool|invoke (?:another|the) tool|use (?:another|the) tool/i],
-  ['encoded-payload', /(?:base64|atob|fromcharcode|eval\s*\()/i],
-  ['invisible-unicode', /[\u200B-\u200F\u202A-\u202E\u2060-\u206F\uFEFF]/],
-];
-
 function stable(value) {
   if (Array.isArray(value)) return value.map(stable);
   if (value && typeof value === 'object') return Object.fromEntries(Object.keys(value).sort().map((key) => [key, stable(value[key])]));
@@ -66,11 +59,7 @@ async function inspect(server) {
     const tools = (listed?.tools || []).map((tool) => ({ name: String(tool.name || ''), description: String(tool.description || ''), inputSchema: stable(tool.inputSchema || {}) })).sort((a, b) => a.name.localeCompare(b.name));
     if (!tools.length) throw new Error(`${server.id} returned no tools.`);
     const findings = [];
-    tools.forEach((tool) => {
-      const text = `${tool.name}\n${tool.description}\n${JSON.stringify(tool.inputSchema)}`;
-      suspiciousRules.forEach(([code, rule]) => { if (rule.test(text)) findings.push({ code, toolHash: createHash('sha256').update(tool.name).digest('hex').slice(0, 16) }); });
-      if (text.length > 40_000) findings.push({ code: 'oversized-metadata', toolHash: createHash('sha256').update(tool.name).digest('hex').slice(0, 16) });
-    });
+    tools.forEach((tool) => findings.push(...metadataFindings(tool)));
     const normalized = { server: server.id, serverVersion: server.version, protocolVersion: initialized?.protocolVersion || null, tools };
     const serialized = JSON.stringify(stable(normalized));
     return { raw: normalized, summary: { id: server.id, version: server.version, protocolVersion: initialized?.protocolVersion || null, toolCount: tools.length, toolsetHash: createHash('sha256').update(serialized).digest('hex'), automatedFindings: findings, stderrBytes } };
