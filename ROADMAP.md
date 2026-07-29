@@ -92,6 +92,11 @@
   Добавлен sandbox-runbook и validator, который требует SHA-256 toolset hash перед `runtime-reviewed`.
 - Фактический runtime scan не запускался: Docker/disposable sandbox на рабочей машине отсутствует, а запуск
   MCP packages или `mcp-scan` напрямую нарушил бы правило изоляции непроверенного кода.
+- Commits `2963dc6`, `409a2f5` и `28f8398` отправлены в `origin/master`; catalog CI
+  [#30458603501](https://github.com/PavelHopson/eclipse-library/actions/runs/30458603501) и production deploy
+  [#30458596879](https://github.com/PavelHopson/eclipse-library/actions/runs/30458596879) завершены успешно.
+  Independent smoke и live browser QA подтвердили `app.js?v=25`, 509 карточек, 98 результатов для
+  «бесплатно + без регистрации + local/self-host», 5 MCP audit badges, 9 mobile filters и стабильный scroll.
 - Добавлены шесть простых входов по задаче: local AI, автоматизация, исследование, security, media и
   commerce. Выбор работает совместно с поиском, типами и advanced filters; вся подборка кодируется в URL,
   восстанавливается после reload и копируется одной кнопкой без аккаунта.
