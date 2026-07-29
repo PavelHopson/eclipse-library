@@ -84,6 +84,11 @@
   использует strict host verification, таймауты и три ограниченные попытки для `rsync`/SSH. Новый
   post-deploy smoke принимает только canonical HTTPS origin, сверяет `app.js` байт-в-байт с commit и
   валидирует live metadata/projects/README; contract покрыт unit tests и добавлен в quality workflow.
+- Commits `7970b3b` и `d246337` отправлены в `origin/master`; catalog CI
+  [#30456286673](https://github.com/PavelHopson/eclipse-library/actions/runs/30456286673) и hardened deploy
+  [#30456287345](https://github.com/PavelHopson/eclipse-library/actions/runs/30456287345) завершены успешно.
+  Независимый production smoke и live browser QA подтвердили `app.js?v=24`, 509 карточек, 6 task routes,
+  22 проекта, 307 repository statuses, отсутствие horizontal overflow и стабильный scroll на 390×844.
 - Исправлен mobile scroll-jump: scrollspy больше не вызывает вертикальный `scrollIntoView()` для
   горизонтальной ленты категорий на ширине до 960 px. Активная категория прокручивается только внутри
   самой ленты; проверено на 390×844 длинным скроллом каталога без возврата страницы наверх.
