@@ -36,5 +36,11 @@ jobs:
           node scripts/validate-github-metadata.mjs
       - name: Validate production smoke contract
         run: node --test scripts/smoke-production.test.mjs
+      - name: Validate MCP audit status
+        run: node scripts/validate-mcp-audit.mjs
+      - name: Prevent new catalog duplicates
+        run: |
+          node --test scripts/catalog-identity.test.mjs
+          node scripts/catalog-identity.mjs
       - name: Audit catalog identity offline
         run: node scripts/check-links.mjs
