@@ -83,6 +83,10 @@
 - Infrastructure recheck подтвердил внешний blocker публикации: `library` и `hub` резолвятся в
   `111.88.125.84`, а HTTPS/SSH port 22 недоступны; основной `eclipse-forge.ru` на GitHub Pages отвечает 200.
   DNS не менялся без подтверждённого нового VPS IP.
+- Commit `44d34ae` отправлен в `origin/master`; catalog CI
+  [#30451805813](https://github.com/PavelHopson/eclipse-library/actions/runs/30451805813) прошёл. Deploy
+  [#30451805450](https://github.com/PavelHopson/eclipse-library/actions/runs/30451805450) успешно собрал payload,
+  но `rsync` завершился по таймауту SSH port 22; production пока не обновлён.
 - MCP-рекомендации переведены в implementation: Sentinel получил `mcp add-preset`, OMC —
   `omc mcp-baseline` с синхронизацией Claude/Codex, AI Hub — ignored project-local generator без
   browser-side credentials и автоматического запуска servers. Implementation commits: Sentinel
