@@ -54,7 +54,9 @@ container без сети, capabilities и рабочего token; провер�
 Playwright MCP `0.0.78` использует headless Chromium, `--isolated`, пустой output directory и только два
 принадлежащих workflow loopback fixture. Проверяются разрешённый fixture, запрет второго origin и запрет
 `file:` вне workspace. Origin allowlist Playwright остаётся защитой от ошибок, а не security boundary:
-официальная документация предупреждает, что redirects могут её обойти.
+официальная документация предупреждает, что redirects могут её обойти. Его default toolset также содержит
+`browser_run_code_unsafe`, который сама metadata называет RCE-equivalent; без host-side tool allowlist такой
+server нельзя подключать к рабочему coding-agent даже с пустым browser profile.
 
 Runner не использует repository secrets и удаляется GitHub после job. Автоматически полученный hash не равен ручному approval: статус
 `runtime-reviewed` ставится только после просмотра private artifact человеком и проверки всех условий ниже.

@@ -88,6 +88,19 @@
 - Для Context7 зафиксирована privacy boundary: local package и remote MCP отправляют свободный query во
   внешний Context7 API. API key влияет на authentication/limits, но не делает содержимое запроса локальным,
   поэтому private code, secrets, персональные и закрытые бизнес-данные передавать нельзя.
+- Runtime run [#30471854284](https://github.com/PavelHopson/eclipse-library/actions/runs/30471854284)
+  завершён успешно без repository secrets и пользовательских sessions. GitHub MCP — 19 tools, hash
+  `bc1a74c6…8d198`, 3/3 tests, ручной review без findings: `runtime-reviewed` только для pinned stdio
+  read-only/lockdown конфигурации. Playwright MCP — 24 tools, hash `4ab6f26e…eea4c`, 4/4 tests, но metadata
+  публикует `browser_run_code_unsafe` с RCE-equivalent доступом: статус `runtime-scanned`, решение reference.
+  Filesystem и Context7 сохранили утверждённые hashes; Context7 остаётся conditional из-за external query.
+  Artifact сокращён до `summary.json` и raw metadata (около 70 KB), npm cache в evidence больше не попадает.
+- UI различает окончательный approval и условный review: GitHub/Filesystem показывают «Runtime-аудит пройден»,
+  Playwright/Context7 — «Проверено с ограничениями» с конкретным finding в title и полном detail notice.
+  Локальный browser QA прошёл на 1440×900 и 390×844: 509 карточек, 5 MCP badges, без horizontal overflow
+  и console errors; mobile scroll сохранился на 2154 px после ожидания и не вернул страницу наверх.
+- Commits `22c7d97` и `194f0cd` отправлены в `origin/master`; первый добавил GitHub/Playwright runtime coverage,
+  второй исправил Playwright fixture assertion через отдельный accessibility snapshot и очистил artifact.
 - Stage 13 завершил полный data layer: `web/catalog-index.json` содержит 509 уникальных карточек с единым
   contract для описания, сценариев, платформ, лицензии, цены, доступа, доверия, рисков, проектов, решения,
   безопасного старта и source location. 56 карточек имеют `reviewStatus=verified`, остальные 453 — честный

@@ -11,6 +11,7 @@ const details = JSON.parse(detailsText);
 const errors = [];
 const allowedStatuses = new Set(['static-reviewed', 'runtime-pending', 'runtime-scanned', 'runtime-reviewed', 'blocked']);
 const allowedStaticReview = new Set(['passed', 'failed']);
+const allowedFindingSeverities = new Set(['critical', 'high', 'medium', 'low']);
 const detailById = new Map(details.map((item) => [item.id, item]));
 const ids = new Set();
 const urls = new Set();
@@ -70,6 +71,11 @@ if (!Array.isArray(audit?.servers) || audit.servers.length === 0) {
       if (!Number.isFinite(Date.parse(server?.manualReview?.reviewedAt))) errors.push(`${label}: manualReview.reviewedAt must be an ISO date.`);
       if (typeof server?.manualReview?.reviewer !== 'string' || server.manualReview.reviewer.length < 5) errors.push(`${label}: manualReview.reviewer is required.`);
       if (!Number.isInteger(server?.manualReview?.findingCount) || server.manualReview.findingCount < 0) errors.push(`${label}: manualReview.findingCount must be non-negative.`);
+      if (server?.manualReview?.outcome === 'conditional') {
+        if (server.manualReview.findingCount < 1) errors.push(`${label}: conditional manual review requires at least one finding.`);
+        if (!allowedFindingSeverities.has(server.manualReview.severity)) errors.push(`${label}: conditional manual review requires a valid severity.`);
+        if (typeof server.manualReview.finding !== 'string' || server.manualReview.finding.length < 40 || server.manualReview.finding.length > 400) errors.push(`${label}: conditional manual review requires a 40-400 character finding.`);
+      }
     }
     if (server?.status === 'blocked' && server?.staticReview !== 'failed') errors.push(`${label}: blocked server must have failed staticReview.`);
   });

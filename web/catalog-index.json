@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "sourceHash": "fd0a7a5d35fb40bc8fea470892f44c785d77ba9c8d77a6937b5d111fcc81a247",
+  "sourceHash": "62c83f4036fbd534781ff64a91046d94a5bdd0171e8d668c88c95a7d90d53562",
   "totals": {
     "all": 509,
     "verified": 56,
@@ -9304,7 +9304,7 @@
         "runtime": "hybrid"
       },
       "trust": "official",
-      "trustReason": "Проверены repository github/github-mcp-server, MIT license, официальный read-only mode, lockdown mode, toolsets и рекомендации GitHub по token security.",
+      "trustReason": "Проверены repository github/github-mcp-server, MIT license и pinned stdio toolset 0.31.0: 19 read-only tools, 3/3 boundary checks и ручной review без findings. Approval не распространяется на HTTP mode этой версии.",
       "projects": [
         "Hopson Sentinel",
         "oh-my-claudecode",
@@ -9316,12 +9316,13 @@
       "risks": [
         "Token с широкими scopes позволяет агенту менять код, workflows, issues и другие данные во всех доступных repositories",
         "Непроверенный текст из issue или pull request может содержать prompt injection и влиять на дальнейшие tool calls",
+        "Для HTTP mode 0.31.0 опубликован открытый report о неработающем read-only ограничении; проверена только stdio-конфигурация",
         "Remote transport и автоматически обновляемый container расширяют supply-chain и rug-pull поверхность"
       ],
       "verifiedAt": "2026-07-29",
       "quickStart": [
         "Создать отдельный fine-grained token только для одного тестового repository с read-only permissions",
-        "Закрепить image digest или release, включить read-only и lockdown mode и оставить только нужные toolsets",
+        "Закрепить image digest или release, использовать stdio, включить read-only и lockdown mode и оставить только нужные toolsets",
         "Проверить tool descriptions, выполнить безопасный read-сценарий и не включать write tools без отдельного approval flow"
       ],
       "reviewStatus": "verified",
@@ -13614,7 +13615,7 @@
         "runtime": "self-host"
       },
       "trust": "official",
-      "trustReason": "Проверены microsoft/playwright-mcp, Apache-2.0 license и официальный security disclaimer: Playwright MCP не является security boundary. Документация также предлагает CLI + Skills как более компактный вариант для coding agents.",
+      "trustReason": "Проверены microsoft/playwright-mcp 0.0.78, Apache-2.0, 24 runtime tools и 4/4 isolated localhost/file tests. Официальная metadata прямо помечает browser_run_code_unsafe как RCE-equivalent, а origin allowlist — не как security boundary; поэтому решение остаётся reference.",
       "projects": [
         "Hopson Sentinel",
         "Eclipse Chat",
@@ -13627,13 +13628,14 @@
       "risks": [
         "Browser profile может содержать cookies, authenticated sessions, clipboard и доступ к приватным страницам",
         "Контент сайта является недоверенным и может внедрять инструкции, ведущие к опасным действиям в других tools",
+        "browser_run_code_unsafe исполняет произвольный JavaScript в server process; file upload и network body tools также расширяют доступ к данным",
         "Публичный endpoint на 0.0.0.0 без authentication позволяет посторонним управлять browser session"
       ],
-      "verifiedAt": "2026-07-27",
+      "verifiedAt": "2026-07-29",
       "quickStart": [
         "Сначала сравнить задачу с Playwright CLI + Skills и выбрать MCP только для действительно интерактивного сценария",
-        "Запустить pinned container или package в отдельном пустом browser profile без личных и production logins",
-        "Оставить transport локальным, отключить лишние capabilities и требовать approval перед submit, download, upload и внешним действием"
+        "Не подключать MCP к рабочему coding-agent, пока host не умеет исключить browser_run_code_unsafe и ограничить tools allowlist",
+        "Для исследования запускать pinned package только в disposable VM с пустым profile, локальным transport и approval перед submit, download, upload и внешним действием"
       ],
       "reviewStatus": "verified",
       "source": {
@@ -21825,7 +21827,7 @@
       "useCases": [
         "В oh-my-claudecode получать актуальные примеры через version-pinned unified registry preset",
         "В Eclipse AI Hub проверять React, Vite и provider API через локальный developer config",
-        "В Hopson Sentinel добавлять Context7 одной preset-командой без обязательного API key"
+        "В Hopson Sentinel добавлять Context7 preset с API key только из environment и запретом private queries"
       ],
       "platforms": [
         "MCP",
@@ -21843,7 +21845,7 @@
         "runtime": "hybrid"
       },
       "trust": "official",
-      "trustReason": "Проверены canonical upstash/context7 repository, MIT license, официальная security documentation и описание обработки поисковых запросов hosted service.",
+      "trustReason": "Проверены canonical upstash/context7 repository, MIT license, pinned metadata 3.2.5 и официальная auth-схема. Local и remote варианты передают query hosted Context7 API; API key повышает limits, но не делает запрос локальным.",
       "projects": [
         "oh-my-claudecode",
         "Hopson Sentinel",
@@ -21859,8 +21861,8 @@
       ],
       "verifiedAt": "2026-07-29",
       "quickStart": [
-        "Подключить только официальный repository или endpoint и закрепить доступную версию",
-        "Проверить tool descriptions и отправлять тестовые запросы без private code, customer data и secrets",
+        "Подключить только официальный repository или endpoint, закрепить доступную версию и передавать API key через environment/header",
+        "Отправлять запросы без private code, customer data, персональных данных и secrets",
         "Сравнить полученный пример с primary documentation и lockfile перед применением в production code"
       ],
       "reviewStatus": "verified",

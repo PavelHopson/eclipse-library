@@ -9,7 +9,7 @@
   const DETAILS_URL = 'catalog-index.json?v=1';
   const LINK_HEALTH_URL = 'link-health.json?v=1';
   const GITHUB_METADATA_URL = 'github-metadata.json?v=1';
-  const MCP_AUDIT_URL = 'mcp-audit.json?v=1';
+  const MCP_AUDIT_URL = 'mcp-audit.json?v=2';
   const PROJECTS_URL = 'projects.json?v=1';
   const PAGE_SIZE = 36;
   const FAVORITES_KEY = 'eclipse-library:favorites:v1';
@@ -734,11 +734,18 @@
           }
           if (r.mcpAudit) {
             const auditStatus = ['runtime-reviewed', 'runtime-scanned', 'blocked'].includes(r.mcpAudit.status) ? r.mcpAudit.status : 'runtime-pending';
-            const audit = el('span', `mcp-audit mcp-audit-${auditStatus}`, esc(MCP_AUDIT[r.mcpAudit.status] || MCP_AUDIT['runtime-pending']));
+            const auditLabel = r.mcpAudit.status === 'runtime-scanned' && r.mcpAudit.manualReview?.outcome === 'conditional'
+              ? 'Проверено с ограничениями'
+              : MCP_AUDIT[r.mcpAudit.status] || MCP_AUDIT['runtime-pending'];
+            const audit = el('span', `mcp-audit mcp-audit-${auditStatus}`, esc(auditLabel));
             audit.title = r.mcpAudit.status === 'runtime-reviewed'
               ? 'Tool descriptions проверены вручную, а разрешённые boundary tests пройдены в изолированном окружении.'
+              : r.mcpAudit.status === 'blocked'
+                ? r.mcpAudit.summary
               : r.mcpAudit.status === 'runtime-scanned'
-                ? 'Pinned server проверен автоматическим inspector в disposable runner; перед рабочим подключением ещё нужен ручной review приватного artifact.'
+                ? r.mcpAudit.manualReview?.outcome === 'conditional'
+                  ? `Ручной review завершён с ограничением: ${r.mcpAudit.manualReview.finding}`
+                  : 'Pinned server проверен автоматическим inspector в disposable runner; перед рабочим подключением ещё нужен ручной review приватного artifact.'
                 : 'Сервер не запускался на основной машине: перед подключением нужен sandbox-аудит tool descriptions.';
             top.appendChild(audit);
           }

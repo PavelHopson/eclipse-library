@@ -1,15 +1,33 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-07-29T15:46:49.000Z",
+  "updatedAt": "2026-07-29T16:41:41.850Z",
   "servers": [
     {
       "id": "github-official-mcp-server",
       "url": "https://github.com/github/github-mcp-server",
       "version": "0.31.0",
-      "status": "runtime-pending",
+      "status": "runtime-reviewed",
       "staticReview": "passed",
-      "summary": "Официальный source, license и least-privilege flags проверены. Runtime tool descriptions ещё не загружались; запускать только в sandbox с fine-grained token без production secrets.",
-      "riskAreas": ["token scope", "write actions", "tool description changes"]
+      "summary": "Pinned stdio metadata просмотрены вручную: 19 read-only tools без скрытых инструкций и write surface. Container без сети и рабочего token подтвердил отказ чтения без credentials. Approval относится только к read-only + lockdown stdio; HTTP mode 0.31.0 не одобрен.",
+      "riskAreas": ["token scope", "write actions", "tool description changes"],
+      "toolsetHash": "bc1a74c6c3f9a8bbc752ee3644b1da7b8f84bfb2305ac301e1291f632ee8d198",
+      "automatedScan": {
+        "scanner": "eclipse-library-offline-inspector@1",
+        "scannedAt": "2026-07-29T16:41:41.850Z",
+        "toolCount": 19,
+        "findingCount": 0,
+        "runUrl": "https://github.com/PavelHopson/eclipse-library/actions/runs/30471854284",
+        "activeTests": {
+          "passed": 3,
+          "total": 3
+        }
+      },
+      "manualReview": {
+        "reviewedAt": "2026-07-29T16:41:41.850Z",
+        "reviewer": "Eclipse Library security review",
+        "outcome": "passed",
+        "findingCount": 0
+      }
     },
     {
       "id": "official-filesystem-mcp-server",
@@ -22,17 +40,17 @@
       "toolsetHash": "31ebd4eb16a16bc2bca4381b19740ae8b55191e32b408a525f85d86e292b1324",
       "automatedScan": {
         "scanner": "eclipse-library-offline-inspector@1",
-        "scannedAt": "2026-07-29T15:46:49.000Z",
+        "scannedAt": "2026-07-29T16:41:41.850Z",
         "toolCount": 14,
         "findingCount": 0,
-        "runUrl": "https://github.com/PavelHopson/eclipse-library/actions/runs/30467513692",
+        "runUrl": "https://github.com/PavelHopson/eclipse-library/actions/runs/30471854284",
         "activeTests": {
           "passed": 5,
           "total": 5
         }
       },
       "manualReview": {
-        "reviewedAt": "2026-07-29T15:46:49.000Z",
+        "reviewedAt": "2026-07-29T16:41:41.850Z",
         "reviewer": "Eclipse Library security review",
         "outcome": "passed",
         "findingCount": 0
@@ -41,11 +59,31 @@
     {
       "id": "microsoft-playwright-mcp",
       "url": "https://github.com/microsoft/playwright-mcp",
-      "version": "reference-only",
-      "status": "runtime-pending",
+      "version": "0.0.78",
+      "status": "runtime-scanned",
       "staticReview": "passed",
-      "summary": "Официальный source и security disclaimer проверены. Runtime audit не выполнялся; использовать только отдельный пустой browser profile без личных и production sessions.",
-      "riskAreas": ["browser session access", "external navigation", "uploads and downloads"]
+      "summary": "Pinned metadata и пустой isolated Chromium проверены: 4/4 localhost/file tests прошли. Однако toolset содержит browser_run_code_unsafe с RCE-equivalent доступом к server process, а origin allowlist не является security boundary. Оставить reference и не подключать к рабочим сессиям.",
+      "riskAreas": ["RCE-equivalent tool", "browser session access", "external navigation", "uploads and downloads"],
+      "toolsetHash": "4ab6f26e62a52be66e660f002f98f9d5f8a26da9e65842ac9828d01bc70eea4c",
+      "automatedScan": {
+        "scanner": "eclipse-library-offline-inspector@1",
+        "scannedAt": "2026-07-29T16:41:41.850Z",
+        "toolCount": 24,
+        "findingCount": 0,
+        "runUrl": "https://github.com/PavelHopson/eclipse-library/actions/runs/30471854284",
+        "activeTests": {
+          "passed": 4,
+          "total": 4
+        }
+      },
+      "manualReview": {
+        "reviewedAt": "2026-07-29T16:41:41.850Z",
+        "reviewer": "Eclipse Library security review",
+        "outcome": "conditional",
+        "findingCount": 1,
+        "severity": "high",
+        "finding": "Default toolset содержит browser_run_code_unsafe с RCE-equivalent доступом к server process; безопасного server-side exclude flag нет."
+      }
     },
     {
       "id": "upstash-context7-mcp",
@@ -53,21 +91,23 @@
       "version": "3.2.5",
       "status": "runtime-scanned",
       "staticReview": "passed",
-      "summary": "Pinned metadata просмотрены вручную: скрытых инструкций и обфускации нет. Descriptions явно задают последовательность resolve-library-id → query-docs, а query отправляется во внешний API; до проверки auth/privacy boundary статус остаётся условным.",
+      "summary": "Pinned metadata просмотрены вручную: скрытых инструкций и обфускации нет. Local и remote режимы передают query во внешний Context7 API; API key даёт authentication/limits, но не локальную приватность. Использовать только после удаления private code, secrets и пользовательских данных.",
       "riskAreas": ["remote query disclosure", "indirect prompt injection", "tool description changes"],
       "toolsetHash": "6d3469e7756206536bb7e11cea9606e3978aee7c6f6f86053200108d498365e1",
       "automatedScan": {
         "scanner": "eclipse-library-offline-inspector@1",
-        "scannedAt": "2026-07-29T15:46:49.000Z",
+        "scannedAt": "2026-07-29T16:41:41.850Z",
         "toolCount": 2,
         "findingCount": 0,
-        "runUrl": "https://github.com/PavelHopson/eclipse-library/actions/runs/30467513692"
+        "runUrl": "https://github.com/PavelHopson/eclipse-library/actions/runs/30471854284"
       },
       "manualReview": {
-        "reviewedAt": "2026-07-29T15:46:49.000Z",
+        "reviewedAt": "2026-07-29T16:41:41.850Z",
         "reviewer": "Eclipse Library security review",
         "outcome": "conditional",
-        "findingCount": 1
+        "findingCount": 1,
+        "severity": "low",
+        "finding": "Формулировки запросов передаются hosted Context7 API; authentication не заменяет data minimization и privacy review."
       }
     },
     {
