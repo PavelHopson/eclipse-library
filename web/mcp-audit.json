@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-07-29T00:00:00.000Z",
+  "updatedAt": "2026-07-29T15:10:11.000Z",
   "servers": [
     {
       "id": "github-official-mcp-server",
@@ -15,10 +15,18 @@
       "id": "official-filesystem-mcp-server",
       "url": "https://github.com/modelcontextprotocol/servers/tree/main/src/filesystem",
       "version": "2026.7.10",
-      "status": "runtime-pending",
+      "status": "runtime-scanned",
       "staticReview": "passed",
       "summary": "Официальный source и scoped-directory configuration проверены. Runtime audit ожидается; нельзя передавать home, корень диска, .ssh или каталоги с секретами.",
-      "riskAreas": ["filesystem scope", "secret exposure", "write access"]
+      "riskAreas": ["filesystem scope", "secret exposure", "write access"],
+      "toolsetHash": "31ebd4eb16a16bc2bca4381b19740ae8b55191e32b408a525f85d86e292b1324",
+      "automatedScan": {
+        "scanner": "eclipse-library-offline-inspector@1",
+        "scannedAt": "2026-07-29T15:10:11.000Z",
+        "toolCount": 14,
+        "findingCount": 0,
+        "runUrl": "https://github.com/PavelHopson/eclipse-library/actions/runs/30464504976"
+      }
     },
     {
       "id": "microsoft-playwright-mcp",
@@ -33,10 +41,18 @@
       "id": "upstash-context7-mcp",
       "url": "https://github.com/upstash/context7",
       "version": "3.2.5",
-      "status": "runtime-pending",
+      "status": "runtime-scanned",
       "staticReview": "passed",
       "summary": "Canonical source, license и data-flow документация проверены. Runtime descriptions ещё не зафиксированы; запросы не должны содержать private code, customer data или secrets.",
-      "riskAreas": ["remote query disclosure", "indirect prompt injection", "tool description changes"]
+      "riskAreas": ["remote query disclosure", "indirect prompt injection", "tool description changes"],
+      "toolsetHash": "6d3469e7756206536bb7e11cea9606e3978aee7c6f6f86053200108d498365e1",
+      "automatedScan": {
+        "scanner": "eclipse-library-offline-inspector@1",
+        "scannedAt": "2026-07-29T15:10:11.000Z",
+        "toolCount": 2,
+        "findingCount": 0,
+        "runUrl": "https://github.com/PavelHopson/eclipse-library/actions/runs/30464504976"
+      }
     },
     {
       "id": "archived-postgresql-mcp-reference",

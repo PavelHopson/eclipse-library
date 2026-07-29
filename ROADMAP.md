@@ -93,6 +93,10 @@
   Raw descriptions сохраняются только в private artifact на 7 дней; в logs выводятся counts/hash/findings.
 - Snyk Agent Scan не подключён автоматически: официальный scanner теперь требует Snyk token и передаёт
   tool names/descriptions в Snyk. Это отдельное решение о third-party data sharing, а не безопасный default.
+- Runtime run [#30464504976](https://github.com/PavelHopson/eclipse-library/actions/runs/30464504976)
+  завершён успешно: Filesystem MCP — 14 tools, hash `31ebd4eb…b1324`; Context7 — 2 tools,
+  hash `6d3469e…365e1`; 0 automated findings. Оба получили честный статус `runtime-scanned`, а не
+  `runtime-reviewed`: private raw metadata ещё должен просмотреть человек перед рабочим подключением.
 - Static payload проверен в браузере: 509 карточек, 56 verified, отсутствие horizontal overflow на desktop
   и 390×844; mobile scroll остался на 790 px спустя 3 секунды и не вернул страницу наверх.
 

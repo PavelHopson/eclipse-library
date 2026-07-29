@@ -290,6 +290,7 @@ button.quick-route { appearance: none; }
 .filter-reset:hover { background: rgba(216,181,81,.14); border-color: rgba(216,181,81,.44); transform: translateY(-1px); }
 .mcp-audit { display: inline-flex; align-items: center; padding: 4px 7px; border: 1px solid rgba(216,181,81,.24); border-radius: 999px; background: rgba(216,181,81,.07); color: #dfcb89; font: 700 8.5px var(--mono); white-space: nowrap; }
 .mcp-audit-runtime-reviewed { border-color: rgba(89,205,137,.3); background: rgba(89,205,137,.08); color: #8ee6b4; }
+.mcp-audit-runtime-scanned { border-color: rgba(87,166,255,.3); background: rgba(87,166,255,.08); color: #9ac8ff; }
 .mcp-audit-blocked { border-color: rgba(244,114,114,.32); background: rgba(244,114,114,.08); color: #f6a0a0; }
 .result-count { font-family: var(--mono); font-size: 11.5px; color: #d9eaff; font-variant-numeric: tabular-nums; background: var(--blue-soft); border: 1px solid var(--blue-line); border-radius: 999px; padding: 5px 9px; white-space: nowrap; }
 

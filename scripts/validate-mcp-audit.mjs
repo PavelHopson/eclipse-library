@@ -9,7 +9,7 @@ const [auditText, detailsText] = await Promise.all([
 const audit = JSON.parse(auditText);
 const details = JSON.parse(detailsText);
 const errors = [];
-const allowedStatuses = new Set(['static-reviewed', 'runtime-pending', 'runtime-reviewed', 'blocked']);
+const allowedStatuses = new Set(['static-reviewed', 'runtime-pending', 'runtime-scanned', 'runtime-reviewed', 'blocked']);
 const allowedStaticReview = new Set(['passed', 'failed']);
 const detailById = new Map(details.map((item) => [item.id, item]));
 const ids = new Set();
@@ -53,6 +53,14 @@ if (!Array.isArray(audit?.servers) || audit.servers.length === 0) {
       if (detailUrl.toString().replace(/\/$/, '') !== canonical) errors.push(`${label}: audit URL does not match catalog detail URL.`);
     }
     if (server?.status === 'runtime-reviewed' && !/^[a-f0-9]{64}$/.test(server?.toolsetHash || '')) errors.push(`${label}: runtime-reviewed server requires a SHA-256 toolsetHash.`);
+    if (server?.status === 'runtime-scanned') {
+      if (!/^[a-f0-9]{64}$/.test(server?.toolsetHash || '')) errors.push(`${label}: runtime-scanned server requires a SHA-256 toolsetHash.`);
+      if (server?.automatedScan?.scanner !== 'eclipse-library-offline-inspector@1') errors.push(`${label}: unsupported automated scanner.`);
+      if (!Number.isFinite(Date.parse(server?.automatedScan?.scannedAt))) errors.push(`${label}: automatedScan.scannedAt must be an ISO date.`);
+      if (!Number.isInteger(server?.automatedScan?.toolCount) || server.automatedScan.toolCount < 1) errors.push(`${label}: automatedScan.toolCount must be positive.`);
+      if (server?.automatedScan?.findingCount !== 0) errors.push(`${label}: runtime-scanned status requires zero automated findings.`);
+      if (!/^https:\/\/github\.com\/PavelHopson\/eclipse-library\/actions\/runs\/\d+$/.test(server?.automatedScan?.runUrl || '')) errors.push(`${label}: automatedScan.runUrl is invalid.`);
+    }
     if (server?.status === 'blocked' && server?.staticReview !== 'failed') errors.push(`${label}: blocked server must have failed staticReview.`);
   });
 }
@@ -64,5 +72,6 @@ if (errors.length) {
 }
 
 const pending = audit.servers.filter((server) => server.status === 'runtime-pending').length;
+const scanned = audit.servers.filter((server) => server.status === 'runtime-scanned').length;
 const blocked = audit.servers.filter((server) => server.status === 'blocked').length;
-console.log(`MCP audit validation passed: ${audit.servers.length} servers, ${pending} runtime pending, ${blocked} blocked.`);
+console.log(`MCP audit validation passed: ${audit.servers.length} servers, ${scanned} automated scans, ${pending} runtime pending, ${blocked} blocked.`);

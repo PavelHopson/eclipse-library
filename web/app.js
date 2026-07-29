@@ -75,6 +75,7 @@
   const MCP_AUDIT = {
     'static-reviewed': 'Статически проверен',
     'runtime-pending': 'Runtime-аудит ожидается',
+    'runtime-scanned': 'Автоскан metadata пройден',
     'runtime-reviewed': 'Runtime-аудит пройден',
     blocked: 'Не запускать',
   };
@@ -732,11 +733,13 @@
             top.appendChild(repository);
           }
           if (r.mcpAudit) {
-            const auditStatus = r.mcpAudit.status === 'runtime-reviewed' ? 'runtime-reviewed' : r.mcpAudit.status === 'blocked' ? 'blocked' : 'runtime-pending';
+            const auditStatus = ['runtime-reviewed', 'runtime-scanned', 'blocked'].includes(r.mcpAudit.status) ? r.mcpAudit.status : 'runtime-pending';
             const audit = el('span', `mcp-audit mcp-audit-${auditStatus}`, esc(MCP_AUDIT[r.mcpAudit.status] || MCP_AUDIT['runtime-pending']));
             audit.title = r.mcpAudit.status === 'runtime-reviewed'
-              ? 'Tool descriptions и runtime metadata проверены в изолированном окружении.'
-              : 'Сервер не запускался на основной машине: перед подключением нужен sandbox-аудит tool descriptions.';
+              ? 'Tool descriptions и runtime metadata проверены человеком в изолированном окружении.'
+              : r.mcpAudit.status === 'runtime-scanned'
+                ? 'Pinned server проверен автоматическим inspector в disposable runner; перед рабочим подключением ещё нужен ручной review приватного artifact.'
+                : 'Сервер не запускался на основной машине: перед подключением нужен sandbox-аудит tool descriptions.';
             top.appendChild(audit);
           }
           if (r.starsRepo) {
