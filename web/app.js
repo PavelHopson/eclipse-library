@@ -6,9 +6,10 @@
   const REPO = 'PavelHopson/eclipse-library';
   const RAW = `https://raw.githubusercontent.com/${REPO}/master/README.md`;
   const REPO_URL = `https://github.com/${REPO}`;
-  const DETAILS_URL = 'catalog-details.json?v=5';
+  const DETAILS_URL = 'catalog-details.json?v=6';
   const LINK_HEALTH_URL = 'link-health.json?v=1';
   const GITHUB_METADATA_URL = 'github-metadata.json?v=1';
+  const MCP_AUDIT_URL = 'mcp-audit.json?v=1';
   const PROJECTS_URL = 'projects.json?v=1';
   const PAGE_SIZE = 36;
   const FAVORITES_KEY = 'eclipse-library:favorites:v1';
@@ -52,6 +53,31 @@
     disabled: 'GitHub-репозиторий отключён',
     unknown: 'Состояние GitHub не проверено',
   };
+  const COST = {
+    free: 'Бесплатно',
+    freemium: 'Можно начать бесплатно',
+    paid: 'Только платно',
+    unknown: 'Стоимость нужно проверить',
+  };
+  const SIGNUP = {
+    none: 'Без регистрации',
+    optional: 'Регистрация необязательна',
+    required: 'Нужен аккаунт',
+    unknown: 'Регистрацию нужно проверить',
+  };
+  const RUNTIME = {
+    local: 'На своём устройстве',
+    'self-host': 'На своём сервере',
+    cloud: 'В облаке',
+    hybrid: 'Локально и в облаке',
+    unknown: 'Место запуска нужно проверить',
+  };
+  const MCP_AUDIT = {
+    'static-reviewed': 'Статически проверен',
+    'runtime-pending': 'Runtime-аудит ожидается',
+    'runtime-reviewed': 'Runtime-аудит пройден',
+    blocked: 'Не запускать',
+  };
   const TOPIC_ROUTES = {
     verified: { title: 'Проверено редактором', description: 'Материалы с ручной проверкой источника, лицензии, условий, рисков и применимости к проектам Eclipse Forge.', match: (c) => Boolean(c.resource.detail) },
     skills: { title: 'Skills для AI-агентов', description: 'Готовые инструкции и повторяемые workflows. Перед установкой проверьте permissions и содержимое skill.', type: 'skill', match: (c) => c.type === 'skill' },
@@ -74,6 +100,8 @@
   let linkHealthSnapshot = null;
   let githubMetadataByRepo = new Map();
   let githubMetadataSnapshot = null;
+  let mcpAuditByUrl = new Map();
+  let mcpAuditSnapshot = null;
   let duplicateCount = 0;
   let projects = [];
   let projectStatus = '';
@@ -362,6 +390,43 @@
     return 'service';
   }
 
+  function inferCost(pricing) {
+    const value = String(pricing || '').toLowerCase();
+    if (/уточнить|проверьте актуальные|не раскрыт/.test(value)) return 'unknown';
+    const paidSource = value.replace(/бесплат\w*/g, '');
+    const hasFree = /бесплат|без оплаты|free|open-source|open source|включ[её]нн?ая .*квот/.test(value);
+    const hasPaid = /платн|оплач|pay-as-you-go|paid|подпис|тариф|billing|commercial|credits?/.test(paidSource);
+    if (hasFree && hasPaid) return 'freemium';
+    if (hasFree) return 'free';
+    if (hasPaid) return 'paid';
+    return 'unknown';
+  }
+
+  function inferRuntime(platforms, text) {
+    const values = new Set(platforms || []);
+    const source = `${[...(platforms || [])].join(' ')} ${text || ''}`.toLowerCase();
+    const selfHosted = values.has('Self-host') || /self-host|сво(?:й|ём) сервер|docker/.test(source);
+    const localPlatform = ['Local', 'Desktop', 'CLI', 'Windows', 'macOS', 'Linux', 'Android', 'iOS', 'Apple Silicon'].some((value) => values.has(value));
+    const cloudPlatform = ['Cloud', 'Remote', 'API'].some((value) => values.has(value));
+    const hasRuntimePlatform = selfHosted || localPlatform || cloudPlatform;
+    const local = selfHosted || localPlatform || (!hasRuntimePlatform && /локальн|offline|on-device/.test(source));
+    const cloud = cloudPlatform || (!hasRuntimePlatform && /облак|hosted|saas/.test(source));
+    if (local && cloud) return 'hybrid';
+    if (selfHosted) return 'self-host';
+    if (local) return 'local';
+    if (cloud || values.has('Web')) return 'cloud';
+    return 'unknown';
+  }
+
+  function inferSignup(platforms, text, runtime) {
+    const source = String(text || '').toLowerCase();
+    if (/без регистрац|no[- ]signup|без аккаунт/.test(source)) return 'none';
+    if (/регистрац.*необяз|optional account/.test(source)) return 'optional';
+    if (/нужен аккаунт|требуется аккаунт|создать .*аккаунт|api key|получить .*key|test key|console|подписк|billing project/.test(source)) return 'required';
+    if (['local', 'self-host'].includes(runtime) && !/(cloud|hosted|remote)/.test(source)) return 'none';
+    return 'unknown';
+  }
+
   function typeGroup(type) {
     return Object.entries(TYPE_GROUPS).find(([, group]) => group.types.includes(type))?.[0] || 'tools';
   }
@@ -496,6 +561,9 @@
     r.platforms = detail?.platforms || inferPlatforms(ctx);
     r.license = detail?.license || inferredLicense;
     r.pricing = detail?.pricing || (r.starsRepo ? 'Репозиторий доступен бесплатно; hosting и внешние API могут оплачиваться отдельно' : 'Проверьте актуальные условия на официальном сайте');
+    r.runtime = detail?.access?.runtime || inferRuntime(r.platforms, `${r.simpleDescription} ${r.pricing}`);
+    r.cost = detail?.access?.cost || inferCost(r.pricing);
+    r.signup = detail?.access?.signup || inferSignup(r.platforms, `${r.simpleDescription} ${r.pricing}`, r.runtime);
     r.trust = detail?.trust || inferredTrust;
     r.trustReason = detail?.trustReason || (r.risk ? 'Материал содержит признаки повышенного риска или неполные условия использования.' : 'Ссылка присутствует в каталоге, но подробный редакторский аудит продукта ещё не выполнен.');
     r.projects = detail?.projects || inferProjects(ctx);
@@ -511,6 +579,7 @@
       ? githubMetadataByRepo.get(r.githubRepoKey) || { key: r.githubRepoKey, state: 'unknown', pushedAt: null, updatedAt: null }
       : null;
     r.repositoryState = r.repositoryMetadata?.state || '';
+    r.mcpAudit = mcpAuditByUrl.get(canonicalUrl(r.url)) || null;
     return r;
   }
 
@@ -661,6 +730,14 @@
             repository.title = 'Проект больше не принимает обычные изменения; используйте как reference и ищите поддерживаемую альтернативу.';
             top.appendChild(repository);
           }
+          if (r.mcpAudit) {
+            const auditStatus = r.mcpAudit.status === 'runtime-reviewed' ? 'runtime-reviewed' : r.mcpAudit.status === 'blocked' ? 'blocked' : 'runtime-pending';
+            const audit = el('span', `mcp-audit mcp-audit-${auditStatus}`, esc(MCP_AUDIT[r.mcpAudit.status] || MCP_AUDIT['runtime-pending']));
+            audit.title = r.mcpAudit.status === 'runtime-reviewed'
+              ? 'Tool descriptions и runtime metadata проверены в изолированном окружении.'
+              : 'Сервер не запускался на основной машине: перед подключением нужен sandbox-аудит tool descriptions.';
+            top.appendChild(audit);
+          }
           if (r.starsRepo) {
             const img = el('img', 'stars'); img.loading = 'lazy'; img.alt = 'GitHub stars';
             img.src = `https://img.shields.io/github/stars/${r.starsRepo}?style=flat&color=8b5cf6&labelColor=15151c&logo=github&logoColor=cfcfe0`;
@@ -679,13 +756,13 @@
           use.innerHTML = `<b>Когда пригодится:</b> ${esc(r.useCases[0] || 'для небольшой тестовой задачи')}`;
           card.appendChild(use);
 
-          const pricingShort = /бесплат/i.test(r.pricing) ? 'Есть бесплатный доступ' : (/подпис|платн|оплач/i.test(r.pricing) ? 'Есть платные условия' : 'Условия нужно проверить');
           const meta = el('div', 'card-meta');
-          r.platforms.slice(0, 2).forEach((platform) => meta.appendChild(el('span', 'meta-chip', esc(platform))));
+          meta.appendChild(el('span', 'meta-chip', esc(RUNTIME[r.runtime] || RUNTIME.unknown)));
+          meta.appendChild(el('span', 'meta-chip meta-price', esc(COST[r.cost] || COST.unknown)));
+          meta.appendChild(el('span', 'meta-chip', esc(SIGNUP[r.signup] || SIGNUP.unknown)));
           const license = el('span', 'meta-chip', esc(LICENSE_GROUPS[licenseGroup(r.license)]));
           license.title = `Точные условия: ${r.license}`;
           meta.appendChild(license);
-          meta.appendChild(el('span', 'meta-chip meta-price', esc(pricingShort)));
           card.appendChild(meta);
 
           let dom = ''; try { dom = new URL(r.url).hostname.replace(/^www\./, ''); } catch (e) {}
@@ -701,6 +778,7 @@
           const searchText = [
             r.title, r.rawText, r.simpleDescription, r.type, r.license, r.pricing,
             r.platforms.join(' '), r.projects.join(' '), r.useCases.join(' '), TRUST[r.trust], LINK_HEALTH[r.linkHealth.status], REPOSITORY_STATE[r.repositoryState] || '',
+            COST[r.cost], SIGNUP[r.signup], RUNTIME[r.runtime], MCP_AUDIT[r.mcpAudit?.status] || '',
           ].join(' ').toLowerCase();
           cards.push({
             node: card,
@@ -716,6 +794,9 @@
             projects: r.projects,
             freshness: r.freshness,
             repositoryState: r.repositoryState,
+            cost: r.cost,
+            signup: r.signup,
+            runtime: r.runtime,
             text: searchText,
             sub: subWrap,
             cat: section,
@@ -826,7 +907,7 @@
   const stat = (n, l) => `<div class="stat"><b>${n}</b><span>${l}</span></div>`;
 
   // ---- filters (type + platform + license + trust + project + search) ----
-  let activeTask = '', activeType = null, activePlatform = '', activeLicense = '', activeTrust = '', activeProject = '', activeFreshness = '', activeRepositoryState = '', activeTopic = '', activeSort = 'catalog', activeFavorites = false;
+  let activeTask = '', activeType = null, activeCost = '', activeSignup = '', activeRuntime = '', activePlatform = '', activeLicense = '', activeTrust = '', activeProject = '', activeFreshness = '', activeRepositoryState = '', activeTopic = '', activeSort = 'catalog', activeFavorites = false;
   let query = '', navQuery = '', visibleLimit = PAGE_SIZE;
   let filterStateReady = false;
   function buildFilters(typeCounts) {
@@ -861,6 +942,9 @@
 
     const reset = $('#filterReset');
     reset.addEventListener('click', () => clearLibraryFilters({ focus: true }));
+    $('#costFilter').addEventListener('change', (e) => { activeCost = e.target.value; applyFilters(); });
+    $('#signupFilter').addEventListener('change', (e) => { activeSignup = e.target.value; applyFilters(); });
+    $('#runtimeFilter').addEventListener('change', (e) => { activeRuntime = e.target.value; applyFilters(); });
     $('#platformFilter').addEventListener('change', (e) => { activePlatform = e.target.value; applyFilters(); });
     $('#licenseFilter').addEventListener('change', (e) => { activeLicense = e.target.value; applyFilters(); });
     $('#trustFilter').addEventListener('change', (e) => { activeTrust = e.target.value; applyFilters(); });
@@ -900,6 +984,9 @@
     const sort = params.get('sort') || '';
     activeTask = TASK_ROUTES[task] ? task : '';
     activeType = TYPE_GROUPS[type] ? type : null;
+    activeCost = ['free-start', 'free', 'paid', 'unknown'].includes(params.get('cost')) ? params.get('cost') : '';
+    activeSignup = ['none', 'optional', 'required', 'unknown'].includes(params.get('signup')) ? params.get('signup') : '';
+    activeRuntime = ['local-start', 'local', 'self-host', 'cloud', 'hybrid', 'unknown'].includes(params.get('runtime')) ? params.get('runtime') : '';
     activePlatform = selectHasValue('#platformFilter', params.get('platform'));
     activeLicense = selectHasValue('#licenseFilter', params.get('license'));
     activeTrust = selectHasValue('#trustFilter', params.get('trust'));
@@ -909,6 +996,9 @@
     activeSort = ['recommended', 'trust', 'freshness', 'title'].includes(sort) ? sort : 'catalog';
     query = (params.get('q') || '').trim().slice(0, 160);
     search.value = query;
+    $('#costFilter').value = activeCost;
+    $('#signupFilter').value = activeSignup;
+    $('#runtimeFilter').value = activeRuntime;
     $('#platformFilter').value = activePlatform;
     $('#licenseFilter').value = activeLicense;
     $('#trustFilter').value = activeTrust;
@@ -922,7 +1012,8 @@
     if (!filterStateReady) return;
     const params = new URLSearchParams();
     const values = {
-      q: query.trim().slice(0, 160), task: activeTask, type: activeType || '', platform: activePlatform,
+      q: query.trim().slice(0, 160), task: activeTask, type: activeType || '', cost: activeCost,
+      signup: activeSignup, runtime: activeRuntime, platform: activePlatform,
       license: activeLicense, trust: activeTrust, project: activeProject, freshness: activeFreshness,
       repo: activeRepositoryState, sort: activeSort === 'catalog' ? '' : activeSort,
     };
@@ -976,6 +1067,9 @@
   function clearLibraryFilters(opts = {}) {
     activeTask = '';
     activeType = null;
+    activeCost = '';
+    activeSignup = '';
+    activeRuntime = '';
     activePlatform = '';
     activeLicense = '';
     activeTrust = '';
@@ -987,6 +1081,9 @@
     clearTopicRoute();
     query = '';
     if (search) search.value = '';
+    $('#costFilter').value = '';
+    $('#signupFilter').value = '';
+    $('#runtimeFilter').value = '';
     $('#platformFilter').value = '';
     $('#licenseFilter').value = '';
     $('#trustFilter').value = '';
@@ -1008,6 +1105,9 @@
         (!q || c.text.includes(q)) &&
         (!activeTask || TASK_ROUTES[activeTask]?.match(c)) &&
         (!activeType || TYPE_GROUPS[activeType]?.types.includes(c.type)) &&
+        (!activeCost || (activeCost === 'free-start' ? ['free', 'freemium'].includes(c.cost) : c.cost === activeCost)) &&
+        (!activeSignup || c.signup === activeSignup) &&
+        (!activeRuntime || (activeRuntime === 'local-start' ? ['local', 'self-host', 'hybrid'].includes(c.runtime) : c.runtime === activeRuntime)) &&
         (!activePlatform || c.platforms.includes(activePlatform)) &&
         (!activeLicense || c.licenseGroup === activeLicense) &&
         (!activeTrust || c.trust === activeTrust) &&
@@ -1030,7 +1130,7 @@
     document.querySelectorAll('.sub').forEach((s) => { s.hidden = !s.querySelector('.card:not([hidden])'); });
     document.querySelectorAll('.cat').forEach((s) => { s.hidden = !s.querySelector('.card:not([hidden])'); });
     if (!sortedMode) updateNavVisibility();
-    const filtering = !!(q || activeTask || activeType || activePlatform || activeLicense || activeTrust || activeProject || activeFreshness || activeRepositoryState || activeTopic || activeFavorites);
+    const filtering = !!(q || activeTask || activeType || activeCost || activeSignup || activeRuntime || activePlatform || activeLicense || activeTrust || activeProject || activeFreshness || activeRepositoryState || activeTopic || activeFavorites);
     $('#hero').classList.toggle('dim', filtering);
     const shown = Math.min(matched, visibleLimit);
     $('#resultcount').textContent = shown < matched ? `${shown} из ${matched}` : `${matched} ${matched === 1 ? 'материал' : 'материалов'}`;
@@ -1042,15 +1142,17 @@
     }
     const reset = $('#filterReset');
     if (reset) reset.hidden = !(filtering || activeSort !== 'catalog');
-    const advancedCount = [activePlatform, activeLicense, activeTrust, activeProject, activeFreshness, activeRepositoryState].filter(Boolean).length;
+    const advancedCount = [activeCost, activeSignup, activeRuntime, activePlatform, activeLicense, activeTrust, activeProject, activeFreshness, activeRepositoryState].filter(Boolean).length;
     const advancedLabel = $('#advancedFilterCount');
-    if (advancedLabel) advancedLabel.textContent = advancedCount ? `выбрано: ${advancedCount}` : 'платформа, лицензия, доверие, проект и статус GitHub';
+    if (advancedLabel) advancedLabel.textContent = advancedCount ? `выбрано: ${advancedCount}` : 'стоимость, регистрация, место запуска и проверка';
     const advanced = $('#advancedFilters');
     if (advanced && advancedCount && !window.matchMedia('(max-width: 620px)').matches) advanced.open = true;
     const empty = $('#empty');
     empty.hidden = !(filtering && matched === 0);
     if (!empty.hidden) {
-      const reason = q || TASK_ROUTES[activeTask]?.label || TOPIC_ROUTES[activeTopic]?.title || activeProject || activePlatform || (LICENSE_GROUPS[activeLicense] || '') || (FRESHNESS[activeFreshness] || '') || (REPOSITORY_STATE[activeRepositoryState] || '') || (TRUST[activeTrust] || '') || (TYPE_GROUPS[activeType]?.label || '');
+      const costReason = activeCost === 'free-start' ? 'Можно начать бесплатно' : COST[activeCost] || '';
+      const runtimeReason = activeRuntime === 'local-start' ? 'На своём устройстве или сервере' : RUNTIME[activeRuntime] || '';
+      const reason = q || TASK_ROUTES[activeTask]?.label || TOPIC_ROUTES[activeTopic]?.title || costReason || (SIGNUP[activeSignup] || '') || runtimeReason || activeProject || activePlatform || (LICENSE_GROUPS[activeLicense] || '') || (FRESHNESS[activeFreshness] || '') || (REPOSITORY_STATE[activeRepositoryState] || '') || (TRUST[activeTrust] || '') || (TYPE_GROUPS[activeType]?.label || '');
       $('#emptyMessage').textContent = activeFavorites && favorites.size === 0
         ? 'В избранном пока пусто. Сохраните нужный материал кнопкой-закладкой на карточке.'
         : `По выбранным условиям ничего не найдено${reason ? `: ${reason}` : '.'}`;
@@ -1504,6 +1606,9 @@
       : r.repositoryState === 'disabled'
         ? '<div class="repository-notice"><b>Репозиторий отключён GitHub.</b> Не устанавливайте и не внедряйте его без отдельной проверки причины и безопасной альтернативы.</div>'
         : '';
+    const mcpAuditNotice = r.mcpAudit
+      ? `<div class="repository-notice"><b>${esc(MCP_AUDIT[r.mcpAudit.status] || MCP_AUDIT['runtime-pending'])}.</b> ${esc(r.mcpAudit.summary)}</div>`
+      : '';
     body.innerHTML =
       `<div class="item-kicker"><span class="type-chip t-${r.type}">${esc(TYPES[r.type] || r.type)}</span>` +
         `<span class="trust-chip ${trustClass}">${esc(TRUST[r.trust] || TRUST.unknown)}</span>` +
@@ -1512,10 +1617,13 @@
       `<h1 id="itemTitle">${esc(r.title)}</h1>` +
       `<p class="item-lead">${esc(r.simpleDescription)}</p>` +
       repositoryNotice +
+      mcpAuditNotice +
       `<div id="itemActionSlot" class="item-action-slot"></div>` +
       `<div class="fact-grid">` +
         `<div><span>Где работает</span><b>${esc(r.platforms.join(', '))}</b></div>` +
+        `<div><span>Где запускается</span><b>${esc(RUNTIME[r.runtime] || RUNTIME.unknown)}</b></div>` +
         `<div><span>Стоимость</span><b>${esc(r.pricing)}</b></div>` +
+        `<div><span>Нужна ли регистрация</span><b>${esc(SIGNUP[r.signup] || SIGNUP.unknown)}</b></div>` +
         `<div><span>Лицензия</span><b>${esc(r.license)}</b></div>` +
         `<div><span>Решение Eclipse</span><b>${esc(DECISIONS[r.decision] || DECISIONS.reference)}</b></div>` +
         `<div><span>Актуальность</span><b>${esc(FRESHNESS[r.freshness] || FRESHNESS.unknown)}</b></div>` +
@@ -1639,6 +1747,24 @@
             githubMetadataByRepo = new Map(snapshot.repositories.map((repo) => [repo.key, repo]));
           } catch (error) {
             console.warn('GitHub repository metadata is unavailable; archived state remains unknown.', error);
+          }
+        })(),
+        (async () => {
+          try {
+            const response = await fetch(MCP_AUDIT_URL, { cache: 'no-cache' });
+            if (!response.ok) throw new Error(`HTTP ${response.status}`);
+            const snapshot = await response.json();
+            const statuses = new Set(Object.keys(MCP_AUDIT));
+            const validServers = Array.isArray(snapshot?.servers) && snapshot.servers.every((server) => {
+              try {
+                return typeof server?.id === 'string' && ['http:', 'https:'].includes(new URL(server.url).protocol) && statuses.has(server.status) && typeof server.summary === 'string';
+              } catch { return false; }
+            });
+            if (snapshot?.schemaVersion !== 1 || !Number.isFinite(Date.parse(snapshot?.updatedAt)) || !validServers) throw new Error('Некорректный MCP audit snapshot');
+            mcpAuditSnapshot = snapshot;
+            mcpAuditByUrl = new Map(snapshot.servers.map((server) => [canonicalUrl(server.url), server]));
+          } catch (error) {
+            console.warn('MCP audit status is unavailable; runtime safety remains unverified.', error);
           }
         })(),
         (async () => {

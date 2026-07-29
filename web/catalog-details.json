@@ -3,941 +3,2248 @@
     "id": "google-ai-studio",
     "url": "https://aistudio.google.com/apikey",
     "simpleDescription": "Веб-интерфейс Google для знакомства с Gemini: здесь можно получить API key, проверить prompt в playground и только потом переносить рабочий запрос в приложение.",
-    "useCases": ["Быстро проверить качество Gemini на своём сценарии", "Сделать тестовый provider adapter для текста или изображений", "Сравнить ответы Gemini с другими моделями на одинаковом наборе запросов"],
-    "platforms": ["Web", "API", "Cloud"],
+    "useCases": [
+      "Быстро проверить качество Gemini на своём сценарии",
+      "Сделать тестовый provider adapter для текста или изображений",
+      "Сравнить ответы Gemini с другими моделями на одинаковом наборе запросов"
+    ],
+    "platforms": [
+      "Web",
+      "API",
+      "Cloud"
+    ],
     "license": "Проприетарный сервис, Google APIs Terms",
     "pricing": "Есть бесплатный tier; квоты и доступность зависят от модели, региона и аккаунта, платный режим включается через billing project",
     "trust": "official",
     "trustReason": "Это официальный интерфейс Google. Наличие free tier подтверждено документацией Gemini API, но конкретные квоты нужно смотреть в AI Studio перед каждым запуском.",
-    "projects": ["Eclipse AI Hub", "Shotforge", "Text2Image", "Educator-AI"],
+    "projects": [
+      "Eclipse AI Hub",
+      "Shotforge",
+      "Text2Image",
+      "Educator-AI"
+    ],
     "decision": "now",
     "riskLevel": "medium",
-    "risks": ["Prompts и вложения отправляются в облачный сервис Google", "Квоты, модели и цены могут меняться", "API key нельзя хранить во frontend, логах или repository"],
+    "risks": [
+      "Prompts и вложения отправляются в облачный сервис Google",
+      "Квоты, модели и цены могут меняться",
+      "API key нельзя хранить во frontend, логах или repository"
+    ],
     "verifiedAt": "2026-07-27",
-    "quickStart": ["Создать отдельный development project и key без production-данных", "Проверить текущие quota и data-use условия для выбранной модели", "Хранить key только server-side и поставить budget, timeout и rate limit"]
+    "quickStart": [
+      "Создать отдельный development project и key без production-данных",
+      "Проверить текущие quota и data-use условия для выбранной модели",
+      "Хранить key только server-side и поставить budget, timeout и rate limit"
+    ],
+    "access": {
+      "cost": "freemium",
+      "signup": "required",
+      "runtime": "cloud"
+    }
   },
   {
     "id": "groq-cloud",
     "url": "https://console.groq.com/keys",
     "simpleDescription": "Облачный API для быстрого ответа открытых языковых и speech-моделей. Подходит для недорогого прототипа, когда локального GPU нет, а небольшая задержка важна.",
-    "useCases": ["Добавить быстрый text provider в AI Hub", "Проверить streaming-ответы в Eclipse Chat", "Прототипировать транскрибацию или голосовой pipeline Sentinel"],
-    "platforms": ["Web", "API", "Cloud"],
+    "useCases": [
+      "Добавить быстрый text provider в AI Hub",
+      "Проверить streaming-ответы в Eclipse Chat",
+      "Прототипировать транскрибацию или голосовой pipeline Sentinel"
+    ],
+    "platforms": [
+      "Web",
+      "API",
+      "Cloud"
+    ],
     "license": "Проприетарный сервис; лицензия результата зависит от выбранной модели",
     "pricing": "Есть free plan с model-specific RPM, RPD, TPM и TPD; production-нагрузка требует проверки актуальных Limits и платного плана",
     "trust": "official",
     "trustReason": "Проверены официальный Groq Console и документация rate limits. Заявления о скорости не считаются независимым benchmark и должны проверяться на нашем workload.",
-    "projects": ["Eclipse AI Hub", "Eclipse Chat", "Hopson Sentinel"],
+    "projects": [
+      "Eclipse AI Hub",
+      "Eclipse Chat",
+      "Hopson Sentinel"
+    ],
     "decision": "now",
     "riskLevel": "medium",
-    "risks": ["Исходные запросы обрабатываются внешним облаком", "Free limits различаются по модели и могут измениться", "Нужны retry/backoff для HTTP 429 и fallback при недоступности модели"],
+    "risks": [
+      "Исходные запросы обрабатываются внешним облаком",
+      "Free limits различаются по модели и могут измениться",
+      "Нужны retry/backoff для HTTP 429 и fallback при недоступности модели"
+    ],
     "verifiedAt": "2026-07-27",
-    "quickStart": ["Создать отдельный test key и выбрать одну модель под конкретный сценарий", "Прочитать фактические Limits организации и не зашивать числа в интерфейс", "Добавить server-side secret, timeout, retry-after и счётчик ошибок до включения пользователям"]
+    "quickStart": [
+      "Создать отдельный test key и выбрать одну модель под конкретный сценарий",
+      "Прочитать фактические Limits организации и не зашивать числа в интерфейс",
+      "Добавить server-side secret, timeout, retry-after и счётчик ошибок до включения пользователям"
+    ],
+    "access": {
+      "cost": "freemium",
+      "signup": "required",
+      "runtime": "cloud"
+    }
   },
   {
     "id": "openrouter",
     "url": "https://openrouter.ai/keys",
     "simpleDescription": "Единый OpenAI-compatible API поверх многих моделей и провайдеров. Упрощает сравнение и fallback, но добавляет ещё один слой маршрутизации и правил обработки данных.",
-    "useCases": ["Сравнить модели через один adapter", "Переключить запрос на резервного провайдера при сбое", "Дать AI Hub управляемый каталог моделей без отдельной интеграции каждого API"],
-    "platforms": ["Web", "API", "Cloud"],
+    "useCases": [
+      "Сравнить модели через один adapter",
+      "Переключить запрос на резервного провайдера при сбое",
+      "Дать AI Hub управляемый каталог моделей без отдельной интеграции каждого API"
+    ],
+    "platforms": [
+      "Web",
+      "API",
+      "Cloud"
+    ],
     "license": "Проприетарный сервис; условия и лицензия зависят от выбранной модели и provider endpoint",
     "pricing": "Есть free-модели с низкими общими лимитами; платные модели тарифицируются отдельно, действующие цены и комиссии нужно смотреть перед использованием",
     "trust": "official",
     "trustReason": "Проверены официальные pricing, privacy и Zero Data Retention документы. Политика обработки может отличаться у каждого downstream provider, поэтому одного доверия к OpenRouter недостаточно.",
-    "projects": ["Eclipse AI Hub", "Eclipse Chat", "oh-my-claudecode"],
+    "projects": [
+      "Eclipse AI Hub",
+      "Eclipse Chat",
+      "oh-my-claudecode"
+    ],
     "decision": "roadmap",
     "riskLevel": "high",
-    "risks": ["Запрос проходит через OpenRouter и выбранного downstream provider", "Fallback может незаметно сменить модель, цену, регион или data policy", "Free-модели имеют низкие лимиты и не подходят как production SLA"],
+    "risks": [
+      "Запрос проходит через OpenRouter и выбранного downstream provider",
+      "Fallback может незаметно сменить модель, цену, регион или data policy",
+      "Free-модели имеют низкие лимиты и не подходят как production SLA"
+    ],
     "verifiedAt": "2026-07-27",
-    "quickStart": ["Создать key с небольшим budget и отдельным project label", "Включить подходящие privacy controls и разрешить только выбранные providers", "Закрепить model IDs, запретить неожиданный fallback и логировать provider, цену и policy без содержимого prompt"]
+    "quickStart": [
+      "Создать key с небольшим budget и отдельным project label",
+      "Включить подходящие privacy controls и разрешить только выбранные providers",
+      "Закрепить model IDs, запретить неожиданный fallback и логировать provider, цену и policy без содержимого prompt"
+    ],
+    "access": {
+      "cost": "freemium",
+      "signup": "unknown",
+      "runtime": "cloud"
+    }
   },
   {
     "id": "github-models",
     "url": "https://github.com/marketplace/models",
     "simpleDescription": "Каталог моделей с playground и API внутри GitHub. Удобен, чтобы разработчик быстро сравнил несколько моделей и перенёс удачный prompt в тестовый код.",
-    "useCases": ["Проверить prompt без отдельной регистрации у каждого model provider", "Собрать воспроизводимое сравнение моделей для AI Hub", "Прототипировать GitHub-native developer workflow"],
-    "platforms": ["Web", "API", "GitHub", "Cloud"],
+    "useCases": [
+      "Проверить prompt без отдельной регистрации у каждого model provider",
+      "Собрать воспроизводимое сравнение моделей для AI Hub",
+      "Прототипировать GitHub-native developer workflow"
+    ],
+    "platforms": [
+      "Web",
+      "API",
+      "GitHub",
+      "Cloud"
+    ],
     "license": "GitHub Terms; дополнительные условия зависят от выбранной модели",
     "pricing": "Есть включённая rate-limited квота; paid usage подключается отдельно, лимиты и стоимость зависят от модели и GitHub plan",
     "trust": "official",
     "trustReason": "Это официальный каталог GitHub. Billing и бесплатная rate-limited квота подтверждены GitHub Docs; отдельные модели всё равно требуют проверки собственных условий.",
-    "projects": ["Eclipse AI Hub", "Educator-AI", "oh-my-claudecode"],
+    "projects": [
+      "Eclipse AI Hub",
+      "Educator-AI",
+      "oh-my-claudecode"
+    ],
     "decision": "reference",
     "riskLevel": "medium",
-    "risks": ["GitHub token нельзя использовать с избыточными repository permissions", "Preview-функции и доступные модели могут изменяться", "Для production нужны отдельные budgets, observability и оценка vendor lock-in"],
+    "risks": [
+      "GitHub token нельзя использовать с избыточными repository permissions",
+      "Preview-функции и доступные модели могут изменяться",
+      "Для production нужны отдельные budgets, observability и оценка vendor lock-in"
+    ],
     "verifiedAt": "2026-07-27",
-    "quickStart": ["Начать с playground и тестового prompt без секретных данных", "Создать fine-grained credential с минимально необходимыми правами", "Зафиксировать модель и проверить лимиты, стоимость и обработку данных до написания adapter"]
+    "quickStart": [
+      "Начать с playground и тестового prompt без секретных данных",
+      "Создать fine-grained credential с минимально необходимыми правами",
+      "Зафиксировать модель и проверить лимиты, стоимость и обработку данных до написания adapter"
+    ],
+    "access": {
+      "cost": "freemium",
+      "signup": "unknown",
+      "runtime": "cloud"
+    }
   },
   {
     "id": "bonsai-27b",
     "url": "https://huggingface.co/collections/prism-ml/bonsai-27b",
     "simpleDescription": "Набор сильно сжатых версий модели Qwen3.6 27B. Нужен тем, кто хочет запускать большую языковую модель локально на устройстве с небольшим объёмом памяти.",
-    "useCases": ["Проверить, потянет ли устройство локальную 27B-модель", "Сравнить качество локального и облачного AI", "Добавить новый local provider в тестовый стенд"],
-    "platforms": ["Apple Silicon", "iOS", "Linux", "Windows"],
+    "useCases": [
+      "Проверить, потянет ли устройство локальную 27B-модель",
+      "Сравнить качество локального и облачного AI",
+      "Добавить новый local provider в тестовый стенд"
+    ],
+    "platforms": [
+      "Apple Silicon",
+      "iOS",
+      "Linux",
+      "Windows"
+    ],
     "license": "Apache-2.0",
     "pricing": "Бесплатно, веса модели доступны для скачивания",
     "trust": "verified",
     "trustReason": "Проверены model cards и официальная коллекция автора на Hugging Face.",
-    "projects": ["Hopson Sentinel", "Eclipse AI Hub"],
+    "projects": [
+      "Hopson Sentinel",
+      "Eclipse AI Hub"
+    ],
     "decision": "roadmap",
     "riskLevel": "medium",
-    "risks": ["Заявленные скорость и качество не подтверждены независимым benchmark", "Результат сильно зависит от конкретного формата квантования и устройства"],
-    "verifiedAt": "2026-07-24"
+    "risks": [
+      "Заявленные скорость и качество не подтверждены независимым benchmark",
+      "Результат сильно зависит от конкретного формата квантования и устройства"
+    ],
+    "verifiedAt": "2026-07-24",
+    "access": {
+      "cost": "free",
+      "signup": "none",
+      "runtime": "local"
+    }
   },
   {
     "id": "turbo-fieldfare",
     "url": "https://github.com/drumih/turbo-fieldfare",
     "simpleDescription": "Экспериментальный runtime, который запускает большую MoE-модель на Mac с малым объёмом RAM, подгружая части модели с SSD по мере необходимости.",
-    "useCases": ["Изучить запуск больших моделей при нехватке RAM", "Проверить hardware-diagnostics для локального AI"],
-    "platforms": ["Apple Silicon", "macOS"],
+    "useCases": [
+      "Изучить запуск больших моделей при нехватке RAM",
+      "Проверить hardware-diagnostics для локального AI"
+    ],
+    "platforms": [
+      "Apple Silicon",
+      "macOS"
+    ],
     "license": "Apache-2.0",
     "pricing": "Бесплатно, self-host",
     "trust": "community",
     "trustReason": "Открытый репозиторий; показатели производительности опубликованы самим автором.",
-    "projects": ["Hopson Sentinel"],
+    "projects": [
+      "Hopson Sentinel"
+    ],
     "decision": "reference",
     "riskLevel": "medium",
-    "risks": ["Работает только на Apple Silicon", "Нагрузка на SSD и реальная скорость требуют отдельного теста"],
-    "verifiedAt": "2026-07-24"
+    "risks": [
+      "Работает только на Apple Silicon",
+      "Нагрузка на SSD и реальная скорость требуют отдельного теста"
+    ],
+    "verifiedAt": "2026-07-24",
+    "access": {
+      "cost": "free",
+      "signup": "none",
+      "runtime": "self-host"
+    }
   },
   {
     "id": "ods",
     "url": "https://github.com/Osmantic/ODS",
     "simpleDescription": "Готовая локальная AI-станция: модели, чат, RAG, voice, agents, поиск и генерация изображений собираются в одной панели.",
-    "useCases": ["Поднять локальный AI-сервер", "Сравнить onboarding и health checks AI-сервисов", "Изучить устройство all-in-one AI appliance"],
-    "platforms": ["Linux", "Windows", "Apple Silicon", "Self-host"],
+    "useCases": [
+      "Поднять локальный AI-сервер",
+      "Сравнить onboarding и health checks AI-сервисов",
+      "Изучить устройство all-in-one AI appliance"
+    ],
+    "platforms": [
+      "Linux",
+      "Windows",
+      "Apple Silicon",
+      "Self-host"
+    ],
     "license": "Apache-2.0",
     "pricing": "Бесплатно, self-host; внешние API могут оплачиваться отдельно",
     "trust": "caution",
     "trustReason": "Открытый код проверен статически, но широкий installer и множество сервисов требуют sandbox-аудита.",
-    "projects": ["Hopson Sentinel", "Eclipse AI Hub"],
+    "projects": [
+      "Hopson Sentinel",
+      "Eclipse AI Hub"
+    ],
     "decision": "roadmap",
     "riskLevel": "high",
-    "risks": ["Installer выполняет много действий на машине", "Большая supply-chain и secret surface", "Нельзя передавать remote installer напрямую в shell"],
-    "verifiedAt": "2026-07-24"
+    "risks": [
+      "Installer выполняет много действий на машине",
+      "Большая supply-chain и secret surface",
+      "Нельзя передавать remote installer напрямую в shell"
+    ],
+    "verifiedAt": "2026-07-24",
+    "access": {
+      "cost": "freemium",
+      "signup": "none",
+      "runtime": "self-host"
+    }
   },
   {
     "id": "soprano",
     "url": "https://github.com/ekwek1/soprano",
     "simpleDescription": "Небольшая text-to-speech модель: получает текст и начинает озвучивать его потоком через локальный API.",
-    "useCases": ["Озвучивать ответы локального ассистента", "Добавить streaming TTS в чат", "Сравнить RU/EN качество и задержку"],
-    "platforms": ["Linux", "Windows", "macOS", "Self-host"],
+    "useCases": [
+      "Озвучивать ответы локального ассистента",
+      "Добавить streaming TTS в чат",
+      "Сравнить RU/EN качество и задержку"
+    ],
+    "platforms": [
+      "Linux",
+      "Windows",
+      "macOS",
+      "Self-host"
+    ],
     "license": "Apache-2.0",
     "pricing": "Бесплатно, self-host",
     "trust": "community",
     "trustReason": "Открытый репозиторий и явная лицензия; качество русского языка ещё не проверено нами.",
-    "projects": ["Hopson Sentinel", "Eclipse Chat", "Educator-AI"],
+    "projects": [
+      "Hopson Sentinel",
+      "Eclipse Chat",
+      "Educator-AI"
+    ],
     "decision": "roadmap",
     "riskLevel": "medium",
-    "risks": ["Custom voice можно использовать только с согласием владельца голоса", "Нужен disclosure синтетической речи"],
-    "verifiedAt": "2026-07-24"
+    "risks": [
+      "Custom voice можно использовать только с согласием владельца голоса",
+      "Нужен disclosure синтетической речи"
+    ],
+    "verifiedAt": "2026-07-24",
+    "access": {
+      "cost": "free",
+      "signup": "none",
+      "runtime": "self-host"
+    }
   },
   {
     "id": "animegen",
     "url": "https://huggingface.co/aidealab/AnimeGen-T2V",
     "simpleDescription": "Модель превращает текст или исходную картинку в короткую аниме-сцену. Подходит для storyboard и визуальных прототипов, а не для запуска на слабом ноутбуке.",
-    "useCases": ["Собрать anime storyboard", "Оживить концепт-арт", "Проверить короткие I2V/T2V сцены"],
-    "platforms": ["Linux", "NVIDIA GPU", "Hugging Face"],
+    "useCases": [
+      "Собрать anime storyboard",
+      "Оживить концепт-арт",
+      "Проверить короткие I2V/T2V сцены"
+    ],
+    "platforms": [
+      "Linux",
+      "NVIDIA GPU",
+      "Hugging Face"
+    ],
     "license": "Apache-2.0",
     "pricing": "Веса бесплатны; мощное GPU и hosting оплачиваются отдельно",
     "trust": "verified",
     "trustReason": "Проверена официальная model card AIdeaLab и условия использования.",
-    "projects": ["Eclipse DnD Forge", "Eclipse Media", "Shotforge", "Text2Image"],
+    "projects": [
+      "Eclipse DnD Forge",
+      "Eclipse Media",
+      "Shotforge",
+      "Text2Image"
+    ],
     "decision": "roadmap",
     "riskLevel": "medium",
-    "risks": ["Для локального запуска рекомендована RTX 4090+", "Нельзя использовать для deepfake, impersonation и misleading content"],
-    "verifiedAt": "2026-07-24"
+    "risks": [
+      "Для локального запуска рекомендована RTX 4090+",
+      "Нельзя использовать для deepfake, impersonation и misleading content"
+    ],
+    "verifiedAt": "2026-07-24",
+    "access": {
+      "cost": "freemium",
+      "signup": "none",
+      "runtime": "local"
+    }
   },
   {
     "id": "songgeneration-studio",
     "url": "https://github.com/BazedFrog/SongGeneration-Studio",
     "simpleDescription": "Локальный интерфейс для генерации песен, вокала, инструментала и stems по описанию или короткому аудиореференсу.",
-    "useCases": ["Изучить UX музыкальной студии", "Прототипировать игровые песни и ambience"],
-    "platforms": ["Windows", "Linux", "NVIDIA GPU", "Self-host"],
+    "useCases": [
+      "Изучить UX музыкальной студии",
+      "Прототипировать игровые песни и ambience"
+    ],
+    "platforms": [
+      "Windows",
+      "Linux",
+      "NVIDIA GPU",
+      "Self-host"
+    ],
     "license": "Не указана",
     "pricing": "Репозиторий доступен бесплатно; права использования не определены",
     "trust": "caution",
     "trustReason": "Продукт существует, но в репозитории нет явной лицензии.",
-    "projects": ["Eclipse Media", "Eclipse DnD Forge"],
+    "projects": [
+      "Eclipse Media",
+      "Eclipse DnD Forge"
+    ],
     "decision": "reference",
     "riskLevel": "high",
-    "risks": ["Нельзя безопасно копировать или распространять код без лицензии", "Нужно проверять права на reference audio и generated tracks", "Требуется минимум 10 GB VRAM"],
-    "verifiedAt": "2026-07-24"
+    "risks": [
+      "Нельзя безопасно копировать или распространять код без лицензии",
+      "Нужно проверять права на reference audio и generated tracks",
+      "Требуется минимум 10 GB VRAM"
+    ],
+    "verifiedAt": "2026-07-24",
+    "access": {
+      "cost": "free",
+      "signup": "none",
+      "runtime": "self-host"
+    }
   },
   {
     "id": "reiverr",
     "url": "https://github.com/aleksilassila/reiverr",
     "simpleDescription": "Красивый интерфейс поверх Jellyfin, TMDB, Radarr и Sonarr: помогает искать медиаконтент, продолжать просмотр и пользоваться библиотекой с телевизора.",
-    "useCases": ["Изучить media discovery UX", "Спроектировать watch progress и TV layout"],
-    "platforms": ["Web", "Self-host", "Tizen"],
+    "useCases": [
+      "Изучить media discovery UX",
+      "Спроектировать watch progress и TV layout"
+    ],
+    "platforms": [
+      "Web",
+      "Self-host",
+      "Tizen"
+    ],
     "license": "AGPL-3.0",
     "pricing": "Бесплатно, self-host",
     "trust": "community",
     "trustReason": "Открытый репозиторий с явной лицензией; сам сервис контент не предоставляет.",
-    "projects": ["Eclipse Media"],
+    "projects": [
+      "Eclipse Media"
+    ],
     "decision": "reference",
     "riskLevel": "medium",
-    "risks": ["Подключать только законные media sources", "AGPL требует учитывать network-copyleft obligations"],
-    "verifiedAt": "2026-07-24"
+    "risks": [
+      "Подключать только законные media sources",
+      "AGPL требует учитывать network-copyleft obligations"
+    ],
+    "verifiedAt": "2026-07-24",
+    "access": {
+      "cost": "free",
+      "signup": "none",
+      "runtime": "self-host"
+    }
   },
   {
     "id": "cursor-team-kit",
     "url": "https://cursor.com/marketplace/cursor/cursor-team-kit",
     "simpleDescription": "Официальный набор Cursor с готовыми инструкциями для code review, CI, UI-проверки и удаления типичного AI-slop.",
-    "useCases": ["Унифицировать code review", "Быстрее разбирать CI failures", "Добавить повторяемую UI verification"],
-    "platforms": ["Cursor", "CLI"],
+    "useCases": [
+      "Унифицировать code review",
+      "Быстрее разбирать CI failures",
+      "Добавить повторяемую UI verification"
+    ],
+    "platforms": [
+      "Cursor",
+      "CLI"
+    ],
     "license": "MIT",
     "pricing": "Plugin бесплатный; условия Cursor зависят от тарифа",
     "trust": "official",
     "trustReason": "Официальный plugin Cursor; содержимое skills всё равно нужно просматривать перед переносом.",
-    "projects": ["Все dev-репозитории"],
+    "projects": [
+      "Все dev-репозитории"
+    ],
     "decision": "now",
     "riskLevel": "low",
-    "risks": ["Не устанавливать весь набор автоматически", "Часть правил привязана к Cursor и может дублировать текущие процессы"],
-    "verifiedAt": "2026-07-24"
+    "risks": [
+      "Не устанавливать весь набор автоматически",
+      "Часть правил привязана к Cursor и может дублировать текущие процессы"
+    ],
+    "verifiedAt": "2026-07-24",
+    "access": {
+      "cost": "freemium",
+      "signup": "none",
+      "runtime": "local"
+    }
   },
   {
     "id": "kill-ai-slop",
     "url": "https://github.com/yetone/kill-ai-slop",
     "simpleDescription": "Checklist и Agent Skill для поиска шаблонного AI-дизайна и неестественного текста. Помогает заметить проблему, но не должен механически удалять каждый gradient или shadow.",
-    "useCases": ["Проверить интерфейс перед публикацией", "Найти generic AI copy", "Дополнить The Taste review"],
-    "platforms": ["Claude Code", "Cursor", "CLI"],
+    "useCases": [
+      "Проверить интерфейс перед публикацией",
+      "Найти generic AI copy",
+      "Дополнить The Taste review"
+    ],
+    "platforms": [
+      "Claude Code",
+      "Cursor",
+      "CLI"
+    ],
     "license": "Apache-2.0",
     "pricing": "Бесплатно",
     "trust": "community",
     "trustReason": "Открытый репозиторий и явная лицензия; правила являются субъективной эвристикой.",
-    "projects": ["Eclipse Forge Landing", "Eclipse Library", "Все frontend-репозитории"],
+    "projects": [
+      "Eclipse Forge Landing",
+      "Eclipse Library",
+      "Все frontend-репозитории"
+    ],
     "decision": "now",
     "riskLevel": "low",
-    "risks": ["Нельзя заменять им проектный design system", "Механическое применение может ухудшить интерфейс"],
-    "verifiedAt": "2026-07-24"
+    "risks": [
+      "Нельзя заменять им проектный design system",
+      "Механическое применение может ухудшить интерфейс"
+    ],
+    "verifiedAt": "2026-07-24",
+    "access": {
+      "cost": "free",
+      "signup": "none",
+      "runtime": "local"
+    }
   },
   {
     "id": "apple-design-skill",
     "url": "https://github.com/emilkowalski/skills/blob/main/skills/apple-design/SKILL.md",
     "simpleDescription": "Краткая практическая выжимка дизайн-паттернов Apple и WWDC для AI coding agents.",
-    "useCases": ["Проверить motion и feedback", "Улучшить desktop/mobile polish"],
-    "platforms": ["Claude Code", "Cursor", "CLI"],
+    "useCases": [
+      "Проверить motion и feedback",
+      "Улучшить desktop/mobile polish"
+    ],
+    "platforms": [
+      "Claude Code",
+      "Cursor",
+      "CLI"
+    ],
     "license": "MIT",
     "pricing": "Бесплатно",
     "trust": "community",
     "trustReason": "Авторский open-source skill; это не официальный документ Apple.",
-    "projects": ["Eclipse Chat", "Hopson Sentinel", "Eclipse Forge Landing"],
+    "projects": [
+      "Eclipse Chat",
+      "Hopson Sentinel",
+      "Eclipse Forge Landing"
+    ],
     "decision": "reference",
     "riskLevel": "low",
-    "risks": ["Может конфликтовать с существующим design system", "Нужно сверять спорные правила с первичными материалами WWDC"],
-    "verifiedAt": "2026-07-24"
+    "risks": [
+      "Может конфликтовать с существующим design system",
+      "Нужно сверять спорные правила с первичными материалами WWDC"
+    ],
+    "verifiedAt": "2026-07-24",
+    "access": {
+      "cost": "free",
+      "signup": "none",
+      "runtime": "local"
+    }
   },
   {
     "id": "kimi-code",
     "url": "https://github.com/MoonshotAI/kimi-code",
     "simpleDescription": "Официальный coding CLI MoonshotAI с subagents, MCP и ACP-подключением к редакторам.",
-    "useCases": ["Сравнить coding agents", "Проверить ACP/MCP integration", "Оценить стоимость и качество альтернативного provider"],
-    "platforms": ["CLI", "Linux", "Windows", "macOS"],
+    "useCases": [
+      "Сравнить coding agents",
+      "Проверить ACP/MCP integration",
+      "Оценить стоимость и качество альтернативного provider"
+    ],
+    "platforms": [
+      "CLI",
+      "Linux",
+      "Windows",
+      "macOS"
+    ],
     "license": "MIT",
     "pricing": "CLI бесплатный; model API может быть платным",
     "trust": "official",
     "trustReason": "Официальный актуальный репозиторий MoonshotAI; старый kimi-cli сворачивается.",
-    "projects": ["Hopson Sentinel", "oh-my-claudecode", "Eclipse AI Hub"],
+    "projects": [
+      "Hopson Sentinel",
+      "oh-my-claudecode",
+      "Eclipse AI Hub"
+    ],
     "decision": "roadmap",
     "riskLevel": "medium",
-    "risks": ["Не передавать installer напрямую в shell", "Проверить privacy, plugins и MCP permissions", "Не использовать как production default без benchmark"],
-    "verifiedAt": "2026-07-24"
+    "risks": [
+      "Не передавать installer напрямую в shell",
+      "Проверить privacy, plugins и MCP permissions",
+      "Не использовать как production default без benchmark"
+    ],
+    "verifiedAt": "2026-07-24",
+    "access": {
+      "cost": "freemium",
+      "signup": "none",
+      "runtime": "local"
+    }
   },
   {
     "id": "bolt-slides",
     "url": "https://github.com/stackblitz/bolt-slides",
     "simpleDescription": "Шаблон и skill для интерактивных HTML-презентаций на React: charts, code, browser frames и responsive layout.",
-    "useCases": ["Сделать product demo", "Собрать архитектурную презентацию", "Опубликовать интерактивный case study"],
-    "platforms": ["Web", "React"],
+    "useCases": [
+      "Сделать product demo",
+      "Собрать архитектурную презентацию",
+      "Опубликовать интерактивный case study"
+    ],
+    "platforms": [
+      "Web",
+      "React"
+    ],
     "license": "MIT",
     "pricing": "Бесплатно; hosting зависит от выбранной платформы",
     "trust": "official",
     "trustReason": "Официальный open-source репозиторий StackBlitz.",
-    "projects": ["Eclipse Forge Landing", "Kwork demos"],
+    "projects": [
+      "Eclipse Forge Landing",
+      "Kwork demos"
+    ],
     "decision": "roadmap",
     "riskLevel": "low",
-    "risks": ["Создаёт HTML deck, а не настоящий PPTX", "Данные и screenshots нужно проверять перед публикацией"],
-    "verifiedAt": "2026-07-24"
+    "risks": [
+      "Создаёт HTML deck, а не настоящий PPTX",
+      "Данные и screenshots нужно проверять перед публикацией"
+    ],
+    "verifiedAt": "2026-07-24",
+    "access": {
+      "cost": "free",
+      "signup": "unknown",
+      "runtime": "cloud"
+    }
   },
   {
     "id": "claude-prompt-improver",
     "url": "https://github.com/severity1/claude-code-prompt-improver",
     "simpleDescription": "Claude Code hooks оценивают запрос перед выполнением и подгружают дополнительные инструкции, если запрос слишком расплывчатый.",
-    "useCases": ["Изучить conditional prompt evaluation", "Сократить correction loops в Claude Code"],
-    "platforms": ["Claude Code", "CLI"],
+    "useCases": [
+      "Изучить conditional prompt evaluation",
+      "Сократить correction loops в Claude Code"
+    ],
+    "platforms": [
+      "Claude Code",
+      "CLI"
+    ],
     "license": "MIT",
     "pricing": "Бесплатно",
     "trust": "caution",
     "trustReason": "Открытый код есть, но заявленная экономия токенов не подтверждена независимо.",
-    "projects": ["Claude workflows"],
+    "projects": [
+      "Claude workflows"
+    ],
     "decision": "reference",
     "riskLevel": "medium",
-    "risks": ["Hooks вмешиваются в каждый prompt, tool и subagent turn", "Для Codex напрямую не предназначен"],
-    "verifiedAt": "2026-07-24"
+    "risks": [
+      "Hooks вмешиваются в каждый prompt, tool и subagent turn",
+      "Для Codex напрямую не предназначен"
+    ],
+    "verifiedAt": "2026-07-24",
+    "access": {
+      "cost": "free",
+      "signup": "none",
+      "runtime": "local"
+    }
   },
   {
     "id": "obsidian-mind",
     "url": "https://github.com/breferrari/obsidian-mind",
     "simpleDescription": "Markdown-хранилище долговременной памяти для coding agents. Сохраняет проекты, решения и задачи между сессиями и разными CLI.",
-    "useCases": ["Сделать память агента объяснимой", "Переносить контекст между инструментами", "Хранить историю решений"],
-    "platforms": ["Obsidian", "Claude Code", "Codex CLI", "Gemini CLI", "Self-host"],
+    "useCases": [
+      "Сделать память агента объяснимой",
+      "Переносить контекст между инструментами",
+      "Хранить историю решений"
+    ],
+    "platforms": [
+      "Obsidian",
+      "Claude Code",
+      "Codex CLI",
+      "Gemini CLI",
+      "Self-host"
+    ],
     "license": "MIT",
     "pricing": "Бесплатно; Obsidian Sync и внешние модели могут оплачиваться отдельно",
     "trust": "caution",
     "trustReason": "Открытый репозиторий; hooks и MCP могут читать и записывать чувствительный рабочий контекст.",
-    "projects": ["Hopson Sentinel", "oh-my-claudecode", "Eclipse Library"],
+    "projects": [
+      "Hopson Sentinel",
+      "oh-my-claudecode",
+      "Eclipse Library"
+    ],
     "decision": "roadmap",
     "riskLevel": "high",
-    "risks": ["Нельзя автоматически писать secrets и client data в vault/git", "Нужны allowlist, redaction и правила устаревания памяти"],
-    "verifiedAt": "2026-07-24"
+    "risks": [
+      "Нельзя автоматически писать secrets и client data в vault/git",
+      "Нужны allowlist, redaction и правила устаревания памяти"
+    ],
+    "verifiedAt": "2026-07-24",
+    "access": {
+      "cost": "freemium",
+      "signup": "none",
+      "runtime": "self-host"
+    }
   },
   {
     "id": "beautify-github-readme",
     "url": "https://github.com/oil-oil/beautify-github-readme",
     "simpleDescription": "Agent Skill для улучшения README: делает понятный hero, диаграммы и визуальные assets на основе реальных возможностей проекта.",
-    "useCases": ["Объяснить проект за три секунды", "Добавить реальные screenshots", "Улучшить portfolio presentation"],
-    "platforms": ["Claude Code", "Cursor", "CLI", "GitHub"],
+    "useCases": [
+      "Объяснить проект за три секунды",
+      "Добавить реальные screenshots",
+      "Улучшить portfolio presentation"
+    ],
+    "platforms": [
+      "Claude Code",
+      "Cursor",
+      "CLI",
+      "GitHub"
+    ],
     "license": "MIT",
     "pricing": "Бесплатно",
     "trust": "community",
     "trustReason": "Открытый skill с явной лицензией и asset-only режимом.",
-    "projects": ["Все portfolio-репозитории"],
+    "projects": [
+      "Все portfolio-репозитории"
+    ],
     "decision": "now",
     "riskLevel": "low",
-    "risks": ["Нельзя придумывать несуществующие функции и metrics", "SVG и screenshots требуют accessibility и rendering review"],
-    "verifiedAt": "2026-07-24"
+    "risks": [
+      "Нельзя придумывать несуществующие функции и metrics",
+      "SVG и screenshots требуют accessibility и rendering review"
+    ],
+    "verifiedAt": "2026-07-24",
+    "access": {
+      "cost": "free",
+      "signup": "none",
+      "runtime": "local"
+    }
   },
   {
     "id": "awesome-hermes-agent",
     "url": "https://github.com/0xNyk/awesome-hermes-agent",
     "simpleDescription": "Независимый каталог skills, plugins, memory providers и integrations для Hermes Agent с пометками зрелости.",
-    "useCases": ["Искать кандидатов для дальнейшей проверки", "Следить за Hermes ecosystem"],
-    "platforms": ["Web", "GitHub"],
+    "useCases": [
+      "Искать кандидатов для дальнейшей проверки",
+      "Следить за Hermes ecosystem"
+    ],
+    "platforms": [
+      "Web",
+      "GitHub"
+    ],
     "license": "CC BY 4.0",
     "pricing": "Каталог бесплатный; условия linked-проектов различаются",
     "trust": "community",
     "trustReason": "Каталог прямо предупреждает, что включение ссылки не означает security endorsement.",
-    "projects": ["Hopson Sentinel", "oh-my-claudecode", "Eclipse Library"],
+    "projects": [
+      "Hopson Sentinel",
+      "oh-my-claudecode",
+      "Eclipse Library"
+    ],
     "decision": "reference",
     "riskLevel": "medium",
-    "risks": ["Каждый linked-проект нужно проверять отдельно", "Maturity labels могут устареть"],
-    "verifiedAt": "2026-07-24"
+    "risks": [
+      "Каждый linked-проект нужно проверять отдельно",
+      "Maturity labels могут устареть"
+    ],
+    "verifiedAt": "2026-07-24",
+    "access": {
+      "cost": "free",
+      "signup": "unknown",
+      "runtime": "cloud"
+    }
   },
   {
     "id": "awesome-ai-agents",
     "url": "https://github.com/slavakurilyak/awesome-ai-agents",
     "simpleDescription": "Большой список agentic-проектов для discovery. Это очередь кандидатов, а не рейтинг безопасных или готовых к production решений.",
-    "useCases": ["Найти новые agent frameworks", "Расширить intake Eclipse Library"],
-    "platforms": ["Web", "GitHub"],
+    "useCases": [
+      "Найти новые agent frameworks",
+      "Расширить intake Eclipse Library"
+    ],
+    "platforms": [
+      "Web",
+      "GitHub"
+    ],
     "license": "MIT",
     "pricing": "Бесплатно",
     "trust": "community",
     "trustReason": "Открытый каталог; часть основной выдачи устарела и содержит дубли.",
-    "projects": ["Eclipse Library"],
+    "projects": [
+      "Eclipse Library"
+    ],
     "decision": "reference",
     "riskLevel": "medium",
-    "risks": ["Информация может быть устаревшей", "Наличие в списке не подтверждает качество и безопасность"],
-    "verifiedAt": "2026-07-24"
+    "risks": [
+      "Информация может быть устаревшей",
+      "Наличие в списке не подтверждает качество и безопасность"
+    ],
+    "verifiedAt": "2026-07-24",
+    "access": {
+      "cost": "free",
+      "signup": "unknown",
+      "runtime": "cloud"
+    }
   },
   {
     "id": "work-in-progress",
     "url": "https://work-in-progress.openai.chatgpt.site/",
     "simpleDescription": "Галерея реальных сценариев ChatGPT и Codex: можно отфильтровать примеры по продукту, задаче, интерфейсу и автору.",
-    "useCases": ["Найти идею рабочего workflow", "Собрать воспроизводимый product demo"],
-    "platforms": ["Web", "ChatGPT", "Codex"],
+    "useCases": [
+      "Найти идею рабочего workflow",
+      "Собрать воспроизводимый product demo"
+    ],
+    "platforms": [
+      "Web",
+      "ChatGPT",
+      "Codex"
+    ],
     "license": "Условия сайта",
     "pricing": "Просмотр бесплатный; используемые продукты могут требовать подписку",
     "trust": "verified",
     "trustReason": "Сайт существует и содержит материалы OpenAI и community; это не архив внутренних промптов OpenAI.",
-    "projects": ["Hopson Sentinel", "Eclipse AI Hub", "Eclipse Library", "Eclipse Forge Landing"],
+    "projects": [
+      "Hopson Sentinel",
+      "Eclipse AI Hub",
+      "Eclipse Library",
+      "Eclipse Forge Landing"
+    ],
     "decision": "reference",
     "riskLevel": "low",
-    "risks": ["Не каждый community workflow проверен или одобрен OpenAI", "Linked X-посты могут измениться или исчезнуть"],
-    "verifiedAt": "2026-07-24"
+    "risks": [
+      "Не каждый community workflow проверен или одобрен OpenAI",
+      "Linked X-посты могут измениться или исчезнуть"
+    ],
+    "verifiedAt": "2026-07-24",
+    "access": {
+      "cost": "freemium",
+      "signup": "required",
+      "runtime": "cloud"
+    }
   },
   {
     "id": "claude-record-a-skill",
     "url": "https://claude.com/product/cowork",
     "simpleDescription": "Claude наблюдает запись экрана и голосовое объяснение рабочего процесса, а затем создаёт черновик reusable skill.",
-    "useCases": ["Изучить UX записи workflow", "Снизить порог создания automation для нетехнических пользователей"],
-    "platforms": ["Claude Desktop", "macOS", "Windows"],
+    "useCases": [
+      "Изучить UX записи workflow",
+      "Снизить порог создания automation для нетехнических пользователей"
+    ],
+    "platforms": [
+      "Claude Desktop",
+      "macOS",
+      "Windows"
+    ],
     "license": "Commercial terms",
     "pricing": "Требуется Claude Pro, Max или Team",
     "trust": "official",
     "trustReason": "Функция описана как часть официального продукта Claude Cowork.",
-    "projects": ["Hopson Sentinel"],
+    "projects": [
+      "Hopson Sentinel"
+    ],
     "decision": "reference",
     "riskLevel": "high",
-    "risks": ["Не записывать пароли, private chats, client data и production consoles", "Один happy-path не покрывает ошибки и recovery"],
-    "verifiedAt": "2026-07-24"
+    "risks": [
+      "Не записывать пароли, private chats, client data и production consoles",
+      "Один happy-path не покрывает ошибки и recovery"
+    ],
+    "verifiedAt": "2026-07-24",
+    "access": {
+      "cost": "unknown",
+      "signup": "none",
+      "runtime": "local"
+    }
   },
   {
     "id": "pairdrop",
     "url": "https://github.com/schlagmichdoch/PairDrop",
     "simpleDescription": "Передаёт файлы и текст между устройствами через браузер. Файлы идут напрямую по WebRTC, а устройства находят друг друга через signaling server.",
-    "useCases": ["Передать файл в одной сети", "Спроектировать P2P transfer в чате", "Снизить server storage и egress"],
-    "platforms": ["Web", "Windows", "Linux", "macOS", "Android", "iOS", "Self-host"],
+    "useCases": [
+      "Передать файл в одной сети",
+      "Спроектировать P2P transfer в чате",
+      "Снизить server storage и egress"
+    ],
+    "platforms": [
+      "Web",
+      "Windows",
+      "Linux",
+      "macOS",
+      "Android",
+      "iOS",
+      "Self-host"
+    ],
     "license": "GPL-3.0",
     "pricing": "Public instance бесплатный; self-host требует своего сервера",
     "trust": "community",
     "trustReason": "Зрелый open-source проект с явной лицензией; metadata зависит от выбранного instance.",
-    "projects": ["Eclipse Chat", "Eclipse Media"],
+    "projects": [
+      "Eclipse Chat",
+      "Eclipse Media"
+    ],
     "decision": "roadmap",
     "riskLevel": "medium",
-    "risks": ["Signaling и room metadata проходят через instance", "Для sensitive data нужен self-host и threat model", "Нужно учесть NAT, TURN, abuse и rate limits"],
-    "verifiedAt": "2026-07-24"
+    "risks": [
+      "Signaling и room metadata проходят через instance",
+      "Для sensitive data нужен self-host и threat model",
+      "Нужно учесть NAT, TURN, abuse и rate limits"
+    ],
+    "verifiedAt": "2026-07-24",
+    "access": {
+      "cost": "free",
+      "signup": "none",
+      "runtime": "self-host"
+    }
   },
   {
     "id": "opendroid",
     "url": "https://github.com/yashab-cyber/opendroid",
     "simpleDescription": "Android agent, который видит экран и управляет телефоном через Accessibility: нажимает кнопки, вводит текст, открывает приложения, отправляет сообщения и делает звонки.",
-    "useCases": ["Изучить Android action protocol", "Спроектировать approval UI для мобильного агента"],
-    "platforms": ["Android", "Self-host"],
+    "useCases": [
+      "Изучить Android action protocol",
+      "Спроектировать approval UI для мобильного агента"
+    ],
+    "platforms": [
+      "Android",
+      "Self-host"
+    ],
     "license": "Apache-2.0",
     "pricing": "Код бесплатный; внешний model API может быть платным",
     "trust": "caution",
     "trustReason": "Открытый код и лицензия проверены, но приложение получает очень широкие права на устройстве.",
-    "projects": ["Hopson Sentinel"],
+    "projects": [
+      "Hopson Sentinel"
+    ],
     "decision": "reference",
     "riskLevel": "high",
-    "risks": ["Запускать только на отдельном test device/profile", "Не держать рядом banking, 2FA и production secrets", "Screenshots могут содержать пароли и персональные данные"],
-    "verifiedAt": "2026-07-24"
+    "risks": [
+      "Запускать только на отдельном test device/profile",
+      "Не держать рядом banking, 2FA и production secrets",
+      "Screenshots могут содержать пароли и персональные данные"
+    ],
+    "verifiedAt": "2026-07-24",
+    "access": {
+      "cost": "freemium",
+      "signup": "none",
+      "runtime": "self-host"
+    }
   },
   {
     "id": "kudu",
     "url": "https://github.com/AdventDevInc/kudu",
     "simpleDescription": "Системный cleaner и security scanner для Windows, macOS и Linux. Может удалять файлы, менять services/registry и выполнять secure delete.",
-    "useCases": ["Изучить UX preview, history и restore points", "Проверить системный cleaner только в VM"],
-    "platforms": ["Windows", "macOS", "Linux"],
+    "useCases": [
+      "Изучить UX preview, history и restore points",
+      "Проверить системный cleaner только в VM"
+    ],
+    "platforms": [
+      "Windows",
+      "macOS",
+      "Linux"
+    ],
     "license": "MIT",
     "pricing": "Бесплатно",
     "trust": "caution",
     "trustReason": "Открытый код есть, но основные операции потенциально разрушительны.",
-    "projects": ["Eclipse Library"],
+    "projects": [
+      "Eclipse Library"
+    ],
     "decision": "no",
     "riskLevel": "high",
-    "risks": ["Можно потерять файлы или сломать систему", "Начинать только в VM с backup/restore point", "Не добавлять auto-clean в Sentinel"],
-    "verifiedAt": "2026-07-24"
+    "risks": [
+      "Можно потерять файлы или сломать систему",
+      "Начинать только в VM с backup/restore point",
+      "Не добавлять auto-clean в Sentinel"
+    ],
+    "verifiedAt": "2026-07-24",
+    "access": {
+      "cost": "free",
+      "signup": "none",
+      "runtime": "local"
+    }
   },
   {
     "id": "ai-agents-security-week",
     "url": "https://shad.yandex.ru/agentsecurityweek",
     "simpleDescription": "Бесплатный онлайн-интенсив ШАД о том, как проектировать AI agents с tools, memory и внутренними данными безопаснее.",
-    "useCases": ["Собрать единый agent threat model", "Добавить проверки prompt injection и data leaks", "Обновить secure SDLC для agent-проектов"],
-    "platforms": ["Web", "Online course"],
+    "useCases": [
+      "Собрать единый agent threat model",
+      "Добавить проверки prompt injection и data leaks",
+      "Обновить secure SDLC для agent-проектов"
+    ],
+    "platforms": [
+      "Web",
+      "Online course"
+    ],
     "license": "Условия ШАД",
     "pricing": "Бесплатно; участие в финальном задании требует отбора",
     "trust": "official",
     "trustReason": "Проверена официальная страница ШАД с датами и программой.",
-    "projects": ["Hopson Sentinel", "Eclipse AI Hub", "Eclipse Chat", "Все agent-репозитории"],
+    "projects": [
+      "Hopson Sentinel",
+      "Eclipse AI Hub",
+      "Eclipse Chat",
+      "Все agent-репозитории"
+    ],
     "decision": "now",
     "riskLevel": "low",
-    "risks": ["Регистрация и расписание ограничены датами мероприятия", "Программу нужно превратить в конкретные regression checks"],
-    "verifiedAt": "2026-07-24"
+    "risks": [
+      "Регистрация и расписание ограничены датами мероприятия",
+      "Программу нужно превратить в конкретные regression checks"
+    ],
+    "verifiedAt": "2026-07-24",
+    "access": {
+      "cost": "free",
+      "signup": "unknown",
+      "runtime": "cloud"
+    }
   },
   {
     "id": "priceghost",
     "url": "https://github.com/clucraft/PriceGhost",
     "simpleDescription": "Self-hosted price tracker: извлекает цену и наличие со страницы товара, хранит историю и отправляет alerts. AI используется как дополнительный способ extraction или проверки.",
-    "useCases": ["Изучить price-monitoring pipeline", "Спроектировать extraction verification и alerts"],
-    "platforms": ["Web", "Self-host"],
+    "useCases": [
+      "Изучить price-monitoring pipeline",
+      "Спроектировать extraction verification и alerts"
+    ],
+    "platforms": [
+      "Web",
+      "Self-host"
+    ],
     "license": "Не указана",
     "pricing": "Репозиторий доступен бесплатно; AI API и hosting оплачиваются отдельно",
     "trust": "caution",
     "trustReason": "Функции подтверждены репозиторием, но заявленная «команда агентов по сотням площадок» не подтверждена.",
-    "projects": ["Kwork #18", "Eclipse Library"],
+    "projects": [
+      "Kwork #18",
+      "Eclipse Library"
+    ],
     "decision": "reference",
     "riskLevel": "high",
-    "risks": ["Нет явной лицензии", "URL fetch требует SSRF-защиты", "Нужно соблюдать ToS, robots и rate limits", "API keys должны храниться только server-side"],
-    "verifiedAt": "2026-07-24"
+    "risks": [
+      "Нет явной лицензии",
+      "URL fetch требует SSRF-защиты",
+      "Нужно соблюдать ToS, robots и rate limits",
+      "API keys должны храниться только server-side"
+    ],
+    "verifiedAt": "2026-07-24",
+    "access": {
+      "cost": "freemium",
+      "signup": "unknown",
+      "runtime": "self-host"
+    }
   },
   {
     "id": "deja-view",
     "url": "https://dejaview.bsct.so/",
     "simpleDescription": "Закрытый web-сервис ищет старые компании с похожей startup-идеей и пытается показать, почему одни выжили, а другие закрылись.",
-    "useCases": ["Проверить идею до разработки", "Изучить структуру конкурентного research report"],
-    "platforms": ["Web"],
+    "useCases": [
+      "Проверить идею до разработки",
+      "Изучить структуру конкурентного research report"
+    ],
+    "platforms": [
+      "Web"
+    ],
     "license": "Условия сервиса не раскрыты",
     "pricing": "Уточнить на сайте",
     "trust": "caution",
     "trustReason": "Сервис существует, но на landing нет достаточных privacy и methodology details.",
-    "projects": ["Kwork #18"],
+    "projects": [
+      "Kwork #18"
+    ],
     "decision": "reference",
     "riskLevel": "high",
-    "risks": ["Не отправлять confidential startup ideas", "Каждую компанию и причину закрытия нужно перепроверять по первичным источникам"],
-    "verifiedAt": "2026-07-24"
+    "risks": [
+      "Не отправлять confidential startup ideas",
+      "Каждую компанию и причину закрытия нужно перепроверять по первичным источникам"
+    ],
+    "verifiedAt": "2026-07-24",
+    "access": {
+      "cost": "unknown",
+      "signup": "unknown",
+      "runtime": "cloud"
+    }
   },
   {
     "id": "claudexor",
     "url": "https://github.com/razzant/claudexor",
     "simpleDescription": "Локальная панель для нескольких coding agents и общего контекста. Поддерживает несколько subscription logins и переключение по доступной квоте.",
-    "useCases": ["Изучить shared-context UX", "Посмотреть паттерн независимого AI-review"],
-    "platforms": ["CLI", "Local"],
+    "useCases": [
+      "Изучить shared-context UX",
+      "Посмотреть паттерн независимого AI-review"
+    ],
+    "platforms": [
+      "CLI",
+      "Local"
+    ],
     "license": "MIT",
     "pricing": "Код бесплатный; требуются отдельные подписки или API",
     "trust": "caution",
     "trustReason": "Открытый код есть, но сценарий rotation между subscription accounts создаёт лишний ToS и credential risk.",
-    "projects": ["Hopson Sentinel", "oh-my-claudecode"],
+    "projects": [
+      "Hopson Sentinel",
+      "oh-my-claudecode"
+    ],
     "decision": "no",
     "riskLevel": "high",
-    "risks": ["Не подключать production accounts", "Нужно отдельно проверить ToS и хранение auth sessions", "Маркетинговая экономия 8× не подтверждена"],
-    "verifiedAt": "2026-07-24"
+    "risks": [
+      "Не подключать production accounts",
+      "Нужно отдельно проверить ToS и хранение auth sessions",
+      "Маркетинговая экономия 8× не подтверждена"
+    ],
+    "verifiedAt": "2026-07-24",
+    "access": {
+      "cost": "freemium",
+      "signup": "required",
+      "runtime": "local"
+    }
   },
   {
     "id": "vane",
     "url": "https://github.com/ItzCrazyKns/Vane",
     "simpleDescription": "Self-hosted поисковик с AI: принимает вопрос, ищет материалы через SearXNG, собирает ответ и показывает ссылки, по которым пользователь может проверить вывод.",
-    "useCases": ["Собрать исследовательский поиск с цитатами", "Искать по интернету через локальную модель", "Изучить UX ответа с проверяемыми источниками"],
-    "platforms": ["Web", "Docker", "Self-host"],
+    "useCases": [
+      "Собрать исследовательский поиск с цитатами",
+      "Искать по интернету через локальную модель",
+      "Изучить UX ответа с проверяемыми источниками"
+    ],
+    "platforms": [
+      "Web",
+      "Docker",
+      "Self-host"
+    ],
     "license": "MIT",
     "pricing": "Код бесплатный; hosting, search instance и облачные model API оплачиваются отдельно",
     "trust": "community",
     "trustReason": "Проверены актуальный canonical repository, MIT license и новое имя Vane через официальный GitHub API; это продолжение проекта Perplexica, а не отдельный продукт.",
-    "projects": ["Eclipse AI Hub", "Educator-AI", "Kwork #18"],
+    "projects": [
+      "Eclipse AI Hub",
+      "Educator-AI",
+      "Kwork #18"
+    ],
     "decision": "roadmap",
     "riskLevel": "medium",
-    "risks": ["Качество ответа зависит от поисковой выдачи и выбранной модели", "Облачные providers получают запросы и найденный контекст", "Для публичного сервиса нужны rate limits, abuse protection и контроль исходящих URL"],
+    "risks": [
+      "Качество ответа зависит от поисковой выдачи и выбранной модели",
+      "Облачные providers получают запросы и найденный контекст",
+      "Для публичного сервиса нужны rate limits, abuse protection и контроль исходящих URL"
+    ],
     "verifiedAt": "2026-07-27",
-    "quickStart": ["Запустить только в локальном Docker-окружении по официальной инструкции", "Подключить отдельный SearXNG и тестовый model key без production-секретов", "Проверить десять ответов: открываются ли citations и подтверждают ли они утверждения"]
+    "quickStart": [
+      "Запустить только в локальном Docker-окружении по официальной инструкции",
+      "Подключить отдельный SearXNG и тестовый model key без production-секретов",
+      "Проверить десять ответов: открываются ли citations и подтверждают ли они утверждения"
+    ],
+    "access": {
+      "cost": "freemium",
+      "signup": "unknown",
+      "runtime": "self-host"
+    }
   },
   {
     "id": "crawl4ai",
     "url": "https://github.com/unclecode/crawl4ai",
     "simpleDescription": "Open-source crawler для подготовки веб-страниц к работе с LLM: загружает страницу, очищает лишнюю разметку и возвращает более компактный Markdown или структурированные данные.",
-    "useCases": ["Готовить источники для RAG", "Извлекать текст со страниц с JavaScript", "Собирать проверяемые материалы для research-агента"],
-    "platforms": ["Python", "Docker", "Self-host"],
+    "useCases": [
+      "Готовить источники для RAG",
+      "Извлекать текст со страниц с JavaScript",
+      "Собирать проверяемые материалы для research-агента"
+    ],
+    "platforms": [
+      "Python",
+      "Docker",
+      "Self-host"
+    ],
     "license": "Apache-2.0",
     "pricing": "Бесплатно; инфраструктура, browser runtime и внешние model API оплачиваются отдельно",
     "trust": "community",
     "trustReason": "Активный официальный repository проекта и Apache-2.0 license проверены через GitHub API; заявления о скорости не считаются независимым benchmark.",
-    "projects": ["Eclipse AI Hub", "Kwork #18", "Educator-AI"],
+    "projects": [
+      "Eclipse AI Hub",
+      "Kwork #18",
+      "Educator-AI"
+    ],
     "decision": "roadmap",
     "riskLevel": "high",
-    "risks": ["Произвольный URL fetch требует SSRF-защиты и сетевой изоляции", "Нужно соблюдать robots.txt, ToS, copyright и rate limits источника", "Вредоносная страница может содержать prompt injection для следующего LLM-шага"],
+    "risks": [
+      "Произвольный URL fetch требует SSRF-защиты и сетевой изоляции",
+      "Нужно соблюдать robots.txt, ToS, copyright и rate limits источника",
+      "Вредоносная страница может содержать prompt injection для следующего LLM-шага"
+    ],
     "verifiedAt": "2026-07-27",
-    "quickStart": ["Запустить в отдельном container без доступа к private network", "Разрешить только http/https и блокировать private, link-local и metadata addresses после каждого redirect", "Сохранять URL и время получения рядом с извлечённым текстом"]
+    "quickStart": [
+      "Запустить в отдельном container без доступа к private network",
+      "Разрешить только http/https и блокировать private, link-local и metadata addresses после каждого redirect",
+      "Сохранять URL и время получения рядом с извлечённым текстом"
+    ],
+    "access": {
+      "cost": "freemium",
+      "signup": "none",
+      "runtime": "self-host"
+    }
   },
   {
     "id": "hermes-agent",
     "url": "https://github.com/nousresearch/hermes-agent",
     "simpleDescription": "Локальный AI-агент с памятью, skills, tool calls и несколькими способами запуска. Полезен как готовый reference того, как CLI и desktop-интерфейс делят одно ядро.",
-    "useCases": ["Сравнить архитектуру локального оператора", "Изучить перенос памяти и sessions между CLI и GUI", "Проверить UX подключения tools и skills"],
-    "platforms": ["Windows", "macOS", "Linux", "Docker", "CLI"],
+    "useCases": [
+      "Сравнить архитектуру локального оператора",
+      "Изучить перенос памяти и sessions между CLI и GUI",
+      "Проверить UX подключения tools и skills"
+    ],
+    "platforms": [
+      "Windows",
+      "macOS",
+      "Linux",
+      "Docker",
+      "CLI"
+    ],
     "license": "MIT",
     "pricing": "Код бесплатный; выбранные model providers и remote infrastructure могут быть платными",
     "trust": "community",
     "trustReason": "Canonical repository NousResearch, активность и MIT license подтверждены официальным GitHub API; маркетинговые показатели качества не подтверждены нашим benchmark.",
-    "projects": ["Hopson Sentinel", "oh-my-claudecode"],
+    "projects": [
+      "Hopson Sentinel",
+      "oh-my-claudecode"
+    ],
     "decision": "reference",
     "riskLevel": "high",
-    "risks": ["Агент может выполнять команды и обращаться к чувствительным данным", "Community skills и tools требуют отдельного аудита", "Память и logs могут сохранять secrets или персональные данные"],
+    "risks": [
+      "Агент может выполнять команды и обращаться к чувствительным данным",
+      "Community skills и tools требуют отдельного аудита",
+      "Память и logs могут сохранять secrets или персональные данные"
+    ],
     "verifiedAt": "2026-07-27",
-    "quickStart": ["Изучить архитектуру и permissions без подключения production accounts", "Если нужен запуск — использовать VM/container и тестовые credentials", "Сравнивать конкретные сценарии с Sentinel по latency, recovery, approvals и audit trail"]
+    "quickStart": [
+      "Изучить архитектуру и permissions без подключения production accounts",
+      "Если нужен запуск — использовать VM/container и тестовые credentials",
+      "Сравнивать конкретные сценарии с Sentinel по latency, recovery, approvals и audit trail"
+    ],
+    "access": {
+      "cost": "freemium",
+      "signup": "unknown",
+      "runtime": "self-host"
+    }
   },
   {
     "id": "understand-anything",
     "url": "https://github.com/Egonex-AI/Understand-Anything",
     "simpleDescription": "Строит интерактивную карту кодовой базы: показывает файлы, функции и связи, добавляет поиск и объяснения, чтобы быстрее понять незнакомый большой repository.",
-    "useCases": ["Ускорить onboarding в крупный repository", "Найти связи перед рефакторингом", "Собрать guided tour по важному пользовательскому сценарию"],
-    "platforms": ["Claude Code", "Codex", "Cursor", "VS Code", "Gemini CLI"],
+    "useCases": [
+      "Ускорить onboarding в крупный repository",
+      "Найти связи перед рефакторингом",
+      "Собрать guided tour по важному пользовательскому сценарию"
+    ],
+    "platforms": [
+      "Claude Code",
+      "Codex",
+      "Cursor",
+      "VS Code",
+      "Gemini CLI"
+    ],
     "license": "MIT",
     "pricing": "Код бесплатный; LLM API может быть платным",
     "trust": "community",
     "trustReason": "Repository и MIT license подтверждены GitHub API; структурные связи надёжнее LLM-объяснений, которые всё равно нужно сверять с кодом.",
-    "projects": ["Eclipse Chat", "oh-my-claudecode", "Hopson Sentinel"],
+    "projects": [
+      "Eclipse Chat",
+      "oh-my-claudecode",
+      "Hopson Sentinel"
+    ],
     "decision": "reference",
     "riskLevel": "medium",
-    "risks": ["Индекс может раскрыть private source code внешнему model provider", "Семантические объяснения могут ошибаться", "Сгенерированный graph устаревает после изменений кода"],
+    "risks": [
+      "Индекс может раскрыть private source code внешнему model provider",
+      "Семантические объяснения могут ошибаться",
+      "Сгенерированный graph устаревает после изменений кода"
+    ],
     "verifiedAt": "2026-07-27",
-    "quickStart": ["Начать с некритичного repository без секретов", "Проверить, какие файлы и фрагменты отправляются model provider", "Сверить одну guided tour и один impact path с реальным кодом и tests"]
+    "quickStart": [
+      "Начать с некритичного repository без секретов",
+      "Проверить, какие файлы и фрагменты отправляются model provider",
+      "Сверить одну guided tour и один impact path с реальным кодом и tests"
+    ],
+    "access": {
+      "cost": "freemium",
+      "signup": "unknown",
+      "runtime": "unknown"
+    }
   },
   {
     "id": "mineru",
     "url": "https://github.com/opendatalab/mineru",
     "simpleDescription": "Преобразует сложные PDF, Office-документы и сканы в Markdown или JSON, стараясь сохранить таблицы, формулы, порядок текста и структуру для дальнейшей работы агента.",
-    "useCases": ["Подготовить документы для RAG", "Извлечь таблицы и формулы из PDF", "Сделать черновик структурированных данных из скана"],
-    "platforms": ["Windows", "macOS", "Linux", "Docker", "Python"],
+    "useCases": [
+      "Подготовить документы для RAG",
+      "Извлечь таблицы и формулы из PDF",
+      "Сделать черновик структурированных данных из скана"
+    ],
+    "platforms": [
+      "Windows",
+      "macOS",
+      "Linux",
+      "Docker",
+      "Python"
+    ],
     "license": "MinerU Open Source License (Apache-2.0 based)",
     "pricing": "Код и модели доступны бесплатно по условиям проекта; GPU, hosting и storage оплачиваются отдельно",
     "trust": "community",
     "trustReason": "Canonical repository активен; GitHub не распознаёт custom license как стандартный SPDX, поэтому условия нужно читать в LICENSE.md перед распространением.",
-    "projects": ["Eclipse AI Hub", "Educator-AI", "Kwork #18"],
+    "projects": [
+      "Eclipse AI Hub",
+      "Educator-AI",
+      "Kwork #18"
+    ],
     "decision": "roadmap",
     "riskLevel": "high",
-    "risks": ["Документы могут содержать персональные или коммерческие данные", "OCR и восстановление таблиц требуют проверки человеком", "Тяжёлый VLM backend не подходит для текущего малого VPS"],
+    "risks": [
+      "Документы могут содержать персональные или коммерческие данные",
+      "OCR и восстановление таблиц требуют проверки человеком",
+      "Тяжёлый VLM backend не подходит для текущего малого VPS"
+    ],
     "verifiedAt": "2026-07-27",
-    "quickStart": ["Запустить локально на обезличенном тестовом документе", "Сравнить Markdown/JSON с оригиналом по таблицам, формулам и порядку чтения", "До product integration определить retention, encryption и удаление исходных файлов"]
+    "quickStart": [
+      "Запустить локально на обезличенном тестовом документе",
+      "Сравнить Markdown/JSON с оригиналом по таблицам, формулам и порядку чтения",
+      "До product integration определить retention, encryption и удаление исходных файлов"
+    ],
+    "access": {
+      "cost": "freemium",
+      "signup": "none",
+      "runtime": "self-host"
+    }
   },
   {
     "id": "privacy-sexy",
     "url": "https://privacy.sexy/",
     "simpleDescription": "Показывает готовые privacy и hardening scripts для Windows, macOS и Linux, объясняет каждое изменение и позволяет собрать сценарий под выбранные настройки.",
-    "useCases": ["Провести ручной аудит telemetry-настроек", "Собрать checklist workstation hardening", "Изучить UX preview и объяснения системных изменений"],
-    "platforms": ["Windows", "macOS", "Linux", "Web", "Desktop"],
+    "useCases": [
+      "Провести ручной аудит telemetry-настроек",
+      "Собрать checklist workstation hardening",
+      "Изучить UX preview и объяснения системных изменений"
+    ],
+    "platforms": [
+      "Windows",
+      "macOS",
+      "Linux",
+      "Web",
+      "Desktop"
+    ],
     "license": "AGPL-3.0",
     "pricing": "Бесплатно",
     "trust": "community",
     "trustReason": "Официальный open-source repository undergroundwires/privacy.sexy активен, AGPL-3.0 подтверждена GitHub API; отдельные scripts всё равно требуют ручного review.",
-    "projects": ["Hopson Sentinel"],
+    "projects": [
+      "Hopson Sentinel"
+    ],
     "decision": "reference",
     "riskLevel": "high",
-    "risks": ["Некоторые изменения могут сломать updates, Defender, приложения или сеть", "Secure delete и system cleanup могут быть необратимыми", "Нельзя выполнять весь preset без review, backup и restore plan"],
+    "risks": [
+      "Некоторые изменения могут сломать updates, Defender, приложения или сеть",
+      "Secure delete и system cleanup могут быть необратимыми",
+      "Нельзя выполнять весь preset без review, backup и restore plan"
+    ],
     "verifiedAt": "2026-07-27",
-    "quickStart": ["Открыть объяснение одного нужного правила и прочитать сгенерированный script", "Создать backup или restore point и проверить правило в VM", "Применять изменения по одному и фиксировать способ отката"]
+    "quickStart": [
+      "Открыть объяснение одного нужного правила и прочитать сгенерированный script",
+      "Создать backup или restore point и проверить правило в VM",
+      "Применять изменения по одному и фиксировать способ отката"
+    ],
+    "access": {
+      "cost": "free",
+      "signup": "none",
+      "runtime": "local"
+    }
   },
   {
     "id": "cerebras-inference",
     "url": "https://cloud.cerebras.ai/",
     "simpleDescription": "Облачный API для очень быстрого запуска поддерживаемых языковых моделей. Его удобно подключить как ещё одного provider и сравнить задержку и стоимость на реальных запросах Eclipse.",
-    "useCases": ["Проверить быстрые streaming-ответы в Eclipse AI Hub", "Сравнить latency с Groq и локальными моделями на одном eval-наборе", "Использовать для несекретных пакетных задач при доступной квоте"],
-    "platforms": ["Web", "API", "Cloud"],
+    "useCases": [
+      "Проверить быстрые streaming-ответы в Eclipse AI Hub",
+      "Сравнить latency с Groq и локальными моделями на одном eval-наборе",
+      "Использовать для несекретных пакетных задач при доступной квоте"
+    ],
+    "platforms": [
+      "Web",
+      "API",
+      "Cloud"
+    ],
     "license": "Проприетарный облачный сервис; лицензия результатов зависит от выбранной модели",
     "pricing": "Есть free tier и pay-as-you-go; точные RPM, TPM и дневные квоты зависят от модели, проекта и аккаунта и показываются в разделе Limits",
     "trust": "official",
     "trustReason": "Проверены официальный console и документация Cerebras Inference. Скорость является характеристикой сервиса, но её нужно измерять на нашем workload; текущие квоты нельзя считать постоянными.",
-    "projects": ["Eclipse AI Hub", "Eclipse Chat", "Hopson Sentinel"],
+    "projects": [
+      "Eclipse AI Hub",
+      "Eclipse Chat",
+      "Hopson Sentinel"
+    ],
     "decision": "now",
     "riskLevel": "medium",
-    "risks": ["Prompts и ответы обрабатываются внешним облачным сервисом", "Доступные модели и free-tier лимиты могут меняться", "Нужны retry с backoff для HTTP 429 и резервный provider"],
+    "risks": [
+      "Prompts и ответы обрабатываются внешним облачным сервисом",
+      "Доступные модели и free-tier лимиты могут меняться",
+      "Нужны retry с backoff для HTTP 429 и резервный provider"
+    ],
     "verifiedAt": "2026-07-27",
-    "quickStart": ["Создать отдельный development project и API key", "Открыть Limits и выбрать одну production-модель под конкретный сценарий", "Хранить key только server-side и прогнать небольшой eval по качеству, latency и ошибкам"]
+    "quickStart": [
+      "Создать отдельный development project и API key",
+      "Открыть Limits и выбрать одну production-модель под конкретный сценарий",
+      "Хранить key только server-side и прогнать небольшой eval по качеству, latency и ошибкам"
+    ],
+    "access": {
+      "cost": "freemium",
+      "signup": "required",
+      "runtime": "cloud"
+    }
   },
   {
     "id": "mistral-la-plateforme",
     "url": "https://console.mistral.ai/",
     "simpleDescription": "Официальная консоль Mistral для API-ключей, playground, usage и limits. Через один сервис можно тестировать text, code, embeddings, OCR и другие возможности, не разворачивая модели самостоятельно.",
-    "useCases": ["Добавить европейского model provider в Eclipse AI Hub", "Прототипировать OCR документов для Educator-AI", "Сравнить code-модели на задачах Eclipse Forge"],
-    "platforms": ["Web", "API", "Cloud"],
+    "useCases": [
+      "Добавить европейского model provider в Eclipse AI Hub",
+      "Прототипировать OCR документов для Educator-AI",
+      "Сравнить code-модели на задачах Eclipse Forge"
+    ],
+    "platforms": [
+      "Web",
+      "API",
+      "Cloud"
+    ],
     "license": "Проприетарный сервис Mistral; условия и лицензия зависят от API и выбранной модели",
     "pricing": "Free mode подходит для ограниченных экспериментов; Scale работает по pay-as-you-go, а фактические rate и spending limits видны в Admin Panel",
     "trust": "official",
     "trustReason": "Проверены официальные Mistral Docs по usage, limits и известным ограничениям. Длина контекста и доступность функций зависят от модели, поэтому карточка не обещает единый лимит для всего API.",
-    "projects": ["Eclipse AI Hub", "Educator-AI", "oh-my-claudecode"],
+    "projects": [
+      "Eclipse AI Hub",
+      "Educator-AI",
+      "oh-my-claudecode"
+    ],
     "decision": "roadmap",
     "riskLevel": "medium",
-    "risks": ["Запросы, файлы и результаты обрабатываются во внешнем облаке", "Rate limits применяются на уровне организации и модели", "Загруженные файлы имеют отдельные правила хранения и удаления"],
+    "risks": [
+      "Запросы, файлы и результаты обрабатываются во внешнем облаке",
+      "Rate limits применяются на уровне организации и модели",
+      "Загруженные файлы имеют отдельные правила хранения и удаления"
+    ],
     "verifiedAt": "2026-07-27",
-    "quickStart": ["Создать отдельный Workspace для теста без production-данных", "Выбрать один API и проверить его модель, цену и текущий limit", "Добавить server-side key, spending cap, timeout и удаление тестовых файлов"]
+    "quickStart": [
+      "Создать отдельный Workspace для теста без production-данных",
+      "Выбрать один API и проверить его модель, цену и текущий limit",
+      "Добавить server-side key, spending cap, timeout и удаление тестовых файлов"
+    ],
+    "access": {
+      "cost": "freemium",
+      "signup": "unknown",
+      "runtime": "cloud"
+    }
   },
   {
     "id": "cohere-platform",
     "url": "https://dashboard.cohere.com/api-keys",
     "simpleDescription": "API-платформа с языковыми моделями, embeddings и rerank. Особенно полезна не как ещё один обычный чат, а для улучшения поиска и выбора самых релевантных фрагментов в RAG.",
-    "useCases": ["Сравнить Rerank с текущим ранжированием Eclipse AI Hub RAG", "Построить semantic search для Eclipse Library", "Проверить multilingual embeddings для русскоязычных материалов Educator-AI"],
-    "platforms": ["Web", "API", "Cloud"],
+    "useCases": [
+      "Сравнить Rerank с текущим ранжированием Eclipse AI Hub RAG",
+      "Построить semantic search для Eclipse Library",
+      "Проверить multilingual embeddings для русскоязычных материалов Educator-AI"
+    ],
+    "platforms": [
+      "Web",
+      "API",
+      "Cloud"
+    ],
     "license": "Проприетарный сервис Cohere; использование регулируется SaaS Agreement и model-specific terms",
     "pricing": "Trial key обычно ограничен 1 000 API-вызовами в месяц и endpoint-specific RPM; production key оплачивается и требует отдельного перехода в production",
     "trust": "official",
     "trustReason": "Проверены официальные Cohere Docs по trial и production rate limits. Production-доступ требует принятия условий, а чувствительные сценарии могут проходить дополнительную проверку.",
-    "projects": ["Eclipse AI Hub", "Eclipse Library", "Educator-AI"],
+    "projects": [
+      "Eclipse AI Hub",
+      "Eclipse Library",
+      "Educator-AI"
+    ],
     "decision": "now",
     "riskLevel": "medium",
-    "risks": ["Документы и запросы передаются внешнему provider", "Trial key не рассчитан на production SLA", "Для чувствительных use cases могут действовать дополнительные ограничения"],
+    "risks": [
+      "Документы и запросы передаются внешнему provider",
+      "Trial key не рассчитан на production SLA",
+      "Для чувствительных use cases могут действовать дополнительные ограничения"
+    ],
     "verifiedAt": "2026-07-27",
-    "quickStart": ["Получить trial key только для тестового проекта", "Собрать небольшой набор поисковых запросов и ожидаемых результатов", "Сравнить текущий ranking с Rerank по качеству, latency и стоимости без отправки секретных документов"]
+    "quickStart": [
+      "Получить trial key только для тестового проекта",
+      "Собрать небольшой набор поисковых запросов и ожидаемых результатов",
+      "Сравнить текущий ranking с Rerank по качеству, latency и стоимости без отправки секретных документов"
+    ],
+    "access": {
+      "cost": "paid",
+      "signup": "required",
+      "runtime": "cloud"
+    }
   },
   {
     "id": "cloudflare-workers-ai",
     "url": "https://dash.cloudflare.com/",
     "simpleDescription": "Serverless inference в инфраструктуре Cloudflare: приложение вызывает готовую модель через Workers AI, а отдельный GPU-сервер поднимать и обслуживать не нужно.",
-    "useCases": ["Сделать edge-прототип небольшой AI-функции для Eclipse Chat", "Запускать embeddings или классификацию рядом с Cloudflare Workers", "Проверить резервный serverless provider для Eclipse AI Hub"],
-    "platforms": ["Web", "API", "Cloud", "Cloudflare Workers"],
+    "useCases": [
+      "Сделать edge-прототип небольшой AI-функции для Eclipse Chat",
+      "Запускать embeddings или классификацию рядом с Cloudflare Workers",
+      "Проверить резервный serverless provider для Eclipse AI Hub"
+    ],
+    "platforms": [
+      "Web",
+      "API",
+      "Cloud",
+      "Cloudflare Workers"
+    ],
     "license": "Проприетарный сервис Cloudflare; лицензия и допустимое использование зависят от выбранной модели",
     "pricing": "Free и Paid plans включают 10 000 Neurons в день бесплатно; перерасход на Paid тарифицируется по Neurons, а расход зависит от модели и задачи",
     "trust": "official",
     "trustReason": "Проверены официальные Cloudflare Workers AI overview, pricing и limits. Neurons — внутренняя единица вычислений, поэтому перед внедрением стоимость нужно измерить на выбранной модели.",
-    "projects": ["Eclipse Chat", "Eclipse AI Hub", "Eclipse Forge Landing"],
+    "projects": [
+      "Eclipse Chat",
+      "Eclipse AI Hub",
+      "Eclipse Forge Landing"
+    ],
     "decision": "roadmap",
     "riskLevel": "medium",
-    "risks": ["Пользовательские данные отправляются в облачную инфраструктуру Cloudflare", "Стоимость по Neurons сложнее оценивать без тестового workload", "Лимиты и возможности различаются по модели и task type"],
+    "risks": [
+      "Пользовательские данные отправляются в облачную инфраструктуру Cloudflare",
+      "Стоимость по Neurons сложнее оценивать без тестового workload",
+      "Лимиты и возможности различаются по модели и task type"
+    ],
     "verifiedAt": "2026-07-27",
-    "quickStart": ["Создать отдельный Worker и выбрать одну недорогую модель", "Проверить model-specific limits и измерить Neurons на типовом запросе", "Добавить secret через Cloudflare, валидацию входа, timeout, rate limit и budget alert"]
+    "quickStart": [
+      "Создать отдельный Worker и выбрать одну недорогую модель",
+      "Проверить model-specific limits и измерить Neurons на типовом запросе",
+      "Добавить secret через Cloudflare, валидацию входа, timeout, rate limit и budget alert"
+    ],
+    "access": {
+      "cost": "freemium",
+      "signup": "unknown",
+      "runtime": "cloud"
+    }
   },
   {
     "id": "hugging-face-inference-providers",
     "url": "https://huggingface.co/settings/tokens",
     "simpleDescription": "Единый API поверх множества inference providers и моделей из Hugging Face Hub. Один token позволяет экспериментировать с разными моделями и менять provider без отдельной интеграции каждого API.",
-    "useCases": ["Быстро сравнить открытые модели для Eclipse AI Hub", "Выбрать самый быстрый или дешёвый provider для тестовой модели", "Прототипировать embeddings, image или speech-задачи через единый SDK"],
-    "platforms": ["Web", "API", "Cloud"],
+    "useCases": [
+      "Быстро сравнить открытые модели для Eclipse AI Hub",
+      "Выбрать самый быстрый или дешёвый provider для тестовой модели",
+      "Прототипировать embeddings, image или speech-задачи через единый SDK"
+    ],
+    "platforms": [
+      "Web",
+      "API",
+      "Cloud"
+    ],
     "license": "Сервис Hugging Face; лицензия и условия использования зависят от конкретной модели и downstream provider",
     "pricing": "Free-аккаунт получает $0.10 ежемесячных credits, сумма может измениться; после credits используется pay-as-you-go или собственный provider key",
     "trust": "official",
     "trustReason": "Проверены официальные Hugging Face Inference Providers pricing и overview. API является proxy-слоем: фактическая обработка, возможности и лицензия зависят также от выбранного downstream provider и модели.",
-    "projects": ["Eclipse AI Hub", "Text2Image", "Educator-AI", "oh-my-claudecode"],
+    "projects": [
+      "Eclipse AI Hub",
+      "Text2Image",
+      "Educator-AI",
+      "oh-my-claudecode"
+    ],
     "decision": "roadmap",
     "riskLevel": "medium",
-    "risks": ["Запрос проходит через Hugging Face и выбранного inference provider", "Бесплатных credits мало даже для некоторых коротких экспериментов", "Автоматический provider selection может менять latency и инфраструктуру обработки"],
+    "risks": [
+      "Запрос проходит через Hugging Face и выбранного inference provider",
+      "Бесплатных credits мало даже для некоторых коротких экспериментов",
+      "Автоматический provider selection может менять latency и инфраструктуру обработки"
+    ],
     "verifiedAt": "2026-07-27",
-    "quickStart": ["Создать fine-grained token без лишних permissions", "Выбрать одну модель и явно зафиксировать provider вместо auto", "Прогнать eval, проверить лицензию модели, цену и обработку данных до добавления adapter"]
+    "quickStart": [
+      "Создать fine-grained token без лишних permissions",
+      "Выбрать одну модель и явно зафиксировать provider вместо auto",
+      "Прогнать eval, проверить лицензию модели, цену и обработку данных до добавления adapter"
+    ],
+    "access": {
+      "cost": "freemium",
+      "signup": "unknown",
+      "runtime": "cloud"
+    }
   },
   {
     "id": "ollama-local-runtime",
     "url": "https://ollama.com",
     "type": "tool",
     "simpleDescription": "Локальный runtime для языковых и мультимодальных моделей. Он скачивает выбранную модель, запускает её на компьютере и предоставляет простой CLI и REST API, к которому можно подключить приложение без внешнего AI-ключа.",
-    "useCases": ["Запустить приватный local provider для Eclipse AI Hub", "Дать Hopson Sentinel резервную модель без облачного API", "Проверять модели и prompts на локальном eval-наборе до подключения платного provider"],
-    "platforms": ["Windows", "macOS", "Linux", "CLI", "Self-host", "API"],
+    "useCases": [
+      "Запустить приватный local provider для Eclipse AI Hub",
+      "Дать Hopson Sentinel резервную модель без облачного API",
+      "Проверять модели и prompts на локальном eval-наборе до подключения платного provider"
+    ],
+    "platforms": [
+      "Windows",
+      "macOS",
+      "Linux",
+      "CLI",
+      "Self-host",
+      "API"
+    ],
     "license": "MIT для Ollama; лицензия и допустимое использование каждой загружаемой модели проверяются отдельно",
     "pricing": "Локальный runtime бесплатный; пользователь оплачивает только своё оборудование и электричество. Ollama Cloud и сторонние модели могут иметь отдельные условия",
     "trust": "official",
     "trustReason": "Проверены официальный сайт, репозиторий ollama/ollama, MIT license и документация REST API. Runtime активно развивается, поэтому совместимость конкретной модели нужно подтверждать на pinned release.",
-    "projects": ["Eclipse AI Hub", "Hopson Sentinel", "Eclipse Chat", "Educator-AI", "oh-my-claudecode"],
+    "projects": [
+      "Eclipse AI Hub",
+      "Hopson Sentinel",
+      "Eclipse Chat",
+      "Educator-AI",
+      "oh-my-claudecode"
+    ],
     "decision": "now",
     "riskLevel": "medium",
-    "risks": ["Скачиваемые model weights могут иметь отдельную или ограничительную лицензию", "Большой контекст и модель могут исчерпать RAM или VRAM и сделать устройство нестабильным", "Локальный API нельзя открывать во внешнюю сеть без authentication, firewall и rate limit"],
+    "risks": [
+      "Скачиваемые model weights могут иметь отдельную или ограничительную лицензию",
+      "Большой контекст и модель могут исчерпать RAM или VRAM и сделать устройство нестабильным",
+      "Локальный API нельзя открывать во внешнюю сеть без authentication, firewall и rate limit"
+    ],
     "verifiedAt": "2026-07-27",
-    "quickStart": ["Скачать установщик или pinned release только с официального сайта; не запускать curl-pipe скрипт без ручного просмотра", "Выбрать небольшую модель под доступную RAM или VRAM и проверить её лицензию", "Оставить API на localhost и прогнать короткий eval по качеству, latency и памяти"]
+    "quickStart": [
+      "Скачать установщик или pinned release только с официального сайта; не запускать curl-pipe скрипт без ручного просмотра",
+      "Выбрать небольшую модель под доступную RAM или VRAM и проверить её лицензию",
+      "Оставить API на localhost и прогнать короткий eval по качеству, latency и памяти"
+    ],
+    "access": {
+      "cost": "freemium",
+      "signup": "unknown",
+      "runtime": "hybrid"
+    }
   },
   {
     "id": "lm-studio-desktop",
     "url": "https://lmstudio.ai",
     "type": "tool",
     "simpleDescription": "Desktop-приложение для поиска, загрузки и запуска локальных моделей через понятный интерфейс. Подходит тем, кому нужен локальный чат и OpenAI-compatible server без ручной настройки командной строки.",
-    "useCases": ["Быстро подобрать локальную модель для Eclipse AI Hub без CLI", "Проверить OpenAI-compatible adapter на локальном server", "Показать студентам Educator-AI наглядный способ запустить LLM на своём компьютере"],
-    "platforms": ["Windows", "macOS", "Linux", "Desktop", "Self-host", "API"],
+    "useCases": [
+      "Быстро подобрать локальную модель для Eclipse AI Hub без CLI",
+      "Проверить OpenAI-compatible adapter на локальном server",
+      "Показать студентам Educator-AI наглядный способ запустить LLM на своём компьютере"
+    ],
+    "platforms": [
+      "Windows",
+      "macOS",
+      "Linux",
+      "Desktop",
+      "Self-host",
+      "API"
+    ],
     "license": "Проприетарное desktop-приложение по LM Studio App Terms; разрешено личное и внутреннее business-использование, redistribution и SaaS запрещены",
     "pricing": "Desktop-приложение можно использовать локально без оплаты; Enterprise, cloud-функции и сторонние модели могут иметь отдельные тарифы и условия",
     "trust": "official",
     "trustReason": "Проверены официальные system requirements, App Terms и privacy policy. Local mode может работать offline, но поиск моделей, загрузки, обновления и optional cloud-функции требуют сети.",
-    "projects": ["Eclipse AI Hub", "Hopson Sentinel", "Educator-AI", "oh-my-claudecode"],
+    "projects": [
+      "Eclipse AI Hub",
+      "Hopson Sentinel",
+      "Educator-AI",
+      "oh-my-claudecode"
+    ],
     "decision": "reference",
     "riskLevel": "medium",
-    "risks": ["Приложение не open-source и ограничивает redistribution, reverse engineering и использование как SaaS", "Сетевой server с CORS, LAN access или MCP нельзя включать без authentication и проверки permissions", "Лицензии загруженных моделей не совпадают с условиями самого приложения"],
+    "risks": [
+      "Приложение не open-source и ограничивает redistribution, reverse engineering и использование как SaaS",
+      "Сетевой server с CORS, LAN access или MCP нельзя включать без authentication и проверки permissions",
+      "Лицензии загруженных моделей не совпадают с условиями самого приложения"
+    ],
     "verifiedAt": "2026-07-27",
-    "quickStart": ["Сверить AVX2, RAM, VRAM и поддерживаемую версию ОС с официальными requirements", "Скачать приложение с lmstudio.ai и выбрать небольшую модель с понятной лицензией", "Запустить server только на localhost; LAN, CORS и MCP оставить выключенными до отдельного security review"]
+    "quickStart": [
+      "Сверить AVX2, RAM, VRAM и поддерживаемую версию ОС с официальными requirements",
+      "Скачать приложение с lmstudio.ai и выбрать небольшую модель с понятной лицензией",
+      "Запустить server только на localhost; LAN, CORS и MCP оставить выключенными до отдельного security review"
+    ],
+    "access": {
+      "cost": "freemium",
+      "signup": "unknown",
+      "runtime": "hybrid"
+    }
   },
   {
     "id": "jan-local-ai",
     "url": "https://jan.ai",
     "type": "tool",
     "simpleDescription": "Open-source desktop-клиент для локального AI-чата. Jan умеет загружать модели, создавать ассистентов и поднимать OpenAI-compatible API, а при необходимости подключать отдельные облачные providers.",
-    "useCases": ["Использовать как понятный локальный UI для тестов Eclipse AI Hub", "Сравнить assistant и MCP UX с Hopson Sentinel", "Дать Educator-AI открытый учебный вариант локального ChatGPT-подобного приложения"],
-    "platforms": ["Windows", "macOS", "Linux", "Desktop", "Self-host", "API"],
+    "useCases": [
+      "Использовать как понятный локальный UI для тестов Eclipse AI Hub",
+      "Сравнить assistant и MCP UX с Hopson Sentinel",
+      "Дать Educator-AI открытый учебный вариант локального ChatGPT-подобного приложения"
+    ],
+    "platforms": [
+      "Windows",
+      "macOS",
+      "Linux",
+      "Desktop",
+      "Self-host",
+      "API"
+    ],
     "license": "Apache-2.0 для Jan; лицензии загружаемых моделей, MCP servers и облачных providers проверяются отдельно",
     "pricing": "Приложение и локальный запуск бесплатны; оборудование, облачные API и отдельные модели могут потребовать оплаты",
     "trust": "official",
     "trustReason": "Проверены официальный репозиторий janhq/jan, Apache-2.0 license, актуальные releases и заявленные local API/MCP возможности. Cloud integrations не считаются локальными и требуют отдельной privacy-проверки.",
-    "projects": ["Eclipse AI Hub", "Hopson Sentinel", "Educator-AI", "oh-my-claudecode"],
+    "projects": [
+      "Eclipse AI Hub",
+      "Hopson Sentinel",
+      "Educator-AI",
+      "oh-my-claudecode"
+    ],
     "decision": "reference",
     "riskLevel": "medium",
-    "risks": ["Подключение cloud provider отправляет prompts и файлы за пределы устройства", "MCP server может получить доступ к файлам и внешним действиям в зависимости от выданных permissions", "Крупные модели требуют достаточно RAM или VRAM; минимальные требования зависят от размера модели"],
+    "risks": [
+      "Подключение cloud provider отправляет prompts и файлы за пределы устройства",
+      "MCP server может получить доступ к файлам и внешним действиям в зависимости от выданных permissions",
+      "Крупные модели требуют достаточно RAM или VRAM; минимальные требования зависят от размера модели"
+    ],
     "verifiedAt": "2026-07-27",
-    "quickStart": ["Скачать signed installer или pinned release из официального источника", "Начать с локальной модели, проверить её лицензию и оставить cloud integrations выключенными", "Если нужен API, привязать его к localhost и отдельно проверить MCP permissions"]
+    "quickStart": [
+      "Скачать signed installer или pinned release из официального источника",
+      "Начать с локальной модели, проверить её лицензию и оставить cloud integrations выключенными",
+      "Если нужен API, привязать его к localhost и отдельно проверить MCP permissions"
+    ],
+    "access": {
+      "cost": "freemium",
+      "signup": "optional",
+      "runtime": "hybrid"
+    }
   },
   {
     "id": "gpt4all-desktop",
     "url": "https://gpt4all.io",
     "type": "tool",
     "simpleDescription": "Локальное desktop-приложение и Python-библиотека для запуска GGUF-моделей на обычном компьютере. Основной сценарий — приватный чат и работа с локальными документами без обязательного внешнего API или отдельного GPU.",
-    "useCases": ["Сделать простой offline-прототип RAG для Educator-AI", "Проверить CPU-friendly fallback для Eclipse AI Hub", "Использовать Python bindings в изолированном исследовательском прототипе"],
-    "platforms": ["Windows", "macOS", "Linux", "Desktop", "Python", "Self-host"],
+    "useCases": [
+      "Сделать простой offline-прототип RAG для Educator-AI",
+      "Проверить CPU-friendly fallback для Eclipse AI Hub",
+      "Использовать Python bindings в изолированном исследовательском прототипе"
+    ],
+    "platforms": [
+      "Windows",
+      "macOS",
+      "Linux",
+      "Desktop",
+      "Python",
+      "Self-host"
+    ],
     "license": "MIT для GPT4All; лицензия каждой скачанной GGUF-модели и набора данных проверяется отдельно",
     "pricing": "Приложение и библиотека бесплатны; затраты ограничены локальным оборудованием и хранением моделей",
     "trust": "official",
     "trustReason": "Проверены официальный nomic-ai/gpt4all repository, MIT license, system requirements и описание LocalDocs. Наличие модели в каталоге не является автоматическим подтверждением её качества или лицензии.",
-    "projects": ["Eclipse AI Hub", "Educator-AI", "Hopson Sentinel"],
+    "projects": [
+      "Eclipse AI Hub",
+      "Educator-AI",
+      "Hopson Sentinel"
+    ],
     "decision": "reference",
     "riskLevel": "medium",
-    "risks": ["LocalDocs индексирует выбранные документы: доступ к папкам нужно выдавать минимально", "Производительность и поддержка quantization сильно зависят от CPU, GPU и конкретной модели", "Сторонние GGUF-файлы могут иметь неясный provenance, несовместимую лицензию или вредоносные сопутствующие файлы"],
+    "risks": [
+      "LocalDocs индексирует выбранные документы: доступ к папкам нужно выдавать минимально",
+      "Производительность и поддержка quantization сильно зависят от CPU, GPU и конкретной модели",
+      "Сторонние GGUF-файлы могут иметь неясный provenance, несовместимую лицензию или вредоносные сопутствующие файлы"
+    ],
     "verifiedAt": "2026-07-27",
-    "quickStart": ["Проверить поддержку ОС, AVX/AVX2 и доступный объём RAM", "Скачать официальный installer и одну небольшую модель с подтверждённой лицензией", "Для LocalDocs выбрать тестовую папку без секретов и проверить ответы с цитатами на небольшом наборе"]
+    "quickStart": [
+      "Проверить поддержку ОС, AVX/AVX2 и доступный объём RAM",
+      "Скачать официальный installer и одну небольшую модель с подтверждённой лицензией",
+      "Для LocalDocs выбрать тестовую папку без секретов и проверить ответы с цитатами на небольшом наборе"
+    ],
+    "access": {
+      "cost": "free",
+      "signup": "none",
+      "runtime": "self-host"
+    }
   },
   {
     "id": "comfyui-local-workflows",
     "url": "https://github.com/Comfy-Org/ComfyUI",
     "type": "media",
     "simpleDescription": "Node-based движок для локальной генерации изображений, видео, 3D и аудио. Пользователь собирает workflow как граф, сохраняет его и может вызывать через API, поэтому сложный creative pipeline становится повторяемым.",
-    "useCases": ["Собрать воспроизводимый image pipeline для Text2Image", "Прототипировать генерацию кадров и видео для Shotforge", "Исследовать локальную media-генерацию для Eclipse Media без передачи исходников в облако"],
-    "platforms": ["Windows", "macOS", "Linux", "Self-host", "API", "GPU"],
+    "useCases": [
+      "Собрать воспроизводимый image pipeline для Text2Image",
+      "Прототипировать генерацию кадров и видео для Shotforge",
+      "Исследовать локальную media-генерацию для Eclipse Media без передачи исходников в облако"
+    ],
+    "platforms": [
+      "Windows",
+      "macOS",
+      "Linux",
+      "Self-host",
+      "API",
+      "GPU"
+    ],
     "license": "GPL-3.0 для ComfyUI core; desktop shell и каждый custom node, workflow или model weight могут иметь другие условия",
     "pricing": "Локальный core бесплатный; нужны собственные вычислительные ресурсы. Comfy Cloud, закрытые API nodes и отдельные модели оплачиваются по своим тарифам",
     "trust": "official",
     "trustReason": "Проверены canonical repository Comfy-Org/ComfyUI, GPL-3.0 license и официальная документация по установке. Экосистема custom nodes является отдельной supply-chain поверхностью и не наследует доверие core автоматически.",
-    "projects": ["Text2Image", "Shotforge", "Eclipse Media", "Eclipse AI Hub"],
+    "projects": [
+      "Text2Image",
+      "Shotforge",
+      "Eclipse Media",
+      "Eclipse AI Hub"
+    ],
     "decision": "now",
     "riskLevel": "high",
-    "risks": ["Custom nodes исполняют сторонний Python-код и требуют sandbox, pinning и ручного аудита", "Model weights и generated media имеют отдельные лицензии, privacy и content-safety ограничения", "Открытый network endpoint без TLS, authentication и allowlist позволяет посторонним запускать дорогие workflows или читать файлы"],
+    "risks": [
+      "Custom nodes исполняют сторонний Python-код и требуют sandbox, pinning и ручного аудита",
+      "Model weights и generated media имеют отдельные лицензии, privacy и content-safety ограничения",
+      "Открытый network endpoint без TLS, authentication и allowlist позволяет посторонним запускать дорогие workflows или читать файлы"
+    ],
     "verifiedAt": "2026-07-27",
-    "quickStart": ["Начать с официального Desktop или pinned core release без сторонних custom nodes", "Поставить одну модель с проверенной лицензией в изолированное окружение без приватных файлов", "Сохранить минимальный workflow, измерить VRAM и время, а custom nodes добавлять по одному после аудита"]
+    "quickStart": [
+      "Начать с официального Desktop или pinned core release без сторонних custom nodes",
+      "Поставить одну модель с проверенной лицензией в изолированное окружение без приватных файлов",
+      "Сохранить минимальный workflow, измерить VRAM и время, а custom nodes добавлять по одному после аудита"
+    ],
+    "access": {
+      "cost": "freemium",
+      "signup": "unknown",
+      "runtime": "hybrid"
+    }
   },
   {
     "id": "anthropic-security-guidance",
     "url": "https://code.claude.com/docs/en/security-guidance",
     "type": "tool",
     "simpleDescription": "Официальный Claude Code plugin, который проверяет AI-сгенерированные изменения в три момента: после записи файла, в конце turn и после commit или push. Он помогает заметить типовые уязвимости раньше pull request.",
-    "useCases": ["Ловить опасные DOM, shell и deserialization-паттерны прямо во время разработки", "Добавить отдельный security-review изменённого diff во все Claude Code workflows", "Зафиксировать project-specific правила для authentication, tenant isolation и чувствительных логов"],
-    "platforms": ["Claude Code", "CLI", "Git", "Python", "Local"],
+    "useCases": [
+      "Ловить опасные DOM, shell и deserialization-паттерны прямо во время разработки",
+      "Добавить отдельный security-review изменённого diff во все Claude Code workflows",
+      "Зафиксировать project-specific правила для authentication, tenant isolation и чувствительных логов"
+    ],
+    "platforms": [
+      "Claude Code",
+      "CLI",
+      "Git",
+      "Python",
+      "Local"
+    ],
     "license": "Официальный plugin Anthropic; использование регулируется условиями Claude Code и Anthropic, отдельная open-source лицензия для всего claude-code repository не заявлена",
     "pricing": "Plugin доступен на всех планах Claude Code. Быстрая pattern-проверка не вызывает модель, а end-of-turn и commit reviews расходуют обычный Claude usage",
     "trust": "official",
     "trustReason": "Проверены актуальная официальная документация Anthropic и исходный plugin в anthropics/claude-code. Документация прямо предупреждает, что проверки не блокируют изменение и могут пропустить уязвимость.",
-    "projects": ["Eclipse AI Hub", "Hopson Sentinel", "Eclipse Chat", "oh-my-claudecode", "Eclipse DnD Forge"],
+    "projects": [
+      "Eclipse AI Hub",
+      "Hopson Sentinel",
+      "Eclipse Chat",
+      "oh-my-claudecode",
+      "Eclipse DnD Forge"
+    ],
     "decision": "now",
     "riskLevel": "medium",
-    "risks": ["Model-backed review отправляет diff отдельному Claude-вызову и расходует usage", "На первом запуске plugin создаёт Python venv и устанавливает Claude Agent SDK через pip", "Проверки advisory-only: они не заменяют CI, dependency scanning, ручной review и blocking policy"],
+    "risks": [
+      "Model-backed review отправляет diff отдельному Claude-вызову и расходует usage",
+      "На первом запуске plugin создаёт Python venv и устанавливает Claude Agent SDK через pip",
+      "Проверки advisory-only: они не заменяют CI, dependency scanning, ручной review и blocking policy"
+    ],
     "verifiedAt": "2026-07-27",
-    "quickStart": ["Проверить Claude Code 2.1.144+, Python и чистое состояние git", "Установить только из официального claude-plugins-official marketplace и начать с user scope", "Добавить короткий project threat model, проверить тестовой уязвимостью, затем оставить CI security gate включённым"]
+    "quickStart": [
+      "Проверить Claude Code 2.1.144+, Python и чистое состояние git",
+      "Установить только из официального claude-plugins-official marketplace и начать с user scope",
+      "Добавить короткий project threat model, проверить тестовой уязвимостью, затем оставить CI security gate включённым"
+    ],
+    "access": {
+      "cost": "unknown",
+      "signup": "none",
+      "runtime": "local"
+    }
   },
   {
     "id": "nvidia-verified-agent-skills",
     "url": "https://github.com/NVIDIA/skills",
     "type": "skill",
     "simpleDescription": "Официальный каталог NVIDIA Agent Skills для CUDA, robotics, simulation, Physical AI и RAG. Он даёт AI-агенту проверенные инструкции по конкретному NVIDIA-продукту вместо случайного community prompt.",
-    "useCases": ["Подключать точечные CUDA и GPU workflows к Hopson Sentinel", "Использовать официальные RAG и inference-инструкции в Eclipse AI Hub", "Изучать provenance, подписи и Skill Cards как reference для governance собственных skills"],
-    "platforms": ["Claude Code", "Codex", "Cursor", "CLI", "NVIDIA"],
+    "useCases": [
+      "Подключать точечные CUDA и GPU workflows к Hopson Sentinel",
+      "Использовать официальные RAG и inference-инструкции в Eclipse AI Hub",
+      "Изучать provenance, подписи и Skill Cards как reference для governance собственных skills"
+    ],
+    "platforms": [
+      "Claude Code",
+      "Codex",
+      "Cursor",
+      "CLI",
+      "NVIDIA"
+    ],
     "license": "Apache-2.0 для каталога; условия конкретного NVIDIA SDK, API, model и dataset проверяются отдельно",
     "pricing": "Каталог и skill-файлы бесплатны; выполнение может требовать платного NVIDIA-сервиса, GPU или отдельной лицензии продукта",
     "trust": "official",
     "trustReason": "Проверены официальный NVIDIA repository, Apache-2.0 metadata, актуальный roadmap верификации, security scanning, signing и machine-readable Skill Cards.",
-    "projects": ["Hopson Sentinel", "Eclipse AI Hub", "ModelForge", "oh-my-claudecode"],
+    "projects": [
+      "Hopson Sentinel",
+      "Eclipse AI Hub",
+      "ModelForge",
+      "oh-my-claudecode"
+    ],
     "decision": "reference",
     "riskLevel": "medium",
-    "risks": ["Официальная подпись подтверждает provenance, но не делает все внешние API и команды безопасными для конкретного проекта", "Команда через npx загружает installer и зависимости: версию и содержимое нужно проверять до выполнения", "Skill может предлагать дорогие GPU или cloud-операции и получать доступ к локальным файлам"],
+    "risks": [
+      "Официальная подпись подтверждает provenance, но не делает все внешние API и команды безопасными для конкретного проекта",
+      "Команда через npx загружает installer и зависимости: версию и содержимое нужно проверять до выполнения",
+      "Skill может предлагать дорогие GPU или cloud-операции и получать доступ к локальным файлам"
+    ],
     "verifiedAt": "2026-07-27",
-    "quickStart": ["Сначала открыть нужный skill и Skill Card в repository без установки", "Проверить внешние команды, permissions, цену NVIDIA-сервиса и закрепить revision", "Установить один skill в sandbox-проект и проверить фактические tool calls до переноса в рабочий контур"]
+    "quickStart": [
+      "Сначала открыть нужный skill и Skill Card в repository без установки",
+      "Проверить внешние команды, permissions, цену NVIDIA-сервиса и закрепить revision",
+      "Установить один skill в sandbox-проект и проверить фактические tool calls до переноса в рабочий контур"
+    ],
+    "access": {
+      "cost": "freemium",
+      "signup": "none",
+      "runtime": "local"
+    }
   },
   {
     "id": "nvidia-skillspector",
     "url": "https://github.com/NVIDIA/SkillSpector",
     "type": "tool",
     "simpleDescription": "Open-source scanner для AI agent skills. Он ищет prompt injection, credential access, data exfiltration, опасный код, dependency-проблемы, excessive agency и MCP tool poisoning до установки skill.",
-    "useCases": ["Сделать обязательный pre-install gate для community skills", "Публиковать SARIF-отчёт в CI oh-my-claudecode", "Проверять новые skills для Hopson Sentinel и Eclipse AI Hub сначала статически, затем отдельным semantic review"],
-    "platforms": ["Python", "CLI", "CI", "Local", "SARIF"],
+    "useCases": [
+      "Сделать обязательный pre-install gate для community skills",
+      "Публиковать SARIF-отчёт в CI oh-my-claudecode",
+      "Проверять новые skills для Hopson Sentinel и Eclipse AI Hub сначала статически, затем отдельным semantic review"
+    ],
+    "platforms": [
+      "Python",
+      "CLI",
+      "CI",
+      "Local",
+      "SARIF"
+    ],
     "license": "Apache-2.0",
     "pricing": "Static scanner бесплатный. Опциональный semantic stage использует выбранный OpenAI-compatible, Anthropic или NVIDIA provider и оплачивается по его тарифу; можно использовать локальный endpoint",
     "trust": "official",
     "trustReason": "Проверены официальный NVIDIA repository, Apache-2.0 license, 64 заявленных pattern-класса, static-only режим и поддерживаемые output formats. Высокий score остаётся сигналом для ручного анализа, а не доказательством вредоносности.",
-    "projects": ["oh-my-claudecode", "Hopson Sentinel", "Eclipse AI Hub", "Eclipse Library"],
+    "projects": [
+      "oh-my-claudecode",
+      "Hopson Sentinel",
+      "Eclipse AI Hub",
+      "Eclipse Library"
+    ],
     "decision": "now",
     "riskLevel": "medium",
-    "risks": ["Static patterns дают false positives и могут не заметить скрытое поведение", "Semantic stage отправляет содержимое skill выбранному model provider, если не используется локальный endpoint", "Сканирование URL или repository расширяет network и supply-chain поверхность; анализировать лучше локальную pinned копию"],
+    "risks": [
+      "Static patterns дают false positives и могут не заметить скрытое поведение",
+      "Semantic stage отправляет содержимое skill выбранному model provider, если не используется локальный endpoint",
+      "Сканирование URL или repository расширяет network и supply-chain поверхность; анализировать лучше локальную pinned копию"
+    ],
     "verifiedAt": "2026-07-27",
-    "quickStart": ["Клонировать pinned revision в отдельную virtual environment и проверить lockfile", "Первый прогон выполнить локально с --no-llm и сохранить JSON или SARIF", "Разобрать high/critical вручную; только после этого при необходимости включить semantic stage без секретов"]
+    "quickStart": [
+      "Клонировать pinned revision в отдельную virtual environment и проверить lockfile",
+      "Первый прогон выполнить локально с --no-llm и сохранить JSON или SARIF",
+      "Разобрать high/critical вручную; только после этого при необходимости включить semantic stage без секретов"
+    ],
+    "access": {
+      "cost": "freemium",
+      "signup": "none",
+      "runtime": "local"
+    }
   },
   {
     "id": "agentshield-agent-config-scanner",
     "url": "https://github.com/affaan-m/agentshield",
     "type": "tool",
     "simpleDescription": "Community security scanner для конфигураций AI-агентов. Он анализирует .claude, hooks, MCP servers, permissions и prompt-файлы, чтобы найти hardcoded secrets, опасный auto-run и чрезмерный доступ инструментов.",
-    "useCases": ["Проверять .claude и MCP-конфигурации в CI", "Сравнить правила AgentShield с ultrareview в oh-my-claudecode", "Находить unpinned npx servers, открытые filesystem roots и autoApprove до публикации agent setup"],
-    "platforms": ["Node.js", "CLI", "GitHub Actions", "Claude Code", "MCP"],
+    "useCases": [
+      "Проверять .claude и MCP-конфигурации в CI",
+      "Сравнить правила AgentShield с ultrareview в oh-my-claudecode",
+      "Находить unpinned npx servers, открытые filesystem roots и autoApprove до публикации agent setup"
+    ],
+    "platforms": [
+      "Node.js",
+      "CLI",
+      "GitHub Actions",
+      "Claude Code",
+      "MCP"
+    ],
     "license": "MIT",
     "pricing": "Open-source CLI и GitHub Action бесплатны; optional model-backed pipeline и GitHub App могут иметь отдельные compute или service-условия",
     "trust": "community",
     "trustReason": "Проверены repository affaan-m/agentshield, MIT license, актуальная rule documentation и различие active runtime, local optional, template и docs findings. Проект community и не является официальным продуктом Anthropic.",
-    "projects": ["oh-my-claudecode", "Hopson Sentinel", "Eclipse AI Hub", "Eclipse Library"],
+    "projects": [
+      "oh-my-claudecode",
+      "Hopson Sentinel",
+      "Eclipse AI Hub",
+      "Eclipse Library"
+    ],
     "decision": "now",
     "riskLevel": "medium",
-    "risks": ["Scanner читает agent configs, где могут находиться пути и secret references; отчёты нельзя публиковать без redaction", "Online supply-chain mode обращается к npm и передаёт package metadata наружу", "Template findings имеют меньшую уверенность и не означают, что MCP server реально активен"],
+    "risks": [
+      "Scanner читает agent configs, где могут находиться пути и secret references; отчёты нельзя публиковать без redaction",
+      "Online supply-chain mode обращается к npm и передаёт package metadata наружу",
+      "Template findings имеют меньшую уверенность и не означают, что MCP server реально активен"
+    ],
     "verifiedAt": "2026-07-27",
-    "quickStart": ["Закрепить release или commit и установить в изолированном CI job без production secrets", "Запустить offline scan, отдельно посмотреть active-runtime findings и исключить отчёт из публичных artifacts", "Сопоставить critical/high с исходным config вручную и только затем включать blocking gate"]
+    "quickStart": [
+      "Закрепить release или commit и установить в изолированном CI job без production secrets",
+      "Запустить offline scan, отдельно посмотреть active-runtime findings и исключить отчёт из публичных artifacts",
+      "Сопоставить critical/high с исходным config вручную и только затем включать blocking gate"
+    ],
+    "access": {
+      "cost": "free",
+      "signup": "none",
+      "runtime": "local"
+    }
   },
   {
     "id": "community-cybersecurity-skills",
     "url": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills",
     "type": "skill",
     "simpleDescription": "Большая community-библиотека defensive cybersecurity skills для AI-агентов: от secure development и cloud audit до incident response и forensics. Название содержит Anthropic, но проект не связан с Anthropic PBC.",
-    "useCases": ["Выбирать узкий defensive playbook перед security review проекта Eclipse Forge", "Стандартизировать отчёты по MITRE, NIST, ATLAS и D3FEND", "Использовать как reference при развитии security-модуля Eclipse AI Hub и Hopson Sentinel"],
-    "platforms": ["Claude Code", "Codex", "Cursor", "Gemini CLI", "Agent Skills"],
+    "useCases": [
+      "Выбирать узкий defensive playbook перед security review проекта Eclipse Forge",
+      "Стандартизировать отчёты по MITRE, NIST, ATLAS и D3FEND",
+      "Использовать как reference при развитии security-модуля Eclipse AI Hub и Hopson Sentinel"
+    ],
+    "platforms": [
+      "Claude Code",
+      "Codex",
+      "Cursor",
+      "Gemini CLI",
+      "Agent Skills"
+    ],
     "license": "Apache-2.0; лицензии упомянутых внешних scanners, datasets и frameworks проверяются отдельно",
     "pricing": "Skill-файлы бесплатны; выполнение инструкций может требовать сторонних security tools, cloud accounts, лаборатории или коммерческих лицензий",
     "trust": "community",
     "trustReason": "Проверены canonical repository, Apache-2.0 license, generated index и явный disclaimer об отсутствии связи с Anthropic PBC. Коллекция быстро меняется, поэтому доверие назначается каждому выбранному skill отдельно.",
-    "projects": ["Hopson Sentinel", "Eclipse AI Hub", "oh-my-claudecode", "Eclipse Chat", "Eclipse Library"],
+    "projects": [
+      "Hopson Sentinel",
+      "Eclipse AI Hub",
+      "oh-my-claudecode",
+      "Eclipse Chat",
+      "Eclipse Library"
+    ],
     "decision": "now",
     "riskLevel": "high",
-    "risks": ["Часть skills относится к dual-use offensive security и допустима только для собственных систем или письменного разрешения", "Многие инструкции вызывают внешние tools, scanners или scripts, которые нужно проверять отдельно", "Массовая установка создаёт конфликтующие инструкции, лишние permissions и большой контекст"],
+    "risks": [
+      "Часть skills относится к dual-use offensive security и допустима только для собственных систем или письменного разрешения",
+      "Многие инструкции вызывают внешние tools, scanners или scripts, которые нужно проверять отдельно",
+      "Массовая установка создаёт конфликтующие инструкции, лишние permissions и большой контекст"
+    ],
     "verifiedAt": "2026-07-27",
-    "quickStart": ["Не устанавливать коллекцию целиком: выбрать один defensive skill под конкретную задачу", "Прочитать весь SKILL.md и связанные scripts, проверить provenance зависимостей и запустить static scan", "Работать в sandbox на тестовых данных без production secrets и сохранить findings с явным scope разрешения"]
+    "quickStart": [
+      "Не устанавливать коллекцию целиком: выбрать один defensive skill под конкретную задачу",
+      "Прочитать весь SKILL.md и связанные scripts, проверить provenance зависимостей и запустить static scan",
+      "Работать в sandbox на тестовых данных без production secrets и сохранить findings с явным scope разрешения"
+    ],
+    "access": {
+      "cost": "free",
+      "signup": "unknown",
+      "runtime": "unknown"
+    }
   },
   {
     "id": "github-official-mcp-server",
     "url": "https://github.com/github/github-mcp-server",
     "type": "tool",
     "simpleDescription": "Официальный MCP server от GitHub. Он позволяет AI-агенту читать repositories, искать код, работать с issues и pull requests и, если дать такие права, изменять данные через GitHub API.",
-    "useCases": ["В Hopson Sentinel использовать `mcp add-preset github-readonly` для ограниченного чтения repository", "В oh-my-claudecode включать GitHub только через opt-in `omc mcp-baseline --github`", "В Eclipse AI Hub генерировать developer-only конфиг без передачи token в browser bundle"],
-    "platforms": ["MCP", "GitHub", "Docker", "Go", "Local", "Remote"],
+    "useCases": [
+      "В Hopson Sentinel использовать `mcp add-preset github-readonly` для ограниченного чтения repository",
+      "В oh-my-claudecode включать GitHub только через opt-in `omc mcp-baseline --github`",
+      "В Eclipse AI Hub генерировать developer-only конфиг без передачи token в browser bundle"
+    ],
+    "platforms": [
+      "MCP",
+      "GitHub",
+      "Docker",
+      "Go",
+      "Local",
+      "Remote"
+    ],
     "license": "MIT; использование GitHub API и данных регулируется условиями GitHub и правами выбранного token",
     "pricing": "MCP server бесплатный; действуют plan-specific возможности GitHub и API rate limits",
     "trust": "official",
     "trustReason": "Проверены repository github/github-mcp-server, MIT license, официальный read-only mode, lockdown mode, toolsets и рекомендации GitHub по token security.",
-    "projects": ["Hopson Sentinel", "oh-my-claudecode", "Eclipse AI Hub", "Eclipse Library"],
+    "projects": [
+      "Hopson Sentinel",
+      "oh-my-claudecode",
+      "Eclipse AI Hub",
+      "Eclipse Library"
+    ],
     "decision": "now",
     "riskLevel": "high",
-    "risks": ["Token с широкими scopes позволяет агенту менять код, workflows, issues и другие данные во всех доступных repositories", "Непроверенный текст из issue или pull request может содержать prompt injection и влиять на дальнейшие tool calls", "Remote transport и автоматически обновляемый container расширяют supply-chain и rug-pull поверхность"],
+    "risks": [
+      "Token с широкими scopes позволяет агенту менять код, workflows, issues и другие данные во всех доступных repositories",
+      "Непроверенный текст из issue или pull request может содержать prompt injection и влиять на дальнейшие tool calls",
+      "Remote transport и автоматически обновляемый container расширяют supply-chain и rug-pull поверхность"
+    ],
     "verifiedAt": "2026-07-29",
-    "quickStart": ["Создать отдельный fine-grained token только для одного тестового repository с read-only permissions", "Закрепить image digest или release, включить read-only и lockdown mode и оставить только нужные toolsets", "Проверить tool descriptions, выполнить безопасный read-сценарий и не включать write tools без отдельного approval flow"]
+    "quickStart": [
+      "Создать отдельный fine-grained token только для одного тестового repository с read-only permissions",
+      "Закрепить image digest или release, включить read-only и lockdown mode и оставить только нужные toolsets",
+      "Проверить tool descriptions, выполнить безопасный read-сценарий и не включать write tools без отдельного approval flow"
+    ],
+    "access": {
+      "cost": "free",
+      "signup": "required",
+      "runtime": "hybrid"
+    }
   },
   {
     "id": "official-filesystem-mcp-server",
     "url": "https://github.com/modelcontextprotocol/servers/tree/main/src/filesystem",
     "type": "tool",
     "simpleDescription": "Reference MCP server для работы агента с локальными файлами. Он умеет читать, искать, создавать, перемещать и перезаписывать файлы, но ограничивает операции явно разрешёнными directories или MCP Roots.",
-    "useCases": ["В Hopson Sentinel добавить preset только для одного существующего workspace", "В oh-my-claudecode синхронизировать workspace scope в Claude и Codex через unified registry", "В Eclipse AI Hub создать ignored developer config без запуска server внутри SPA"],
-    "platforms": ["MCP", "Node.js", "Docker", "Windows", "macOS", "Linux"],
+    "useCases": [
+      "В Hopson Sentinel добавить preset только для одного существующего workspace",
+      "В oh-my-claudecode синхронизировать workspace scope в Claude и Codex через unified registry",
+      "В Eclipse AI Hub создать ignored developer config без запуска server внутри SPA"
+    ],
+    "platforms": [
+      "MCP",
+      "Node.js",
+      "Docker",
+      "Windows",
+      "macOS",
+      "Linux"
+    ],
     "license": "MIT для Filesystem MCP Server",
     "pricing": "Бесплатный open-source server; расходы ограничены локальной инфраструктурой и container runtime",
     "trust": "official",
     "trustReason": "Проверены актуальный filesystem server в modelcontextprotocol/servers, allowed directories, MCP Roots, destructive tool annotations и официальные Docker/NPX examples.",
-    "projects": ["Hopson Sentinel", "Educator-AI", "oh-my-claudecode", "Eclipse AI Hub"],
+    "projects": [
+      "Hopson Sentinel",
+      "Educator-AI",
+      "oh-my-claudecode",
+      "Eclipse AI Hub"
+    ],
     "decision": "now",
     "riskLevel": "high",
-    "risks": ["Разрешение home, корня диска или общего projects-каталога открывает агенту secrets и чужие repositories", "write_file перезаписывает данные, move_file удаляет source path, а ошибочный Roots update может расширить доступ", "Запуск unpinned npx package создаёт typosquatting и silent-update риск"],
+    "risks": [
+      "Разрешение home, корня диска или общего projects-каталога открывает агенту secrets и чужие repositories",
+      "write_file перезаписывает данные, move_file удаляет source path, а ошибочный Roots update может расширить доступ",
+      "Запуск unpinned npx package создаёт typosquatting и silent-update риск"
+    ],
     "verifiedAt": "2026-07-29",
-    "quickStart": ["Создать отдельную тестовую папку без .env, ключей и персональных файлов", "Закрепить package version или image digest и смонтировать папку read-only, если запись не нужна", "Проверить list_allowed_directories, затем отдельно одобрять destructive tools и никогда не выдавать root/home"]
+    "quickStart": [
+      "Создать отдельную тестовую папку без .env, ключей и персональных файлов",
+      "Закрепить package version или image digest и смонтировать папку read-only, если запись не нужна",
+      "Проверить list_allowed_directories, затем отдельно одобрять destructive tools и никогда не выдавать root/home"
+    ],
+    "access": {
+      "cost": "free",
+      "signup": "none",
+      "runtime": "self-host"
+    }
   },
   {
     "id": "microsoft-playwright-mcp",
     "url": "https://github.com/microsoft/playwright-mcp",
     "type": "tool",
     "simpleDescription": "Официальный Microsoft MCP server для управления браузером через Playwright. Агент видит accessibility snapshot страницы, может переходить по ссылкам, заполнять формы и выполнять пользовательские сценарии.",
-    "useCases": ["Проводить интерактивный smoke QA Eclipse Chat и Eclipse Library", "Исследовать пользовательские сценарии перед написанием стабильных Playwright tests", "Дать Hopson Sentinel ограниченный browser tool для локальных development environments"],
-    "platforms": ["MCP", "Node.js", "Docker", "Browser", "Windows", "macOS", "Linux"],
+    "useCases": [
+      "Проводить интерактивный smoke QA Eclipse Chat и Eclipse Library",
+      "Исследовать пользовательские сценарии перед написанием стабильных Playwright tests",
+      "Дать Hopson Sentinel ограниченный browser tool для локальных development environments"
+    ],
+    "platforms": [
+      "MCP",
+      "Node.js",
+      "Docker",
+      "Browser",
+      "Windows",
+      "macOS",
+      "Linux"
+    ],
     "license": "Apache-2.0",
     "pricing": "Open-source server бесплатный; remote browsers, proxies и внешние сайты могут иметь собственные тарифы и условия",
     "trust": "official",
     "trustReason": "Проверены microsoft/playwright-mcp, Apache-2.0 license и официальный security disclaimer: Playwright MCP не является security boundary. Документация также предлагает CLI + Skills как более компактный вариант для coding agents.",
-    "projects": ["Hopson Sentinel", "Eclipse Chat", "Eclipse Library", "Eclipse Forge Landing", "Eclipse DnD Forge"],
+    "projects": [
+      "Hopson Sentinel",
+      "Eclipse Chat",
+      "Eclipse Library",
+      "Eclipse Forge Landing",
+      "Eclipse DnD Forge"
+    ],
     "decision": "reference",
     "riskLevel": "high",
-    "risks": ["Browser profile может содержать cookies, authenticated sessions, clipboard и доступ к приватным страницам", "Контент сайта является недоверенным и может внедрять инструкции, ведущие к опасным действиям в других tools", "Публичный endpoint на 0.0.0.0 без authentication позволяет посторонним управлять browser session"],
+    "risks": [
+      "Browser profile может содержать cookies, authenticated sessions, clipboard и доступ к приватным страницам",
+      "Контент сайта является недоверенным и может внедрять инструкции, ведущие к опасным действиям в других tools",
+      "Публичный endpoint на 0.0.0.0 без authentication позволяет посторонним управлять browser session"
+    ],
     "verifiedAt": "2026-07-27",
-    "quickStart": ["Сначала сравнить задачу с Playwright CLI + Skills и выбрать MCP только для действительно интерактивного сценария", "Запустить pinned container или package в отдельном пустом browser profile без личных и production logins", "Оставить transport локальным, отключить лишние capabilities и требовать approval перед submit, download, upload и внешним действием"]
+    "quickStart": [
+      "Сначала сравнить задачу с Playwright CLI + Skills и выбрать MCP только для действительно интерактивного сценария",
+      "Запустить pinned container или package в отдельном пустом browser profile без личных и production logins",
+      "Оставить transport локальным, отключить лишние capabilities и требовать approval перед submit, download, upload и внешним действием"
+    ],
+    "access": {
+      "cost": "free",
+      "signup": "none",
+      "runtime": "self-host"
+    }
   },
   {
     "id": "upstash-context7-mcp",
     "url": "https://github.com/upstash/context7",
     "type": "tool",
     "simpleDescription": "MCP server и hosted service от Upstash, который находит актуальную документацию конкретной библиотеки и добавляет подходящие фрагменты в контекст coding-agent. Это уменьшает ответы по устаревшим API.",
-    "useCases": ["В oh-my-claudecode получать актуальные примеры через version-pinned unified registry preset", "В Eclipse AI Hub проверять React, Vite и provider API через локальный developer config", "В Hopson Sentinel добавлять Context7 одной preset-командой без обязательного API key"],
-    "platforms": ["MCP", "Node.js", "Remote", "Claude Code", "Codex", "Cursor"],
+    "useCases": [
+      "В oh-my-claudecode получать актуальные примеры через version-pinned unified registry preset",
+      "В Eclipse AI Hub проверять React, Vite и provider API через локальный developer config",
+      "В Hopson Sentinel добавлять Context7 одной preset-командой без обязательного API key"
+    ],
+    "platforms": [
+      "MCP",
+      "Node.js",
+      "Remote",
+      "Claude Code",
+      "Codex",
+      "Cursor"
+    ],
     "license": "MIT для open-source Context7 repository; hosted service регулируется Context7 Addendum, Upstash Terms и Privacy Policy",
     "pricing": "Open-source MCP code бесплатный; hosted Context7 имеет текущие service limits и коммерческие планы, которые нужно сверять перед командным внедрением",
     "trust": "official",
     "trustReason": "Проверены canonical upstash/context7 repository, MIT license, официальная security documentation и описание обработки поисковых запросов hosted service.",
-    "projects": ["oh-my-claudecode", "Hopson Sentinel", "Eclipse AI Hub", "Educator-AI"],
+    "projects": [
+      "oh-my-claudecode",
+      "Hopson Sentinel",
+      "Eclipse AI Hub",
+      "Educator-AI"
+    ],
     "decision": "now",
     "riskLevel": "medium",
-    "risks": ["Hosted режим получает сформированный MCP-клиентом search query; чувствительные данные нужно удалять до отправки", "Сторонняя документация может быть ошибочной, скомпрометированной или содержать indirect prompt injection", "Использование latest через npx или remote endpoint без pinning усложняет контроль изменений tool descriptions"],
+    "risks": [
+      "Hosted режим получает сформированный MCP-клиентом search query; чувствительные данные нужно удалять до отправки",
+      "Сторонняя документация может быть ошибочной, скомпрометированной или содержать indirect prompt injection",
+      "Использование latest через npx или remote endpoint без pinning усложняет контроль изменений tool descriptions"
+    ],
     "verifiedAt": "2026-07-29",
-    "quickStart": ["Подключить только официальный repository или endpoint и закрепить доступную версию", "Проверить tool descriptions и отправлять тестовые запросы без private code, customer data и secrets", "Сравнить полученный пример с primary documentation и lockfile перед применением в production code"]
+    "quickStart": [
+      "Подключить только официальный repository или endpoint и закрепить доступную версию",
+      "Проверить tool descriptions и отправлять тестовые запросы без private code, customer data и secrets",
+      "Сравнить полученный пример с primary documentation и lockfile перед применением в production code"
+    ],
+    "access": {
+      "cost": "freemium",
+      "signup": "optional",
+      "runtime": "hybrid"
+    }
   },
   {
     "id": "archived-postgresql-mcp-reference",
     "url": "https://github.com/modelcontextprotocol/servers-archived/tree/main/src/postgres",
     "type": "tool",
     "simpleDescription": "Старый reference MCP server для read-only запросов к PostgreSQL и просмотра schema. Репозиторий официально перенесён в архив неподдерживаемых servers, поэтому это исторический пример, а не готовый production-компонент.",
-    "useCases": ["Изучить минимальную архитектуру database MCP server", "Составить требования к собственной безопасной PostgreSQL integration", "Сравнить поддерживаемые альтернативы по authentication, query policy и audit logging"],
-    "platforms": ["MCP", "Node.js", "PostgreSQL", "Archived", "Self-host"],
+    "useCases": [
+      "Изучить минимальную архитектуру database MCP server",
+      "Составить требования к собственной безопасной PostgreSQL integration",
+      "Сравнить поддерживаемые альтернативы по authentication, query policy и audit logging"
+    ],
+    "platforms": [
+      "MCP",
+      "Node.js",
+      "PostgreSQL",
+      "Archived",
+      "Self-host"
+    ],
     "license": "MIT для архивного reference implementation",
     "pricing": "Код бесплатный, но проект не поддерживается; эксплуатация и устранение уязвимостей полностью ложатся на пользователя",
     "trust": "caution",
     "trustReason": "Canonical repository modelcontextprotocol/servers-archived помечен GitHub как archived и описан как набор reference servers, которые больше не поддерживаются. Версия package осталась старой.",
-    "projects": ["Eclipse AI Hub", "Hopson Sentinel", "Educator-AI"],
+    "projects": [
+      "Eclipse AI Hub",
+      "Hopson Sentinel",
+      "Educator-AI"
+    ],
     "decision": "no",
     "riskLevel": "high",
-    "risks": ["Archived dependencies и MCP SDK не получают регулярные fixes", "Даже read-only database role может читать персональные данные, secrets и данные других tenants", "LLM-сформированный SQL может создавать дорогие full scans, блокировки или утечки через результат запроса"],
+    "risks": [
+      "Archived dependencies и MCP SDK не получают регулярные fixes",
+      "Даже read-only database role может читать персональные данные, secrets и данные других tenants",
+      "LLM-сформированный SQL может создавать дорогие full scans, блокировки или утечки через результат запроса"
+    ],
     "verifiedAt": "2026-07-27",
-    "quickStart": ["Не подключать этот server к production или staging database", "Для исследования использовать disposable PostgreSQL container с синтетическими данными и read-only role", "Перед реальным внедрением выбрать поддерживаемую альтернативу и проверить allowlisted queries, statement timeout, row limits и audit log"]
+    "quickStart": [
+      "Не подключать этот server к production или staging database",
+      "Для исследования использовать disposable PostgreSQL container с синтетическими данными и read-only role",
+      "Перед реальным внедрением выбрать поддерживаемую альтернативу и проверить allowlisted queries, statement timeout, row limits и audit log"
+    ],
+    "access": {
+      "cost": "free",
+      "signup": "none",
+      "runtime": "self-host"
+    }
   }
 ]

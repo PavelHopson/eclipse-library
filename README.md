@@ -22,6 +22,9 @@
 панель с live-счётчиком результатов. Текущую подборку можно скопировать как ссылку: поиск,
 задача, проект, сортировка и фильтры восстановятся у получателя автоматически. Фильтр актуальности отделяет
 недавно проверенные карточки от материалов без даты аудита.
+Стоимость, необходимость регистрации и место запуска вынесены в отдельные простые признаки: можно сразу
+найти бесплатные инструменты, варианты без аккаунта и решения для своего устройства или self-hosted server.
+Если редактор ещё не подтвердил условие, интерфейс честно показывает «нужно проверить», а не угадывает.
 Сначала показываются 36 наиболее ранних результатов текущей выборки; следующие карточки
 открываются кнопкой «Показать ещё», поэтому страница не превращается в бесконечное полотно.
 
@@ -122,6 +125,10 @@
 | [Playwright MCP](https://github.com/microsoft/playwright-mcp) | Официальный Microsoft server для browser automation через accessibility snapshots. Это не security boundary: использовать отдельный browser profile без банковских, production и личных сессий; для coding workflow сначала сравнить с более компактным Playwright CLI + Skills | [![Stars](https://img.shields.io/github/stars/microsoft/playwright-mcp?style=flat)](https://github.com/microsoft/playwright-mcp) |
 | [Context7 MCP](https://github.com/upstash/context7) | Подтягивает актуальную документацию библиотек в coding-agent. Удалённый режим отправляет поисковые запросы Context7/Upstash; не включать в них исходный код, secrets и приватные бизнес-данные | [![Stars](https://img.shields.io/github/stars/upstash/context7?style=flat)](https://github.com/upstash/context7) |
 | [PostgreSQL MCP reference](https://github.com/modelcontextprotocol/servers-archived/tree/main/src/postgres) | Старый read-only reference server перенесён в архив и больше не поддерживается. Не подключать к production database; использовать только как архитектурный пример либо выбрать поддерживаемую альтернативу после отдельного аудита | — |
+
+> Статическая проверка source не равна безопасному запуску. В карточках MCP отдельно показано,
+> проходил ли server runtime-аудит; пока статус `Runtime-аудит ожидается`, не подключайте его к
+> рабочему агенту с secrets или пользовательскими данными. Процесс проверки: [безопасный runtime-аудит MCP](guides/mcp-runtime-audit.md).
 
 **Списки и агрегаторы:**
 

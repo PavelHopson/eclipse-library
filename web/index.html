@@ -15,7 +15,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Unbounded:wght@500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css?v=17" />
+  <link rel="stylesheet" href="styles.css?v=18" />
 </head>
 <body>
   <a class="skip" href="#results">Перейти к каталогу</a>
@@ -155,12 +155,41 @@
           <button id="shareFilters" class="share-filters" type="button" disabled>Скопировать подборку</button>
         </div>
         <details id="advancedFilters" class="advanced-filters">
-          <summary>Дополнительные фильтры <span id="advancedFilterCount">платформа, лицензия, доверие, проект и статус GitHub</span></summary>
+          <summary>Дополнительные фильтры <span id="advancedFilterCount">стоимость, регистрация, место запуска и проверка</span></summary>
           <div class="filter-sheet-head">
             <div><b>Уточнить подборку</b><span>Выберите только важные условия.</span></div>
             <button id="filterSheetClose" type="button">Закрыть</button>
           </div>
           <div class="filter-selects">
+          <label>Стоимость
+            <select id="costFilter" aria-label="Стоимость">
+              <option value="">Любая стоимость</option>
+              <option value="free-start">Можно начать бесплатно</option>
+              <option value="free">Полностью бесплатно</option>
+              <option value="paid">Только платно</option>
+              <option value="unknown">Стоимость не проверена</option>
+            </select>
+          </label>
+          <label>Регистрация
+            <select id="signupFilter" aria-label="Нужна ли регистрация">
+              <option value="">Любые условия</option>
+              <option value="none">Без регистрации</option>
+              <option value="optional">Регистрация необязательна</option>
+              <option value="required">Нужен аккаунт</option>
+              <option value="unknown">Условия не проверены</option>
+            </select>
+          </label>
+          <label>Где запускается
+            <select id="runtimeFilter" aria-label="Где запускается">
+              <option value="">Любое место запуска</option>
+              <option value="local-start">На своём устройстве или сервере</option>
+              <option value="local">На своём устройстве</option>
+              <option value="self-host">На своём сервере</option>
+              <option value="cloud">В облаке</option>
+              <option value="hybrid">Локально и в облаке</option>
+              <option value="unknown">Место запуска не проверено</option>
+            </select>
+          </label>
           <label>Где работает
             <select id="platformFilter" aria-label="Где работает">
               <option value="">Любая платформа</option>
@@ -258,6 +287,6 @@
     <a href="https://eclipse-forge.ru/" target="_blank" rel="noopener">Eclipse Forge</a> · обновляется по мере находок · данные из <a href="https://github.com/PavelHopson/eclipse-library" target="_blank" rel="noopener">README</a>
   </footer>
 
-  <script src="app.js?v=24"></script>
+  <script src="app.js?v=25"></script>
 </body>
 </html>

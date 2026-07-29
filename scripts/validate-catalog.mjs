@@ -26,6 +26,9 @@ const allowedTrust = new Set(['official', 'verified', 'community', 'caution', 'u
 const allowedDecisions = new Set(['now', 'roadmap', 'reference', 'no']);
 const allowedRisk = new Set(['low', 'medium', 'high']);
 const allowedType = new Set(['skill', 'agent', 'model', 'api', 'prompt', 'learn', 'media', 'privacy', 'ours', 'drop', 'grey', 'oss', 'tool', 'shop']);
+const allowedCost = new Set(['free', 'freemium', 'paid', 'unknown']);
+const allowedSignup = new Set(['none', 'optional', 'required', 'unknown']);
+const allowedRuntime = new Set(['local', 'self-host', 'cloud', 'hybrid', 'unknown']);
 
 function canonicalUrl(value) {
   try {
@@ -68,6 +71,13 @@ if (!Array.isArray(details)) {
     if (!allowedDecisions.has(item?.decision)) errors.push(`${label}: unsupported decision value "${item?.decision}".`);
     if (!allowedRisk.has(item?.riskLevel)) errors.push(`${label}: unsupported riskLevel "${item?.riskLevel}".`);
     if (item?.type !== undefined && !allowedType.has(item.type)) errors.push(`${label}: unsupported type "${item?.type}".`);
+    if (!item?.access || typeof item.access !== 'object' || Array.isArray(item.access)) {
+      errors.push(`${label}: access metadata is required.`);
+    } else {
+      if (!allowedCost.has(item.access.cost)) errors.push(`${label}: unsupported access.cost "${item.access.cost}".`);
+      if (!allowedSignup.has(item.access.signup)) errors.push(`${label}: unsupported access.signup "${item.access.signup}".`);
+      if (!allowedRuntime.has(item.access.runtime)) errors.push(`${label}: unsupported access.runtime "${item.access.runtime}".`);
+    }
     if (ids.has(item?.id)) errors.push(`${label}: duplicate id.`);
     ids.add(item?.id);
     const url = canonicalUrl(item?.url);

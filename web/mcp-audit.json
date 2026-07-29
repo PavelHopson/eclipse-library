@@ -1,0 +1,51 @@
+{
+  "schemaVersion": 1,
+  "updatedAt": "2026-07-29T00:00:00.000Z",
+  "servers": [
+    {
+      "id": "github-official-mcp-server",
+      "url": "https://github.com/github/github-mcp-server",
+      "version": "0.31.0",
+      "status": "runtime-pending",
+      "staticReview": "passed",
+      "summary": "Официальный source, license и least-privilege flags проверены. Runtime tool descriptions ещё не загружались; запускать только в sandbox с fine-grained token без production secrets.",
+      "riskAreas": ["token scope", "write actions", "tool description changes"]
+    },
+    {
+      "id": "official-filesystem-mcp-server",
+      "url": "https://github.com/modelcontextprotocol/servers/tree/main/src/filesystem",
+      "version": "2026.7.10",
+      "status": "runtime-pending",
+      "staticReview": "passed",
+      "summary": "Официальный source и scoped-directory configuration проверены. Runtime audit ожидается; нельзя передавать home, корень диска, .ssh или каталоги с секретами.",
+      "riskAreas": ["filesystem scope", "secret exposure", "write access"]
+    },
+    {
+      "id": "microsoft-playwright-mcp",
+      "url": "https://github.com/microsoft/playwright-mcp",
+      "version": "reference-only",
+      "status": "runtime-pending",
+      "staticReview": "passed",
+      "summary": "Официальный source и security disclaimer проверены. Runtime audit не выполнялся; использовать только отдельный пустой browser profile без личных и production sessions.",
+      "riskAreas": ["browser session access", "external navigation", "uploads and downloads"]
+    },
+    {
+      "id": "upstash-context7-mcp",
+      "url": "https://github.com/upstash/context7",
+      "version": "3.2.5",
+      "status": "runtime-pending",
+      "staticReview": "passed",
+      "summary": "Canonical source, license и data-flow документация проверены. Runtime descriptions ещё не зафиксированы; запросы не должны содержать private code, customer data или secrets.",
+      "riskAreas": ["remote query disclosure", "indirect prompt injection", "tool description changes"]
+    },
+    {
+      "id": "archived-postgresql-mcp-reference",
+      "url": "https://github.com/modelcontextprotocol/servers-archived/tree/main/src/postgres",
+      "version": "archived",
+      "status": "blocked",
+      "staticReview": "failed",
+      "summary": "Repository архивирован и больше не поддерживается. Runtime-аудит не оправдывает подключение: не запускать с production или staging databases, оставить только как архитектурный reference.",
+      "riskAreas": ["unmaintained dependencies", "database disclosure", "unbounded queries"]
+    }
+  ]
+}
