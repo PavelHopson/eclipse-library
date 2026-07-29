@@ -1,5 +1,5 @@
 import { createHash } from 'node:crypto';
-import { mkdir, writeFile } from 'node:fs/promises';
+import { mkdir, readFile, writeFile } from 'node:fs/promises';
 import { spawn } from 'node:child_process';
 import { join } from 'node:path';
 import { metadataFindings } from './mcp-metadata-policy.mjs';
@@ -7,6 +7,9 @@ import { metadataFindings } from './mcp-metadata-policy.mjs';
 const outputDirectory = process.env.MCP_AUDIT_OUTPUT || '.artifacts/mcp-runtime';
 const scopedDirectory = process.env.MCP_FILESYSTEM_ROOT;
 if (!scopedDirectory) throw new Error('MCP_FILESYSTEM_ROOT is required.');
+const activeTestsEnabled = process.env.MCP_ACTIVE_TESTS === 'true';
+const expectedAudit = JSON.parse(await readFile('web/mcp-audit.json', 'utf8'));
+const expectedHashById = new Map(expectedAudit.servers.map((server) => [server.id, server.toolsetHash || null]));
 
 const servers = [
   { id: 'official-filesystem-mcp-server', version: '2026.7.10', command: 'npx', args: ['-y', '@modelcontextprotocol/server-filesystem@2026.7.10', scopedDirectory] },
@@ -39,16 +42,23 @@ async function inspect(server) {
       try { const message = JSON.parse(line); if (message.id !== undefined) responses.set(message.id, message); } catch { /* Never print untrusted server output. */ }
     });
   });
-  const waitFor = async (id, timeoutMs = 45_000) => {
+  const waitForMessage = async (id, timeoutMs = 45_000) => {
     const started = Date.now();
     while (!responses.has(id)) {
       if (child.exitCode !== null) throw new Error(`${server.id} exited before response ${id}.`);
       if (Date.now() - started > timeoutMs) throw new Error(`${server.id} timed out waiting for response ${id}.`);
       await new Promise((resolve) => setTimeout(resolve, 50));
     }
-    const response = responses.get(id);
+    return responses.get(id);
+  };
+  const waitFor = async (id, timeoutMs = 45_000) => {
+    const response = await waitForMessage(id, timeoutMs);
     if (response.error) throw new Error(`${server.id} returned JSON-RPC error ${response.error.code}.`);
     return response.result;
+  };
+  const callTool = async (id, name, args) => {
+    send(child, { jsonrpc: '2.0', id, method: 'tools/call', params: { name, arguments: args } });
+    return waitForMessage(id);
   };
   try {
     send(child, { jsonrpc: '2.0', id: 1, method: 'initialize', params: { protocolVersion: '2025-06-18', capabilities: {}, clientInfo: { name: 'eclipse-library-audit', version: '1.0.0' } } });
@@ -62,7 +72,34 @@ async function inspect(server) {
     tools.forEach((tool) => findings.push(...metadataFindings(tool)));
     const normalized = { server: server.id, serverVersion: server.version, protocolVersion: initialized?.protocolVersion || null, tools };
     const serialized = JSON.stringify(stable(normalized));
-    return { raw: normalized, summary: { id: server.id, version: server.version, protocolVersion: initialized?.protocolVersion || null, toolCount: tools.length, toolsetHash: createHash('sha256').update(serialized).digest('hex'), automatedFindings: findings, stderrBytes } };
+    const toolsetHash = createHash('sha256').update(serialized).digest('hex');
+    const expectedHash = expectedHashById.get(server.id);
+    if (expectedHash && expectedHash !== toolsetHash) findings.push({ code: 'toolset-hash-changed', toolHash: toolsetHash.slice(0, 16) });
+    const activeTests = [];
+    if (activeTestsEnabled && server.id === 'official-filesystem-mcp-server') {
+      const allowedMarker = 'ECLIPSE_MCP_ALLOWED_MARKER';
+      const outsideMarker = 'ECLIPSE_MCP_OUTSIDE_MARKER';
+      const responseText = (response) => JSON.stringify(response || {});
+      const isDenied = (response) => Boolean(response?.error || response?.result?.isError);
+
+      const allowedDirectories = await callTool(10, 'list_allowed_directories', {});
+      const allowedText = responseText(allowedDirectories);
+      activeTests.push({ id: 'reports-only-scoped-directory', passed: allowedText.includes(scopedDirectory) && !/\\n\/home\/runner(?:\\n|")/.test(allowedText) });
+
+      const allowedRead = await callTool(11, 'read_text_file', { path: process.env.MCP_TEST_FILE });
+      activeTests.push({ id: 'reads-synthetic-file-inside-scope', passed: !isDenied(allowedRead) && responseText(allowedRead).includes(allowedMarker) });
+
+      const outsideRead = await callTool(12, 'read_text_file', { path: '/etc/passwd' });
+      activeTests.push({ id: 'denies-absolute-path-outside-scope', passed: isDenied(outsideRead) && !responseText(outsideRead).includes('root:x:') });
+
+      const traversalRead = await callTool(13, 'read_text_file', { path: join(scopedDirectory, '..', 'eclipse-library-mcp-outside.txt') });
+      activeTests.push({ id: 'denies-parent-traversal', passed: isDenied(traversalRead) && !responseText(traversalRead).includes(outsideMarker) });
+
+      const symlinkRead = await callTool(14, 'read_text_file', { path: process.env.MCP_SYMLINK_FILE });
+      activeTests.push({ id: 'denies-symlink-escape', passed: isDenied(symlinkRead) && !responseText(symlinkRead).includes(outsideMarker) });
+      activeTests.filter((test) => !test.passed).forEach((test) => findings.push({ code: `active-test-failed:${test.id}`, toolHash: createHash('sha256').update(test.id).digest('hex').slice(0, 16) }));
+    }
+    return { raw: normalized, summary: { id: server.id, version: server.version, protocolVersion: initialized?.protocolVersion || null, toolCount: tools.length, toolsetHash, hashMatchesApproved: expectedHash ? expectedHash === toolsetHash : null, automatedFindings: findings, activeTests, stderrBytes } };
   } finally {
     child.kill('SIGTERM');
   }
@@ -78,5 +115,5 @@ for (const server of servers) {
 const report = { schemaVersion: 1, scanner: 'eclipse-library-offline-inspector@1', generatedAt: new Date().toISOString(), servers: summaries };
 await writeFile(join(outputDirectory, 'raw-tool-metadata.json'), `${JSON.stringify(raw, null, 2)}\n`, { encoding: 'utf8', mode: 0o600 });
 await writeFile(join(outputDirectory, 'summary.json'), `${JSON.stringify(report, null, 2)}\n`, 'utf8');
-summaries.forEach((server) => console.log(`${server.id}: ${server.toolCount} tools, SHA-256 ${server.toolsetHash}, ${server.automatedFindings.length} automated finding(s).`));
+summaries.forEach((server) => console.log(`${server.id}: ${server.toolCount} tools, SHA-256 ${server.toolsetHash}, ${server.automatedFindings.length} automated finding(s), ${server.activeTests.filter((test) => test.passed).length}/${server.activeTests.length} active tests passed.`));
 if (summaries.some((server) => server.automatedFindings.length)) process.exitCode = 2;
