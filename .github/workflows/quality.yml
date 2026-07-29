@@ -34,5 +34,7 @@ jobs:
         run: |
           node --test scripts/github-metadata.test.mjs
           node scripts/validate-github-metadata.mjs
+      - name: Validate production smoke contract
+        run: node --test scripts/smoke-production.test.mjs
       - name: Audit catalog identity offline
         run: node scripts/check-links.mjs
