@@ -9,6 +9,8 @@
   подробные карточки и guide viewer.
 - `web/catalog-details.json` — проверенный структурированный слой для приоритетных
   материалов; старые записи получают честную пометку о необходимости аудита.
+- `web/catalog-index.json` — детерминированный полный индекс 509 уникальных материалов:
+  56 редакторски проверены, 453 структурированы из README и явно помечены `inferred`.
 - `web/link-health.json` — безопасный публичный snapshot weekly-аудита: доступность ссылки
   показывается отдельно от редакторского доверия и не считается security endorsement.
 - Deploy: GitHub Actions → VPS/Caddy из ветки `master`.
@@ -55,12 +57,12 @@
 - [x] Stage 12 — нормализовать стоимость, регистрацию и место запуска для подробно проверенных карточек,
       добавить shareable access filters, incremental duplicate gate и честный MCP runtime-audit status.
 
-- [ ] Частично: перевести все записи из неструктурированных Markdown-описаний в schema с полями:
+- [x] Перевести все записи из неструктурированных Markdown-описаний в schema с полями:
       `type`, `category`, `platform`, `license`, `trust`, `risk`, `projects`, `verifiedAt`.
 - [x] Блокировать новые дубли по canonical URL, GitHub `owner/repo`, normalized title и redirect target;
       текущие исторические повторы закреплены baseline и не могут незаметно расти.
-- [ ] Редакторски объединить 21 историческую canonical-URL duplicate group в README, сохранив полезный
-      контекст старых подборок через ссылки на основную карточку.
+- [x] Объединить исторические canonical-URL duplicate groups в README: 27 повторных строк удалены,
+      для каждого URL сохранена наиболее полная запись; canonical URL/title duplicate groups равны нулю.
 - [x] Добавить фильтры по platform, license, trust/risk и Eclipse project applicability.
 - [x] Добавить visible badges «официальный источник», «лицензия», «risk» и
       «проверено <дата>», не заставляя пользователя читать всю карточку.
@@ -77,6 +79,22 @@
 ## Changelog
 
 ### 2026-07-29
+
+- Stage 13 завершил полный data layer: `web/catalog-index.json` содержит 509 уникальных карточек с единым
+  contract для описания, сценариев, платформ, лицензии, цены, доступа, доверия, рисков, проектов, решения,
+  безопасного старта и source location. 56 карточек имеют `reviewStatus=verified`, остальные 453 — честный
+  `inferred` без ложной даты проверки; deterministic builder и validator блокируют stale или неполный index.
+- Исторический cleanup удалил 27 повторных строк из 26 canonical URL groups. После консолидации baseline
+  содержит 0 canonical URL duplicates и 0 normalized-title duplicates; две разные записи Telegram/Discord
+  внутри `anthropics/claude-plugins-official` остаются намеренно как разные материалы одного repository.
+- Добавлен ручной GitHub Actions runtime-аудит для pinned Filesystem MCP `2026.7.10` и Context7 `3.2.5`.
+  Одноразовый runner получает только `tools/list`, не вызывает tools, не получает secrets, ограничивает
+  Filesystem пустой temporary directory, ищет опасные metadata-паттерны и считает стабильный SHA-256.
+  Raw descriptions сохраняются только в private artifact на 7 дней; в logs выводятся counts/hash/findings.
+- Snyk Agent Scan не подключён автоматически: официальный scanner теперь требует Snyk token и передаёт
+  tool names/descriptions в Snyk. Это отдельное решение о third-party data sharing, а не безопасный default.
+- Static payload проверен в браузере: 509 карточек, 56 verified, отсутствие horizontal overflow на desktop
+  и 390×844; mobile scroll остался на 790 px спустя 3 секунды и не вернул страницу наверх.
 
 - Stage 12 добавил к 56 редакторски проверенным карточкам нормализованный `access` contract:
   `cost`, `signup`, `runtime`. Для остальных материалов UI использует консервативное inference и оставляет

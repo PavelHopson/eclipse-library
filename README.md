@@ -25,6 +25,9 @@
 Стоимость, необходимость регистрации и место запуска вынесены в отдельные простые признаки: можно сразу
 найти бесплатные инструменты, варианты без аккаунта и решения для своего устройства или self-hosted server.
 Если редактор ещё не подтвердил условие, интерфейс честно показывает «нужно проверить», а не угадывает.
+Все 509 уникальных материалов уже приведены к одной структуре: назначение, сценарии, платформа,
+лицензия, стоимость, доверие, риски, безопасный старт и применимость к Eclipse Forge. Для 56 записей
+эти данные проверены редактором; остальные явно помечены как предварительные и не выдают inference за факт.
 Сначала показываются 36 наиболее ранних результатов текущей выборки; следующие карточки
 открываются кнопкой «Показать ещё», поэтому страница не превращается в бесконечное полотно.
 
@@ -371,7 +374,6 @@ ai-setup reverse owner/repo --stdout
 |---|---|---|
 | [Marketing Skills (coreyhaines31)](https://github.com/coreyhaines31/marketingskills) | Набор примерно из 40 marketing-skills: аудитория, боли, возражения, email-цепочки, SEO, конверсия, лид-магниты. Сильная идея — базовый product-context skill, на который опираются остальные | EclipseForgeLanding, kwork-офферы, Eclipse AI Hub Copywriter, StarMarket/Star CRM marketing flows |
 | [Stop Slop Skill](https://github.com/hardikpandya/stop-slop) | Редакторский skill против нейро-шаблонного текста: проверяет прямоту, ритм, плотность, клише и переписывает без “AI-воды” | README, лендинги, автоответы, Telegram-посты, case copy |
-| [UI UX Pro Max](https://github.com/nextlevelbuilder/ui-ux-pro-max-skill) | UI/UX skill с готовыми стилями, палитрами, шрифтовыми парами, UX-принципами и генератором дизайн-системы. Уже есть в AI-разделе, здесь — как часть рабочего shortlist | Eclipse Chat, EclipseForgeLanding, Eclipse DnD Forge, все React/Vite интерфейсы |
 | [Taste Skill](https://www.tasteskill.dev/) / [GitHub](https://github.com/Leonxlnx/taste-skill) | `design-taste-frontend` — anti-slop frontend skill: читает brief, выводит дизайн-направление, подбирает реальную дизайн-систему, усиливает типографику, motion, spacing и делает pre-flight перед сдачей. Install: `npx skills add https://github.com/Leonxlnx/taste-skill --skill "design-taste-frontend"` | EclipseForgeLanding, landing/home Eclipse Chat, Eclipse DnD Forge, portfolio/project pages. Не основной инструмент для тяжёлых dashboards/admin/tables — там брать продуктовые паттерны Carbon/Fluent/Atlassian/Polaris |
 | [Remotion Video Skill](https://github.com/wshuyi/remotion-video-skill) | Генерация анимированных видео через Remotion: текст, переходы, motion-сцены, шаблоны под серийный контент | Eclipse Media, Shotforge, промо Eclipse Forge, обучающие ролики Educator-AI |
 | [Context Engineering Skills](https://github.com/muratcankoylan/agent-skills-for-context-engineering) | Context-engineering skills для длинных задач: меньше потери нити, меньше токенов, лучше структура агентских сессий | oh-my-claudecode, Hopson Sentinel, большие сессии по eclipse-chat |
@@ -416,10 +418,8 @@ ai-setup reverse owner/repo --stdout
 
 | Ресурс | Описание |
 |---|---|
-| [Claude (Claude Code)](https://claude.com/product/claude-code) | Агент-программист: сам пишет файлы, ставит зависимости, чинит, деплоит. **Наш основной инструмент** для сборки магазина по описанию |
 | [Codex (OpenAI)](https://openai.com/codex/) | Кодинг-агент OpenAI — в ChatGPT и как `codex` CLI. Скаффолдит и дорабатывает витрину |
 | [Kimi (Moonshot)](https://www.kimi.com/products/kimi-work) | Kimi Code CLI + браузерный агент WebBridge (сам кликает в браузере) — сборка + автоматизация |
-| [Стартер для AI: Vercel Commerce](https://github.com/vercel/commerce) | Дай нейросети этот шаблон (или Medusa) — она развернёт и допилит под тебя, не писать с нуля |
 
 ### 🟣 Наши сервисы для магазина (бери их — бесплатно и под рукой)
 
@@ -504,7 +504,6 @@ ai-setup reverse owner/repo --stdout
 |---|---|---|
 | [Strapi](https://strapi.io) | OSS headless CMS на Node, REST/GraphQL, self-host бесплатно | [![Stars](https://img.shields.io/github/stars/strapi/strapi?style=flat)](https://github.com/strapi/strapi) |
 | [Directus](https://directus.io) | OSS data-platform поверх своей БД: админка + автоматический API | [![Stars](https://img.shields.io/github/stars/directus/directus?style=flat)](https://github.com/directus/directus) |
-| [Payload](https://payloadcms.com) | OSS headless CMS на Next/TS — идеально с нашим стеком | [![Stars](https://img.shields.io/github/stars/payloadcms/payload?style=flat)](https://github.com/payloadcms/payload) |
 | [Sanity](https://www.sanity.io) | Структурированный контент, щедрый free-tier, real-time | — |
 
 ### База данных + хостинг (бесплатный старт)
@@ -533,8 +532,6 @@ ai-setup reverse owner/repo --stdout
 |---|---|
 | [Medusa docs](https://docs.medusajs.com) | Официальный гайд «магазин с нуля», шаг за шагом — **начинать отсюда** |
 | [Saleor docs](https://docs.saleor.io) · [Vendure docs](https://docs.vendure.io) | Официальная документация с quickstart |
-| [Next.js Commerce](https://github.com/vercel/commerce) | Эталонный код-референс — учиться по нему |
-| [roadmap.sh](https://roadmap.sh) | Карты навыков frontend/backend — видеть пробелы в команде |
 | [freeCodeCamp](https://www.freecodecamp.org) | Полные бесплатные видео-сборки магазина «build an e-commerce» |
 
 ## 🎯 Лендинги — учебный курс
@@ -581,7 +578,6 @@ ai-setup reverse owner/repo --stdout
 |---|---|---|
 | [Astro](https://astro.build) | Заточен под быстрые маркетинг-сайты/лендинги, нулевой JS по умолчанию. **Топ-выбор для лендинга** | [![Stars](https://img.shields.io/github/stars/withastro/astro?style=flat)](https://github.com/withastro/astro) |
 | [shadcn/ui](https://ui.shadcn.com) | Копируемые компоненты (Radix + Tailwind): карточки, формы, диалоги | [![Stars](https://img.shields.io/github/stars/shadcn-ui/ui?style=flat)](https://github.com/shadcn-ui/ui) |
-| [Flowbite](https://flowbite.com) | Готовые секции (hero, pricing, CTA, footer) на Tailwind | [![Stars](https://img.shields.io/github/stars/themesberg/flowbite?style=flat)](https://github.com/themesberg/flowbite) |
 | [HyperUI](https://www.hyperui.dev) | Бесплатные копипаст-компоненты для маркетинга на Tailwind | [![Stars](https://img.shields.io/github/stars/markmead/hyperui?style=flat)](https://github.com/markmead/hyperui) |
 | [Preline](https://preline.co) · [DaisyUI](https://daisyui.com) | Ещё наборы Tailwind-компонентов и блоков | — |
 
@@ -605,7 +601,6 @@ ai-setup reverse owner/repo --stdout
 
 | Ресурс | Описание |
 |---|---|
-| [Vercel](https://vercel.com) · [Cloudflare Pages](https://pages.cloudflare.com) · [Netlify](https://netlify.com) | Бесплатный хостинг статики/SSR + превью-деплои |
 | Eclipse Forge VPS | Наш сервер, поддомен `*.eclipse-forge.ru` через Caddy |
 
 ### Дизайн-инспирация и ассеты
@@ -762,7 +757,6 @@ Frontend: React 19 · TypeScript · Vite · Tailwind CSS 4 · Zustand
 |--------|------|----------|--------|
 | [KVRT](https://www.kaspersky.ru/downloads/free-virus-removal-tool) | Win / Linux | Kaspersky Virus Removal Tool — портативный сканер от вендора с репутацией: трояны, руткиты, шпионское ПО. **Самый доверенный пункт списка** — официальный продукт Kaspersky, не сторонний форк | — |
 | [maltrail](https://github.com/stamparm/maltrail) | Python | Детектор вредоносного сетевого трафика по чёрным спискам и эвристикам (DNS / URL / IP). Зрелый OSS-проект, автор `stamparm`. Полезен как сетевой IDS-слой для self-hosted инфры | [![Stars](https://img.shields.io/github/stars/stamparm/maltrail?style=flat)](https://github.com/stamparm/maltrail) |
-| [witr](https://github.com/pranshuparmar/witr) | Cross-platform | Process inspector — источник каждого процесса, ресурсы, флаг подозрительного. **Не anti-malware**, диагностика. Также в [Dev Tools & CLI](#️-dev-tools--cli) | [![Stars](https://img.shields.io/github/stars/pranshuparmar/witr?style=flat)](https://github.com/pranshuparmar/witr) |
 | [Anti-Miner](https://github.com/Daiwv/Anti-Miner) | Windows | Поиск и удаление скрытых майнеров. **Малоизвестный репо** — проверять исходники, запускать в sandbox | [![Stars](https://img.shields.io/github/stars/Daiwv/Anti-Miner?style=flat)](https://github.com/Daiwv/Anti-Miner) |
 | [MinerSearch](https://github.com/BlendLog/MinerSearch) | Windows | Поиск майнеров с эвристикой, карантином и обновляемой базой угроз. **Малоизвестный репо** — те же предосторожности | [![Stars](https://img.shields.io/github/stars/BlendLog/MinerSearch?style=flat)](https://github.com/BlendLog/MinerSearch) |
 | [MatrixDefender-4.2](https://github.com/belrinn/MatrixDefender-4.2) | Windows | Удаление RAT-троянов (вкл. LimeRAT), майнеров. **Малоизвестный репо, версия в названии — красный флаг сомнительного нейминга. Повышенная осторожность**, только sandbox + чтение кода | — |
@@ -922,8 +916,6 @@ Frontend: React 19 · TypeScript · Vite · Tailwind CSS 4 · Zustand
 
 | Ресурс | Описание |
 |--------|----------|
-| [ai-marketing-skills](https://github.com/ericosiu/ai-marketing-skills) | Скиллы под маркетолога / таргет / SMM / контент в Claude Code |
-| [claude-skills (230+)](https://github.com/alirezarezvani/claude-skills) | Каталог по категориям; см. также таблицу «Оркестрация и агенты» выше |
 | [Kimi K2.6](https://www.kimi.com/) | Долгие сессии, много tool-calls, Agent Swarm — проверяйте актуальные условия и API |
 | [DeepSeek — чат](https://chat.deepseek.com/) | V4 Pro / Flash, длинный контекст (уточняйте цены и лимиты) |
 
@@ -950,14 +942,12 @@ Frontend: React 19 · TypeScript · Vite · Tailwind CSS 4 · Zustand
 | [Modly](https://github.com/lightningpixel/modly) | GitHub | Фото → 3D, локальный запуск |
 | [OpenShorts](https://github.com/mutonby/openshorts) | GitHub | Рилзы из длинного видео, сабы, 9:16, сценарий, озвучка |
 | [Buzz](https://github.com/chidiwilliams/buzz) | GitHub | Транскрипция (Whisper), офлайн, шумодав, real-time |
-| [Dreamina](https://dreamina.capcut.com/) | Web | Картинки / видео / музыка (ByteDance) — внешний сервис |
 | [Blender Buddy](https://superhivemarket.com/products/blenderbuddy) | Add-on | Помощник в Blender, контекст сцены, локально |
 
 ### Тесты регистраций, приватность, хостинг
 
 | Ресурс | Описание |
 |--------|----------|
-| [email-fake.com](https://email-fake.com/) | Временная почта для OTP при e2e и сомнительных регистрациях |
 | **Receive-SMS (тесты)** | [SMSCodeOnline](https://smscodeonline.com/) · [receive-sms-online](https://www.receive-sms-online.info/) · [mianfeijiema](https://mianfeijiema.com/) · [us-phone-number](https://us-phone-number.com/) · [sms24](https://www.sms24.me/) · [receive-sms](https://receive-sms.cc/) · [tempsmss](https://tempsmss.com/) — только **в рамках ToS площадок и применимого права** |
 | [WispByte](https://wispbyte.com/) | Бесплатный зарубежный хостинг (реклама, мало RAM/диска) — пет-проекты, боты |
 
@@ -982,7 +972,6 @@ Frontend: React 19 · TypeScript · Vite · Tailwind CSS 4 · Zustand
 | Ресурс | Описание |
 |--------|----------|
 | [Gemini 3.5 Flash](https://gemini.google/) | Новая модель Google под кодинг и агентов (релиз 21.05.2026): планирование больших проектов, параллельные субагенты, заявлено в 2× быстрее Gemini 3.1 Pro. Бесплатна для всех. Доступна через Google AI Studio (см. `free-llm-api-resources`), пара с Antigravity 2.0 / CLI. Бенчмарки проверять самостоятельно — цифры из анонса |
-| [caveman](https://github.com/JuliusBrussee/caveman) | Сжатие ответов и экономия токенов для AI-агентов — полезно для cost-control, agent loops и долгих сессий |
 | [Autoskill](https://github.com/midudev/autoskills) | Автоподбор skills под проект — сканирует кодовую базу и подтягивает подходящие способности из curated-реестра |
 | [Local Deep Research](https://github.com/LearningCircuit/local-deep-research) | Локальный research-агент: PubMed / arXiv / PDF / книги, проверка качества источников, отчёт в PDF/Markdown |
 
@@ -1045,7 +1034,6 @@ Frontend: React 19 · TypeScript · Vite · Tailwind CSS 4 · Zustand
 |---|---|---|---|
 | [Crawl4AI](https://github.com/unclecode/crawl4ai) | Python | Самый быстрый AI-краулер: рендерит JS, выдаёт **LLM-ready output** (markdown с структурой). Топ-1 по token-efficient рассылке в context | [![Stars](https://img.shields.io/github/stars/unclecode/crawl4ai?style=flat)](https://github.com/unclecode/crawl4ai) |
 | [Firecrawl](https://github.com/firecrawl/firecrawl) | TypeScript / Python | Универсальный парсер для AI-агентов: site → markdown. SaaS + self-hosted. Самый mature для agent-pipelines (наш [Open Researcher](#ai-поиск-и-исследования) на нём построен) | [![Stars](https://img.shields.io/github/stars/firecrawl/firecrawl?style=flat)](https://github.com/firecrawl/firecrawl) |
-| [Scrapy](https://github.com/scrapy/scrapy) | Python | Classic фреймворк для bulk scraping с pagination + pipelines + robots.txt. **Уже в** [Dev Tools & CLI](#️-dev-tools--cli) выше | [![Stars](https://img.shields.io/github/stars/scrapy/scrapy?style=flat)](https://github.com/scrapy/scrapy) |
 | [Crawlee (Apify)](https://github.com/apify/crawlee) | Node.js + Python | Сам борется с блокировками, proxy rotation, browser fingerprints. От той же команды что Apify Agent Skills ([выше](#парсинг-и-данные)) | [![Stars](https://img.shields.io/github/stars/apify/crawlee?style=flat)](https://github.com/apify/crawlee) |
 | [Playwright (Microsoft)](https://github.com/microsoft/playwright) | Multi-lang | Browser-automation. Обходит JS-protected sites через realistic browser session. Industry standard для headless test/scrape | [![Stars](https://img.shields.io/github/stars/microsoft/playwright?style=flat)](https://github.com/microsoft/playwright) |
 | [Scrapegraph AI](https://github.com/ScrapeGraphAI/Scrapegraph-ai) | Python | Declarative: говоришь WHAT нужно извлечь, LLM делает HOW. Самый "AI-first" из шестёрки | [![Stars](https://img.shields.io/github/stars/ScrapeGraphAI/Scrapegraph-ai?style=flat)](https://github.com/ScrapeGraphAI/Scrapegraph-ai) |
@@ -1141,7 +1129,6 @@ Frontend: React 19 · TypeScript · Vite · Tailwind CSS 4 · Zustand
 | Ресурс | Описание | Stars |
 |---|---|---|
 | [Security Guidance (Anthropic, официальный)](https://code.claude.com/docs/en/security-guidance) | Официальный Claude Code plugin: после правки ищет опасные вызовы, в конце turn проверяет diff отдельным model-review, а после commit/push запускает более глубокий анализ. Не блокирует изменения и не заменяет CI; model-backed этапы расходуют Claude usage. **Внедрять во все Claude Code workflow как ранний defense-in-depth слой** | — |
-| [AI Code Shield / ЩИТ](guides/ai-code-security-shield.md) | Release-gate prompt и чеклист: прогнать текущий репозиторий по security skills, вывести findings по severity, исправить critical/high, запустить проверки и сохранить отчёт. Использовать перед deploy/merge/publish для AI-сгенерированного кода | — |
 | [NVIDIA/skills](https://github.com/NVIDIA/skills) | Официальный каталог NVIDIA-скиллов для CUDA, Physical AI, robotics, simulation и RAG. Скиллы синхронизируются из продуктовых репозиториев, проходят security scanning и получают подпись и machine-readable Skill Card. Даже официальный skill устанавливать точечно и проверять его permissions | [![Stars](https://img.shields.io/github/stars/NVIDIA/skills?style=flat)](https://github.com/NVIDIA/skills) |
 | [NVIDIA/SkillSpector](https://github.com/NVIDIA/SkillSpector) | Сам сканер (open-source): 64 паттерна уязвимостей в 16 категориях — vulnerable deps, suspicious scripts, credential access, data exfiltration + agent-native (hidden instructions, prompt injection, tool poisoning, excessive agency, mismatch declared-purpose↔access). 2 стадии: быстрый static → опциональный LLM-семантический разбор. **Гоняем по ЛЮБЫМ скиллам**, в т.ч. своим и из community-каталогов перед install | [![Stars](https://img.shields.io/github/stars/NVIDIA/SkillSpector?style=flat)](https://github.com/NVIDIA/SkillSpector) |
 | [ECC — Everything Claude Code](https://github.com/affaan-m/ECC) | Сетап победителя хакатона Anthropic (Affaan Mustafa), 10 мес работы, ~160K+ stars: **249 скиллов · 63 сабагента · 79 слеш-команд · 14 MCP-конфигов · trigger-автоматизации · Continuous Learning** (замечает паттерны → пишет скиллы). Запускается в Claude Code / Cursor / OpenCode / Codex из одного конфига. Числа из ТГ (183/48/69) устарели — репо растёт | [![Stars](https://img.shields.io/github/stars/affaan-m/ECC?style=flat)](https://github.com/affaan-m/ECC) |
@@ -1363,7 +1350,6 @@ Frontend: React 19 · TypeScript · Vite · Tailwind CSS 4 · Zustand
 |---|---|---|
 | [Ponytail (DietrichGebert)](https://github.com/DietrichGebert/ponytail) | Skill против «графомании» в коде: прогоняет задачу через вопросы «точно нужно? есть в stdlib? нативная фича платформы? одной строкой?» → агент пишет минимально необходимое. Заявлено −80–94% генерации, −47–77% стоимости, ×3–6 скорость (числа из ТГ — проверять на своих задачах). Cursor / Windsurf / Cline / Copilot / Antigravity / OpenCode / Claude Code. **Фит:** [oh-my-claudecode](#-наши-проекты) + любой dev-workflow | [![Stars](https://img.shields.io/github/stars/DietrichGebert/ponytail?style=flat)](https://github.com/DietrichGebert/ponytail) |
 | [supergoal (robzilla1738)](https://github.com/robzilla1738/supergoal) | Skill для Claude Code / Codex: `/supergoal` смотрит проект+тулзы+цель → делит на фазы, создаёт файлы плана/состояния/контекста; `/goal` исполняет + финальный аудит + пишет ошибки в память проекта. **Пересекается** с нашим [oh-my-claudecode](#-наши-проекты) (та же ниша roadmap-оркестрации) — cherry-pick идею файлов состояния, не ставить весь конфиг поверх OMC | [![Stars](https://img.shields.io/github/stars/robzilla1738/supergoal?style=flat)](https://github.com/robzilla1738/supergoal) |
-| [lottie skill (diffusionstudio)](https://github.com/diffusionstudio/lottie) | Skill: собирает Lottie-анимацию из текстового промпта или SVG (графики, анимированный текст, живой логотип). Claude Code / Codex / skill-агенты. **Фит:** [Shotforge](#-наши-проекты) / [Text2Image](#-наши-проекты) (анимэйшн-ассеты), EclipseForgeLanding и любой фронт (лоадеры, micro-interactions) | [![Stars](https://img.shields.io/github/stars/diffusionstudio/lottie?style=flat)](https://github.com/diffusionstudio/lottie) |
 | [loops.elorm.xyz](https://loops.elorm.xyz/) | Сайт-каталог популярных community «loops» — готовых последовательностей действий для Claude Code (автоматизация рутины без повторных объяснений). Веб, не репо. **Фит:** reference для oh-my-claudecode / личных `/loop`-сценариев | — |
 
 ### AI Coding Agents (терминальные / альтернативы)
@@ -1377,13 +1363,11 @@ Frontend: React 19 · TypeScript · Vite · Tailwind CSS 4 · Zustand
 
 | Ресурс | Описание | Stars |
 |---|---|---|
-| [GLM 5.2 (Z.ai / Zcode)](https://zcode.z.ai/en) | Китайская опен-модель (Zhipu/Z.ai), бесплатна в клиенте Zcode, токены кратно дешевле. **⚠️ Хайп канала** («сильнее Fable 5 в ризонинге, 42.8 по „Bridgebench" с отрывом») — бенч непроверяемый. GLM-серия реально конкурентна, но «> Fable 5» — на веру не брать. **Фит:** ai-setup (опция модели), free-API роутинг | — |
 
 ### Мультиагентные платформы
 
 | Ресурс | Описание | Stars |
 |---|---|---|
-| [Kimi Work (Moonshot)](https://www.kimi.com/products/kimi-work) | Продукт Moonshot: Agent Swarm до 300 агентов локально + браузерный контроль (расширение WebBridge — **уже листан** [Kimi WebBridge](#ai-coding-agents)), встроенные данные Yahoo Finance + World Bank без API, память, Python-исполнение, планировщик. **Фит:** [CryptoPulse](#-наши-проекты) (Yahoo Finance / World Bank — релевантно), Hopson Sentinel (browser-control reference), oh-my-claudecode (swarm reference). Оценить локальное vs облако | — |
 | [Stack AI](https://www.stackai.com/) | No-code платформа агентов: бесплатно 500 запусков/мес + (по словам юзеров) 1M токенов/день, библиотека шаблонов (финансы, ресёрч, Excel, почта…), бэкенды GPT-5.5 / Gemini 3.5 Flash / Grok 4.3. **Фит:** reference — шаблоны как инспирация для [Eclipse AI Hub](#-наши-проекты); SaaS, не self-host | — |
 
 ### Бесплатный доступ к моделям / гранты
@@ -1426,7 +1410,6 @@ Frontend: React 19 · TypeScript · Vite · Tailwind CSS 4 · Zustand
 | Коллекция | Описание |
 |---|---|
 | [finance-15.md](prompts/finance-15.md) | 15 промптов личных финансов: распределение зарплаты, долги, инвестиции, подушка, рост дохода. **Фит:** пресет-персона «Финансовый стратег» в Eclipse AI Hub. (Это **не** трейдинг CryptoPulse — бытовое планирование) |
-| [travel-hacking-10.md](prompts/travel-hacking-10.md) | 10 промптов travel: дешёвые билеты, отели, маршруты. **⚠️** hidden-city / mistake fares нарушают ToS авиакомпаний — каркас риска сохранён в файле |
 | [resume-boost-3.md](prompts/resume-boost-3.md) | 3 промпта подгонки CV под вакансию (gap-анализ, ключевые слова, achievements). Дополняют [resume-toolkit-7.md](prompts/resume-toolkit-7.md). **Фит:** InterviewForge, Eclipse AI Hub Copywriter |
 | [2r.ru — анализатор HH](https://2r.ru/top-skills-and-resumes/) | Веб-сервис: сканит профили топ-соискателей по специальности → рейтинг ключевых скиллов + готовые резюме. Закрытый RU-сервис. **Фит:** InterviewForge / resume reference |
 
@@ -1767,7 +1750,6 @@ Frontend: React 19 · TypeScript · Vite · Tailwind CSS 4 · Zustand
 
 | Ресурс | Описание | Stars |
 |---|---|---|
-| [SimpleX Chat](https://github.com/simplex-chat/simplex-chat) | Уже внесён в библиотеку как privacy-референс. В этом батче фиксируем конкретнее: для **Eclipse Chat** полезна не попытка “скопировать SimpleX”, а идеи **одноразовых ссылок**, **ephemeral rooms**, **минимизации метаданных**, локального хранения чувствительного контекста и режима “client/private channel” без лишних идентификаторов | [![Stars](https://img.shields.io/github/stars/simplex-chat/simplex-chat?style=flat)](https://github.com/simplex-chat/simplex-chat) |
 
 ### Product / UX references
 
@@ -1792,8 +1774,6 @@ Frontend: React 19 · TypeScript · Vite · Tailwind CSS 4 · Zustand
 | Находка | Статус / дисклеймер |
 |---|---|
 | [Qwen3.5-9B-Claude-4.6-HighIQ-THINKING-HERETIC-UNCENSORED](https://huggingface.co/DavidAU/Qwen3.5-9B-Claude-4.6-HighIQ-THINKING-HERETIC-UNCENSORED) | 🚩 **High-risk uncensored + сомнительный “Claude/Opus” провенанс.** Это не официальный Claude/Opus, а локальный fine-tune с маркетинговым названием. Не использовать в коммерческих продуктах, клиентских данных, Eclipse Chat agents или Sentinel по умолчанию. Допустимый контур - isolated red-team / safety-eval на своём железе без внешнего доступа, если вообще понадобится |
-| **Aliens Eye** ([arxhr007/Aliens_eye](https://github.com/arxhr007/Aliens_eye)) | Уже внесён в 28.06 как **self-audit цифрового следа**, не как инструмент “пробива людей”. Не интегрируем в продукты |
-| **Seed-Audio 1.0** ([fal.ai](https://fal.ai/models/bytedance/seed-audio-1.0)) | Уже внесён в 28.06 как аудио/TTS reference. Важное ограничение остаётся: voice cloning только со своим голосом или явным согласием |
 | **Torlink** | Полезен как CLI/download reference, но продуктово - grey-zone; не делать публичный “скачать всё” сервис |
 
 ### Гайд внедрения
@@ -1908,7 +1888,6 @@ Frontend: React 19 · TypeScript · Vite · Tailwind CSS 4 · Zustand
 | [Claude Code Prompt Library](https://code.claude.com/docs/en/prompt-library) | Официальная библиотека Anthropic с copy-paste prompts для Claude Code, tags by task/role, explanation “why this works”. **Зачем нам:** **oh-my-claudecode**, **Hopson Sentinel**, **eclipse-library/prompts**, onboarding команды. Ценность не в копировании промптов, а в паттернах: outcome-first, verification, reference files, measurable targets |
 | [Editor Stylist Humanizer](prompts/editor-stylist-humanizer.md) | Новый более строгий prompt-asset для редактуры: убрать канцелярит, AI-ритм, симметричные абзацы, “не просто X, а Y”, сохранить голос автора. **Зачем нам:** **Eclipse AI Hub Copywriter**, **Star CRM AutoReply**, Telegram/LinkedIn тексты, landing copy. **Оговорка:** не использовать для академического обхода AI-detectors |
 | [Google AI Studio API Keys](https://aistudio.google.com/api-keys) | ♻️ **Дубль/напоминание:** уже есть в блоке бесплатных API. Полезно держать как baseline provider для pet/POC проектов: **Eclipse AI Hub**, **Shotforge**, **Text2Image**, **Educator-AI**, агенты. Проверять актуальные квоты/модели в AI Studio |
-| [Fable 5 system prompt leak](https://github.com/elder-plinius/CL4R1T4S/blob/main/ANTHROPIC/CLAUDE-FABLE-5.md) | ♻️ **Уже внесено как grey/reference.** Не “превращает Opus в Fable”. Это leak/сомнительный провенанс + возможная IP-проблема. Допустимо как study material по структуре system prompt, не как production prompt |
 
 ### Operational tables / business validation
 
@@ -2012,14 +1991,11 @@ Frontend: React 19 · TypeScript · Vite · Tailwind CSS 4 · Zustand
 |---|---|
 | [Seedream 5.0 Lite / Pro](https://higgsfield.ai/seedream-5.0) | Image generation/editing: region editing, layer-like правки, multi-image composition, изменение объекта по описанию, текст/инфографика/схемы, RU-friendly prompts. **Зачем нам:** **Shotforge**, **Text2Image**, **Eclipse Media**. Lite можно тестировать через Higgsfield / Dreamina, Pro API — только после проверки доступа, цены и лицензии |
 | [Dreamina Seedream entry](https://dreamina.capcut.com/) | Альтернативная точка входа для теста Seedream Lite. **Зачем нам:** быстрый ручной benchmark качества до решения об API-интеграции |
-| [Photo Restoration Prompt](prompts/photo-restoration-upscale.md) | Пресет для восстановления старых фото: царапины, пятна, шум, мягкое sharpening, естественная колоризация. **Зачем нам:** Shotforge/Text2Image/Eclipse Media как готовый prompt-asset для “restore old photo” workflow |
 
 ### Prompt assets / личные финансы
 
 | Ресурс | Описание |
 |---|---|
-| [Claude Finance — 6 prompts](prompts/finance-claude-6.md) | Долги, аудит расходов, простой бюджет, фильтр импульсных покупок, автосбережения, личный financial dashboard. **Зачем нам:** Eclipse AI Hub / Smart Life Assistant. Это бытовой planning-flow, не трейдинг и не финансовая рекомендация |
-| [finance-15.md](prompts/finance-15.md) | ♻️ Уже внесённый основной набор из 15 промптов. Новый файл выше добавлен как “операционный слой”: меньше теории, больше конкретных сценариев и действий |
 
 ### Уже учтено, не дублируем
 

@@ -26,7 +26,11 @@
 - filesystem mounts, MCP Roots и network destinations;
 - запросы на `0.0.0.0`, privileged ports или доступ к Docker socket.
 
-`mcp-scan` запускайте только внутри подготовленного sandbox. Сохраните machine-readable JSON как приватный CI artifact; не публикуйте raw descriptions, paths, tokens или пользовательские payloads.
+Scanner запускайте только внутри подготовленного sandbox. Старое название `mcp-scan` теперь ведёт на
+Snyk Agent Scan: актуальная версия требует Snyk token и отправляет tool names/descriptions в Snyk для анализа.
+Не подключайте этот режим без отдельного решения о third-party data sharing. В Eclipse Library для базовой
+проверки используется `scripts/runtime-scan-mcp.mjs`: автономный inspector получает только `tools/list`,
+не вызывает actions и пишет raw metadata в приватный краткоживущий CI artifact.
 
 ## 3. Выгрузить tool metadata без рабочих данных
 
@@ -40,6 +44,11 @@
 - несоответствие input schema реальному назначению tool.
 
 После ручного review сериализуйте только `name`, `description`, `inputSchema` и server version в стабильном порядке и посчитайте SHA-256. Hash можно перенести в `web/mcp-audit.json`; raw metadata в публичный каталог не переносится.
+
+Ручной workflow `Audit MCP runtime metadata` разрешён только для server/version, жёстко заданных в inspector.
+Filesystem получает пустой каталог из `${{ runner.temp }}`; runner не использует repository secrets и
+удаляется GitHub после job. Автоматически полученный hash не равен ручному approval: статус
+`runtime-reviewed` ставится только после просмотра private artifact человеком и проверки всех условий ниже.
 
 ## 4. Проверить действия с минимальными правами
 

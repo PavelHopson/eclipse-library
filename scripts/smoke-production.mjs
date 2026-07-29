@@ -36,9 +36,10 @@ async function fetchText(url) {
 export async function smokeProduction(baseValue, deploySha = '') {
   const base = validateBaseUrl(baseValue);
   const cacheKey = encodeURIComponent(deploySha || Date.now().toString());
-  const [localIndex, localApp, localMetadata, localProjects, localMcpAudit] = await Promise.all([
+  const [localIndex, localApp, localCatalog, localMetadata, localProjects, localMcpAudit] = await Promise.all([
     readFile(new URL('web/index.html', repoRoot), 'utf8'),
     readFile(new URL('web/app.js', repoRoot), 'utf8'),
+    readFile(new URL('web/catalog-index.json', repoRoot), 'utf8').then(JSON.parse),
     readFile(new URL('web/github-metadata.json', repoRoot), 'utf8').then(JSON.parse),
     readFile(new URL('web/projects.json', repoRoot), 'utf8').then(JSON.parse),
     readFile(new URL('web/mcp-audit.json', repoRoot), 'utf8').then(JSON.parse),
@@ -53,12 +54,16 @@ export async function smokeProduction(baseValue, deploySha = '') {
   const liveApp = await fetchText(appUrl);
   assert.equal(liveApp, localApp, 'Production app.js does not match the deployed commit.');
 
-  const [liveMetadata, liveProjects, liveMcpAudit, liveReadme] = await Promise.all([
+  const [liveCatalog, liveMetadata, liveProjects, liveMcpAudit, liveReadme] = await Promise.all([
+    fetchText(new URL(`catalog-index.json?deploy=${cacheKey}`, base)).then(JSON.parse),
     fetchText(new URL(`github-metadata.json?deploy=${cacheKey}`, base)).then(JSON.parse),
     fetchText(new URL(`projects.json?deploy=${cacheKey}`, base)).then(JSON.parse),
     fetchText(new URL(`mcp-audit.json?deploy=${cacheKey}`, base)).then(JSON.parse),
     fetchText(new URL(`README.md?deploy=${cacheKey}`, base)),
   ]);
+  assert.equal(liveCatalog?.schemaVersion, 1, 'Production catalog index schema is invalid.');
+  assert.equal(liveCatalog?.sourceHash, localCatalog.sourceHash, 'Production catalog index is stale.');
+  assert.deepEqual(liveCatalog?.totals, localCatalog.totals, 'Production catalog index totals are stale.');
   assert.equal(liveMetadata?.schemaVersion, 1, 'Production GitHub metadata schema is invalid.');
   assert.equal(liveMetadata?.totals?.repositories, localMetadata.totals.repositories, 'Production GitHub metadata is stale.');
   assert.equal(liveProjects?.schemaVersion, 1, 'Production projects schema is invalid.');
@@ -69,6 +74,7 @@ export async function smokeProduction(baseValue, deploySha = '') {
 
   return {
     appAsset: liveAppAsset,
+    catalogItems: liveCatalog.totals.all,
     projects: liveProjects.projects.length,
     repositories: liveMetadata.totals.repositories,
     mcpServers: liveMcpAudit.servers.length,
@@ -78,7 +84,7 @@ export async function smokeProduction(baseValue, deploySha = '') {
 if (process.argv[1] && fileURLToPath(import.meta.url) === resolve(process.argv[1])) {
   try {
     const result = await smokeProduction(process.argv[2] || `https://${allowedHost}/`, process.env.DEPLOY_SHA);
-    console.log(`Production smoke passed: ${result.appAsset}, ${result.projects} projects, ${result.repositories} repositories, ${result.mcpServers} MCP audit records.`);
+    console.log(`Production smoke passed: ${result.appAsset}, ${result.catalogItems} catalog items, ${result.projects} projects, ${result.repositories} repositories, ${result.mcpServers} MCP audit records.`);
   } catch (error) {
     console.error(error instanceof Error ? error.message : String(error));
     process.exitCode = 1;

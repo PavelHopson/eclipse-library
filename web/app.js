@@ -6,7 +6,7 @@
   const REPO = 'PavelHopson/eclipse-library';
   const RAW = `https://raw.githubusercontent.com/${REPO}/master/README.md`;
   const REPO_URL = `https://github.com/${REPO}`;
-  const DETAILS_URL = 'catalog-details.json?v=6';
+  const DETAILS_URL = 'catalog-index.json?v=1';
   const LINK_HEALTH_URL = 'link-health.json?v=1';
   const GITHUB_METADATA_URL = 'github-metadata.json?v=1';
   const MCP_AUDIT_URL = 'mcp-audit.json?v=1';
@@ -96,6 +96,7 @@
     commerce: { label: 'Сделать сайт или магазин', hint: 'лендинг, storefront и платежи', match: (c) => c.type === 'shop' || /storefront|e-commerce|интернет-магазин|лендинг|payment|платеж/i.test(c.text) },
   };
   let detailsByUrl = new Map();
+  let catalogTotals = { all: 0, verified: 0, inferred: 0 };
   let linkHealthByUrl = new Map();
   let linkHealthSnapshot = null;
   let githubMetadataByRepo = new Map();
@@ -553,7 +554,7 @@
     const host = (() => { try { return new URL(r.url).hostname.replace(/^www\./, ''); } catch (e) { return ''; } })();
     const inferredTrust = r.risk ? 'caution' : (r.starsRepo ? 'community' : 'unknown');
     const inferredLicense = inferLicense(ctx);
-    r.detail = detail;
+    r.detail = detail?.reviewStatus === 'verified' ? detail : null;
     r.type = detail?.type || r.type;
     r.id = detail?.id || slug(`${r.title}-${host}`) || `item-${Math.random().toString(36).slice(2, 9)}`;
     r.simpleDescription = detail?.simpleDescription || firstSentence(r.rawText) || 'Краткое описание пока не заполнено. Откройте источник и проверьте назначение перед использованием.';
@@ -813,7 +814,7 @@
 
     // stats
     $('#stats').innerHTML =
-      stat(total, 'уникальных материалов') + stat(detailsByUrl.size, 'подробно проверено') +
+      stat(total, 'уникальных материалов') + stat(catalogTotals.verified, 'подробно проверено') +
       stat(cats.length, 'категорий') +
       stat(Object.keys(typeCounts).length, 'типов');
     renderHealthSummary();
@@ -1703,9 +1704,11 @@
           try {
             const response = await fetch(DETAILS_URL, { cache: 'no-cache' });
             if (!response.ok) throw new Error(`HTTP ${response.status}`);
-            const details = await response.json();
-            if (!Array.isArray(details)) throw new Error('catalog-details.json должен содержать массив');
-            detailsByUrl = new Map(details.map((detail) => [canonicalUrl(detail.url), detail]));
+            const catalog = await response.json();
+            if (catalog?.schemaVersion !== 1 || !Array.isArray(catalog.items)) throw new Error('catalog-index.json имеет неверный формат');
+            if (catalog.totals?.all !== catalog.items.length || catalog.totals?.verified + catalog.totals?.inferred !== catalog.totals?.all) throw new Error('catalog-index.json содержит неверные счётчики');
+            catalogTotals = catalog.totals;
+            detailsByUrl = new Map(catalog.items.map((detail) => [canonicalUrl(detail.url), detail]));
           } catch (error) {
             console.warn('Structured catalog details are unavailable; using safe inferred metadata.', error);
           }
