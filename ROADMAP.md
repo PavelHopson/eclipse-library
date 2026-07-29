@@ -14,9 +14,9 @@
 - `web/link-health.json` — безопасный публичный snapshot weekly-аудита: доступность ссылки
   показывается отдельно от редакторского доверия и не считается security endorsement.
 - Deploy: GitHub Actions → VPS/Caddy из ветки `master`.
-- Production синхронизирован с `master`: повторный deploy
-  [#30451805450](https://github.com/PavelHopson/eclipse-library/actions/runs/30451805450)
-  от 29.07.2026 успешно завершён через VPS/Caddy после восстановления VPS.
+- Production синхронизирован с `master` commit `60d2ad2`: deploy
+  [#30472952267](https://github.com/PavelHopson/eclipse-library/actions/runs/30472952267)
+  от 29.07.2026 успешно завершён через VPS/Caddy; independent smoke подтвердил `app.js?v=29` и актуальные data snapshots.
 
 ## Приоритеты
 
@@ -101,6 +101,10 @@
   и console errors; mobile scroll сохранился на 2154 px после ожидания и не вернул страницу наверх.
 - Commits `22c7d97` и `194f0cd` отправлены в `origin/master`; первый добавил GitHub/Playwright runtime coverage,
   второй исправил Playwright fixture assertion через отдельный accessibility snapshot и очистил artifact.
+- Commit `60d2ad2` отправлен в `origin/master`; catalog CI
+  [#30472947626](https://github.com/PavelHopson/eclipse-library/actions/runs/30472947626) и production deploy
+  [#30472952267](https://github.com/PavelHopson/eclipse-library/actions/runs/30472952267) прошли. Live smoke подтвердил
+  `app.js?v=29`, 509 материалов, 22 проекта, 307 repository statuses и 5 MCP audit records.
 - Stage 13 завершил полный data layer: `web/catalog-index.json` содержит 509 уникальных карточек с единым
   contract для описания, сценариев, платформ, лицензии, цены, доступа, доверия, рисков, проектов, решения,
   безопасного старта и source location. 56 карточек имеют `reviewStatus=verified`, остальные 453 — честный
