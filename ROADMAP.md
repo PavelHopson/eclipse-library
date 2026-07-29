@@ -12,9 +12,9 @@
 - `web/link-health.json` — безопасный публичный snapshot weekly-аудита: доступность ссылки
   показывается отдельно от редакторского доверия и не считается security endorsement.
 - Deploy: GitHub Actions → VPS/Caddy из ветки `master`.
-- Production синхронизирован с `master`: deploy
-  [#30296773866](https://github.com/PavelHopson/eclipse-library/actions/runs/30296773866)
-  от 27.07.2026 успешно завершён через VPS/Caddy.
+- Production синхронизирован с `master`: повторный deploy
+  [#30451805450](https://github.com/PavelHopson/eclipse-library/actions/runs/30451805450)
+  от 29.07.2026 успешно завершён через VPS/Caddy после восстановления VPS.
 
 ## Приоритеты
 
@@ -84,9 +84,11 @@
   `111.88.125.84`, а HTTPS/SSH port 22 недоступны; основной `eclipse-forge.ru` на GitHub Pages отвечает 200.
   DNS не менялся без подтверждённого нового VPS IP.
 - Commit `44d34ae` отправлен в `origin/master`; catalog CI
-  [#30451805813](https://github.com/PavelHopson/eclipse-library/actions/runs/30451805813) прошёл. Deploy
-  [#30451805450](https://github.com/PavelHopson/eclipse-library/actions/runs/30451805450) успешно собрал payload,
-  но `rsync` завершился по таймауту SSH port 22; production пока не обновлён.
+  [#30451805813](https://github.com/PavelHopson/eclipse-library/actions/runs/30451805813) прошёл. После пополнения
+  баланса VPS снова открыл ports 22/80/443, повторный deploy
+  [#30451805450](https://github.com/PavelHopson/eclipse-library/actions/runs/30451805450) завершил `rsync` за 7 секунд.
+  Production QA подтвердил `app.js?v=23`, 509 карточек, lifecycle-фильтр, отсутствие horizontal overflow
+  и чистую browser console.
 - MCP-рекомендации переведены в implementation: Sentinel получил `mcp add-preset`, OMC —
   `omc mcp-baseline` с синхронизацией Claude/Codex, AI Hub — ignored project-local generator без
   browser-side credentials и автоматического запуска servers. Implementation commits: Sentinel
