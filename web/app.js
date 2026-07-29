@@ -8,6 +8,7 @@
   const REPO_URL = `https://github.com/${REPO}`;
   const DETAILS_URL = 'catalog-details.json?v=5';
   const LINK_HEALTH_URL = 'link-health.json?v=1';
+  const GITHUB_METADATA_URL = 'github-metadata.json?v=1';
   const PROJECTS_URL = 'projects.json?v=1';
   const PAGE_SIZE = 36;
   const FAVORITES_KEY = 'eclipse-library:favorites:v1';
@@ -45,6 +46,12 @@
     skipped: 'Автопроверка пропущена',
     unchecked: 'Ещё не проверялась автоматически',
   };
+  const REPOSITORY_STATE = {
+    active: 'Активный GitHub-репозиторий',
+    archived: 'GitHub-репозиторий архивирован',
+    disabled: 'GitHub-репозиторий отключён',
+    unknown: 'Состояние GitHub не проверено',
+  };
   const TOPIC_ROUTES = {
     verified: { title: 'Проверено редактором', description: 'Материалы с ручной проверкой источника, лицензии, условий, рисков и применимости к проектам Eclipse Forge.', match: (c) => Boolean(c.resource.detail) },
     skills: { title: 'Skills для AI-агентов', description: 'Готовые инструкции и повторяемые workflows. Перед установкой проверьте permissions и содержимое skill.', type: 'skill', match: (c) => c.type === 'skill' },
@@ -57,6 +64,8 @@
   let detailsByUrl = new Map();
   let linkHealthByUrl = new Map();
   let linkHealthSnapshot = null;
+  let githubMetadataByRepo = new Map();
+  let githubMetadataSnapshot = null;
   let duplicateCount = 0;
   let projects = [];
   let projectStatus = '';
@@ -78,6 +87,16 @@
       u.pathname = u.pathname.replace(/\/+$/, '') || '/';
       return u.toString().replace(/\/$/, '');
     } catch (e) { return (url || '').trim().toLowerCase().replace(/#.*$/, '').replace(/\/$/, ''); }
+  };
+  const reservedGithubRoutes = new Set(['collections', 'events', 'features', 'login', 'marketplace', 'new', 'orgs', 'search', 'settings', 'sponsors', 'topics', 'users']);
+  const githubRepoKey = (value) => {
+    try {
+      const url = new URL(String(value).replace(/[.,;:!?]+$/, ''));
+      if (url.hostname.toLowerCase().replace(/^www\./, '') !== 'github.com') return null;
+      const [owner, rawRepo] = url.pathname.split('/').filter(Boolean);
+      const repo = rawRepo?.replace(/\.git$/i, '');
+      return owner && repo && !reservedGithubRoutes.has(owner.toLowerCase()) ? `${owner.toLowerCase()}/${repo.toLowerCase()}` : null;
+    } catch (error) { return null; }
   };
   function loadFavorites() {
     try {
@@ -479,6 +498,11 @@
     r.freshness = freshnessState(r.verifiedAt);
     r.quickStart = detail?.quickStart || defaultSteps(r);
     r.linkHealth = linkHealthByUrl.get(canonicalUrl(r.url)) || { status: 'unchecked', httpStatus: null };
+    r.githubRepoKey = githubRepoKey(r.url);
+    r.repositoryMetadata = r.githubRepoKey
+      ? githubMetadataByRepo.get(r.githubRepoKey) || { key: r.githubRepoKey, state: 'unknown', pushedAt: null, updatedAt: null }
+      : null;
+    r.repositoryState = r.repositoryMetadata?.state || '';
     return r;
   }
 
@@ -612,7 +636,8 @@
         const grid = el('div', 'grid');
         s.resources.forEach((r) => {
           typeCounts[r.type] = (typeCounts[r.type] || 0) + 1;
-          const card = el('article', 'card' + (r.riskLevel === 'high' || r.trust === 'caution' ? ' risk' : '') + (r.detail ? ' enriched' : ''));
+          const repositoryInactive = ['archived', 'disabled'].includes(r.repositoryState);
+          const card = el('article', 'card' + (r.riskLevel === 'high' || r.trust === 'caution' ? ' risk' : '') + (r.detail ? ' enriched' : '') + (repositoryInactive ? ' repository-inactive' : ''));
           card.dataset.type = r.type;
           card.dataset.itemId = r.id;
           card.dataset.freshness = r.freshness;
@@ -623,6 +648,11 @@
           const health = el('span', `link-health health-${r.linkHealth.status}`, esc(LINK_HEALTH[r.linkHealth.status] || LINK_HEALTH.unchecked));
           health.title = 'Автоматическая проверка доступности ссылки, а не гарантия безопасности продукта';
           top.appendChild(health);
+          if (repositoryInactive) {
+            const repository = el('span', `repository-state repository-${r.repositoryState}`, esc(r.repositoryState === 'archived' ? 'Репозиторий архивирован' : 'Репозиторий отключён'));
+            repository.title = 'Проект больше не принимает обычные изменения; используйте как reference и ищите поддерживаемую альтернативу.';
+            top.appendChild(repository);
+          }
           if (r.starsRepo) {
             const img = el('img', 'stars'); img.loading = 'lazy'; img.alt = 'GitHub stars';
             img.src = `https://img.shields.io/github/stars/${r.starsRepo}?style=flat&color=8b5cf6&labelColor=15151c&logo=github&logoColor=cfcfe0`;
@@ -662,7 +692,7 @@
           grid.appendChild(card);
           const searchText = [
             r.title, r.rawText, r.simpleDescription, r.type, r.license, r.pricing,
-            r.platforms.join(' '), r.projects.join(' '), r.useCases.join(' '), TRUST[r.trust], LINK_HEALTH[r.linkHealth.status],
+            r.platforms.join(' '), r.projects.join(' '), r.useCases.join(' '), TRUST[r.trust], LINK_HEALTH[r.linkHealth.status], REPOSITORY_STATE[r.repositoryState] || '',
           ].join(' ').toLowerCase();
           cards.push({
             node: card,
@@ -677,6 +707,7 @@
             trust: r.trust,
             projects: r.projects,
             freshness: r.freshness,
+            repositoryState: r.repositoryState,
             text: searchText,
             sub: subWrap,
             cat: section,
@@ -787,7 +818,7 @@
   const stat = (n, l) => `<div class="stat"><b>${n}</b><span>${l}</span></div>`;
 
   // ---- filters (type + platform + license + trust + project + search) ----
-  let activeType = null, activePlatform = '', activeLicense = '', activeTrust = '', activeProject = '', activeFreshness = '', activeTopic = '', activeSort = 'catalog', activeFavorites = false;
+  let activeType = null, activePlatform = '', activeLicense = '', activeTrust = '', activeProject = '', activeFreshness = '', activeRepositoryState = '', activeTopic = '', activeSort = 'catalog', activeFavorites = false;
   let query = '', navQuery = '', visibleLimit = PAGE_SIZE;
   function buildFilters(typeCounts) {
     const bar = $('#filters');
@@ -804,6 +835,7 @@
     fillSelect($('#trustFilter'), [...new Set(cards.map((c) => c.trust))], (value) => TRUST[value] || value);
     fillSelect($('#projectFilter'), [...new Set(cards.flatMap((c) => c.projects))]);
     fillSelect($('#freshnessFilter'), [...new Set(cards.map((c) => c.freshness))], (value) => FRESHNESS[value] || value);
+    fillSelect($('#repositoryFilter'), [...new Set(cards.map((c) => c.repositoryState))], (value) => REPOSITORY_STATE[value] || value);
 
     const reset = $('#filterReset');
     reset.addEventListener('click', () => clearLibraryFilters({ focus: true }));
@@ -812,6 +844,7 @@
     $('#trustFilter').addEventListener('change', (e) => { activeTrust = e.target.value; applyFilters(); });
     $('#projectFilter').addEventListener('change', (e) => { activeProject = e.target.value; applyFilters(); });
     $('#freshnessFilter').addEventListener('change', (e) => { activeFreshness = e.target.value; applyFilters(); });
+    $('#repositoryFilter').addEventListener('change', (e) => { activeRepositoryState = e.target.value; applyFilters(); });
     $('#sortFilter').addEventListener('change', (e) => { activeSort = e.target.value; applyFilters(); });
     $('#savedToggle').addEventListener('click', () => {
       activeFavorites = !activeFavorites;
@@ -871,6 +904,7 @@
     activeTrust = '';
     activeProject = '';
     activeFreshness = '';
+    activeRepositoryState = '';
     activeSort = 'catalog';
     activeFavorites = false;
     clearTopicRoute();
@@ -881,6 +915,7 @@
     $('#trustFilter').value = '';
     $('#projectFilter').value = '';
     $('#freshnessFilter').value = '';
+    $('#repositoryFilter').value = '';
     $('#sortFilter').value = 'catalog';
     updateFavoritesUI();
     updateChipState();
@@ -899,6 +934,7 @@
         (!activeTrust || c.trust === activeTrust) &&
         (!activeProject || c.projects.includes(activeProject)) &&
         (!activeFreshness || c.freshness === activeFreshness) &&
+        (!activeRepositoryState || c.repositoryState === activeRepositoryState) &&
         (!activeFavorites || favorites.has(c.favoriteKey)) &&
         (!activeTopic || TOPIC_ROUTES[activeTopic]?.match(c))
     ).sort(sortCards);
@@ -915,7 +951,7 @@
     document.querySelectorAll('.sub').forEach((s) => { s.hidden = !s.querySelector('.card:not([hidden])'); });
     document.querySelectorAll('.cat').forEach((s) => { s.hidden = !s.querySelector('.card:not([hidden])'); });
     if (!sortedMode) updateNavVisibility();
-    const filtering = !!(q || activeType || activePlatform || activeLicense || activeTrust || activeProject || activeFreshness || activeTopic || activeFavorites);
+    const filtering = !!(q || activeType || activePlatform || activeLicense || activeTrust || activeProject || activeFreshness || activeRepositoryState || activeTopic || activeFavorites);
     $('#hero').classList.toggle('dim', filtering);
     const shown = Math.min(matched, visibleLimit);
     $('#resultcount').textContent = shown < matched ? `${shown} из ${matched}` : `${matched} ${matched === 1 ? 'материал' : 'материалов'}`;
@@ -927,15 +963,15 @@
     }
     const reset = $('#filterReset');
     if (reset) reset.hidden = !(filtering || activeSort !== 'catalog');
-    const advancedCount = [activePlatform, activeLicense, activeTrust, activeProject, activeFreshness].filter(Boolean).length;
+    const advancedCount = [activePlatform, activeLicense, activeTrust, activeProject, activeFreshness, activeRepositoryState].filter(Boolean).length;
     const advancedLabel = $('#advancedFilterCount');
-    if (advancedLabel) advancedLabel.textContent = advancedCount ? `выбрано: ${advancedCount}` : 'платформа, лицензия, доверие и проект';
+    if (advancedLabel) advancedLabel.textContent = advancedCount ? `выбрано: ${advancedCount}` : 'платформа, лицензия, доверие, проект и статус GitHub';
     const advanced = $('#advancedFilters');
     if (advanced && advancedCount) advanced.open = true;
     const empty = $('#empty');
     empty.hidden = !(filtering && matched === 0);
     if (!empty.hidden) {
-      const reason = q || TOPIC_ROUTES[activeTopic]?.title || activeProject || activePlatform || (LICENSE_GROUPS[activeLicense] || '') || (FRESHNESS[activeFreshness] || '') || (TRUST[activeTrust] || '') || (TYPE_GROUPS[activeType]?.label || '');
+      const reason = q || TOPIC_ROUTES[activeTopic]?.title || activeProject || activePlatform || (LICENSE_GROUPS[activeLicense] || '') || (FRESHNESS[activeFreshness] || '') || (REPOSITORY_STATE[activeRepositoryState] || '') || (TRUST[activeTrust] || '') || (TYPE_GROUPS[activeType]?.label || '');
       $('#emptyMessage').textContent = activeFavorites && favorites.size === 0
         ? 'В избранном пока пусто. Сохраните нужный материал кнопкой-закладкой на карточке.'
         : `По выбранным условиям ничего не найдено${reason ? `: ${reason}` : '.'}`;
@@ -952,7 +988,7 @@
     const dateB = Date.parse(b.resource.verifiedAt || '') || 0;
     if (activeSort === 'trust') return (trustRank[b.trust] || 0) - (trustRank[a.trust] || 0) || dateB - dateA || a.order - b.order;
     if (activeSort === 'freshness') return dateB - dateA || (trustRank[b.trust] || 0) - (trustRank[a.trust] || 0) || a.order - b.order;
-    const score = (card) => (card.resource.detail ? 30 : 0) + (decisionRank[card.resource.decision] || 0) * 8 + (trustRank[card.trust] || 0) * 4 + (card.freshness === 'fresh' ? 8 : 0) - (card.resource.riskLevel === 'high' ? 8 : 0);
+    const score = (card) => (card.resource.detail ? 30 : 0) + (decisionRank[card.resource.decision] || 0) * 8 + (trustRank[card.trust] || 0) * 4 + (card.freshness === 'fresh' ? 8 : 0) - (card.resource.riskLevel === 'high' ? 8 : 0) - (['archived', 'disabled'].includes(card.repositoryState) ? 40 : 0);
     return score(b) - score(a) || dateB - dateA || a.order - b.order;
   }
 
@@ -978,12 +1014,16 @@
     const visible = projects.filter((project) => (!projectStatus || project.status === projectStatus) && (!q || [project.name, project.kind, project.summary, project.problem, ...project.audience, ...project.tech].join(' ').toLowerCase().includes(q)));
     grid.innerHTML = visible.map((project) => {
       const status = project.status === 'live' ? 'Работает' : project.status === 'beta' ? 'Beta' : 'В разработке';
+      const repositoryState = project.repoUrl ? githubMetadataByRepo.get(githubRepoKey(project.repoUrl))?.state : '';
+      const repositoryBadge = ['archived', 'disabled'].includes(repositoryState)
+        ? `<i class="project-status status-${repositoryState}">${repositoryState === 'archived' ? 'Репозиторий архивирован' : 'Репозиторий отключён'}</i>`
+        : '';
       const links = [
         project.liveUrl && `<a class="project-primary" href="${escAttr(project.liveUrl)}" target="_blank" rel="noopener">Открыть проект ↗</a>`,
         project.repoUrl && `<a href="${escAttr(project.repoUrl)}" target="_blank" rel="noopener">Исходный код ↗</a>`,
       ].filter(Boolean).join('');
-      return `<article class="project-card${project.featured ? ' project-featured' : ''}">
-        <div class="project-top"><span>${esc(project.kind)}</span><i class="project-status status-${project.status}">${status}</i></div>
+      return `<article class="project-card${project.featured ? ' project-featured' : ''}${repositoryBadge ? ' repository-inactive' : ''}">
+        <div class="project-top"><span>${esc(project.kind)}</span><div><i class="project-status status-${project.status}">${status}</i>${repositoryBadge}</div></div>
         <h3>${esc(project.name)}</h3><p class="project-summary">${esc(project.summary)}</p>
         <div class="project-solves"><b>Что решает</b><p>${esc(project.problem)}</p></div>
         <div class="project-tags">${project.tech.map((item) => `<span>${esc(item)}</span>`).join('')}</div>
@@ -1071,6 +1111,24 @@
   }
 
   // ---- scrollspy ----
+  function revealActiveNavLink(link) {
+    const nav = $('#nav');
+    if (!nav) return;
+
+    // On tablet/mobile the category navigation is a horizontal strip above the
+    // catalog. scrollIntoView() also scrolls the page vertically, so calling it
+    // from IntersectionObserver can throw the reader back to the top.
+    if (window.matchMedia('(max-width: 960px)').matches) {
+      const navRect = nav.getBoundingClientRect();
+      const linkRect = link.getBoundingClientRect();
+      if (linkRect.left < navRect.left) nav.scrollLeft -= navRect.left - linkRect.left;
+      else if (linkRect.right > navRect.right) nav.scrollLeft += linkRect.right - navRect.right;
+      return;
+    }
+
+    link.scrollIntoView({ block: 'nearest' });
+  }
+
   function scrollSpy() {
     const links = [...document.querySelectorAll('#nav a')];
     const map = new Map(links.map((a) => [a.getAttribute('href').slice(1), a]));
@@ -1078,7 +1136,7 @@
       entries.forEach((e) => {
         if (e.isIntersecting) {
           links.forEach((a) => a.classList.remove('active'));
-          const a = map.get(e.target.id); if (a) { a.classList.add('active'); a.scrollIntoView({ block: 'nearest' }); }
+          const a = map.get(e.target.id); if (a) { a.classList.add('active'); revealActiveNavLink(a); }
         }
       });
     }, { rootMargin: '-120px 0px -72% 0px' });
@@ -1280,12 +1338,16 @@
     }
     const totals = linkHealthSnapshot.totals || {};
     const attention = (totals.broken || 0) + (totals.blocked || 0) + (totals.unavailable || 0) + (totals.unknown || 0);
+    const archived = githubMetadataSnapshot?.totals?.archived || 0;
+    const repositoryNote = githubMetadataSnapshot
+      ? ` ${archived} GitHub-репозитория архивированы и помечены отдельно.`
+      : ' Состояние GitHub-репозиториев сейчас не проверено.';
     node.className = `health-summary${attention ? ' health-summary-attention' : ''}`;
-    node.innerHTML = `<span class="health-summary-dot" aria-hidden="true"></span><span><b>${totals.ok || 0} ссылок работают.</b> ${attention} требуют внимания, ${totals.restricted || 0} отвечают с ограничением. Автопроверка: ${esc(formatAutomaticCheck(linkHealthSnapshot.checkedAt))}.</span>`;
+    node.innerHTML = `<span class="health-summary-dot" aria-hidden="true"></span><span><b>${totals.ok || 0} ссылок работают.</b> ${attention} требуют внимания, ${totals.restricted || 0} отвечают с ограничением.${esc(repositoryNote)} Автопроверка: ${esc(formatAutomaticCheck(linkHealthSnapshot.checkedAt))}.</span>`;
   }
 
   function relatedCardsFor(entry, limit = 3) {
-    const verified = cards.filter((candidate) => candidate !== entry && candidate.resource.detail && candidate.resource.decision !== 'no');
+    const verified = cards.filter((candidate) => candidate !== entry && candidate.resource.detail && candidate.resource.decision !== 'no' && !['archived', 'disabled'].includes(candidate.repositoryState));
     const sameMcpTopic = /\bmcp\b/i.test(entry.resource.title)
       ? verified.filter((candidate) => /\bmcp\b/i.test(candidate.resource.title))
       : [];
@@ -1353,6 +1415,11 @@
     const projectHtml = r.projects.length
       ? `<div class="project-list">${r.projects.map((project) => `<span>${esc(project)}</span>`).join('')}</div>`
       : '<p class="item-muted">Прямая применимость к проектам Eclipse Forge пока не подтверждена.</p>';
+    const repositoryNotice = r.repositoryState === 'archived'
+      ? '<div class="repository-notice"><b>Репозиторий архивирован.</b> Код остаётся доступен, но обычная разработка остановлена. Используйте материал как reference или выберите поддерживаемую альтернативу.</div>'
+      : r.repositoryState === 'disabled'
+        ? '<div class="repository-notice"><b>Репозиторий отключён GitHub.</b> Не устанавливайте и не внедряйте его без отдельной проверки причины и безопасной альтернативы.</div>'
+        : '';
     body.innerHTML =
       `<div class="item-kicker"><span class="type-chip t-${r.type}">${esc(TYPES[r.type] || r.type)}</span>` +
         `<span class="trust-chip ${trustClass}">${esc(TRUST[r.trust] || TRUST.unknown)}</span>` +
@@ -1360,6 +1427,7 @@
         `<span class="verify-date">${esc(formatVerifiedAt(r.verifiedAt))}</span></div>` +
       `<h1 id="itemTitle">${esc(r.title)}</h1>` +
       `<p class="item-lead">${esc(r.simpleDescription)}</p>` +
+      repositoryNotice +
       `<div id="itemActionSlot" class="item-action-slot"></div>` +
       `<div class="fact-grid">` +
         `<div><span>Где работает</span><b>${esc(r.platforms.join(', '))}</b></div>` +
@@ -1367,6 +1435,7 @@
         `<div><span>Лицензия</span><b>${esc(r.license)}</b></div>` +
         `<div><span>Решение Eclipse</span><b>${esc(DECISIONS[r.decision] || DECISIONS.reference)}</b></div>` +
         `<div><span>Актуальность</span><b>${esc(FRESHNESS[r.freshness] || FRESHNESS.unknown)}</b></div>` +
+        `${r.repositoryState ? `<div><span>Состояние GitHub</span><b>${esc(REPOSITORY_STATE[r.repositoryState] || REPOSITORY_STATE.unknown)}</b><small>Автопроверка ${esc(formatAutomaticCheck(githubMetadataSnapshot?.checkedAt))}.</small></div>` : ''}` +
         `<div><span>Доступность ссылки</span><b>${esc(LINK_HEALTH[r.linkHealth.status] || LINK_HEALTH.unchecked)}</b><small>Автопроверка ${esc(formatAutomaticCheck(linkHealthSnapshot?.checkedAt))}; это не гарантия безопасности.</small></div>` +
       `</div>` +
       `<section class="item-section"><h2>Когда пригодится</h2>${itemList(r.useCases)}</section>` +
@@ -1468,6 +1537,24 @@
             linkHealthByUrl = new Map(snapshot.links.map((item) => [canonicalUrl(item.url), item]));
           } catch (error) {
             console.warn('Automatic link health is unavailable; showing an honest unknown state.', error);
+          }
+        })(),
+        (async () => {
+          try {
+            const response = await fetch(GITHUB_METADATA_URL, { cache: 'no-cache' });
+            if (!response.ok) throw new Error(`HTTP ${response.status}`);
+            const snapshot = await response.json();
+            const states = new Set(Object.keys(REPOSITORY_STATE));
+            const validRepositories = Array.isArray(snapshot?.repositories) && snapshot.repositories.every((repo) =>
+              /^[a-z0-9_.-]+\/[a-z0-9_.-]+$/.test(repo?.key || '') && states.has(repo?.state),
+            );
+            if (snapshot?.schemaVersion !== 1 || !Number.isFinite(Date.parse(snapshot?.checkedAt)) || !validRepositories || snapshot?.totals?.repositories !== snapshot.repositories.length) {
+              throw new Error('Некорректный GitHub metadata snapshot');
+            }
+            githubMetadataSnapshot = snapshot;
+            githubMetadataByRepo = new Map(snapshot.repositories.map((repo) => [repo.key, repo]));
+          } catch (error) {
+            console.warn('GitHub repository metadata is unavailable; archived state remains unknown.', error);
           }
         })(),
         (async () => {

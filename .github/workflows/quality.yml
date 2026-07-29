@@ -30,5 +30,9 @@ jobs:
         run: node scripts/validate-projects.mjs
       - name: Validate published link health
         run: node scripts/validate-link-health.mjs
+      - name: Validate GitHub repository metadata
+        run: |
+          node --test scripts/github-metadata.test.mjs
+          node scripts/validate-github-metadata.mjs
       - name: Audit catalog identity offline
         run: node scripts/check-links.mjs

@@ -47,6 +47,8 @@
       tool-poisoning рисками и отдельным решением для неподдерживаемых servers.
 - [x] Stage 9 — перевести MCP-рекомендации в безопасные project integrations: Sentinel CLI presets,
       OMC unified registry baseline и developer-only generator для browser-based AI Hub.
+- [x] Stage 10 — отделить доступность URL от жизненного цикла GitHub-проекта: weekly metadata snapshot,
+      archived/disabled badges, repository-state filter и исключение неподдерживаемых repositories из рекомендаций.
 
 - [ ] Частично: перевести все записи из неструктурированных Markdown-описаний в schema с полями:
       `type`, `category`, `platform`, `license`, `trust`, `risk`, `projects`, `verifiedAt`.
@@ -69,6 +71,18 @@
 
 ### 2026-07-29
 
+- Исправлен mobile scroll-jump: scrollspy больше не вызывает вертикальный `scrollIntoView()` для
+  горизонтальной ленты категорий на ширине до 960 px. Активная категория прокручивается только внутри
+  самой ленты; проверено на 390×844 длинным скроллом каталога без возврата страницы наверх.
+- Добавлен автоматический GitHub lifecycle layer для 307 repositories: GraphQL refresh получает только
+  публичные `active` / `archived` / `disabled` статусы и даты активности, не публикует private metadata,
+  descriptions или tokens. Snapshot проходит отдельную schema validation и обновляется weekly.
+- UI сразу объясняет, что repository архивирован или отключён, показывает статус в resource/project cards
+  и detail view, позволяет фильтровать каталог и не поднимает неподдерживаемые проекты в recommended sort
+  и related materials. На первой проверке найдены 4 архивированных repository, включая OMC.
+- Infrastructure recheck подтвердил внешний blocker публикации: `library` и `hub` резолвятся в
+  `111.88.125.84`, а HTTPS/SSH port 22 недоступны; основной `eclipse-forge.ru` на GitHub Pages отвечает 200.
+  DNS не менялся без подтверждённого нового VPS IP.
 - MCP-рекомендации переведены в implementation: Sentinel получил `mcp add-preset`, OMC —
   `omc mcp-baseline` с синхронизацией Claude/Codex, AI Hub — ignored project-local generator без
   browser-side credentials и автоматического запуска servers. Implementation commits: Sentinel

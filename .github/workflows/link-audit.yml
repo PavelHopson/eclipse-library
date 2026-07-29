@@ -31,12 +31,23 @@ jobs:
         run: |
           node scripts/build-link-health.mjs
           node scripts/validate-link-health.mjs
+      - name: Refresh public GitHub repository metadata
+        id: github_metadata
+        continue-on-error: true
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        run: |
+          node scripts/refresh-github-metadata.mjs
+          node scripts/validate-github-metadata.mjs
       - name: Publish status snapshot
         if: always() && steps.build_snapshot.outcome == 'success'
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add -- web/link-health.json
+          if [ "${{ steps.github_metadata.outcome }}" = "success" ]; then
+            git add -- web/github-metadata.json
+          fi
           if git diff --cached --quiet; then
             echo "Link-health snapshot is unchanged."
           else
