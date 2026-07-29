@@ -81,6 +81,10 @@
   inspect или `mcp-scan`, поскольку даже официальный MCP metadata остаётся недоверенным вводом.
 - Production workflow больше не зависит от отдельного блокирующего `ssh-keyscan`; SSH host принимается
   на первом реальном соединении через `StrictHostKeyChecking=accept-new` вместо небезопасного `no`.
+- Commits `0650dbd` и `5986c30` отправлены в `origin/master`; catalog CI
+  [#30446188360](https://github.com/PavelHopson/eclipse-library/actions/runs/30446188360) прошёл. Deploy
+  [#30446354919](https://github.com/PavelHopson/eclipse-library/actions/runs/30446354919) дошёл до `rsync`,
+  но VPS не ответил на SSH port 22; production и live responsive QA остаются незавершёнными.
 
 ### 2026-07-27
 
