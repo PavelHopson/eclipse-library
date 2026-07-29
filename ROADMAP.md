@@ -52,11 +52,15 @@
       archived/disabled badges, repository-state filter и исключение неподдерживаемых repositories из рекомендаций.
 - [x] Stage 11 — добавить task-first discovery, shareable URL состояния фильтров и мобильную bottom-sheet
       панель, которая не блокирует страницу при открытии ссылки и не ломает вертикальный скролл.
+- [x] Stage 12 — нормализовать стоимость, регистрацию и место запуска для подробно проверенных карточек,
+      добавить shareable access filters, incremental duplicate gate и честный MCP runtime-audit status.
 
 - [ ] Частично: перевести все записи из неструктурированных Markdown-описаний в schema с полями:
       `type`, `category`, `platform`, `license`, `trust`, `risk`, `projects`, `verifiedAt`.
-- [ ] Частично: добавить автоматический duplicate check по canonical URL, GitHub `owner/repo`,
-      normalized title и redirect target.
+- [x] Блокировать новые дубли по canonical URL, GitHub `owner/repo`, normalized title и redirect target;
+      текущие исторические повторы закреплены baseline и не могут незаметно расти.
+- [ ] Редакторски объединить 21 историческую canonical-URL duplicate group в README, сохранив полезный
+      контекст старых подборок через ссылки на основную карточку.
 - [x] Добавить фильтры по platform, license, trust/risk и Eclipse project applicability.
 - [x] Добавить visible badges «официальный источник», «лицензия», «risk» и
       «проверено <дата>», не заставляя пользователя читать всю карточку.
@@ -64,16 +68,30 @@
 ### P2
 
 - [x] Стабильные deep links на каждую запись.
-- [ ] Частично: freshness review — UI уже различает недавно проверенные карточки и
+- [x] Freshness review — UI различает недавно проверенные карточки и
       записи без даты, а weekly snapshot показывает `ok` / `restricted` / `unavailable` /
-      `unknown` / `broken` / `blocked`; archived repository metadata ещё нужно добавить отдельно.
-- [ ] Автоматический GitHub metadata refresh без доверия к stars как quality score.
+      `unknown` / `broken` / `blocked`; archived repository metadata показывается отдельным lifecycle status.
+- [x] Автоматический GitHub metadata refresh без доверия к stars как quality score.
 - [x] Отдельные landing routes для skills, MCP, models, prompts, courses и security.
 
 ## Changelog
 
 ### 2026-07-29
 
+- Stage 12 добавил к 56 редакторски проверенным карточкам нормализованный `access` contract:
+  `cost`, `signup`, `runtime`. Для остальных материалов UI использует консервативное inference и оставляет
+  `unknown`, если утверждение нельзя сделать из опубликованного описания.
+- Advanced filters теперь отвечают на три бытовых вопроса: можно ли начать бесплатно, нужен ли аккаунт и
+  где запускается продукт. Они комбинируются с остальными условиями, сохраняются в URL и на mobile остаются
+  внутри той же bottom sheet; карточки сразу показывают эти признаки простыми словами.
+- Добавлен incremental duplicate gate с тестами и baseline: новые или выросшие повторы canonical URL,
+  GitHub repository и normalized title блокируют CI. Weekly link audit продолжает отдельно ловить redirect-target
+  duplicates. В baseline остаётся 21 историческая canonical group — это редакторский cleanup, а не скрытый долг.
+- Пять MCP-карточек получили отдельный audit status. Четыре официальных server отмечены `runtime-pending`,
+  архивный PostgreSQL reference — `blocked`; публичный snapshot не содержит raw tool descriptions или secrets.
+  Добавлен sandbox-runbook и validator, который требует SHA-256 toolset hash перед `runtime-reviewed`.
+- Фактический runtime scan не запускался: Docker/disposable sandbox на рабочей машине отсутствует, а запуск
+  MCP packages или `mcp-scan` напрямую нарушил бы правило изоляции непроверенного кода.
 - Добавлены шесть простых входов по задаче: local AI, автоматизация, исследование, security, media и
   commerce. Выбор работает совместно с поиском, типами и advanced filters; вся подборка кодируется в URL,
   восстанавливается после reload и копируется одной кнопкой без аккаунта.
