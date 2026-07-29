@@ -80,6 +80,14 @@
 
 ### 2026-07-29
 
+- MCP runtime workflow расширен pinned GitHub MCP `0.31.0` и Playwright MCP `0.0.78`. GitHub server
+  запускается в read-only/lockdown `stdio` container без сети, Linux capabilities и рабочего token;
+  Playwright — с точной browser dependency, `--isolated`, пустым profile/output и только owned loopback
+  fixtures. Активные проверки запрещают write surface, чтение без credentials, второй origin и `file:` вне
+  workspace; production secrets и пользовательские browser sessions workflow не получает.
+- Для Context7 зафиксирована privacy boundary: local package и remote MCP отправляют свободный query во
+  внешний Context7 API. API key влияет на authentication/limits, но не делает содержимое запроса локальным,
+  поэтому private code, secrets, персональные и закрытые бизнес-данные передавать нельзя.
 - Stage 13 завершил полный data layer: `web/catalog-index.json` содержит 509 уникальных карточек с единым
   contract для описания, сценариев, платформ, лицензии, цены, доступа, доверия, рисков, проектов, решения,
   безопасного старта и source location. 56 карточек имеют `reviewStatus=verified`, остальные 453 — честный

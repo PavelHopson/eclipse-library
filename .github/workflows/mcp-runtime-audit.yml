@@ -15,7 +15,7 @@ concurrency:
 jobs:
   inspect:
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    timeout-minutes: 20
     steps:
       - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
         with:
@@ -26,14 +26,21 @@ jobs:
       - name: Prepare empty scoped filesystem
         run: |
           mkdir -p "$RUNNER_TEMP/eclipse-library-mcp-root"
+          mkdir -p "$RUNNER_TEMP/eclipse-library-playwright-output"
           printf '%s\n' 'ECLIPSE_MCP_ALLOWED_MARKER' > "$RUNNER_TEMP/eclipse-library-mcp-root/allowed.txt"
           printf '%s\n' 'ECLIPSE_MCP_OUTSIDE_MARKER' > "$RUNNER_TEMP/eclipse-library-mcp-outside.txt"
           ln -s "$RUNNER_TEMP/eclipse-library-mcp-outside.txt" "$RUNNER_TEMP/eclipse-library-mcp-root/outside-link.txt"
-      - name: Inspect pinned MCP tool metadata without calling tools
+      - name: Install pinned isolated Playwright browser
+        env:
+          npm_config_ignore_scripts: 'true'
+          npm_config_audit: 'true'
+        run: npx -y playwright@1.62.0-alpha-1783623505000 install --with-deps chromium
+      - name: Inspect pinned MCP metadata and owned fixtures
         env:
           MCP_FILESYSTEM_ROOT: ${{ runner.temp }}/eclipse-library-mcp-root
           MCP_TEST_FILE: ${{ runner.temp }}/eclipse-library-mcp-root/allowed.txt
           MCP_SYMLINK_FILE: ${{ runner.temp }}/eclipse-library-mcp-root/outside-link.txt
+          MCP_PLAYWRIGHT_OUTPUT: ${{ runner.temp }}/eclipse-library-playwright-output
           MCP_ACTIVE_TESTS: 'true'
           MCP_AUDIT_OUTPUT: .artifacts/mcp-runtime
           npm_config_ignore_scripts: 'true'

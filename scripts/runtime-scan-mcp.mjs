@@ -1,6 +1,7 @@
 import { createHash } from 'node:crypto';
 import { mkdir, readFile, writeFile } from 'node:fs/promises';
 import { spawn } from 'node:child_process';
+import { createServer } from 'node:http';
 import { join } from 'node:path';
 import { metadataFindings } from './mcp-metadata-policy.mjs';
 
@@ -11,8 +12,47 @@ const activeTestsEnabled = process.env.MCP_ACTIVE_TESTS === 'true';
 const expectedAudit = JSON.parse(await readFile('web/mcp-audit.json', 'utf8'));
 const expectedHashById = new Map(expectedAudit.servers.map((server) => [server.id, server.toolsetHash || null]));
 
+async function startFixture(marker) {
+  const fixture = createServer((request, response) => {
+    response.writeHead(200, { 'content-type': 'text/html; charset=utf-8', 'cache-control': 'no-store' });
+    response.end(`<!doctype html><title>MCP audit fixture</title><main>${marker}</main>`);
+  });
+  await new Promise((resolve, reject) => {
+    fixture.once('error', reject);
+    fixture.listen(0, '127.0.0.1', resolve);
+  });
+  const address = fixture.address();
+  if (!address || typeof address === 'string') throw new Error('Could not allocate a loopback fixture port.');
+  return { fixture, origin: `http://127.0.0.1:${address.port}` };
+}
+
+const playwrightAllowed = activeTestsEnabled ? await startFixture('ECLIPSE_PLAYWRIGHT_ALLOWED_MARKER') : null;
+const playwrightDenied = activeTestsEnabled ? await startFixture('ECLIPSE_PLAYWRIGHT_DENIED_MARKER') : null;
+const playwrightOutput = process.env.MCP_PLAYWRIGHT_OUTPUT || join(outputDirectory, 'playwright-output');
+
 const servers = [
+  {
+    id: 'github-official-mcp-server',
+    version: '0.31.0',
+    command: 'docker',
+    args: [
+      'run', '--interactive', '--rm', '--network=none', '--cap-drop=ALL', '--security-opt=no-new-privileges:true',
+      '--read-only', '--tmpfs=/tmp:rw,noexec,nosuid,size=64m', '--env', 'GITHUB_PERSONAL_ACCESS_TOKEN=invalid-audit-token',
+      'ghcr.io/github/github-mcp-server:v0.31.0', 'stdio', '--read-only', '--lockdown-mode',
+      '--toolsets=repos,issues,pull_requests',
+    ],
+  },
   { id: 'official-filesystem-mcp-server', version: '2026.7.10', command: 'npx', args: ['-y', '@modelcontextprotocol/server-filesystem@2026.7.10', scopedDirectory] },
+  {
+    id: 'microsoft-playwright-mcp',
+    version: '0.0.78',
+    command: 'npx',
+    args: [
+      '-y', '@playwright/mcp@0.0.78', '--headless', '--isolated', '--browser=chromium', '--block-service-workers',
+      '--image-responses=omit', '--output-mode=stdout', `--output-dir=${playwrightOutput}`,
+      ...(playwrightAllowed ? [`--allowed-origins=${playwrightAllowed.origin}`] : []),
+    ],
+  },
   { id: 'upstash-context7-mcp', version: '3.2.5', command: 'npx', args: ['-y', '@upstash/context7-mcp@3.2.5'] },
 ];
 function stable(value) {
@@ -26,9 +66,19 @@ function send(child, message) {
 }
 
 async function inspect(server) {
+  const childEnvironment = {
+    PATH: process.env.PATH,
+    HOME: process.env.HOME,
+    NO_COLOR: '1',
+    npm_config_cache: process.env.npm_config_cache || join(outputDirectory, 'npm-cache'),
+    npm_config_ignore_scripts: process.env.npm_config_ignore_scripts || 'true',
+    npm_config_audit: process.env.npm_config_audit || 'true',
+    PLAYWRIGHT_BROWSERS_PATH: process.env.PLAYWRIGHT_BROWSERS_PATH,
+  };
+  Object.keys(childEnvironment).forEach((key) => childEnvironment[key] === undefined && delete childEnvironment[key]);
   const child = spawn(server.command, server.args, {
     stdio: ['pipe', 'pipe', 'pipe'], shell: false,
-    env: { PATH: process.env.PATH, HOME: process.env.HOME, npm_config_cache: process.env.npm_config_cache || join(outputDirectory, 'npm-cache'), NO_COLOR: '1' },
+    env: childEnvironment,
   });
   let buffer = '';
   let stderrBytes = 0;
@@ -97,8 +147,41 @@ async function inspect(server) {
 
       const symlinkRead = await callTool(14, 'read_text_file', { path: process.env.MCP_SYMLINK_FILE });
       activeTests.push({ id: 'denies-symlink-escape', passed: isDenied(symlinkRead) && !responseText(symlinkRead).includes(outsideMarker) });
-      activeTests.filter((test) => !test.passed).forEach((test) => findings.push({ code: `active-test-failed:${test.id}`, toolHash: createHash('sha256').update(test.id).digest('hex').slice(0, 16) }));
     }
+    if (activeTestsEnabled && server.id === 'github-official-mcp-server') {
+      const responseText = (response) => JSON.stringify(response || {});
+      const isDenied = (response) => Boolean(response?.error || response?.result?.isError);
+      const writeToolName = /^(?:add|assign|cancel|convert|create|delete|dismiss|fork|manage|mark|merge|push|remove|reopen|rerun|request|run|submit|trigger|update)_/i;
+
+      activeTests.push({ id: 'read-only-toolset-has-no-write-tools', passed: !tools.some((tool) => writeToolName.test(tool.name)) });
+      const hasReadTool = tools.some((tool) => tool.name === 'get_file_contents');
+      activeTests.push({ id: 'exposes-approved-read-tool', passed: hasReadTool });
+      const unauthenticatedRead = hasReadTool
+        ? await callTool(20, 'get_file_contents', { owner: 'PavelHopson', repo: 'eclipse-library', path: 'README.md' })
+        : { error: { code: -32601 } };
+      const unauthenticatedText = responseText(unauthenticatedRead);
+      activeTests.push({ id: 'rejects-read-without-real-token', passed: isDenied(unauthenticatedRead) && !unauthenticatedText.includes('invalid-audit-token') });
+    }
+    if (activeTestsEnabled && server.id === 'microsoft-playwright-mcp') {
+      const responseText = (response) => JSON.stringify(response || {});
+      const isDenied = (response) => Boolean(response?.error || response?.result?.isError);
+      const isolatedConfig = server.args.includes('--isolated')
+        && !server.args.some((argument) => /--(?:extension|storage-state|user-data-dir|secrets)(?:=|$)/.test(argument));
+      activeTests.push({ id: 'uses-empty-isolated-profile', passed: isolatedConfig });
+
+      const allowedNavigation = await callTool(30, 'browser_navigate', { url: playwrightAllowed.origin });
+      activeTests.push({ id: 'loads-owned-loopback-fixture', passed: !isDenied(allowedNavigation) && responseText(allowedNavigation).includes('ECLIPSE_PLAYWRIGHT_ALLOWED_MARKER') });
+
+      const deniedNavigation = await callTool(31, 'browser_navigate', { url: playwrightDenied.origin });
+      const deniedNavigationText = responseText(deniedNavigation);
+      activeTests.push({ id: 'blocks-unlisted-origin', passed: !deniedNavigationText.includes('ECLIPSE_PLAYWRIGHT_DENIED_MARKER') && (isDenied(deniedNavigation) || /blocked|denied|ERR_/i.test(deniedNavigationText)) });
+
+      const fileNavigation = await callTool(32, 'browser_navigate', { url: 'file:///etc/passwd' });
+      const fileNavigationText = responseText(fileNavigation);
+      activeTests.push({ id: 'blocks-file-url-outside-workspace', passed: !fileNavigationText.includes('root:x:') && (isDenied(fileNavigation) || /blocked|denied|not allowed|ERR_/i.test(fileNavigationText)) });
+      if (tools.some((tool) => tool.name === 'browser_close')) await callTool(33, 'browser_close', {});
+    }
+    activeTests.filter((test) => !test.passed).forEach((test) => findings.push({ code: `active-test-failed:${test.id}`, toolHash: createHash('sha256').update(test.id).digest('hex').slice(0, 16) }));
     return { raw: normalized, summary: { id: server.id, version: server.version, protocolVersion: initialized?.protocolVersion || null, toolCount: tools.length, toolsetHash, hashMatchesApproved: expectedHash ? expectedHash === toolsetHash : null, automatedFindings: findings, activeTests, stderrBytes } };
   } finally {
     child.kill('SIGTERM');
@@ -108,9 +191,13 @@ async function inspect(server) {
 await mkdir(outputDirectory, { recursive: true });
 const raw = [];
 const summaries = [];
-for (const server of servers) {
-  const result = await inspect(server);
-  raw.push(result.raw); summaries.push(result.summary);
+try {
+  for (const server of servers) {
+    const result = await inspect(server);
+    raw.push(result.raw); summaries.push(result.summary);
+  }
+} finally {
+  await Promise.all([playwrightAllowed, playwrightDenied].filter(Boolean).map(({ fixture }) => new Promise((resolve) => fixture.close(resolve))));
 }
 const report = { schemaVersion: 1, scanner: 'eclipse-library-offline-inspector@1', generatedAt: new Date().toISOString(), servers: summaries };
 await writeFile(join(outputDirectory, 'raw-tool-metadata.json'), `${JSON.stringify(raw, null, 2)}\n`, { encoding: 'utf8', mode: 0o600 });
