@@ -89,5 +89,7 @@ export function chooseCanonicalRows(rows, reviewedUrls = new Set()) {
 }
 
 export function sourceHash(readme, detailsText) {
-  return createHash('sha256').update(readme).update('\0').update(detailsText).digest('hex');
+  const normalizedReadme = readme.replace(/\r\n/g, '\n');
+  const normalizedDetails = detailsText.replace(/\r\n/g, '\n');
+  return createHash('sha256').update(normalizedReadme).update('\0').update(normalizedDetails).digest('hex');
 }
