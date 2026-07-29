@@ -6,7 +6,7 @@
   const REPO = 'PavelHopson/eclipse-library';
   const RAW = `https://raw.githubusercontent.com/${REPO}/master/README.md`;
   const REPO_URL = `https://github.com/${REPO}`;
-  const DETAILS_URL = 'catalog-details.json?v=4';
+  const DETAILS_URL = 'catalog-details.json?v=5';
   const LINK_HEALTH_URL = 'link-health.json?v=1';
   const PROJECTS_URL = 'projects.json?v=1';
   const PAGE_SIZE = 36;

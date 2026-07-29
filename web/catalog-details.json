@@ -855,7 +855,7 @@
     "url": "https://github.com/github/github-mcp-server",
     "type": "tool",
     "simpleDescription": "Официальный MCP server от GitHub. Он позволяет AI-агенту читать repositories, искать код, работать с issues и pull requests и, если дать такие права, изменять данные через GitHub API.",
-    "useCases": ["Дать Hopson Sentinel read-only доступ к состоянию выбранного repository", "Автоматизировать triage issues и pull requests в oh-my-claudecode", "Собирать CI и security context для Eclipse AI Hub без передачи полного GitHub token в prompt"],
+    "useCases": ["В Hopson Sentinel использовать `mcp add-preset github-readonly` для ограниченного чтения repository", "В oh-my-claudecode включать GitHub только через opt-in `omc mcp-baseline --github`", "В Eclipse AI Hub генерировать developer-only конфиг без передачи token в browser bundle"],
     "platforms": ["MCP", "GitHub", "Docker", "Go", "Local", "Remote"],
     "license": "MIT; использование GitHub API и данных регулируется условиями GitHub и правами выбранного token",
     "pricing": "MCP server бесплатный; действуют plan-specific возможности GitHub и API rate limits",
@@ -865,7 +865,7 @@
     "decision": "now",
     "riskLevel": "high",
     "risks": ["Token с широкими scopes позволяет агенту менять код, workflows, issues и другие данные во всех доступных repositories", "Непроверенный текст из issue или pull request может содержать prompt injection и влиять на дальнейшие tool calls", "Remote transport и автоматически обновляемый container расширяют supply-chain и rug-pull поверхность"],
-    "verifiedAt": "2026-07-27",
+    "verifiedAt": "2026-07-29",
     "quickStart": ["Создать отдельный fine-grained token только для одного тестового repository с read-only permissions", "Закрепить image digest или release, включить read-only и lockdown mode и оставить только нужные toolsets", "Проверить tool descriptions, выполнить безопасный read-сценарий и не включать write tools без отдельного approval flow"]
   },
   {
@@ -873,7 +873,7 @@
     "url": "https://github.com/modelcontextprotocol/servers/tree/main/src/filesystem",
     "type": "tool",
     "simpleDescription": "Reference MCP server для работы агента с локальными файлами. Он умеет читать, искать, создавать, перемещать и перезаписывать файлы, но ограничивает операции явно разрешёнными directories или MCP Roots.",
-    "useCases": ["Дать Hopson Sentinel доступ только к одному workspace", "Разрешить Educator-AI разбирать отдельную папку учебных материалов", "Проверять file-oriented agent workflows в изолированном project fixture"],
+    "useCases": ["В Hopson Sentinel добавить preset только для одного существующего workspace", "В oh-my-claudecode синхронизировать workspace scope в Claude и Codex через unified registry", "В Eclipse AI Hub создать ignored developer config без запуска server внутри SPA"],
     "platforms": ["MCP", "Node.js", "Docker", "Windows", "macOS", "Linux"],
     "license": "MIT для Filesystem MCP Server",
     "pricing": "Бесплатный open-source server; расходы ограничены локальной инфраструктурой и container runtime",
@@ -883,7 +883,7 @@
     "decision": "now",
     "riskLevel": "high",
     "risks": ["Разрешение home, корня диска или общего projects-каталога открывает агенту secrets и чужие repositories", "write_file перезаписывает данные, move_file удаляет source path, а ошибочный Roots update может расширить доступ", "Запуск unpinned npx package создаёт typosquatting и silent-update риск"],
-    "verifiedAt": "2026-07-27",
+    "verifiedAt": "2026-07-29",
     "quickStart": ["Создать отдельную тестовую папку без .env, ключей и персональных файлов", "Закрепить package version или image digest и смонтировать папку read-only, если запись не нужна", "Проверить list_allowed_directories, затем отдельно одобрять destructive tools и никогда не выдавать root/home"]
   },
   {
@@ -909,7 +909,7 @@
     "url": "https://github.com/upstash/context7",
     "type": "tool",
     "simpleDescription": "MCP server и hosted service от Upstash, который находит актуальную документацию конкретной библиотеки и добавляет подходящие фрагменты в контекст coding-agent. Это уменьшает ответы по устаревшим API.",
-    "useCases": ["Давать oh-my-claudecode актуальные примеры React, Vite и backend libraries", "Проверять API dependencies при code review в Eclipse AI Hub", "Сокращать ручной поиск документации во время разработки Hopson Sentinel"],
+    "useCases": ["В oh-my-claudecode получать актуальные примеры через version-pinned unified registry preset", "В Eclipse AI Hub проверять React, Vite и provider API через локальный developer config", "В Hopson Sentinel добавлять Context7 одной preset-командой без обязательного API key"],
     "platforms": ["MCP", "Node.js", "Remote", "Claude Code", "Codex", "Cursor"],
     "license": "MIT для open-source Context7 repository; hosted service регулируется Context7 Addendum, Upstash Terms и Privacy Policy",
     "pricing": "Open-source MCP code бесплатный; hosted Context7 имеет текущие service limits и коммерческие планы, которые нужно сверять перед командным внедрением",
@@ -919,7 +919,7 @@
     "decision": "now",
     "riskLevel": "medium",
     "risks": ["Hosted режим получает сформированный MCP-клиентом search query; чувствительные данные нужно удалять до отправки", "Сторонняя документация может быть ошибочной, скомпрометированной или содержать indirect prompt injection", "Использование latest через npx или remote endpoint без pinning усложняет контроль изменений tool descriptions"],
-    "verifiedAt": "2026-07-27",
+    "verifiedAt": "2026-07-29",
     "quickStart": ["Подключить только официальный repository или endpoint и закрепить доступную версию", "Проверить tool descriptions и отправлять тестовые запросы без private code, customer data и secrets", "Сравнить полученный пример с primary documentation и lockfile перед применением в production code"]
   },
   {

@@ -1,6 +1,6 @@
 # Eclipse Library Roadmap
 
-Последнее обновление: **27.07.2026**
+Последнее обновление: **29.07.2026**
 
 ## Текущее состояние
 
@@ -45,6 +45,8 @@
       подробный security/skill-governance слой официальными и community-инструментами.
 - [x] Stage 8 — собрать базовый MCP-набор с явными границами доступа, secret handling,
       tool-poisoning рисками и отдельным решением для неподдерживаемых servers.
+- [x] Stage 9 — перевести MCP-рекомендации в безопасные project integrations: Sentinel CLI presets,
+      OMC unified registry baseline и developer-only generator для browser-based AI Hub.
 
 - [ ] Частично: перевести все записи из неструктурированных Markdown-описаний в schema с полями:
       `type`, `category`, `platform`, `license`, `trust`, `risk`, `projects`, `verifiedAt`.
@@ -64,6 +66,19 @@
 - [x] Отдельные landing routes для skills, MCP, models, prompts, courses и security.
 
 ## Changelog
+
+### 2026-07-29
+
+- MCP-рекомендации переведены в implementation: Sentinel получил `mcp add-preset`, OMC —
+  `omc mcp-baseline` с синхронизацией Claude/Codex, AI Hub — ignored project-local generator без
+  browser-side credentials и автоматического запуска servers. Implementation commits: Sentinel
+  `91ccd07`, OMC `e7fe1e44`, AI Hub `60a0a56`.
+- Во всех трёх проектах закреплены Filesystem `2026.7.10`, Context7 `3.2.5` и GitHub MCP `0.31.0`;
+  Filesystem требует одну существующую directory, GitHub включается read-only + lockdown с ограниченными
+  toolsets, а literal tokens не записываются в repository config.
+- Карточки GitHub MCP, Filesystem MCP и Context7 обновлены фактическими командами и датой проверки.
+  Runtime tool descriptions ещё не загружались: перед первым пользовательским запуском требуется ручной
+  inspect или `mcp-scan`, поскольку даже официальный MCP metadata остаётся недоверенным вводом.
 
 ### 2026-07-27
 
