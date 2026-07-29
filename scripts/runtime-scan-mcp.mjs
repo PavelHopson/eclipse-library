@@ -2,6 +2,7 @@ import { createHash } from 'node:crypto';
 import { mkdir, readFile, writeFile } from 'node:fs/promises';
 import { spawn } from 'node:child_process';
 import { createServer } from 'node:http';
+import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { metadataFindings } from './mcp-metadata-policy.mjs';
 
@@ -70,7 +71,7 @@ async function inspect(server) {
     PATH: process.env.PATH,
     HOME: process.env.HOME,
     NO_COLOR: '1',
-    npm_config_cache: process.env.npm_config_cache || join(outputDirectory, 'npm-cache'),
+    npm_config_cache: process.env.npm_config_cache || join(tmpdir(), 'eclipse-library-mcp-npm-cache'),
     npm_config_ignore_scripts: process.env.npm_config_ignore_scripts || 'true',
     npm_config_audit: process.env.npm_config_audit || 'true',
     PLAYWRIGHT_BROWSERS_PATH: process.env.PLAYWRIGHT_BROWSERS_PATH,
@@ -170,7 +171,8 @@ async function inspect(server) {
       activeTests.push({ id: 'uses-empty-isolated-profile', passed: isolatedConfig });
 
       const allowedNavigation = await callTool(30, 'browser_navigate', { url: playwrightAllowed.origin });
-      activeTests.push({ id: 'loads-owned-loopback-fixture', passed: !isDenied(allowedNavigation) && responseText(allowedNavigation).includes('ECLIPSE_PLAYWRIGHT_ALLOWED_MARKER') });
+      const allowedSnapshot = !isDenied(allowedNavigation) ? await callTool(34, 'browser_snapshot', {}) : allowedNavigation;
+      activeTests.push({ id: 'loads-owned-loopback-fixture', passed: !isDenied(allowedNavigation) && !isDenied(allowedSnapshot) && responseText(allowedSnapshot).includes('ECLIPSE_PLAYWRIGHT_ALLOWED_MARKER') });
 
       const deniedNavigation = await callTool(31, 'browser_navigate', { url: playwrightDenied.origin });
       const deniedNavigationText = responseText(deniedNavigation);

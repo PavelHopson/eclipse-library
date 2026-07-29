@@ -43,6 +43,7 @@ jobs:
           MCP_PLAYWRIGHT_OUTPUT: ${{ runner.temp }}/eclipse-library-playwright-output
           MCP_ACTIVE_TESTS: 'true'
           MCP_AUDIT_OUTPUT: .artifacts/mcp-runtime
+          npm_config_cache: ${{ runner.temp }}/eclipse-library-npm-cache
           npm_config_ignore_scripts: 'true'
           npm_config_audit: 'true'
         run: node scripts/runtime-scan-mcp.mjs
