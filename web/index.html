@@ -15,7 +15,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Unbounded:wght@500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css?v=16" />
+  <link rel="stylesheet" href="styles.css?v=17" />
 </head>
 <body>
   <a class="skip" href="#results">Перейти к каталогу</a>
@@ -130,6 +130,13 @@
           </div>
           <span id="resultcount" class="result-count" aria-live="polite"></span>
         </div>
+        <section class="task-picker" aria-labelledby="taskPickerTitle">
+          <div>
+            <b id="taskPickerTitle">Какую задачу хотите решить?</b>
+            <span>Выберите цель — библиотека сама соберёт подходящие материалы.</span>
+          </div>
+          <div id="taskFilters" class="task-filters" role="toolbar" aria-label="Выбор задачи"></div>
+        </section>
         <div id="typeFilters" class="type-filters" role="toolbar" aria-label="Фильтр по типу"></div>
         <div class="catalog-actions">
           <button id="savedToggle" class="saved-toggle" type="button" aria-pressed="false">
@@ -145,9 +152,14 @@
               <option value="title">По названию</option>
             </select>
           </label>
+          <button id="shareFilters" class="share-filters" type="button" disabled>Скопировать подборку</button>
         </div>
         <details id="advancedFilters" class="advanced-filters">
           <summary>Дополнительные фильтры <span id="advancedFilterCount">платформа, лицензия, доверие, проект и статус GitHub</span></summary>
+          <div class="filter-sheet-head">
+            <div><b>Уточнить подборку</b><span>Выберите только важные условия.</span></div>
+            <button id="filterSheetClose" type="button">Закрыть</button>
+          </div>
           <div class="filter-selects">
           <label>Где работает
             <select id="platformFilter" aria-label="Где работает">
@@ -181,6 +193,7 @@
           </label>
           <button id="filterReset" class="filter-reset" type="button" hidden>Сбросить всё</button>
           </div>
+          <button id="filterSheetApply" class="filter-sheet-apply" type="button">Показать <span id="filterSheetResult">материалы</span></button>
         </details>
       </section>
 
@@ -245,6 +258,6 @@
     <a href="https://eclipse-forge.ru/" target="_blank" rel="noopener">Eclipse Forge</a> · обновляется по мере находок · данные из <a href="https://github.com/PavelHopson/eclipse-library" target="_blank" rel="noopener">README</a>
   </footer>
 
-  <script src="app.js?v=23"></script>
+  <script src="app.js?v=24"></script>
 </body>
 </html>

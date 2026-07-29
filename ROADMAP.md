@@ -21,7 +21,8 @@
 ### P0
 
 - [x] Восстановить deploy на VPS: повторный run 24.07.2026 прошёл SSH setup и rsync.
-- [ ] Убрать `StrictHostKeyChecking=no` и pin host key через secret/known_hosts.
+- [x] Убрать TOFU для production SSH: pin host key через `VPS_KNOWN_HOSTS`, включить
+      `StrictHostKeyChecking=yes`, bounded retry и post-deploy smoke по точной версии assets/data.
 - [x] Добавить scheduled link checker с redirect resolution, retry и честным разделением
       `broken` / `unavailable` / `unknown` / rate-limited сайтов.
 
@@ -49,6 +50,8 @@
       OMC unified registry baseline и developer-only generator для browser-based AI Hub.
 - [x] Stage 10 — отделить доступность URL от жизненного цикла GitHub-проекта: weekly metadata snapshot,
       archived/disabled badges, repository-state filter и исключение неподдерживаемых repositories из рекомендаций.
+- [x] Stage 11 — добавить task-first discovery, shareable URL состояния фильтров и мобильную bottom-sheet
+      панель, которая не блокирует страницу при открытии ссылки и не ломает вертикальный скролл.
 
 - [ ] Частично: перевести все записи из неструктурированных Markdown-описаний в schema с полями:
       `type`, `category`, `platform`, `license`, `trust`, `risk`, `projects`, `verifiedAt`.
@@ -71,6 +74,16 @@
 
 ### 2026-07-29
 
+- Добавлены шесть простых входов по задаче: local AI, автоматизация, исследование, security, media и
+  commerce. Выбор работает совместно с поиском, типами и advanced filters; вся подборка кодируется в URL,
+  восстанавливается после reload и копируется одной кнопкой без аккаунта.
+- На mobile дополнительные фильтры открываются как доступная bottom sheet с явными действиями
+  «Закрыть» и «Показать», live-счётчиком результатов, блокировкой фонового скролла только на время
+  открытия и восстановлением обычного скролла после закрытия. Shared URL не раскрывает sheet автоматически.
+- Deploy hardened: VPS RSA/ED25519 identity закреплена в GitHub secret `VPS_KNOWN_HOSTS`, workflow
+  использует strict host verification, таймауты и три ограниченные попытки для `rsync`/SSH. Новый
+  post-deploy smoke принимает только canonical HTTPS origin, сверяет `app.js` байт-в-байт с commit и
+  валидирует live metadata/projects/README; contract покрыт unit tests и добавлен в quality workflow.
 - Исправлен mobile scroll-jump: scrollspy больше не вызывает вертикальный `scrollIntoView()` для
   горизонтальной ленты категорий на ширине до 960 px. Активная категория прокручивается только внутри
   самой ленты; проверено на 390×844 длинным скроллом каталога без возврата страницы наверх.

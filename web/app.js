@@ -61,6 +61,14 @@
     security: { title: 'Security и privacy', description: 'Защитные инструменты и рискованные материалы с явными ограничениями и безопасным сценарием проверки.', match: (c) => c.type === 'grey' || c.type === 'privacy' || /security|безопас|privacy|opsec/i.test(c.text) },
     courses: { title: 'Курсы и обучение', description: 'Практические материалы, которые можно пройти по порядку и закрепить небольшим проектом.', type: 'learn', match: (c) => c.type === 'learn' },
   };
+  const TASK_ROUTES = {
+    'local-ai': { label: 'Запустить AI локально', hint: 'без отправки данных во внешний API', match: (c) => ['model', 'tool', 'oss'].includes(c.type) && (c.platforms.includes('Local') || /ollama|lm studio|gpt4all|local ai|local model/i.test(c.text)) },
+    automation: { label: 'Автоматизировать работу', hint: 'agents, skills и повторяемые workflows', match: (c) => ['agent', 'skill'].includes(c.type) || /automation|автоматизац|оркестрац/i.test(c.text) },
+    research: { label: 'Искать и разбирать данные', hint: 'research, RAG, OCR и документы', match: (c) => /research|rag|ocr|поиск|документ|knowledge|crawl|scrap/i.test(c.text) },
+    security: { label: 'Проверить безопасность', hint: 'privacy, аудит и защитные инструменты', match: (c) => TOPIC_ROUTES.security.match(c) },
+    media: { label: 'Создать или обработать медиа', hint: 'изображения, видео и аудио', match: (c) => c.type === 'media' },
+    commerce: { label: 'Сделать сайт или магазин', hint: 'лендинг, storefront и платежи', match: (c) => c.type === 'shop' || /storefront|e-commerce|интернет-магазин|лендинг|payment|платеж/i.test(c.text) },
+  };
   let detailsByUrl = new Map();
   let linkHealthByUrl = new Map();
   let linkHealthSnapshot = null;
@@ -818,10 +826,24 @@
   const stat = (n, l) => `<div class="stat"><b>${n}</b><span>${l}</span></div>`;
 
   // ---- filters (type + platform + license + trust + project + search) ----
-  let activeType = null, activePlatform = '', activeLicense = '', activeTrust = '', activeProject = '', activeFreshness = '', activeRepositoryState = '', activeTopic = '', activeSort = 'catalog', activeFavorites = false;
+  let activeTask = '', activeType = null, activePlatform = '', activeLicense = '', activeTrust = '', activeProject = '', activeFreshness = '', activeRepositoryState = '', activeTopic = '', activeSort = 'catalog', activeFavorites = false;
   let query = '', navQuery = '', visibleLimit = PAGE_SIZE;
+  let filterStateReady = false;
   function buildFilters(typeCounts) {
     const bar = $('#filters');
+    const taskBar = $('#taskFilters');
+    taskBar.innerHTML = Object.entries(TASK_ROUTES).map(([id, task]) => {
+      const count = cards.filter(task.match).length;
+      return `<button type="button" class="task-chip" data-task="${id}" aria-pressed="false"><span>${esc(task.label)}</span><small>${esc(task.hint)}</small><i>${count}</i></button>`;
+    }).join('');
+    taskBar.addEventListener('click', (event) => {
+      const button = event.target.closest('[data-task]');
+      if (!button) return;
+      clearTopicRoute();
+      activeTask = activeTask === button.dataset.task ? '' : button.dataset.task;
+      updateTaskState();
+      applyFilters();
+    });
     const typeBar = $('#typeFilters');
     typeBar.innerHTML = '';
     typeBar.appendChild(chip(null, 'Все', cards.length, true));
@@ -851,8 +873,62 @@
       updateFavoritesUI();
       applyFilters();
     });
+    restoreFilterStateFromUrl();
+    filterStateReady = true;
+    updateTaskState();
+    updateChipState();
     bar.hidden = false;
     $('#resultcount').textContent = `${cards.length} материалов`;
+  }
+
+  function updateTaskState() {
+    document.querySelectorAll('#taskFilters [data-task]').forEach((button) => {
+      const selected = button.dataset.task === activeTask;
+      button.classList.toggle('active', selected);
+      button.setAttribute('aria-pressed', String(selected));
+    });
+  }
+
+  function selectHasValue(id, value) {
+    return value && [...$(id).options].some((option) => option.value === value) ? value : '';
+  }
+
+  function restoreFilterStateFromUrl() {
+    const params = new URLSearchParams(location.search);
+    const task = params.get('task') || '';
+    const type = params.get('type') || '';
+    const sort = params.get('sort') || '';
+    activeTask = TASK_ROUTES[task] ? task : '';
+    activeType = TYPE_GROUPS[type] ? type : null;
+    activePlatform = selectHasValue('#platformFilter', params.get('platform'));
+    activeLicense = selectHasValue('#licenseFilter', params.get('license'));
+    activeTrust = selectHasValue('#trustFilter', params.get('trust'));
+    activeProject = selectHasValue('#projectFilter', params.get('project'));
+    activeFreshness = selectHasValue('#freshnessFilter', params.get('freshness'));
+    activeRepositoryState = selectHasValue('#repositoryFilter', params.get('repo'));
+    activeSort = ['recommended', 'trust', 'freshness', 'title'].includes(sort) ? sort : 'catalog';
+    query = (params.get('q') || '').trim().slice(0, 160);
+    search.value = query;
+    $('#platformFilter').value = activePlatform;
+    $('#licenseFilter').value = activeLicense;
+    $('#trustFilter').value = activeTrust;
+    $('#projectFilter').value = activeProject;
+    $('#freshnessFilter').value = activeFreshness;
+    $('#repositoryFilter').value = activeRepositoryState;
+    $('#sortFilter').value = activeSort;
+  }
+
+  function syncFilterUrl() {
+    if (!filterStateReady) return;
+    const params = new URLSearchParams();
+    const values = {
+      q: query.trim().slice(0, 160), task: activeTask, type: activeType || '', platform: activePlatform,
+      license: activeLicense, trust: activeTrust, project: activeProject, freshness: activeFreshness,
+      repo: activeRepositoryState, sort: activeSort === 'catalog' ? '' : activeSort,
+    };
+    Object.entries(values).forEach(([key, value]) => { if (value) params.set(key, value); });
+    const next = `${location.pathname}${params.size ? `?${params}` : ''}${location.hash}`;
+    history.replaceState(null, '', next);
   }
 
   function fillSelect(select, values, format = (value) => value) {
@@ -898,6 +974,7 @@
   }
 
   function clearLibraryFilters(opts = {}) {
+    activeTask = '';
     activeType = null;
     activePlatform = '';
     activeLicense = '';
@@ -918,6 +995,7 @@
     $('#repositoryFilter').value = '';
     $('#sortFilter').value = 'catalog';
     updateFavoritesUI();
+    updateTaskState();
     updateChipState();
     applyFilters();
     if (opts.focus && search) search.focus();
@@ -928,6 +1006,7 @@
     const q = query.trim().toLowerCase();
     const matching = cards.filter((c) =>
         (!q || c.text.includes(q)) &&
+        (!activeTask || TASK_ROUTES[activeTask]?.match(c)) &&
         (!activeType || TYPE_GROUPS[activeType]?.types.includes(c.type)) &&
         (!activePlatform || c.platforms.includes(activePlatform)) &&
         (!activeLicense || c.licenseGroup === activeLicense) &&
@@ -951,7 +1030,7 @@
     document.querySelectorAll('.sub').forEach((s) => { s.hidden = !s.querySelector('.card:not([hidden])'); });
     document.querySelectorAll('.cat').forEach((s) => { s.hidden = !s.querySelector('.card:not([hidden])'); });
     if (!sortedMode) updateNavVisibility();
-    const filtering = !!(q || activeType || activePlatform || activeLicense || activeTrust || activeProject || activeFreshness || activeRepositoryState || activeTopic || activeFavorites);
+    const filtering = !!(q || activeTask || activeType || activePlatform || activeLicense || activeTrust || activeProject || activeFreshness || activeRepositoryState || activeTopic || activeFavorites);
     $('#hero').classList.toggle('dim', filtering);
     const shown = Math.min(matched, visibleLimit);
     $('#resultcount').textContent = shown < matched ? `${shown} из ${matched}` : `${matched} ${matched === 1 ? 'материал' : 'материалов'}`;
@@ -967,15 +1046,20 @@
     const advancedLabel = $('#advancedFilterCount');
     if (advancedLabel) advancedLabel.textContent = advancedCount ? `выбрано: ${advancedCount}` : 'платформа, лицензия, доверие, проект и статус GitHub';
     const advanced = $('#advancedFilters');
-    if (advanced && advancedCount) advanced.open = true;
+    if (advanced && advancedCount && !window.matchMedia('(max-width: 620px)').matches) advanced.open = true;
     const empty = $('#empty');
     empty.hidden = !(filtering && matched === 0);
     if (!empty.hidden) {
-      const reason = q || TOPIC_ROUTES[activeTopic]?.title || activeProject || activePlatform || (LICENSE_GROUPS[activeLicense] || '') || (FRESHNESS[activeFreshness] || '') || (REPOSITORY_STATE[activeRepositoryState] || '') || (TRUST[activeTrust] || '') || (TYPE_GROUPS[activeType]?.label || '');
+      const reason = q || TASK_ROUTES[activeTask]?.label || TOPIC_ROUTES[activeTopic]?.title || activeProject || activePlatform || (LICENSE_GROUPS[activeLicense] || '') || (FRESHNESS[activeFreshness] || '') || (REPOSITORY_STATE[activeRepositoryState] || '') || (TRUST[activeTrust] || '') || (TYPE_GROUPS[activeType]?.label || '');
       $('#emptyMessage').textContent = activeFavorites && favorites.size === 0
         ? 'В избранном пока пусто. Сохраните нужный материал кнопкой-закладкой на карточке.'
         : `По выбранным условиям ничего не найдено${reason ? `: ${reason}` : '.'}`;
     }
+    syncFilterUrl();
+    const share = $('#shareFilters');
+    if (share) share.disabled = !(filtering || activeSort !== 'catalog');
+    const sheetResult = $('#filterSheetResult');
+    if (sheetResult) sheetResult.textContent = `${matched} ${matched === 1 ? 'материал' : 'материалов'}`;
     entryReveal();
   }
 
@@ -1592,6 +1676,11 @@
     });
   }
   document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && document.body.classList.contains('filter-sheet-open')) {
+      $('#advancedFilters').open = false;
+      $('#advancedFilters summary').focus();
+      return;
+    }
     if (e.key === 'Tab' && !$('#compareView').hidden) {
       const focusable = [...$('#compareView').querySelectorAll('a[href], button:not([disabled])')].filter((node) => !node.hidden);
       if (focusable.length) {
@@ -1641,6 +1730,25 @@
     if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
   });
   $('#emptyClear').addEventListener('click', () => clearLibraryFilters({ focus: true }));
+  $('#shareFilters').addEventListener('click', async () => {
+    try {
+      await navigator.clipboard.writeText(location.href);
+      showFeedback('Ссылка на эту подборку скопирована.');
+    } catch (error) {
+      showFeedback('Не удалось скопировать автоматически. Скопируйте адрес из строки браузера.');
+    }
+  });
+  const advancedFilters = $('#advancedFilters');
+  const syncFilterSheetState = () => {
+    const mobileOpen = advancedFilters.open && window.matchMedia('(max-width: 620px)').matches;
+    document.body.classList.toggle('filter-sheet-open', mobileOpen);
+  };
+  advancedFilters.addEventListener('toggle', () => {
+    syncFilterSheetState();
+  });
+  $('#filterSheetClose').addEventListener('click', () => { advancedFilters.open = false; advancedFilters.querySelector('summary').focus(); });
+  $('#filterSheetApply').addEventListener('click', () => { advancedFilters.open = false; $('#filters').scrollIntoView({ block: 'start' }); });
+  window.addEventListener('resize', syncFilterSheetState, { passive: true });
   $('#loadMore').addEventListener('click', () => { visibleLimit += PAGE_SIZE; applyFilters(false); });
   document.addEventListener('click', (event) => {
     const favorite = event.target.closest('[data-favorite-key]');
