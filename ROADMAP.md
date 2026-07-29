@@ -79,6 +79,8 @@
 - Карточки GitHub MCP, Filesystem MCP и Context7 обновлены фактическими командами и датой проверки.
   Runtime tool descriptions ещё не загружались: перед первым пользовательским запуском требуется ручной
   inspect или `mcp-scan`, поскольку даже официальный MCP metadata остаётся недоверенным вводом.
+- Production workflow больше не зависит от отдельного блокирующего `ssh-keyscan`; SSH host принимается
+  на первом реальном соединении через `StrictHostKeyChecking=accept-new` вместо небезопасного `no`.
 
 ### 2026-07-27
 
