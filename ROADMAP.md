@@ -14,9 +14,10 @@
 - `web/link-health.json` — безопасный публичный snapshot weekly-аудита: доступность ссылки
   показывается отдельно от редакторского доверия и не считается security endorsement.
 - Deploy: GitHub Actions → VPS/Caddy из ветки `master`.
-- Production синхронизирован с `master` commit `60d2ad2`: deploy
-  [#30472952267](https://github.com/PavelHopson/eclipse-library/actions/runs/30472952267)
-  от 29.07.2026 успешно завершён через VPS/Caddy; independent smoke подтвердил `app.js?v=29` и актуальные data snapshots.
+- Production синхронизирован с `master` commit `2a9a068`: deploy
+  [#30525800668](https://github.com/PavelHopson/eclipse-library/actions/runs/30525800668)
+  от 30.07.2026 успешно завершён через VPS/Caddy; independent smoke подтвердил `app.js?v=29`,
+  520 материалов, 22 проекта, 307 GitHub repository statuses и 5 MCP audit records.
 
 ## Приоритеты
 
@@ -120,6 +121,10 @@
   mobile scroll сохранился на 2300 px после ожидания и больше не возвращает страницу наверх.
 - Исправлены две старые повреждённые UTF-8 строки в описаниях AI Agents for Beginners и TryHackMe;
   генератор перенёс исправления в полный индекс без изменения identity карточек.
+- Commit `2a9a068` отправлен в `origin/master`; catalog CI
+  [#30525800736](https://github.com/PavelHopson/eclipse-library/actions/runs/30525800736) и production deploy
+  [#30525800668](https://github.com/PavelHopson/eclipse-library/actions/runs/30525800668) прошли успешно.
+  Независимый live smoke подтвердил совпадение production payload с опубликованным commit.
 
 ### 2026-07-29
 
