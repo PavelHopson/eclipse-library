@@ -25,8 +25,8 @@
 Стоимость, необходимость регистрации и место запуска вынесены в отдельные простые признаки: можно сразу
 найти бесплатные инструменты, варианты без аккаунта и решения для своего устройства или self-hosted server.
 Если редактор ещё не подтвердил условие, интерфейс честно показывает «нужно проверить», а не угадывает.
-Все 509 уникальных материалов уже приведены к одной структуре: назначение, сценарии, платформа,
-лицензия, стоимость, доверие, риски, безопасный старт и применимость к Eclipse Forge. Для 56 записей
+Все 520 уникальных материалов уже приведены к одной структуре: назначение, сценарии, платформа,
+лицензия, стоимость, доверие, риски, безопасный старт и применимость к Eclipse Forge. Для 67 записей
 эти данные проверены редактором; остальные явно помечены как предварительные и не выдают inference за факт.
 Сначала показываются 36 наиболее ранних результатов текущей выборки; следующие карточки
 открываются кнопкой «Показать ещё», поэтому страница не превращается в бесконечное полотно.
@@ -82,6 +82,7 @@
 - [📥 Подборка Eclipse (09–13.07.2026)](#-подборка-eclipse-0913072026)
 - [📥 Подборка Eclipse (18–19.07.2026)](#-подборка-eclipse-1819072026)
 - [📥 Подборка Eclipse (15–24.07.2026, продолжение)](#-подборка-eclipse-1524072026-продолжение)
+- [📥 Подборка Eclipse (24–30.07.2026)](#-подборка-eclipse-2430072026)
 - [📦 Наши проекты](#-наши-проекты)
 
 ---
@@ -844,12 +845,12 @@ Frontend: React 19 · TypeScript · Vite · Tailwind CSS 4 · Zustand
 | [elements of ai](https://elementsofai.com) | AI основы | Курс от Хельсинкского университета — основы AI понятным языком, без кода |
 | [NVIDIA DLI](https://www.nvidia.com/en-us/training/) | AI / ML / Робототехника | Бесплатные курсы от NVIDIA — обработка видео, приложения, робототехника + сертификат |
 | [LLM Interview Questions](https://github.com/Devinterview-io/llms-interview-questions) | LLM / AI | 63 вопроса к собесу — Transformer, tokenization, attention, fine-tuning, prompt engineering | [![Stars](https://img.shields.io/github/stars/Devinterview-io/llms-interview-questions?style=flat)](https://github.com/Devinterview-io/llms-interview-questions) |
-| [AI Agents for Beginners](https://github.com/microsoft/ai-agents-for-beginners) | AI-агенты | Курс от Microsoft — 11 уроков с видео и ��одом: проектирование, создание и деплой агентов (Azure, Python) | [![Stars](https://img.shields.io/github/stars/microsoft/ai-agents-for-beginners?style=flat)](https://github.com/microsoft/ai-agents-for-beginners) |
+| [AI Agents for Beginners](https://github.com/microsoft/ai-agents-for-beginners) | AI-агенты | Курс от Microsoft — 11 уроков с видео и кодом: проектирование, создание и деплой агентов (Azure, Python) | [![Stars](https://img.shields.io/github/stars/microsoft/ai-agents-for-beginners?style=flat)](https://github.com/microsoft/ai-agents-for-beginners) |
 | [FastAI](https://course.fast.ai/) | Deep Learning | Лучший практический курс по DL — от нуля до реальных моделей, top-down подход |
 | [DeepLearning.AI](https://deeplearning.ai/) | ML / AI | Курсы Эндрю Ына — специализации по ML, DL, NLP, LLM, промпт-инженерия |
 | [Hugging Face Learn](https://huggingface.co/learn) | NLP / Transformers | Официальные курсы HF — NLP, Transformers, Diffusion, RL, Audio |
 | [OpenAI Cookbook](https://github.com/openai/openai-cookbook) | API / Промпты | Рецепты и примеры кода для OpenAI API — embeddings, fine-tuning, agents | [![Stars](https://img.shields.io/github/stars/openai/openai-cookbook?style=flat)](https://github.com/openai/openai-cookbook) |
-| [TryHackMe](https://tryhackme.com) | Кибербезопасность | Геймифицированное обуче��ие этичному взлому с реальными симуляциями |
+| [TryHackMe](https://tryhackme.com) | Кибербезопасность | Геймифицированное обучение этичному взлому с реальными симуляциями |
 | [Linux Journey](https://linuxjourney.com) | Linux | Пошаговый маршрут от нуля до уверенного администрирования |
 | [CryptoZombies](https://cryptozombies.io) | Web3 / Solidity | Смарт-контракты через геймификацию — собираешь армию зомби |
 | [everything-ai-ml](https://github.com/viveknaskar/everything-ai-ml) | AI / ML карьера | Курсы, статьи, роадмапы, собесы, агенты, бизнес-кейсы — разветвлённая база | [![Stars](https://img.shields.io/github/stars/viveknaskar/everything-ai-ml?style=flat)](https://github.com/viveknaskar/everything-ai-ml) |
@@ -2231,6 +2232,78 @@ Frontend: React 19 · TypeScript · Vite · Tailwind CSS 4 · Zustand
 | **AI Agents Security Week** | Sentinel · AI Hub · Eclipse Chat agents · all agent repos | Register now; turn lessons into threat-model checklist and regression cases |
 | **PriceGhost / Déjà View** | Kwork #18 · Eclipse Library · future marketplace research | Architecture/methodology reference only; verify sources, ToS, SSRF and licensing |
 | **awesome-hermes-agent / awesome-ai-agents** | Eclipse Library · Sentinel · oh-my-claudecode | Discovery feeds only; maturity, license and security audit per linked project |
+
+---
+
+## 📥 Подборка Eclipse (24–30.07.2026)
+
+> Проверенный intake Telegram «Eclipse Hopson» за **24–30.07.2026**. Из 19 сообщений
+> 3 уже были в каталоге и не продублированы, 5 небезопасных или низкоценных материалов
+> отклонены. Claims сверены с официальными help/docs, model cards и canonical repositories.
+> Полный decision radar, исключения и следующие шаги:
+> [July 2026 music / agents / tooling radar](guides/july-2026-music-agents-tooling-radar.md).
+
+### Coding agents / skills / learning
+
+| Ресурс | Описание | Stars |
+|---|---|---|
+| [Claude Code in Action](https://anthropic.skilljar.com/claude-code-in-action) | Бесплатный официальный курс Anthropic по Claude Code: tool use, context, custom commands, MCP, GitHub integration, hooks, SDK и итоговый quiz. **Зачем нам:** единый безопасный baseline для всех dev-репозиториев; курс требует регистрации и не заменяет практику на реальном проекте | — |
+| [Jcode](https://github.com/1jehuang/jcode) | MIT terminal coding-agent на Rust с resume, memory, swarms, MCP, hooks и несколькими provider login flows. Авторские claims про скорость/RAM не считаются независимым benchmark. **High privilege:** не запускать `curl | bash`; собирать pinned source в sandbox, отключить telemetry и sponsored discovery, не подключать production OAuth/secrets. **Зачем нам:** Sentinel/oh-my-claudecode harness benchmark | [![Stars](https://img.shields.io/github/stars/1jehuang/jcode?style=flat)](https://github.com/1jehuang/jcode) |
+| [Skillcheck](https://github.com/sx4im/skillcheck) | MIT CLI для A/B-проверки Markdown skills: генерирует одинаковые задачи, сравнивает модель со skill и без него, blind-grades ответы и показывает confidence interval/token cost. Это полезный эксперимент, а не абсолютная оценка: результаты зависят от task generator, runner и judge. **Privacy:** не отправлять private instructions/code; использовать pinned package и BYOK. **Зачем нам:** quality gate для skills Sentinel, ai-setup и oh-my-claudecode | [![Stars](https://img.shields.io/github/stars/sx4im/skillcheck?style=flat)](https://github.com/sx4im/skillcheck) |
+| [MengTo Skills](https://github.com/MengTo/Skills) | MIT коллекция из 118 Agent Skills, включая 17 GameDev workflows для Three.js: levels, camera, combat, enemies, VFX, audio, performance, testing и release. Vesperfall Asset Ledger — inventory конкретного demo, не отдельная свободная asset library. **Supply-chain:** skills/scripts проверять и переносить по одному. **Зачем нам:** DnD Forge GameDev process и portfolio QA | [![Stars](https://img.shields.io/github/stars/MengTo/Skills?style=flat)](https://github.com/MengTo/Skills) |
+
+### Browser / video / knowledge discovery
+
+| Ресурс | Описание | Stars |
+|---|---|---|
+| [Lightpanda](https://github.com/lightpanda-io/browser) | AGPL-3.0 headless browser на Zig для automation/AI: CDP, Puppeteer/частичная Playwright совместимость, native agent/MCP и HTML/Markdown dump. Проект сам помечен beta; Web API coverage неполный, Windows работает через WSL2, telemetry включена по умолчанию (`LIGHTPANDA_DISABLE_TELEMETRY=true` отключает). Benchmarks против Chrome — авторские. **Зачем нам:** benchmark optional JS-renderer для Eclipse Webclaw и research-agent | [![Stars](https://img.shields.io/github/stars/lightpanda-io/browser?style=flat)](https://github.com/lightpanda-io/browser) |
+| [Claude Video](https://github.com/bradautomates/claude-video) | MIT `/watch` skill: сначала получает captions, затем при необходимости скачивает видео через yt-dlp, извлекает непохожие кадры ffmpeg и делает timestamped summary; Groq/OpenAI Whisper используется только как fallback. **Risk:** remote downloads, copyright/ToS, local file access и отправка аудио provider-у; только sandbox worker, limits и opt-in transcription. **Зачем нам:** Eclipse Media, Educator-AI и AI Hub video understanding | [![Stars](https://img.shields.io/github/stars/bradautomates/claude-video?style=flat)](https://github.com/bradautomates/claude-video) |
+| [NoSubscription.org](https://nosubscription.org/) | Community-каталог free, open-source и perpetual-license альтернатив подписочным программам с поиском по категориям, платформам и цене. На сайте не 1100 подтверждённых open-source tools: типы лицензий/оплаты смешаны, есть sponsored placement, поэтому каждую карточку нужно проверять заново. **Зачем нам:** intake source для Eclipse Library, не источник истины | — |
+| [Paranoia Privacy Wiki](https://paranoiaprivacy.wiki/) | MIT community-гайд без JavaScript/analytics: threat model, messengers, browser, DNS/VPN, phone и metadata. Хорошо объясняет, что VPN не делает человека анонимным и что защита должна соответствовать реальному риску. **Caution:** crypto/no-KYC разделы требуют первичных источников, юрисдикционной и financial/legal проверки. **Зачем нам:** privacy education reference для Library/Chat/Sentinel | — |
+
+### Windows / GameDev reference
+
+| Ресурс | Описание | Stars |
+|---|---|---|
+| [FluentTweaker](https://github.com/builtbybel/FluentTweaker) | Windows tweaker с preview/reversibility идеей для registry, privacy, ads, UI, Edge и system policies. **Не использовать в продукте:** в canonical repo нет явной лицензии, код содержит destructive system/app operations и PowerShell plugin store; заявления про безопасное отключение Defender/updates нельзя принимать как гарантию. **Зачем нам:** только UX reference preview → impact → undo для Sentinel | [![Stars](https://img.shields.io/github/stars/builtbybel/FluentTweaker?style=flat)](https://github.com/builtbybel/FluentTweaker) |
+| [The Long Silence](https://github.com/achimala/TheLongSilence) | MIT browser/WebGL space exploration demo с procedural graphics/audio и собственными interaction, screenshot, FPS/draw-call и tone verification tools. Репозиторий существует, но авторский claim «сделано Claude Opus 5 за сутки» не подтверждён: официальный актуальный Opus — 4.8; поэтому это QA/visual reference, не доказательство one-prompt разработки. **Зачем нам:** DnD Forge и portfolio GameDev verification | [![Stars](https://img.shields.io/github/stars/achimala/TheLongSilence?style=flat)](https://github.com/achimala/TheLongSilence) |
+
+### Music generation
+
+| Ресурс | Описание | Stars |
+|---|---|---|
+| [Google Flow Music](https://www.flowmusic.app/) | Официальный Google cloud-сервис для генерации, редактирования, remix, публикации и скачивания песен; Lyria 3.5 доступна в consumer UI, старт бесплатный по credits, нужны Google Account, возраст 18+ и supported region. Это не API. Для продукта использовать документированный Gemini API Lyria 3 (Clip/Pro), учитывать SynthID, safety filters, copyrights и права на uploaded audio/images. **Зачем нам:** UX reference и API roadmap для Eclipse Media, DnD Forge и Shotforge | — |
+
+### Уже учтено / не добавляем повторно
+
+| Материал | Почему без новой записи |
+|---|---|
+| SongGeneration Studio | Уже опубликован как reference-only: нет явной лицензии, нужен NVIDIA GPU от 10 GB VRAM, права на reference audio/output требуют проверки |
+| ODS | Уже опубликован: Apache-2.0 local AI appliance; широкий installer/service graph — только pinned static audit и disposable VM |
+| beautify-github-readme | Уже опубликован: MIT evidence-first README skill; применять выборочно в asset-only режиме после fact-check |
+
+### ⚠️ Отклонено — не рекомендуем
+
+| Материал | Причина |
+|---|---|
+| OBLITERATUS | Целенаправленно удаляет refusal/safety directions из model weights. Это повышает abuse/compliance risk и не даёт безопасной продуктовой ценности Eclipse Forge |
+| Stolen Compute | Использовал чужие открытые inference endpoints без разрешения и уже закрыт. Несанкционированное использование ресурсов не является «бесплатным API» |
+| Kimi-K3-0.40B | Это случайно инициализированный architecture fixture, дообученный на toy copypasta, а не компактный frontier model; model repository занимает около 15.7 GB |
+| Desktop pets prompt | Нет продукта/кода/лицензии; нужны согласие людей на использование внешности и отдельный audit standalone EXE |
+| Coupon-testing prompt | Нет первичного продукта; автоматизированный checkout несёт ToS, rate-limit и accidental-purchase риски, уникальной пользы проектам нет |
+
+### Mapping → наши проекты
+
+| Tool | Project(s) | Integration pattern |
+|---|---|---|
+| **Claude Code in Action / Skillcheck** | Все dev-репо · ai-setup · Sentinel · oh-my-claudecode | Общий agent baseline + A/B gate на публичных synthetic tasks, raw results и повторный прогон при смене model |
+| **Lightpanda** | Eclipse Webclaw · Kwork #18 · Hopson Sentinel | Optional beta JS-renderer за fetch interface; benchmark против Playwright, robots/rate limits, telemetry off |
+| **Claude Video** | Eclipse Media · Educator-AI · Eclipse AI Hub | Transcript-first isolated worker, scene frames, timestamp citations; Whisper/upload только opt-in |
+| **Google Flow Music / Lyria 3 API** | Eclipse Media · Eclipse DnD Forge · Shotforge | Consumer UX reference; server-side API spike с credits, provenance, SynthID и content-rights gate |
+| **MengTo Skills / The Long Silence** | Eclipse DnD Forge · portfolio demos | Выборочно адаптировать level/audio/testing skills и evidence-first visual/performance verification |
+| **Jcode** | Hopson Sentinel · oh-my-claudecode | Sandbox benchmark memory/swarm/resume; no production OAuth, self-dev, telemetry или sponsored discovery |
+| **Paranoia Privacy / NoSubscription** | Eclipse Library · Eclipse Chat · Sentinel | Только discovery/education; перепроверка primary sources, license, price, privacy и high-stakes claims |
+| **FluentTweaker** | Hopson Sentinel | Только UX reference для reversible system actions; код и system tweaks не интегрировать |
 
 ---
 

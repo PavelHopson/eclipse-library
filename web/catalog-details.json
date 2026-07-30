@@ -2248,5 +2248,502 @@
       "signup": "none",
       "runtime": "self-host"
     }
+  },
+  {
+    "id": "fluenttweaker",
+    "url": "https://github.com/builtbybel/FluentTweaker",
+    "type": "tool",
+    "simpleDescription": "Windows-утилита, которая показывает набор системных tweaks для интерфейса, рекламы, privacy, Edge, приложений и policies. Перед изменением можно увидеть смысл действия, но ошибка способна сломать обновления, безопасность или обычные функции Windows.",
+    "useCases": [
+      "Изучить UX preview и объяснения последствий системного действия",
+      "Посмотреть паттерны undo и restore point для опасных настроек",
+      "Проверить отдельный Windows tweak в disposable VM"
+    ],
+    "platforms": [
+      "Windows",
+      ".NET",
+      "WinUI",
+      "PowerShell"
+    ],
+    "license": "Явная лицензия в canonical repository отсутствует; код нельзя считать разрешённым для переиспользования",
+    "pricing": "Скачать и изучить можно бесплатно; условия использования и перераспространения не определены лицензией",
+    "trust": "caution",
+    "trustReason": "Проверены canonical repository, README и дерево исходников. Репозиторий существует и активен, но не содержит явной лицензии, а plugin store включает PowerShell scripts и системные изменения.",
+    "projects": [
+      "Hopson Sentinel"
+    ],
+    "decision": "no",
+    "riskLevel": "high",
+    "risks": [
+      "Registry, policies, services, apps, Defender и Windows Update являются destructive/high-impact поверхностью",
+      "PowerShell plugins расширяют supply-chain и могут измениться независимо от главного UI",
+      "Restore point и обратимый toggle не гарантируют полное восстановление системы"
+    ],
+    "verifiedAt": "2026-07-30",
+    "quickStart": [
+      "Не запускать на основной рабочей машине и не интегрировать в Sentinel",
+      "Если нужен личный тест — создать disposable Windows VM и snapshot до запуска",
+      "Проверить один tweak, его точные registry/PowerShell actions и реальный rollback до следующего"
+    ],
+    "access": {
+      "cost": "free",
+      "signup": "none",
+      "runtime": "local"
+    }
+  },
+  {
+    "id": "claude-code-in-action",
+    "url": "https://anthropic.skilljar.com/claude-code-in-action",
+    "type": "learn",
+    "simpleDescription": "Бесплатный официальный курс Anthropic, который по шагам объясняет Claude Code: как он использует tools, удерживает context, работает с custom commands, MCP, GitHub, hooks и SDK.",
+    "useCases": [
+      "Освоить безопасный базовый workflow Claude Code",
+      "Разобраться, когда нужны hooks, MCP и SDK",
+      "Проверить знания итоговым quiz"
+    ],
+    "platforms": [
+      "Web",
+      "Claude Code",
+      "Skilljar"
+    ],
+    "license": "Учебный материал Anthropic; доступ регулируется условиями Anthropic и Skilljar, это не open-source content pack",
+    "pricing": "Бесплатно после регистрации",
+    "trust": "official",
+    "trustReason": "Курс размещён в официальном Anthropic Skilljar и перечисляет модули по tool use, context, MCP, GitHub integration, hooks, SDK и quiz.",
+    "projects": [
+      "Все portfolio-репозитории",
+      "oh-my-claudecode",
+      "Hopson Sentinel",
+      "ai-setup"
+    ],
+    "decision": "now",
+    "riskLevel": "low",
+    "risks": [
+      "Примеры ориентированы на Claude Code и не всегда переносятся в Codex или другие hosts",
+      "Hooks и MCP после курса всё равно требуют отдельного permission/security review",
+      "Нужна регистрация и передача account data учебной платформе"
+    ],
+    "verifiedAt": "2026-07-30",
+    "quickStart": [
+      "Зарегистрироваться только на официальной странице Anthropic Skilljar",
+      "Пройти context/tool basics до hooks и MCP",
+      "Каждый пример повторять только в тестовом repository без secrets и фиксировать применимые правила"
+    ],
+    "access": {
+      "cost": "free",
+      "signup": "required",
+      "runtime": "cloud"
+    }
+  },
+  {
+    "id": "lightpanda-browser",
+    "url": "https://github.com/lightpanda-io/browser",
+    "type": "tool",
+    "simpleDescription": "Headless browser на Zig для автоматизации и AI agents. Он не основан на Chromium, умеет отдавать HTML/Markdown, работать через CDP, Puppeteer, часть Playwright, native agent и MCP, но пока находится в beta.",
+    "useCases": [
+      "Рендерить JavaScript-страницы для research и extraction",
+      "Сравнить расход RAM/CPU с Playwright Chromium",
+      "Запускать несколько изолированных browser sessions для agents"
+    ],
+    "platforms": [
+      "Linux",
+      "macOS",
+      "Windows через WSL2",
+      "Docker",
+      "MCP",
+      "CDP"
+    ],
+    "license": "AGPL-3.0",
+    "pricing": "Open-source browser бесплатный; инфраструктура, LLM providers и hosted services оплачиваются отдельно",
+    "trust": "official",
+    "trustReason": "Проверены canonical lightpanda-io/browser, AGPL-3.0, официальный README, beta status, Web API matrix, telemetry setting и собственная benchmark methodology.",
+    "projects": [
+      "Eclipse Webclaw",
+      "Kwork #18",
+      "Hopson Sentinel",
+      "Eclipse AI Hub"
+    ],
+    "decision": "roadmap",
+    "riskLevel": "high",
+    "risks": [
+      "Beta и неполная Web API coverage дают отличающееся поведение и падения на реальных сайтах",
+      "Web content может содержать prompt injection; browser cookies и downloads нельзя смешивать с privileged tools",
+      "Telemetry включена по умолчанию, а AGPL требует license review для modified network deployment"
+    ],
+    "verifiedAt": "2026-07-30",
+    "quickStart": [
+      "Не скачивать nightly binary вслепую: pin release/image digest и проверить checksum/provenance",
+      "Запустить disposable container с bind на 127.0.0.1, telemetry off и без credentials",
+      "Сравнить representative page set с Playwright по success rate, output quality, p95 и memory"
+    ],
+    "access": {
+      "cost": "free",
+      "signup": "none",
+      "runtime": "self-host"
+    }
+  },
+  {
+    "id": "claude-video",
+    "url": "https://github.com/bradautomates/claude-video",
+    "type": "skill",
+    "simpleDescription": "Agent Skill `/watch`, который сначала берёт captions, затем при необходимости скачивает видео, извлекает только отличающиеся кадры и делает summary с таймкодами. Если субтитров нет, аудио можно отправить в Groq или OpenAI Whisper.",
+    "useCases": [
+      "Сделать конспект YouTube/Loom/TikTok или локального видео",
+      "Найти момент ошибки в screen recording",
+      "Преобразовать учебный ролик в заметки с таймкодами"
+    ],
+    "platforms": [
+      "Claude Code",
+      "Codex",
+      "Cursor",
+      "Python",
+      "yt-dlp",
+      "ffmpeg"
+    ],
+    "license": "MIT",
+    "pricing": "Skill и captions path бесплатны; Groq/OpenAI Whisper fallback оплачивается по условиям выбранного provider",
+    "trust": "community",
+    "trustReason": "Проверены canonical repository, MIT license, skill/scripts structure, tests и README flow captions → download → frames → optional Whisper. Runtime code не запускался.",
+    "projects": [
+      "Eclipse Media",
+      "Educator-AI",
+      "Eclipse AI Hub",
+      "Hopson Sentinel"
+    ],
+    "decision": "roadmap",
+    "riskLevel": "high",
+    "risks": [
+      "Недоверенный URL обрабатывают yt-dlp/ffmpeg, поэтому нужны sandbox, size/time limits и allowlist protocols",
+      "Скачивание и анализ чужого видео могут нарушать copyright или ToS платформы",
+      "Whisper fallback передаёт аудио и возможно голоса третьих лиц внешнему provider"
+    ],
+    "verifiedAt": "2026-07-30",
+    "quickStart": [
+      "Не устанавливать skill глобально: сначала прочитать SKILL.md, hooks и Python scripts на pinned commit",
+      "Проверить локальный разрешённый ролик без Whisper в disposable workspace",
+      "Для cloud transcription запросить opt-in и не отправлять private/client/biometric audio"
+    ],
+    "access": {
+      "cost": "freemium",
+      "signup": "optional",
+      "runtime": "hybrid"
+    }
+  },
+  {
+    "id": "no-subscription",
+    "url": "https://nosubscription.org/",
+    "type": "drop",
+    "simpleDescription": "Community-каталог программ без обязательной подписки: бесплатные, open-source и покупаемые один раз инструменты. Есть поиск по категориям, платформам, цене и альтернативам известным продуктам.",
+    "useCases": [
+      "Найти кандидата на замену дорогому SaaS",
+      "Сравнить free, open-source и perpetual-license варианты",
+      "Получить очередь новых материалов для ручной проверки Eclipse Library"
+    ],
+    "platforms": [
+      "Web",
+      "Windows",
+      "macOS",
+      "Linux",
+      "Mobile"
+    ],
+    "license": "Каталог является закрытым web-сервисом; лицензии указаны отдельно для каждого внешнего инструмента",
+    "pricing": "Просмотр без аккаунта бесплатный; внутри смешаны free, freemium и платные perpetual продукты",
+    "trust": "community",
+    "trustReason": "Проверены about, filters и несколько карточек. Сайт заявляет editorial verification, но принимает submissions и sponsored placement, поэтому listing не является независимым endorsement.",
+    "projects": [
+      "Eclipse Library",
+      "Eclipse Forge Landing"
+    ],
+    "decision": "reference",
+    "riskLevel": "medium",
+    "risks": [
+      "Цена, privacy, license и maintenance отдельных продуктов могут быть устаревшими или ошибочными",
+      "Sponsored placement создаёт editorial conflict",
+      "Название каталога не означает, что все записи бесплатны или open-source"
+    ],
+    "verifiedAt": "2026-07-30",
+    "quickStart": [
+      "Искать по задаче и выбрать не больше трёх кандидатов",
+      "Открыть canonical vendor/repository каждого кандидата и заново проверить price, license, privacy и updates",
+      "Не скачивать binary и не вводить payment data только на основании listing"
+    ],
+    "access": {
+      "cost": "free",
+      "signup": "none",
+      "runtime": "cloud"
+    }
+  },
+  {
+    "id": "paranoia-privacy-wiki",
+    "url": "https://paranoiaprivacy.wiki/",
+    "type": "privacy",
+    "simpleDescription": "Небольшой community-гайд по privacy, который начинает не со списка приложений, а с threat model: что вы защищаете, от кого, насколько тяжёлыми будут последствия и какие меры реально сможете поддерживать.",
+    "useCases": [
+      "Составить личный threat model простым языком",
+      "Понять границы VPN, browsers, messengers и metadata cleanup",
+      "Объяснить privacy controls пользователям Eclipse продуктов без обещания полной анонимности"
+    ],
+    "platforms": [
+      "Web",
+      "Self-host",
+      "Static HTML"
+    ],
+    "license": "MIT для текста/кода, кроме fonts (OFL) и gifs по отдельным исключениям",
+    "pricing": "Бесплатно, без аккаунта; source доступен на Codeberg",
+    "trust": "community",
+    "trustReason": "Проверены source README, threat-model/opsec/payments/no-KYC pages, источники и отсутствие JavaScript/analytics. Это один community author, не EFF/Privacy Guides и не юридическая консультация.",
+    "projects": [
+      "Eclipse Library",
+      "Eclipse Chat",
+      "Hopson Sentinel",
+      "Eclipse AI Hub"
+    ],
+    "decision": "reference",
+    "riskLevel": "medium",
+    "risks": [
+      "Crypto/no-KYC/payment советы являются financial/legal high-stakes и зависят от юрисдикции",
+      "Один автор и июльская версия ещё не дают долгой истории peer review",
+      "Некоторые OPSEC советы добавляют сильную friction и могут не соответствовать реальной угрозе"
+    ],
+    "verifiedAt": "2026-07-30",
+    "quickStart": [
+      "Начать только с четырёх вопросов threat model, не с покупки инструментов",
+      "Для обычного privacy-сценария выбрать два вероятных риска и минимальные устойчивые меры",
+      "Любые crypto, no-KYC, legal или high-risk claims перепроверять по первичным источникам и местному праву"
+    ],
+    "access": {
+      "cost": "free",
+      "signup": "none",
+      "runtime": "cloud"
+    }
+  },
+  {
+    "id": "mengto-skills",
+    "url": "https://github.com/MengTo/Skills",
+    "type": "skill",
+    "simpleDescription": "Коллекция Agent Skills для Codex, Claude, Cursor и других coding agents. В ней 118 workflows, включая 17 GameDev skills для Three.js: levels, camera, combat, enemies, VFX, audio, performance, testing и release.",
+    "useCases": [
+      "Собрать понятный GameDev workflow от level blockout до release",
+      "Добавить gameplay и visual QA к browser game",
+      "Использовать узкий skill для конкретной UI, media или Three.js задачи"
+    ],
+    "platforms": [
+      "Codex",
+      "Claude Code",
+      "Cursor",
+      "Markdown",
+      "Three.js"
+    ],
+    "license": "MIT для canonical MengTo/Skills repository",
+    "pricing": "Бесплатно",
+    "trust": "community",
+    "trustReason": "Проверены canonical repository, MIT license, структура skills, актуальное количество 118 и отдельная GameDev группа из 17 workflows. Scripts и каждый skill не проходили полный runtime audit.",
+    "projects": [
+      "Eclipse DnD Forge",
+      "Shotforge",
+      "Text2Image",
+      "Eclipse Forge Landing"
+    ],
+    "decision": "roadmap",
+    "riskLevel": "medium",
+    "risks": [
+      "Skill instructions и bundled scripts являются supply-chain и могут управлять файлами, browser и shell",
+      "Wholesale установка 118 skills создаёт conflicts, лишний context и непредсказуемые triggers",
+      "Vesperfall Asset Ledger описывает assets конкретного demo и не является свободной универсальной asset library"
+    ],
+    "verifiedAt": "2026-07-30",
+    "quickStart": [
+      "Не устанавливать коллекцию целиком; выбрать один skill под текущую задачу",
+      "Прочитать весь SKILL.md, references и scripts, проверить внешние URLs и permissions",
+      "Пилотировать в sandbox branch/repo и оставить только правила, совместимые с design system и tests проекта"
+    ],
+    "access": {
+      "cost": "free",
+      "signup": "none",
+      "runtime": "local"
+    }
+  },
+  {
+    "id": "the-long-silence",
+    "url": "https://github.com/achimala/TheLongSilence",
+    "type": "oss",
+    "simpleDescription": "Открытый WebGL space exploration demo с процедурными планетами, кораблём, звуком и собственными verification tools. Полезнее всего не как готовый game engine, а как пример измеримого visual/gameplay QA.",
+    "useCases": [
+      "Изучить visual regression и screenshot review для WebGL game",
+      "Проверять interaction assertions, FPS и draw calls",
+      "Собрать evidence-first portfolio demo"
+    ],
+    "platforms": [
+      "Web",
+      "WebGL2",
+      "JavaScript",
+      "Three.js",
+      "Node.js"
+    ],
+    "license": "MIT",
+    "pricing": "Бесплатно; live demo запускается в browser с WebGL2",
+    "trust": "community",
+    "trustReason": "Проверены canonical repository, MIT metadata, live demo и documented verification commands. Claim автора про Claude Opus 5/одни сутки не подтверждён официальной model line Anthropic, где актуальный Opus — 4.8.",
+    "projects": [
+      "Eclipse DnD Forge",
+      "Shotforge",
+      "Eclipse Forge Landing"
+    ],
+    "decision": "reference",
+    "riskLevel": "medium",
+    "risks": [
+      "Авторские AI-generation claims и визуальное качество не являются воспроизводимым benchmark",
+      "Тяжёлый WebGL demo может не работать на mobile/low-power devices",
+      "Перенос кода вместо verification patterns создаст чужую архитектуру и maintenance burden"
+    ],
+    "verifiedAt": "2026-07-30",
+    "quickStart": [
+      "Открыть live demo на устройстве с WebGL2 без browser permissions",
+      "Изучить README и tools/play, survey, probe, levels без копирования game code",
+      "Перенести один verification pattern в DnD Forge и сравнить пользу с текущими tests"
+    ],
+    "access": {
+      "cost": "free",
+      "signup": "none",
+      "runtime": "cloud"
+    }
+  },
+  {
+    "id": "jcode",
+    "url": "https://github.com/1jehuang/jcode",
+    "type": "agent",
+    "simpleDescription": "Terminal coding-agent на Rust с rich TUI, resume, persistent memory, swarms, hooks, MCP и несколькими model providers. Его стоит сравнивать с текущими harnesses, а не принимать авторские цифры скорости и RAM как независимый факт.",
+    "useCases": [
+      "Сравнить лёгкие параллельные coding sessions",
+      "Изучить memory retrieval, resume и agent swarm coordination",
+      "Проверить provider/harness portability на одинаковом coding eval"
+    ],
+    "platforms": [
+      "Windows",
+      "macOS",
+      "Linux",
+      "Rust",
+      "MCP",
+      "Terminal"
+    ],
+    "license": "MIT для local jcode software; hosted router, subscriptions и discovery регулируются отдельными terms/privacy",
+    "pricing": "Local software бесплатно с BYOK/OAuth/local models; hosted token plans платные, pricing раннего доступа может меняться",
+    "trust": "official",
+    "trustReason": "Проверены canonical 1jehuang/jcode, MIT license, official docs, pricing, terms, privacy, telemetry and sponsored-discovery disclosures. Installer и binary не запускались.",
+    "projects": [
+      "Hopson Sentinel",
+      "oh-my-claudecode",
+      "Eclipse AI Hub"
+    ],
+    "decision": "roadmap",
+    "riskLevel": "high",
+    "risks": [
+      "Agent получает широкий filesystem/shell доступ, provider OAuth/API credentials, hooks, MCP и persistent memory",
+      "Self-dev может менять собственный source/binary и продолжать работу без привычной release boundary",
+      "Telemetry и sponsored tool discovery включают внешние requests; hosted router видит prompts/tool results in transit"
+    ],
+    "verifiedAt": "2026-07-30",
+    "quickStart": [
+      "Не использовать remote pipe installer; pin commit/tag и собрать source в disposable environment",
+      "Отключить telemetry, sponsored discovery, hooks, MCP, memory и self-dev для первого запуска",
+      "Подключить test API key с минимальными limits или local model и прогнать eval только на synthetic repo"
+    ],
+    "access": {
+      "cost": "freemium",
+      "signup": "optional",
+      "runtime": "hybrid"
+    }
+  },
+  {
+    "id": "skillcheck",
+    "url": "https://github.com/sx4im/skillcheck",
+    "type": "tool",
+    "simpleDescription": "CLI для A/B-теста Agent Skills: создаёт задачи по заявленной теме, запускает модель со skill и без него, перемешивает ответы для blind grading и показывает изменение pass rate, confidence interval и token overhead.",
+    "useCases": [
+      "Проверить, помогает ли SKILL.md на реальных задачах",
+      "Найти skill, который ухудшает результат или только тратит tokens",
+      "Повторно проверить skills после смены модели или instruction file"
+    ],
+    "platforms": [
+      "Windows",
+      "macOS",
+      "Linux",
+      "Node.js",
+      "CLI"
+    ],
+    "license": "MIT",
+    "pricing": "CLI open-source; hosted free tier заявляет 10 checks, далее тарифы/лимиты могут меняться; BYOK оплачивается provider-у",
+    "trust": "community",
+    "trustReason": "Проверены canonical repository, MIT license, methodology, blind grader/bootstrap design, Node 20 requirement, provider support, tests и CI. Независимая валидация его scoring methodology не выполнялась.",
+    "projects": [
+      "oh-my-claudecode",
+      "Hopson Sentinel",
+      "ai-setup",
+      "Eclipse Library"
+    ],
+    "decision": "now",
+    "riskLevel": "medium",
+    "risks": [
+      "Generator, runner и grader могут делить model biases; один score не доказывает general quality",
+      "Skill text, tasks и outputs отправляются выбранному provider или hosted proxy",
+      "API keys и daily update check требуют secret handling, pinning и egress awareness"
+    ],
+    "verifiedAt": "2026-07-30",
+    "quickStart": [
+      "Pin npm package/version или запускать audited source; update check отключить для CI",
+      "Взять один публичный skill и synthetic tasks без private code, secrets или client data",
+      "Зафиксировать model, tasks/trials, raw JSON и повторить прогон перед выводом HELPS/HARMS"
+    ],
+    "access": {
+      "cost": "freemium",
+      "signup": "optional",
+      "runtime": "hybrid"
+    }
+  },
+  {
+    "id": "google-flow-music",
+    "url": "https://www.flowmusic.app/",
+    "type": "media",
+    "simpleDescription": "Официальный Google cloud-сервис для создания песен из текста, изображений и аудио references. Можно редактировать, remix, собирать playlists/music videos, публиковать и скачивать результат; Lyria 3.5 доступна внутри consumer UI.",
+    "useCases": [
+      "Сделать soundtrack, ambience или короткий loop для prototype",
+      "Изучить conversational music editing и remix UX",
+      "Проверить будущий Lyria API сценарий для Eclipse Media"
+    ],
+    "platforms": [
+      "Web",
+      "Cloud",
+      "Google Account",
+      "Audio",
+      "Video"
+    ],
+    "license": "Закрытый Google service; использование, uploads и outputs регулируются Google Terms, privacy и service-specific policies",
+    "pricing": "Бесплатный старт по daily credits без карты; больше credits/generations требует Flow Music или Google AI plan, доступ зависит от региона",
+    "trust": "official",
+    "trustReason": "Существование Google Flow Music, account/age/region requirements, generation/edit/remix/download и subscriptions подтверждены официальным Google Flow Help. Consumer Lyria 3.5 UI не является публичным API.",
+    "projects": [
+      "Eclipse Media",
+      "Eclipse DnD Forge",
+      "Shotforge",
+      "Text2Image"
+    ],
+    "decision": "reference",
+    "riskLevel": "medium",
+    "risks": [
+      "Uploaded audio/images, prompts, history и optional memory обрабатываются cloud service",
+      "Нужны права на reference media, lyrics, voices и публикацию результата; artist imitation может блокироваться",
+      "Credits, regional availability, preview models и product features могут измениться"
+    ],
+    "verifiedAt": "2026-07-30",
+    "quickStart": [
+      "Проверить supported region, credits и Google account permissions до загрузки данных",
+      "Использовать только собственный или лицензированный reference audio/image и не включать client media",
+      "Для интеграции не автоматизировать consumer UI: тестировать официальный Gemini API Lyria 3 server-side с provenance/SynthID disclosure"
+    ],
+    "access": {
+      "cost": "freemium",
+      "signup": "required",
+      "runtime": "cloud"
+    }
   }
 ]

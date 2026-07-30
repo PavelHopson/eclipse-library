@@ -1,6 +1,6 @@
 # Eclipse Library Roadmap
 
-Последнее обновление: **29.07.2026**
+Последнее обновление: **30.07.2026**
 
 ## Текущее состояние
 
@@ -9,8 +9,8 @@
   подробные карточки и guide viewer.
 - `web/catalog-details.json` — проверенный структурированный слой для приоритетных
   материалов; старые записи получают честную пометку о необходимости аудита.
-- `web/catalog-index.json` — детерминированный полный индекс 509 уникальных материалов:
-  56 редакторски проверены, 453 структурированы из README и явно помечены `inferred`.
+- `web/catalog-index.json` — детерминированный полный индекс 520 уникальных материалов:
+  67 редакторски проверены, 453 структурированы из README и явно помечены `inferred`.
 - `web/link-health.json` — безопасный публичный snapshot weekly-аудита: доступность ссылки
   показывается отдельно от редакторского доверия и не считается security endorsement.
 - Deploy: GitHub Actions → VPS/Caddy из ветки `master`.
@@ -56,6 +56,17 @@
       панель, которая не блокирует страницу при открытии ссылки и не ломает вертикальный скролл.
 - [x] Stage 12 — нормализовать стоимость, регистрацию и место запуска для подробно проверенных карточек,
       добавить shareable access filters, incremental duplicate gate и честный MCP runtime-audit status.
+- [ ] Eclipse Webclaw / Kwork #18: benchmark Lightpanda как optional beta JS-renderer против
+      Playwright на representative page set — success rate, extraction quality, p95, RAM, robots/rate limits;
+      telemetry off, pinned image/source и AGPL review обязательны.
+- [ ] Eclipse Media / Educator-AI: isolated transcript-first video understanding spike по паттерну
+      Claude Video — allowlisted URLs, size/time limits, scene frames, timestamp citations и только
+      opt-in Whisper fallback без client/private media.
+- [ ] Eclipse Media / DnD Forge / Shotforge: server-side Gemini API Lyria 3 Clip/Pro spike с
+      credits/pricing, RU/EN quality, SynthID/provenance, content-rights gate; consumer Flow Music UI
+      использовать только как UX reference, не автоматизировать.
+- [ ] oh-my-claudecode / ai-setup / Sentinel: pilot Skillcheck на трёх публичных skills и synthetic
+      tasks с pinned model/config, raw JSON и повторными trials; private instructions и code не отправлять.
 
 - [x] Перевести все записи из неструктурированных Markdown-описаний в schema с полями:
       `type`, `category`, `platform`, `license`, `trust`, `risk`, `projects`, `verifiedAt`.
@@ -75,8 +86,40 @@
       `unknown` / `broken` / `blocked`; archived repository metadata показывается отдельным lifecycle status.
 - [x] Автоматический GitHub metadata refresh без доверия к stars как quality score.
 - [x] Отдельные landing routes для skills, MCP, models, prompts, courses и security.
+- [ ] Sentinel / oh-my-claudecode: сравнить Jcode memory/swarm/resume на synthetic repository,
+      собранном из pinned source с отключёнными telemetry, sponsored discovery, hooks, MCP и self-dev.
+- [ ] Eclipse DnD Forge: отдельно аудировать и адаптировать три MengTo GameDev skills —
+      `author-game-levels`, `test-playable-web-games`, `build-game-audio-feedback`; коллекцию целиком не ставить.
 
 ## Changelog
+
+### 2026-07-30
+
+- Обработано 19 сообщений Telegram за 24–30 июля: добавлены 11 новых редакторски проверенных
+  материалов — FluentTweaker, Claude Code in Action, Lightpanda, Claude Video, NoSubscription,
+  Paranoia Privacy Wiki, MengTo Skills, The Long Silence, Jcode, Skillcheck и Google Flow Music.
+  Каталог вырос с 509 до 520 карточек, подробный слой — с 56 до 67; 453 исторические записи
+  сохранили честный `inferred` status.
+- SongGeneration Studio, ODS и beautify-github-readme найдены в текущем каталоге и не продублированы.
+  OBLITERATUS, Stolen Compute, тестовая Kimi-K3-0.40B, desktop-pets prompt и coupon checkout prompt
+  отклонены как небезопасные, вводящие в заблуждение или не дающие измеримой продуктовой ценности.
+- Рекламные claims исправлены по первичным источникам: Lightpanda остаётся beta с неполным Web API
+  и telemetry default; Kimi-K3-0.40B — scratch architecture fixture, а не маленький frontier model;
+  авторский «Opus 5» у The Long Silence не совпадает с официальной линейкой Anthropic; Google Flow
+  Music, напротив, подтверждён официальным Google Help, но consumer UI не является API.
+- Добавлен decision radar `guides/july-2026-music-agents-tooling-radar.md` с решениями, complexity,
+  priority, risks, dependencies и next steps для Eclipse Webclaw, Media, DnD Forge, AI Hub,
+  Educator-AI, Shotforge, Sentinel, oh-my-claudecode, ai-setup и Library.
+- Supply-chain review не запускал сторонний код: Jcode, Claude Video, Lightpanda и FluentTweaker
+  получили high-risk boundaries; skills, model providers, remote downloads, telemetry, OAuth/API keys,
+  PowerShell/system tweaks и media rights явно вынесены в карточки и roadmap gates.
+- Финальный link audit проверил 528 уникальных URL: 451 `ok`, 22 `restricted`, 0 `broken`,
+  0 unsafe/blocked и 0 новых redirect-duplicate groups; единственный временный `503` относится к
+  прежней записи Robokassa. Browser QA на 1440×900 и 390×844 подтвердил 520 карточек,
+  deep link новой записи, полные safe-start/risk блоки, отсутствие horizontal overflow и console errors;
+  mobile scroll сохранился на 2300 px после ожидания и больше не возвращает страницу наверх.
+- Исправлены две старые повреждённые UTF-8 строки в описаниях AI Agents for Beginners и TryHackMe;
+  генератор перенёс исправления в полный индекс без изменения identity карточек.
 
 ### 2026-07-29
 
