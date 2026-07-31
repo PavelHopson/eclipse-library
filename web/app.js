@@ -1691,9 +1691,9 @@
     if (/^#guide\//.test(h)) { openGuide(decodeURIComponent(h.slice(7))); return; }
     if (/^#item\//.test(h)) { openItem(decodeURIComponent(h.slice(6))); return; }
     if (h === '#projects') { closeGuide(); closeItem(); closeCompare(); clearTopicRoute(); setView('projects'); window.scrollTo({ top: 0 }); return; }
-    setView('catalog');
-    if (/^#browse\//.test(h)) { closeGuide(); closeItem(); applyTopicRoute(decodeURIComponent(h.slice(8))); return; }
+    if (/^#browse\//.test(h)) { setView('catalog'); closeGuide(); closeItem(); applyTopicRoute(decodeURIComponent(h.slice(8))); return; }
     clearTopicRoute();
+    setView('catalog');
     closeGuide();
     closeItem();
     if (h === '#catalog') { window.scrollTo({ top: 0 }); return; }

@@ -110,6 +110,10 @@
 
 ### 2026-07-31
 
+- Реальный browser QA на 390×844 подтвердил production mobile-layout и загрузку `app.js?v=29`,
+  а route-проверка обнаружила соседний navigation regression: после `#browse/*` обычная категория
+  сохраняла старый topic-filter. Порядок исправлен — `clearTopicRoute()` теперь выполняется до
+  повторного `setView('catalog')`; добавлен local/production smoke contract, asset поднят до `app.js?v=30`.
 - Mobile scroll fix теперь защищён production smoke contract: проверка требует horizontal `nav.scrollLeft`,
   ранний `return` и запрещает `scrollIntoView()` внутри mobile scrollspy branch. Contract применяется
   и к локальному, и к фактически опубликованному `app.js`; интерактивный browser backend в этой сессии

@@ -1,6 +1,11 @@
 import assert from 'node:assert/strict';
 import test from 'node:test';
-import { assertMobileScrollGuard, extractVersionedAsset, validateBaseUrl } from './smoke-production.mjs';
+import {
+  assertMobileScrollGuard,
+  assertTopicRouteResetOrder,
+  extractVersionedAsset,
+  validateBaseUrl,
+} from './smoke-production.mjs';
 
 test('restricts production smoke to the canonical HTTPS host', () => {
   assert.equal(validateBaseUrl('https://library.eclipse-forge.ru/path?q=1').href, 'https://library.eclipse-forge.ru/');
@@ -34,4 +39,20 @@ test('keeps mobile scrollspy horizontal and reserves scrollIntoView for desktop'
     link.scrollIntoView({ block: 'nearest' });
   `;
   assert.throws(() => assertMobileScrollGuard(regressedSource), /must not move the document vertically/);
+});
+
+test('clears a browse topic before restoring the normal catalog filters', () => {
+  const validSource = `
+    if (/^#browse\\//.test(h)) { setView('catalog'); applyTopicRoute('verified'); return; }
+    clearTopicRoute();
+    setView('catalog');
+  `;
+  assert.doesNotThrow(() => assertTopicRouteResetOrder(validSource));
+
+  const regressedSource = `
+    if (/^#browse\\//.test(h)) { setView('catalog'); applyTopicRoute('verified'); return; }
+    setView('catalog');
+    clearTopicRoute();
+  `;
+  assert.throws(() => assertTopicRouteResetOrder(regressedSource), /must be cleared before/);
 });

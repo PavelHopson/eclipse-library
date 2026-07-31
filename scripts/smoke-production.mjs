@@ -51,6 +51,24 @@ export function assertMobileScrollGuard(appSource) {
   assert.doesNotMatch(mobileBranch, /scrollIntoView/, 'Mobile scrollspy must not move the document vertically.');
 }
 
+export function assertTopicRouteResetOrder(appSource) {
+  const browseBranch = "if (/^#browse\\//.test(h))";
+  const browseStart = appSource.indexOf(browseBranch);
+  assert.notEqual(browseStart, -1, 'Browse topic route is missing.');
+
+  const browseEnd = appSource.indexOf('return; }', browseStart);
+  assert.notEqual(browseEnd, -1, 'Browse topic route is malformed.');
+
+  const clearStart = appSource.indexOf('clearTopicRoute();', browseEnd);
+  const catalogViewStart = appSource.indexOf("setView('catalog');", browseEnd);
+  assert.notEqual(clearStart, -1, 'Topic reset after the browse route is missing.');
+  assert.notEqual(catalogViewStart, -1, 'Catalog view restoration after the browse route is missing.');
+  assert.ok(
+    clearStart < catalogViewStart,
+    'Topic state must be cleared before the catalog reapplies filters for a normal category route.',
+  );
+}
+
 async function fetchText(url) {
   const response = await fetch(url, {
     headers: { accept: 'text/html,application/json;q=0.9,*/*;q=0.8' },
@@ -82,6 +100,8 @@ export async function smokeProduction(baseValue, deploySha = '') {
   assert.equal(liveApp, localApp, 'Production app.js does not match the deployed commit.');
   assertMobileScrollGuard(localApp);
   assertMobileScrollGuard(liveApp);
+  assertTopicRouteResetOrder(localApp);
+  assertTopicRouteResetOrder(liveApp);
 
   const [liveCatalog, liveMetadata, liveProjects, liveMcpAudit, liveReadme] = await Promise.all([
     fetchText(new URL(`catalog-index.json?deploy=${cacheKey}`, base)).then(JSON.parse),
