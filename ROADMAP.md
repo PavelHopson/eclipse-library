@@ -110,6 +110,10 @@
 
 ### 2026-07-31
 
+- Mobile scroll fix теперь защищён production smoke contract: проверка требует horizontal `nav.scrollLeft`,
+  ранний `return` и запрещает `scrollIntoView()` внутри mobile scrollspy branch. Contract применяется
+  и к локальному, и к фактически опубликованному `app.js`; интерактивный browser backend в этой сессии
+  по-прежнему не предоставил navigation API.
 - Добавлен Agent Reach с подробной карточкой и отдельным static security review: существование,
   MIT license и текущий `main` commit подтверждены, рекламные обещания «весь интернет»,
   «бесплатно» и `privacy-safe` ограничены фактическими account/cookie/proxy/API/ToS границами.

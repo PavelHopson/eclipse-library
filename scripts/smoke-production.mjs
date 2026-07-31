@@ -24,6 +24,33 @@ export function extractVersionedAsset(html, filename) {
   return match[1];
 }
 
+export function assertMobileScrollGuard(appSource) {
+  const mobileGuard = "if (window.matchMedia('(max-width: 960px)').matches) {";
+  const desktopReveal = "link.scrollIntoView({ block: 'nearest' });";
+  const guardStart = appSource.indexOf(mobileGuard);
+  assert.notEqual(guardStart, -1, 'Mobile scrollspy guard is missing.');
+
+  const openBrace = appSource.indexOf('{', guardStart);
+  let depth = 0;
+  let guardEnd = -1;
+  for (let index = openBrace; index < appSource.length; index += 1) {
+    if (appSource[index] === '{') depth += 1;
+    if (appSource[index] === '}') depth -= 1;
+    if (depth === 0) {
+      guardEnd = index + 1;
+      break;
+    }
+  }
+  assert.notEqual(guardEnd, -1, 'Mobile scrollspy guard is malformed.');
+
+  const desktopRevealStart = appSource.indexOf(desktopReveal, guardEnd);
+  assert.notEqual(desktopRevealStart, -1, 'Desktop scrollspy reveal is missing.');
+  const mobileBranch = appSource.slice(guardStart, guardEnd);
+  assert.match(mobileBranch, /nav\.scrollLeft/, 'Mobile scrollspy must move only the horizontal category strip.');
+  assert.match(mobileBranch, /return;/, 'Mobile scrollspy must return before the desktop reveal.');
+  assert.doesNotMatch(mobileBranch, /scrollIntoView/, 'Mobile scrollspy must not move the document vertically.');
+}
+
 async function fetchText(url) {
   const response = await fetch(url, {
     headers: { accept: 'text/html,application/json;q=0.9,*/*;q=0.8' },
@@ -53,6 +80,8 @@ export async function smokeProduction(baseValue, deploySha = '') {
   appUrl.searchParams.set('deploy', cacheKey);
   const liveApp = await fetchText(appUrl);
   assert.equal(liveApp, localApp, 'Production app.js does not match the deployed commit.');
+  assertMobileScrollGuard(localApp);
+  assertMobileScrollGuard(liveApp);
 
   const [liveCatalog, liveMetadata, liveProjects, liveMcpAudit, liveReadme] = await Promise.all([
     fetchText(new URL(`catalog-index.json?deploy=${cacheKey}`, base)).then(JSON.parse),
