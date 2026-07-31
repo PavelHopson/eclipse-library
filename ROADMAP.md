@@ -14,10 +14,10 @@
 - `web/link-health.json` — безопасный публичный snapshot weekly-аудита: доступность ссылки
   показывается отдельно от редакторского доверия и не считается security endorsement.
 - Deploy: GitHub Actions → VPS/Caddy из ветки `master`.
-- Production синхронизирован с `master` commit `2a9a068`: deploy
-  [#30525800668](https://github.com/PavelHopson/eclipse-library/actions/runs/30525800668)
-  от 30.07.2026 успешно завершён через VPS/Caddy; independent smoke подтвердил `app.js?v=29`,
-  520 материалов, 22 проекта, 307 GitHub repository statuses и 5 MCP audit records.
+- Production синхронизирован с catalog commit `6f16ff1`: deploy
+  [#30612972889](https://github.com/PavelHopson/eclipse-library/actions/runs/30612972889)
+  от 31.07.2026 успешно завершён через VPS/Caddy; independent smoke подтвердил `app.js?v=29`,
+  525 материалов, 22 проекта, 307 GitHub repository statuses и 5 MCP audit records.
 
 ## Приоритеты
 
@@ -123,6 +123,10 @@
   однозначный machine-readable ответ. Browser QA на 1440×900 и 390×844 подтвердил
   counters 525/73, detail/guide deep links, отсутствие horizontal overflow и console errors;
   mobile detail сохранил `scrollTop=720` после ожидания и не выбросил пользователя наверх.
+- Catalog commit `6f16ff1` опубликован в `master`; quality
+  [#30612972893](https://github.com/PavelHopson/eclipse-library/actions/runs/30612972893)
+  и production deploy [#30612972889](https://github.com/PavelHopson/eclipse-library/actions/runs/30612972889)
+  завершены успешно. Live smoke подтвердил 525 catalog items и актуальный `app.js?v=29`.
 
 ### 2026-07-30
 
