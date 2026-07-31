@@ -2314,6 +2314,8 @@ Frontend: React 19 · TypeScript · Vite · Tailwind CSS 4 · Zustand
 > один материал повторялся внутри самой ленты, четыре находки отклонены, пять добавлены.
 > Существующая карточка Kimi K3 обновлена без дубля. Подробные решения и безопасные границы:
 > [July 2026 backfill and TokenRouter radar](guides/july-2026-backfill-tokenrouter-radar.md).
+> Реализация рекомендаций: [GitHub onboarding and Kimi K3 implementation status](guides/kimi-github-implementation-2026-07-31.md).
+> Отдельный запретительный checklist: [TokenRouter vendor-risk gate](guides/tokenrouter-vendor-risk-gate.md).
 
 ### Добавлено
 

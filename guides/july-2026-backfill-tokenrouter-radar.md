@@ -6,6 +6,9 @@
 
 ## Итог intake
 
+Implementation follow-up: [GitHub onboarding and Kimi K3 implementation status](kimi-github-implementation-2026-07-31.md).
+TokenRouter review boundary: [TokenRouter vendor-risk gate](tokenrouter-vendor-risk-gate.md).
+
 - Разобрано 46 сообщений и все найденные в них ссылки.
 - 36 ресурсов уже были в Eclipse Library и не добавлены повторно.
 - Shipper дважды повторялся внутри вложения.

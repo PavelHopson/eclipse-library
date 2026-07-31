@@ -68,9 +68,12 @@
       использовать только как UX reference, не автоматизировать.
 - [ ] oh-my-claudecode / ai-setup / Sentinel: pilot Skillcheck на трёх публичных skills и synthetic
       tasks с pinned model/config, raw JSON и повторными trials; private instructions и code не отправлять.
-- [ ] Eclipse AI Hub / Sentinel / oh-my-claudecode: direct Kimi K3 API benchmark на фиксированных
-      synthetic coding/agent tasks — quality, p50/p95 latency, tokens, cost и long-context stability;
-      только server-side low-limit key, redaction и без client/private repositories.
+- [x] Eclipse AI Hub / Sentinel / oh-my-claudecode: реализовать единый network-gated direct Kimi K3
+      benchmark harness с отдельными synthetic suites, фиксированным official endpoint/model,
+      двойным execution gate и отчётом без raw prompts/outputs.
+- [ ] Запустить все direct Kimi K3 suites дважды с отдельным low-limit test key — quality,
+      p50/p95 latency, tokens, cost и long-context stability; до этого Kimi не добавлять
+      в production allowlist.
 
 - [x] Перевести все записи из неструктурированных Markdown-описаний в schema с полями:
       `type`, `category`, `platform`, `license`, `trust`, `risk`, `projects`, `verifiedAt`.
@@ -94,12 +97,28 @@
       собранном из pinned source с отключёнными telemetry, sponsored discovery, hooks, MCP и self-dev.
 - [ ] Eclipse DnD Forge: отдельно аудировать и адаптировать три MengTo GameDev skills —
       `author-game-levels`, `test-playable-web-games`, `build-game-audio-feedback`; коллекцию целиком не ставить.
-- [ ] Educator-AI: адаптировать официальный GitHub for Beginners roadmap в короткий практический
-      onboarding repository → commit → branch → pull request → conflict, не копируя статью целиком.
+- [x] Educator-AI: адаптировать официальный GitHub Hello World в интерактивный практический
+      onboarding repository → branch → commit → pull request → merge с локальным прогрессом,
+      self-check, EN/RU copy и без обязательного API key.
 
 ## Changelog
 
 ### 2026-07-31
+
+- В Educator-AI внедрён интерактивный пятишаговый GitHub onboarding без CLI и AI key:
+  repository, branch, commit, pull request и merge; прогресс хранится только локально,
+  reset требует подтверждения, secrets и personal data явно запрещены.
+- В Eclipse AI Hub добавлен единый direct Kimi K3 benchmark harness с suites `ai-hub`,
+  `sentinel` и `omc`. Default — dry run без network; live требует `--execute`,
+  `KIMI_BENCHMARK_ALLOW_NETWORK=1` и environment-only key. Raw model output и prompts
+  в отчёт не попадают. Live provider benchmark остаётся невыполненным.
+- Sentinel и oh-my-claudecode получили project-specific benchmark runbooks и roadmap boundary
+  без новых provider adapters или shared keys. TokenRouter исключён из всех трёх путей.
+- Language Model Builder, VCamdroid и Footrue закреплены как reference: без встраивания
+  закрытого binary/site и без запуска VCamdroid admin DLL/APK/ADB stack.
+- Добавлены `guides/kimi-github-implementation-2026-07-31.md` и
+  `guides/tokenrouter-vendor-risk-gate.md`. TokenRouter получил High vendor-risk tier
+  и остаётся blocked до owner/Terms/DPA/routing/retention/subprocessors/promotion evidence.
 
 - Разобрано 46 сообщений из июльской ленты: 36 уже опубликованных ресурсов не продублированы,
   повтор Shipper внутри вложения схлопнут; добавлены Footrue ToolBox, официальный GitHub for
