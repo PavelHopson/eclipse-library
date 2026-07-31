@@ -1,15 +1,15 @@
 {
   "schemaVersion": 1,
-  "checkedAt": "2026-07-27T10:15:53.898Z",
+  "checkedAt": "2026-07-31T07:21:52.263Z",
   "totals": {
-    "extracted": 501,
-    "unique": 479,
-    "checked": 479,
-    "ok": 447,
-    "restricted": 25,
+    "extracted": 538,
+    "unique": 533,
+    "checked": 533,
+    "ok": 490,
+    "restricted": 27,
     "broken": 0,
     "unavailable": 1,
-    "unknown": 6,
+    "unknown": 15,
     "blocked": 0,
     "skipped": 0
   },
@@ -21,8 +21,8 @@
     },
     {
       "url": "https://console.groq.com/keys",
-      "status": "ok",
-      "httpStatus": 200
+      "status": "restricted",
+      "httpStatus": 403
     },
     {
       "url": "https://openrouter.ai/keys",
@@ -31,8 +31,8 @@
     },
     {
       "url": "https://cloud.cerebras.ai/",
-      "status": "ok",
-      "httpStatus": 200
+      "status": "restricted",
+      "httpStatus": 403
     },
     {
       "url": "https://github.com/marketplace/models",
@@ -63,6 +63,56 @@
       "url": "https://huggingface.co/settings/tokens",
       "status": "restricted",
       "httpStatus": 401
+    },
+    {
+      "url": "https://ollama.com",
+      "status": "ok",
+      "httpStatus": 200
+    },
+    {
+      "url": "https://lmstudio.ai",
+      "status": "ok",
+      "httpStatus": 200
+    },
+    {
+      "url": "https://jan.ai",
+      "status": "ok",
+      "httpStatus": 200
+    },
+    {
+      "url": "https://gpt4all.io",
+      "status": "ok",
+      "httpStatus": 200
+    },
+    {
+      "url": "https://github.com/Comfy-Org/ComfyUI",
+      "status": "ok",
+      "httpStatus": 200
+    },
+    {
+      "url": "https://github.com/github/github-mcp-server",
+      "status": "ok",
+      "httpStatus": 200
+    },
+    {
+      "url": "https://github.com/modelcontextprotocol/servers/tree/main/src/filesystem",
+      "status": "ok",
+      "httpStatus": 200
+    },
+    {
+      "url": "https://github.com/microsoft/playwright-mcp",
+      "status": "ok",
+      "httpStatus": 200
+    },
+    {
+      "url": "https://github.com/upstash/context7",
+      "status": "ok",
+      "httpStatus": 200
+    },
+    {
+      "url": "https://github.com/modelcontextprotocol/servers-archived/tree/main/src/postgres",
+      "status": "ok",
+      "httpStatus": 200
     },
     {
       "url": "https://github.com/cheahjs/free-llm-api-resources",
@@ -251,8 +301,8 @@
     },
     {
       "url": "https://qclawsg.qq.com/",
-      "status": "ok",
-      "httpStatus": 200
+      "status": "unknown",
+      "httpStatus": null
     },
     {
       "url": "https://github.com/anomalyco/opencode",
@@ -440,22 +490,12 @@
       "httpStatus": 200
     },
     {
-      "url": "https://claude.com/product/claude-code",
-      "status": "ok",
-      "httpStatus": 200
-    },
-    {
       "url": "https://openai.com/codex/",
       "status": "restricted",
       "httpStatus": 403
     },
     {
       "url": "https://www.kimi.com/products/kimi-work",
-      "status": "ok",
-      "httpStatus": 200
-    },
-    {
-      "url": "https://github.com/vercel/commerce",
       "status": "ok",
       "httpStatus": 200
     },
@@ -476,11 +516,16 @@
     },
     {
       "url": "https://sylius.com",
+      "status": "unknown",
+      "httpStatus": null
+    },
+    {
+      "url": "https://bagisto.com",
       "status": "ok",
       "httpStatus": 200
     },
     {
-      "url": "https://bagisto.com",
+      "url": "https://github.com/vercel/commerce",
       "status": "ok",
       "httpStatus": 200
     },
@@ -521,8 +566,8 @@
     },
     {
       "url": "https://spreecommerce.org",
-      "status": "ok",
-      "httpStatus": 200
+      "status": "restricted",
+      "httpStatus": 403
     },
     {
       "url": "https://www.nopcommerce.com",
@@ -541,8 +586,8 @@
     },
     {
       "url": "https://squareup.com/online-store",
-      "status": "ok",
-      "httpStatus": 200
+      "status": "restricted",
+      "httpStatus": 403
     },
     {
       "url": "https://gumroad.com",
@@ -576,8 +621,8 @@
     },
     {
       "url": "https://www.tbank.ru/kassa/",
-      "status": "unknown",
-      "httpStatus": null
+      "status": "ok",
+      "httpStatus": 200
     },
     {
       "url": "https://cloudpayments.ru",
@@ -670,12 +715,12 @@
       "httpStatus": 200
     },
     {
-      "url": "https://roadmap.sh",
+      "url": "https://www.freecodecamp.org",
       "status": "ok",
       "httpStatus": 200
     },
     {
-      "url": "https://www.freecodecamp.org",
+      "url": "https://claude.com/product/claude-code",
       "status": "ok",
       "httpStatus": 200
     },
@@ -701,8 +746,8 @@
     },
     {
       "url": "https://www.hyperui.dev",
-      "status": "restricted",
-      "httpStatus": 403
+      "status": "ok",
+      "httpStatus": 200
     },
     {
       "url": "https://preline.co",
@@ -746,8 +791,8 @@
     },
     {
       "url": "https://unsplash.com",
-      "status": "restricted",
-      "httpStatus": 401
+      "status": "unknown",
+      "httpStatus": null
     },
     {
       "url": "https://haikei.app",
@@ -986,8 +1031,8 @@
     },
     {
       "url": "https://sliceyt.com/",
-      "status": "ok",
-      "httpStatus": 200
+      "status": "unknown",
+      "httpStatus": null
     },
     {
       "url": "https://github.com/cofedish/OwnCord",
@@ -1141,6 +1186,11 @@
     },
     {
       "url": "https://refactoring.guru",
+      "status": "unknown",
+      "httpStatus": null
+    },
+    {
+      "url": "https://roadmap.sh",
       "status": "ok",
       "httpStatus": 200
     },
@@ -1171,8 +1221,8 @@
     },
     {
       "url": "https://deeplearning.ai/",
-      "status": "restricted",
-      "httpStatus": 403
+      "status": "ok",
+      "httpStatus": 200
     },
     {
       "url": "https://huggingface.co/learn",
@@ -1265,11 +1315,6 @@
       "httpStatus": 200
     },
     {
-      "url": "https://dreamina.capcut.com/",
-      "status": "ok",
-      "httpStatus": 200
-    },
-    {
       "url": "https://superhivemarket.com/products/blenderbuddy",
       "status": "restricted",
       "httpStatus": 403
@@ -1281,16 +1326,11 @@
     },
     {
       "url": "https://play.google.com/store/apps/details?id=com.katkrasner.ao3_reader",
-      "status": "ok",
-      "httpStatus": 200
-    },
-    {
-      "url": "https://gemini.google/",
       "status": "unknown",
       "httpStatus": null
     },
     {
-      "url": "https://github.com/JuliusBrussee/caveman",
+      "url": "https://gemini.google/",
       "status": "ok",
       "httpStatus": 200
     },
@@ -1341,8 +1381,8 @@
     },
     {
       "url": "https://www.adventuregen.ai/dashboard/upscaler",
-      "status": "ok",
-      "httpStatus": 200
+      "status": "unknown",
+      "httpStatus": null
     },
     {
       "url": "https://github.com/hyperfield/ai-file-sorter",
@@ -1351,8 +1391,8 @@
     },
     {
       "url": "https://whatismy-ipaddress.com/learn-more-security.html#term-privacy",
-      "status": "restricted",
-      "httpStatus": 403
+      "status": "ok",
+      "httpStatus": 200
     },
     {
       "url": "https://github.com/Masterjx9/OpenPostings",
@@ -1626,8 +1666,8 @@
     },
     {
       "url": "https://youtu.be/QkyTCTH2kWY",
-      "status": "ok",
-      "httpStatus": 200
+      "status": "unknown",
+      "httpStatus": null
     },
     {
       "url": "https://github.com/membranedev/application-skills",
@@ -1680,14 +1720,9 @@
       "httpStatus": 200
     },
     {
-      "url": "https://zcode.z.ai/en",
-      "status": "ok",
-      "httpStatus": 200
-    },
-    {
       "url": "https://www.stackai.com/",
-      "status": "ok",
-      "httpStatus": 200
+      "status": "restricted",
+      "httpStatus": 403
     },
     {
       "url": "https://claude.com/contact-sales/claude-for-oss",
@@ -1776,13 +1811,13 @@
     },
     {
       "url": "https://pinokio.co/posts/01kty98bwb20619q6274768kcm",
-      "status": "ok",
-      "httpStatus": 200
+      "status": "unknown",
+      "httpStatus": null
     },
     {
       "url": "https://ruben.substack.com/archive?sort=new",
-      "status": "restricted",
-      "httpStatus": 403
+      "status": "ok",
+      "httpStatus": 200
     },
     {
       "url": "https://entryconditions.com/",
@@ -1861,8 +1896,8 @@
     },
     {
       "url": "https://www.openculture.com/freeonlinecourses",
-      "status": "ok",
-      "httpStatus": 200
+      "status": "restricted",
+      "httpStatus": 405
     },
     {
       "url": "https://github.com/ArslanYM/Free-Certifications",
@@ -1886,8 +1921,8 @@
     },
     {
       "url": "https://bookracy.com/",
-      "status": "restricted",
-      "httpStatus": 403
+      "status": "ok",
+      "httpStatus": 200
     },
     {
       "url": "https://github.com/truelockmc/streambert",
@@ -1906,8 +1941,8 @@
     },
     {
       "url": "https://fal.ai/models/bytedance/seed-audio-1.0",
-      "status": "ok",
-      "httpStatus": 200
+      "status": "restricted",
+      "httpStatus": 429
     },
     {
       "url": "https://github.com/arxhr007/Aliens_eye",
@@ -2005,9 +2040,19 @@
       "httpStatus": 200
     },
     {
+      "url": "https://zcode.z.ai/en",
+      "status": "ok",
+      "httpStatus": 200
+    },
+    {
       "url": "https://tass.ru/nauka/27878487",
       "status": "restricted",
       "httpStatus": 403
+    },
+    {
+      "url": "https://github.com/JuliusBrussee/caveman",
+      "status": "ok",
+      "httpStatus": 200
     },
     {
       "url": "https://github.com/mr-r3b00t/fingerprintdetector",
@@ -2126,6 +2171,11 @@
     },
     {
       "url": "https://higgsfield.ai/seedream-5.0",
+      "status": "ok",
+      "httpStatus": 200
+    },
+    {
+      "url": "https://dreamina.capcut.com/",
       "status": "ok",
       "httpStatus": 200
     },
@@ -2366,8 +2416,8 @@
     },
     {
       "url": "https://work-in-progress.openai.chatgpt.site/",
-      "status": "ok",
-      "httpStatus": 200
+      "status": "restricted",
+      "httpStatus": 403
     },
     {
       "url": "https://claude.com/product/cowork",
@@ -2406,6 +2456,226 @@
     },
     {
       "url": "https://github.com/razzant/claudexor",
+      "status": "ok",
+      "httpStatus": 200
+    },
+    {
+      "url": "https://anthropic.skilljar.com/claude-code-in-action",
+      "status": "ok",
+      "httpStatus": 200
+    },
+    {
+      "url": "https://github.com/1jehuang/jcode",
+      "status": "ok",
+      "httpStatus": 200
+    },
+    {
+      "url": "https://github.com/sx4im/skillcheck",
+      "status": "ok",
+      "httpStatus": 200
+    },
+    {
+      "url": "https://github.com/MengTo/Skills",
+      "status": "ok",
+      "httpStatus": 200
+    },
+    {
+      "url": "https://github.com/lightpanda-io/browser",
+      "status": "ok",
+      "httpStatus": 200
+    },
+    {
+      "url": "https://github.com/bradautomates/claude-video",
+      "status": "ok",
+      "httpStatus": 200
+    },
+    {
+      "url": "https://nosubscription.org/",
+      "status": "ok",
+      "httpStatus": 200
+    },
+    {
+      "url": "https://paranoiaprivacy.wiki/",
+      "status": "ok",
+      "httpStatus": 200
+    },
+    {
+      "url": "https://github.com/builtbybel/FluentTweaker",
+      "status": "ok",
+      "httpStatus": 200
+    },
+    {
+      "url": "https://github.com/achimala/TheLongSilence",
+      "status": "ok",
+      "httpStatus": 200
+    },
+    {
+      "url": "https://www.flowmusic.app/",
+      "status": "ok",
+      "httpStatus": 200
+    },
+    {
+      "url": "https://footrue.com/",
+      "status": "ok",
+      "httpStatus": 200
+    },
+    {
+      "url": "https://github.blog/developer-skills/github/github-for-beginners-your-roadmap-to-mastering-the-github-essentials/",
+      "status": "ok",
+      "httpStatus": 200
+    },
+    {
+      "url": "https://languagemodelbuilder.com/",
+      "status": "ok",
+      "httpStatus": 200
+    },
+    {
+      "url": "https://github.com/darusc/VCamdroid",
+      "status": "ok",
+      "httpStatus": 200
+    },
+    {
+      "url": "https://www.tokenrouter.com/",
+      "status": "ok",
+      "httpStatus": 200
+    },
+    {
+      "url": "https://eclipse-forge.ru/",
+      "status": "ok",
+      "httpStatus": 200
+    },
+    {
+      "url": "https://github.com/PavelHopson/Eclipse-forge-website",
+      "status": "ok",
+      "httpStatus": 200
+    },
+    {
+      "url": "https://valhalla.eclipse-forge.ru",
+      "status": "ok",
+      "httpStatus": 200
+    },
+    {
+      "url": "https://github.com/PavelHopson/Eclipse-Valhalla",
+      "status": "ok",
+      "httpStatus": 200
+    },
+    {
+      "url": "https://github.com/PavelHopson/eclipse-hopson-sentinel",
+      "status": "ok",
+      "httpStatus": 200
+    },
+    {
+      "url": "https://rent.eclipse-forge.ru",
+      "status": "ok",
+      "httpStatus": 200
+    },
+    {
+      "url": "https://github.com/PavelHopson/Eclipse-PremiumRent",
+      "status": "ok",
+      "httpStatus": 200
+    },
+    {
+      "url": "https://github.com/PavelHopson/business-data-platform-mvp",
+      "status": "ok",
+      "httpStatus": 200
+    },
+    {
+      "url": "https://github.com/PavelHopson/SmartLifeAssistant",
+      "status": "ok",
+      "httpStatus": 200
+    },
+    {
+      "url": "https://hub.eclipse-forge.ru",
+      "status": "ok",
+      "httpStatus": 200
+    },
+    {
+      "url": "https://github.com/PavelHopson/eclipse-ai-hub",
+      "status": "ok",
+      "httpStatus": 200
+    },
+    {
+      "url": "https://fitness.eclipse-forge.ru",
+      "status": "ok",
+      "httpStatus": 200
+    },
+    {
+      "url": "https://github.com/PavelHopson/Smart-Fitness-Booking-Agent",
+      "status": "ok",
+      "httpStatus": 200
+    },
+    {
+      "url": "https://interview.eclipse-forge.ru",
+      "status": "ok",
+      "httpStatus": 200
+    },
+    {
+      "url": "https://shotforge.eclipse-forge.ru",
+      "status": "ok",
+      "httpStatus": 200
+    },
+    {
+      "url": "https://github.com/PavelHopson/shotforge",
+      "status": "ok",
+      "httpStatus": 200
+    },
+    {
+      "url": "https://educator.eclipse-forge.ru",
+      "status": "ok",
+      "httpStatus": 200
+    },
+    {
+      "url": "https://github.com/PavelHopson/Educator-AI",
+      "status": "ok",
+      "httpStatus": 200
+    },
+    {
+      "url": "https://text2image.eclipse-forge.ru",
+      "status": "ok",
+      "httpStatus": 200
+    },
+    {
+      "url": "https://github.com/PavelHopson/Text2Image",
+      "status": "ok",
+      "httpStatus": 200
+    },
+    {
+      "url": "https://cryptopulse.eclipse-forge.ru",
+      "status": "ok",
+      "httpStatus": 200
+    },
+    {
+      "url": "https://github.com/PavelHopson/CryptoPulse",
+      "status": "ok",
+      "httpStatus": 200
+    },
+    {
+      "url": "https://task-manager-eclipse.pages.dev",
+      "status": "unknown",
+      "httpStatus": null
+    },
+    {
+      "url": "https://github.com/PavelHopson/task-manager",
+      "status": "ok",
+      "httpStatus": 200
+    },
+    {
+      "url": "https://eclipse-media.pages.dev",
+      "status": "unknown",
+      "httpStatus": null
+    },
+    {
+      "url": "https://github.com/PavelHopson/retry-http",
+      "status": "ok",
+      "httpStatus": 200
+    },
+    {
+      "url": "https://github.com/PavelHopson/wireguard-telegram-bot",
+      "status": "ok",
+      "httpStatus": 200
+    },
+    {
+      "url": "https://github.com/PavelHopson/eclipse-dnd-forge",
       "status": "ok",
       "httpStatus": 200
     }

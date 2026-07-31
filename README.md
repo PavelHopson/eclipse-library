@@ -25,8 +25,8 @@
 Стоимость, необходимость регистрации и место запуска вынесены в отдельные простые признаки: можно сразу
 найти бесплатные инструменты, варианты без аккаунта и решения для своего устройства или self-hosted server.
 Если редактор ещё не подтвердил условие, интерфейс честно показывает «нужно проверить», а не угадывает.
-Все 520 уникальных материалов уже приведены к одной структуре: назначение, сценарии, платформа,
-лицензия, стоимость, доверие, риски, безопасный старт и применимость к Eclipse Forge. Для 67 записей
+Все 525 уникальных материалов уже приведены к одной структуре: назначение, сценарии, платформа,
+лицензия, стоимость, доверие, риски, безопасный старт и применимость к Eclipse Forge. Для 73 записей
 эти данные проверены редактором; остальные явно помечены как предварительные и не выдают inference за факт.
 Сначала показываются 36 наиболее ранних результатов текущей выборки; следующие карточки
 открываются кнопкой «Показать ещё», поэтому страница не превращается в бесконечное полотно.
@@ -83,6 +83,7 @@
 - [📥 Подборка Eclipse (18–19.07.2026)](#-подборка-eclipse-1819072026)
 - [📥 Подборка Eclipse (15–24.07.2026, продолжение)](#-подборка-eclipse-1524072026-продолжение)
 - [📥 Подборка Eclipse (24–30.07.2026)](#-подборка-eclipse-2430072026)
+- [📥 Сверка июльской ленты (01–31.07.2026)](#-сверка-июльской-ленты-0131072026)
 - [📦 Наши проекты](#-наши-проекты)
 
 ---
@@ -2108,7 +2109,7 @@ Frontend: React 19 · TypeScript · Vite · Tailwind CSS 4 · Zustand
 
 | Ресурс | Описание | Stars |
 |---|---|---|
-| [Kimi K3 / Kimi Code](https://www.kimi.com/code) | Moonshot/Kimi модель для кода, чата и агентных задач. Канал заявляет 3T параметров, 1M context, Kimi K3 Max и K3 Swarm для ресёрча; **claims требуют проверки по официальным docs/API/pricing**. **Зачем нам:** Eclipse AI Hub provider benchmark, Hopson Sentinel coding-provider profile, oh-my-claudecode swarm reference, GameDev/DnD prototypes. Не включать в production без privacy/cost eval | — |
+| [Kimi K3 / Kimi Code](https://www.kimi.com/code) | Официальная flagship-модель Moonshot AI для долгих coding-задач, end-to-end knowledge work и vision. Подтверждены 2,8 трлн параметров, context до 1 млн токенов и режимы reasoning effort; официальный API работает по pay-as-you-go. Заявления канала о превосходстве над «Fable 5» и «GPT Sol 5.6» не подтверждены независимым benchmark. **Зачем нам:** direct-provider benchmark для Eclipse AI Hub, Hopson Sentinel и oh-my-claudecode; только server-side, на synthetic tasks, без client/private data | — |
 | [Foglamp Scan](https://www.foglamp.dev/scan) | Инструмент для Claude Code и Codex: превращает кодовую базу в интерактивный граф нод и связей — функции, интеграции, БД, агенты, модули. **Зачем нам:** onboarding и диагностика больших репо (Eclipse Chat, Sentinel, AI Hub), архитектурные карты перед refactor, визуальный handoff для Claude/Codex | — |
 | [LLMs-local](https://github.com/0xSojalSec/LLMs-local) | Большой каталог локального AI: Ollama/LM Studio/Jan/LocalAI/llama.cpp, UI, агенты, RAG, локальный поиск, hardware calculators, гайды по контексту и оптимизации. **Зачем нам:** Hopson Sentinel local-provider doctor, Eclipse AI Hub local setup, Educator-AI трек по локальным LLM | [![Stars](https://img.shields.io/github/stars/0xSojalSec/LLMs-local?style=flat)](https://github.com/0xSojalSec/LLMs-local) |
 | [Hyper Research](https://github.com/jordan-gibbs/hyperresearch) | Claude Code skill для глубокого ресёрча: coverage matrix, сбор сотен источников, cross-review и итоговый отчёт с базой ресурсов. **Зачем нам:** Kwork #18 research-agent, Eclipse Library intake, Eclipse AI Hub Research/RAG, Educator-AI cited assignments. Проверить license/provenance перед установкой | [![Stars](https://img.shields.io/github/stars/jordan-gibbs/hyperresearch?style=flat)](https://github.com/jordan-gibbs/hyperresearch) |
@@ -2304,6 +2305,53 @@ Frontend: React 19 · TypeScript · Vite · Tailwind CSS 4 · Zustand
 | **Jcode** | Hopson Sentinel · oh-my-claudecode | Sandbox benchmark memory/swarm/resume; no production OAuth, self-dev, telemetry или sponsored discovery |
 | **Paranoia Privacy / NoSubscription** | Eclipse Library · Eclipse Chat · Sentinel | Только discovery/education; перепроверка primary sources, license, price, privacy и high-stakes claims |
 | **FluentTweaker** | Hopson Sentinel | Только UX reference для reversible system actions; код и system tweaks не интегрировать |
+
+---
+
+## 📥 Сверка июльской ленты (01–31.07.2026)
+
+> В большой пересланной ленте разобрано 46 сообщений: 36 ресурсов уже были в библиотеке,
+> один материал повторялся внутри самой ленты, четыре находки отклонены, пять добавлены.
+> Существующая карточка Kimi K3 обновлена без дубля. Подробные решения и безопасные границы:
+> [July 2026 backfill and TokenRouter radar](guides/july-2026-backfill-tokenrouter-radar.md).
+
+### Добавлено
+
+| Ресурс | Простое описание | Решение |
+|---|---|---|
+| [Footrue ToolBox](https://footrue.com/) | Сайт с 200+ утилитами для PDF, изображений, видео, аудио, текста и конвертации прямо в браузере. Удобен как UX-reference, но исходный код, владелец и условия переиспользования публично не раскрыты; обещание «файлы не покидают устройство» нельзя считать проверенным для каждой утилиты | Reference |
+| [GitHub for Beginners roadmap](https://github.blog/developer-skills/github/github-for-beginners-your-roadmap-to-mastering-the-github-essentials/) | Бесплатный официальный маршрут GitHub от первого repository и Markdown до branches, pull requests, Issues, Projects, Actions, Pages и базовой security. Можно превратить в короткий onboarding checklist для Educator-AI и новых участников Eclipse Forge, не копируя статью целиком | Внедрить сейчас |
+| [Language Model Builder](https://languagemodelbuilder.com/) | Интерактивный учебник и локальная лаборатория для Apple Silicon: за примерно 90 минут пользователь собирает tokenizer, pretraining, SFT и DPO pipeline на MLX. Проекты и prompts хранятся локально, но приложение закрытое и без явной лицензии на переиспользование | Reference |
+| [VCamdroid](https://github.com/darusc/VCamdroid) | MIT-приложение, которое превращает Android-смартфон в Windows virtual camera по USB/ADB или Wi-Fi/RTSP. Требует установки DLL с правами администратора, APK, USB debugging и настройки firewall, поэтому рассматривается только в изолированном тесте | Reference |
+| [TokenRouter](https://www.tokenrouter.com/) | Сторонний API-gateway к множеству AI-моделей с OpenAI-compatible endpoint. Публично не удалось подтвердить Kimi K3, обещанные 50 млн бесплатных токенов, отсутствие карты, срок акции и понятные условия обработки prompts; интеграцию не рекомендуем | Не использовать |
+
+### Обновлено без дубля
+
+| Материал | Что исправлено |
+|---|---|
+| **Kimi K3 / Kimi Code** | По официальной документации подтверждены 2,8T parameters, context до 1M, vision, coding/agent scenarios и API pay-as-you-go. Рекламное сравнение с «Fable 5» и «GPT Sol 5.6» исключено как неподтверждённое; предпочтителен прямой официальный Kimi API вместо неизвестного gateway |
+
+### Не добавляем повторно / отклонено
+
+| Материал | Решение |
+|---|---|
+| 36 уже опубликованных ресурсов | Найдены по canonical URL, repository и нормализованному названию; новые карточки не создавались |
+| Shipper | Дважды встречался во вложении; сохранена одна уже существующая запись |
+| Mailwave | Не отдельная подтверждённая ценность для каталога: повторяет уже описанный QA-only workflow с disposable inbox и не должен использоваться для обхода регистраций |
+| Leon benchmark demo | Это демонстрация/сравнение без самостоятельного продукта, документации и лицензируемого артефакта |
+| Stolen Compute | Использовал чужие открытые inference endpoints без разрешения и закрыт; такой способ получения «бесплатного API» неприемлем |
+| Coupon-testing prompt | Автоматизация checkout несёт ToS, rate-limit и accidental-purchase риски без уникальной пользы проектам |
+
+### Mapping → Eclipse Forge
+
+| Находка | Проекты | Что делать |
+|---|---|---|
+| **Kimi K3** | Eclipse AI Hub · Hopson Sentinel · oh-my-claudecode · Eclipse Chat · DnD Forge | Добавить в roadmap direct-API benchmark на фиксированных synthetic coding/agent tasks: качество, latency, стоимость, context limits и privacy |
+| **GitHub for Beginners** | Educator-AI · Eclipse Forge Landing · Eclipse Library · ai-setup | Сделать короткий практический onboarding checklist с переходами на официальный материал и заданиями на test repository |
+| **Language Model Builder** | Educator-AI · Eclipse AI Hub | Использовать структуру tokenizer → pretraining → SFT → DPO как reference для учебного трека; закрытый binary не встраивать |
+| **VCamdroid** | Eclipse Media · Eclipse Chat · Shotforge · Hopson Sentinel | Оставить архитектурным reference для phone-camera input; возможный тест только в disposable Windows VM и на отдельном Android-устройстве |
+| **Footrue ToolBox** | Eclipse Library · Eclipse Media | Взять идею task-first навигации и client-side previews; не проксировать файлы и не заявлять local-only без собственного network audit |
+| **TokenRouter** | Eclipse AI Hub · Hopson Sentinel · oh-my-claudecode | Не интегрировать и не передавать prompts/keys, пока не подтверждены юридическое лицо, условия акции, routing, retention и upstream providers |
 
 ---
 

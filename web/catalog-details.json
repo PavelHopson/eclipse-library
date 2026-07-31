@@ -2745,5 +2745,416 @@
       "signup": "required",
       "runtime": "cloud"
     }
+  },
+  {
+    "id": "footrue-toolbox",
+    "title": "Footrue ToolBox",
+    "url": "https://footrue.com/",
+    "category": "Утилиты / файлы / media",
+    "type": "tool",
+    "description": "Закрытый веб-каталог из более чем 200 небольших утилит для PDF, изображений, видео, аудио, текста, конвертации и developer-задач. Сайт заявляет обработку файлов в браузере без регистрации и загрузки на сервер, но это обещание не проверено отдельно для каждой утилиты.",
+    "simpleDescription": "Это сайт с маленькими инструментами на каждый день: объединить PDF, изменить изображение, преобразовать файл или обработать текст. Большинство действий обещают выполнять прямо в браузере. Используйте его только с несекретными файлами, потому что исходный код и независимый network audit не опубликованы.",
+    "useCases": [
+      "Быстро выполнить разовую конвертацию на несекретном тестовом файле",
+      "Изучить task-first навигацию для каталога утилит Eclipse Library",
+      "Спроектировать собственную проверяемую client-side обработку в Eclipse Media"
+    ],
+    "features": [
+      "Более 200 утилит для PDF, изображений, видео, аудио, текста и разработчиков",
+      "Task-first каталог: пользователь сначала выбирает понятную задачу, а не технологию",
+      "Сайт заявляет работу без аккаунта, рекламы и серверной загрузки файлов"
+    ],
+    "audience": [
+      "Пользователи, которым нужна разовая конвертация или простая обработка файла",
+      "Product-дизайнеры Eclipse Media и Eclipse Library",
+      "Разработчики, изучающие client-side file processing UX"
+    ],
+    "limitations": [
+      "Нет публичного исходного кода и возможности проверить реализацию всех инструментов",
+      "На landing page не найдены ясные сведения о владельце, лицензии и условиях переиспользования",
+      "Функциональность, лимиты и сетевое поведение отдельных утилит могут различаться"
+    ],
+    "platforms": [
+      "Web",
+      "Browser",
+      "Client-side заявлено"
+    ],
+    "relatedTechnologies": [
+      "Web APIs",
+      "PDF",
+      "Image processing",
+      "Media conversion"
+    ],
+    "license": "Закрытый web service; публичная лицензия на исходный код или переиспользование не найдена",
+    "pricing": "Сайт заявляет бесплатное использование без регистрации; устойчивость этой модели не гарантирована",
+    "trust": "caution",
+    "trustReason": "Существование и перечень категорий подтверждены официальным сайтом 31.07.2026. Заявления о local-only обработке и отсутствии uploads не подтверждены независимым audit каждой утилиты.",
+    "projects": [
+      "Eclipse Library",
+      "Eclipse Media"
+    ],
+    "decision": "reference",
+    "riskLevel": "medium",
+    "risks": [
+      "Чувствительный файл может попасть в сеть, если отдельный инструмент работает не так, как заявляет landing page",
+      "Закрытая реализация и отсутствие ясной лицензии исключают безопасное копирование кода",
+      "Неизвестные third-party scripts или будущие изменения сайта могут изменить privacy profile"
+    ],
+    "verifiedAt": "2026-07-31",
+    "quickStart": [
+      "Открыть DevTools Network и проверить конкретную утилиту на маленьком синтетическом файле",
+      "Не загружать документы клиентов, секреты, биометрию или неопубликованные media",
+      "Для Eclipse использовать только UX-паттерн task-first каталога и реализовать собственную проверяемую client-side обработку"
+    ],
+    "access": {
+      "cost": "free",
+      "signup": "none",
+      "runtime": "cloud"
+    }
+  },
+  {
+    "id": "github-for-beginners-roadmap",
+    "title": "GitHub for Beginners: roadmap to mastering the essentials",
+    "url": "https://github.blog/developer-skills/github/github-for-beginners-your-roadmap-to-mastering-the-github-essentials/",
+    "category": "Обучение / Git / GitHub",
+    "type": "learn",
+    "description": "Официальный бесплатный маршрут GitHub для начинающих: version control, working tree и staging, repositories, Markdown, GitHub Flow, branches, pull requests, conflicts, Issues, Projects, Actions, Pages, security и участие в open source.",
+    "simpleDescription": "Это понятная карта обучения GitHub с правильным порядком тем. Сначала человек осваивает repository и commits, затем branches и pull requests, а после — автоматизацию и публикацию. Материал можно использовать как основу onboarding, но практиковаться нужно в отдельном тестовом repository.",
+    "useCases": [
+      "Провести новичка от первого repository до безопасного pull request",
+      "Собрать практический onboarding module в Educator-AI",
+      "Дать новым участникам Eclipse Forge единый Git/GitHub baseline"
+    ],
+    "features": [
+      "Пошаговый порядок от базового Git до collaboration и GitHub Actions",
+      "Официальные ссылки на GitHub Skills, документацию и практические упражнения",
+      "Темы pull requests, merge conflicts, Issues, Projects, Pages, security и open source"
+    ],
+    "audience": [
+      "Начинающие разработчики и студенты",
+      "Новые участники проектов Eclipse Forge",
+      "Авторы onboarding-треков Educator-AI"
+    ],
+    "limitations": [
+      "Статья не заменяет практику и обратную связь по реальным ошибкам",
+      "Для выполнения упражнений понадобится GitHub account",
+      "Материал принадлежит GitHub и не должен копироваться в продукты целиком"
+    ],
+    "platforms": [
+      "Web",
+      "GitHub",
+      "Git"
+    ],
+    "relatedTechnologies": [
+      "Git",
+      "GitHub",
+      "GitHub Actions",
+      "GitHub Pages",
+      "Markdown"
+    ],
+    "license": "Материал официального GitHub Blog; действует copyright и GitHub Site Terms, это не open-source curriculum",
+    "pricing": "Бесплатно для чтения; аккаунт нужен для практики на GitHub",
+    "trust": "official",
+    "trustReason": "Авторство, дата публикации 15.07.2026, темы и связанные учебные ресурсы подтверждены официальным GitHub Blog.",
+    "projects": [
+      "Educator-AI",
+      "Eclipse Forge Landing",
+      "Eclipse Library",
+      "ai-setup"
+    ],
+    "decision": "now",
+    "riskLevel": "low",
+    "risks": [
+      "Новичок может выполнить упражнение в рабочем repository вместо безопасного sandbox",
+      "Прямое копирование текста и изображений нарушит условия использования контента",
+      "Материал со временем потребует проверки на актуальность интерфейса GitHub"
+    ],
+    "verifiedAt": "2026-07-31",
+    "quickStart": [
+      "Создать отдельный учебный repository без secrets и production automation",
+      "Пройти блоки repository → commits → branches → pull request → merge conflict",
+      "В Educator-AI добавить краткий checklist и ссылки на официальный источник, не копируя статью целиком"
+    ],
+    "access": {
+      "cost": "free",
+      "signup": "optional",
+      "runtime": "cloud"
+    }
+  },
+  {
+    "id": "language-model-builder",
+    "title": "Language Model Builder",
+    "url": "https://languagemodelbuilder.com/",
+    "category": "Обучение / локальные LLM",
+    "type": "learn",
+    "description": "Интерактивное macOS-приложение Феликса Ризеберга, которое объясняет и запускает локальный pipeline создания небольшой language model: tokenizer, pretraining, supervised fine-tuning, DPO, sampling, chat, checkpoints и экспорт в safetensors через MLX.",
+    "simpleDescription": "Это учебная лаборатория для Mac с Apple Silicon. Пользователь проходит короткие главы и шаг за шагом обучает небольшую модель на своём компьютере, не отправляя основной проект в cloud. Инструмент полезен для понимания процесса, но не обещает получить production-модель уровня крупных провайдеров.",
+    "useCases": [
+      "Понять на практике этапы tokenizer, pretraining, SFT и DPO",
+      "Спроектировать независимый учебный трек для Educator-AI",
+      "Показать локальный training pipeline инженерам Eclipse AI Hub"
+    ],
+    "features": [
+      "Интерактивный учебный маршрут примерно на 90 минут",
+      "Локальные tokenizer, pretraining, SFT и DPO этапы на MLX",
+      "Checkpoints, sampling/chat и экспорт модели в safetensors"
+    ],
+    "audience": [
+      "Студенты и разработчики, которые хотят понять обучение LLM на практике",
+      "Авторы учебных модулей Educator-AI",
+      "Инженеры Eclipse AI Hub, которым нужен наглядный local-training reference"
+    ],
+    "limitations": [
+      "Требуются Apple Silicon и macOS 15 или новее",
+      "Приложение закрытое; публичный source repository и явная лицензия на переиспользование не найдены",
+      "Учебные маленькие модели и датасеты не заменяют production inference или полноценный model evaluation"
+    ],
+    "platforms": [
+      "macOS 15+",
+      "Apple Silicon",
+      "Local"
+    ],
+    "relatedTechnologies": [
+      "MLX",
+      "Transformers",
+      "Tokenization",
+      "SFT",
+      "DPO",
+      "safetensors"
+    ],
+    "license": "Закрытое бесплатное приложение; явная лицензия на исходный код или переиспользование не опубликована",
+    "pricing": "Бесплатное скачивание без аккаунта или подписки; Mac App Store release заявлен на будущее",
+    "trust": "community",
+    "trustReason": "Функции, автор, системные требования и privacy behavior описаны официальным сайтом и privacy page. Бинарный файл не устанавливался и code-signature/notarization не проверялись.",
+    "projects": [
+      "Educator-AI",
+      "Eclipse AI Hub"
+    ],
+    "decision": "reference",
+    "riskLevel": "medium",
+    "risks": [
+      "Закрытый binary требует проверки Apple code signature, notarization и происхождения перед запуском",
+      "Скачивание сторонних datasets обращается к внешним hosts и может раскрывать IP/metadata",
+      "Crash reports являются opt-in, но перед отправкой нужно проверить их содержимое"
+    ],
+    "verifiedAt": "2026-07-31",
+    "quickStart": [
+      "Не устанавливать на основную рабочую машину без проверки signature, notarization и checksum",
+      "Для теста использовать отдельный macOS user и только публичный маленький dataset",
+      "В Educator-AI взять структуру урока tokenizer → pretraining → SFT → DPO, а не закрытый binary"
+    ],
+    "access": {
+      "cost": "free",
+      "signup": "none",
+      "runtime": "local"
+    }
+  },
+  {
+    "id": "vcamdroid",
+    "title": "VCamdroid",
+    "url": "https://github.com/darusc/VCamdroid",
+    "category": "Media / virtual camera",
+    "type": "media",
+    "description": "MIT-проект для использования Android-смартфона как virtual camera в Windows 10/11. Desktop client получает поток по USB через ADB или по Wi-Fi/RTSP, управляет несколькими устройствами и отдаёт H.264/H.265 video через установленный virtual-camera filter.",
+    "simpleDescription": "VCamdroid превращает камеру Android-телефона в веб-камеру для Windows. Это может дать более качественное изображение без отдельной камеры, но настройка затрагивает системную DLL, права администратора, USB debugging, APK и firewall. Поэтому обычному пользователю нельзя предлагать установку без безопасного installer и понятного отката.",
+    "useCases": [
+      "Использовать отдельный Android-телефон как camera input в Windows",
+      "Изучить USB и Wi-Fi transport для будущего Eclipse Media camera flow",
+      "Сравнить phone-camera UX с обычной webcam в изолированном proof of concept"
+    ],
+    "features": [
+      "USB/ADB и Wi-Fi/RTSP подключение Android-камеры к Windows",
+      "Несколько устройств, управление камерой и настройка изображения",
+      "H.264/H.265 streaming и Windows virtual camera output"
+    ],
+    "audience": [
+      "Пользователи Windows с Android-смартфоном",
+      "Разработчики Eclipse Media и Eclipse Chat",
+      "Команды, изучающие phone-camera input для Shotforge"
+    ],
+    "limitations": [
+      "Поддерживаются Windows 10/11 и Android 7+; macOS/Linux desktop client нет",
+      "Установка требует admin-прав, регистрации softcam.dll и sideload APK",
+      "USB debugging, ADB и RTSP расширяют attack surface устройства и сети"
+    ],
+    "platforms": [
+      "Windows 10/11",
+      "Android 7+",
+      "USB",
+      "Wi-Fi"
+    ],
+    "relatedTechnologies": [
+      "ADB",
+      "RTSP",
+      "H.264",
+      "H.265",
+      "FFmpeg",
+      "DirectShow"
+    ],
+    "license": "MIT для canonical repository; bundled/linked Softcam, RootEncoder и FFmpeg имеют собственные лицензии, которые нужно проверять для distribution",
+    "pricing": "Бесплатно и open source",
+    "trust": "community",
+    "trustReason": "Canonical GitHub repository существует, не архивирован и содержит MIT license. README подтверждает требования и install flow; installer, DLL и APK не запускались.",
+    "projects": [
+      "Eclipse Media",
+      "Eclipse Chat",
+      "Shotforge",
+      "Hopson Sentinel"
+    ],
+    "decision": "reference",
+    "riskLevel": "high",
+    "risks": [
+      "Admin install.bat и regsvr32 регистрируют native DLL с системными правами",
+      "USB debugging и sideload APK дают компьютеру расширенный доступ к Android-устройству",
+      "RTSP и разрешение Windows Firewall для public networks могут открыть camera stream другим узлам"
+    ],
+    "verifiedAt": "2026-07-31",
+    "quickStart": [
+      "Сначала проверить pinned source, release provenance, DLL/APK hashes и dependency licenses",
+      "Собирать и запускать только в disposable Windows VM с отдельным Android test device",
+      "Для Wi-Fi использовать private isolated network, запретить public firewall access и после теста отозвать USB debugging authorization"
+    ],
+    "access": {
+      "cost": "free",
+      "signup": "none",
+      "runtime": "hybrid"
+    }
+  },
+  {
+    "id": "tokenrouter",
+    "title": "TokenRouter",
+    "url": "https://www.tokenrouter.com/",
+    "category": "AI API gateway",
+    "type": "api",
+    "description": "Сторонний OpenAI-compatible API-gateway, который заявляет единый доступ к сотням моделей и оплату model usage без дополнительной platform fee. Публичная проверка не подтвердила наличие Kimi K3, акцию на 50 млн токенов, отсутствие банковской карты, срок предложения и точные upstream/retention условия.",
+    "simpleDescription": "TokenRouter предлагает один API-адрес вместо отдельных подключений к разным AI-провайдерам. Это удобно технически, но такой посредник может видеть prompts, ответы и metadata. Пока условия акции, владелец маршрута Kimi K3 и правила хранения данных не подтверждены, передавать ему ключи, код клиентов или рабочие данные нельзя.",
+    "useCases": [
+      "Изучить архитектуру единого OpenAI-compatible gateway без подключения рабочих данных",
+      "Сравнить direct provider и дополнительного посредника по privacy и billing boundaries",
+      "Сохранить предупреждение о непроверенной акции для пользователей Eclipse Library"
+    ],
+    "features": [
+      "OpenAI-compatible endpoint для переключения между заявленными моделями",
+      "Единый gateway, usage accounting и provider routing",
+      "Сайт заявляет более 300 моделей и отсутствие дополнительной platform fee"
+    ],
+    "audience": [
+      "Разработчики, сравнивающие несколько model providers",
+      "Команды, которым нужен единый API contract",
+      "Исследователи стоимости и latency AI gateways"
+    ],
+    "limitations": [
+      "Публичная model page не показала Kimi K3 без приложения/account flow",
+      "Официально не подтверждены 50 млн бесплатных токенов, отсутствие карты и срок акции",
+      "Полный текст Terms/Privacy и конкретные upstream providers не удалось получить в публичной проверке"
+    ],
+    "platforms": [
+      "Cloud",
+      "API",
+      "OpenAI-compatible"
+    ],
+    "relatedTechnologies": [
+      "OpenAI API",
+      "LLM gateway",
+      "Provider routing",
+      "Usage metering"
+    ],
+    "license": "Закрытый коммерческий service; применяются собственные Terms/Privacy и условия upstream providers, полный публичный текст при проверке был недоступен",
+    "pricing": "Заявлена оплата model usage без platform fee; рекламная раздача 50 млн токенов и отсутствие карты не подтверждены",
+    "trust": "caution",
+    "trustReason": "Существование gateway и OpenAI-compatible API подтверждены официальным сайтом. Promotional claims из пересылки не найдены в доступных публичных материалах 31.07.2026; JS frontend подключает analytics/attribution scripts.",
+    "projects": [
+      "Eclipse AI Hub",
+      "Hopson Sentinel",
+      "oh-my-claudecode"
+    ],
+    "decision": "no",
+    "riskLevel": "high",
+    "risks": [
+      "Gateway и его upstream providers потенциально получают prompts, outputs и request metadata",
+      "Неясные retention, routing, vendor identity и promotion terms создают privacy, billing и continuity risks",
+      "Frontend использует analytics/attribution scripts; zero-retention marketing claim не означает отсутствие metadata"
+    ],
+    "verifiedAt": "2026-07-31",
+    "quickStart": [
+      "Не регистрироваться с рабочими секретами и не отправлять client/private prompts",
+      "Если сервис будет пересматриваться, запросить юридическое лицо, Terms, DPA, retention, upstream routing, offer expiry и billing limits",
+      "Сравнить gateway с прямым официальным Kimi API на synthetic prompts и одноразовом low-limit key"
+    ],
+    "access": {
+      "cost": "freemium",
+      "signup": "required",
+      "runtime": "cloud"
+    }
+  },
+  {
+    "id": "kimi-k3-kimi-code-www-kimi-com",
+    "title": "Kimi K3 / Kimi Code",
+    "url": "https://www.kimi.com/code",
+    "category": "AI-модели / coding agents",
+    "type": "model",
+    "description": "Официальная flagship-модель Moonshot AI для long-horizon coding, end-to-end knowledge work и native vision. Документация подтверждает 2,8 трлн параметров, context до 1 млн токенов, запуск 16.07.2026 и API-режимы reasoning_effort low/high/max.",
+    "simpleDescription": "Kimi K3 — облачная AI-модель для больших задач по коду, анализу и работе с изображениями. Её стоит сравнить с текущими моделями Eclipse Forge на одинаковых тестах, а не принимать рекламные рейтинги на веру. Для продукта безопаснее подключаться прямо к официальному Kimi API и держать ключ только на сервере.",
+    "useCases": [
+      "Сравнить long-context coding quality с текущими providers Eclipse AI Hub",
+      "Проверить agentic coding profile для Hopson Sentinel и oh-my-claudecode",
+      "Оценить vision и большой context на synthetic DnD/knowledge tasks"
+    ],
+    "features": [
+      "Long-horizon coding и agentic workflows",
+      "До 1 млн токенов context и native vision",
+      "Официальный API с reasoning_effort low, high и max"
+    ],
+    "audience": [
+      "Разработчики Eclipse AI Hub",
+      "Авторы coding-agent профилей Hopson Sentinel и oh-my-claudecode",
+      "Команды, которым нужны long-context code и knowledge tasks"
+    ],
+    "limitations": [
+      "Это cloud model: latency, availability, region и цена зависят от провайдера",
+      "Заявления Telegram о превосходстве над «Fable 5» и «GPT Sol 5.6» не подтверждены независимым benchmark",
+      "Большой context не гарантирует качество, точность или экономическую эффективность на конкретной задаче"
+    ],
+    "platforms": [
+      "Cloud",
+      "API",
+      "Web"
+    ],
+    "relatedTechnologies": [
+      "Moonshot AI",
+      "Long context",
+      "Vision",
+      "Coding agents",
+      "OpenAI-compatible API"
+    ],
+    "license": "Закрытый Kimi Code/API service с собственными условиями; model weights и другие варианты поставки могут иметь отдельную лицензию",
+    "pricing": "Официальный API работает по pay-as-you-go; Kimi Code и API имеют отдельные планы и лимиты",
+    "trust": "official",
+    "trustReason": "Параметры, context, use cases, launch date, reasoning modes и API data-security statements сверены с официальной документацией Kimi 31.07.2026.",
+    "projects": [
+      "Eclipse AI Hub",
+      "Hopson Sentinel",
+      "oh-my-claudecode",
+      "Eclipse Chat",
+      "Eclipse DnD Forge"
+    ],
+    "decision": "roadmap",
+    "riskLevel": "medium",
+    "risks": [
+      "Prompts, code и изображения обрабатываются внешним cloud provider; consumer и API privacy guarantees различаются",
+      "API key может утечь при client-side integration или unsafe logging",
+      "Цена и latency на long-context/agent loops могут быть выше ожидаемых без budgets и limits"
+    ],
+    "verifiedAt": "2026-07-31",
+    "quickStart": [
+      "Создать server-side adapter к прямому официальному Kimi API с отдельным low-limit test key",
+      "Прогнать фиксированный набор synthetic coding/agent tasks и измерить quality, p50/p95 latency, tokens и cost",
+      "Не отправлять client repositories, secrets или personal data до privacy review и настроить redaction, timeouts и spending limits"
+    ],
+    "access": {
+      "cost": "paid",
+      "signup": "required",
+      "runtime": "cloud"
+    }
   }
 ]

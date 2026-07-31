@@ -1,6 +1,6 @@
 # Eclipse Library Roadmap
 
-Последнее обновление: **30.07.2026**
+Последнее обновление: **31.07.2026**
 
 ## Текущее состояние
 
@@ -9,8 +9,8 @@
   подробные карточки и guide viewer.
 - `web/catalog-details.json` — проверенный структурированный слой для приоритетных
   материалов; старые записи получают честную пометку о необходимости аудита.
-- `web/catalog-index.json` — детерминированный полный индекс 520 уникальных материалов:
-  67 редакторски проверены, 453 структурированы из README и явно помечены `inferred`.
+- `web/catalog-index.json` — детерминированный полный индекс 525 уникальных материалов:
+  73 редакторски проверены, 452 структурированы из README и явно помечены `inferred`.
 - `web/link-health.json` — безопасный публичный snapshot weekly-аудита: доступность ссылки
   показывается отдельно от редакторского доверия и не считается security endorsement.
 - Deploy: GitHub Actions → VPS/Caddy из ветки `master`.
@@ -68,6 +68,9 @@
       использовать только как UX reference, не автоматизировать.
 - [ ] oh-my-claudecode / ai-setup / Sentinel: pilot Skillcheck на трёх публичных skills и synthetic
       tasks с pinned model/config, raw JSON и повторными trials; private instructions и code не отправлять.
+- [ ] Eclipse AI Hub / Sentinel / oh-my-claudecode: direct Kimi K3 API benchmark на фиксированных
+      synthetic coding/agent tasks — quality, p50/p95 latency, tokens, cost и long-context stability;
+      только server-side low-limit key, redaction и без client/private repositories.
 
 - [x] Перевести все записи из неструктурированных Markdown-описаний в schema с полями:
       `type`, `category`, `platform`, `license`, `trust`, `risk`, `projects`, `verifiedAt`.
@@ -91,8 +94,35 @@
       собранном из pinned source с отключёнными telemetry, sponsored discovery, hooks, MCP и self-dev.
 - [ ] Eclipse DnD Forge: отдельно аудировать и адаптировать три MengTo GameDev skills —
       `author-game-levels`, `test-playable-web-games`, `build-game-audio-feedback`; коллекцию целиком не ставить.
+- [ ] Educator-AI: адаптировать официальный GitHub for Beginners roadmap в короткий практический
+      onboarding repository → commit → branch → pull request → conflict, не копируя статью целиком.
 
 ## Changelog
+
+### 2026-07-31
+
+- Разобрано 46 сообщений из июльской ленты: 36 уже опубликованных ресурсов не продублированы,
+  повтор Shipper внутри вложения схлопнут; добавлены Footrue ToolBox, официальный GitHub for
+  Beginners roadmap, Language Model Builder, VCamdroid и TokenRouter.
+- Существующая карточка Kimi K3 обновлена без нового ID: официально подтверждены 2,8T parameters,
+  context до 1M, vision, coding/agent focus и API reasoning modes. Сравнение с «Fable 5» и
+  «GPT Sol 5.6» удалено как неподтверждённое.
+- Рекламная акция TokenRouter на 50 млн Kimi K3 tokens, отсутствие карты и срок предложения
+  не подтвердились в публичных official materials. Gateway получил решение `Не использовать`
+  до проверки vendor identity, Terms/DPA, upstream routing, retention и billing limits.
+- Mailwave, Leon benchmark demo, Stolen Compute и coupon-testing prompt отклонены как дубликат
+  сценария, не самостоятельный продукт, несанкционированная схема или небезопасная автоматизация.
+- Добавлен `guides/july-2026-backfill-tokenrouter-radar.md` с решениями, projects, scenarios,
+  complexity, priority, risks, dependencies и конкретными next steps.
+- Supply-chain pass не запускал сторонние binaries или code. VCamdroid и TokenRouter помечены
+  high risk; Language Model Builder, Footrue ToolBox и Kimi K3 — medium; GitHub roadmap — low.
+  Каталог вырос с 520 до 525 карточек, проверенный слой — с 67 до 73, inferred — с 453 до 452.
+- Network link audit проверил 533 unique URLs: 490 `ok`, 27 `restricted`, 0 `broken`,
+  0 unsafe и 0 redirect duplicates; все шесть новых/обновлённых primary links доступны.
+  Единственный `503` относится к прежней записи Robokassa, ещё 15 endpoints не дали
+  однозначный machine-readable ответ. Browser QA на 1440×900 и 390×844 подтвердил
+  counters 525/73, detail/guide deep links, отсутствие horizontal overflow и console errors;
+  mobile detail сохранил `scrollTop=720` после ожидания и не выбросил пользователя наверх.
 
 ### 2026-07-30
 
