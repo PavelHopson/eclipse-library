@@ -66,9 +66,36 @@ Endpoint и model зафиксированы в коде; custom URL, prompt fil
 
 Отчёт содержит pass/fail, latency, token counts и SHA-256 output. Raw prompts, raw output, keys, response body, repository data и personal data не сохраняются.
 
+### Privacy и legal review
+
+Официальный Kimi API пишет, что API inputs/outputs не используются для обучения модели,
+передаются по TLS и обрабатываются для выполнения запроса и content-safety. В документах
+также указано, что данные могут обрабатываться и храниться в материковом Китае, а срок
+хранения описан как «необходимый» без единого публичного фиксированного значения для всех
+категорий. Публичного полного списка subprocessors и готового self-service DPA не найдено;
+по официальной справке DPA запрашивается через enterprise sales.
+
+Практический вывод:
+
+- synthetic benchmark без client/private data допустим только с отдельным test key и жёстким
+  provider spending cap;
+- production code, персональные данные, клиентские документы и секреты запрещены до
+  согласования DPA, региона/резидентности, retention и incident/deletion process;
+- заявление `not used for training` не означает zero retention и не заменяет договорную
+  privacy-проверку.
+
+Официальные источники:
+
+- [API data security](https://www.kimi.com/help/kimi-api/api-data-security)
+- [Open Platform privacy policy](https://platform.kimi.com/docs/agreement/userprivacy)
+- [API pricing](https://www.kimi.com/help/kimi-api/api-pricing)
+- [Data usage and DPA](https://www.kimi.com/help/others/data-usage)
+
 ### Что ещё не сделано
 
-Live benchmark не запускался: для него нужен отдельный test key, лимит расходов и завершённый review прямых Moonshot/Kimi Terms, privacy, retention, region, subprocessors и DPA needs. Kimi не добавлен в production allowlist.
+Live benchmark не запускался: в environment нет отдельного `KIMI_API_KEY` с low spending
+limit. Это единственный runtime-блокер для synthetic suite; ключ нельзя присылать в чат или
+записывать в repository. Kimi не добавлен в production allowlist.
 
 ## Почему reference остаются reference
 

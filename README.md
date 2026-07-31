@@ -2257,6 +2257,7 @@ Frontend: React 19 · TypeScript · Vite · Tailwind CSS 4 · Zustand
 
 | Ресурс | Описание | Stars |
 |---|---|---|
+| [Agent Reach](https://github.com/Panniantong/Agent-Reach) | MIT skill и CLI-роутер, который помогает AI-агенту выбирать инструменты для поиска по web, GitHub, Reddit, YouTube и другим источникам, а затем проверяет доступность каналов через `doctor`. Это не «доступ ко всему интернету»: часть маршрутов требует login cookies, proxy, API key или сторонние CLI, а fallback может перестать работать. **High risk:** installer меняет локальную конфигурацию и подтягивает несколько mutable dependencies; browser cookies дают доступ к аккаунтам, а найденный web-контент может содержать prompt injection. Не ставить глобально и не подключать основной browser profile. **Зачем нам:** reference для governed connector registry, health checks и fallback UX в Eclipse Webclaw, Kwork #18, Sentinel и AI Hub | [![Stars](https://img.shields.io/github/stars/Panniantong/Agent-Reach?style=flat)](https://github.com/Panniantong/Agent-Reach) |
 | [Lightpanda](https://github.com/lightpanda-io/browser) | AGPL-3.0 headless browser на Zig для automation/AI: CDP, Puppeteer/частичная Playwright совместимость, native agent/MCP и HTML/Markdown dump. Проект сам помечен beta; Web API coverage неполный, Windows работает через WSL2, telemetry включена по умолчанию (`LIGHTPANDA_DISABLE_TELEMETRY=true` отключает). Benchmarks против Chrome — авторские. **Зачем нам:** benchmark optional JS-renderer для Eclipse Webclaw и research-agent | [![Stars](https://img.shields.io/github/stars/lightpanda-io/browser?style=flat)](https://github.com/lightpanda-io/browser) |
 | [Claude Video](https://github.com/bradautomates/claude-video) | MIT `/watch` skill: сначала получает captions, затем при необходимости скачивает видео через yt-dlp, извлекает непохожие кадры ffmpeg и делает timestamped summary; Groq/OpenAI Whisper используется только как fallback. **Risk:** remote downloads, copyright/ToS, local file access и отправка аудио provider-у; только sandbox worker, limits и opt-in transcription. **Зачем нам:** Eclipse Media, Educator-AI и AI Hub video understanding | [![Stars](https://img.shields.io/github/stars/bradautomates/claude-video?style=flat)](https://github.com/bradautomates/claude-video) |
 | [NoSubscription.org](https://nosubscription.org/) | Community-каталог free, open-source и perpetual-license альтернатив подписочным программам с поиском по категориям, платформам и цене. На сайте не 1100 подтверждённых open-source tools: типы лицензий/оплаты смешаны, есть sponsored placement, поэтому каждую карточку нужно проверять заново. **Зачем нам:** intake source для Eclipse Library, не источник истины | — |
@@ -2310,17 +2311,20 @@ Frontend: React 19 · TypeScript · Vite · Tailwind CSS 4 · Zustand
 
 ## 📥 Сверка июльской ленты (01–31.07.2026)
 
-> В большой пересланной ленте разобрано 46 сообщений: 36 ресурсов уже были в библиотеке,
-> один материал повторялся внутри самой ленты, четыре находки отклонены, пять добавлены.
+> В большой пересланной ленте и дополнительной новости разобрано 47 сообщений: 36 ресурсов
+> уже были в библиотеке, один материал повторялся внутри самой ленты, четыре находки
+> отклонены, шесть добавлены.
 > Существующая карточка Kimi K3 обновлена без дубля. Подробные решения и безопасные границы:
 > [July 2026 backfill and TokenRouter radar](guides/july-2026-backfill-tokenrouter-radar.md).
 > Реализация рекомендаций: [GitHub onboarding and Kimi K3 implementation status](guides/kimi-github-implementation-2026-07-31.md).
 > Отдельный запретительный checklist: [TokenRouter vendor-risk gate](guides/tokenrouter-vendor-risk-gate.md).
+> Security-разбор новой находки: [Agent Reach — static security review](guides/agent-reach-security-review-2026-07-31.md).
 
 ### Добавлено
 
 | Ресурс | Простое описание | Решение |
 |---|---|---|
+| **Agent Reach** | Помогает AI-агенту подобрать и проверить инструменты для поиска по нескольким интернет-источникам. Проект существует и имеет MIT-лицензию, но обычная установка подтягивает сторонние CLI, меняет конфигурацию и может использовать browser cookies. Поэтому в Eclipse Forge берём только идеи connector registry, `doctor` и fallback UX; сам skill можно проверять лишь в disposable sandbox без основных аккаунтов | Reference |
 | [Footrue ToolBox](https://footrue.com/) | Сайт с 200+ утилитами для PDF, изображений, видео, аудио, текста и конвертации прямо в браузере. Удобен как UX-reference, но исходный код, владелец и условия переиспользования публично не раскрыты; обещание «файлы не покидают устройство» нельзя считать проверенным для каждой утилиты | Reference |
 | [GitHub for Beginners roadmap](https://github.blog/developer-skills/github/github-for-beginners-your-roadmap-to-mastering-the-github-essentials/) | Бесплатный официальный маршрут GitHub от первого repository и Markdown до branches, pull requests, Issues, Projects, Actions, Pages и базовой security. Можно превратить в короткий onboarding checklist для Educator-AI и новых участников Eclipse Forge, не копируя статью целиком | Внедрить сейчас |
 | [Language Model Builder](https://languagemodelbuilder.com/) | Интерактивный учебник и локальная лаборатория для Apple Silicon: за примерно 90 минут пользователь собирает tokenizer, pretraining, SFT и DPO pipeline на MLX. Проекты и prompts хранятся локально, но приложение закрытое и без явной лицензии на переиспользование | Reference |
@@ -2348,6 +2352,7 @@ Frontend: React 19 · TypeScript · Vite · Tailwind CSS 4 · Zustand
 
 | Находка | Проекты | Что делать |
 |---|---|---|
+| **Agent Reach** | Eclipse Webclaw · Kwork #18 · Eclipse AI Hub · Hopson Sentinel · oh-my-claudecode · Eclipse Media | Оставить исходный skill reference. Для research-сценариев отдельно спроектировать allowlisted connector registry, health/doctor, audit log и controlled fallback; YouTube-путь не дублировать поверх уже запланированного transcript-first pipeline |
 | **Kimi K3** | Eclipse AI Hub · Hopson Sentinel · oh-my-claudecode · Eclipse Chat · DnD Forge | Добавить в roadmap direct-API benchmark на фиксированных synthetic coding/agent tasks: качество, latency, стоимость, context limits и privacy |
 | **GitHub for Beginners** | Educator-AI · Eclipse Forge Landing · Eclipse Library · ai-setup | Сделать короткий практический onboarding checklist с переходами на официальный материал и заданиями на test repository |
 | **Language Model Builder** | Educator-AI · Eclipse AI Hub | Использовать структуру tokenizer → pretraining → SFT → DPO как reference для учебного трека; закрытый binary не встраивать |

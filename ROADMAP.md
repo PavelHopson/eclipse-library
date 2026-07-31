@@ -9,8 +9,8 @@
   подробные карточки и guide viewer.
 - `web/catalog-details.json` — проверенный структурированный слой для приоритетных
   материалов; старые записи получают честную пометку о необходимости аудита.
-- `web/catalog-index.json` — детерминированный полный индекс 525 уникальных материалов:
-  73 редакторски проверены, 452 структурированы из README и явно помечены `inferred`.
+- `web/catalog-index.json` — детерминированный полный индекс 526 уникальных материалов:
+  74 редакторски проверены, 452 структурированы из README и явно помечены `inferred`.
 - `web/link-health.json` — безопасный публичный snapshot weekly-аудита: доступность ссылки
   показывается отдельно от редакторского доверия и не считается security endorsement.
 - Deploy: GitHub Actions → VPS/Caddy из ветки `master`.
@@ -60,6 +60,10 @@
 - [ ] Eclipse Webclaw / Kwork #18: benchmark Lightpanda как optional beta JS-renderer против
       Playwright на representative page set — success rate, extraction quality, p95, RAM, robots/rate limits;
       telemetry off, pinned image/source и AGPL review обязательны.
+- [ ] Eclipse Webclaw / Kwork #18: спроектировать собственный allowlisted connector registry
+      по reference-паттернам Agent Reach — capability contract, read-only `doctor`, provenance,
+      controlled fallback, egress/SSRF policy, prompt-injection boundary и isolated workers.
+      Сам Agent Reach, browser cookies и mutable installer в production не использовать.
 - [ ] Eclipse Media / Educator-AI: isolated transcript-first video understanding spike по паттерну
       Claude Video — allowlisted URLs, size/time limits, scene frames, timestamp citations и только
       opt-in Whisper fallback без client/private media.
@@ -105,6 +109,17 @@
 
 ### 2026-07-31
 
+- Добавлен Agent Reach с подробной карточкой и отдельным static security review: существование,
+  MIT license и текущий `main` commit подтверждены, рекламные обещания «весь интернет»,
+  «бесплатно» и `privacy-safe` ограничены фактическими account/cookie/proxy/API/ToS границами.
+  Решение — `Reference`, risk — High; installer и upstream CLI на основной машине не запускались.
+- Для Eclipse Webclaw / Kwork #18 в roadmap добавлен собственный allowlisted connector registry
+  с read-only `doctor`, provenance и controlled fallback. Sentinel, OMC и AI Hub получают только
+  архитектурный reference; Eclipse Media продолжает отдельный transcript-first video pipeline.
+- Kimi legal/privacy review дополнен официальными API security, Open Platform privacy и DPA
+  материалами: API data заявлены как не используемые для обучения, но zero retention,
+  фиксированный общий срок, полный subprocessor list и self-service DPA не подтверждены.
+  Synthetic live suite остаётся заблокирован отсутствием отдельного low-limit test key.
 - В Educator-AI внедрён интерактивный пятишаговый GitHub onboarding без CLI и AI key:
   repository, branch, commit, pull request и merge; прогресс хранится только локально,
   reset требует подтверждения, secrets и personal data явно запрещены.
@@ -120,9 +135,10 @@
   `guides/tokenrouter-vendor-risk-gate.md`. TokenRouter получил High vendor-risk tier
   и остаётся blocked до owner/Terms/DPA/routing/retention/subprocessors/promotion evidence.
 
-- Разобрано 46 сообщений из июльской ленты: 36 уже опубликованных ресурсов не продублированы,
-  повтор Shipper внутри вложения схлопнут; добавлены Footrue ToolBox, официальный GitHub for
-  Beginners roadmap, Language Model Builder, VCamdroid и TokenRouter.
+- Разобрано 47 сообщений из июльской ленты и дополнительной новости: 36 уже опубликованных
+  ресурсов не продублированы, повтор Shipper внутри вложения схлопнут; добавлены Agent Reach,
+  Footrue ToolBox, официальный GitHub for Beginners roadmap, Language Model Builder, VCamdroid
+  и TokenRouter.
 - Существующая карточка Kimi K3 обновлена без нового ID: официально подтверждены 2,8T parameters,
   context до 1M, vision, coding/agent focus и API reasoning modes. Сравнение с «Fable 5» и
   «GPT Sol 5.6» удалено как неподтверждённое.

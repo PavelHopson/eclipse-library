@@ -3088,6 +3088,82 @@
     }
   },
   {
+    "id": "agent-reach-panniantong",
+    "title": "Agent Reach",
+    "url": "https://github.com/Panniantong/Agent-Reach",
+    "category": "AI-агенты / web research",
+    "type": "skill",
+    "description": "MIT skill и CLI-роутер для Claude Code, Cursor, OpenClaw и других AI-агентов. Он выбирает внешние инструменты для web, GitHub, Reddit, YouTube и social sources, устанавливает часть connectors, проверяет их командой doctor и может предложить fallback. Это orchestration layer, а не собственный универсальный поисковый API.",
+    "simpleDescription": "Agent Reach помогает AI-агенту понять, каким инструментом искать информацию на разных сайтах, и показывает, какие источники сейчас доступны. Он может быть удобен для исследований, но обычная установка добавляет несколько сторонних программ и иногда использует browser cookies. Поэтому основной аккаунт, рабочие секреты и клиентские данные подключать нельзя.",
+    "useCases": [
+      "Изучить UX capability registry, doctor и controlled fallback для research-agent",
+      "Спроектировать allowlisted connectors для public web и GitHub с понятной причиной отказа",
+      "Сравнить multi-source discovery architecture без установки исходного skill в production"
+    ],
+    "features": [
+      "Маршрутизация запросов между web, GitHub, Reddit, YouTube и другими источниками",
+      "Команда doctor для проверки доступности connectors",
+      "Safe/dry-run режимы и fallback-конфигурация"
+    ],
+    "audience": [
+      "Команды, которые проектируют research-агентов и web ingestion",
+      "Разработчики agent tool registries и health diagnostics",
+      "Security-инженеры, оценивающие browser-session и supply-chain границы"
+    ],
+    "limitations": [
+      "Не гарантирует доступ ко всему интернету: login wall, anti-bot, география, ToS и изменения сайтов остаются",
+      "Часть маршрутов требует cookies, account, proxy, API key, локальную инфраструктуру или сторонний CLI",
+      "Fallback не гарантирует одинаковые privacy, качество, стоимость и доступность"
+    ],
+    "platforms": [
+      "Claude Code",
+      "Cursor",
+      "OpenClaw",
+      "Python",
+      "CLI",
+      "MCP"
+    ],
+    "relatedTechnologies": [
+      "Web research",
+      "GitHub CLI",
+      "yt-dlp",
+      "OpenCLI",
+      "Browser sessions",
+      "Connector registry"
+    ],
+    "license": "MIT для Agent Reach; каждый устанавливаемый connector и каждый внешний источник имеют собственную лицензию, Terms и privacy boundary",
+    "pricing": "Core open source и бесплатен; отдельные routes могут требовать аккаунт, cookies, proxy, API key, инфраструктуру или зависеть от меняющихся free tiers",
+    "trust": "caution",
+    "trustReason": "Официальный public repository, MIT license и исходный код main commit b4d52c46c9113cb0f653d6df4cf71ebadf4930ac проверены статически 31.07.2026. Installer и upstream CLI не запускались; заявления free/privacy-safe и надёжность всех fallback не подтверждены независимо.",
+    "projects": [
+      "Eclipse Webclaw",
+      "Kwork #18",
+      "Eclipse AI Hub",
+      "Hopson Sentinel",
+      "oh-my-claudecode",
+      "Eclipse Media"
+    ],
+    "decision": "reference",
+    "riskLevel": "high",
+    "risks": [
+      "Mutable installer и несколько Python, npm, Git и system dependencies расширяют supply-chain поверхность",
+      "Browser cookies являются bearer credentials и могут дать доступ к аккаунту или привести к его блокировке",
+      "Недоверенный web-контент может вызвать prompt injection, если агент одновременно имеет shell, filesystem, network или secret access",
+      "Proxy, fallback provider и community CLI могут менять recipients, retention, telemetry и platform Terms"
+    ],
+    "verifiedAt": "2026-07-31",
+    "quickStart": [
+      "Не устанавливать глобально: закрепить полный commit SHA и проверить source/manifests до скачивания",
+      "Использовать disposable VM/container, пустой browser profile, public test URLs и safe/dry-run без secrets",
+      "Ограничить egress, записать spawned processes и network destinations, затем удалить VM и отозвать одноразовые credentials"
+    ],
+    "access": {
+      "cost": "freemium",
+      "signup": "optional",
+      "runtime": "hybrid"
+    }
+  },
+  {
     "id": "kimi-k3-kimi-code-www-kimi-com",
     "title": "Kimi K3 / Kimi Code",
     "url": "https://www.kimi.com/code",
@@ -3130,7 +3206,7 @@
     "license": "Закрытый Kimi Code/API service с собственными условиями; model weights и другие варианты поставки могут иметь отдельную лицензию",
     "pricing": "Официальный API работает по pay-as-you-go; Kimi Code и API имеют отдельные планы и лимиты",
     "trust": "official",
-    "trustReason": "Параметры, context, use cases, launch date, reasoning modes и API data-security statements сверены с официальной документацией Kimi 31.07.2026.",
+    "trustReason": "Параметры, context, use cases, launch date, reasoning modes, API data-security, privacy, pricing и DPA path сверены с официальной документацией Kimi 31.07.2026. Runtime benchmark не выполнен.",
     "projects": [
       "Eclipse AI Hub",
       "Hopson Sentinel",
@@ -3143,13 +3219,16 @@
     "risks": [
       "Prompts, code и изображения обрабатываются внешним cloud provider; consumer и API privacy guarantees различаются",
       "API key может утечь при client-side integration или unsafe logging",
-      "Цена и latency на long-context/agent loops могут быть выше ожидаемых без budgets и limits"
+      "Цена и latency на long-context/agent loops могут быть выше ожидаемых без budgets и limits",
+      "Документы допускают обработку и хранение данных в материковом Китае; единый фиксированный retention и полный публичный subprocessor list не найдены",
+      "Заявление об отсутствии обучения на API data не означает zero retention; production data требуют DPA и согласования residency/deletion process"
     ],
     "verifiedAt": "2026-07-31",
     "quickStart": [
       "Создать server-side adapter к прямому официальному Kimi API с отдельным low-limit test key",
       "Прогнать фиксированный набор synthetic coding/agent tasks и измерить quality, p50/p95 latency, tokens и cost",
-      "Не отправлять client repositories, secrets или personal data до privacy review и настроить redaction, timeouts и spending limits"
+      "Для synthetic benchmark использовать только отдельный key с provider spending cap; ключ не хранить в repository или client bundle",
+      "Не отправлять client repositories, secrets или personal data до подписанного DPA и согласования retention, residency, subprocessors и deletion process"
     ],
     "access": {
       "cost": "paid",
