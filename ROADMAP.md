@@ -14,10 +14,11 @@
 - `web/link-health.json` — безопасный публичный snapshot weekly-аудита: доступность ссылки
   показывается отдельно от редакторского доверия и не считается security endorsement.
 - Deploy: GitHub Actions → VPS/Caddy из ветки `master`.
-- Production синхронизирован с catalog commit `6f16ff1`: deploy
-  [#30612972889](https://github.com/PavelHopson/eclipse-library/actions/runs/30612972889)
-  от 31.07.2026 успешно завершён через VPS/Caddy; independent smoke подтвердил `app.js?v=29`,
-  525 материалов, 22 проекта, 307 GitHub repository statuses и 5 MCP audit records.
+- Production data синхронизированы с catalog commit `4cf5208`: quality
+  [#30619594895](https://github.com/PavelHopson/eclipse-library/actions/runs/30619594895)
+  и deploy [#30619594864](https://github.com/PavelHopson/eclipse-library/actions/runs/30619594864)
+  от 31.07.2026 успешно завершены; independent smoke подтвердил `app.js?v=29`,
+  526 материалов, 22 проекта, 307 GitHub repository statuses и 5 MCP audit records.
 
 ## Приоритеты
 
@@ -116,6 +117,13 @@
 - Для Eclipse Webclaw / Kwork #18 в roadmap добавлен собственный allowlisted connector registry
   с read-only `doctor`, provenance и controlled fallback. Sentinel, OMC и AI Hub получают только
   архитектурный reference; Eclipse Media продолжает отдельный transcript-first video pipeline.
+- Catalog commit `4cf5208` опубликован в `master`; quality
+  [#30619594895](https://github.com/PavelHopson/eclipse-library/actions/runs/30619594895)
+  и production deploy [#30619594864](https://github.com/PavelHopson/eclipse-library/actions/runs/30619594864)
+  завершены успешно. Live smoke подтвердил 526 items и наличие
+  `agent-reach-panniantong` в production index. Повторный interactive browser pass не выполнен:
+  после предыдущего cleanup backend не выдал navigation/Playwright methods; UI-код не менялся,
+  а mobile scroll regression ранее был пройден на 390×844.
 - Kimi legal/privacy review дополнен официальными API security, Open Platform privacy и DPA
   материалами: API data заявлены как не используемые для обучения, но zero retention,
   фиксированный общий срок, полный subprocessor list и self-service DPA не подтверждены.
