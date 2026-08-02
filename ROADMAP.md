@@ -14,10 +14,10 @@
 - `web/link-health.json` — безопасный публичный snapshot weekly-аудита: доступность ссылки
   показывается отдельно от редакторского доверия и не считается security endorsement.
 - Deploy: GitHub Actions → VPS/Caddy из ветки `master`.
-- Production data синхронизированы с commit `760a563`: quality
-  [#30649634619](https://github.com/PavelHopson/eclipse-library/actions/runs/30649634619)
-  и deploy [#30649632140](https://github.com/PavelHopson/eclipse-library/actions/runs/30649632140)
-  от 31.07.2026 успешно завершены; independent smoke подтвердил `app.js?v=30`,
+- Production catalog data синхронизированы с commit `7a1d67b`: quality
+  [#30741017229](https://github.com/PavelHopson/eclipse-library/actions/runs/30741017229)
+  и deploy [#30741017228](https://github.com/PavelHopson/eclipse-library/actions/runs/30741017228)
+  от 02.08.2026 успешно завершены; independent smoke подтвердил `app.js?v=30`,
   526 материалов, 22 проекта, 307 GitHub repository statuses и 5 MCP audit records.
 
 ## Приоритеты
@@ -123,6 +123,10 @@
 - Agent Reach не устанавливался и не запускался: installer, browser cookies, mutable community CLI
   и автоматическое подключение источников не перенесены. SSRF/egress, content sanitization,
   isolated workers и audit log оставлены отдельным Phase 2 P1.
+- Library commit `7a1d67b` опубликован в `master`: quality
+  [#30741017229](https://github.com/PavelHopson/eclipse-library/actions/runs/30741017229) и deploy
+  [#30741017228](https://github.com/PavelHopson/eclipse-library/actions/runs/30741017228) завершены успешно;
+  live smoke подтвердил `app.js?v=30`, 526 материалов, 22 проекта, 307 repositories и 5 MCP records.
 
 ### 2026-07-31
 
