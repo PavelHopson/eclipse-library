@@ -14,11 +14,11 @@
 - `web/link-health.json` — безопасный публичный snapshot weekly-аудита: доступность ссылки
   показывается отдельно от редакторского доверия и не считается security endorsement.
 - Deploy: GitHub Actions → VPS/Caddy из ветки `master`.
-- Production catalog data синхронизированы с commit `5736fc8`: quality
-  [#30743367591](https://github.com/PavelHopson/eclipse-library/actions/runs/30743367591)
-  и deploy [#30743367592](https://github.com/PavelHopson/eclipse-library/actions/runs/30743367592)
+- Production catalog data синхронизированы с commit `17356ae`: quality
+  [#30753778386](https://github.com/PavelHopson/eclipse-library/actions/runs/30753778386)
+  и deploy [#30753778390](https://github.com/PavelHopson/eclipse-library/actions/runs/30753778390)
   от 02.08.2026 успешно завершены; independent smoke подтвердил `app.js?v=30`,
-  526 материалов, 22 проекта, 307 GitHub repository statuses и 5 MCP audit records.
+  531 материал, 22 проекта, 307 GitHub repository statuses и 5 MCP audit records.
 
 ## Приоритеты
 
@@ -149,9 +149,10 @@
   HyperFrames release-video pipeline → read-only Ads Audit → Model Registry/isolated browser →
   financial research и только paper-trading. Fincept используется как reference из-за dual license,
   а live trading и скрытый browser anti-detect не включаются.
-- P0 уже начат в Eclipse Media: отдельная Video Studio, 15-секундная детерминированная композиция,
-  локальные check/render команды, responsive UI и CDN-free preview fallback. Runtime CLI verification
-  ожидает восстановления npm registry после `ECONNRESET`; автоматической публикации нет.
+- P0 уже начат в Eclipse Media commit `cbf54e5`: отдельная Video Studio, 15-секундная
+  детерминированная композиция, responsive UI, offline preview и contract check. GSAP 3.14.2 хранится
+  локально с SHA-256/SRI; HyperFrames runner fail closed и не скачивает CLI. Реальный lint/validate/render
+  ожидает восстановления npm registry, integrity review и exact lockfile; автоматической публикации нет.
 - Supply-chain и installer hardening Eclipse-Claw merged через
   [PR #8](https://github.com/PavelHopson/Eclipse-Claw/pull/8) как `3502bdb`: Docker bases закреплены
   по multi-platform digest, CI отклоняет mutable external `FROM`, Trivy проверяет core/CDP runtime,
