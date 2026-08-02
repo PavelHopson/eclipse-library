@@ -83,7 +83,7 @@ session на основной машине не запускались.
 
 | Решение | Проект и проблема | Сценарий и что разработать | Ценность | Размер | Риски / зависимости | Приоритет | Следующий шаг |
 |---|---|---|---|---|---|---|---|
-| Внедрить сейчас | Eclipse Webclaw / Kwork #18: research-agent не должен молча терять источник | Phase 1 реализован: static allowlist, capabilities/data boundary/provenance, read-only `doctor` в REST/MCP и отдельный opt-in для automatic cloud fallback | Понятная причина недоступности и отсутствие скрытой передачи URL только из-за сохранённого API key | M | PR ещё не merged; ToS, SSRF, prompt injection, robots/rate limit, worker isolation остаются Phase 2 | P1 | Review/merge [Eclipse-Claw PR #4](https://github.com/PavelHopson/Eclipse-Claw/pull/4), затем добавить DNS/redirect egress policy и fixed page benchmark |
+| Внедрить сейчас | Eclipse Webclaw / Kwork #18: research-agent не должен молча терять источник | Phase 1 реализован: static allowlist, capabilities/data boundary/provenance, read-only `doctor` в REST/MCP и отдельный opt-in для automatic cloud fallback | Понятная причина недоступности и отсутствие скрытой передачи URL только из-за сохранённого API key | M | Release/deploy ещё не выполнен; ToS, SSRF, prompt injection, robots/rate limit, worker isolation остаются Phase 2 | P1 | Подготовить release из merged `51a5d6c`, затем добавить DNS/redirect egress policy и fixed page benchmark |
 | Оставить как reference | Hopson Sentinel | Показать capability health, причину недоступности и безопасный следующий шаг; не давать skill права устанавливать global packages | Пользователь понимает, почему tool недоступен, и не чинит его опасной командой вслепую | M | Process sandbox, permissions, signed registry | P2 | Спроектировать read-only `doctor` output на synthetic connectors |
 | Оставить как reference | oh-my-claudecode | Использовать идею registry и deterministic fallback order без browser cookies и self-install | Предсказуемая orchestration и меньше случайных tool substitutions | M | Registry ownership, policy engine, audit log | P2 | Добавить design note к unified registry после разблокировки archived repository |
 | Добавить в roadmap | Eclipse AI Hub RAG | Серверные isolated ingestion workers для явно разрешённых источников, с citations и tenant boundary | Больше проверяемых источников без выдачи browser session модели | L | Queue, content sanitization, license, retention | P2 | Prototype только для public GitHub + public HTML, без social-login sources |
@@ -109,9 +109,11 @@ connector.
 - единая policy: cloud credential аутентифицирует явную cloud-команду, но automatic fallback
   разрешается только отдельным `ECLIPSE_CLAW_CLOUD_FALLBACK=1` или CLI `--cloud-fallback`.
 
-Реализация: commits `92c53cc`, `9454830`, PR
-[#4](https://github.com/PavelHopson/Eclipse-Claw/pull/4). Tests, strict clippy и release build
-зелёные. До merge/release это готовая реализация в review, а не production-возможность.
+Реализация: [PR #4](https://github.com/PavelHopson/Eclipse-Claw/pull/4) squash-merged в `main`
+как `51a5d6c`. Post-merge CI
+[#30741248009](https://github.com/PavelHopson/Eclipse-Claw/actions/runs/30741248009) прошёл Test,
+Lint и Docs; локальный release build также зелёный. До отдельного release/deploy это shipped code,
+но не production-возможность.
 
 Не закрыто: egress/SSRF allowlist с повторной проверкой DNS и redirects, content/prompt-injection
 sanitization, robots/rate-limit policy, isolated workers и audit log. Это Phase 2 P1.

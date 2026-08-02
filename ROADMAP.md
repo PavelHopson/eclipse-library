@@ -64,7 +64,8 @@
 - [x] Eclipse Webclaw / Kwork #18, Phase 1: собственный static allowlisted connector registry,
       capability/data-boundary/provenance contract, read-only `doctor` в REST и MCP и fail-closed
       local → cloud fallback с отдельным explicit opt-in. Реализовано в Eclipse-Claw
-      [PR #4](https://github.com/PavelHopson/Eclipse-Claw/pull/4); до merge/release не считать production.
+      [PR #4](https://github.com/PavelHopson/Eclipse-Claw/pull/4), merged в `main` как `51a5d6c`;
+      до отдельного release/deploy не считать production.
 - [ ] Eclipse Webclaw / Kwork #18, Phase 2: egress/SSRF policy с DNS/redirect re-check,
       prompt-injection/content boundary, robots/rate limits, isolated workers и audit log.
       Сам Agent Reach, browser cookies и mutable installer в production не использовать.
@@ -117,9 +118,10 @@
   отдельный internal crate со static allowlist, machine-readable readiness/provenance/data boundary,
   read-only `doctor` для REST/MCP и единая fail-closed policy. Наличие API key больше не означает
   согласие на автоматическую передачу URL/контента в cloud — требуется отдельный opt-in.
-- Изменения опубликованы в ветку `chore/server-mcp-tests` и оформлены в
-  [Eclipse-Claw PR #4](https://github.com/PavelHopson/Eclipse-Claw/pull/4). Workspace tests,
-  strict clippy и release build прошли; production status ожидает merge/release.
+- [Eclipse-Claw PR #4](https://github.com/PavelHopson/Eclipse-Claw/pull/4) squash-merged в `main`
+  как `51a5d6c`; post-merge CI
+  [#30741248009](https://github.com/PavelHopson/Eclipse-Claw/actions/runs/30741248009) прошёл Test,
+  Lint и Docs. Production status ожидает отдельный release/deploy.
 - Agent Reach не устанавливался и не запускался: installer, browser cookies, mutable community CLI
   и автоматическое подключение источников не перенесены. SSRF/egress, content sanitization,
   isolated workers и audit log оставлены отдельным Phase 2 P1.
