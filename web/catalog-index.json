@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "sourceHash": "58e677c11a7b34cdf5175d1dfb6fa449c301635d645ff2a4d0f5202265468219",
+  "sourceHash": "ab261c4eec04115ce75a68e608b53f59785ba126a6182f15567ef1cf37a3e516",
   "totals": {
     "all": 526,
     "verified": 75,
@@ -7403,7 +7403,7 @@
       "type": "api",
       "category": "️ Dev Tools & CLI",
       "subcategory": "️ Dev Tools & CLI",
-      "simpleDescription": "Eclipse Claw превращает публичную web-страницу в чистый текст, который удобно читать человеку или передавать AI. Можно запустить команду локально, поднять свой REST API или подключить MCP. По умолчанию инструмент не ходит в localhost и внутреннюю сеть, не отправляет страницу в cloud без отдельного согласия и предупреждает AI, что текст сайта нельзя считать командами.",
+      "simpleDescription": "Eclipse Claw превращает публичную web-страницу в чистый текст для человека, поиска, RAG или AI-агента. Для одной страницы достаточно CLI; для приложения есть REST API, а для Claude/Cursor — MCP. По умолчанию инструмент не ходит в localhost и внутреннюю сеть, не отправляет страницу в cloud без отдельного согласия и не принимает команды из текста сайта. Browser и LLM можно вынести в отдельные закрытые workers, а audit показывает только факт операции и результат — без URL, запросов, cookies, ключей и содержимого страницы.",
       "useCases": [
         "Получить чистый Markdown и источник для research-ответа с цитатами",
         "Загрузить разрешённую публичную страницу в RAG без сырого HTML и навигационного шума",
@@ -7415,6 +7415,7 @@
         "REST API",
         "MCP",
         "Self-hosted",
+        "Docker",
         "Windows",
         "Linux",
         "macOS"
@@ -7427,7 +7428,7 @@
         "runtime": "hybrid"
       },
       "trust": "official",
-      "trustReason": "Это официальный репозиторий Eclipse Forge. Phase 1 merged как 51a5d6c, Phase 2 security controls merged через PR #5 как 3ef26a85d0e51f85ec261d95ea6df186329de90f; post-merge workspace Test, Clippy -D warnings и Docs прошли в main CI #30743202888. Release/deploy и независимый runtime pentest не выполнены.",
+      "trustReason": "Это официальный репозиторий Eclipse Forge. Phase 1–2B merged как 51a5d6c, 3ef26a8 и c5c90a1; честный optional Homebrew publish и portable fixture checksums исправлены в PR #7 как d19a803. PR CI #30747425725 и post-merge main CI #30747551757 прошли Test, Clippy -D warnings, Docs, RustSec и container/Compose contract. Release workflow #30747730887 успешно выпустил v0.4.1: четыре platform archives, SHA256SUMS и multi-arch GHCR images; независимый runtime pentest не выполнен.",
       "projects": [
         "Eclipse Webclaw",
         "Kwork #18",
@@ -7442,12 +7443,15 @@
         "Любой web-контент остаётся недоверенным и может содержать prompt injection, вредоносные ссылки или персональные данные",
         "Explicit cloud fallback передаёт URL и контент внешнему сервису; data boundary нужно согласовать заранее",
         "Proxy DNS и CDP принадлежат отдельным trust boundaries и не наследуют transport-level DNS pinning",
-        "Текущий worker limit ограничивает ресурсы, но не заменяет OS/container isolation и durable audit storage"
+        "Worker isolation работает только при корректном раздельном deployment, сильных tokens, закрытой service network и минимальных container permissions",
+        "Audit намеренно не хранит URL и content: это защищает приватность, но для расследования происхождения конкретной страницы нужна отдельная разрешённая система provenance",
+        "RustSec не находит известных уязвимостей, но две транзитивные зависимости — fxhash и ttf-parser — помечены как unmaintained; это Low-risk долг до миграции upstream или замены цепочек"
       ],
       "verifiedAt": "2026-08-02",
       "quickStart": [
-        "Для первой проверки запустить CLI на одной своей публичной странице без cookies, proxy и cloud fallback",
+        "Скачать v0.4.1 из GitHub Releases, проверить SHA256SUMS и для первой проверки запустить CLI на одной своей публичной странице без cookies, proxy и cloud fallback",
         "Перед agent workflow вызвать doctor и проверить, какие connectors и data boundaries реально включены",
+        "Для server deployment использовать отдельные LLM/CDP workers, разные длинные tokens, закрытую service network и ECLIPSE_AUDIT_REQUIRED=1; основной browser profile не подключать",
         "REST оставить на 127.0.0.1; для внешнего bind задать длинный ECLIPSE_SERVER_TOKEN и поставить TLS/rate limit на reverse proxy",
         "Не давать результату scrape права запускать команды: сначала проверить источник и цитаты, затем выполнять отдельное подтверждённое действие"
       ],
@@ -7458,13 +7462,16 @@
         "category": "️ Dev Tools & CLI",
         "subcategory": null
       },
-      "description": "Self-hosted Rust-инструмент Eclipse Forge для получения и очистки web-страниц. Один и тот же движок доступен через CLI, REST API и MCP: он скачивает публичный URL, убирает лишнюю разметку и возвращает Markdown, простой текст, метаданные или структуру для LLM. Рекурсивный crawler остаётся в пределах одного сайта, учитывает robots.txt и ограничивает число одновременных запросов.",
+      "description": "Self-hosted Rust-инструмент Eclipse Forge для получения и очистки web-страниц. Один и тот же движок доступен через CLI, REST API и MCP: он скачивает публичный URL, убирает лишнюю разметку и возвращает Markdown, простой текст, метаданные или структуру для LLM. Рекурсивный crawler остаётся в пределах одного сайта, учитывает robots.txt и ограничивает число одновременных запросов. Опасные возможности разделены: основной REST process не запускает browser и не читает ключи LLM, а обращается к отдельным authenticated workers.",
       "features": [
         "CLI, self-hosted REST API и stdio MCP поверх одного Rust workspace",
         "Public-only egress: DNS, private/metadata IP и каждый redirect проверяются transport resolver",
         "Граница untrusted web content для MCP и LLM extraction/summarization",
         "robots.txt Allow/Disallow, Crawl-delay, same-origin scope и bounded concurrency",
         "Статический connector registry и read-only doctor без установки community packages",
+        "Отдельные Bearer-protected LLM и CDP workers; production REST не читает provider keys и не запускает Chromium",
+        "Durable JSONL audit с rotation и retention; фиксированная schema не хранит URL, query, headers, cookies, prompts или page content",
+        "Fixed public-page и hostile-content fixtures входят в CI/release gate",
         "Automatic cloud fallback, session cookies, proxy DNS и server CDP требуют отдельных opt-in"
       ],
       "audience": [
@@ -7476,8 +7483,9 @@
         "Не гарантирует доступ к login wall, CAPTCHA, DRM, region-locked и сильно защищённым страницам",
         "Prompt-injection boundary снижает риск, но не делает недоверенный текст безопасным для автономных действий с secrets или production",
         "Нужно самостоятельно соблюдать robots.txt, Terms, copyright, персональные данные и разрешение владельца источника",
-        "Server CDP остаётся отдельным browser boundary и включается только в доверенном изолированном worker",
-        "На 02.08.2026 изменения Phase 2 merged в main, но отдельный release и production deploy ещё не подтверждены"
+        "CDP остаётся отдельной browser/network boundary: безопасная конфигурация требует реального отдельного container/OS worker, а не только запуска второго процесса на том же доверенном хосте",
+        "Fixed fixtures защищают от известных regressions, но не доказывают качество на любом сайте; независимый runtime pentest не выполнен",
+        "Container base images пока заданы mutable upstream tags, поэтому production mirror должен закрепить проверенные digests"
       ],
       "relatedTechnologies": [
         "Rust",
@@ -7487,7 +7495,9 @@
         "BoringSSL",
         "Web research",
         "RAG",
-        "robots.txt"
+        "robots.txt",
+        "JSONL audit",
+        "Container isolation"
       ]
     },
     {

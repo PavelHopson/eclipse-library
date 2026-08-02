@@ -74,10 +74,17 @@
       PR CI [#30743170976](https://github.com/PavelHopson/Eclipse-Claw/actions/runs/30743170976)
       и post-merge main CI
       [#30743202888](https://github.com/PavelHopson/Eclipse-Claw/actions/runs/30743202888) зелёные.
-- [ ] Eclipse Webclaw / Kwork #18, Phase 2B: отдельные OS/container workers для browser/LLM,
-      durable audit storage с retention/access policy, fixed public-page security/quality benchmark
-      и release/deploy. Сам Agent Reach, primary-account browser cookies и mutable installer в
-      production не использовать.
+- [x] Eclipse Webclaw / Kwork #18, Phase 2B: отдельные authenticated OS/container workers для
+      browser/LLM, fail-closed required isolation, durable privacy audit с rotation/retention/read
+      policy, fixed public-page + hostile-content benchmarks и attested release contract. Реализовано
+      собственным кодом в [PR #6](https://github.com/PavelHopson/Eclipse-Claw/pull/6), merged как
+      `c5c90a1`; release-патч с честным optional Homebrew publish и portable fixture checksums merged
+      через [PR #7](https://github.com/PavelHopson/Eclipse-Claw/pull/7) как `d19a803`; PR CI
+      `30747425725` и post-merge main CI `30747551757` зелёные, создан
+      [v0.4.1](https://github.com/PavelHopson/Eclipse-Claw/releases/tag/v0.4.1). RustSec не находит
+      известных уязвимостей; `fxhash` и `ttf-parser` остаются Low-risk unmaintained transitives до
+      upstream-миграции. Сам Agent Reach,
+      primary-account browser cookies и mutable installer в production не используются.
 - [ ] Eclipse Media / Educator-AI: isolated transcript-first video understanding spike по паттерну
       Claude Video — allowlisted URLs, size/time limits, scene frames, timestamp citations и только
       opt-in Whisper fallback без client/private media.
@@ -123,6 +130,31 @@
 
 ### 2026-08-02
 
+- Eclipse-Claw Phase 2B merged через
+  [PR #6](https://github.com/PavelHopson/Eclipse-Claw/pull/6) как `c5c90a1`: production REST
+  обращается к LLM/CDP только через отдельные authenticated workers, required isolation fail closed,
+  durable JSONL audit не хранит URL/content/secrets, а fixed public-page и hostile-content fixtures
+  стали release gates. Release archives требуют четыре binaries, checksums и provenance; контейнеры
+  разделяют service/egress networks и запускаются non-root с dropped capabilities.
+- RustSec сначала обнаружил уязвимые PDF/XML/QUIC/TLS/MCP/browser/random dependency chains. Они
+  обновлены без advisory allowlist, obsolete `async-std` runtime удалён; PR CI
+  [#30746506226](https://github.com/PavelHopson/Eclipse-Claw/actions/runs/30746506226) и post-merge CI
+  [#30746632082](https://github.com/PavelHopson/Eclipse-Claw/actions/runs/30746632082) прошли Test,
+  Clippy `-D warnings`, Docs, RustSec и container/Compose contract.
+- Release-патч Eclipse-Claw merged через
+  [PR #7](https://github.com/PavelHopson/Eclipse-Claw/pull/7) как `d19a803`: Homebrew publish теперь
+  честно пропускается без `HOMEBREW_TAP_TOKEN`, документация не обещает несуществующий публичный tap,
+  а fixture verifier одинаково проверяет LF/CRLF. PR CI
+  [#30747425725](https://github.com/PavelHopson/Eclipse-Claw/actions/runs/30747425725) и post-merge main CI
+  [#30747551757](https://github.com/PavelHopson/Eclipse-Claw/actions/runs/30747551757) зелёные.
+- Создан [Eclipse Claw v0.4.1](https://github.com/PavelHopson/Eclipse-Claw/releases/tag/v0.4.1),
+  release workflow [#30747730887](https://github.com/PavelHopson/Eclipse-Claw/actions/runs/30747730887)
+  зелёный: четыре platform archives, `SHA256SUMS`, GitHub Release и multi-arch GHCR images опубликованы;
+  optional Homebrew job корректно завершился success с пропуском tap-шагов без секрета.
+  RustSec сообщает 0 известных уязвимостей; `fxhash` и `ttf-parser` остаются двумя Low-risk
+  предупреждениями `unmaintained`, а не скрытыми исключениями.
+  Library-карточка и Agent Reach review теперь простым языком объясняют CLI/REST/MCP, workers,
+  privacy audit, безопасный старт и оставшиеся границы. Upstream Agent Reach не запускался.
 - Eclipse-Claw Phase 2A merged через
   [PR #5](https://github.com/PavelHopson/Eclipse-Claw/pull/5) как
   `3ef26a85d0e51f85ec261d95ea6df186329de90f`: transport-level public DNS/redirect policy,
