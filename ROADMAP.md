@@ -14,9 +14,9 @@
 - `web/link-health.json` — безопасный публичный snapshot weekly-аудита: доступность ссылки
   показывается отдельно от редакторского доверия и не считается security endorsement.
 - Deploy: GitHub Actions → VPS/Caddy из ветки `master`.
-- Production catalog data синхронизированы с commit `47b25e9`: quality
-  [#30741378055](https://github.com/PavelHopson/eclipse-library/actions/runs/30741378055)
-  и deploy [#30741378062](https://github.com/PavelHopson/eclipse-library/actions/runs/30741378062)
+- Production catalog data синхронизированы с commit `5736fc8`: quality
+  [#30743367591](https://github.com/PavelHopson/eclipse-library/actions/runs/30743367591)
+  и deploy [#30743367592](https://github.com/PavelHopson/eclipse-library/actions/runs/30743367592)
   от 02.08.2026 успешно завершены; independent smoke подтвердил `app.js?v=30`,
   526 материалов, 22 проекта, 307 GitHub repository statuses и 5 MCP audit records.
 
@@ -138,6 +138,10 @@
 - В Library добавлена отдельная редакторски проверенная карточка Eclipse Claw с простым
   объяснением CLI/REST/MCP, безопасного старта, opt-in boundaries и честных ограничений;
   Agent Reach review и applicability обновлены без новой дублирующей записи.
+- Library commit `5736fc8` опубликован в `master`: quality
+  [#30743367591](https://github.com/PavelHopson/eclipse-library/actions/runs/30743367591), deploy
+  [#30743367592](https://github.com/PavelHopson/eclipse-library/actions/runs/30743367592) и independent
+  production smoke прошли; live JSON содержит `eclipse-claw-github-com`.
 - В Eclipse-Claw реализован безопасный Phase 1 по reference-паттернам Agent Reach:
   отдельный internal crate со static allowlist, machine-readable readiness/provenance/data boundary,
   read-only `doctor` для REST/MCP и единая fail-closed policy. Наличие API key больше не означает
