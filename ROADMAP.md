@@ -14,9 +14,9 @@
 - `web/link-health.json` — безопасный публичный snapshot weekly-аудита: доступность ссылки
   показывается отдельно от редакторского доверия и не считается security endorsement.
 - Deploy: GitHub Actions → VPS/Caddy из ветки `master`.
-- Production catalog data синхронизированы с commit `7a1d67b`: quality
-  [#30741017229](https://github.com/PavelHopson/eclipse-library/actions/runs/30741017229)
-  и deploy [#30741017228](https://github.com/PavelHopson/eclipse-library/actions/runs/30741017228)
+- Production catalog data синхронизированы с commit `47b25e9`: quality
+  [#30741378055](https://github.com/PavelHopson/eclipse-library/actions/runs/30741378055)
+  и deploy [#30741378062](https://github.com/PavelHopson/eclipse-library/actions/runs/30741378062)
   от 02.08.2026 успешно завершены; independent smoke подтвердил `app.js?v=30`,
   526 материалов, 22 проекта, 307 GitHub repository statuses и 5 MCP audit records.
 
@@ -129,6 +129,10 @@
   [#30741017229](https://github.com/PavelHopson/eclipse-library/actions/runs/30741017229) и deploy
   [#30741017228](https://github.com/PavelHopson/eclipse-library/actions/runs/30741017228) завершены успешно;
   live smoke подтвердил `app.js?v=30`, 526 материалов, 22 проекта, 307 repositories и 5 MCP records.
+- Финальный merged-status опубликован catalog commit `47b25e9`: quality
+  [#30741378055](https://github.com/PavelHopson/eclipse-library/actions/runs/30741378055), deploy
+  [#30741378062](https://github.com/PavelHopson/eclipse-library/actions/runs/30741378062) и independent
+  live smoke завершены успешно с теми же 526 материалами без дубля Agent Reach.
 
 ### 2026-07-31
 
