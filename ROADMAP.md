@@ -1,6 +1,6 @@
 # Eclipse Library Roadmap
 
-Последнее обновление: **31.07.2026**
+Последнее обновление: **02.08.2026**
 
 ## Текущее состояние
 
@@ -14,10 +14,10 @@
 - `web/link-health.json` — безопасный публичный snapshot weekly-аудита: доступность ссылки
   показывается отдельно от редакторского доверия и не считается security endorsement.
 - Deploy: GitHub Actions → VPS/Caddy из ветки `master`.
-- Production data синхронизированы с catalog commit `4cf5208`: quality
-  [#30619594895](https://github.com/PavelHopson/eclipse-library/actions/runs/30619594895)
-  и deploy [#30619594864](https://github.com/PavelHopson/eclipse-library/actions/runs/30619594864)
-  от 31.07.2026 успешно завершены; independent smoke подтвердил `app.js?v=29`,
+- Production data синхронизированы с commit `760a563`: quality
+  [#30649634619](https://github.com/PavelHopson/eclipse-library/actions/runs/30649634619)
+  и deploy [#30649632140](https://github.com/PavelHopson/eclipse-library/actions/runs/30649632140)
+  от 31.07.2026 успешно завершены; independent smoke подтвердил `app.js?v=30`,
   526 материалов, 22 проекта, 307 GitHub repository statuses и 5 MCP audit records.
 
 ## Приоритеты
@@ -61,9 +61,12 @@
 - [ ] Eclipse Webclaw / Kwork #18: benchmark Lightpanda как optional beta JS-renderer против
       Playwright на representative page set — success rate, extraction quality, p95, RAM, robots/rate limits;
       telemetry off, pinned image/source и AGPL review обязательны.
-- [ ] Eclipse Webclaw / Kwork #18: спроектировать собственный allowlisted connector registry
-      по reference-паттернам Agent Reach — capability contract, read-only `doctor`, provenance,
-      controlled fallback, egress/SSRF policy, prompt-injection boundary и isolated workers.
+- [x] Eclipse Webclaw / Kwork #18, Phase 1: собственный static allowlisted connector registry,
+      capability/data-boundary/provenance contract, read-only `doctor` в REST и MCP и fail-closed
+      local → cloud fallback с отдельным explicit opt-in. Реализовано в Eclipse-Claw
+      [PR #4](https://github.com/PavelHopson/Eclipse-Claw/pull/4); до merge/release не считать production.
+- [ ] Eclipse Webclaw / Kwork #18, Phase 2: egress/SSRF policy с DNS/redirect re-check,
+      prompt-injection/content boundary, robots/rate limits, isolated workers и audit log.
       Сам Agent Reach, browser cookies и mutable installer в production не использовать.
 - [ ] Eclipse Media / Educator-AI: isolated transcript-first video understanding spike по паттерну
       Claude Video — allowlisted URLs, size/time limits, scene frames, timestamp citations и только
@@ -107,6 +110,19 @@
       self-check, EN/RU copy и без обязательного API key.
 
 ## Changelog
+
+### 2026-08-02
+
+- В Eclipse-Claw реализован безопасный Phase 1 по reference-паттернам Agent Reach:
+  отдельный internal crate со static allowlist, machine-readable readiness/provenance/data boundary,
+  read-only `doctor` для REST/MCP и единая fail-closed policy. Наличие API key больше не означает
+  согласие на автоматическую передачу URL/контента в cloud — требуется отдельный opt-in.
+- Изменения опубликованы в ветку `chore/server-mcp-tests` и оформлены в
+  [Eclipse-Claw PR #4](https://github.com/PavelHopson/Eclipse-Claw/pull/4). Workspace tests,
+  strict clippy и release build прошли; production status ожидает merge/release.
+- Agent Reach не устанавливался и не запускался: installer, browser cookies, mutable community CLI
+  и автоматическое подключение источников не перенесены. SSRF/egress, content sanitization,
+  isolated workers и audit log оставлены отдельным Phase 2 P1.
 
 ### 2026-07-31
 

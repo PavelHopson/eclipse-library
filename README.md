@@ -2352,7 +2352,7 @@ Frontend: React 19 · TypeScript · Vite · Tailwind CSS 4 · Zustand
 
 | Находка | Проекты | Что делать |
 |---|---|---|
-| **Agent Reach** | Eclipse Webclaw · Kwork #18 · Eclipse AI Hub · Hopson Sentinel · oh-my-claudecode · Eclipse Media | Оставить исходный skill reference. Для research-сценариев отдельно спроектировать allowlisted connector registry, health/doctor, audit log и controlled fallback; YouTube-путь не дублировать поверх уже запланированного transcript-first pipeline |
+| **Agent Reach** | Eclipse Webclaw · Kwork #18 · Eclipse AI Hub · Hopson Sentinel · oh-my-claudecode · Eclipse Media | Оставить исходный skill reference. В Eclipse-Claw уже реализован Phase 1 собственного слоя: static allowlist, REST/MCP doctor, provenance/data boundary и отдельный opt-in для automatic cloud fallback ([PR #4](https://github.com/PavelHopson/Eclipse-Claw/pull/4)). До production остаются merge/release и Phase 2: egress/SSRF, prompt-injection boundary, isolated workers/audit log. YouTube-путь не дублировать поверх transcript-first pipeline |
 | **Kimi K3** | Eclipse AI Hub · Hopson Sentinel · oh-my-claudecode · Eclipse Chat · DnD Forge | Добавить в roadmap direct-API benchmark на фиксированных synthetic coding/agent tasks: качество, latency, стоимость, context limits и privacy |
 | **GitHub for Beginners** | Educator-AI · Eclipse Forge Landing · Eclipse Library · ai-setup | Сделать короткий практический onboarding checklist с переходами на официальный материал и заданиями на test repository |
 | **Language Model Builder** | Educator-AI · Eclipse AI Hub | Использовать структуру tokenizer → pretraining → SFT → DPO как reference для учебного трека; закрытый binary не встраивать |
