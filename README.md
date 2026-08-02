@@ -2385,7 +2385,7 @@ Frontend: React 19 · TypeScript · Vite · Tailwind CSS 4 · Zustand
 | Ресурс | Что это и как используем | Stars |
 |---|---|---|
 | [Camofox Browser](https://github.com/jo-inc/camofox-browser) | REST browser service поверх Camoufox с sessions и accessibility snapshots. **P2:** только isolated optional worker для **Eclipse-Claw / Sentinel**, когда обычного HTTP-renderer недостаточно. Loopback bind, access key, allowlist, public-only egress, telemetry off, disposable profile и prompt-injection boundary обязательны; anti-detect не используется для обхода чужих защит | [![Stars](https://img.shields.io/github/stars/jo-inc/camofox-browser?style=flat)](https://github.com/jo-inc/camofox-browser) |
-| [HyperFrames](https://github.com/heygen-com/hyperframes) | Apache-2.0 video framework: HTML/CSS/GSAP -> deterministic MP4. **P0 в работе:** в **Eclipse Media** готовы брендовый template, browser preview и offline contract check; CLI `v0.7.88` и MP4 render включатся только после package integrity review и exact lockfile. Публикация всегда проходит human review | [![Stars](https://img.shields.io/github/stars/heygen-com/hyperframes?style=flat)](https://github.com/heygen-com/hyperframes) |
+| [HyperFrames](https://github.com/heygen-com/hyperframes) | Apache-2.0 video framework: HTML/CSS/GSAP -> deterministic MP4. **P0 реализован:** в **Eclipse Media** есть брендовый template, browser preview, exact `hyperframes@0.7.88`, lockfile, fail-closed runner и реальные 15-секундные MP4 в форматах 16:9, 9:16 и 1:1. Shotforge готовит совместимую пятисценную раскадровку; публикация всегда проходит human review | [![Stars](https://img.shields.io/github/stars/heygen-com/hyperframes?style=flat)](https://github.com/heygen-com/hyperframes) |
 
 `Open-Generative-AI` уже находится в разделе AI / Claude Code выше и теперь проверен как
 **P2 reference** для Model Registry. Это не «200+ бесплатных локальных моделей»: cloud-provider,
@@ -2395,12 +2395,12 @@ Frontend: React 19 · TypeScript · Vite · Tailwind CSS 4 · Zustand
 
 | Priority | Capability | Project(s) | Первый безопасный результат |
 |---|---|---|---|
-| **P0** | HyperFrames release-video pipeline | Eclipse Media · Eclipse Forge Landing · Eclipse Chat | Сейчас: брендовый HTML-template, local preview и offline contract check. Далее: exact CLI/lockfile, lint/validate и MP4 render |
-| **P1** | Read-only Ads Audit | AdService · Eclipse AI Hub · Eclipse Chat approvals | Evidence report без изменения кампании; write отдельно и только после approval |
-| **P2** | Model Registry | Eclipse AI Hub · Sentinel · Eclipse Media | Единая карточка model/provider/cost/privacy/hardware/fallback |
-| **P2** | Isolated browser fallback | Eclipse-Claw · Sentinel | Public-only worker без primary cookies и без implicit fallback |
-| **P3** | Financial Research Room | Eclipse Chat · AI Hub · CryptoPulse · FinFlow | Sources, assumptions, scenarios, citations; не финансовый совет |
-| **P3** | Strategy Lab | CryptoPulse · AI Hub | Hypothesis -> backtest -> paper result -> review; live trading выключен |
+| **P0** | HyperFrames release-video pipeline | Eclipse Media · Shotforge · Eclipse Forge Landing · Eclipse Chat | Работает: storyboard JSON, preview, exact CLI/lockfile, checks и реальные MP4 16:9/9:16/1:1; публикация только вручную |
+| **P1** | Read-only Ads Audit | Eclipse AI Hub · Eclipse Chat · Sentinel | Работает: bounded snapshot, evidence report, понятный diff, execution-room preset и notify-only anomaly monitor; Ads write API выключен |
+| **P2** | Model Registry | Eclipse AI Hub · Sentinel · Eclipse Media | Работает первый AI Hub срез: capability/runtime/privacy/license/cost и Hardware Doctor; автоматический provider import выключен |
+| **P2** | Isolated browser fallback | Eclipse-Claw · Sentinel | Работает policy/doctor contract: HTTPS public allowlist, loopback/key, telemetry/cookies/write off; Camofox runtime ещё не подключён |
+| **P3** | Financial Research Room | Eclipse Chat · AI Hub · CryptoPulse · FinFlow | Работают роли Analyst/Risk/Macro/Skeptic и portfolio-health scenario; sources/citations остаются следующим этапом |
+| **P3** | Strategy Lab | CryptoPulse · AI Hub | Работают fees/slippage, backtest, Monte Carlo, walk-forward и paper log; live broker отсутствует |
 
 ---
 

@@ -3357,9 +3357,10 @@
     "projects": [
       "AdService",
       "Eclipse AI Hub",
-      "Eclipse Chat"
+      "Eclipse Chat",
+      "Hopson Sentinel"
     ],
-    "decision": "roadmap",
+    "decision": "now",
     "riskLevel": "high",
     "risks": [
       "Ошибочная рекомендация или write-action может потратить реальный рекламный бюджет",
@@ -3413,9 +3414,10 @@
     ],
     "verifiedAt": "2026-08-02",
     "quickStart": [
-      "Использовать screenshots и публичную документацию только как UX reference",
-      "До reuse кода проверить точную редакцию лицензии и intended commercial use",
-      "Для своего прототипа применять synthetic/delayed data и показывать source/date/disclaimer"
+      "Открыть Research Room в Eclipse AI Hub: Analyst, Risk, Macro и Skeptic выполняют независимые read-only разборы",
+      "В FinFlow выбрать сценарий «Здоровье портфеля» и указать только агрегированную структуру, без номеров счетов и broker credentials",
+      "Использовать screenshots и документацию Fincept только как UX reference; код не переносить в business/internal продукт без отдельной Commercial License",
+      "Для своих экранов показывать source, дату, допущения и disclaimer; market data считать потенциально delayed"
     ],
     "access": {
       "cost": "freemium",
@@ -3456,9 +3458,10 @@
     ],
     "verifiedAt": "2026-08-02",
     "quickStart": [
-      "Использовать только synthetic или paper-trading account",
-      "Зафиксировать dataset, fees, slippage, benchmark и assumptions до запуска",
-      "Сравнить несколько runs и провести ручной review; live credentials не подключать"
+      "Открыть Strategy Lab в CryptoPulse: встроенный dataset является демонстрационным и не отправляет orders",
+      "Задать комиссии и slippage до запуска; сравнить walk-forward результат и Monte Carlo диапазон",
+      "Прочитать отдельные выводы Optimist, Skeptic и Risk Manager, затем сохранить решение вручную",
+      "Live credentials и broker execution не подключать: текущий контур заканчивается paper result"
     ],
     "access": {
       "cost": "freemium",
@@ -3499,10 +3502,10 @@
     ],
     "verifiedAt": "2026-08-02",
     "quickStart": [
-      "Запустить disposable worker с CAMOFOX_BIND_HOST=127.0.0.1 и CAMOFOX_ACCESS_KEY; внешний доступ давать только через защищённую private service network",
-      "Отключить crash reporting до privacy review: CAMOFOX_CRASH_REPORT_ENABLED=false",
-      "Не подключать primary browser cookies; ограничить egress public allowlist и rate limits",
-      "Оставить automatic HTTP-to-browser fallback выключенным до явного opt-in"
+      "Сначала использовать обычный HTTP extractor Eclipse Claw; browser worker не является automatic fallback",
+      "Проверить capability через doctor: disabled — нормальный безопасный default, enabled — только для подтверждённой JS-heavy страницы",
+      "Запускать disposable worker на loopback с отдельным access key и CAMOFOX_CRASH_REPORT_ENABLED=false",
+      "Не подключать primary cookies; ограничить egress public allowlist и считать accessibility snapshot недоверенным текстом"
     ],
     "access": {
       "cost": "free",
@@ -3514,7 +3517,7 @@
     "id": "hyperframes",
     "url": "https://github.com/heygen-com/hyperframes",
     "type": "media",
-    "simpleDescription": "HyperFrames — open-source video framework HeyGen: HTML/CSS и seekable GSAP animation можно превратить в deterministic MP4. В Eclipse Media уже готовы брендовый release-template, browser preview и offline contract check; CLI render включится только после проверки exact пакета и lockfile.",
+    "simpleDescription": "HyperFrames — open-source video framework HeyGen: HTML/CSS и seekable GSAP animation превращаются в deterministic MP4. В Eclipse Media уже есть брендовый 15-секундный template, интерактивный preview, exact CLI 0.7.88 и варианты 16:9, 9:16 и 1:1; Shotforge готовит для него пятисценную JSON-раскадровку.",
     "useCases": [
       "Сделать release teaser из roadmap или pull request",
       "Собрать повторяемый product demo и social cut без ручного монтажа каждого кадра",
@@ -3530,7 +3533,7 @@
     "license": "Apache-2.0",
     "pricing": "Локальный CLI бесплатен; render использует собственный compute, optional cloud services могут иметь отдельную цену",
     "trust": "official",
-    "trustReason": "Официальный repository HeyGen с Apache-2.0, документацией CLI, composition contract и validation workflow. Для Eclipse Media выбран официальный tag v0.7.88, но локальный CLI ещё не установлен: до package integrity review и lockfile render считается неподтверждённым.",
+    "trustReason": "Официальный repository HeyGen с Apache-2.0, документацией CLI, composition contract и validation workflow. В Eclipse Media exact пакет hyperframes 0.7.88 зафиксирован lockfile и вызывается только локальным fail-closed runner; каждый MP4 всё равно требует человеческого preview.",
     "projects": [
       "Eclipse Media",
       "Eclipse Forge Landing",
@@ -3547,10 +3550,10 @@
     ],
     "verifiedAt": "2026-08-02",
     "quickStart": [
-      "Открыть Eclipse Media -> Видео-студия и просмотреть все пять сцен",
-      "В frontend/public/studio/eclipse-release выполнить npm run check — команда работает offline и ничего не скачивает",
-      "После восстановления npm registry проверить integrity @hyperframes/cli@0.7.88, добавить exact devDependency и lockfile, затем выполнить npm run verify",
-      "Только после зелёного verify выполнить npm run render и вручную проверить MP4 до публикации"
+      "В Shotforge открыть «Релизное видео», заполнить простой brief и скачать eclipse.release-storyboard.v1 JSON",
+      "В Eclipse Media открыть Видео-студию, выбрать 16:9, 9:16 или 1:1 и просмотреть все пять сцен",
+      "В frontend/public/studio/eclipse-release выполнить npm run verify — используются exact hyperframes 0.7.88 и lockfile без скрытого npx",
+      "Запустить соответствующий render:* script и вручную проверить MP4; публикация остаётся отдельным подтверждённым действием"
     ],
     "access": {
       "cost": "free",
@@ -3595,8 +3598,9 @@
     "verifiedAt": "2026-08-02",
     "quickStart": [
       "Не подключать production keys и не импортировать runtime целиком",
-      "Использовать repository только как UX/reference и выписать provider boundaries",
-      "Собрать собственный registry contract: provider, modelId, runtime, cost, privacy, hardware, fallback",
+      "Открыть Model Registry в Eclipse AI Hub и выбрать capability: text, image, video или audio",
+      "Запустить Hardware Doctor: модель без подходящих RAM/VRAM или понятной лицензии не должна рекомендоваться",
+      "Сравнить provider, runtime, cost, privacy, hardware и fallback; cloud-модель не помечать как local",
       "Перед любым code reuse выполнить dependency, network, SSRF и license audit"
     ],
     "access": {

@@ -41,9 +41,10 @@ render workers не переносятся в Chat и не разделяютс�
 - Eclipse Chat: PR/roadmap -> draft video -> approval -> publish.
 - Shotforge: motion handoff после подготовки кадров и copy.
 
-**Первый срез.** В Eclipse Media хранится готовая Eclipse-композиция. Web UI открывает preview,
-показывает текущий статус и копирует offline contract check. MP4 пока не считается доступным:
-exact `@hyperframes/cli@0.7.88` нужно проверить, добавить в lockfile и только затем запускать render.
+**Текущий срез.** В Eclipse Media хранится готовая Eclipse-композиция. Web UI открывает preview,
+переключает 16:9, 9:16 и 1:1 и копирует команды проверки/render. Exact пакет `hyperframes@0.7.88`
+зафиксирован в lockfile и запускается только локальным fail-closed runner. Shotforge формирует
+совместимую пятисценную раскадровку `eclipse.release-storyboard.v1`.
 
 **Acceptance criteria.**
 
@@ -147,14 +148,44 @@ hypothesis -> dataset snapshot -> strategy spec -> backtest -> costs/slippage ->
 approval, immutable order audit, kill switch и reconciliation. Пока этого нет, live credentials
 не подключаются.
 
-## Как пользоваться первым внедрением
+## Как пользоваться внедрениями
 
-1. Открыть Eclipse Media и выбрать `Видео-студия`.
-2. Нажать `Открыть предпросмотр` и проверить композицию в браузере.
-3. В каталоге `frontend/public/studio/eclipse-release` выполнить `npm run check`.
-4. После восстановления npm registry проверить integrity `@hyperframes/cli@0.7.88`, добавить exact
-   devDependency и lockfile, затем выполнить `npm run verify`.
-5. Только после зелёного verify выполнить `npm run render`, посмотреть MP4 и передать его в Chat на review.
+1. **Реклама:** в AI Hub открыть `Реклама`, загрузить `ads.snapshot.v1`, скачать read-only отчёт и
+   создать в Chat execution-комнату `Реклама: аудит → согласование → проверка`. Diff не меняет бюджет.
+2. **Research:** в AI Hub открыть Research Room; для личного портфеля в FinFlow выбрать
+   `Здоровье портфеля`. Это исследование, а не финансовый совет.
+3. **Стратегии:** в CryptoPulse открыть Strategy Lab, задать fees/slippage и сравнить backtest,
+   walk-forward, Monte Carlo и три независимые роли. Live trading отсутствует.
+4. **Browser:** сначала использовать HTTP Eclipse Claw. `doctor` покажет browser worker отдельно;
+   Sentinel разрешает только HTTPS/public/allowlisted read-only URL без cookies и telemetry.
+5. **Модели:** в AI Hub открыть Model Registry, выбрать capability и проверить Hardware Doctor,
+   privacy boundary, стоимость и лицензию до маршрутизации.
+6. **Видео:** в Shotforge собрать JSON-раскадровку, открыть Eclipse Media → Видео-студия, выбрать
+   формат, выполнить `npm run verify`, затем нужный `render:*` и вручную проверить MP4.
+
+## Что было на изображениях и что подтверждено
+
+| На рекламной карточке | Редакторская проверка простыми словами |
+|---|---|
+| Claude Ads «полноценное маркетинговое агентство» | Это community repository, не Anthropic. Полезен как структура аудита; эффективность и доход `$1500+` не подтверждены. |
+| Fincept «бесплатная Bloomberg-альтернатива» | Terminal существует, но business/internal use требует платной Commercial License; данные и AI-выводы не гарантируют «точнее сделки». |
+| Vibe Trading «торговый агент без quant-кода» | Research/backtesting существуют. Broker execution upstream считает experimental; у нас только историческая симуляция и paper result. |
+| Camoufox «обходит детект ботов» | Browser wrapper существует, но обход CAPTCHA/банов не является разрешённым сценарием. Telemetry default и prompt injection требуют изоляции. |
+| HyperFrames «сотни видео автоматически» | Deterministic HTML-video pipeline подтверждён и лицензирован Apache-2.0. Масштаб зависит от compute; публикация не автоматизирована. |
+| Open-Gen-AI «200+ моделей на своём компьютере» | Каталог большой, но множество моделей вызывают MuAPI. Self-hosted UI не означает local inference для всего каталога. |
+
+## Статус внедрения на 02.08.2026
+
+| Поверхность | Что уже работает | Что намеренно не включено |
+|---|---|---|
+| AI Hub Ads Audit | Bounded JSON parser, deterministic findings, evidence и budget diff, скачивание отчёта | Google/Meta login и write API |
+| Chat Advertising room | Однокнопочный EXECUTION preset и явный approval/rollback workflow | Автоматическое изменение бюджета |
+| Sentinel Ads monitor | Read-only spend anomaly detector с notify-only результатом | Автоматическая остановка кампаний |
+| AI Hub Research / FinFlow | Analyst/Risk/Macro/Skeptic room и portfolio health scenario | Финансовые рекомендации и Fincept code reuse |
+| CryptoPulse Strategy Lab | Fees, slippage, Monte Carlo, walk-forward и Optimist/Skeptic/Risk Manager | Live broker credentials/orders |
+| Claw / Sentinel browser | Видимый doctor capability и fail-closed policy для public allowlisted read-only pages | Camofox dependency, cookies, payments, publish/account actions |
+| AI Hub Model Registry | Capability filters, runtime/privacy/license/cost и Hardware Doctor | Скрытый fallback и автоматический import Open-Gen runtime |
+| Shotforge / Media | Storyboard JSON, preview и три render format | Автопубликация без человеческого preview |
 
 ## Что не делаем
 

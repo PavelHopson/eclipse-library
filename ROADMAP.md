@@ -37,10 +37,11 @@
       проектной применимостью и понятным порядком внедрения.
 - [x] Запустить P0 внедрение HyperFrames в Eclipse Media как локальный release-video pipeline;
       публикация остаётся ручной после human review.
-- [ ] Завершить HyperFrames P0 после восстановления npm registry: проверить integrity exact
-      `@hyperframes/cli@0.7.88`, зафиксировать lockfile, пройти lint/validate и подтвердить реальный MP4 render.
-- [ ] Реализовать следующий этап: read-only Ads Audit в Eclipse AI Hub без write-scopes,
-      автоприменения изменений и хранения рекламных токенов в клиенте.
+- [x] Завершить HyperFrames P0: проверить integrity exact `hyperframes@0.7.88`, зафиксировать
+      lockfile, пройти unified check и подтвердить реальные MP4 renders 16:9, 9:16 и 1:1.
+- [x] Реализовать read-only Ads Audit в Eclipse AI Hub без write-scopes, автоприменения
+      изменений и хранения рекламных токенов в клиенте; добавить approval preset в Chat и
+      notify-only spend anomaly detector в Sentinel.
 - [x] Stage 1 — понятная библиотека: отдельный каталог проектов Eclipse Forge, глобальная навигация,
       компактный mobile hero, сокращённый sidebar и progressive results по 36 карточек.
 - [x] Stage 2 — упростить discovery controls: объединить 13 внутренних типов в 7 пользовательских
@@ -149,6 +150,13 @@
   HyperFrames release-video pipeline → read-only Ads Audit → Model Registry/isolated browser →
   financial research и только paper-trading. Fincept используется как reference из-за dual license,
   а live trading и скрытый browser anti-detect не включаются.
+- Внедрения доведены до безопасных первых срезов: AI Hub получил Ads Audit, Financial Research Room
+  и Model Registry; CryptoPulse — historical/paper Strategy Lab; FinFlow — portfolio-health scenario;
+  Eclipse-Claw и Sentinel — явный isolated-browser contract; Chat — advertising execution-room preset;
+  Shotforge и Eclipse Media — storyboard-to-video handoff с форматами 16:9, 9:16 и 1:1.
+- HyperFrames закреплён как exact `hyperframes@0.7.88` с lockfile и fail-closed runner. Unified check,
+  offline audit и три реальных 15-секундных H.264 render прошли; browser QA подтвердил desktop/mobile
+  preview и итоговые разрешения 1920×1080, 1080×1920 и 1080×1080. Автопубликация не включена.
 - P0 уже начат в Eclipse Media commit `cbf54e5`: отдельная Video Studio, 15-секундная
   детерминированная композиция, responsive UI, offline preview и contract check. GSAP 3.14.2 хранится
   локально с SHA-256/SRI; HyperFrames runner fail closed и не скачивает CLI. Реальный lint/validate/render
