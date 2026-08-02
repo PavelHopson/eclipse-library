@@ -83,7 +83,7 @@ session на основной машине не запускались.
 
 | Решение | Проект и проблема | Сценарий и что разработать | Ценность | Размер | Риски / зависимости | Приоритет | Следующий шаг |
 |---|---|---|---|---|---|---|---|
-| Внедрить сейчас | Eclipse Webclaw / Kwork #18: research-agent должен безопасно получать публичные источники и явно показывать границы | Phase 1–2B реализованы собственным кодом: static allowlist/doctor, explicit cloud consent, public-only DNS/redirect policy, untrusted-content boundary, robots/Crawl-delay, отдельные authenticated LLM/CDP workers, durable privacy audit и fixed regression fixtures | Меньше SSRF, prompt-injection и credential exposure риска; понятная причина отказа; предсказуемая нагрузка; проверяемый release contract | L | Нужна корректная container/OS изоляция при deployment; CDP имеет отдельную network boundary; `fxhash` и `ttf-parser` остаются Low-risk unmaintained transitives; независимый pentest не выполнен | P1 | Использовать [v0.4.1](https://github.com/PavelHopson/Eclipse-Claw/releases/tag/v0.4.1), проверить checksums и развернуть canary только на allowlisted public fixtures |
+| Внедрить сейчас | Eclipse Webclaw / Kwork #18: research-agent должен безопасно получать публичные источники и явно показывать границы | Phase 1–2B реализованы собственным кодом: static allowlist/doctor, explicit cloud consent, public-only DNS/redirect policy, untrusted-content boundary, robots/Crawl-delay, отдельные authenticated LLM/CDP workers, durable privacy audit и fixed regression fixtures | Меньше SSRF, prompt-injection и credential exposure риска; понятная причина отказа; предсказуемая нагрузка; проверяемый release contract | L | Нужна корректная container/OS изоляция при deployment; CDP имеет отдельную network boundary; `ttf-parser` остаётся Low-risk unmaintained transitive; независимый pentest не выполнен | P1 | Использовать [v0.4.2](https://github.com/PavelHopson/Eclipse-Claw/releases/tag/v0.4.2), проверить checksums и развернуть canary только на allowlisted public fixtures |
 | Добавить в roadmap | Hopson Sentinel | Подключить Eclipse Claw как optional local research adapter: перед запросом показывать `doctor`, после — источник и trust boundary; любые дальнейшие tool calls требуют отдельного подтверждения | Пользователь понимает, почему источник доступен или отклонён, а web-текст не получает права управлять shell/files | M | Process/container sandbox, worker token rotation, connector allowlist, citations | P1 | Сделать adapter contract и synthetic end-to-end test без cookies, private repositories и production secrets |
 | Добавить в roadmap | oh-my-claudecode | Добавить deterministic Eclipse Claw connector preset без browser cookies и self-install; `doctor` выбирает только явно разрешённый public-web route | Предсказуемая orchestration и меньше случайных tool substitutions | M | Registry ownership, policy engine, audit log, archived repository change process | P2 | Подготовить design note и contract tests, затем отдельным решением временно открыть repository для implementation PR |
 | Добавить в roadmap | Eclipse AI Hub RAG | Серверные isolated ingestion workers для явно разрешённых public HTML/GitHub sources, с citations, tenant queue и retention policy | Больше проверяемых источников без выдачи browser session модели или доступа к внутренней сети | L | Queue, tenant isolation, content sanitization, license, retention, cost/rate limits | P1 | Prototype на fixed fixtures и public GitHub/HTML; измерить success rate, p95, bytes и citation coverage, social-login sources исключить |
@@ -167,12 +167,24 @@ Release-патч merged через [PR #7](https://github.com/PavelHopson/Eclips
 archives, `SHA256SUMS`, GitHub Release и multi-arch GHCR images опубликованы. Optional Homebrew job
 успешно определил отсутствие tap token и пропустил только соответствующие шаги.
 
-RustSec сообщает 0 известных уязвимостей. Два информационных предупреждения остаются открытыми:
-`fxhash 0.2.1` через `selectors`/`scraper` и `ttf-parser 0.25.1` через `lopdf`/`pdf-extract`
-помечены как unmaintained. Патча в этих цепочках сейчас нет; риск принят как Low до миграции
-upstream или отдельной замены парсеров, без `ignore` в audit policy.
+Supply-chain и installer patch merged через [PR #8](https://github.com/PavelHopson/Eclipse-Claw/pull/8)
+как `3502bdbd847d03de9615e90b4e8e97c155e643ea`: Docker bases закреплены по digest; CI отклоняет
+mutable `FROM` и сканирует core/CDP runtime с Trivy; `scraper` обновлён, поэтому `fxhash` удалён.
+Installer source `0.1.4` проверяет HTTPS, точный `SHA256SUMS`, archive paths и пишет config только
+после подтверждения — с backup и atomic replace. PR CI
+[#30750813826](https://github.com/PavelHopson/Eclipse-Claw/actions/runs/30750813826) и post-merge main CI
+[#30750946382](https://github.com/PavelHopson/Eclipse-Claw/actions/runs/30750946382) зелёные.
 
-Это не превращает произвольный web в доверенный источник и не заменяет deployment review:
-CDP имеет отдельную network boundary, container isolation должен быть реально включён, mutable
-base-image tags нужно закрепить проверенными digests, а независимый runtime pentest не выполнен.
-Сам Agent Reach, browser cookies основных аккаунтов и mutable installer в production не используются.
+Выпущен [v0.4.2](https://github.com/PavelHopson/Eclipse-Claw/releases/tag/v0.4.2) через release workflow
+[#30751080889](https://github.com/PavelHopson/Eclipse-Claw/actions/runs/30751080889): опубликованы четыре
+platform archives, `SHA256SUMS`/provenance и два multi-arch GHCR indexes. npm package `0.1.4` ещё не
+опубликован: `NPM_TOKEN` не настроен, поэтому optional publish корректно пропущен.
+
+RustSec сообщает 0 известных уязвимостей. Остаётся одно информационное предупреждение:
+`ttf-parser 0.25.1` через `lopdf 0.42`/`pdf-extract` помечен как unmaintained. Риск принят как Low до
+upstream migration без `ignore` в audit policy.
+
+Это не превращает произвольный web в доверенный источник и не заменяет deployment review: CDP имеет
+отдельную network boundary, container isolation должен быть реально включён, будущие base-image digest
+обновления требуют review, а независимый runtime pentest не выполнен. Сам Agent Reach и browser cookies
+основных аккаунтов в production не используются.

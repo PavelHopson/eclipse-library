@@ -79,12 +79,15 @@
       policy, fixed public-page + hostile-content benchmarks и attested release contract. Реализовано
       собственным кодом в [PR #6](https://github.com/PavelHopson/Eclipse-Claw/pull/6), merged как
       `c5c90a1`; release-патч с честным optional Homebrew publish и portable fixture checksums merged
-      через [PR #7](https://github.com/PavelHopson/Eclipse-Claw/pull/7) как `d19a803`; PR CI
-      `30747425725` и post-merge main CI `30747551757` зелёные, создан
-      [v0.4.1](https://github.com/PavelHopson/Eclipse-Claw/releases/tag/v0.4.1). RustSec не находит
-      известных уязвимостей; `fxhash` и `ttf-parser` остаются Low-risk unmaintained transitives до
-      upstream-миграции. Сам Agent Reach,
-      primary-account browser cookies и mutable installer в production не используются.
+      через [PR #7](https://github.com/PavelHopson/Eclipse-Claw/pull/7) как `d19a803`. Supply-chain и
+      installer hardening merged через [PR #8](https://github.com/PavelHopson/Eclipse-Claw/pull/8)
+      как `3502bdb`: Docker bases pinned by digest, core/CDP Trivy scan и безопасный checksum-verified
+      installer source. PR CI `30750813826` и post-merge main CI `30750946382` зелёные; release workflow
+      [#30751080889](https://github.com/PavelHopson/Eclipse-Claw/actions/runs/30751080889) выпустил
+      [v0.4.2](https://github.com/PavelHopson/Eclipse-Claw/releases/tag/v0.4.2). RustSec не находит
+      известных уязвимостей; после удаления `fxhash` остаётся только Low-risk unmaintained `ttf-parser`.
+      Независимый runtime pentest не выполнен, npm package `0.1.4` не опубликован без `NPM_TOKEN`.
+      Сам Agent Reach и primary-account browser cookies в production не используются.
 - [ ] Eclipse Media / Educator-AI: isolated transcript-first video understanding spike по паттерну
       Claude Video — allowlisted URLs, size/time limits, scene frames, timestamp citations и только
       opt-in Whisper fallback без client/private media.
@@ -130,6 +133,20 @@
 
 ### 2026-08-02
 
+- Supply-chain и installer hardening Eclipse-Claw merged через
+  [PR #8](https://github.com/PavelHopson/Eclipse-Claw/pull/8) как `3502bdb`: Docker bases закреплены
+  по multi-platform digest, CI отклоняет mutable external `FROM`, Trivy проверяет core/CDP runtime,
+  `scraper` обновлён и `fxhash` удалён. Installer source `0.1.4` теперь проверяет HTTPS, exact
+  `SHA256SUMS` и archive paths, не использует shell command strings, подтверждает config writes и
+  сохраняет их через backup + atomic replace. PR CI
+  [#30750813826](https://github.com/PavelHopson/Eclipse-Claw/actions/runs/30750813826) и post-merge main CI
+  [#30750946382](https://github.com/PavelHopson/Eclipse-Claw/actions/runs/30750946382) зелёные.
+- Выпущен [Eclipse Claw v0.4.2](https://github.com/PavelHopson/Eclipse-Claw/releases/tag/v0.4.2):
+  release workflow [#30751080889](https://github.com/PavelHopson/Eclipse-Claw/actions/runs/30751080889)
+  опубликовал четыре platform archives, `SHA256SUMS`/provenance и два multi-arch GHCR indexes.
+  Optional npm publish корректно пропущен без `NPM_TOKEN`, поэтому `create-eclipse-claw 0.1.4` нельзя
+  считать опубликованным. RustSec сообщает 0 известных уязвимостей; открыты Low-risk unmaintained
+  `ttf-parser` и отдельный независимый runtime pentest.
 - Eclipse-Claw Phase 2B merged через
   [PR #6](https://github.com/PavelHopson/Eclipse-Claw/pull/6) как `c5c90a1`: production REST
   обращается к LLM/CDP только через отдельные authenticated workers, required isolation fail closed,

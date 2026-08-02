@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "sourceHash": "ab261c4eec04115ce75a68e608b53f59785ba126a6182f15567ef1cf37a3e516",
+  "sourceHash": "efaa94c5c8ed558fcea6fa02ff8539c49f8b9a3c6b0f4cdd2584fcd931c4aa40",
   "totals": {
     "all": 526,
     "verified": 75,
@@ -7428,7 +7428,7 @@
         "runtime": "hybrid"
       },
       "trust": "official",
-      "trustReason": "Это официальный репозиторий Eclipse Forge. Phase 1–2B merged как 51a5d6c, 3ef26a8 и c5c90a1; честный optional Homebrew publish и portable fixture checksums исправлены в PR #7 как d19a803. PR CI #30747425725 и post-merge main CI #30747551757 прошли Test, Clippy -D warnings, Docs, RustSec и container/Compose contract. Release workflow #30747730887 успешно выпустил v0.4.1: четыре platform archives, SHA256SUMS и multi-arch GHCR images; независимый runtime pentest не выполнен.",
+      "trustReason": "Это официальный репозиторий Eclipse Forge. Phase 1–2B merged как 51a5d6c, 3ef26a8 и c5c90a1; supply-chain и installer patch merged через PR #8 как 3502bdb. PR CI #30750813826 и post-merge main CI #30750946382 прошли Test, Clippy -D warnings, Docs, RustSec, container/Compose contract и core/CDP Trivy. Release workflow #30751080889 выпустил v0.4.2: четыре archives, SHA256SUMS/provenance и два multi-arch GHCR indexes. Независимый runtime pentest не выполнен; npm package 0.1.4 пока не опубликован без NPM_TOKEN.",
       "projects": [
         "Eclipse Webclaw",
         "Kwork #18",
@@ -7445,11 +7445,12 @@
         "Proxy DNS и CDP принадлежат отдельным trust boundaries и не наследуют transport-level DNS pinning",
         "Worker isolation работает только при корректном раздельном deployment, сильных tokens, закрытой service network и минимальных container permissions",
         "Audit намеренно не хранит URL и content: это защищает приватность, но для расследования происхождения конкретной страницы нужна отдельная разрешённая система provenance",
-        "RustSec не находит известных уязвимостей, но две транзитивные зависимости — fxhash и ttf-parser — помечены как unmaintained; это Low-risk долг до миграции upstream или замены цепочек"
+        "RustSec не находит известных уязвимостей; fxhash удалён обновлением scraper, но ttf-parser через pdf-extract/lopdf 0.42 остаётся Low-risk unmaintained до upstream migration"
       ],
       "verifiedAt": "2026-08-02",
       "quickStart": [
-        "Скачать v0.4.1 из GitHub Releases, проверить SHA256SUMS и для первой проверки запустить CLI на одной своей публичной странице без cookies, proxy и cloud fallback",
+        "Скачать v0.4.2 из GitHub Releases, проверить SHA256SUMS и для первой проверки запустить CLI на одной своей публичной странице без cookies, proxy и cloud fallback",
+        "До публикации create-eclipse-claw 0.1.4 не полагаться на npx installer: использовать v0.4.2 release archive с SHA256SUMS или tag-pinned Cargo install --locked",
         "Перед agent workflow вызвать doctor и проверить, какие connectors и data boundaries реально включены",
         "Для server deployment использовать отдельные LLM/CDP workers, разные длинные tokens, закрытую service network и ECLIPSE_AUDIT_REQUIRED=1; основной browser profile не подключать",
         "REST оставить на 127.0.0.1; для внешнего bind задать длинный ECLIPSE_SERVER_TOKEN и поставить TLS/rate limit на reverse proxy",
@@ -7472,6 +7473,8 @@
         "Отдельные Bearer-protected LLM и CDP workers; production REST не читает provider keys и не запускает Chromium",
         "Durable JSONL audit с rotation и retention; фиксированная schema не хранит URL, query, headers, cookies, prompts или page content",
         "Fixed public-page и hostile-content fixtures входят в CI/release gate",
+        "Docker base images закреплены по digest; CI отклоняет mutable FROM и сканирует core/CDP runtime layers",
+        "MCP installer проверяет HTTPS, exact SHA256SUMS и безопасные archive paths; config writes требуют подтверждения, backup и выполняются atomic",
         "Automatic cloud fallback, session cookies, proxy DNS и server CDP требуют отдельных opt-in"
       ],
       "audience": [
@@ -7485,7 +7488,7 @@
         "Нужно самостоятельно соблюдать robots.txt, Terms, copyright, персональные данные и разрешение владельца источника",
         "CDP остаётся отдельной browser/network boundary: безопасная конфигурация требует реального отдельного container/OS worker, а не только запуска второго процесса на том же доверенном хосте",
         "Fixed fixtures защищают от известных regressions, но не доказывают качество на любом сайте; независимый runtime pentest не выполнен",
-        "Container base images пока заданы mutable upstream tags, поэтому production mirror должен закрепить проверенные digests"
+        "Base images закреплены по multi-platform digest и CI сканирует core/CDP runtime на исправляемые High/Critical OS-уязвимости, но apt packages и будущие digest-обновления всё равно требуют review"
       ],
       "relatedTechnologies": [
         "Rust",
