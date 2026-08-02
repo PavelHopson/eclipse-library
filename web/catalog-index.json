@@ -1,10 +1,10 @@
 {
   "schemaVersion": 1,
-  "sourceHash": "efaa94c5c8ed558fcea6fa02ff8539c49f8b9a3c6b0f4cdd2584fcd931c4aa40",
+  "sourceHash": "c89e2ef886d944fabc4e8a9dd09bdbf55b1f3dc47269a9184868b1bf9958b04a",
   "totals": {
-    "all": 526,
-    "verified": 75,
-    "inferred": 451
+    "all": 531,
+    "verified": 81,
+    "inferred": 450
   },
   "items": [
     {
@@ -3744,6 +3744,60 @@
       }
     },
     {
+      "id": "camofox-browser",
+      "url": "https://github.com/jo-inc/camofox-browser",
+      "title": "Camofox Browser",
+      "type": "agent",
+      "category": "Operational agent stack (02.08.2026)",
+      "subcategory": "Browser / media / model infrastructure",
+      "simpleDescription": "Camofox Browser — MIT browser service поверх Camoufox: он даёт AI-агентам REST API, sessions и accessibility snapshots. Его место в Eclipse Forge — изолированный optional worker для сложных публичных страниц, а не browser с личным профилем.",
+      "useCases": [
+        "Открыть разрешённую JS-heavy страницу, которую не разобрал обычный HTTP renderer",
+        "Получить accessibility snapshot для controlled browser task",
+        "Сравнить browser fallback с Playwright по качеству, p95 и RAM"
+      ],
+      "platforms": [
+        "REST API",
+        "Self-host",
+        "Linux",
+        "Docker"
+      ],
+      "license": "MIT для wrapper repository; лицензии Camoufox/Firefox и bundled components проверяются отдельно",
+      "pricing": "Код бесплатен; hosting, proxy и внешние services оплачиваются отдельно",
+      "access": {
+        "cost": "free",
+        "signup": "none",
+        "runtime": "self-host"
+      },
+      "trust": "community",
+      "trustReason": "Публичный community wrapper с открытым кодом. Он расширяет browser/egress surface, а crash reporting upstream включён по умолчанию, поэтому production use требует отдельного privacy и security review.",
+      "projects": [
+        "Eclipse Webclaw",
+        "Hopson Sentinel"
+      ],
+      "decision": "roadmap",
+      "riskLevel": "high",
+      "risks": [
+        "Web prompt injection может попытаться управлять агентом или похитить доступные данные",
+        "Browser profile, cookies, downloads и network egress создают отдельную опасную boundary",
+        "Anti-detect функциональность нельзя использовать для обхода CAPTCHA, банов или чужих ограничений"
+      ],
+      "verifiedAt": "2026-08-02",
+      "quickStart": [
+        "Запустить disposable worker с CAMOFOX_BIND_HOST=127.0.0.1 и CAMOFOX_ACCESS_KEY; внешний доступ давать только через защищённую private service network",
+        "Отключить crash reporting до privacy review: CAMOFOX_CRASH_REPORT_ENABLED=false",
+        "Не подключать primary browser cookies; ограничить egress public allowlist и rate limits",
+        "Оставить automatic HTTP-to-browser fallback выключенным до явного opt-in"
+      ],
+      "reviewStatus": "verified",
+      "source": {
+        "file": "README.md",
+        "line": 2387,
+        "category": "Operational agent stack (02.08.2026)",
+        "subcategory": "Browser / media / model infrastructure"
+      }
+    },
+    {
       "id": "caveman-github-com",
       "url": "https://github.com/JuliusBrussee/caveman",
       "title": "caveman",
@@ -3928,6 +3982,60 @@
         "line": 2065,
         "category": "Подборка Eclipse (09–13.07.2026)",
         "subcategory": "Media / voice / content"
+      }
+    },
+    {
+      "id": "claude-ads",
+      "url": "https://github.com/AgriciDaniel/claude-ads",
+      "title": "Claude Ads",
+      "type": "skill",
+      "category": "Operational agent stack (02.08.2026)",
+      "subcategory": "Marketing / analytics agents",
+      "simpleDescription": "Claude Ads — community-набор аналитических workflows для Google Ads и Meta Ads: он помогает провести аудит, найти потери бюджета, проверить creative и собрать план, но сам по себе не должен получать право менять кампанию.",
+      "useCases": [
+        "Собрать read-only аудит рекламного аккаунта с evidence и приоритетами",
+        "Подготовить варианты creative и optimization plan для ручного review",
+        "Превратить finding в approval item внутри Eclipse Chat"
+      ],
+      "platforms": [
+        "CLI",
+        "Claude Code",
+        "Codex"
+      ],
+      "license": "MIT; community project, не официальный продукт Anthropic",
+      "pricing": "Код бесплатен; доступ к Google/Meta Ads API, модели и инфраструктура могут оплачиваться отдельно",
+      "access": {
+        "cost": "freemium",
+        "signup": "optional",
+        "runtime": "hybrid"
+      },
+      "trust": "community",
+      "trustReason": "Публичный community repository с открытым кодом и инструкцией для локальной установки. Перед использованием проверяются scripts, prompts и permissions; маркетинговые заявления автора не считаются независимой оценкой эффективности.",
+      "projects": [
+        "AdService",
+        "Eclipse AI Hub",
+        "Eclipse Chat"
+      ],
+      "decision": "roadmap",
+      "riskLevel": "high",
+      "risks": [
+        "Ошибочная рекомендация или write-action может потратить реальный рекламный бюджет",
+        "Ads exports содержат коммерческие и пользовательские данные",
+        "Community prompts и installer требуют static review до подключения"
+      ],
+      "verifiedAt": "2026-08-02",
+      "quickStart": [
+        "Проверить repository локально и не запускать remote installer через pipe",
+        "Начать с sanitized fixture или read-only export без production credentials",
+        "Показать evidence, confidence и before/after diff владельцу кампании",
+        "Write adapter добавлять отдельно с hard ceiling, idempotency, audit и rollback"
+      ],
+      "reviewStatus": "verified",
+      "source": {
+        "file": "README.md",
+        "line": 2374,
+        "category": "Operational agent stack (02.08.2026)",
+        "subcategory": "Marketing / analytics agents"
       }
     },
     {
@@ -8442,6 +8550,60 @@
       }
     },
     {
+      "id": "fincept-terminal",
+      "url": "https://github.com/Fincept-Corporation/FinceptTerminal",
+      "title": "Fincept Terminal",
+      "type": "tool",
+      "category": "Operational agent stack (02.08.2026)",
+      "subcategory": "Financial research",
+      "simpleDescription": "Fincept Terminal — финансовый research terminal с рыночными данными, аналитикой и workflow для принятия решений. Для Eclipse Forge это reference информационной архитектуры, а не готовая production-зависимость или источник финансовых советов.",
+      "useCases": [
+        "Спроектировать Financial Research Room с watchlist, sources и scenario matrix",
+        "Сравнить UX профессиональных research terminals для CryptoPulse и FinFlow",
+        "Построить cited analyst workflow в Eclipse AI Hub"
+      ],
+      "platforms": [
+        "Desktop",
+        "Self-host",
+        "Cloud"
+      ],
+      "license": "Dual licensing: AGPL-3.0 для open-source/non-commercial сценариев; upstream требует отдельную платную Commercial License для любого business или internal company use",
+      "pricing": "Community source доступен публично; commercial/private edition, market-data feeds и внешние providers могут быть платными",
+      "access": {
+        "cost": "freemium",
+        "signup": "optional",
+        "runtime": "hybrid"
+      },
+      "trust": "community",
+      "trustReason": "Официальный публичный repository Fincept. Upstream прямо разделяет community и private/commercial направления, поэтому до reuse кода обязательны точная license review и проверка data vendors.",
+      "projects": [
+        "Eclipse Chat",
+        "Eclipse AI Hub",
+        "CryptoPulse",
+        "FinFlow"
+      ],
+      "decision": "reference",
+      "riskLevel": "high",
+      "risks": [
+        "Внутреннее или коммерческое использование без отдельной Commercial License нарушит заявленные upstream условия",
+        "Рыночные данные могут быть delayed, incomplete или лицензированы только для display",
+        "AI-выводы могут выглядеть увереннее фактов и не являются финансовым советом"
+      ],
+      "verifiedAt": "2026-08-02",
+      "quickStart": [
+        "Использовать screenshots и публичную документацию только как UX reference",
+        "До reuse кода проверить точную редакцию лицензии и intended commercial use",
+        "Для своего прототипа применять synthetic/delayed data и показывать source/date/disclaimer"
+      ],
+      "reviewStatus": "verified",
+      "source": {
+        "file": "README.md",
+        "line": 2380,
+        "category": "Operational agent stack (02.08.2026)",
+        "subcategory": "Financial research"
+      }
+    },
+    {
       "id": "fingerprint-detector-github-com",
       "url": "https://github.com/mr-r3b00t/fingerprintdetector",
       "title": "Fingerprint Detector",
@@ -11471,6 +11633,64 @@
         "line": 2115,
         "category": "Подборка Eclipse (18–19.07.2026)",
         "subcategory": "AI models / coding / research"
+      }
+    },
+    {
+      "id": "hyperframes",
+      "url": "https://github.com/heygen-com/hyperframes",
+      "title": "HyperFrames",
+      "type": "media",
+      "category": "Operational agent stack (02.08.2026)",
+      "subcategory": "Browser / media / model infrastructure",
+      "simpleDescription": "HyperFrames — open-source video framework HeyGen: HTML/CSS и seekable GSAP animation можно превратить в deterministic MP4. В Eclipse Media уже готовы брендовый release-template, browser preview и offline contract check; CLI render включится только после проверки exact пакета и lockfile.",
+      "useCases": [
+        "Сделать release teaser из roadmap или pull request",
+        "Собрать повторяемый product demo и social cut без ручного монтажа каждого кадра",
+        "Проверять video composition через lint, validate и human preview до публикации"
+      ],
+      "platforms": [
+        "CLI",
+        "Windows",
+        "Linux",
+        "macOS",
+        "Local"
+      ],
+      "license": "Apache-2.0",
+      "pricing": "Локальный CLI бесплатен; render использует собственный compute, optional cloud services могут иметь отдельную цену",
+      "access": {
+        "cost": "free",
+        "signup": "none",
+        "runtime": "local"
+      },
+      "trust": "official",
+      "trustReason": "Официальный repository HeyGen с Apache-2.0, документацией CLI, composition contract и validation workflow. Для Eclipse Media выбран официальный tag v0.7.88, но локальный CLI ещё не установлен: до package integrity review и lockfile render считается неподтверждённым.",
+      "projects": [
+        "Eclipse Media",
+        "Eclipse Forge Landing",
+        "Eclipse Chat",
+        "Shotforge"
+      ],
+      "decision": "now",
+      "riskLevel": "medium",
+      "risks": [
+        "CLI загружает Node dependencies и запускает headless browser/FFmpeg локально",
+        "External media, fonts и scripts могут нарушать reproducibility, privacy или content rights",
+        "GSAP использует отдельную GreenSock no-charge license, а не Apache/MIT; notice и redistribution terms проверяются отдельно",
+        "Автоматическая публикация без preview способна выпустить неверный или чувствительный контент"
+      ],
+      "verifiedAt": "2026-08-02",
+      "quickStart": [
+        "Открыть Eclipse Media -> Видео-студия и просмотреть все пять сцен",
+        "В frontend/public/studio/eclipse-release выполнить npm run check — команда работает offline и ничего не скачивает",
+        "После восстановления npm registry проверить integrity @hyperframes/cli@0.7.88, добавить exact devDependency и lockfile, затем выполнить npm run verify",
+        "Только после зелёного verify выполнить npm run render и вручную проверить MP4 до публикации"
+      ],
+      "reviewStatus": "verified",
+      "source": {
+        "file": "README.md",
+        "line": 2388,
+        "category": "Operational agent stack (02.08.2026)",
+        "subcategory": "Browser / media / model infrastructure"
       }
     },
     {
@@ -16288,42 +16508,55 @@
       }
     },
     {
-      "id": "open-generative-ai-github-com",
+      "id": "open-generative-ai",
       "url": "https://github.com/Anil-matcha/Open-Generative-AI",
       "title": "Open-Generative-AI",
-      "type": "model",
+      "type": "media",
       "category": "AI & Claude Code",
       "subcategory": "MCP: внешние данные и действия",
-      "simpleDescription": "Open-Generative-AI — Агрегатор 200+ моделей для генерации видео и картинок — Seedance Pro, Kling, Veo, Flux, Midjourney и др. Подключение к Claude Code / Codex одним кликом. С оговоркой: проверять статус каждой модели — у части могут отключиться бесплатные эндпоинты. Карточка помогает понять назначение ресурса и начать с небольшой безопасной проверки; условия использования ещё нужно сверить с официальным источником.",
+      "simpleDescription": "Open-Generative-AI — MIT desktop catalog для сотен image, video, audio и code models. Он показывает удобный unified-model UX, но большинство cloud entries используют MuAPI, а локально выполняется только часть sd.cpp сценариев.",
       "useCases": [
-        "Разобраться, подходит ли Open-Generative-AI для вашей задачи",
-        "Проверить возможности на небольшом тестовом сценарии до интеграции"
+        "Спроектировать единый Eclipse Model Registry без сокрытия provider",
+        "Сравнить local/cloud модели по cost, privacy, hardware и capability",
+        "Сделать operator-friendly model picker для AI Hub, Sentinel и Eclipse Media"
       ],
       "platforms": [
-        "Web"
+        "Desktop",
+        "Windows",
+        "Linux",
+        "macOS",
+        "API"
       ],
-      "license": "Нужно проверить в официальном источнике",
-      "pricing": "Исходный код доступен публично; hosting, модели и внешние API могут оплачиваться отдельно",
+      "license": "MIT для repository; модели и внешние providers имеют собственные лицензии и Terms",
+      "pricing": "Приложение open-source; MuAPI, cloud inference и некоторые model providers оплачиваются отдельно, локальные модели используют hardware пользователя",
       "access": {
-        "cost": "free",
-        "signup": "unknown",
-        "runtime": "cloud"
+        "cost": "freemium",
+        "signup": "optional",
+        "runtime": "hybrid"
       },
       "trust": "community",
-      "trustReason": "Запись структурирована автоматически из опубликованного описания. Официальный источник, лицензия и условия ещё не прошли отдельную редакторскую проверку.",
-      "projects": [],
+      "trustReason": "Публичный MIT repository с большой model catalog. Marketing claim о единой local-платформе нельзя переносить буквально: cloud и local paths смешаны, а external endpoints требуют отдельного аудита.",
+      "projects": [
+        "Eclipse AI Hub",
+        "Hopson Sentinel",
+        "Eclipse Media",
+        "Text2Image"
+      ],
       "decision": "reference",
-      "riskLevel": "medium",
+      "riskLevel": "high",
       "risks": [
-        "Лицензия, цена, permissions и обработка данных могут отличаться от краткого описания."
+        "Provider API keys и user media нельзя хранить во frontend, logs или repository",
+        "Remote URL/import endpoints требуют SSRF-safe allowlist, redirect/DNS validation и size limits",
+        "Доступность, цена, license и data handling различаются для каждой модели"
       ],
-      "verifiedAt": null,
+      "verifiedAt": "2026-08-02",
       "quickStart": [
-        "Откройте официальный источник и проверьте владельца, лицензию и дату обновления.",
-        "Не передавайте secrets или рабочие данные; начните с пустого тестового проекта.",
-        "Сравните результат с текущим способом работы и только потом решайте об интеграции."
+        "Не подключать production keys и не импортировать runtime целиком",
+        "Использовать repository только как UX/reference и выписать provider boundaries",
+        "Собрать собственный registry contract: provider, modelId, runtime, cost, privacy, hardware, fallback",
+        "Перед любым code reuse выполнить dependency, network, SSRF и license audit"
       ],
-      "reviewStatus": "inferred",
+      "reviewStatus": "verified",
       "source": {
         "file": "README.md",
         "line": 143,
@@ -23268,6 +23501,59 @@
         "line": 238,
         "category": "AI & Claude Code",
         "subcategory": "Промпт-коллекции"
+      }
+    },
+    {
+      "id": "vibe-trading",
+      "url": "https://github.com/HKUDS/Vibe-Trading",
+      "title": "Vibe Trading",
+      "type": "agent",
+      "category": "Operational agent stack (02.08.2026)",
+      "subcategory": "Financial research",
+      "simpleDescription": "Vibe Trading — research-система HKUDS для описания торговых гипотез обычным языком, multi-agent анализа и backtesting. В Eclipse Forge применима как paper-trading Strategy Lab, а не как автономный live trader.",
+      "useCases": [
+        "Проверить гипотезу на зафиксированном dataset snapshot",
+        "Сравнить выводы нескольких analyst agents и сохранить dissent",
+        "Вести журнал backtest assumptions, costs, slippage и результатов"
+      ],
+      "platforms": [
+        "CLI",
+        "Self-host",
+        "Web"
+      ],
+      "license": "MIT; research и risk disclaimer upstream обязателен к учёту",
+      "pricing": "Исходный код доступен публично; market data, LLM providers, compute и broker APIs могут оплачиваться отдельно",
+      "access": {
+        "cost": "freemium",
+        "signup": "optional",
+        "runtime": "hybrid"
+      },
+      "trust": "community",
+      "trustReason": "Публичный academic/community repository HKUDS. Upstream предупреждает, что результат не является финансовым советом, а live broker capability экспериментальна.",
+      "projects": [
+        "CryptoPulse",
+        "Eclipse AI Hub",
+        "Eclipse Chat"
+      ],
+      "decision": "reference",
+      "riskLevel": "high",
+      "risks": [
+        "Backtest может быть искажён look-ahead bias, survivorship bias, costs и overfitting",
+        "Live execution способен привести к реальной финансовой потере",
+        "Market/broker credentials требуют отдельной изоляции, approval и reconciliation"
+      ],
+      "verifiedAt": "2026-08-02",
+      "quickStart": [
+        "Использовать только synthetic или paper-trading account",
+        "Зафиксировать dataset, fees, slippage, benchmark и assumptions до запуска",
+        "Сравнить несколько runs и провести ручной review; live credentials не подключать"
+      ],
+      "reviewStatus": "verified",
+      "source": {
+        "file": "README.md",
+        "line": 2381,
+        "category": "Operational agent stack (02.08.2026)",
+        "subcategory": "Financial research"
       }
     },
     {

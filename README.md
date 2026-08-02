@@ -140,7 +140,7 @@
 | Ресурс | Описание | Звёзды |
 |--------|----------|--------|
 | [free-llm-api-resources](https://github.com/cheahjs/free-llm-api-resources) | 26 провайдеров бесплатных LLM API — OpenRouter, Google AI Studio, NVIDIA NIM, Mistral, Groq, Cohere и др. Лимиты и условия | [![Stars](https://img.shields.io/github/stars/cheahjs/free-llm-api-resources?style=flat)](https://github.com/cheahjs/free-llm-api-resources) |
-| [Open-Generative-AI](https://github.com/Anil-matcha/Open-Generative-AI) | Агрегатор 200+ моделей для генерации видео и картинок — Seedance Pro, Kling, Veo, Flux, Midjourney и др. Подключение к Claude Code / Codex одним кликом. **С оговоркой:** проверять статус каждой модели — у части могут отключиться бесплатные эндпоинты | [![Stars](https://img.shields.io/github/stars/Anil-matcha/Open-Generative-AI?style=flat)](https://github.com/Anil-matcha/Open-Generative-AI) |
+| [Open-Generative-AI](https://github.com/Anil-matcha/Open-Generative-AI) | MIT desktop-оболочка для каталога 500+ generative models: image, video, voice и code. Это не полностью локальный runtime: значительная часть каталога вызывает MuAPI по `x-api-key`, а локально работают только отдельные sd.cpp-сценарии. **Зачем нам:** reference для единого Model Registry в **Eclipse AI Hub / Sentinel / Media**, где у каждой модели явно видны provider, цена, privacy boundary и hardware requirements. **Не форкаем вслепую:** сначала dependency/security audit, изоляция ключей и закрытие SSRF/remote-endpoint рисков | [![Stars](https://img.shields.io/github/stars/Anil-matcha/Open-Generative-AI?style=flat)](https://github.com/Anil-matcha/Open-Generative-AI) |
 
 ### Grey-zone API-прокси (только для pet-проектов)
 
@@ -2359,6 +2359,48 @@ Frontend: React 19 · TypeScript · Vite · Tailwind CSS 4 · Zustand
 | **VCamdroid** | Eclipse Media · Eclipse Chat · Shotforge · Hopson Sentinel | Оставить архитектурным reference для phone-camera input; возможный тест только в disposable Windows VM и на отдельном Android-устройстве |
 | **Footrue ToolBox** | Eclipse Library · Eclipse Media | Взять идею task-first навигации и client-side previews; не проксировать файлы и не заявлять local-only без собственного network audit |
 | **TokenRouter** | Eclipse AI Hub · Hopson Sentinel · oh-my-claudecode | Не интегрировать и не передавать prompts/keys, пока не подтверждены юридическое лицо, условия акции, routing, retention и upstream providers |
+
+---
+
+## Operational agent stack (02.08.2026)
+
+> Шесть находок из продуктового радара. Подробная архитектура, порядок внедрения и guardrails:
+> [Operational Agent Stack: от сигнала до результата](guides/august-2026-operational-agent-stack.md).
+
+### Marketing / analytics agents
+
+| Ресурс | Что это и как используем | Stars |
+|---|---|---|
+| [Claude Ads](https://github.com/AgriciDaniel/claude-ads) | Community plugin для аудита Google Ads / Meta Ads: поиск потерь бюджета, структура кампаний, creative и optimization plan. **P1:** переносим в **AdService / Eclipse AI Hub** как read-only audit workflow с evidence, before/after diff и owner approval. Не официальный продукт Anthropic; write-actions, бюджеты и account IDs запрещены без отдельного capability gate | [![Stars](https://img.shields.io/github/stars/AgriciDaniel/claude-ads?style=flat)](https://github.com/AgriciDaniel/claude-ads) |
+
+### Financial research
+
+| Ресурс | Что это и как используем | Stars |
+|---|---|---|
+| [Fincept Terminal](https://github.com/Fincept-Corporation/FinceptTerminal) | Финансовый terminal с research/data workflow и широким набором источников. **Reference-only:** upstream требует платную Commercial License для любого business/internal company use; финансовые данные и выводы нельзя считать советом. Берём UX-паттерны для **Eclipse Chat Research Room / AI Hub / CryptoPulse / FinFlow**, а не кодовую зависимость | [![Stars](https://img.shields.io/github/stars/Fincept-Corporation/FinceptTerminal?style=flat)](https://github.com/Fincept-Corporation/FinceptTerminal) |
+| [Vibe Trading](https://github.com/HKUDS/Vibe-Trading) | Natural-language multi-agent research и backtesting. **P3, paper-trading only:** идеи для Strategy Lab, agent debate, гипотез, backtest и журналов решений. Live broker execution остаётся экспериментальным upstream и не включается в Eclipse Forge без отдельного legal/security/approval контура | [![Stars](https://img.shields.io/github/stars/HKUDS/Vibe-Trading?style=flat)](https://github.com/HKUDS/Vibe-Trading) |
+
+### Browser / media / model infrastructure
+
+| Ресурс | Что это и как используем | Stars |
+|---|---|---|
+| [Camofox Browser](https://github.com/jo-inc/camofox-browser) | REST browser service поверх Camoufox с sessions и accessibility snapshots. **P2:** только isolated optional worker для **Eclipse-Claw / Sentinel**, когда обычного HTTP-renderer недостаточно. Loopback bind, access key, allowlist, public-only egress, telemetry off, disposable profile и prompt-injection boundary обязательны; anti-detect не используется для обхода чужих защит | [![Stars](https://img.shields.io/github/stars/jo-inc/camofox-browser?style=flat)](https://github.com/jo-inc/camofox-browser) |
+| [HyperFrames](https://github.com/heygen-com/hyperframes) | Apache-2.0 video framework: HTML/CSS/GSAP -> deterministic MP4. **P0 в работе:** в **Eclipse Media** готовы брендовый template, browser preview и offline contract check; CLI `v0.7.88` и MP4 render включатся только после package integrity review и exact lockfile. Публикация всегда проходит human review | [![Stars](https://img.shields.io/github/stars/heygen-com/hyperframes?style=flat)](https://github.com/heygen-com/hyperframes) |
+
+`Open-Generative-AI` уже находится в разделе AI / Claude Code выше и теперь проверен как
+**P2 reference** для Model Registry. Это не «200+ бесплатных локальных моделей»: cloud-provider,
+стоимость, privacy и доступность должны отображаться отдельно для каждой записи.
+
+### Mapping -> наши проекты
+
+| Priority | Capability | Project(s) | Первый безопасный результат |
+|---|---|---|---|
+| **P0** | HyperFrames release-video pipeline | Eclipse Media · Eclipse Forge Landing · Eclipse Chat | Сейчас: брендовый HTML-template, local preview и offline contract check. Далее: exact CLI/lockfile, lint/validate и MP4 render |
+| **P1** | Read-only Ads Audit | AdService · Eclipse AI Hub · Eclipse Chat approvals | Evidence report без изменения кампании; write отдельно и только после approval |
+| **P2** | Model Registry | Eclipse AI Hub · Sentinel · Eclipse Media | Единая карточка model/provider/cost/privacy/hardware/fallback |
+| **P2** | Isolated browser fallback | Eclipse-Claw · Sentinel | Public-only worker без primary cookies и без implicit fallback |
+| **P3** | Financial Research Room | Eclipse Chat · AI Hub · CryptoPulse · FinFlow | Sources, assumptions, scenarios, citations; не финансовый совет |
+| **P3** | Strategy Lab | CryptoPulse · AI Hub | Hypothesis -> backtest -> paper result -> review; live trading выключен |
 
 ---
 

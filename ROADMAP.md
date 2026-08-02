@@ -9,8 +9,8 @@
   подробные карточки и guide viewer.
 - `web/catalog-details.json` — проверенный структурированный слой для приоритетных
   материалов; старые записи получают честную пометку о необходимости аудита.
-- `web/catalog-index.json` — детерминированный полный индекс 526 уникальных материалов:
-  75 редакторски проверены, 451 структурирована из README и явно помечена `inferred`.
+- `web/catalog-index.json` — детерминированный полный индекс 531 уникального материала:
+  81 редакторски проверен, 450 структурированы из README и явно помечены `inferred`.
 - `web/link-health.json` — безопасный публичный snapshot weekly-аудита: доступность ссылки
   показывается отдельно от редакторского доверия и не считается security endorsement.
 - Deploy: GitHub Actions → VPS/Caddy из ветки `master`.
@@ -32,6 +32,15 @@
 
 ### P1
 
+- [x] Проверить и добавить Operational Agent Stack: Claude Ads, Fincept Terminal, Vibe Trading,
+      Camofox Browser, HyperFrames и Open-Generative-AI с лицензиями, trust/risk границами,
+      проектной применимостью и понятным порядком внедрения.
+- [x] Запустить P0 внедрение HyperFrames в Eclipse Media как локальный release-video pipeline;
+      публикация остаётся ручной после human review.
+- [ ] Завершить HyperFrames P0 после восстановления npm registry: проверить integrity exact
+      `@hyperframes/cli@0.7.88`, зафиксировать lockfile, пройти lint/validate и подтвердить реальный MP4 render.
+- [ ] Реализовать следующий этап: read-only Ads Audit в Eclipse AI Hub без write-scopes,
+      автоприменения изменений и хранения рекламных токенов в клиенте.
 - [x] Stage 1 — понятная библиотека: отдельный каталог проектов Eclipse Forge, глобальная навигация,
       компактный mobile hero, сокращённый sidebar и progressive results по 36 карточек.
 - [x] Stage 2 — упростить discovery controls: объединить 13 внутренних типов в 7 пользовательских
@@ -133,6 +142,16 @@
 
 ### 2026-08-02
 
+- Каталог расширен до 531 материала и 81 редакторски проверенной карточки: Claude Ads,
+  Fincept Terminal, Vibe Trading, Camofox Browser, HyperFrames и Open-Generative-AI получили
+  простые объяснения, quick start, лицензии, trust/risk границы и привязку к проектам Eclipse Forge.
+- Добавлен guide `guides/august-2026-operational-agent-stack.md` с приоритетами P0–P3:
+  HyperFrames release-video pipeline → read-only Ads Audit → Model Registry/isolated browser →
+  financial research и только paper-trading. Fincept используется как reference из-за dual license,
+  а live trading и скрытый browser anti-detect не включаются.
+- P0 уже начат в Eclipse Media: отдельная Video Studio, 15-секундная детерминированная композиция,
+  локальные check/render команды, responsive UI и CDN-free preview fallback. Runtime CLI verification
+  ожидает восстановления npm registry после `ECONNRESET`; автоматической публикации нет.
 - Supply-chain и installer hardening Eclipse-Claw merged через
   [PR #8](https://github.com/PavelHopson/Eclipse-Claw/pull/8) как `3502bdb`: Docker bases закреплены
   по multi-platform digest, CI отклоняет mutable external `FROM`, Trivy проверяет core/CDP runtime,
