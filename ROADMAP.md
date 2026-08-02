@@ -10,7 +10,7 @@
 - `web/catalog-details.json` — проверенный структурированный слой для приоритетных
   материалов; старые записи получают честную пометку о необходимости аудита.
 - `web/catalog-index.json` — детерминированный полный индекс 526 уникальных материалов:
-  74 редакторски проверены, 452 структурированы из README и явно помечены `inferred`.
+  75 редакторски проверены, 451 структурирована из README и явно помечена `inferred`.
 - `web/link-health.json` — безопасный публичный snapshot weekly-аудита: доступность ссылки
   показывается отдельно от редакторского доверия и не считается security endorsement.
 - Deploy: GitHub Actions → VPS/Caddy из ветки `master`.
@@ -66,9 +66,18 @@
       local → cloud fallback с отдельным explicit opt-in. Реализовано в Eclipse-Claw
       [PR #4](https://github.com/PavelHopson/Eclipse-Claw/pull/4), merged в `main` как `51a5d6c`;
       до отдельного release/deploy не считать production.
-- [ ] Eclipse Webclaw / Kwork #18, Phase 2: egress/SSRF policy с DNS/redirect re-check,
-      prompt-injection/content boundary, robots/rate limits, isolated workers и audit log.
-      Сам Agent Reach, browser cookies и mutable installer в production не использовать.
+- [x] Eclipse Webclaw / Kwork #18, Phase 2A: public-only egress/SSRF policy в transport DNS
+      resolver и redirects, untrusted content boundary для MCP/REST/LLM, robots wildcard/
+      Allow/Disallow/Crawl-delay, response/concurrency limits, loopback/token server policy,
+      explicit cookies/proxy-DNS/CDP gates и redacted structured audit events. Реализовано в
+      [PR #5](https://github.com/PavelHopson/Eclipse-Claw/pull/5), merged как `3ef26a8`;
+      PR CI [#30743170976](https://github.com/PavelHopson/Eclipse-Claw/actions/runs/30743170976)
+      и post-merge main CI
+      [#30743202888](https://github.com/PavelHopson/Eclipse-Claw/actions/runs/30743202888) зелёные.
+- [ ] Eclipse Webclaw / Kwork #18, Phase 2B: отдельные OS/container workers для browser/LLM,
+      durable audit storage с retention/access policy, fixed public-page security/quality benchmark
+      и release/deploy. Сам Agent Reach, primary-account browser cookies и mutable installer в
+      production не использовать.
 - [ ] Eclipse Media / Educator-AI: isolated transcript-first video understanding spike по паттерну
       Claude Video — allowlisted URLs, size/time limits, scene frames, timestamp citations и только
       opt-in Whisper fallback без client/private media.
@@ -114,6 +123,21 @@
 
 ### 2026-08-02
 
+- Eclipse-Claw Phase 2A merged через
+  [PR #5](https://github.com/PavelHopson/Eclipse-Claw/pull/5) как
+  `3ef26a85d0e51f85ec261d95ea6df186329de90f`: transport-level public DNS/redirect policy,
+  private/metadata blocking, explicit proxy-DNS consent, untrusted MCP/REST/LLM boundary,
+  robots/Crawl-delay, 20 MiB response cap, bounded server, loopback/token auth defaults,
+  cookies/CDP gates и redacted audit events. Upstream Agent Reach не устанавливался.
+- PR CI [#30743170976](https://github.com/PavelHopson/Eclipse-Claw/actions/runs/30743170976)
+  и post-merge main CI
+  [#30743202888](https://github.com/PavelHopson/Eclipse-Claw/actions/runs/30743202888)
+  прошли workspace Test, Clippy `-D warnings` и Docs. Остались release/deploy,
+  OS/container isolation, durable audit storage и fixed public-page benchmark; их нельзя
+  считать закрытыми текущими in-process limits и tracing logs.
+- В Library добавлена отдельная редакторски проверенная карточка Eclipse Claw с простым
+  объяснением CLI/REST/MCP, безопасного старта, opt-in boundaries и честных ограничений;
+  Agent Reach review и applicability обновлены без новой дублирующей записи.
 - В Eclipse-Claw реализован безопасный Phase 1 по reference-паттернам Agent Reach:
   отдельный internal crate со static allowlist, machine-readable readiness/provenance/data boundary,
   read-only `doctor` для REST/MCP и единая fail-closed policy. Наличие API key больше не означает

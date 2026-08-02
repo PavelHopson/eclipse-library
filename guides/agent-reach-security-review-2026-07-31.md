@@ -83,7 +83,7 @@ session на основной машине не запускались.
 
 | Решение | Проект и проблема | Сценарий и что разработать | Ценность | Размер | Риски / зависимости | Приоритет | Следующий шаг |
 |---|---|---|---|---|---|---|---|
-| Внедрить сейчас | Eclipse Webclaw / Kwork #18: research-agent не должен молча терять источник | Phase 1 реализован: static allowlist, capabilities/data boundary/provenance, read-only `doctor` в REST/MCP и отдельный opt-in для automatic cloud fallback | Понятная причина недоступности и отсутствие скрытой передачи URL только из-за сохранённого API key | M | Release/deploy ещё не выполнен; ToS, SSRF, prompt injection, robots/rate limit, worker isolation остаются Phase 2 | P1 | Подготовить release из merged `51a5d6c`, затем добавить DNS/redirect egress policy и fixed page benchmark |
+| Внедрить сейчас | Eclipse Webclaw / Kwork #18: research-agent должен безопасно получать публичные источники и явно показывать границы | Phase 1 и Phase 2A реализованы: static allowlist/doctor, explicit cloud consent, public-only DNS и redirect policy, untrusted-content boundary, robots/Crawl-delay, response/concurrency limits и redacted audit events | Меньше SSRF и prompt-injection риска, понятная причина отказа, предсказуемая нагрузка и отсутствие скрытой cloud-передачи только из-за сохранённого API key | L | Release/deploy не выполнен; Chromium не разделяет transport resolver, OS/container isolation и durable audit storage ещё нужны | P1 | Выпустить merged `3ef26a8`, вынести CDP в отдельный worker и прогнать fixed public-page benchmark |
 | Оставить как reference | Hopson Sentinel | Показать capability health, причину недоступности и безопасный следующий шаг; не давать skill права устанавливать global packages | Пользователь понимает, почему tool недоступен, и не чинит его опасной командой вслепую | M | Process sandbox, permissions, signed registry | P2 | Спроектировать read-only `doctor` output на synthetic connectors |
 | Оставить как reference | oh-my-claudecode | Использовать идею registry и deterministic fallback order без browser cookies и self-install | Предсказуемая orchestration и меньше случайных tool substitutions | M | Registry ownership, policy engine, audit log | P2 | Добавить design note к unified registry после разблокировки archived repository |
 | Добавить в roadmap | Eclipse AI Hub RAG | Серверные isolated ingestion workers для явно разрешённых источников, с citations и tenant boundary | Больше проверяемых источников без выдачи browser session модели | L | Queue, content sanitization, license, retention | P2 | Prototype только для public GitHub + public HTML, без social-login sources |
@@ -115,5 +115,30 @@ connector.
 Lint и Docs; локальный release build также зелёный. До отдельного release/deploy это shipped code,
 но не production-возможность.
 
-Не закрыто: egress/SSRF allowlist с повторной проверкой DNS и redirects, content/prompt-injection
-sanitization, robots/rate-limit policy, isolated workers и audit log. Это Phase 2 P1.
+Phase 2A также реализован собственным кодом Eclipse-Claw и merged через
+[PR #5](https://github.com/PavelHopson/Eclipse-Claw/pull/5) как
+`3ef26a85d0e51f85ec261d95ea6df186329de90f`:
+
+- HTTP transport использует public-only resolver: private, loopback, link-local, metadata и
+  специальные IPv4/IPv6 диапазоны блокируются, а каждый redirect проходит ту же policy;
+- proxy DNS требует отдельного consent, `proxies.txt` больше не подхватывается неявно;
+- web-контент получает явную `untrusted`-границу в MCP/REST, а local LLM prompts не должны
+  исполнять инструкции со страницы;
+- MCP cookies выключены по умолчанию; server bind стал loopback-only, external bind требует
+  Bearer token, CDP endpoint нельзя подменить request body и сам REST CDP требует opt-in;
+- crawler учитывает `robots.txt`, wildcard/Allow/Disallow/Crawl-delay и сериализует запросы при
+  заданном Crawl-delay; response body и server concurrency ограничены;
+- structured security events логируют только `scheme://host[:port]`, без query, cookies,
+  headers, secrets и page body.
+
+PR CI [#30743170976](https://github.com/PavelHopson/Eclipse-Claw/actions/runs/30743170976)
+и post-merge main CI
+[#30743202888](https://github.com/PavelHopson/Eclipse-Claw/actions/runs/30743202888)
+прошли workspace Test, Clippy `-D warnings` и Docs. Это снижает риск, но не является
+независимым pentest и не делает произвольный web-контент доверенным.
+
+Не закрыто: отдельный release/deploy, OS/container isolation для browser/LLM workers,
+durable audit storage с retention/access policy и fixed public-page benchmark. Chromium CDP
+имеет отдельный DNS boundary, поэтому в server он остаётся opt-in и должен запускаться только
+в изолированном worker. Сам Agent Reach, browser cookies основных аккаунтов и mutable installer
+в production по-прежнему не используются.

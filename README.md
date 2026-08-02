@@ -25,8 +25,8 @@
 Стоимость, необходимость регистрации и место запуска вынесены в отдельные простые признаки: можно сразу
 найти бесплатные инструменты, варианты без аккаунта и решения для своего устройства или self-hosted server.
 Если редактор ещё не подтвердил условие, интерфейс честно показывает «нужно проверить», а не угадывает.
-Все 525 уникальных материалов уже приведены к одной структуре: назначение, сценарии, платформа,
-лицензия, стоимость, доверие, риски, безопасный старт и применимость к Eclipse Forge. Для 73 записей
+Все 526 уникальных материалов уже приведены к одной структуре: назначение, сценарии, платформа,
+лицензия, стоимость, доверие, риски, безопасный старт и применимость к Eclipse Forge. Для 75 записей
 эти данные проверены редактором; остальные явно помечены как предварительные и не выдают inference за факт.
 Сначала показываются 36 наиболее ранних результатов текущей выборки; следующие карточки
 открываются кнопкой «Показать ещё», поэтому страница не превращается в бесконечное полотно.
@@ -641,7 +641,7 @@ ai-setup reverse owner/repo --stdout
 | [LocalSend](https://github.com/localsend/localsend) | Flutter/Dart | Передача файлов по локальной сети без интернета — HTTPS, P2P discovery, все платформы | [![Stars](https://img.shields.io/github/stars/localsend/localsend?style=flat)](https://github.com/localsend/localsend) |
 | [GitHub Store](https://github.com/OpenHub-Store/GitHub-Store) | Kotlin/Compose | App Store для GitHub — установка софта из Releases в 1 клик, авто-обновления, Android/Win/macOS/Linux | [![Stars](https://img.shields.io/github/stars/OpenHub-Store/GitHub-Store?style=flat)](https://github.com/OpenHub-Store/GitHub-Store) |
 | [Ghost Downloader 3](https://github.com/XiaoYouChR/Ghost-Downloader-3) | Python | Ускоритель загрузок +30% — параллельные части, AI-выбор сервера, Win/Linux/Mac | [![Stars](https://img.shields.io/github/stars/XiaoYouChR/Ghost-Downloader-3?style=flat)](https://github.com/XiaoYouChR/Ghost-Downloader-3) |
-| [Eclipse Claw](https://github.com/PavelHopson/Eclipse-Claw) | Rust | Высокопроизводительный веб-парсер — CLI + API, MCP-сервер, TLS-отпечатки, -67% токенов |
+| [Eclipse Claw](https://github.com/PavelHopson/Eclipse-Claw) | Rust | Self-hosted web-to-Markdown движок с CLI, REST и MCP. Берёт публичную страницу, убирает лишнюю разметку и возвращает текст/метаданные для research и RAG. По умолчанию блокирует private/metadata сети и опасные redirects, учитывает robots.txt, ограничивает размер/параллелизм и помечает web-текст как недоверенный. External server bind, cloud fallback, cookies, proxy DNS и CDP требуют отдельных opt-in; AGPL-3.0 |
 | [Scrapy](https://github.com/scrapy/scrapy) | Python | Классический краулинг-фреймворк — обход всего сайта, пагинация, pipelines, robots.txt, 53K+ звёзд | [![Stars](https://img.shields.io/github/stars/scrapy/scrapy?style=flat)](https://github.com/scrapy/scrapy) |
 | [Scrapling](https://github.com/D4Vinci/Scrapling) | Python | Лёгкий парсер без зависимостей — точечный поиск элементов, таблицы, текст, картинки, кастомные запросы | [![Stars](https://img.shields.io/github/stars/D4Vinci/Scrapling?style=flat)](https://github.com/D4Vinci/Scrapling) |
 | [Scraping APIs](https://github.com/cporter202/scraping-apis-for-devs) | Каталог | 2622 API для парсинга — соцсети, маркетплейсы, новости, игры, БД и др. | [![Stars](https://img.shields.io/github/stars/cporter202/scraping-apis-for-devs?style=flat)](https://github.com/cporter202/scraping-apis-for-devs) |
@@ -2352,7 +2352,7 @@ Frontend: React 19 · TypeScript · Vite · Tailwind CSS 4 · Zustand
 
 | Находка | Проекты | Что делать |
 |---|---|---|
-| **Agent Reach** | Eclipse Webclaw · Kwork #18 · Eclipse AI Hub · Hopson Sentinel · oh-my-claudecode · Eclipse Media | Оставить исходный skill reference. В Eclipse-Claw уже merged Phase 1 собственного слоя: static allowlist, REST/MCP doctor, provenance/data boundary и отдельный opt-in для automatic cloud fallback ([PR #4](https://github.com/PavelHopson/Eclipse-Claw/pull/4), `51a5d6c`). До production остаются release/deploy и Phase 2: egress/SSRF, prompt-injection boundary, isolated workers/audit log. YouTube-путь не дублировать поверх transcript-first pipeline |
+| **Agent Reach** | Eclipse Webclaw · Kwork #18 · Eclipse AI Hub · Hopson Sentinel · oh-my-claudecode · Eclipse Media | Исходный skill оставить reference. В Eclipse-Claw уже merged собственные Phase 1–2A паттерны: static allowlist и doctor, explicit cloud consent, transport-level DNS/redirect egress policy, untrusted-content boundary, robots/Crawl-delay, bounded server и redacted security events ([PR #4](https://github.com/PavelHopson/Eclipse-Claw/pull/4), `51a5d6c`; [PR #5](https://github.com/PavelHopson/Eclipse-Claw/pull/5), `3ef26a8`). До production остаются release/deploy, OS/container worker isolation, durable audit storage и fixed-page benchmark. Browser cookies и upstream installer не переносить; YouTube-путь не дублировать поверх transcript-first pipeline |
 | **Kimi K3** | Eclipse AI Hub · Hopson Sentinel · oh-my-claudecode · Eclipse Chat · DnD Forge | Добавить в roadmap direct-API benchmark на фиксированных synthetic coding/agent tasks: качество, latency, стоимость, context limits и privacy |
 | **GitHub for Beginners** | Educator-AI · Eclipse Forge Landing · Eclipse Library · ai-setup | Сделать короткий практический onboarding checklist с переходами на официальный материал и заданиями на test repository |
 | **Language Model Builder** | Educator-AI · Eclipse AI Hub | Использовать структуру tokenizer → pretraining → SFT → DPO как reference для учебного трека; закрытый binary не встраивать |

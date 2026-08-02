@@ -3235,5 +3235,91 @@
       "signup": "required",
       "runtime": "cloud"
     }
+  },
+  {
+    "id": "eclipse-claw-github-com",
+    "title": "Eclipse Claw",
+    "url": "https://github.com/PavelHopson/Eclipse-Claw",
+    "category": "Developer tools / web extraction",
+    "type": "api",
+    "description": "Self-hosted Rust-инструмент Eclipse Forge для получения и очистки web-страниц. Один и тот же движок доступен через CLI, REST API и MCP: он скачивает публичный URL, убирает лишнюю разметку и возвращает Markdown, простой текст, метаданные или структуру для LLM. Рекурсивный crawler остаётся в пределах одного сайта, учитывает robots.txt и ограничивает число одновременных запросов.",
+    "simpleDescription": "Eclipse Claw превращает публичную web-страницу в чистый текст, который удобно читать человеку или передавать AI. Можно запустить команду локально, поднять свой REST API или подключить MCP. По умолчанию инструмент не ходит в localhost и внутреннюю сеть, не отправляет страницу в cloud без отдельного согласия и предупреждает AI, что текст сайта нельзя считать командами.",
+    "useCases": [
+      "Получить чистый Markdown и источник для research-ответа с цитатами",
+      "Загрузить разрешённую публичную страницу в RAG без сырого HTML и навигационного шума",
+      "Обойти несколько страниц одного сайта по robots.txt с ограниченной нагрузкой",
+      "Дать локальному AI-агенту понятный MCP-инструмент scrape, map, extract или summarize"
+    ],
+    "features": [
+      "CLI, self-hosted REST API и stdio MCP поверх одного Rust workspace",
+      "Public-only egress: DNS, private/metadata IP и каждый redirect проверяются transport resolver",
+      "Граница untrusted web content для MCP и LLM extraction/summarization",
+      "robots.txt Allow/Disallow, Crawl-delay, same-origin scope и bounded concurrency",
+      "Статический connector registry и read-only doctor без установки community packages",
+      "Automatic cloud fallback, session cookies, proxy DNS и server CDP требуют отдельных opt-in"
+    ],
+    "audience": [
+      "Разработчики research-агентов и RAG ingestion",
+      "Команды, которым нужен локальный web-to-Markdown API",
+      "Авторы Eclipse AI Hub, Hopson Sentinel, oh-my-claudecode и Kwork #18"
+    ],
+    "limitations": [
+      "Не гарантирует доступ к login wall, CAPTCHA, DRM, region-locked и сильно защищённым страницам",
+      "Prompt-injection boundary снижает риск, но не делает недоверенный текст безопасным для автономных действий с secrets или production",
+      "Нужно самостоятельно соблюдать robots.txt, Terms, copyright, персональные данные и разрешение владельца источника",
+      "Server CDP остаётся отдельным browser boundary и включается только в доверенном изолированном worker",
+      "На 02.08.2026 изменения Phase 2 merged в main, но отдельный release и production deploy ещё не подтверждены"
+    ],
+    "platforms": [
+      "CLI",
+      "REST API",
+      "MCP",
+      "Self-hosted",
+      "Windows",
+      "Linux",
+      "macOS"
+    ],
+    "relatedTechnologies": [
+      "Rust",
+      "Axum",
+      "MCP",
+      "wreq",
+      "BoringSSL",
+      "Web research",
+      "RAG",
+      "robots.txt"
+    ],
+    "license": "AGPL-3.0 для open-source workspace; optional Eclipse Claw Cloud имеет отдельные условия и тариф",
+    "pricing": "Self-hosted код бесплатен; proxy, внешние LLM и explicit cloud API могут оплачиваться отдельно",
+    "trust": "official",
+    "trustReason": "Это официальный репозиторий Eclipse Forge. Phase 1 merged как 51a5d6c, Phase 2 security controls merged через PR #5 как 3ef26a85d0e51f85ec261d95ea6df186329de90f; post-merge workspace Test, Clippy -D warnings и Docs прошли в main CI #30743202888. Release/deploy и независимый runtime pentest не выполнены.",
+    "projects": [
+      "Eclipse Webclaw",
+      "Kwork #18",
+      "Eclipse AI Hub",
+      "Hopson Sentinel",
+      "oh-my-claudecode",
+      "Eclipse Library"
+    ],
+    "decision": "now",
+    "riskLevel": "medium",
+    "risks": [
+      "Любой web-контент остаётся недоверенным и может содержать prompt injection, вредоносные ссылки или персональные данные",
+      "Explicit cloud fallback передаёт URL и контент внешнему сервису; data boundary нужно согласовать заранее",
+      "Proxy DNS и CDP принадлежат отдельным trust boundaries и не наследуют transport-level DNS pinning",
+      "Текущий worker limit ограничивает ресурсы, но не заменяет OS/container isolation и durable audit storage"
+    ],
+    "verifiedAt": "2026-08-02",
+    "quickStart": [
+      "Для первой проверки запустить CLI на одной своей публичной странице без cookies, proxy и cloud fallback",
+      "Перед agent workflow вызвать doctor и проверить, какие connectors и data boundaries реально включены",
+      "REST оставить на 127.0.0.1; для внешнего bind задать длинный ECLIPSE_SERVER_TOKEN и поставить TLS/rate limit на reverse proxy",
+      "Не давать результату scrape права запускать команды: сначала проверить источник и цитаты, затем выполнять отдельное подтверждённое действие"
+    ],
+    "access": {
+      "cost": "freemium",
+      "signup": "optional",
+      "runtime": "hybrid"
+    }
   }
 ]
