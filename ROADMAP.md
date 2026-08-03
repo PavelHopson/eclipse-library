@@ -9,8 +9,8 @@
   подробные карточки и guide viewer.
 - `web/catalog-details.json` — проверенный структурированный слой для приоритетных
   материалов; старые записи получают честную пометку о необходимости аудита.
-- `web/catalog-index.json` — детерминированный полный индекс 532 уникальных материалов:
-  82 редакторски проверены, 450 структурированы из README и явно помечены `inferred`.
+- `web/catalog-index.json` — детерминированный полный индекс 534 уникальных материалов:
+  84 редакторски проверены, 450 структурированы из README и явно помечены `inferred`.
 - `web/link-health.json` — безопасный публичный snapshot weekly-аудита: доступность ссылки
   показывается отдельно от редакторского доверия и не считается security endorsement.
 - Deploy: GitHub Actions → VPS/Caddy из ветки `master`.
@@ -32,6 +32,17 @@
 
 ### P1
 
+- [x] Добавить доказательный Eclipse Growth OS: разобрать SMM-шаблоны без рекламных claims,
+      подготовить заполненную основу бренда, 30-дневный pilot, lead magnets, KPI, approval gate,
+      Claim Auditor, семь copy-ready промптов и task-first маршрут «Продвигать бренд».
+- [x] Проверить Teamly.to как отдельный proprietary SaaS и описать 30-дневный P1/M pilot:
+      public/sanitized data, три команды Research/Content/Growth, минимальные read-only scopes,
+      без production GitHub, autopublish, outreach, ads и payments.
+- [ ] Провести первый 30-дневный brand pilot: зафиксировать Landing/channel baseline, выпустить
+      12 evidence-backed материалов, измерить product visits, qualified leads, conversion и effort,
+      затем принять решение continue/change/stop по каждому формату.
+- [ ] Eclipse Chat / AI Hub: реализовать собственный Growth Command Room и роли Researcher,
+      Strategist, Writer, Editor, Claim Auditor с structured handoff и manual publish approval.
 - [x] Проверить и добавить Operational Agent Stack: Claude Ads, Fincept Terminal, Vibe Trading,
       Camofox Browser, HyperFrames и Open-Generative-AI с лицензиями, trust/risk границами,
       проектной применимостью и понятным порядком внедрения.
@@ -146,6 +157,19 @@
 
 ### 2026-08-03
 
+- Добавлены две проверенные записи: Teamly.to и Eclipse Growth OS. Teamly отделён от `teamly.ru`;
+  карточка объясняет Cells, изменяемую subscription price, external LLM/Composio boundary,
+  standing approvals и prompt-injection risk простыми словами.
+- Опубликован guide `guides/eclipse-growth-os.md`: рекламные обещания «SMM за 150 000 ₽» и
+  «$3 000 в месяц» исключены как неподтверждённые; вместо них добавлены brand foundation,
+  conversion path, 12 материалов на 30 дней, пять lead magnets, KPI, Teamly pilot, нативный roadmap,
+  семь evidence-first промптов и единый checklist перед публикацией.
+- В task-first навигацию добавлена цель «Продвигать бренд»: она собирает marketing, content,
+  SEO, ads, lead-magnet и conversion материалы и сохраняется в shareable URL как `task=growth`.
+- Карточки собственных материалов получили прямую кнопку в on-site guide через безопасный
+  `guide` slug. Длинное содержание guide на mobile теперь свёрнуто по умолчанию, закрывается
+  после выбора раздела и не вызывает `scrollIntoView` из IntersectionObserver; regression gate
+  отдельно фиксирует desktop-only auto-reveal.
 - Проверен и добавлен Azgaar’s Fantasy Map Generator: официальный GitHub Pages и repository,
   актуальный JSON export, MIT license и разрешение на коммерческое использование созданных карт.
   Рекламная формулировка «генератор карт» раскрыта как полноценный редактор world layers с

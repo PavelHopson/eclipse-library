@@ -510,6 +510,8 @@ body.noscroll { overflow: hidden; }
 .item-body h1 { margin: 0 0 18px; font: 700 clamp(28px, 5vw, 48px)/1.08 var(--display); letter-spacing: -1.2px; text-wrap: balance; }
 .item-lead { max-width: 720px; margin: 0 0 28px; color: #d2d2de; font-size: clamp(17px, 2.2vw, 20px); line-height: 1.65; }
 .item-action-slot { display: flex; flex-wrap: wrap; gap: 8px; margin: -10px 0 28px; }
+.item-guide-button { display: inline-flex; min-height: 38px; align-items: center; padding: 8px 13px; border: 1px solid var(--blue-line); border-radius: 10px; background: var(--blue-soft); color: #d9eaff; font-size: 12px; font-weight: 800; }
+.item-guide-button:hover { border-color: var(--blue); color: #fff; }
 .save-button-wide, .compare-button-wide { min-height: 38px; margin-left: 0; padding: 8px 12px; border-color: var(--line); background: rgba(255,255,255,.025); font: 700 12px var(--font); }
 .save-button-wide span, .compare-button-wide span { display: inline; }
 .fact-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; margin-bottom: 38px; }

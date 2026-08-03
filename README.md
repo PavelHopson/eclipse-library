@@ -25,8 +25,8 @@
 Стоимость, необходимость регистрации и место запуска вынесены в отдельные простые признаки: можно сразу
 найти бесплатные инструменты, варианты без аккаунта и решения для своего устройства или self-hosted server.
 Если редактор ещё не подтвердил условие, интерфейс честно показывает «нужно проверить», а не угадывает.
-Все 532 уникальных материала уже приведены к одной структуре: назначение, сценарии, платформа,
-лицензия, стоимость, доверие, риски, безопасный старт и применимость к Eclipse Forge. Для 82 записей
+Все 534 уникальных материала уже приведены к одной структуре: назначение, сценарии, платформа,
+лицензия, стоимость, доверие, риски, безопасный старт и применимость к Eclipse Forge. Для 84 записей
 эти данные проверены редактором; остальные явно помечены как предварительные и не выдают inference за факт.
 Сначала показываются 36 наиболее ранних результатов текущей выборки; следующие карточки
 открываются кнопкой «Показать ещё», поэтому страница не превращается в бесконечное полотно.
@@ -2365,6 +2365,43 @@ Frontend: React 19 · TypeScript · Vite · Tailwind CSS 4 · Zustand
 | **VCamdroid** | Eclipse Media · Eclipse Chat · Shotforge · Hopson Sentinel | Оставить архитектурным reference для phone-camera input; возможный тест только в disposable Windows VM и на отдельном Android-устройстве |
 | **Footrue ToolBox** | Eclipse Library · Eclipse Media | Взять идею task-first навигации и client-side previews; не проксировать файлы и не заявлять local-only без собственного network audit |
 | **TokenRouter** | Eclipse AI Hub · Hopson Sentinel · oh-my-claudecode | Не интегрировать и не передавать prompts/keys, пока не подтверждены юридическое лицо, условия акции, routing, retention и upstream providers |
+
+---
+
+## Brand growth stack (03.08.2026)
+
+> Разбор рекламных SMM-шаблонов, готовая основа бренда, 30-дневный pilot, KPI,
+> lead magnets, Teamly guardrails и copy-ready промпты собраны в
+> [Eclipse Growth OS](guides/eclipse-growth-os.md).
+
+Изображения содержат шесть полезных заготовок: brand brief, контент-календарь, аудит профиля,
+генерацию идей, аудит публикаций и lead-magnet funnel. Заявления о замене специалиста за
+150 000 ₽ и доходе 3 000 долларов в месяц не подтверждены и в систему не перенесены.
+Исходные шаблоны усилены обязательными evidence, baseline, KPI, product funnel, effort,
+channel limits и ручным approval перед любым внешним действием.
+
+### Проверенные материалы
+
+| Ресурс | Что это и как использовать |
+|---|---|
+| [Eclipse Growth OS](guides/eclipse-growth-os.md) | Собственная доказательная система продвижения: заполненная основа Eclipse Forge, 30-дневный pilot, пять content pillars, lead magnets, KPI, approval gate, Claim Auditor и семь готовых промптов. Не обещает «заменить SMM за 150 000 ₽»: AI готовит drafts, а факты и внешние действия подтверждает человек |
+| [Teamly.to](https://teamly.to/) | Облачная оркестрация AI-команд в изолированных Cells. **P1 / M:** только 30-дневный marketing pilot на публичных материалах и обезличенной аналитике: Research, Content и Growth готовят briefs/drafts/reports, но не публикуют и не получают production, ads или payment access. Terms считают skills/presets формой разрешения и предупреждают о prompt injection; контекст может передаваться внешним LLM, OAuth обслуживает Composio. Не путать с `teamly.ru` |
+
+### Решение для Eclipse Forge
+
+| Решение | Проекты | Пользовательская ценность | Сложность / приоритет | Следующий шаг |
+|---|---|---|---|---|
+| **Внедрить сейчас:** доказательный 30-дневный content pilot | Eclipse Forge Landing · Eclipse Library · Eclipse Media · Shotforge | Реальные релизы превращаются в понятные кейсы, demos и один проверяемый CTA | M / P1 | Выпустить 12 сильных материалов по готовому календарю и сравнить qualified leads с baseline |
+| **Внедрить сейчас:** ограниченный Teamly.to pilot | Eclipse Chat · Eclipse AI Hub · Eclipse Library | Research, Content и Growth команды готовят briefs, drafts и reports быстрее, но не действуют снаружи | M / P1 | Создать test workspace только с public/sanitized data; без write scopes, primary accounts и autopublish |
+| **Добавить в roadmap:** Growth Command Room и пять ролей | Eclipse Chat · Eclipse AI Hub | Finding → evidence → draft → claims review → approval → result не теряются между чатами | L / P1 | Сделать local-only schema и synthetic evaluation на пяти существующих Eclipse cases |
+| **Добавить в roadmap:** read-only Growth checks | Hopson Sentinel · Eclipse Forge Landing · Eclipse Library | Раньше обнаруживаются сломанные ссылки и потери conversion path | M / P2 | Проверять только public allowlist URL без analytics credentials |
+| **Оставить как reference:** Cells, role teams, audit и approval gates | Eclipse Chat · Eclipse AI Hub | Понятное разделение research, creation, verification и decision | — / P2 | Перенести contract и UX, не vendor runtime |
+| **Не использовать:** autonomous outreach, autopublish, ads и payments | Вся экосистема | Исключает spam, ошибочную публикацию и финансовый ущерб | — / P0 guardrail | Любое внешнее действие оставить отдельным явным подтверждением владельца |
+
+Главная conversion surface — [Eclipse Forge Landing](https://eclipse-forge.ru/). Library отвечает
+за исследования и SEO, Chat — за review/approval, AI Hub — за роли, Media/Shotforge/HyperFrames —
+за проверенные media assets, Sentinel — только за read-only checks. Конечный KPI — целевые обращения
+и использование продуктов, а не количество AI-текстов.
 
 ---
 

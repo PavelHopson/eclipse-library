@@ -1,4 +1,5 @@
 import { readFile } from 'node:fs/promises';
+import { parseCatalogRows } from './catalog-source.mjs';
 
 const repoRoot = new URL('../', import.meta.url);
 const [readme, detailsText, indexHtml] = await Promise.all([
@@ -48,9 +49,7 @@ if (!Array.isArray(details)) {
 } else {
   const ids = new Set();
   const urls = new Set();
-  const readmeUrls = new Set(
-    [...readme.matchAll(/\]\((https?:\/\/[^)\s]+)\)/g)].map((match) => canonicalUrl(match[1])),
-  );
+  const readmeUrls = new Set(parseCatalogRows(readme).rows.map((row) => canonicalUrl(row.url)));
 
   details.forEach((item, index) => {
     const label = item?.id || `item ${index + 1}`;
@@ -71,6 +70,9 @@ if (!Array.isArray(details)) {
     if (!allowedDecisions.has(item?.decision)) errors.push(`${label}: unsupported decision value "${item?.decision}".`);
     if (!allowedRisk.has(item?.riskLevel)) errors.push(`${label}: unsupported riskLevel "${item?.riskLevel}".`);
     if (item?.type !== undefined && !allowedType.has(item.type)) errors.push(`${label}: unsupported type "${item?.type}".`);
+    if (item?.guide !== undefined && (typeof item.guide !== 'string' || !/^[a-z0-9-]+$/.test(item.guide))) {
+      errors.push(`${label}: optional "guide" must be a safe lowercase slug.`);
+    }
     if (!item?.access || typeof item.access !== 'object' || Array.isArray(item.access)) {
       errors.push(`${label}: access metadata is required.`);
     } else {

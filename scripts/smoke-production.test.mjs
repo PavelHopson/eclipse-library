@@ -2,6 +2,7 @@ import assert from 'node:assert/strict';
 import test from 'node:test';
 import {
   assertMobileScrollGuard,
+  assertMobileGuideTocGuard,
   assertTopicRouteResetOrder,
   extractVersionedAsset,
   validateBaseUrl,
@@ -39,6 +40,29 @@ test('keeps mobile scrollspy horizontal and reserves scrollIntoView for desktop'
     link.scrollIntoView({ block: 'nearest' });
   `;
   assert.throws(() => assertMobileScrollGuard(regressedSource), /must not move the document vertically/);
+});
+
+test('keeps guide TOC auto-reveal on desktop and collapses the mobile menu after selection', () => {
+  const validSource = `
+    function revealActiveGuideLink(link) {
+      if (window.matchMedia('(min-width: 1080px)').matches) {
+        link.scrollIntoView({ block: 'nearest' });
+      }
+    }
+
+    function buildGuideToc(body) {}
+    if (tocDetails && !window.matchMedia('(min-width: 1080px)').matches) tocDetails.open = false;
+  `;
+  assert.doesNotThrow(() => assertMobileGuideTocGuard(validSource));
+
+  const regressedSource = `
+    function revealActiveGuideLink(link) {
+      link.scrollIntoView({ block: 'nearest' });
+    }
+
+    function buildGuideToc(body) {}
+  `;
+  assert.throws(() => assertMobileGuideTocGuard(regressedSource), /desktop sidebar|collapse/);
 });
 
 test('clears a browse topic before restoring the normal catalog filters', () => {

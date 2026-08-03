@@ -92,6 +92,7 @@
     'local-ai': { label: 'Запустить AI локально', hint: 'без отправки данных во внешний API', match: (c) => ['model', 'tool', 'oss'].includes(c.type) && (c.platforms.includes('Local') || /ollama|lm studio|gpt4all|local ai|local model/i.test(c.text)) },
     automation: { label: 'Автоматизировать работу', hint: 'agents, skills и повторяемые workflows', match: (c) => ['agent', 'skill'].includes(c.type) || /automation|автоматизац|оркестрац/i.test(c.text) },
     research: { label: 'Искать и разбирать данные', hint: 'research, RAG, OCR и документы', match: (c) => /research|rag|ocr|поиск|документ|knowledge|crawl|scrap/i.test(c.text) },
+    growth: { label: 'Продвигать бренд', hint: 'контент, SEO, офферы и аналитика', match: (c) => /marketing|growth|smm|seo|бренд|контент|реклам|лид-магнит|lead magnet|конверси|аудит профил/i.test(c.text) },
     security: { label: 'Проверить безопасность', hint: 'privacy, аудит и защитные инструменты', match: (c) => TOPIC_ROUTES.security.match(c) },
     media: { label: 'Создать или обработать медиа', hint: 'изображения, видео и аудио', match: (c) => c.type === 'media' },
     commerce: { label: 'Сделать сайт или магазин', hint: 'лендинг, storefront и платежи', match: (c) => c.type === 'shop' || /storefront|e-commerce|интернет-магазин|лендинг|payment|платеж/i.test(c.text) },
@@ -575,6 +576,7 @@
     r.verifiedAt = detail?.verifiedAt || null;
     r.freshness = freshnessState(r.verifiedAt);
     r.quickStart = detail?.quickStart || defaultSteps(r);
+    r.guide = detail?.guide || '';
     r.linkHealth = linkHealthByUrl.get(canonicalUrl(r.url)) || { status: 'unchecked', httpStatus: null };
     r.githubRepoKey = githubRepoKey(r.url);
     r.repositoryMetadata = r.githubRepoKey
@@ -1481,6 +1483,12 @@
   }
   // clickable table of contents (modules) for the guide viewer
   let guideTocObs = null;
+  function revealActiveGuideLink(link) {
+    if (window.matchMedia('(min-width: 1080px)').matches) {
+      link.scrollIntoView({ block: 'nearest' });
+    }
+  }
+
   function buildGuideToc(body) {
     const toc = $('#guideToc'); if (!toc) return;
     if (guideTocObs) { guideTocObs.disconnect(); guideTocObs = null; }
@@ -1495,7 +1503,8 @@
       used.add(id); h.id = id;
     });
     toc.hidden = false;
-    toc.innerHTML = `<details class="gt-details" open><summary class="gt-head">Содержание</summary><div class="gt-list">` +
+    const tocOpen = window.matchMedia('(min-width: 1080px)').matches ? ' open' : '';
+    toc.innerHTML = `<details class="gt-details"${tocOpen}><summary class="gt-head">Содержание</summary><div class="gt-list">` +
       h2s.map((h) => `<button type="button" class="gt-link" data-target="${h.id}">${esc(h.textContent.trim())}</button>`).join('') +
       `</div></details>`;
     const map = new Map(h2s.map((h) => [h.id, toc.querySelector(`.gt-link[data-target="${h.id}"]`)]));
@@ -1504,7 +1513,7 @@
         if (!e.isIntersecting) return;
         toc.querySelectorAll('.gt-link.active').forEach((x) => x.classList.remove('active'));
         const link = map.get(e.target.id);
-        if (link) { link.classList.add('active'); link.scrollIntoView({ block: 'nearest' }); }
+        if (link) { link.classList.add('active'); revealActiveGuideLink(link); }
       });
     }, { root: $('#guideView'), rootMargin: '-82px 0px -70% 0px' });
     h2s.forEach((h) => guideTocObs.observe(h));
@@ -1651,8 +1660,14 @@
       `<details class="original-note"><summary>Показать исходное техническое описание</summary><p>${esc(plain(r.rawText))}</p></details>` +
       `<div class="item-cta">${sourceBlocked ? '<strong class="blocked-source">Источник скрыт: автоматическая проверка обнаружила небезопасное назначение.</strong>' : `<a href="${escAttr(r.url)}" target="_blank" rel="noopener">Открыть официальный источник ↗</a>`}` +
         `<span>${r.detail ? 'Карточка проверена и дополнена редактором Eclipse Library.' : 'Это базовая карточка. Перед внедрением нужна дополнительная проверка.'}</span></div>`;
-    $('#itemActionSlot').appendChild(favoriteButton(r, true));
-    $('#itemActionSlot').appendChild(compareButton(r, true));
+    const actionSlot = $('#itemActionSlot');
+    if (r.guide) {
+      const guideLink = el('a', 'item-guide-button', 'Открыть полный гайд →');
+      guideLink.href = `#guide/${encodeURIComponent(r.guide)}`;
+      actionSlot.appendChild(guideLink);
+    }
+    actionSlot.appendChild(favoriteButton(r, true));
+    actionSlot.appendChild(compareButton(r, true));
     renderRelatedItems(entry);
     updateFavoritesUI();
     updateCompareUI();
@@ -1866,6 +1881,8 @@
   $('#guideToc').addEventListener('click', (e) => {
     const b = e.target.closest('.gt-link'); if (!b) return;
     const target = document.getElementById(b.dataset.target);
+    const tocDetails = b.closest('.gt-details');
+    if (tocDetails && !window.matchMedia('(min-width: 1080px)').matches) tocDetails.open = false;
     if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
   });
   $('#emptyClear').addEventListener('click', () => clearLibraryFilters({ focus: true }));

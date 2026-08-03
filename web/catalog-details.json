@@ -3657,5 +3657,115 @@
       "signup": "none",
       "runtime": "hybrid"
     }
+  },
+  {
+    "id": "teamly-to",
+    "title": "Teamly.to",
+    "url": "https://teamly.to/",
+    "type": "agent",
+    "simpleDescription": "Teamly.to — облачная платформа для оркестрации AI-команд: агенты работают в отдельных Cells, получают роли и при явном подключении обращаются к внешним сервисам. Для Eclipse Forge подходит только как ограниченный marketing pilot без автономной публикации и production-доступа.",
+    "useCases": [
+      "Собрать Research-команду для проверки рынка, аудитории, конкурентов и фактов по публичным источникам",
+      "Подготовить Content-командой briefs, drafts, редактуру и варианты одного материала без автопубликации",
+      "Проверить Growth-командой offer, lead magnet, funnel и обезличенный weekly report",
+      "Изучить Cells, разделение ролей, audit trail и approval gates как reference для Eclipse Growth OS"
+    ],
+    "platforms": [
+      "Web",
+      "Cloud",
+      "SaaS",
+      "OAuth integrations"
+    ],
+    "license": "Проприетарный SaaS; Teamly Terms of Service, Acceptable Use Policy и условия subprocessors",
+    "pricing": "На 03.08.2026 тариф Teamly12 показывал 3 команды, 12 агентов и 20 Teamly Dollars: $6 при подключении, $23 через 7 дней и затем $29/месяц; цена и checkout могут измениться и проверяются перед оплатой",
+    "trust": "official",
+    "trustReason": "Проверены официальный сайт, pricing, Terms, Privacy Policy и список subprocessors. Это подтверждает возможности и правила сервиса, но не является независимой оценкой качества агентов, ROI или безопасности конкретной integration.",
+    "projects": [
+      "Eclipse Forge Landing",
+      "Eclipse Library",
+      "Eclipse Chat",
+      "Eclipse AI Hub",
+      "Eclipse Media",
+      "Shotforge",
+      "Hopson Sentinel"
+    ],
+    "decision": "now",
+    "riskLevel": "high",
+    "risks": [
+      "Terms возлагают последствия действий агентов на пользователя и считают skills, presets и standing approvals формой предварительного разрешения",
+      "Prompt injection или ошибочное планирование могут привести к нежелательному действию в подключённом сервисе",
+      "Выбранный контекст передаётся сторонним LLM-провайдерам, а OAuth integrations используют Composio и собственную subprocessors chain",
+      "Introductory billing автоматически переходит в регулярную подписку; цену, renewal и cancellation нужно проверять перед checkout",
+      "Широкие OAuth scopes, production accounts, private analytics и client data увеличивают последствия ошибки"
+    ],
+    "verifiedAt": "2026-08-03",
+    "quickStart": [
+      "Перед оплатой повторно открыть pricing, Terms, Privacy и subprocessors; не путать Teamly.to с российским Teamly.ru",
+      "Создать отдельный test workspace на 30 дней и три команды Research, Content и Growth по guide Eclipse Growth OS",
+      "Использовать только публичные Eclipse Forge материалы и обезличенную агрегированную аналитику; не загружать secrets, private repositories и client data",
+      "Не подключать production GitHub, primary social/email, advertising, payments или autopublish; если integration неизбежна, дать минимальный read-only scope и отдельный credential",
+      "В конце pilot перечислить все OAuth connections, отозвать ненужные tokens и продолжать только при измеримом снижении времени, доказательной точности и qualified leads"
+    ],
+    "access": {
+      "cost": "paid",
+      "signup": "required",
+      "runtime": "cloud"
+    }
+  },
+  {
+    "id": "eclipse-growth-os",
+    "title": "Eclipse Growth OS",
+    "url": "https://github.com/PavelHopson/eclipse-library/blob/master/guides/eclipse-growth-os.md",
+    "type": "prompt",
+    "guide": "eclipse-growth-os",
+    "simpleDescription": "Eclipse Growth OS — собственная доказательная система продвижения Павла Хопсона и Eclipse Forge. Она связывает реальные releases и исследования с контентом, Landing, lead magnets и целевыми обращениями, а AI оставляет в роли помощника под human approval.",
+    "useCases": [
+      "Запустить 30-дневный content pilot из 12 сильных материалов вместо потока общих AI-постов",
+      "Проверять каждый claim по official source, live, commit, test или benchmark до публикации",
+      "Собрать lead magnet и conversion path от Library или product demo до целевого обращения",
+      "Скопировать семь готовых промптов для strategy, calendar, audit, ideas, metrics, funnel и Claim Auditor",
+      "Настроить безопасный Teamly.to pilot или воспроизвести тот же процесс внутри Chat и AI Hub"
+    ],
+    "platforms": [
+      "Web",
+      "Markdown",
+      "ChatGPT",
+      "Claude",
+      "Gemini"
+    ],
+    "license": "Авторский редакционный материал Eclipse Forge; сторонние сервисы и источники сохраняют собственные Terms",
+    "pricing": "Бесплатный guide и prompt pack; AI providers, Teamly.to, analytics и media production могут иметь отдельную стоимость",
+    "trust": "official",
+    "trustReason": "Материал подготовлен и проверен редакцией Eclipse Library для собственной экосистемы. Рекламные claims со скриншотов явно исключены, Teamly-факты сверены по official pricing, Terms, Privacy и subprocessors на 03.08.2026.",
+    "projects": [
+      "Eclipse Forge Landing",
+      "Eclipse Library",
+      "Eclipse Chat",
+      "Eclipse AI Hub",
+      "Eclipse Media",
+      "Shotforge",
+      "Hopson Sentinel"
+    ],
+    "decision": "now",
+    "riskLevel": "medium",
+    "risks": [
+      "LLM может придумать аналитику, customer insight или product claim, если не приложены данные и первичные источники",
+      "Автоматическая публикация способна выпустить ошибочный, чувствительный или юридически рискованный материал",
+      "Vanity metrics могут замаскировать отсутствие product usage и qualified leads",
+      "Cloud AI и marketing SaaS не должны получать secrets, client data или user-level analytics без отдельной правовой и privacy проверки"
+    ],
+    "verifiedAt": "2026-08-03",
+    "quickStart": [
+      "Открыть guide и зафиксировать один audience segment, одну проблему, один product outcome и baseline",
+      "Выбрать реальный release или case с live, commit, test, screenshot или official source",
+      "Скопировать подходящий prompt и заполнить обязательные evidence, channel, effort, KPI и approval fields",
+      "Прогнать draft через Claim Auditor; unsupported claims исправить или удалить",
+      "Проверить mobile preview и CTA вручную, затем записать результат через 72 часа и принять решение continue, change или stop"
+    ],
+    "access": {
+      "cost": "free",
+      "signup": "none",
+      "runtime": "cloud"
+    }
   }
 ]

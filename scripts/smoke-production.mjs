@@ -51,6 +51,17 @@ export function assertMobileScrollGuard(appSource) {
   assert.doesNotMatch(mobileBranch, /scrollIntoView/, 'Mobile scrollspy must not move the document vertically.');
 }
 
+export function assertMobileGuideTocGuard(appSource) {
+  const functionStart = appSource.indexOf('function revealActiveGuideLink(link)');
+  assert.notEqual(functionStart, -1, 'Guide TOC scroll guard is missing.');
+  const functionEnd = appSource.indexOf('function buildGuideToc', functionStart);
+  assert.notEqual(functionEnd, -1, 'Guide TOC scroll guard is malformed.');
+  const guard = appSource.slice(functionStart, functionEnd);
+  assert.match(guard, /min-width: 1080px/, 'Guide TOC may reveal active links only in the desktop sidebar.');
+  assert.match(guard, /scrollIntoView/, 'Desktop guide TOC reveal is missing.');
+  assert.match(appSource, /tocDetails && !window\.matchMedia\('\(min-width: 1080px\)'\)\.matches/, 'Mobile guide TOC must collapse after section selection.');
+}
+
 export function assertTopicRouteResetOrder(appSource) {
   const browseBranch = "if (/^#browse\\//.test(h))";
   const browseStart = appSource.indexOf(browseBranch);
@@ -100,6 +111,8 @@ export async function smokeProduction(baseValue, deploySha = '') {
   assert.equal(liveApp, localApp, 'Production app.js does not match the deployed commit.');
   assertMobileScrollGuard(localApp);
   assertMobileScrollGuard(liveApp);
+  assertMobileGuideTocGuard(localApp);
+  assertMobileGuideTocGuard(liveApp);
   assertTopicRouteResetOrder(localApp);
   assertTopicRouteResetOrder(liveApp);
 
