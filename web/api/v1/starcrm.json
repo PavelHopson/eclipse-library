@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "consumer": "StarCRM",
-  "catalogVersion": "12a5d0a10d238b2f3c0c2cf6b7dcfa9c7a16ff92cbb1ab523b382abea65e1c68",
+  "catalogVersion": "d739cc9b068d0f5fd6a7d91af3d568468d9d5ce52b095afd026feee04902da89",
   "generatedAt": null,
   "policy": {
     "greyResourcesExcluded": true,
@@ -26151,7 +26151,7 @@
         "Проверять каждый claim по official source, live, commit, test или benchmark до публикации",
         "Собрать lead magnet и conversion path от Library или product demo до целевого обращения",
         "Скопировать семь готовых промптов для strategy, calendar, audit, ideas, metrics, funnel и Claim Auditor",
-        "Настроить безопасный Teamly.to pilot или воспроизвести тот же процесс внутри Chat и AI Hub"
+        "Запустить собственный Growth Command Room в Eclipse Chat с execution-ролями Eclipse AI Hub"
       ],
       "platforms": [
         "Web",
@@ -26213,12 +26213,12 @@
       "category": "Brand growth stack",
       "subcategory": "Проверенные материалы",
       "addedAt": "2026-08-03",
-      "description": "Teamly.to — облачная платформа для оркестрации AI-команд: агенты работают в отдельных Cells, получают роли и при явном подключении обращаются к внешним сервисам. Для Eclipse Forge подходит только как ограниченный marketing pilot без автономной публикации и production-доступа.",
+      "description": "Teamly.to — платная облачная платформа для оркестрации AI-команд: агенты работают в отдельных Cells, получают роли и могут обращаться к внешним сервисам. Eclipse Forge не покупает и не подключает Teamly: сервис остаётся только архитектурным reference для собственного Eclipse Growth OS.",
       "useCases": [
-        "Собрать Research-команду для проверки рынка, аудитории, конкурентов и фактов по публичным источникам",
-        "Подготовить Content-командой briefs, drafts, редактуру и варианты одного материала без автопубликации",
-        "Проверить Growth-командой offer, lead magnet, funnel и обезличенный weekly report",
-        "Изучить Cells, разделение ролей, audit trail и approval gates как reference для Eclipse Growth OS"
+        "Изучить модель изолированных Cells и перенести её как owned workspace boundary в Eclipse Growth OS",
+        "Воспроизвести разделение Research, Content и Growth ролей внутри Eclipse Chat и AI Hub",
+        "Использовать activity stream, audit trail и approval gates как продуктовый reference, не копируя закрытый код",
+        "Периодически сверять Terms, privacy и pricing только для актуальности reference-карточки"
       ],
       "platforms": [
         "Web",
@@ -26247,7 +26247,7 @@
         "runtime": "cloud"
       },
       "trust": "official",
-      "decision": "now",
+      "decision": "reference",
       "riskLevel": "high",
       "projects": [
         "Eclipse Forge Landing",

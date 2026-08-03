@@ -12,7 +12,7 @@
 - 219 лицензий подтверждаются official GitHub license metadata.
 - 281 лицензия или набор условий всё ещё требуют отдельной проверки.
 - 64 grey-ресурса видны человеку как reference, но исключены из agent recommendations.
-- Всего 69 записей исключены из agent exports по risk, editorial или repository policy.
+- Всего 71 запись исключена из agent exports по risk, editorial, transport или repository policy.
 - 247 записей получили отдельное поле `addedAt`; неизвестные даты не выдумываются.
 
 ## Как устроены данные

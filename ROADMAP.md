@@ -44,14 +44,15 @@
 - [x] Добавить доказательный Eclipse Growth OS: разобрать SMM-шаблоны без рекламных claims,
       подготовить заполненную основу бренда, 30-дневный pilot, lead magnets, KPI, approval gate,
       Claim Auditor, семь copy-ready промптов и task-first маршрут «Продвигать бренд».
-- [x] Проверить Teamly.to как отдельный proprietary SaaS и описать 30-дневный P1/M pilot:
-      public/sanitized data, три команды Research/Content/Growth, минимальные read-only scopes,
-      без production GitHub, autopublish, outreach, ads и payments.
+- [x] Проверить Teamly.to как отдельный proprietary SaaS и отказаться от платного pilot:
+      No Plan оказался configuration-only, checkout и integrations не начинаются; Cells, роли,
+      activity stream и approval gates остаются только архитектурным reference.
+- [ ] Eclipse Chat / AI Hub: собрать owned Growth OS MVP без зависимости от Teamly — один bounded
+      workflow `Finding -> Brief -> Draft -> Claims review -> Approved artifact`, observable run log,
+      stop/pause, budget, provenance и deny-by-default approval; без connectors и публикации.
 - [ ] Провести первый 30-дневный brand pilot: зафиксировать Landing/channel baseline, выпустить
       12 evidence-backed материалов, измерить product visits, qualified leads, conversion и effort,
-      затем принять решение continue/change/stop по каждому формату.
-- [ ] Eclipse Chat / AI Hub: реализовать собственный Growth Command Room и роли Researcher,
-      Strategist, Writer, Editor, Claim Auditor с structured handoff и manual publish approval.
+      затем принять решение continue/change/stop по каждому формату. Начинать только после owned MVP.
 - [x] Проверить и добавить Operational Agent Stack: Claude Ads, Fincept Terminal, Vibe Trading,
       Camofox Browser, HyperFrames и Open-Generative-AI с лицензиями, trust/risk границами,
       проектной применимостью и понятным порядком внедрения.
@@ -185,12 +186,12 @@
   LF-нормализация guide sources устранила четыре обрезанных описания и сделала manifest одинаковым
   на Windows и Ubuntu; live-проверка подтвердила `app.js?v=35` и schema v2.
 
-- Добавлены две проверенные записи: Teamly.to и Eclipse Growth OS. Teamly отделён от `teamly.ru`;
-  карточка объясняет Cells, изменяемую subscription price, external LLM/Composio boundary,
-  standing approvals и prompt-injection risk простыми словами.
+- Решение по Teamly.to обновлено после проверки No Plan: платный pilot отменён, checkout и OAuth
+  integrations не начинаются. Teamly остаётся только reference для Cells, ролей, activity stream
+  и approval gates; рабочий контур строится как owned Eclipse Growth OS в Chat и AI Hub.
 - Опубликован guide `guides/eclipse-growth-os.md`: рекламные обещания «SMM за 150 000 ₽» и
   «$3 000 в месяц» исключены как неподтверждённые; вместо них добавлены brand foundation,
-  conversion path, 12 материалов на 30 дней, пять lead magnets, KPI, Teamly pilot, нативный roadmap,
+  conversion path, 12 материалов на 30 дней, пять lead magnets, KPI, Teamly reference, owned MVP roadmap,
   семь evidence-first промптов и единый checklist перед публикацией.
 - В task-first навигацию добавлена цель «Продвигать бренд»: она собирает marketing, content,
   SEO, ads, lead-magnet и conversion материалы и сохраняется в shareable URL как `task=growth`.

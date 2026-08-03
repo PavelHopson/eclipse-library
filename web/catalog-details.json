@@ -3663,12 +3663,12 @@
     "title": "Teamly.to",
     "url": "https://teamly.to/",
     "type": "agent",
-    "simpleDescription": "Teamly.to — облачная платформа для оркестрации AI-команд: агенты работают в отдельных Cells, получают роли и при явном подключении обращаются к внешним сервисам. Для Eclipse Forge подходит только как ограниченный marketing pilot без автономной публикации и production-доступа.",
+    "simpleDescription": "Teamly.to — платная облачная платформа для оркестрации AI-команд: агенты работают в отдельных Cells, получают роли и могут обращаться к внешним сервисам. Eclipse Forge не покупает и не подключает Teamly: сервис остаётся только архитектурным reference для собственного Eclipse Growth OS.",
     "useCases": [
-      "Собрать Research-команду для проверки рынка, аудитории, конкурентов и фактов по публичным источникам",
-      "Подготовить Content-командой briefs, drafts, редактуру и варианты одного материала без автопубликации",
-      "Проверить Growth-командой offer, lead magnet, funnel и обезличенный weekly report",
-      "Изучить Cells, разделение ролей, audit trail и approval gates как reference для Eclipse Growth OS"
+      "Изучить модель изолированных Cells и перенести её как owned workspace boundary в Eclipse Growth OS",
+      "Воспроизвести разделение Research, Content и Growth ролей внутри Eclipse Chat и AI Hub",
+      "Использовать activity stream, audit trail и approval gates как продуктовый reference, не копируя закрытый код",
+      "Периодически сверять Terms, privacy и pricing только для актуальности reference-карточки"
     ],
     "platforms": [
       "Web",
@@ -3677,7 +3677,7 @@
       "OAuth integrations"
     ],
     "license": "Проприетарный SaaS; Teamly Terms of Service, Acceptable Use Policy и условия subprocessors",
-    "pricing": "На 03.08.2026 тариф Teamly12 показывал 3 команды, 12 агентов и 20 Teamly Dollars: $6 при подключении, $23 через 7 дней и затем $29/месяц; цена и checkout могут измениться и проверяются перед оплатой",
+    "pricing": "Платный SaaS. Проверка No Plan показала configuration-only режим: выполнение specialist team требовало $6 при подключении, затем $23 через 7 дней и $29/месяц. Eclipse Forge checkout не начинает и бюджет на Teamly не выделяет",
     "trust": "official",
     "trustReason": "Проверены официальный сайт, pricing, Terms, Privacy Policy и список subprocessors. Это подтверждает возможности и правила сервиса, но не является независимой оценкой качества агентов, ROI или безопасности конкретной integration.",
     "projects": [
@@ -3689,7 +3689,7 @@
       "Shotforge",
       "Hopson Sentinel"
     ],
-    "decision": "now",
+    "decision": "reference",
     "riskLevel": "high",
     "risks": [
       "Terms возлагают последствия действий агентов на пользователя и считают skills, presets и standing approvals формой предварительного разрешения",
@@ -3700,11 +3700,11 @@
     ],
     "verifiedAt": "2026-08-03",
     "quickStart": [
-      "Перед оплатой повторно открыть pricing, Terms, Privacy и subprocessors; не путать Teamly.to с российским Teamly.ru",
-      "Создать отдельный test workspace на 30 дней и три команды Research, Content и Growth по guide Eclipse Growth OS",
-      "Использовать только публичные Eclipse Forge материалы и обезличенную агрегированную аналитику; не загружать secrets, private repositories и client data",
-      "Не подключать production GitHub, primary social/email, advertising, payments или autopublish; если integration неизбежна, дать минимальный read-only scope и отдельный credential",
-      "В конце pilot перечислить все OAuth connections, отозвать ненужные tokens и продолжать только при измеримом снижении времени, доказательной точности и qualified leads"
+      "Не начинать checkout, не создавать платные команды и не подключать OAuth integrations",
+      "Изучать только публичные страницы и документацию Teamly без загрузки данных Eclipse Forge",
+      "Зафиксировать полезные паттерны: Cell boundary, роли, activity stream, audit log и approval gate",
+      "Перенести паттерны в собственные versioned contracts Eclipse Chat и AI Hub без зависимости от Teamly",
+      "Не использовать Teamly для публикаций, outreach, рекламы, платежей, production GitHub или клиентских данных"
     ],
     "access": {
       "cost": "paid",
@@ -3724,7 +3724,7 @@
       "Проверять каждый claim по official source, live, commit, test или benchmark до публикации",
       "Собрать lead magnet и conversion path от Library или product demo до целевого обращения",
       "Скопировать семь готовых промптов для strategy, calendar, audit, ideas, metrics, funnel и Claim Auditor",
-      "Настроить безопасный Teamly.to pilot или воспроизвести тот же процесс внутри Chat и AI Hub"
+      "Запустить собственный Growth Command Room в Eclipse Chat с execution-ролями Eclipse AI Hub"
     ],
     "platforms": [
       "Web",
@@ -3734,9 +3734,9 @@
       "Gemini"
     ],
     "license": "Авторский редакционный материал Eclipse Forge; сторонние сервисы и источники сохраняют собственные Terms",
-    "pricing": "Бесплатный guide и prompt pack; AI providers, Teamly.to, analytics и media production могут иметь отдельную стоимость",
+    "pricing": "Бесплатный guide и prompt pack; расходы возможны только на выбранные AI providers, analytics и media production. Teamly не требуется",
     "trust": "official",
-    "trustReason": "Материал подготовлен и проверен редакцией Eclipse Library для собственной экосистемы. Рекламные claims со скриншотов явно исключены, Teamly-факты сверены по official pricing, Terms, Privacy и subprocessors на 03.08.2026.",
+    "trustReason": "Материал подготовлен и проверен редакцией Eclipse Library для собственной экосистемы. Рекламные claims со скриншотов исключены; Teamly сохранён только как проверенный архитектурный reference, а рабочий контур проектируется как owned Eclipse service.",
     "projects": [
       "Eclipse Forge Landing",
       "Eclipse Library",

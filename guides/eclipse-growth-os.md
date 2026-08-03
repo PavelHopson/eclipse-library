@@ -146,60 +146,60 @@ observability -> feedback. Каждый этап должен заканчива
 Ограничить scope: один публичный сайт или один описанный AI-процесс, до пяти findings,
 без входа в аккаунты и без секретов. Результат — короткий report и предложение только при наличии fit.
 
-## Teamly.to: безопасный 30-дневный pilot
+## Teamly.to: только архитектурный reference
 
-Teamly.to — не российский Teamly.ru. Это облачная платформа, где AI-команды работают в
-изолированных Cells и могут обращаться к подключённым сервисам. На 03.08.2026 официальный тариф
-Teamly12 показывал 3 команды, 12 агентов и 20 Teamly Dollars: 6 долларов при подключении,
-23 доллара через 7 дней и затем 29 долларов в месяц. Это изменяемая цена: checkout нужно
-перепроверить непосредственно перед оплатой.
+Teamly.to — не российский Teamly.ru. Это платная облачная платформа, где AI-команды работают
+в отдельных Cells и могут обращаться к подключённым сервисам. Проверка No Plan показала, что
+бесплатный режим годится только для inspection/configuration: запуск specialist team потребовал
+6 долларов при подключении, затем 23 доллара через 7 дней и 29 долларов в месяц.
 
-### Три команды
+**Решение Eclipse Forge:** Teamly не покупать, checkout не начинать, OAuth integrations не
+подключать. Платный pilot отменён. Сервис остаётся источником продуктовых идей, а рабочий контур
+строится внутри Eclipse Chat, Eclipse AI Hub и Eclipse Library.
 
-| Команда | Роли | Разрешённый результат |
-|---|---|---|
-| Research | Audience Researcher, Competitor Analyst, Fact Checker, Source Librarian | Brief только по публичным и обезличенным данным, со ссылками и uncertainty |
-| Content | Strategist, Writer, Editor, Repurposer | Draft, варианты hook/CTA, production brief; без публикации |
-| Growth | Offer Designer, Funnel Analyst, Experiment Reviewer, Metrics Reporter | Offer, lead magnet, experiment plan и read-only weekly report |
+### Какие паттерны берём как reference
 
-### Что разрешено в pilot
+| Паттерн Teamly | Собственная реализация Eclipse |
+|---|---|
+| Изолированная Cell | Workspace с явным project, data boundary, budget и owners |
+| Команда агентов | Versioned template Research / Content / Growth с фиксированными ролями |
+| Activity stream | Наблюдаемый run log: input, handoff, artifact, review и outcome |
+| Skills и presets | Проверяемые workflow definitions без standing authorization |
+| Approval gates | Ручной diff и deny-by-default перед публикацией или внешним действием |
+| Connected services | Сначала без connectors; затем отдельные read-only adapters с минимальными scopes |
 
-- Публичные страницы Eclipse Forge и собственные опубликованные материалы.
-- Обезличенная агрегированная аналитика без user-level событий.
-- Read-only integrations с минимальными scopes, если без них нельзя проверить гипотезу.
-- Drafts, briefs, checklists и отчёты, которые человек скачивает и проверяет.
-- Отдельный test workspace, отдельные credentials и журнал всех разрешений.
+Закрытый код, бренд, интерфейс и Terms Teamly не копируются. Мы используем только общие
+архитектурные идеи, реализованные самостоятельно под security и UX-стандарт Eclipse Forge.
 
-### Что запрещено
+### Что Teamly не получает
 
-- Production GitHub write, deploy, secrets, private repositories и клиентские данные.
-- Автопубликация, массовые личные сообщения, spam/outreach и scraping в обход Terms.
-- Рекламные кабинеты, изменение бюджета, платежи и финансовые действия.
-- Primary email/social accounts и широкие OAuth scopes.
-- Preset или skill с неограниченным предварительным разрешением на внешние действия.
+- оплату или подписку Eclipse Forge;
+- OAuth tokens, primary social/email accounts и production GitHub;
+- private repositories, client data, user-level analytics и secrets;
+- drafts для автопубликации, рекламные кабинеты, платежи или standing approvals.
 
-### Почему ограничения обязательны
-
-Teamly Terms считают approval gates, skills и presets действиями пользователя и возлагают
-последствия работы агентов на владельца аккаунта. Terms отдельно признают риск prompt injection.
-Privacy Policy разрешает передавать выбранный контекст сторонним LLM-провайдерам, а OAuth-интеграции
-обслуживаются через Composio. Поэтому isolated Cell не означает, что данные остаются только у нас.
-
-### Решение после 30 дней
-
-Продолжать pilot только если выполнены все условия:
-
-- не было неподтверждённых внешних действий или утечки scopes;
-- не менее 80% фактических утверждений имеют рабочий первичный источник;
-- время от verified finding до approved draft уменьшилось минимум на 25%;
-- появился хотя бы один qualified lead или измеримое улучшение conversion path;
-- стоимость Teamly и ручного review ниже ценности сэкономленного времени;
-- все OAuth connections можно перечислить, отозвать и объяснить.
-
-Иначе отключить integrations, отозвать tokens, экспортировать нужные несекретные артефакты и
-продолжить тем же процессом в собственном Eclipse Growth OS.
+Terms и Privacy остаются evidence для reference-карточки: они показывают, почему owned-контур
+предпочтительнее передачи контекста внешним LLM providers и Composio integration chain.
 
 ## Нативный Eclipse Growth OS
+
+### Первый owned vertical slice
+
+Не нужно сразу повторять весь Teamly. Первый полезный сценарий должен провести один реальный
+release Eclipse Forge по цепочке `Finding -> Brief -> Draft -> Claims review -> Approved artifact`.
+
+Минимальный состав:
+
+1. Growth Command Room в Eclipse Chat показывает этап, owner, budget и следующее действие.
+2. AI Hub запускает Researcher, Strategist, Writer, Editor и Claim Auditor по versioned contract.
+3. Library предоставляет evidence records и official source links, но не исполняет инструменты.
+4. Каждый handoff сохраняется как reviewable JSON artifact с provenance и cost metadata.
+5. Stop/pause работают немедленно; timeout и отсутствие approval всегда дают `deny`.
+6. Публикация, outreach, реклама и платежи отсутствуют в MVP.
+
+**Acceptance criterion:** новый пользователь без инструкции выбирает реальный release, запускает
+bounded workflow, видит источники и стоимость, останавливает run и принимает либо отклоняет итоговый
+artifact. Пока этот путь не проходит desktop/mobile QA, сервис нельзя называть готовым.
 
 ### P1 / L: Growth Command Room в Eclipse Chat
 
