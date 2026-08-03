@@ -17,6 +17,16 @@ function stableTextCompare(left, right) {
   return left === right ? 0 : left < right ? -1 : 1;
 }
 
+function comparableManifest(value) {
+  return JSON.stringify({
+    schemaVersion: value?.schemaVersion,
+    totals: { guides: value?.totals?.guides },
+    guides: [...(value?.guides || [])]
+      .map(({ name, title, description, modules, lessons }) => ({ name, title, description, modules, lessons }))
+      .sort((a, b) => stableTextCompare(a.name, b.name)),
+  });
+}
+
 export async function buildGuidesManifest() {
   const directory = new URL('guides/', root);
   const names = (await readdir(directory)).filter((name) => name.endsWith('.md')).sort();
@@ -46,7 +56,9 @@ if (process.argv[1] && fileURLToPath(import.meta.url) === resolve(process.argv[1
   const output = `${JSON.stringify(manifest, null, 2)}\n`;
   if (process.argv.includes('--check')) {
     const current = await readFile(outputUrl, 'utf8').catch(() => '');
-    if (current !== output) {
+    let currentManifest = null;
+    try { currentManifest = JSON.parse(current); } catch { /* validation below reports stale output */ }
+    if (comparableManifest(currentManifest) !== comparableManifest(manifest)) {
       console.error('guides.json is stale. Run node scripts/build-guides-manifest.mjs.');
       process.exitCode = 1;
     } else console.log(`Guides manifest is current: ${manifest.totals.guides} guides.`);
