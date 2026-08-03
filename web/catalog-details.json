@@ -3609,5 +3609,53 @@
       "signup": "optional",
       "runtime": "hybrid"
     }
+  },
+  {
+    "id": "azgaar-fantasy-map-generator",
+    "title": "Azgaar’s Fantasy Map Generator",
+    "url": "https://azgaar.github.io/Fantasy-Map-Generator/",
+    "type": "tool",
+    "simpleDescription": "Бесплатный браузерный конструктор фэнтези-миров: он создаёт материки, государства, культуры, биомы, города, реки и дороги, а мастер затем правит карту вручную и переносит нужные места в кампанию.",
+    "useCases": [
+      "Быстро создать карту мира или региона для D&D-кампании",
+      "Показать игрокам политические, культурные, религиозные или природные слои мира",
+      "Экспортировать изображение для раздатки и JSON со структурой городов для Eclipse DnD Forge",
+      "Сохранить рабочий .map-файл, чтобы продолжить редактирование позже"
+    ],
+    "platforms": [
+      "Web",
+      "PWA",
+      "Self-host",
+      "Desktop browser"
+    ],
+    "license": "MIT; официальный license отдельно разрешает использовать созданные карты, изображения, видео и производные материалы, включая коммерческие",
+    "pricing": "Бесплатно и без обязательной регистрации; Patreon является добровольной поддержкой, а Dropbox и другие внешние сервисы используются только по выбору пользователя",
+    "trust": "official",
+    "trustReason": "Проверены официальный GitHub Pages, repository Azgaar/Fantasy-Map-Generator, MIT license, актуальная export-json реализация и официальный wiki. Проект активно обновляется; маркетинговые заявления не используются вместо документации.",
+    "projects": [
+      "Eclipse DnD Forge",
+      "Eclipse Chat"
+    ],
+    "decision": "now",
+    "riskLevel": "medium",
+    "risks": [
+      "Большие карты и тяжёлые слои могут тормозить; официальный tutorial рекомендует начинать с 10K cells",
+      "Browser storage не является надёжной резервной копией: рабочий .map-файл нужно сохранять отдельно",
+      "Dropbox, Google Translate, внешние fonts/images и другие optional integrations имеют собственные privacy и Terms",
+      "JSON export — внешний недоверенный файл; перед импортом нужны size limit, schema checks, preview и защита от дублей"
+    ],
+    "verifiedAt": "2026-08-03",
+    "quickStart": [
+      "В Eclipse DnD Forge открыть вкладку «Мир и локации» и панель «Карта мира»",
+      "Скопировать готовый бриф кампании и открыть официальный Azgaar в новой вкладке без передачи API keys или cookies",
+      "Сгенерировать карту, поправить нужные города и сохранить рабочую копию через Save → Machine (.map)",
+      "Для переноса городов выбрать Export → JSON → Minimal, вернуться в DnD Forge и сначала проверить preview",
+      "Добавить только подтверждённые локации; исходный JSON и .map хранить как отдельные campaign assets"
+    ],
+    "access": {
+      "cost": "free",
+      "signup": "none",
+      "runtime": "hybrid"
+    }
   }
 ]

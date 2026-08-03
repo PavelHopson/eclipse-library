@@ -1,6 +1,6 @@
 # Eclipse Library Roadmap
 
-Последнее обновление: **02.08.2026**
+Последнее обновление: **03.08.2026**
 
 ## Текущее состояние
 
@@ -9,8 +9,8 @@
   подробные карточки и guide viewer.
 - `web/catalog-details.json` — проверенный структурированный слой для приоритетных
   материалов; старые записи получают честную пометку о необходимости аудита.
-- `web/catalog-index.json` — детерминированный полный индекс 531 уникального материала:
-  81 редакторски проверен, 450 структурированы из README и явно помечены `inferred`.
+- `web/catalog-index.json` — детерминированный полный индекс 532 уникальных материалов:
+  82 редакторски проверены, 450 структурированы из README и явно помечены `inferred`.
 - `web/link-health.json` — безопасный публичный snapshot weekly-аудита: доступность ссылки
   показывается отдельно от редакторского доверия и не считается security endorsement.
 - Deploy: GitHub Actions → VPS/Caddy из ветки `master`.
@@ -146,6 +146,13 @@
 
 ### 2026-08-03
 
+- Проверен и добавлен Azgaar’s Fantasy Map Generator: официальный GitHub Pages и repository,
+  актуальный JSON export, MIT license и разрешение на коммерческое использование созданных карт.
+  Рекламная формулировка «генератор карт» раскрыта как полноценный редактор world layers с
+  performance, backup и optional third-party privacy ограничениями.
+- Добавлен guide `guides/azgaar-dnd-map-workflow.md`: внешний handoff без iframe/runtime,
+  безопасный Minimal JSON preview/import, защита от дублей и roadmap для Campaign Map Asset v1.
+  Полный upstream dependency tree не включается в Eclipse Forge.
 - Sentinel получил реальный fail-closed `BrowserRead` для optional Camofox worker: инструмент скрыт
   без isolation/telemetry/persistence-off/access-key/allowlist настроек, использует только create/snapshot/stats/close
   и маркирует web content как недоверенный. Сам browser runtime не устанавливался и требует отдельного
