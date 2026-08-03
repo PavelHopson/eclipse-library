@@ -13,6 +13,10 @@ function plain(value) {
     .trim();
 }
 
+function stableTextCompare(left, right) {
+  return left === right ? 0 : left < right ? -1 : 1;
+}
+
 export async function buildGuidesManifest() {
   const directory = new URL('guides/', root);
   const names = (await readdir(directory)).filter((name) => name.endsWith('.md')).sort();
@@ -33,7 +37,7 @@ export async function buildGuidesManifest() {
       lessons: (markdown.match(/^###\s+(?:Урок|Lesson)\s/gmi) || []).length,
     };
   }));
-  guides.sort((a, b) => b.modules - a.modules || a.title.localeCompare(b.title, 'ru'));
+  guides.sort((a, b) => b.modules - a.modules || stableTextCompare(a.title, b.title) || stableTextCompare(a.name, b.name));
   return { schemaVersion: 1, totals: { guides: guides.length }, guides };
 }
 

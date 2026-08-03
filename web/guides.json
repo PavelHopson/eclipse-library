@@ -19,51 +19,9 @@
       "lessons": 15
     },
     {
-      "name": "open-design-codex-workflow",
-      "title": "🎨 Open Design + Codex: шпаргалка по генерации сайта",
-      "description": "Практический сценарий: как развернуть Open Design внутри Codex, получить первый дизайн сайта на канве и затем улучшать его точечными правками, не переписывая весь проект с нуля.",
-      "modules": 0,
-      "lessons": 0
-    },
-    {
-      "name": "starmarket-video-moderation",
-      "title": "🎬 Авто-модерация видео-обзоров StarMarket (видео-классификаторы) — POC",
-      "description": "POC-рецепт: прогонять загруженные продавцами видео-обзоры товара через",
-      "modules": 0,
-      "lessons": 0
-    },
-    {
-      "name": "iphone-camera-content",
-      "title": "📸 Настройки камеры iPhone для контента",
-      "description": "Лучшие настройки съёмки фото/видео на iPhone для визуального контента",
-      "modules": 0,
-      "lessons": 0
-    },
-    {
-      "name": "ai-services",
-      "title": "🔌 Как подключить AI в сервисах Eclipse Forge",
-      "description": "Наши AI-приложения (Eclipse AI Hub, Shotforge и др.) работают на вашем собственном API-ключе: ключ вводится один раз в настройках, хранится только в вашем браузере и никуда не передаётся.",
-      "modules": 0,
-      "lessons": 0
-    },
-    {
-      "name": "marketplace-screenshot-parsing",
-      "title": "🖼️ Парсинг карточек маркетплейсов по СКРИНШОТУ (PixelRAG-подход) — POC",
-      "description": "POC-рецепт: извлекать структурные поля товара (цена, название, характеристики)",
-      "modules": 0,
-      "lessons": 0
-    },
-    {
-      "name": "cua-device-qa",
-      "title": "🤖 Cua для device-QA: автоматизируем ручные прогоны (связка с Claude Code)",
-      "description": "Рецепт: заменить ручную проверку «открыл приложение на телефоне → потыкал →",
-      "modules": 0,
-      "lessons": 0
-    },
-    {
-      "name": "mcp-runtime-audit",
-      "title": "Безопасный runtime-аудит MCP server",
-      "description": "",
+      "name": "ai-code-security-shield",
+      "title": "AI Code Shield / ЩИТ",
+      "description": "Pre-release security gate для AI-сгенерированного кода.",
       "modules": 0,
       "lessons": 0
     },
@@ -71,13 +29,6 @@
       "name": "agent-reach-security-review-2026-07-31",
       "title": "Agent Reach — static security review",
       "description": "Решение Eclipse Forge на 31.07.2026: сохранить как архитектурный Reference.",
-      "modules": 0,
-      "lessons": 0
-    },
-    {
-      "name": "ai-code-security-shield",
-      "title": "AI Code Shield / ЩИТ",
-      "description": "Pre-release security gate для AI-сгенерированного кода.",
       "modules": 0,
       "lessons": 0
     },
@@ -124,6 +75,13 @@
       "lessons": 0
     },
     {
+      "name": "july-2026-kimi-research-media-radar",
+      "title": "July 2026 Kimi / Research / Media radar",
+      "description": "Практическая раскладка батча 18-19.07.2026: что кладём в продуктовый backlog, что используем как reference, а что держим только в risk radar.",
+      "modules": 0,
+      "lessons": 0
+    },
+    {
       "name": "july-2026-agents-local-product-radar",
       "title": "July 2026 agents / local AI / product radar",
       "description": "",
@@ -141,13 +99,6 @@
       "name": "july-2026-backfill-tokenrouter-radar",
       "title": "July 2026 backfill and TokenRouter radar",
       "description": "",
-      "modules": 0,
-      "lessons": 0
-    },
-    {
-      "name": "july-2026-kimi-research-media-radar",
-      "title": "July 2026 Kimi / Research / Media radar",
-      "description": "Практическая раскладка батча 18-19.07.2026: что кладём в продуктовый backlog, что используем как reference, а что держим только в risk radar.",
       "modules": 0,
       "lessons": 0
     },
@@ -204,6 +155,55 @@
       "name": "tokenrouter-vendor-risk-gate",
       "title": "TokenRouter vendor-risk gate",
       "description": "Практический стоп-лист для Eclipse Forge: TokenRouter нельзя подключать, передавать ему API-ключи, prompts, ответы, код или рабочие данные, пока vendor не закроет юридические,…",
+      "modules": 0,
+      "lessons": 0
+    },
+    {
+      "name": "mcp-runtime-audit",
+      "title": "Безопасный runtime-аудит MCP server",
+      "description": "",
+      "modules": 0,
+      "lessons": 0
+    },
+    {
+      "name": "open-design-codex-workflow",
+      "title": "🎨 Open Design + Codex: шпаргалка по генерации сайта",
+      "description": "Практический сценарий: как развернуть Open Design внутри Codex, получить первый дизайн сайта на канве и затем улучшать его точечными правками, не переписывая весь проект с нуля.",
+      "modules": 0,
+      "lessons": 0
+    },
+    {
+      "name": "starmarket-video-moderation",
+      "title": "🎬 Авто-модерация видео-обзоров StarMarket (видео-классификаторы) — POC",
+      "description": "POC-рецепт: прогонять загруженные продавцами видео-обзоры товара через",
+      "modules": 0,
+      "lessons": 0
+    },
+    {
+      "name": "iphone-camera-content",
+      "title": "📸 Настройки камеры iPhone для контента",
+      "description": "Лучшие настройки съёмки фото/видео на iPhone для визуального контента",
+      "modules": 0,
+      "lessons": 0
+    },
+    {
+      "name": "ai-services",
+      "title": "🔌 Как подключить AI в сервисах Eclipse Forge",
+      "description": "Наши AI-приложения (Eclipse AI Hub, Shotforge и др.) работают на вашем собственном API-ключе: ключ вводится один раз в настройках, хранится только в вашем браузере и никуда не передаётся.",
+      "modules": 0,
+      "lessons": 0
+    },
+    {
+      "name": "marketplace-screenshot-parsing",
+      "title": "🖼️ Парсинг карточек маркетплейсов по СКРИНШОТУ (PixelRAG-подход) — POC",
+      "description": "POC-рецепт: извлекать структурные поля товара (цена, название, характеристики)",
+      "modules": 0,
+      "lessons": 0
+    },
+    {
+      "name": "cua-device-qa",
+      "title": "🤖 Cua для device-QA: автоматизируем ручные прогоны (связка с Claude Code)",
+      "description": "Рецепт: заменить ручную проверку «открыл приложение на телефоне → потыкал →",
       "modules": 0,
       "lessons": 0
     }
