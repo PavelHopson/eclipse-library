@@ -4,21 +4,27 @@
 
 ## Текущее состояние
 
-- `README.md` — канонический каталог.
-- `web/app.js` — client-side каталог, полнотекстовый поиск, составные фильтры,
-  подробные карточки и guide viewer.
-- `web/catalog-details.json` — проверенный структурированный слой для приоритетных
-  материалов; старые записи получают честную пометку о необходимости аудита.
-- `web/catalog-index.json` — детерминированный полный индекс 534 уникальных материалов:
-  84 редакторски проверены, 450 структурированы из README и явно помечены `inferred`.
+- `catalog/resources.json` — канонический structured catalog из 534 уникальных записей;
+  `README.md` сокращён до документации и больше не является runtime-источником данных.
+- `web/app.js` — client-side поиск, фильтры, detail view и guide viewer; structured adapter
+  вынесен в `web/catalog-runtime.js`, поэтому frontend не разбирает Markdown-таблицы.
+- `web/catalog-index.json` — production schema v2: 84 записи редакторски проверены,
+  450 честно помечены `inferred`, 247 имеют отдельный `addedAt`, даты удалены из category.
+- License layer: 219 лицензий подтверждаются official GitHub metadata с evidence URL,
+  34 редакторски проверены, 281 ещё требуют отдельного review.
+- Agent policy: 463 записи доступны автоматическим consumers, 71 исключена fail closed;
+  все 64 grey-ресурса скрыты от recommendations, direct install запрещён для всех записей.
+- `web/api/v1/` — versioned static exports для full catalog, agents, StarCRM и StarAI;
+  consumers больше не должны читать README.
 - `web/link-health.json` — безопасный публичный snapshot weekly-аудита: доступность ссылки
   показывается отдельно от редакторского доверия и не считается security endorsement.
 - Deploy: GitHub Actions → VPS/Caddy из ветки `master`.
-- Production синхронизирован с commit `aaae024`: quality
+- Production пока синхронизирован с commit `aaae024`: quality
   [#30835927415](https://github.com/PavelHopson/eclipse-library/actions/runs/30835927415)
   и deploy [#30835926851](https://github.com/PavelHopson/eclipse-library/actions/runs/30835926851)
   от 03.08.2026 успешно завершены; independent smoke подтвердил `app.js?v=33`,
   534 материала, 22 проекта, 320 GitHub repository statuses и 5 MCP audit records.
+  Structured catalog release подготовлен как `app.js?v=35` и должен заменить v33 после зелёных CI/deploy.
 
 ## Приоритеты
 
@@ -31,6 +37,10 @@
       `broken` / `unavailable` / `unknown` / rate-limited сайтов.
 
 ### P1
+
+- [x] Перевести Library с README parsing на canonical `catalog/resources.json`, добавить schema v2,
+      normalized license evidence, `addedAt`, agent-safe exports, fail-closed install policy,
+      локальные WOFF2 fonts и разбить frontend runtime.
 
 - [x] Добавить доказательный Eclipse Growth OS: разобрать SMM-шаблоны без рекламных claims,
       подготовить заполненную основу бренда, 30-дневный pilot, lead magnets, KPI, approval gate,
@@ -156,6 +166,20 @@
 ## Changelog
 
 ### 2026-08-03
+
+- README-каталог мигрирован в `catalog/resources.json`: основной README сокращён с 390 KB
+  до документации, старый Markdown сохранён только как read-only legacy archive.
+- Production index переведён на schema v2. Даты публикации вынесены из category в `addedAt`
+  для 247 записей; для остальных точная дата не выдумывается.
+- GitHub metadata расширены official license evidence. Queue непроверенных лицензий сокращена
+  с 434 до 281; 219 получают `source-declared`, но это не считается security endorsement.
+- Все 64 grey-ресурса и ещё пять fail-closed записей исключены из automatic agent recommendations.
+  Catalog UI и exports явно запрещают direct install и внешние mutations без human approval.
+- Добавлены static API exports `catalog`, `agents`, `starcrm`, `starai` и manifest; UI больше не
+  читает README. `app.js` сокращён с 1927 до 1688 строк, adapter вынесен в `catalog-runtime.js`.
+- Google Fonts удалены: Manrope, Unbounded и JetBrains Mono обслуживаются локальными WOFF2.
+  Browser QA подтвердил desktop/mobile без overflow, console errors и прыжка mobile scroll;
+  Security route сужен с 476 до 107 тематических записей.
 
 - Добавлены две проверенные записи: Teamly.to и Eclipse Growth OS. Teamly отделён от `teamly.ru`;
   карточка объясняет Cells, изменяемую subscription price, external LLM/Composio boundary,

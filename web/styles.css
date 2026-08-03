@@ -1,4 +1,53 @@
 /* ===== Eclipse Library — premium theme ===== */
+@font-face {
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 200 800;
+  font-display: swap;
+  src: url('assets/fonts/manrope-cyrillic.woff2') format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+@font-face {
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 200 800;
+  font-display: swap;
+  src: url('assets/fonts/manrope-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Unbounded';
+  font-style: normal;
+  font-weight: 200 900;
+  font-display: swap;
+  src: url('assets/fonts/unbounded-cyrillic.woff2') format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+@font-face {
+  font-family: 'Unbounded';
+  font-style: normal;
+  font-weight: 200 900;
+  font-display: swap;
+  src: url('assets/fonts/unbounded-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 100 800;
+  font-display: swap;
+  src: url('assets/fonts/jetbrains-mono-cyrillic.woff2') format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 100 800;
+  font-display: swap;
+  src: url('assets/fonts/jetbrains-mono-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
 :root {
   --bg: #050508;
   --bg-2: #090a10;
@@ -129,7 +178,7 @@ kbd { font-family: var(--mono); font-size: 10.5px; color: var(--muted); border: 
 
 /* ===== Hero ===== */
 .content { min-width: 0; }
-.view-switcher { display: grid; grid-template-columns: repeat(3, 1fr); gap: 9px; margin: 0 0 22px; }
+.view-switcher { display: grid; grid-template-columns: repeat(4, 1fr); gap: 9px; margin: 0 0 22px; }
 .view-switcher a { display: flex; flex-direction: column; gap: 2px; padding: 13px 15px; border: 1px solid var(--line); border-radius: 14px; background: rgba(16,17,24,.72); color: var(--text); }
 .view-switcher a:hover, .view-switcher a.active { border-color: var(--blue-line); background: linear-gradient(135deg, var(--blue-soft), rgba(216,181,81,.05)); }
 .view-switcher span { font-size: 13px; font-weight: 800; }
@@ -527,6 +576,14 @@ body.noscroll { overflow: hidden; }
 .project-list { display: flex; flex-wrap: wrap; gap: 8px; }
 .project-list span { padding: 8px 11px; border: 1px solid var(--violet-line); border-radius: 10px; background: var(--violet-soft); color: #ded6ff; font-size: 12px; font-weight: 700; }
 .item-muted { color: var(--muted); margin: 0; }
+.evidence-list { display: grid; gap: 8px; margin: 0 0 12px; padding: 0; list-style: none; }
+.evidence-list li { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 11px 0; border-bottom: 1px solid var(--line); }
+.evidence-list li:last-child { border-bottom: 0; }
+.evidence-list a { color: var(--text); font-weight: 750; text-decoration: underline; text-decoration-color: var(--blue-line); text-underline-offset: 4px; }
+.evidence-list span { flex-shrink: 0; color: var(--muted-2); font-family: 'JetBrains Mono', monospace; font-size: 10px; text-transform: uppercase; }
+.catalog-safety-note { display: grid; grid-template-columns: minmax(160px, .45fr) 1fr; gap: 14px; margin-top: 24px; padding: 14px 16px; border-top: 1px solid var(--gold-line); border-bottom: 1px solid var(--gold-line); background: var(--gold-soft); }
+.catalog-safety-note b { color: #f0dfaa; font-size: 12px; }
+.catalog-safety-note span { color: var(--muted); font-size: 11.5px; line-height: 1.55; }
 .risk-summary { display: flex; flex-direction: column; gap: 5px; margin-bottom: 14px; padding: 13px 15px; border: 1px solid var(--line); border-radius: 12px; background: var(--surface); }
 .risk-summary b { font-size: 12px; }
 .risk-summary span { color: var(--muted); font-size: 12.5px; line-height: 1.55; }
@@ -776,6 +833,8 @@ body.noscroll { overflow: hidden; }
   .verify-date { width: 100%; margin-left: 0; }
   .item-cta { align-items: stretch; flex-direction: column; }
   .item-cta a { text-align: center; }
+  .evidence-list li { align-items: flex-start; flex-direction: column; gap: 5px; }
+  .catalog-safety-note { grid-template-columns: 1fr; gap: 6px; }
 }
 
 /* Small phones */

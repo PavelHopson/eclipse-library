@@ -12,10 +12,9 @@
   <meta property="og:url" content="https://library.eclipse-forge.ru" />
   <meta name="twitter:card" content="summary_large_image" />
   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⚡</text></svg>" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Unbounded:wght@500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css?v=20" />
+  <link rel="preload" href="assets/fonts/manrope-cyrillic.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="assets/fonts/manrope-latin.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="stylesheet" href="styles.css?v=22" />
 </head>
 <body>
   <a class="skip" href="#results">Перейти к каталогу</a>
@@ -284,9 +283,10 @@
   <button id="toTop" class="to-top" type="button" hidden aria-label="Наверх">↑</button>
 
   <footer class="footer">
-    <a href="https://eclipse-forge.ru/" target="_blank" rel="noopener">Eclipse Forge</a> · обновляется по мере находок · данные из <a href="https://github.com/PavelHopson/eclipse-library" target="_blank" rel="noopener">README</a>
+    <a href="https://eclipse-forge.ru/" target="_blank" rel="noopener">Eclipse Forge</a> · обновляется по мере находок · данные из <a href="https://github.com/PavelHopson/eclipse-library/blob/master/catalog/resources.json" target="_blank" rel="noopener">structured catalog</a>
   </footer>
 
-  <script src="app.js?v=33"></script>
+  <script src="catalog-runtime.js?v=1"></script>
+  <script src="app.js?v=35"></script>
 </body>
 </html>

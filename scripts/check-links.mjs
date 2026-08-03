@@ -4,7 +4,7 @@ import { isIP } from 'node:net';
 
 const repoRoot = new URL('../', import.meta.url);
 const networkEnabled = process.argv.includes('--network');
-const readme = await readFile(new URL('README.md', repoRoot), 'utf8');
+const catalog = JSON.parse(await readFile(new URL('catalog/resources.json', repoRoot), 'utf8'));
 const projectCatalog = JSON.parse(await readFile(new URL('web/projects.json', repoRoot), 'utf8'));
 const allowlist = JSON.parse(await readFile(new URL('scripts/link-check-allowlist.json', repoRoot), 'utf8'));
 const outputDir = new URL('.artifacts/', repoRoot);
@@ -41,19 +41,6 @@ function githubRepoKey(value) {
   } catch {
     return null;
   }
-}
-
-function extractResources(markdown) {
-  const resources = [];
-  markdown.split('\n').forEach((line, index) => {
-    const trimmed = line.trim();
-    if (!trimmed.startsWith('|') || /^\|?[\s:|-]+\|?$/.test(trimmed)) return;
-    const firstCell = trimmed.split('|')[1] || '';
-    const link = firstCell.match(/\[([^\]]+)\]\((https?:\/\/[^)\s]+)\)/);
-    if (!link || /img\.shields\.io|cdn\.rawgit\.com/i.test(link[2])) return;
-    resources.push({ title: link[1].replace(/[*`]/g, '').trim(), url: link[2], line: index + 1 });
-  });
-  return resources;
 }
 
 function extractProjectLinks(data) {
@@ -209,7 +196,10 @@ async function mapConcurrent(items, concurrency, mapper) {
   return results;
 }
 
-const extracted = [...extractResources(readme), ...extractProjectLinks(projectCatalog)];
+const extracted = [
+  ...(catalog.items || []).map((item) => ({ title: item.title, url: item.url, source: 'catalog/resources.json' })),
+  ...extractProjectLinks(projectCatalog),
+];
 const uniqueByUrl = [...new Map(extracted.map((resource) => [canonicalUrl(resource.url), resource])).values()];
 const offlineDuplicates = {
   canonicalUrl: duplicateGroups(extracted, (item) => canonicalUrl(item.url)),

@@ -31,7 +31,7 @@ export function extractGithubRepos(markdown, projects = {}) {
 export function buildRepositoryQuery(keys) {
   const fields = keys.map((key, index) => {
     const [owner, name] = key.split('/');
-    return `r${index}: repository(owner: ${JSON.stringify(owner)}, name: ${JSON.stringify(name)}) { nameWithOwner url isArchived isDisabled isPrivate pushedAt updatedAt }`;
+    return `r${index}: repository(owner: ${JSON.stringify(owner)}, name: ${JSON.stringify(name)}) { nameWithOwner url isArchived isDisabled isPrivate pushedAt updatedAt licenseInfo { name spdxId url } }`;
   });
   return `query EclipseLibraryRepositoryStatus { ${fields.join('\n')} }`;
 }
@@ -63,17 +63,25 @@ async function requestBatch(keys, token) {
       url: repo.url,
       pushedAt: repo.pushedAt || null,
       updatedAt: repo.updatedAt || null,
+      licenseInfo: repo.licenseInfo ? {
+        name: repo.licenseInfo.name,
+        spdxId: repo.licenseInfo.spdxId || null,
+        url: `https://api.github.com/repos/${key}/license`,
+      } : null,
     };
   });
 }
 
 export async function refreshGithubMetadata({ token, output = defaultOutput } = {}) {
   if (!token) throw new Error('GITHUB_TOKEN is required to refresh public repository metadata.');
-  const [readme, projects] = await Promise.all([
-    readFile(new URL('README.md', repoRoot), 'utf8'),
+  const [catalog, projects] = await Promise.all([
+    readFile(new URL('catalog/resources.json', repoRoot), 'utf8').then(JSON.parse),
     readFile(new URL('web/projects.json', repoRoot), 'utf8').then(JSON.parse),
   ]);
-  const keys = extractGithubRepos(readme, projects);
+  const keys = [...new Set([
+    ...(catalog.items || []).map((item) => githubRepoKey(item.url)).filter(Boolean),
+    ...(projects.projects || []).map((project) => githubRepoKey(project.repoUrl)).filter(Boolean),
+  ])].sort();
   const repositories = [];
   for (let index = 0; index < keys.length; index += 50) {
     repositories.push(...await requestBatch(keys.slice(index, index + 50), token));

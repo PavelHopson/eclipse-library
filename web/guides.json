@@ -1,0 +1,211 @@
+{
+  "schemaVersion": 1,
+  "totals": {
+    "guides": 29
+  },
+  "guides": [
+    {
+      "name": "ecommerce-course",
+      "title": "🎓 Курс: интернет-магазин с нуля — учебный формат",
+      "description": "Мини-курс для команды: научиться собирать рабочие интернет-магазины быстро и качественно, бесплатно на старте, силами нейросети (Claude / Codex / Kimi) и наших сервисов.",
+      "modules": 7,
+      "lessons": 20
+    },
+    {
+      "name": "landing-course",
+      "title": "🎓 Курс: лендинги с нуля — учебный формат",
+      "description": "Мини-курс для команды: научиться делать продающие лендинги быстро и качественно, бесплатно на старте, собирая их нейросетью (Claude / Codex / Kimi) и нашими сервисами.",
+      "modules": 7,
+      "lessons": 15
+    },
+    {
+      "name": "open-design-codex-workflow",
+      "title": "🎨 Open Design + Codex: шпаргалка по генерации сайта",
+      "description": "Практический сценарий: как развернуть Open Design внутри Codex, получить первый дизайн сайта на канве и затем улучшать его точечными правками, не переписывая весь проект с нуля.",
+      "modules": 0,
+      "lessons": 0
+    },
+    {
+      "name": "starmarket-video-moderation",
+      "title": "🎬 Авто-модерация видео-обзоров StarMarket (видео-классификаторы) — POC",
+      "description": "POC-рецепт: прогонять загруженные продавцами видео-обзоры товара через",
+      "modules": 0,
+      "lessons": 0
+    },
+    {
+      "name": "iphone-camera-content",
+      "title": "📸 Настройки камеры iPhone для контента",
+      "description": "Лучшие настройки съёмки фото/видео на iPhone для визуального контента",
+      "modules": 0,
+      "lessons": 0
+    },
+    {
+      "name": "ai-services",
+      "title": "🔌 Как подключить AI в сервисах Eclipse Forge",
+      "description": "Наши AI-приложения (Eclipse AI Hub, Shotforge и др.) работают на вашем собственном API-ключе: ключ вводится один раз в настройках, хранится только в вашем браузере и никуда не передаётся.",
+      "modules": 0,
+      "lessons": 0
+    },
+    {
+      "name": "marketplace-screenshot-parsing",
+      "title": "🖼️ Парсинг карточек маркетплейсов по СКРИНШОТУ (PixelRAG-подход) — POC",
+      "description": "POC-рецепт: извлекать структурные поля товара (цена, название, характеристики)",
+      "modules": 0,
+      "lessons": 0
+    },
+    {
+      "name": "cua-device-qa",
+      "title": "🤖 Cua для device-QA: автоматизируем ручные прогоны (связка с Claude Code)",
+      "description": "Рецепт: заменить ручную проверку «открыл приложение на телефоне → потыкал →",
+      "modules": 0,
+      "lessons": 0
+    },
+    {
+      "name": "mcp-runtime-audit",
+      "title": "Безопасный runtime-аудит MCP server",
+      "description": "",
+      "modules": 0,
+      "lessons": 0
+    },
+    {
+      "name": "agent-reach-security-review-2026-07-31",
+      "title": "Agent Reach — static security review",
+      "description": "Решение Eclipse Forge на 31.07.2026: сохранить как архитектурный Reference.",
+      "modules": 0,
+      "lessons": 0
+    },
+    {
+      "name": "ai-code-security-shield",
+      "title": "AI Code Shield / ЩИТ",
+      "description": "Pre-release security gate для AI-сгенерированного кода.",
+      "modules": 0,
+      "lessons": 0
+    },
+    {
+      "name": "applied-project-plan-2026-07-13",
+      "title": "Applied project plan — 2026-07-13",
+      "description": "Практическая раскладка новых находок по проектам Eclipse Forge.",
+      "modules": 0,
+      "lessons": 0
+    },
+    {
+      "name": "azgaar-dnd-map-workflow",
+      "title": "Azgaar + Eclipse DnD Forge: понятный путь от мира к кампании",
+      "description": "Проверенный workflow для мастера: Eclipse DnD Forge готовит бриф, официальный Azgaar создаёт и редактирует карту, а Minimal JSON возвращает выбранные города в граф кампании.",
+      "modules": 0,
+      "lessons": 0
+    },
+    {
+      "name": "claude-codex-plugin-pack",
+      "title": "Claude Code + Codex plugin pack",
+      "description": "Практический разбор 6 плагинов с vibecodd-skills: что они делают, где реально работают в Claude Code и Codex, и как применять без магического мышления.",
+      "modules": 0,
+      "lessons": 0
+    },
+    {
+      "name": "claude-design-skills-map",
+      "title": "Claude Design Skills: карта применения для Eclipse Forge",
+      "description": "Источник: Novitckii · 42 Claude design skills.",
+      "modules": 0,
+      "lessons": 0
+    },
+    {
+      "name": "eclipse-growth-os",
+      "title": "Eclipse Growth OS: продвижение инженерного бренда без контент-шума",
+      "description": "Практическая система для бренда Павла Хопсона и экосистемы Eclipse Forge.",
+      "modules": 0,
+      "lessons": 0
+    },
+    {
+      "name": "kimi-github-implementation-2026-07-31",
+      "title": "GitHub onboarding and Kimi K3 implementation status",
+      "description": "Что реально сделано по июльским рекомендациям Eclipse Library, где проходит граница production и почему три reference-находки не превращены в зависимости.",
+      "modules": 0,
+      "lessons": 0
+    },
+    {
+      "name": "july-2026-agents-local-product-radar",
+      "title": "July 2026 agents / local AI / product radar",
+      "description": "",
+      "modules": 0,
+      "lessons": 0
+    },
+    {
+      "name": "july-2026-audio-ops-agent-radar",
+      "title": "July 2026 audio / ops / agent radar",
+      "description": "Куда раскладываем находки из батча 05.07.2026.",
+      "modules": 0,
+      "lessons": 0
+    },
+    {
+      "name": "july-2026-backfill-tokenrouter-radar",
+      "title": "July 2026 backfill and TokenRouter radar",
+      "description": "",
+      "modules": 0,
+      "lessons": 0
+    },
+    {
+      "name": "july-2026-kimi-research-media-radar",
+      "title": "July 2026 Kimi / Research / Media radar",
+      "description": "Практическая раскладка батча 18-19.07.2026: что кладём в продуктовый backlog, что используем как reference, а что держим только в risk radar.",
+      "modules": 0,
+      "lessons": 0
+    },
+    {
+      "name": "july-2026-learning-security-product-radar",
+      "title": "July 2026 learning / security / product radar",
+      "description": "Куда раскладываем недостающие находки из хвоста батча 25.06-02.07.",
+      "modules": 0,
+      "lessons": 0
+    },
+    {
+      "name": "july-2026-music-agents-tooling-radar",
+      "title": "July 2026 music / agents / tooling radar",
+      "description": "",
+      "modules": 0,
+      "lessons": 0
+    },
+    {
+      "name": "july-2026-project-integration",
+      "title": "July 2026 project integration",
+      "description": "Куда раскладываем находки из батча 30.06-01.07.2026.",
+      "modules": 0,
+      "lessons": 0
+    },
+    {
+      "name": "july-2026-tooling-risk-integration",
+      "title": "July 2026 tooling / risk integration",
+      "description": "Фильтр для находок 05-08.07.2026: что внедрять, что держать как reference, а что не тащить в продукты из-за ToS / privacy / safety рисков.",
+      "modules": 0,
+      "lessons": 0
+    },
+    {
+      "name": "august-2026-operational-agent-stack",
+      "title": "Operational Agent Stack: от сигнала до результата",
+      "description": "Проверка от 03.08.2026. Цель этого набора не установить шесть случайных инструментов, а собрать управляемый pipeline: анализ - решение - выполнение - артефакт - review.",
+      "modules": 0,
+      "lessons": 0
+    },
+    {
+      "name": "qa-temporary-email",
+      "title": "QA temporary email checklist",
+      "description": "",
+      "modules": 0,
+      "lessons": 0
+    },
+    {
+      "name": "token-saving-agent-stack",
+      "title": "Token-saving agent stack для Codex / Claude",
+      "description": "Рабочий стандарт Eclipse Forge: экономим токены не “магией”, а дисциплиной контекста.",
+      "modules": 0,
+      "lessons": 0
+    },
+    {
+      "name": "tokenrouter-vendor-risk-gate",
+      "title": "TokenRouter vendor-risk gate",
+      "description": "Практический стоп-лист для Eclipse Forge: TokenRouter нельзя подключать, передавать ему API-ключи, prompts, ответы, код или рабочие данные, пока vendor не закроет юридические,…",
+      "modules": 0,
+      "lessons": 0
+    }
+  ]
+}

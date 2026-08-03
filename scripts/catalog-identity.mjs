@@ -64,6 +64,10 @@ function duplicateCounts(resources, keyFn) {
 
 export function buildIdentitySnapshot(markdown) {
   const resources = extractResources(markdown);
+  return buildIdentitySnapshotFromResources(resources);
+}
+
+export function buildIdentitySnapshotFromResources(resources) {
   return {
     resourceCount: resources.length,
     duplicates: {
@@ -87,8 +91,8 @@ export function compareWithBaseline(snapshot, baseline) {
 }
 
 export async function validateCatalogIdentity({ updateBaseline = false } = {}) {
-  const readme = await readFile(new URL('README.md', repoRoot), 'utf8');
-  const snapshot = buildIdentitySnapshot(readme);
+  const catalog = JSON.parse(await readFile(new URL('catalog/resources.json', repoRoot), 'utf8'));
+  const snapshot = buildIdentitySnapshotFromResources((catalog.items || []).map((item) => ({ title: item.title, url: item.url })));
   if (updateBaseline) {
     const baseline = { schemaVersion: 1, generatedAt: new Date().toISOString(), ...snapshot };
     await writeFile(baselineUrl, `${JSON.stringify(baseline, null, 2)}\n`, 'utf8');

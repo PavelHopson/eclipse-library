@@ -25,6 +25,16 @@ const keys = new Set();
   ['pushedAt', 'updatedAt'].forEach((field) => {
     if (repo?.[field] !== null && !Number.isFinite(Date.parse(repo?.[field]))) errors.push(`${label}: ${field} must be an ISO date or null.`);
   });
+  if (repo?.licenseInfo !== null) {
+    if (!repo?.licenseInfo || typeof repo.licenseInfo.name !== 'string' || !repo.licenseInfo.name.trim()) errors.push(`${label}: licenseInfo.name is required.`);
+    if (repo?.licenseInfo?.spdxId !== null && (typeof repo.licenseInfo.spdxId !== 'string' || !repo.licenseInfo.spdxId.trim())) errors.push(`${label}: licenseInfo.spdxId must be a string or null.`);
+    try {
+      const licenseUrl = new URL(repo?.licenseInfo?.url);
+      if (licenseUrl.protocol !== 'https:') errors.push(`${label}: licenseInfo.url must use HTTPS.`);
+    } catch {
+      errors.push(`${label}: invalid licenseInfo.url.`);
+    }
+  }
 });
 
 const totalFields = ['repositories', ...allowedStates];

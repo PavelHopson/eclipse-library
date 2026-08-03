@@ -2,9 +2,7 @@
   "schemaVersion": 2,
   "sourceHash": "12a5d0a10d238b2f3c0c2cf6b7dcfa9c7a16ff92cbb1ab523b382abea65e1c68",
   "policy": {
-    "canonicalSource": "catalog/resources.json",
-    "directInstallForbidden": true,
-    "greyResourcesExcludedFromAgentRecommendations": true
+    "directInstallForbidden": true
   },
   "totals": {
     "all": 534,

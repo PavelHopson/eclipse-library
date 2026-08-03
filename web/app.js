@@ -1,12 +1,12 @@
-/* Eclipse Library — client-side directory over the curated README.
-   No build, no framework. Fetches README.md, parses md tables, renders. */
+/* Eclipse Library — client-side directory over the structured catalog.
+   No framework: static JSON is the source for records, guides and exports. */
 (() => {
   'use strict';
 
   const REPO = 'PavelHopson/eclipse-library';
-  const RAW = `https://raw.githubusercontent.com/${REPO}/master/README.md`;
   const REPO_URL = `https://github.com/${REPO}`;
-  const DETAILS_URL = 'catalog-index.json?v=1';
+  const DETAILS_URL = 'catalog-index.json?v=2';
+  const GUIDES_URL = 'guides.json?v=1';
   const LINK_HEALTH_URL = 'link-health.json?v=1';
   const GITHUB_METADATA_URL = 'github-metadata.json?v=1';
   const MCP_AUDIT_URL = 'mcp-audit.json?v=2';
@@ -14,6 +14,9 @@
   const PAGE_SIZE = 36;
   const FAVORITES_KEY = 'eclipse-library:favorites:v1';
   const RECENT_KEY = 'eclipse-library:recent:v1';
+  const runtime = window.EclipseCatalogRuntime;
+  if (!runtime) throw new Error('catalog-runtime.js is required before app.js');
+  const { canonicalUrl, githubRepoKey, groupsFromItems } = runtime;
   const DECISIONS = {
     now: 'Внедрить сейчас',
     roadmap: 'Добавить в roadmap',
@@ -85,7 +88,15 @@
     mcp: { title: 'MCP и интеграции', description: 'Серверы и инструменты, которые подключают AI к внешним данным и действиям. Начинайте с минимальных прав.', match: (c) => /\bmcp\b/i.test(c.text) },
     models: { title: 'AI-модели', description: 'Локальные и облачные модели. Сравнивайте качество, требования к железу, стоимость и лицензию.', type: 'model', match: (c) => c.type === 'model' },
     prompts: { title: 'Промпты', description: 'Готовые запросы для типовых задач. Не вставляйте секреты и проверяйте результат перед использованием.', type: 'prompt', match: (c) => c.type === 'prompt' },
-    security: { title: 'Security и privacy', description: 'Защитные инструменты и рискованные материалы с явными ограничениями и безопасным сценарием проверки.', match: (c) => c.type === 'grey' || c.type === 'privacy' || /security|безопас|privacy|opsec/i.test(c.text) },
+    security: {
+      title: 'Security и privacy',
+      description: 'Защитные инструменты и рискованные материалы с явными ограничениями и безопасным сценарием проверки.',
+      match: (c) => {
+        const resource = c.resource || {};
+        const topic = `${resource.category || ''} ${resource.subcategory || ''} ${resource.title || ''}`;
+        return c.type === 'grey' || c.type === 'privacy' || /security|privacy|opsec|безопасност/i.test(topic);
+      },
+    },
     courses: { title: 'Курсы и обучение', description: 'Практические материалы, которые можно пройти по порядку и закрепить небольшим проектом.', type: 'learn', match: (c) => c.type === 'learn' },
   };
   const TASK_ROUTES = {
@@ -98,7 +109,9 @@
     commerce: { label: 'Сделать сайт или магазин', hint: 'лендинг, storefront и платежи', match: (c) => c.type === 'shop' || /storefront|e-commerce|интернет-магазин|лендинг|payment|платеж/i.test(c.text) },
   };
   let detailsByUrl = new Map();
-  let catalogTotals = { all: 0, verified: 0, inferred: 0 };
+  let catalogTotals = { all: 0, verified: 0, inferred: 0, licenseReviewRequired: 0, agentSafe: 0 };
+  let structuredItems = [];
+  let guidesManifest = [];
   let linkHealthByUrl = new Map();
   let linkHealthSnapshot = null;
   let githubMetadataByRepo = new Map();
@@ -117,26 +130,6 @@
   const $ = (s, r = document) => r.querySelector(s);
   const el = (tag, cls, html) => { const n = document.createElement(tag); if (cls) n.className = cls; if (html != null) n.innerHTML = html; return n; };
   const slug = (s) => s.toLowerCase().replace(/[^\wа-яё]+/gi, '-').replace(/^-+|-+$/g, '').slice(0, 60);
-  const canonicalUrl = (url) => {
-    try {
-      const u = new URL(url);
-      u.hash = '';
-      ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term', 'ref', 'erid'].forEach((key) => u.searchParams.delete(key));
-      u.hostname = u.hostname.toLowerCase().replace(/^www\./, '');
-      u.pathname = u.pathname.replace(/\/+$/, '') || '/';
-      return u.toString().replace(/\/$/, '');
-    } catch (e) { return (url || '').trim().toLowerCase().replace(/#.*$/, '').replace(/\/$/, ''); }
-  };
-  const reservedGithubRoutes = new Set(['collections', 'events', 'features', 'login', 'marketplace', 'new', 'orgs', 'search', 'settings', 'sponsors', 'topics', 'users']);
-  const githubRepoKey = (value) => {
-    try {
-      const url = new URL(String(value).replace(/[.,;:!?]+$/, ''));
-      if (url.hostname.toLowerCase().replace(/^www\./, '') !== 'github.com') return null;
-      const [owner, rawRepo] = url.pathname.split('/').filter(Boolean);
-      const repo = rawRepo?.replace(/\.git$/i, '');
-      return owner && repo && !reservedGithubRoutes.has(owner.toLowerCase()) ? `${owner.toLowerCase()}/${repo.toLowerCase()}` : null;
-    } catch (error) { return null; }
-  };
   function loadFavorites() {
     try {
       const stored = JSON.parse(localStorage.getItem(FAVORITES_KEY) || '[]');
@@ -393,43 +386,6 @@
     return 'service';
   }
 
-  function inferCost(pricing) {
-    const value = String(pricing || '').toLowerCase();
-    if (/уточнить|проверьте актуальные|не раскрыт/.test(value)) return 'unknown';
-    const paidSource = value.replace(/бесплат\w*/g, '');
-    const hasFree = /бесплат|без оплаты|free|open-source|open source|включ[её]нн?ая .*квот/.test(value);
-    const hasPaid = /платн|оплач|pay-as-you-go|paid|подпис|тариф|billing|commercial|credits?/.test(paidSource);
-    if (hasFree && hasPaid) return 'freemium';
-    if (hasFree) return 'free';
-    if (hasPaid) return 'paid';
-    return 'unknown';
-  }
-
-  function inferRuntime(platforms, text) {
-    const values = new Set(platforms || []);
-    const source = `${[...(platforms || [])].join(' ')} ${text || ''}`.toLowerCase();
-    const selfHosted = values.has('Self-host') || /self-host|сво(?:й|ём) сервер|docker/.test(source);
-    const localPlatform = ['Local', 'Desktop', 'CLI', 'Windows', 'macOS', 'Linux', 'Android', 'iOS', 'Apple Silicon'].some((value) => values.has(value));
-    const cloudPlatform = ['Cloud', 'Remote', 'API'].some((value) => values.has(value));
-    const hasRuntimePlatform = selfHosted || localPlatform || cloudPlatform;
-    const local = selfHosted || localPlatform || (!hasRuntimePlatform && /локальн|offline|on-device/.test(source));
-    const cloud = cloudPlatform || (!hasRuntimePlatform && /облак|hosted|saas/.test(source));
-    if (local && cloud) return 'hybrid';
-    if (selfHosted) return 'self-host';
-    if (local) return 'local';
-    if (cloud || values.has('Web')) return 'cloud';
-    return 'unknown';
-  }
-
-  function inferSignup(platforms, text, runtime) {
-    const source = String(text || '').toLowerCase();
-    if (/без регистрац|no[- ]signup|без аккаунт/.test(source)) return 'none';
-    if (/регистрац.*необяз|optional account/.test(source)) return 'optional';
-    if (/нужен аккаунт|требуется аккаунт|создать .*аккаунт|api key|получить .*key|test key|console|подписк|billing project/.test(source)) return 'required';
-    if (['local', 'self-host'].includes(runtime) && !/(cloud|hosted|remote)/.test(source)) return 'none';
-    return 'unknown';
-  }
-
   function typeGroup(type) {
     return Object.entries(TYPE_GROUPS).find(([, group]) => group.types.includes(type))?.[0] || 'tools';
   }
@@ -453,129 +409,15 @@
     if (/обучение|компьютерные науки/.test(l)) return 'learn';
     return 'other';
   }
-  function inferType(r, cat, sub) {
-    const ctx = (cat.label + ' ' + (sub ? sub.title : '')).toLowerCase();
-    let host = ''; try { if (r.url) host = new URL(r.url).hostname; } catch (e) {}
-    if (r.risk) return 'grey';
-    if (/интернет-магазин|e-?commerce|storefront|checkout|headless.*commerce|платеж|payment|корзин|магазин/.test(ctx)) return 'shop';
-    if (/промпт|prompt/.test(ctx)) return 'prompt';
-    if (/skill|скилл/.test(ctx)) return 'skill';
-    if (/оркестрац|агент|agent|мультиагент/.test(ctx)) return 'agent';
-    if (/uncensored|model|модел|llm|локальн.*запуск/.test(ctx) || /huggingface\.co$/.test(host)) return 'model';
-    if (/api|прокси|бесплатн|грант|доступ/.test(ctx)) return 'api';
-    if (/обучени|гайд|курс|learning|mit|компьютерн/.test(ctx)) return 'learn';
-    if (/media|медиа|download|видео|изображени|генерац/.test(ctx)) return 'media';
-    if (/privacy|opsec|self-host|hardware|workstation/.test(ctx)) return 'privacy';
-    if (/наши проекты/.test(cat.label.toLowerCase())) return 'ours';
-    if (/подборка/.test(cat.label.toLowerCase())) return 'drop';
-    if (r.starsRepo) return 'oss';
-    return 'tool';
-  }
-
-  function inferPlatforms(ctx) {
-    const rules = [
-      ['Windows', /windows|win32|powershell/],
-      ['macOS', /macos|mac os|macbook/],
-      ['Apple Silicon', /apple silicon|m[1-9]\b/],
-      ['Linux', /linux|ubuntu|debian/],
-      ['Android', /android/],
-      ['iOS', /\bios\b|iphone|ipad/],
-      ['Web', /\bweb\b|browser|браузер|website|сайт/],
-      ['CLI', /\bcli\b|terminal|командн.*строк/],
-      ['Self-host', /self-host|локальн|local-first|docker/],
-      ['NVIDIA GPU', /nvidia|cuda|rtx|vram/],
-    ];
-    const found = rules.filter(([, re]) => re.test(ctx)).map(([name]) => name);
-    return found.length ? found : ['Web'];
-  }
-
-  function inferLicense(ctx) {
-    const match = ctx.match(/\b(AGPL-3\.0|GPL-3\.0|Apache-2\.0|Apache 2\.0|MIT|CC BY 4\.0|BSD-3-Clause|MPL-2\.0)\b/i);
-    if (match) {
-      const normalized = match[1].toLowerCase().replace('apache 2.0', 'apache-2.0');
-      return {
-        'agpl-3.0': 'AGPL-3.0',
-        'gpl-3.0': 'GPL-3.0',
-        'apache-2.0': 'Apache-2.0',
-        mit: 'MIT',
-        'cc by 4.0': 'CC BY 4.0',
-        'bsd-3-clause': 'BSD-3-Clause',
-        'mpl-2.0': 'MPL-2.0',
-      }[normalized] || match[1];
-    }
-    if (/нет (?:явной )?лицензии|лицензия .*отсутств/i.test(ctx)) return 'Не указана';
-    return 'Уточнить';
-  }
-
-  function inferProjects(ctx) {
-    const rules = [
-      ['Eclipse Chat', /eclipse chat/],
-      ['Eclipse AI Hub', /eclipse ai hub|ai hub/],
-      ['Hopson Sentinel', /hopson sentinel|sentinel/],
-      ['Eclipse DnD Forge', /dnd forge|eclipse dnd/],
-      ['Eclipse Forge Landing', /eclipseforge landing|eclipse forge landing|landing/],
-      ['Eclipse Media', /eclipse media/],
-      ['Shotforge', /shotforge/],
-      ['Text2Image', /text2image/],
-      ['Educator-AI', /educator-ai/],
-      ['oh-my-claudecode', /oh-my-claudecode|\bomc\b/],
-      ['Eclipse Library', /eclipse library|\blibrary\b/],
-    ];
-    return rules.filter(([, re]) => re.test(ctx)).map(([name]) => name);
-  }
-
-  function defaultUseCases(type) {
-    const cases = {
-      skill: ['Добавить повторяемую инструкцию в workflow агента', 'Проверить skill вручную на тестовом репозитории'],
-      agent: ['Автоматизировать многошаговую задачу', 'Сравнить orchestration и контроль tools'],
-      model: ['Проверить качество на своих примерах', 'Сравнить скорость, память и стоимость'],
-      api: ['Подключить возможность через API', 'Сначала проверить лимиты, privacy и стоимость'],
-      prompt: ['Скопировать промпт и заменить примеры своими данными', 'Сравнить результат с базовым запросом'],
-      learn: ['Пройти материал по порядку', 'Закрепить знания небольшим практическим заданием'],
-      media: ['Сделать тестовый media workflow', 'Проверить качество и права на входные данные'],
-      privacy: ['Запустить в изолированном окружении', 'Проверить какие данные покидают устройство'],
-      shop: ['Собрать небольшой proof of concept', 'Проверить checkout, данные и ограничения провайдера'],
-      oss: ['Изучить README и архитектуру', 'Запустить pinned release только в sandbox'],
-      tool: ['Решить одну небольшую задачу', 'Сравнить результат с текущим способом работы'],
-      grey: ['Использовать только как reference', 'Сначала провести ручной security/legal review'],
-    };
-    return cases[type] || cases.tool;
-  }
-
-  function defaultSteps(r) {
-    if (r.type === 'prompt') return ['Откройте источник и прочитайте ограничения.', 'Скопируйте промпт без личных и секретных данных.', 'Проверьте результат на небольшом примере.'];
-    if (r.type === 'learn') return ['Откройте материал и выберите один раздел.', 'Повторите пример самостоятельно.', 'Зафиксируйте результат в небольшом проекте.'];
-    if (r.type === 'model') return ['Проверьте лицензию и требования к железу.', 'Возьмите pinned model version.', 'Прогоните свой небольшой eval до интеграции.'];
-    if (r.starsRepo) return ['Прочитайте README, LICENSE и последние issues.', 'Скачайте pinned release или commit в sandbox.', 'Проверьте permissions, network calls и данные до основного использования.'];
-    return ['Откройте официальный источник.', 'Проверьте тариф, privacy и ограничения.', 'Начните с одной небольшой тестовой задачи.'];
-  }
-
   function enrichResource(r, cat, sub) {
-    const ctx = plain(`${cat.label} ${sub ? sub.title : ''} ${r.rawText || ''}`).toLowerCase();
     const detail = detailsByUrl.get(canonicalUrl(r.url)) || null;
-    const host = (() => { try { return new URL(r.url).hostname.replace(/^www\./, ''); } catch (e) { return ''; } })();
-    const inferredTrust = r.risk ? 'caution' : (r.starsRepo ? 'community' : 'unknown');
-    const inferredLicense = inferLicense(ctx);
+    if (!detail) throw new Error(`Structured metadata is missing for ${r.url}`);
     r.detail = detail?.reviewStatus === 'verified' ? detail : null;
-    r.type = detail?.type || r.type;
-    r.id = detail?.id || slug(`${r.title}-${host}`) || `item-${Math.random().toString(36).slice(2, 9)}`;
-    r.simpleDescription = detail?.simpleDescription || firstSentence(r.rawText) || 'Краткое описание пока не заполнено. Откройте источник и проверьте назначение перед использованием.';
-    r.useCases = detail?.useCases || defaultUseCases(r.type);
-    r.platforms = detail?.platforms || inferPlatforms(ctx);
-    r.license = detail?.license || inferredLicense;
-    r.pricing = detail?.pricing || (r.starsRepo ? 'Репозиторий доступен бесплатно; hosting и внешние API могут оплачиваться отдельно' : 'Проверьте актуальные условия на официальном сайте');
-    r.runtime = detail?.access?.runtime || inferRuntime(r.platforms, `${r.simpleDescription} ${r.pricing}`);
-    r.cost = detail?.access?.cost || inferCost(r.pricing);
-    r.signup = detail?.access?.signup || inferSignup(r.platforms, `${r.simpleDescription} ${r.pricing}`, r.runtime);
-    r.trust = detail?.trust || inferredTrust;
-    r.trustReason = detail?.trustReason || (r.risk ? 'Материал содержит признаки повышенного риска или неполные условия использования.' : 'Ссылка присутствует в каталоге, но подробный редакторский аудит продукта ещё не выполнен.');
-    r.projects = detail?.projects || inferProjects(ctx);
-    r.decision = detail?.decision || (r.risk ? 'reference' : 'reference');
-    r.riskLevel = detail?.riskLevel || (r.risk ? 'high' : 'medium');
-    r.risks = detail?.risks || (r.risk ? ['Проверьте лицензию, permissions и обработку данных до запуска.'] : ['Условия, цена и возможности могут измениться после даты проверки.']);
-    r.verifiedAt = detail?.verifiedAt || null;
+    Object.assign(r, detail);
+    r.runtime = detail.access.runtime;
+    r.cost = detail.access.cost;
+    r.signup = detail.access.signup;
     r.freshness = freshnessState(r.verifiedAt);
-    r.quickStart = detail?.quickStart || defaultSteps(r);
     r.guide = detail?.guide || '';
     r.linkHealth = linkHealthByUrl.get(canonicalUrl(r.url)) || { status: 'unchecked', httpStatus: null };
     r.githubRepoKey = githubRepoKey(r.url);
@@ -587,96 +429,13 @@
     return r;
   }
 
-  function deduplicate(cats) {
-    const best = new Map();
-    cats.forEach((cat) => cat.subs.forEach((sub) => sub.resources.forEach((r) => {
-      const key = canonicalUrl(r.url);
-      const score = (r.detail ? 10000 : 0) + (!/подборка/i.test(cat.label) ? 1000 : 0) + plain(r.rawText).length;
-      const current = best.get(key);
-      if (!current || score > current.score) best.set(key, { resource: r, score });
+  function categoriesFromStructuredCatalog(items) {
+    const categories = groupsFromItems(items, slug);
+    categories.forEach((category) => category.subs.forEach((subcategory) => subcategory.resources.forEach((resource) => {
+      enrichResource(resource, category, subcategory);
     })));
-    const seen = new Set();
-    let rawCount = 0;
-    cats.forEach((cat) => cat.subs.forEach((sub) => {
-      rawCount += sub.resources.length;
-      sub.resources = sub.resources.filter((r) => {
-        const key = canonicalUrl(r.url);
-        if (best.get(key)?.resource !== r || seen.has(key)) return false;
-        seen.add(key);
-        return true;
-      });
-    }));
-    duplicateCount = Math.max(0, rawCount - seen.size);
-    cats.forEach((cat) => { cat.subs = cat.subs.filter((sub) => sub.resources.length); });
-    return cats.filter((cat) => cat.subs.length);
-  }
-
-  // ---- parser ----
-  function parse(md) {
-    const lines = md.split('\n');
-    const isSep = (l) => /^\s*\|?[\s:|-]+\|?\s*$/.test(l) && l.includes('-') && l.includes('|');
-    const cats = [];
-    let cat = null, sub = null;
-    const ensureSub = () => { if (!sub) { sub = { title: '', resources: [] }; if (cat) cat.subs.push(sub); } };
-
-    for (let i = 0; i < lines.length; i++) {
-      const line = lines[i];
-      const h2 = line.match(/^##\s+(?!#)(.+?)\s*$/);
-      const h3 = line.match(/^###\s+(.+?)\s*$/);
-      if (h2) {
-        const full = h2[1].trim();
-        const first = full.split(/\s+/)[0];
-        const hasIcon = /\p{Extended_Pictographic}|[←-➿⬀-⯿]/u.test(first);
-        const icon = hasIcon ? first : '';
-        const label = (hasIcon ? full.slice(first.length).trim() : full);
-        if (/^Содержание$/i.test(label)) { cat = null; sub = null; continue; }
-        cat = { id: slug(label) || `c${cats.length}`, icon, label, intro: '', subs: [] };
-        cats.push(cat); sub = null; continue;
-      }
-      if (h3 && cat) { sub = { title: h3[1].trim(), intro: '', resources: [] }; cat.subs.push(sub); continue; }
-      if (!cat) continue;
-      const t = line.trim();
-      if (t.startsWith('>')) {
-        const q = t.replace(/^>\s?/, '');
-        if (sub && !sub.resources.length) sub.intro += (sub.intro ? ' ' : '') + q;
-        else if (!sub && cat) cat.intro += (cat.intro ? ' ' : '') + q;
-        continue;
-      }
-      if (t.startsWith('|')) {
-        if (isSep(t)) continue;
-        if (lines[i + 1] && isSep(lines[i + 1].trim())) continue;
-        const cells = t.split('|').slice(1, -1).map((c) => c.trim());
-        if (!cells.length) continue;
-        const res = parseRow(cells, t, cat, sub);
-        if (res) {
-          ensureSub();
-          res.type = inferType(res, cat, sub);
-          enrichResource(res, cat, sub);
-          sub.resources.push(res);
-        }
-      }
-    }
-    return cats.filter((c) => c.subs.some((s) => s.resources.length));
-  }
-
-  function parseRow(cells, raw, cat, sub) {
-    const head = cells[0];
-    const bold = head.match(/^\*\*([^*]+)\*\*/);
-    const link = head.match(/\[([^\]]+)\]\(([^)\s]+)\)/);
-    let title = bold ? bold[1] : (link ? link[1] : head.replace(/[*`]/g, '').trim());
-    title = title.replace(/[*`]/g, '').trim();
-    if (!title || title === '—') return null;
-    let url = link ? link[2] : null;
-    if (url && !/^https?:/.test(url)) url = absUrl(url);
-    if (!url) return null;
-    const stars = raw.match(/img\.shields\.io\/github\/stars\/([\w.-]+)\/([\w.-]+)/);
-    const starsRepo = stars ? `${stars[1]}/${stars[2]}` : null;
-    const descCells = cells.slice(1).filter((c) => c && c !== '—' && !/img\.shields\.io\/github\/stars/.test(c));
-    const rawText = descCells.join(' · ');
-    const descHtml = inline(descCells.join(' · '));
-    const ctx = `${cat.label} ${sub ? sub.title : ''} ${raw}`;
-    const risk = /grey|high-risk|high privilege|risk:|supply-chain boundary|reference-only|не использовать|uncensored|⚠️|🚨|🃏|пиратств/i.test(ctx);
-    return { title, url, descHtml, rawText, starsRepo, risk };
+    duplicateCount = 0;
+    return categories;
   }
 
   // ---- render ----
@@ -826,9 +585,9 @@
 
     // stats
     $('#stats').innerHTML =
-      stat(total, 'уникальных материалов') + stat(catalogTotals.verified, 'подробно проверено') +
-      stat(cats.length, 'категорий') +
-      stat(Object.keys(typeCounts).length, 'типов');
+      stat(total, 'материалов для людей') + stat(catalogTotals.verified, 'проверено редактором') +
+      stat(catalogTotals.licenseReviewRequired, 'лицензий требуют проверки') +
+      stat(catalogTotals.agentSafe, 'доступно агентам');
     renderHealthSummary();
 
     buildFilters(typeCounts);
@@ -1354,44 +1113,10 @@
     }, { passive: true }));
   }
 
-  // ---- courses & guides feature band (auto-discovered from README guide links) ----
-  async function renderGuides(md) {
-    const seen = new Map();
-    const re = /\[([^\]]+)\]\((?:\.\/)?guides\/([\w-]+)\.md(?:#[\w-]+)?\)/g;
-    let m;
-    while ((m = re.exec(md))) {
-      const label = m[1].replace(/[*`]/g, '').trim(), name = m[2];
-      const prev = seen.get(name);
-      if (!prev || (/курс|гайд/i.test(label) && !/курс|гайд/i.test(prev))) seen.set(name, label);
-    }
-    if (!seen.size) return;
+  // ---- courses & guides feature band (structured manifest) ----
+  function renderGuides(guides) {
+    if (!guides.length) return;
     const pl = (n, a, b, c) => (n % 10 === 1 && n % 100 !== 11) ? a : (n % 10 >= 2 && n % 10 <= 4 && (n % 100 < 10 || n % 100 >= 20)) ? b : c;
-
-    const guides = await Promise.all([...seen.entries()].map(async ([name, label]) => {
-      const g = { name, title: label, blurb: '', modules: 0, lessons: 0 };
-      try {
-        const r = await fetch(`guides/${name}.md`, { cache: 'no-cache' });
-        if (r.ok) {
-          const t = await r.text();
-          const h1 = t.match(/^#\s+(.+)$/m); if (h1) g.title = h1[1];
-          const bqm = t.match(/^(>.*(?:\n>.*)*)/m);
-          if (bqm) {
-            let b = bqm[1].replace(/^>\s?/gm, '').replace(/\n/g, ' ')
-              .replace(/\[([^\]]+)\]\([^)]+\)/g, '$1').replace(/[*`<>]/g, '').replace(/\s+/g, ' ').trim();
-            const dot = b.search(/\.\s/);
-            if (dot > 40 && dot < 190) b = b.slice(0, dot + 1);
-            else if (b.length > 175) b = b.slice(0, 174).replace(/\s+\S*$/, '').replace(/[\s.,;:—–-]+$/, '') + '…';
-            g.blurb = b;
-          }
-          // \s (not \b) — Cyrillic words have no ASCII word-boundary after them
-          g.modules = (t.match(/^##\s+(?:Модуль|Module)\s/gmi) || []).length;
-          g.lessons = (t.match(/^###\s+(?:Урок|Lesson)\s/gmi) || []).length;
-        }
-      } catch (e) {}
-      g.title = g.title.replace(/[#*`]/g, '').trim();
-      return g;
-    }));
-    guides.sort((a, b) => (b.modules - a.modules) || a.title.localeCompare(b.title, 'ru'));
 
     const hero = $('#hero');
     let band = $('#guidesFeat');
@@ -1401,7 +1126,7 @@
       ($('#results') || hero).insertAdjacentElement('afterend', band);
     }
     band.innerHTML =
-      `<div class="gf-head"><h2><span aria-hidden="true">📚</span> Курсы и гайды</h2>` +
+      `<div class="gf-head"><h2>Курсы и гайды</h2>` +
       `<span class="gf-sub">учебные материалы — открываются прямо на сайте</span></div>` +
       `<div class="gf-grid">` + guides.map((g) => {
         const course = g.modules > 0;
@@ -1410,9 +1135,9 @@
             (g.lessons ? `<span><b>${g.lessons}</b> ${pl(g.lessons, 'урок', 'урока', 'уроков')}</span>` : '') + `</div>`
           : '';
         return `<a class="course-card" href="#guide/${g.name}">` +
-          `<span class="cc-kicker">${course ? '🎓 курс' : '📖 гайд'}</span>` +
+          `<span class="cc-kicker">${course ? 'Курс' : 'Гайд'}</span>` +
           `<h3 class="cc-title">${esc(g.title)}</h3>` +
-          (g.blurb ? `<p class="cc-blurb">${esc(g.blurb)}</p>` : '') +
+          (g.description ? `<p class="cc-blurb">${esc(g.description)}</p>` : '') +
           meta +
           `<span class="cc-cta">Открыть →</span>` +
         `</a>`;
@@ -1424,14 +1149,14 @@
       const a = el('a'); a.id = 'navGuides'; a.href = '#guidesFeat';
       a.className = 'nav-pinned';
       a.dataset.navText = `курсы и гайды ${guides.length}`.toLowerCase();
-      a.innerHTML = `<span class="ico" aria-hidden="true">📚</span><span class="label">Курсы и гайды</span><span class="cnt">${guides.length}</span>`;
+      a.innerHTML = `<span class="ico" aria-hidden="true">G</span><span class="label">Курсы и гайды</span><span class="cnt">${guides.length}</span>`;
       nav.insertBefore(a, nav.firstChild);
       updateNavVisibility();
     }
     const catgrid = $('#catgrid');
     if (catgrid && !$('#tileGuides')) {
       const tile = el('a', 'cat-tile'); tile.id = 'tileGuides'; tile.href = '#guidesFeat';
-      tile.innerHTML = `<span class="ct-ico" aria-hidden="true">📚</span><span class="ct-label">Курсы и гайды</span><span class="ct-cnt">${guides.length}</span>`;
+      tile.innerHTML = `<span class="ct-ico" aria-hidden="true">G</span><span class="ct-label">Курсы и гайды</span><span class="ct-cnt">${guides.length}</span>`;
       catgrid.insertBefore(tile, catgrid.firstChild);
     }
   }
@@ -1529,6 +1254,12 @@
     return `Проверено ${day}.${month}.${year}`;
   }
 
+  function formatAddedAt(value) {
+    if (!value) return 'Дата не восстановлена';
+    const [year, month, day] = value.split('-');
+    return `${day}.${month}.${year}`;
+  }
+
   function formatAutomaticCheck(value) {
     if (!value || Number.isNaN(Date.parse(value))) return 'дата неизвестна';
     return new Intl.DateTimeFormat('ru-RU', { day: '2-digit', month: '2-digit', year: 'numeric' }).format(new Date(value));
@@ -1553,7 +1284,14 @@
   }
 
   function relatedCardsFor(entry, limit = 3) {
-    const verified = cards.filter((candidate) => candidate !== entry && candidate.resource.detail && candidate.resource.decision !== 'no' && !['archived', 'disabled'].includes(candidate.repositoryState));
+    const verified = cards.filter((candidate) =>
+      candidate !== entry
+      && candidate.resource.detail
+      && candidate.resource.agentEligibility?.eligible === true
+      && candidate.resource.type !== 'grey'
+      && candidate.resource.decision !== 'no'
+      && !['archived', 'disabled'].includes(candidate.repositoryState),
+    );
     const sameMcpTopic = /\bmcp\b/i.test(entry.resource.title)
       ? verified.filter((candidate) => /\bmcp\b/i.test(candidate.resource.title))
       : [];
@@ -1629,6 +1367,14 @@
     const mcpAuditNotice = r.mcpAudit
       ? `<div class="repository-notice"><b>${esc(MCP_AUDIT[r.mcpAudit.status] || MCP_AUDIT['runtime-pending'])}.</b> ${esc(r.mcpAudit.summary)}</div>`
       : '';
+    const licenseStatus = r.licenseInfo?.status === 'source-declared'
+      ? 'Заявлена в официальных metadata источника'
+      : r.licenseInfo?.status === 'editor-reviewed'
+        ? 'Проверена редактором'
+        : 'Требует отдельной проверки';
+    const evidenceHtml = (r.evidence || []).map((evidence) =>
+      `<li><a href="${escAttr(evidence.url)}" target="_blank" rel="noopener">${esc(evidence.label || 'Источник')}</a><span>${esc(evidence.kind === 'license' ? 'license evidence' : 'official evidence')}</span></li>`,
+    ).join('');
     body.innerHTML =
       `<div class="item-kicker"><span class="type-chip t-${r.type}">${esc(TYPES[r.type] || r.type)}</span>` +
         `<span class="trust-chip ${trustClass}">${esc(TRUST[r.trust] || TRUST.unknown)}</span>` +
@@ -1644,7 +1390,8 @@
         `<div><span>Где запускается</span><b>${esc(RUNTIME[r.runtime] || RUNTIME.unknown)}</b></div>` +
         `<div><span>Стоимость</span><b>${esc(r.pricing)}</b></div>` +
         `<div><span>Нужна ли регистрация</span><b>${esc(SIGNUP[r.signup] || SIGNUP.unknown)}</b></div>` +
-        `<div><span>Лицензия</span><b>${esc(r.license)}</b></div>` +
+        `<div><span>Лицензия</span><b>${esc(r.licenseInfo?.label || r.license)}</b><small>${esc(licenseStatus)}</small></div>` +
+        `<div><span>Добавлено в библиотеку</span><b>${esc(formatAddedAt(r.addedAt))}</b></div>` +
         `<div><span>Решение Eclipse</span><b>${esc(DECISIONS[r.decision] || DECISIONS.reference)}</b></div>` +
         `<div><span>Актуальность</span><b>${esc(FRESHNESS[r.freshness] || FRESHNESS.unknown)}</b></div>` +
         `${r.repositoryState ? `<div><span>Состояние GitHub</span><b>${esc(REPOSITORY_STATE[r.repositoryState] || REPOSITORY_STATE.unknown)}</b><small>Автопроверка ${esc(formatAutomaticCheck(githubMetadataSnapshot?.checkedAt))}.</small></div>` : ''}` +
@@ -1656,8 +1403,10 @@
       `<section class="item-section item-risk-section"><h2>Что важно знать до запуска</h2>` +
         `<div class="risk-summary risk-${r.riskLevel}"><b>${esc(RISK[r.riskLevel] || RISK.medium)}</b><span>${esc(r.trustReason)}</span></div>` +
         `${itemList(r.risks)}</section>` +
+      `<section class="item-section evidence-section"><h2>На чём основана карточка</h2><ul class="evidence-list">${evidenceHtml}</ul><p class="item-muted">Ссылка подтверждает источник или заявленные условия, но не заменяет security, privacy и legal review перед внедрением.</p></section>` +
       `<section id="relatedSection" class="item-section related-section" hidden><div class="related-head"><div><span>Следующий шаг</span><h2>Похожие проверенные материалы</h2></div><p>Подобраны по общей задаче, платформе и проектам Eclipse.</p></div><div id="relatedGrid" class="related-grid"></div></section>` +
       `<details class="original-note"><summary>Показать исходное техническое описание</summary><p>${esc(plain(r.rawText))}</p></details>` +
+      `<div class="catalog-safety-note"><b>Каталог ничего не устанавливает.</b><span>Он открывает официальный источник. Установку, permissions и команды проверяйте отдельно в sandbox.</span></div>` +
       `<div class="item-cta">${sourceBlocked ? '<strong class="blocked-source">Источник скрыт: автоматическая проверка обнаружила небезопасное назначение.</strong>' : `<a href="${escAttr(r.url)}" target="_blank" rel="noopener">Открыть официальный источник ↗</a>`}` +
         `<span>${r.detail ? 'Карточка проверена и дополнена редактором Eclipse Library.' : 'Это базовая карточка. Перед внедрением нужна дополнительная проверка.'}</span></div>`;
     const actionSlot = $('#itemActionSlot');
@@ -1717,26 +1466,25 @@
 
   // ---- boot ----
   async function load() {
-    let md;
-    try { const r = await fetch('README.md', { cache: 'no-cache' }); if (!r.ok) throw 0; md = await r.text(); }
-    catch (e) {
-      try { md = await (await fetch(RAW, { cache: 'no-cache' })).text(); }
-      catch (e2) { const s = $('#status'); s.className = 'status err'; s.innerHTML = `Не удалось загрузить библиотеку. <a href="${REPO_URL}" target="_blank" rel="noopener">Открыть на GitHub →</a>`; return; }
-    }
     try {
       await Promise.all([
         (async () => {
-          try {
-            const response = await fetch(DETAILS_URL, { cache: 'no-cache' });
-            if (!response.ok) throw new Error(`HTTP ${response.status}`);
-            const catalog = await response.json();
-            if (catalog?.schemaVersion !== 1 || !Array.isArray(catalog.items)) throw new Error('catalog-index.json имеет неверный формат');
-            if (catalog.totals?.all !== catalog.items.length || catalog.totals?.verified + catalog.totals?.inferred !== catalog.totals?.all) throw new Error('catalog-index.json содержит неверные счётчики');
-            catalogTotals = catalog.totals;
-            detailsByUrl = new Map(catalog.items.map((detail) => [canonicalUrl(detail.url), detail]));
-          } catch (error) {
-            console.warn('Structured catalog details are unavailable; using safe inferred metadata.', error);
-          }
+          const response = await fetch(DETAILS_URL, { cache: 'no-cache' });
+          if (!response.ok) throw new Error(`catalog-index.json: HTTP ${response.status}`);
+          const catalog = await response.json();
+          if (catalog?.schemaVersion !== 2 || !Array.isArray(catalog.items)) throw new Error('catalog-index.json имеет неверный формат');
+          if (catalog.totals?.all !== catalog.items.length || catalog.totals?.verified + catalog.totals?.inferred !== catalog.totals?.all) throw new Error('catalog-index.json содержит неверные счётчики');
+          if (catalog.policy?.directInstallForbidden !== true) throw new Error('catalog-index.json не содержит fail-closed install policy');
+          catalogTotals = catalog.totals;
+          structuredItems = catalog.items;
+          detailsByUrl = new Map(catalog.items.map((detail) => [canonicalUrl(detail.url), detail]));
+        })(),
+        (async () => {
+          const response = await fetch(GUIDES_URL, { cache: 'no-cache' });
+          if (!response.ok) throw new Error(`guides.json: HTTP ${response.status}`);
+          const manifest = await response.json();
+          if (manifest?.schemaVersion !== 1 || !Array.isArray(manifest.guides) || manifest.totals?.guides !== manifest.guides.length) throw new Error('guides.json имеет неверный формат');
+          guidesManifest = manifest.guides;
         })(),
         (async () => {
           try {
@@ -1807,11 +1555,16 @@
           }
         })(),
       ]);
-      render(deduplicate(parse(md))); spotlight();
-      await renderGuides(md);
+      render(categoriesFromStructuredCatalog(structuredItems)); spotlight();
+      renderGuides(guidesManifest);
       requestAnimationFrame(route);
     }
-    catch (e) { $('#status').className = 'status err'; $('#status').textContent = 'Ошибка разбора README: ' + e.message; }
+    catch (e) {
+      const status = $('#status');
+      status.className = 'status err';
+      status.innerHTML = `Не удалось загрузить structured catalog. <a href="${REPO_URL}" target="_blank" rel="noopener">Открыть данные на GitHub →</a>`;
+      console.error(e);
+    }
   }
 
   // ---- events ----

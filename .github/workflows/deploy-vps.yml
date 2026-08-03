@@ -1,7 +1,6 @@
 name: Deploy library web to VPS (eclipse-forge.ru)
 
-# Статический сайт library.eclipse-forge.ru (web/ + копия README.md как источник данных).
-# Без сборки. Перезаливается при изменении web/ или README (курация → сайт сам обновляется).
+# Статический сайт library.eclipse-forge.ru. Канонические записи собираются из catalog/resources.json в web/.
 # Секреты: VPS_SSH_KEY, VPS_KNOWN_HOSTS, VPS_HOST, VPS_USER, VPS_PATH (=/var/www/library).
 
 on:
@@ -9,7 +8,8 @@ on:
     branches: [master]
     paths:
       - 'web/**'
-      - 'README.md'
+      - 'catalog/**'
+      - 'scripts/**'
       - 'guides/**'
       - '.github/workflows/deploy-vps.yml'
   workflow_run:
@@ -33,11 +33,10 @@ jobs:
     steps:
       - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
 
-      - name: Build static payload (web/ + README.md as data)
+      - name: Build static payload
         run: |
           mkdir -p _site
           cp -r web/. _site/
-          cp README.md _site/README.md
           cp -r guides _site/guides
           rm -f _site/.gitignore _site/_*.png _site/_edge.log
 

@@ -158,7 +158,7 @@ async function inspect(server) {
       const hasReadTool = tools.some((tool) => tool.name === 'get_file_contents');
       activeTests.push({ id: 'exposes-approved-read-tool', passed: hasReadTool });
       const unauthenticatedRead = hasReadTool
-        ? await callTool(20, 'get_file_contents', { owner: 'PavelHopson', repo: 'eclipse-library', path: 'README.md' })
+        ? await callTool(20, 'get_file_contents', { owner: 'PavelHopson', repo: 'eclipse-library', path: 'catalog/resources.json' })
         : { error: { code: -32601 } };
       const unauthenticatedText = responseText(unauthenticatedRead);
       activeTests.push({ id: 'rejects-read-without-real-token', passed: isDenied(unauthenticatedRead) && !unauthenticatedText.includes('invalid-audit-token') });

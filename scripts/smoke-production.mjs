@@ -92,13 +92,16 @@ async function fetchText(url) {
 export async function smokeProduction(baseValue, deploySha = '') {
   const base = validateBaseUrl(baseValue);
   const cacheKey = encodeURIComponent(deploySha || Date.now().toString());
-  const [localIndex, localApp, localCatalog, localMetadata, localProjects, localMcpAudit] = await Promise.all([
+  const [localIndex, localApp, localRuntime, localCatalog, localMetadata, localProjects, localMcpAudit, localGuides, localAgentExport] = await Promise.all([
     readFile(new URL('web/index.html', repoRoot), 'utf8'),
     readFile(new URL('web/app.js', repoRoot), 'utf8'),
+    readFile(new URL('web/catalog-runtime.js', repoRoot), 'utf8'),
     readFile(new URL('web/catalog-index.json', repoRoot), 'utf8').then(JSON.parse),
     readFile(new URL('web/github-metadata.json', repoRoot), 'utf8').then(JSON.parse),
     readFile(new URL('web/projects.json', repoRoot), 'utf8').then(JSON.parse),
     readFile(new URL('web/mcp-audit.json', repoRoot), 'utf8').then(JSON.parse),
+    readFile(new URL('web/guides.json', repoRoot), 'utf8').then(JSON.parse),
+    readFile(new URL('web/api/v1/agents.json', repoRoot), 'utf8').then(JSON.parse),
   ]);
   const liveIndex = await fetchText(new URL(`?deploy=${cacheKey}`, base));
   const localAppAsset = extractVersionedAsset(localIndex, 'app.js');
@@ -109,6 +112,13 @@ export async function smokeProduction(baseValue, deploySha = '') {
   appUrl.searchParams.set('deploy', cacheKey);
   const liveApp = await fetchText(appUrl);
   assert.equal(liveApp, localApp, 'Production app.js does not match the deployed commit.');
+  const localRuntimeAsset = extractVersionedAsset(localIndex, 'catalog-runtime.js');
+  const liveRuntimeAsset = extractVersionedAsset(liveIndex, 'catalog-runtime.js');
+  assert.equal(liveRuntimeAsset, localRuntimeAsset, 'Production index references an unexpected catalog runtime version.');
+  const runtimeUrl = new URL(liveRuntimeAsset, base);
+  runtimeUrl.searchParams.set('deploy', cacheKey);
+  assert.equal(await fetchText(runtimeUrl), localRuntime, 'Production catalog-runtime.js does not match the deployed commit.');
+  assert.doesNotMatch(liveIndex, /fonts\.googleapis\.com|fonts\.gstatic\.com/, 'Production must not depend on Google Fonts.');
   assertMobileScrollGuard(localApp);
   assertMobileScrollGuard(liveApp);
   assertMobileGuideTocGuard(localApp);
@@ -116,14 +126,15 @@ export async function smokeProduction(baseValue, deploySha = '') {
   assertTopicRouteResetOrder(localApp);
   assertTopicRouteResetOrder(liveApp);
 
-  const [liveCatalog, liveMetadata, liveProjects, liveMcpAudit, liveReadme] = await Promise.all([
+  const [liveCatalog, liveMetadata, liveProjects, liveMcpAudit, liveGuides, liveAgentExport] = await Promise.all([
     fetchText(new URL(`catalog-index.json?deploy=${cacheKey}`, base)).then(JSON.parse),
     fetchText(new URL(`github-metadata.json?deploy=${cacheKey}`, base)).then(JSON.parse),
     fetchText(new URL(`projects.json?deploy=${cacheKey}`, base)).then(JSON.parse),
     fetchText(new URL(`mcp-audit.json?deploy=${cacheKey}`, base)).then(JSON.parse),
-    fetchText(new URL(`README.md?deploy=${cacheKey}`, base)),
+    fetchText(new URL(`guides.json?deploy=${cacheKey}`, base)).then(JSON.parse),
+    fetchText(new URL(`api/v1/agents.json?deploy=${cacheKey}`, base)).then(JSON.parse),
   ]);
-  assert.equal(liveCatalog?.schemaVersion, 1, 'Production catalog index schema is invalid.');
+  assert.equal(liveCatalog?.schemaVersion, 2, 'Production catalog index schema is invalid.');
   assert.equal(liveCatalog?.sourceHash, localCatalog.sourceHash, 'Production catalog index is stale.');
   assert.deepEqual(liveCatalog?.totals, localCatalog.totals, 'Production catalog index totals are stale.');
   assert.equal(liveMetadata?.schemaVersion, 1, 'Production GitHub metadata schema is invalid.');
@@ -132,7 +143,10 @@ export async function smokeProduction(baseValue, deploySha = '') {
   assert.equal(liveProjects?.projects?.length, localProjects.projects.length, 'Production projects catalog is stale.');
   assert.equal(liveMcpAudit?.schemaVersion, 1, 'Production MCP audit schema is invalid.');
   assert.equal(liveMcpAudit?.servers?.length, localMcpAudit.servers.length, 'Production MCP audit status is stale.');
-  assert.match(liveReadme, /Eclipse Library/i, 'Production README data is missing.');
+  assert.deepEqual(liveGuides?.totals, localGuides.totals, 'Production guides manifest is stale.');
+  assert.deepEqual(liveAgentExport?.totals, localAgentExport.totals, 'Production agent export is stale.');
+  assert.ok(liveAgentExport.items.every((item) => item.type !== 'grey'), 'Production agent export contains a grey resource.');
+  assert.ok(liveAgentExport.items.every((item) => item.actions?.installFromCatalog === false), 'Production agent export allows direct install.');
 
   return {
     appAsset: liveAppAsset,

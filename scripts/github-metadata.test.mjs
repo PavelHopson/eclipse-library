@@ -21,4 +21,5 @@ test('builds a bounded GraphQL query from validated repository keys', () => {
   assert.match(query, /repository\(owner: "openai", name: "openai-node"\)/);
   assert.match(query, /isArchived/);
   assert.match(query, /isPrivate/);
+  assert.match(query, /licenseInfo \{ name spdxId url \}/);
 });

@@ -1,9 +1,7 @@
 import { readFile } from 'node:fs/promises';
-import { parseCatalogRows } from './catalog-source.mjs';
-
 const repoRoot = new URL('../', import.meta.url);
-const [readme, detailsText, indexHtml] = await Promise.all([
-  readFile(new URL('README.md', repoRoot), 'utf8'),
+const [catalog, detailsText, indexHtml] = await Promise.all([
+  readFile(new URL('catalog/resources.json', repoRoot), 'utf8').then(JSON.parse),
   readFile(new URL('web/catalog-details.json', repoRoot), 'utf8'),
   readFile(new URL('web/index.html', repoRoot), 'utf8'),
 ]);
@@ -49,7 +47,7 @@ if (!Array.isArray(details)) {
 } else {
   const ids = new Set();
   const urls = new Set();
-  const readmeUrls = new Set(parseCatalogRows(readme).rows.map((row) => canonicalUrl(row.url)));
+  const catalogUrls = new Set((catalog.items || []).map((item) => canonicalUrl(item.url)));
 
   details.forEach((item, index) => {
     const label = item?.id || `item ${index + 1}`;
@@ -85,7 +83,7 @@ if (!Array.isArray(details)) {
     const url = canonicalUrl(item?.url);
     if (urls.has(url)) errors.push(`${label}: duplicate canonical URL.`);
     urls.add(url);
-    if (!readmeUrls.has(url)) errors.push(`${label}: URL is missing from README.md.`);
+    if (!catalogUrls.has(url)) errors.push(`${label}: URL is missing from catalog/resources.json.`);
   });
 }
 
