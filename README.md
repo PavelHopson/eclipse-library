@@ -25,8 +25,8 @@
 Стоимость, необходимость регистрации и место запуска вынесены в отдельные простые признаки: можно сразу
 найти бесплатные инструменты, варианты без аккаунта и решения для своего устройства или self-hosted server.
 Если редактор ещё не подтвердил условие, интерфейс честно показывает «нужно проверить», а не угадывает.
-Все 526 уникальных материалов уже приведены к одной структуре: назначение, сценарии, платформа,
-лицензия, стоимость, доверие, риски, безопасный старт и применимость к Eclipse Forge. Для 75 записей
+Все 531 уникальных материала уже приведены к одной структуре: назначение, сценарии, платформа,
+лицензия, стоимость, доверие, риски, безопасный старт и применимость к Eclipse Forge. Для 81 записи
 эти данные проверены редактором; остальные явно помечены как предварительные и не выдают inference за факт.
 Сначала показываются 36 наиболее ранних результатов текущей выборки; следующие карточки
 открываются кнопкой «Показать ещё», поэтому страница не превращается в бесконечное полотно.
@@ -2384,7 +2384,7 @@ Frontend: React 19 · TypeScript · Vite · Tailwind CSS 4 · Zustand
 
 | Ресурс | Что это и как используем | Stars |
 |---|---|---|
-| [Camofox Browser](https://github.com/jo-inc/camofox-browser) | REST browser service поверх Camoufox с sessions и accessibility snapshots. **P2:** только isolated optional worker для **Eclipse-Claw / Sentinel**, когда обычного HTTP-renderer недостаточно. Loopback bind, access key, allowlist, public-only egress, telemetry off, disposable profile и prompt-injection boundary обязательны; anti-detect не используется для обхода чужих защит | [![Stars](https://img.shields.io/github/stars/jo-inc/camofox-browser?style=flat)](https://github.com/jo-inc/camofox-browser) |
+| [Camofox Browser](https://github.com/jo-inc/camofox-browser) | REST browser service поверх Camoufox с sessions и accessibility snapshots. **P2 contract реализован:** Sentinel получил env-gated read-only `BrowserRead`, который создаёт disposable tab, читает snapshot/stats и закрывает tab; click/type/cookies ему недоступны. Сам Camofox runtime намеренно не установлен до container/privacy/egress review. Loopback, access key, allowlist, telemetry off, отключённый upstream profile persistence и prompt-injection boundary обязательны; anti-detect не используется для обхода чужих защит | [![Stars](https://img.shields.io/github/stars/jo-inc/camofox-browser?style=flat)](https://github.com/jo-inc/camofox-browser) |
 | [HyperFrames](https://github.com/heygen-com/hyperframes) | Apache-2.0 video framework: HTML/CSS/GSAP -> deterministic MP4. **P0 реализован:** в **Eclipse Media** есть брендовый template, browser preview, exact `hyperframes@0.7.88`, lockfile, fail-closed runner и реальные 15-секундные MP4 в форматах 16:9, 9:16 и 1:1. Shotforge готовит совместимую пятисценную раскадровку; публикация всегда проходит human review | [![Stars](https://img.shields.io/github/stars/heygen-com/hyperframes?style=flat)](https://github.com/heygen-com/hyperframes) |
 
 `Open-Generative-AI` уже находится в разделе AI / Claude Code выше и теперь проверен как
@@ -2398,7 +2398,7 @@ Frontend: React 19 · TypeScript · Vite · Tailwind CSS 4 · Zustand
 | **P0** | HyperFrames release-video pipeline | Eclipse Media · Shotforge · Eclipse Forge Landing · Eclipse Chat | Работает: storyboard JSON, preview, exact CLI/lockfile, checks и реальные MP4 16:9/9:16/1:1; публикация только вручную |
 | **P1** | Read-only Ads Audit | Eclipse AI Hub · Eclipse Chat · Sentinel | Работает: bounded snapshot, evidence report, понятный diff, execution-room preset и notify-only anomaly monitor; Ads write API выключен |
 | **P2** | Model Registry | Eclipse AI Hub · Sentinel · Eclipse Media | Работает первый AI Hub срез: capability/runtime/privacy/license/cost и Hardware Doctor; автоматический provider import выключен |
-| **P2** | Isolated browser fallback | Eclipse-Claw · Sentinel | Работает policy/doctor contract: HTTPS public allowlist, loopback/key, telemetry/cookies/write off; Camofox runtime ещё не подключён |
+| **P2** | Isolated browser fallback | Eclipse-Claw · Sentinel | Работает policy/doctor и env-gated `BrowserRead`: disposable create/snapshot/stats/close, HTTPS public allowlist и untrusted label; Camofox runtime ещё не установлен до container review |
 | **P3** | Financial Research Room | Eclipse Chat · AI Hub · CryptoPulse · FinFlow | Работают роли Analyst/Risk/Macro/Skeptic и portfolio-health scenario; sources/citations остаются следующим этапом |
 | **P3** | Strategy Lab | CryptoPulse · AI Hub | Работают fees/slippage, backtest, Monte Carlo, walk-forward и paper log; live broker отсутствует |
 

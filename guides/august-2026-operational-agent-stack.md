@@ -1,6 +1,6 @@
 # Operational Agent Stack: от сигнала до результата
 
-> Проверка от 02.08.2026. Цель этого набора не установить шесть случайных инструментов,
+> Проверка от 03.08.2026. Цель этого набора не установить шесть случайных инструментов,
 > а собрать управляемый pipeline: анализ -> решение -> выполнение -> артефакт -> review.
 
 ## Короткий вывод
@@ -108,10 +108,16 @@ automation. Он полезен для страниц, которые нельз
 
 **Куда внедряем.** Только отдельный optional worker Eclipse-Claw / Sentinel.
 
+В Sentinel уже зарегистрирован `BrowserRead`: инструмент появляется только при явной настройке
+изолированного Camofox worker, открывает disposable tab, читает `snapshot` и `stats`, затем всегда
+закрывает tab. Click, type, cookies, downloads и другие write-actions в его API отсутствуют.
+
 **Обязательные guardrails.**
 
 - `CAMOFOX_BIND_HOST=127.0.0.1`, `CAMOFOX_ACCESS_KEY` и private service network для внешнего доступа.
 - `CAMOFOX_CRASH_REPORT_ENABLED=false` до privacy review.
+- Upstream profile persistence выключен в `camofox.config.json`; отдельная Sentinel attestation
+  `SENTINEL_CAMOFOX_PERSISTENCE_DISABLED=true` не заменяет проверку реального worker config.
 - Disposable profile, без primary cookies и password manager.
 - Public-only egress, DNS/redirect validation, allowlist и rate limits.
 - Web text остаётся untrusted data и не может само вызвать tools.
@@ -156,8 +162,11 @@ approval, immutable order audit, kill switch и reconciliation. Пока это�
    `Здоровье портфеля`. Это исследование, а не финансовый совет.
 3. **Стратегии:** в CryptoPulse открыть Strategy Lab, задать fees/slippage и сравнить backtest,
    walk-forward, Monte Carlo и три независимые роли. Live trading отсутствует.
-4. **Browser:** сначала использовать HTTP Eclipse Claw. `doctor` покажет browser worker отдельно;
-   Sentinel разрешает только HTTPS/public/allowlisted read-only URL без cookies и telemetry.
+4. **Browser:** сначала использовать HTTP Eclipse Claw. Для JS-heavy страницы администратор отдельно
+   запускает Camofox в контейнере без workspace/secrets, задаёт loopback endpoint, access key, domain
+   allowlist, выключает profile persistence и задаёт `SENTINEL_CAMOFOX_ISOLATED=true`,
+   `SENTINEL_CAMOFOX_PERSISTENCE_DISABLED=true` и `CAMOFOX_CRASH_REPORT_ENABLED=false`. Только после этого
+   в Sentinel появляется `BrowserRead`: он возвращает недоверенный snapshot и не умеет кликать или вводить данные.
 5. **Модели:** в AI Hub открыть Model Registry, выбрать capability и проверить Hardware Doctor,
    privacy boundary, стоимость и лицензию до маршрутизации.
 6. **Видео:** в Shotforge собрать JSON-раскадровку, открыть Eclipse Media → Видео-студия, выбрать
@@ -174,7 +183,7 @@ approval, immutable order audit, kill switch и reconciliation. Пока это�
 | HyperFrames «сотни видео автоматически» | Deterministic HTML-video pipeline подтверждён и лицензирован Apache-2.0. Масштаб зависит от compute; публикация не автоматизирована. |
 | Open-Gen-AI «200+ моделей на своём компьютере» | Каталог большой, но множество моделей вызывают MuAPI. Self-hosted UI не означает local inference для всего каталога. |
 
-## Статус внедрения на 02.08.2026
+## Статус внедрения на 03.08.2026
 
 | Поверхность | Что уже работает | Что намеренно не включено |
 |---|---|---|
@@ -182,10 +191,10 @@ approval, immutable order audit, kill switch и reconciliation. Пока это�
 | Chat Advertising room | Однокнопочный EXECUTION preset и явный approval/rollback workflow | Автоматическое изменение бюджета |
 | Sentinel Ads monitor | Read-only spend anomaly detector с notify-only результатом | Автоматическая остановка кампаний |
 | AI Hub Research / FinFlow | Analyst/Risk/Macro/Skeptic room и portfolio health scenario | Финансовые рекомендации и Fincept code reuse |
-| CryptoPulse Strategy Lab | Fees, slippage, Monte Carlo, walk-forward и Optimist/Skeptic/Risk Manager | Live broker credentials/orders |
-| Claw / Sentinel browser | Видимый doctor capability и fail-closed policy для public allowlisted read-only pages | Camofox dependency, cookies, payments, publish/account actions |
+| CryptoPulse Strategy Lab | Fees, slippage, Monte Carlo, walk-forward и Optimist/Skeptic/Risk Manager; local demo password защищён PBKDF2, временный AI key живёт только в текущей browser session | Server auth/2FA и live broker credentials/orders |
+| Claw / Sentinel browser | Doctor/policy и env-gated `BrowserRead`: disposable create → snapshot/stats → close, public allowlist, untrusted-content label | Camofox runtime не установлен; cookies, click/type, payments, publish/account actions отсутствуют; container smoke review ещё нужен |
 | AI Hub Model Registry | Capability filters, runtime/privacy/license/cost и Hardware Doctor | Скрытый fallback и автоматический import Open-Gen runtime |
-| Shotforge / Media | Storyboard JSON, preview и три render format | Автопубликация без человеческого preview |
+| Shotforge / Media | Storyboard JSON, preview и три render format; Shotforge собирает Tailwind CSS локально и проверяет SHA-256 manifest без runtime CDN | Автопубликация без человеческого preview |
 
 ## Что не делаем
 

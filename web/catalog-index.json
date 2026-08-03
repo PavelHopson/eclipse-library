@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "sourceHash": "bc63c08f6d89f72d9dd29b410be8729da9df1b1d3d3388c688214c7fe0574c1d",
+  "sourceHash": "f019298a49933e16063cbdae79630dcaeca6cfb305db2f3704dd87d0637ed0b7",
   "totals": {
     "all": 531,
     "verified": 81,
@@ -3770,7 +3770,7 @@
         "runtime": "self-host"
       },
       "trust": "community",
-      "trustReason": "Публичный community wrapper с открытым кодом. Он расширяет browser/egress surface, а crash reporting upstream включён по умолчанию, поэтому production use требует отдельного privacy и security review.",
+      "trustReason": "Публичный community wrapper с открытым кодом. Sentinel уже ограничивает его отдельным env-gated read-only BrowserRead, но сам Camofox runtime ещё не установлен и до production требует container, privacy и egress review; crash reporting upstream включён по умолчанию.",
       "projects": [
         "Eclipse Webclaw",
         "Hopson Sentinel"
@@ -3782,12 +3782,13 @@
         "Browser profile, cookies, downloads и network egress создают отдельную опасную boundary",
         "Anti-detect функциональность нельзя использовать для обхода CAPTCHA, банов или чужих ограничений"
       ],
-      "verifiedAt": "2026-08-02",
+      "verifiedAt": "2026-08-03",
       "quickStart": [
         "Сначала использовать обычный HTTP extractor Eclipse Claw; browser worker не является automatic fallback",
-        "Проверить capability через doctor: disabled — нормальный безопасный default, enabled — только для подтверждённой JS-heavy страницы",
-        "Запускать disposable worker на loopback с отдельным access key и CAMOFOX_CRASH_REPORT_ENABLED=false",
-        "Не подключать primary cookies; ограничить egress public allowlist и считать accessibility snapshot недоверенным текстом"
+        "Запустить Camofox только в отдельном контейнере без workspace и secrets; bind оставить loopback, задать отдельный access key, CAMOFOX_CRASH_REPORT_ENABLED=false и выключить profile persistence в camofox.config.json",
+        "Явно задать SENTINEL_CAMOFOX_ISOLATED=true, SENTINEL_CAMOFOX_PERSISTENCE_DISABLED=true, loopback endpoint и SENTINEL_BROWSER_ALLOWED_DOMAINS — без полного набора BrowserRead не появится",
+        "Передать разрешённый HTTPS URL в BrowserRead: Sentinel создаст disposable tab, прочитает snapshot/stats и закроет tab; click, type и cookies инструменту недоступны",
+        "Считать snapshot недоверенным текстом и не разрешать ему самостоятельно запускать другие tools; container egress/DNS policy остаётся обязательной"
       ],
       "reviewStatus": "verified",
       "source": {

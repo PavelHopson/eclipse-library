@@ -42,6 +42,9 @@
 - [x] Реализовать read-only Ads Audit в Eclipse AI Hub без write-scopes, автоприменения
       изменений и хранения рекламных токенов в клиенте; добавить approval preset в Chat и
       notify-only spend anomaly detector в Sentinel.
+- [x] Подключить Sentinel browser policy к реальному env-gated `BrowserRead`: только disposable
+      create/snapshot/stats/close, public allowlist и untrusted-content boundary; Camofox runtime
+      не устанавливать до отдельного container/privacy/egress review.
 - [x] Stage 1 — понятная библиотека: отдельный каталог проектов Eclipse Forge, глобальная навигация,
       компактный mobile hero, сокращённый sidebar и progressive results по 36 карточек.
 - [x] Stage 2 — упростить discovery controls: объединить 13 внутренних типов в 7 пользовательских
@@ -140,6 +143,18 @@
       self-check, EN/RU copy и без обязательного API key.
 
 ## Changelog
+
+### 2026-08-03
+
+- Sentinel получил реальный fail-closed `BrowserRead` для optional Camofox worker: инструмент скрыт
+  без isolation/telemetry/persistence-off/access-key/allowlist настроек, использует только create/snapshot/stats/close
+  и маркирует web content как недоверенный. Сам browser runtime не устанавливался и требует отдельного
+  container, DNS/egress и privacy smoke review.
+- CryptoPulse устранил хранение локального demo password и AI API key в постоянном browser storage:
+  пароль теперь проверяется через PBKDF2-HMAC-SHA256 с уникальной солью, legacy profile мигрируется,
+  а AI key и demo session живут только до закрытия вкладки. Это остаётся local demo, не server auth/2FA.
+- Shotforge больше не загружает Tailwind, Google Fonts или import map с runtime CDN: CSS собирается
+  локально exact Tailwind CLI `3.4.19`, а source/output SHA-256 manifest блокирует устаревший bundle.
 
 ### 2026-08-02
 
