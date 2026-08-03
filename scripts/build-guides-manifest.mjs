@@ -27,11 +27,23 @@ function comparableManifest(value) {
   });
 }
 
+function manifestDifference(current, expected) {
+  const currentByName = new Map((current?.guides || []).map((guide) => [guide.name, guide]));
+  const expectedByName = new Map((expected?.guides || []).map((guide) => [guide.name, guide]));
+  return {
+    currentTotal: current?.totals?.guides ?? null,
+    expectedTotal: expected?.totals?.guides ?? null,
+    missing: [...expectedByName.keys()].filter((name) => !currentByName.has(name)),
+    extra: [...currentByName.keys()].filter((name) => !expectedByName.has(name)),
+    changed: [...expectedByName.keys()].filter((name) => currentByName.has(name) && JSON.stringify(currentByName.get(name)) !== JSON.stringify(expectedByName.get(name))),
+  };
+}
+
 export async function buildGuidesManifest() {
   const directory = new URL('guides/', root);
   const names = (await readdir(directory)).filter((name) => name.endsWith('.md')).sort();
   const guides = await Promise.all(names.map(async (file) => {
-    const markdown = await readFile(new URL(file, directory), 'utf8');
+    const markdown = (await readFile(new URL(file, directory), 'utf8')).replace(/\r\n?/g, '\n');
     const name = file.replace(/\.md$/, '');
     const title = plain(markdown.match(/^#\s+(.+)$/m)?.[1] || name);
     const quote = markdown.match(/^(>.*(?:\n>.*)*)/m)?.[1] || '';
@@ -60,6 +72,7 @@ if (process.argv[1] && fileURLToPath(import.meta.url) === resolve(process.argv[1
     try { currentManifest = JSON.parse(current); } catch { /* validation below reports stale output */ }
     if (comparableManifest(currentManifest) !== comparableManifest(manifest)) {
       console.error('guides.json is stale. Run node scripts/build-guides-manifest.mjs.');
+      console.error(JSON.stringify(manifestDifference(currentManifest, manifest)));
       process.exitCode = 1;
     } else console.log(`Guides manifest is current: ${manifest.totals.guides} guides.`);
   } else {
