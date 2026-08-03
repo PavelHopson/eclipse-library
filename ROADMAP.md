@@ -14,11 +14,11 @@
 - `web/link-health.json` — безопасный публичный snapshot weekly-аудита: доступность ссылки
   показывается отдельно от редакторского доверия и не считается security endorsement.
 - Deploy: GitHub Actions → VPS/Caddy из ветки `master`.
-- Production catalog data синхронизированы с commit `17356ae`: quality
-  [#30753778386](https://github.com/PavelHopson/eclipse-library/actions/runs/30753778386)
-  и deploy [#30753778390](https://github.com/PavelHopson/eclipse-library/actions/runs/30753778390)
-  от 02.08.2026 успешно завершены; independent smoke подтвердил `app.js?v=30`,
-  531 материал, 22 проекта, 307 GitHub repository statuses и 5 MCP audit records.
+- Production синхронизирован с commit `aaae024`: quality
+  [#30835927415](https://github.com/PavelHopson/eclipse-library/actions/runs/30835927415)
+  и deploy [#30835926851](https://github.com/PavelHopson/eclipse-library/actions/runs/30835926851)
+  от 03.08.2026 успешно завершены; independent smoke подтвердил `app.js?v=33`,
+  534 материала, 22 проекта, 320 GitHub repository statuses и 5 MCP audit records.
 
 ## Приоритеты
 
