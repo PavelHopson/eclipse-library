@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "migratedAt": "2026-08-03",
   "totals": {
-    "items": 534
+    "items": 535
   },
   "items": [
     {
@@ -9154,11 +9154,11 @@
       "type": "tool",
       "category": "Подборка Eclipse",
       "subcategory": "Windows / GameDev reference",
-      "simpleDescription": "Windows-утилита, которая показывает набор системных tweaks для интерфейса, рекламы, privacy, Edge, приложений и policies. Перед изменением можно увидеть смысл действия, но ошибка способна сломать обновления, безопасность или обычные функции Windows.",
+      "simpleDescription": "FluentTweaker — локальная Windows-утилита с современным WinUI 3 интерфейсом для изменения taskbar, Explorer, privacy, AI-функций, gaming и системных policies. Автор делает каждый tweak видимым, отдельным и обратимым, но это всё равно опасные изменения registry и настроек ОС, а не безопасная кнопка «ускорить компьютер».",
       "useCases": [
-        "Изучить UX preview и объяснения последствий системного действия",
-        "Посмотреть паттерны undo и restore point для опасных настроек",
-        "Проверить отдельный Windows tweak в disposable VM"
+        "Взять для Hopson Sentinel паттерн «одно изменение — понятное объяснение — preview — отдельный rollback»",
+        "Изучить спокойный WinUI UX для системной диагностики без обещаний magic FPS boost",
+        "Проверять конкретный tweak и его обратимость только в disposable Windows VM"
       ],
       "platforms": [
         "Windows",
@@ -9174,7 +9174,7 @@
         "runtime": "local"
       },
       "trust": "caution",
-      "trustReason": "Проверены canonical repository, README и дерево исходников. Репозиторий существует и активен, но не содержит явной лицензии, а plugin store включает PowerShell scripts и системные изменения.",
+      "trustReason": "Проверены официальный GitHub repository и README. Проект существует и README прямо обещает inspectable, categorized и reversible tweaks, но в canonical repository нет LICENSE, поэтому переиспользовать код нельзя, а безопасность каждого системного действия всё равно требует отдельного аудита.",
       "projects": [
         "Hopson Sentinel"
       ],
@@ -9182,12 +9182,12 @@
       "riskLevel": "high",
       "risks": [
         "Registry, policies, services, apps, Defender и Windows Update являются destructive/high-impact поверхностью",
-        "PowerShell plugins расширяют supply-chain и могут измениться независимо от главного UI",
+        "Даже прозрачный toggle может иметь недокументированные последствия после обновления Windows",
         "Restore point и обратимый toggle не гарантируют полное восстановление системы"
       ],
-      "verifiedAt": "2026-07-30",
+      "verifiedAt": "2026-08-04",
       "quickStart": [
-        "Не запускать на основной рабочей машине и не интегрировать в Sentinel",
+        "Не запускать на основной рабочей машине и не переносить его код в Sentinel без разрешающей лицензии",
         "Если нужен личный тест — создать disposable Windows VM и snapshot до запуска",
         "Проверить один tweak, его точные registry/PowerShell actions и реальный rollback до следующего"
       ],
@@ -16143,45 +16143,58 @@
       "type": "privacy",
       "category": "Подборка Eclipse",
       "subcategory": "Security / workstation diagnostics",
-      "simpleDescription": "NtWarden — Windows Analysis and Research Toolkit: processes, services, network, kernel internals, local/remote via WinSysServer. README автора предупреждает: kernel driver only in Test VM; network protocol has no auth and should run only in isolated lab/VM. Зачем нам: reference для Hopson Sentinel security doctor и workstation diagnostics; не ставить на рабочую…. Карточка помогает понять назначение ресурса и начать с небольшой безопасной проверки; условия использования ещё нужно сверить с официальным источником.",
+      "simpleDescription": "NtWarden — исследовательский Windows toolkit для просмотра процессов, services, TCP/UDP connections, certificates, ETW, IPC, registry и kernel internals. User-mode диагностика работает без драйвера, а расширенный режим ставит KWinSys и умеет читать и писать kernel memory; удалённый WinSysServer использует TCP-протокол без authentication. Это лабораторный reference, не готовый production security-agent.",
       "useCases": [
-        "Разобраться, подходит ли NtWarden для вашей задачи",
-        "Проверить возможности на небольшом тестовом сценарии до интеграции"
+        "Спроектировать для Hopson Sentinel read-only Windows Security Doctor: процессы, services, connections, root certificates и suspicious memory indicators",
+        "Взять перечень диагностических экранов и объяснять пользователю, что именно найдено и почему это важно",
+        "Изучать kernel integrity и hidden-process detection только внутри изолированной исследовательской VM"
       ],
       "platforms": [
-        "Windows"
+        "Windows",
+        "C++",
+        "Kernel driver",
+        "TCP"
       ],
-      "license": "Нужно проверить в официальном источнике",
-      "pricing": "Исходный код доступен публично; hosting, модели и внешние API могут оплачиваться отдельно",
+      "license": "MIT",
+      "pricing": "Бесплатный open-source toolkit; для сборки нужны Visual Studio 2022, Windows SDK и WDK",
       "access": {
         "cost": "free",
         "signup": "none",
         "runtime": "local"
       },
-      "trust": "community",
-      "trustReason": "Запись структурирована автоматически из опубликованного описания. Официальный источник, лицензия и условия ещё не прошли отдельную редакторскую проверку.",
+      "trust": "caution",
+      "trustReason": "Проверены официальный repository, README и MIT LICENSE. Автор отдельно предупреждает, что часть кода создана с AI и может содержать ошибки, kernel driver следует ставить только в Test VM, а remote protocol не имеет authentication.",
       "projects": [
         "Hopson Sentinel"
       ],
       "decision": "reference",
-      "riskLevel": "medium",
+      "riskLevel": "high",
       "risks": [
-        "Лицензия, цена, permissions и обработка данных могут отличаться от краткого описания."
+        "KWinSys устанавливается с Administrator rights, меняет kernel surface и предоставляет чтение/запись памяти",
+        "WinSysServer принимает команды по custom TCP protocol без authentication; его нельзя публиковать в интернет или обычную LAN",
+        "Для test signing README предлагает ослабление Driver Signature Enforcement, что недопустимо на рабочей машине"
       ],
-      "verifiedAt": null,
+      "verifiedAt": "2026-08-04",
       "quickStart": [
-        "Откройте официальный источник и проверьте владельца, лицензию и дату обновления.",
-        "Не передавайте secrets или рабочие данные; начните с пустого тестового проекта.",
-        "Сравните результат с текущим способом работы и только потом решайте об интеграции."
+        "Для Eclipse не устанавливать NtWarden: сначала описать собственный read-only user-mode diagnostic contract",
+        "Если исследование kernel-функций действительно нужно — создать disposable VM без рабочих данных, сделать snapshot и отключить внешнюю сеть",
+        "Не запускать WinSysServer за пределами isolated host-only network; production-реализация требует authentication, encryption и allowlist"
       ],
-      "reviewStatus": "inferred",
+      "reviewStatus": "verified",
       "source": {
         "file": "README.md",
         "line": 1919,
         "category": "Подборка Eclipse (05.07.2026)",
         "subcategory": "Security / workstation diagnostics"
       },
-      "addedAt": "2026-07-05"
+      "addedAt": "2026-07-05",
+      "licenseEvidence": [
+        {
+          "kind": "license",
+          "label": "NtWarden MIT license",
+          "url": "https://github.com/mrT4ntr4/NtWarden/blob/master/LICENSE"
+        }
+      ]
     },
     {
       "id": "nvidia-build-95-моделей-build-nvidia-com",
@@ -18558,47 +18571,63 @@
       "type": "skill",
       "category": "Подборка Eclipse",
       "subcategory": "Presentations / reports",
-      "simpleDescription": "PPT Master — AI skill/workflow для генерации реального редактируемого PowerPoint, а не картинок-слайдов: native shapes/text/charts, анимации, speaker notes, audio narration, можно использовать свой .pptx template. Pipeline в основном локальный, кроме общения с выбранной AI-моделью; работает с Claude Code, Cursor, VS Code Copilot и разными моделями. MIT. Зачем нам:…. Карточка помогает понять назначение ресурса и начать с небольшой безопасной проверки; условия использования ещё нужно сверить с официальным источником.",
+      "simpleDescription": "PPT Master — MIT-licensed AI workflow, который превращает тему, PDF, DOCX или web-материал в настоящий редактируемый .pptx. В результате остаются native PowerPoint shapes, charts, tables, transitions, animations, speaker notes и optional narration; можно заполнить собственный корпоративный template. Workflow запускается через Claude Code, Codex, Cursor и другие agent-capable инструменты, а качество и стоимость зависят от выбранной AI-модели.",
       "useCases": [
-        "Разобраться, подходит ли PPT Master для вашей задачи",
-        "Проверить возможности на небольшом тестовом сценарии до интеграции"
+        "Добавить в Eclipse AI Hub сценарий «документ или исследование → структура → редактируемая презентация»",
+        "Дать Educator-AI экспорт урока, лекции или методички в slides с notes и источниками",
+        "Позволить Eclipse Chat собрать deck в комнате проекта, показать preview и скачать .pptx после ручного review",
+        "Применять фирменный Eclipse Forge .pptx template для кейсов, коммерческих предложений и отчётов"
       ],
       "platforms": [
-        "Self-host"
+        "Windows",
+        "macOS",
+        "Linux",
+        "Python",
+        "AI coding agents"
       ],
-      "license": "mit",
-      "pricing": "Исходный код доступен публично; hosting, модели и внешние API могут оплачиваться отдельно",
+      "license": "MIT",
+      "pricing": "Сам workflow бесплатный; выбранные LLM, image generation, narration и другие API могут стоить денег",
       "access": {
         "cost": "free",
         "signup": "none",
-        "runtime": "self-host"
+        "runtime": "hybrid"
       },
       "trust": "community",
-      "trustReason": "Запись структурирована автоматически из опубликованного описания. Официальный источник, лицензия и условия ещё не прошли отдельную редакторскую проверку.",
+      "trustReason": "Проверены официальный GitHub repository, README, MIT LICENSE и release history. Проект активно развивается, но результат создаёт внешняя AI-модель, а README содержит affiliate-рекомендации сторонних API relay providers — их безопасность и условия не подтверждены этой проверкой.",
       "projects": [
         "Eclipse Chat",
         "Eclipse AI Hub",
         "Educator-AI"
       ],
-      "decision": "reference",
+      "decision": "roadmap",
       "riskLevel": "medium",
       "risks": [
-        "Лицензия, цена, permissions и обработка данных могут отличаться от краткого описания."
+        "Исходные документы и prompts могут уйти выбранному LLM/image/voice provider; конфиденциальные материалы требуют локального или утверждённого контура",
+        "Не использовать рекламируемые API relays без отдельной проверки владельца, Terms, retention и обращения с API keys",
+        "Автоматический web image search не отменяет ручную проверку авторских прав, атрибуции и фактических утверждений",
+        "Narration и voice cloning требуют отдельного согласия на обработку голоса и запрета имитации людей без разрешения"
       ],
-      "verifiedAt": null,
+      "verifiedAt": "2026-08-04",
       "quickStart": [
-        "Откройте официальный источник и проверьте владельца, лицензию и дату обновления.",
-        "Не передавайте secrets или рабочие данные; начните с пустого тестового проекта.",
-        "Сравните результат с текущим способом работы и только потом решайте об интеграции."
+        "Сначала сделать isolated proof-of-concept на публичном тексте и пустом фирменном template без секретов",
+        "Зафиксировать официального LLM provider, бюджет, разрешённые image sources и обязательный claim/copyright review",
+        "После успешного теста реализовать в AI Hub собственный DeckJob contract: source → outline approval → render → preview → export"
       ],
-      "reviewStatus": "inferred",
+      "reviewStatus": "verified",
       "source": {
         "file": "README.md",
         "line": 1772,
         "category": "Подборка Eclipse (30.06–01.07.2026)",
         "subcategory": "Presentations / reports"
       },
-      "addedAt": "2026-06-30"
+      "addedAt": "2026-06-30",
+      "licenseEvidence": [
+        {
+          "kind": "license",
+          "label": "PPT Master MIT license",
+          "url": "https://github.com/hugohe3/ppt-master/blob/main/LICENSE"
+        }
+      ]
     },
     {
       "id": "preline-preline-co",
@@ -19497,10 +19526,11 @@
       "type": "media",
       "category": "Подборка Eclipse",
       "subcategory": "Local AI / media runtime",
-      "simpleDescription": "Красивый интерфейс поверх Jellyfin, TMDB, Radarr и Sonarr: помогает искать медиаконтент, продолжать просмотр и пользоваться библиотекой с телевизора.",
+      "simpleDescription": "Reiverr — ранний self-hosted media interface для телевизора и web: объединяет discovery из TMDB, просмотр из Jellyfin и подключаемые playback plugins в одном крупном, управляемом с пульта UI. Это не каталог фильмов и не streaming service сам по себе: пользователь настраивает собственный backend и источники; встроенный Torrent-Stream plugin требует Jackett и создаёт отдельные правовые и security-риски.",
       "useCases": [
-        "Изучить media discovery UX",
-        "Спроектировать watch progress и TV layout"
+        "Взять для Eclipse Media паттерны TV-first navigation, focus states, большие targets и управление с пульта",
+        "Спроектировать единый discovery → details → play flow и продолжение просмотра между устройствами",
+        "Изучить plugin contract для легальных media providers, сохранив allowlist и ручное подключение источников"
       ],
       "platforms": [
         "Web",
@@ -19515,21 +19545,23 @@
         "runtime": "self-host"
       },
       "trust": "community",
-      "trustReason": "Открытый репозиторий с явной лицензией; сам сервис контент не предоставляет.",
+      "trustReason": "Проверены официальный repository, README и AGPL-3.0 LICENSE. Авторы прямо называют ветку 2.0 ранней и меняющейся, а для более стабильного web-сценария рекомендуют 1.0. Контент зависит от подключённых пользователем plugins и источников.",
       "projects": [
         "Eclipse Media"
       ],
       "decision": "reference",
-      "riskLevel": "medium",
+      "riskLevel": "high",
       "risks": [
-        "Подключать только законные media sources",
-        "AGPL требует учитывать network-copyleft obligations"
+        "Torrent-Stream/Jackett и сторонние plugins могут привести к нелегальному контенту, вредоносным потокам или утечке metadata",
+        "AGPL-3.0 требует предоставить Corresponding Source пользователям модифицированной network-версии; код нельзя незаметно встроить в закрытый Eclipse Media",
+        "Docker example показывает placeholder admin credentials, а первый пользователь может стать admin; публичный port без hardening опасен",
+        "Jellyfin и TMDB API keys, media paths и user history являются чувствительными данными"
       ],
-      "verifiedAt": "2026-07-24",
+      "verifiedAt": "2026-08-04",
       "quickStart": [
-        "Откройте официальный источник и проверьте владельца, лицензию и дату обновления.",
-        "Не передавайте secrets или рабочие данные; начните с пустого тестового проекта.",
-        "Сравните результат с текущим способом работы и только потом решайте об интеграции."
+        "Для Eclipse использовать как UX/reference и самостоятельно реализовать provider interface без Torrent-Stream",
+        "Если тестируете Reiverr — запускать в private LAN, задать случайные SECRET, ADMIN_USERNAME и ADMIN_PASSWORD и не публиковать port 9494",
+        "Подключать только законные источники и отдельно проверить каждый plugin до доступа к медиатеке"
       ],
       "reviewStatus": "verified",
       "source": {
@@ -20832,51 +20864,75 @@
     {
       "id": "shipper-anti-slop-guide-shipper-now",
       "url": "https://shipper.now/",
-      "title": "Shipper anti-slop guide",
-      "type": "skill",
+      "title": "Shipper.now",
+      "type": "tool",
       "category": "Подборка Eclipse",
-      "subcategory": "Skills / design / agent workflow",
-      "simpleDescription": "Shipper anti-slop guide — Anti-slop .md для web/design генерации: режет типовые AI-паттерны вроде лишних shadows, emoji, generic LIVE pills, purple-blue gradients и заезженных слов. Зачем нам: дополняет The Taste для EclipseForgeLanding, Eclipse Chat landing/library UI и Kwork лендингов. Оговорка: применять контекстно, не механически уничтожать все shadows/акценты. Карточка помогает понять назначение ресурса и начать с небольшой безопасной проверки; условия использования ещё нужно сверить с официальным источником.",
+      "subcategory": "AI app builders / SaaS",
+      "simpleDescription": "Shipper.now — коммерческий no-code AI builder: пользователь описывает приложение обычным языком, сервис генерирует web/mobile app, hosting, integrations и предлагает AI Advisor для следующих продуктовых шагов. Это закрытая cloud-платформа, а не anti-slop design guide и не open-source framework; free tier создаёт только публичные проекты с очень небольшим лимитом credits.",
       "useCases": [
-        "Разобраться, подходит ли Shipper anti-slop guide для вашей задачи",
-        "Проверить возможности на небольшом тестовом сценарии до интеграции"
+        "Оставить как продуктовый reference для собственного Eclipse AI Hub Builder: brief → plan → build queue → preview → publish",
+        "Изучить Advisor как отдельного критика проекта, который не смешивается с coding agent и предлагает следующий измеримый шаг",
+        "Сравнивать скорость простого public prototype с текущим Eclipse Forge workflow только на несекретных данных"
       ],
       "platforms": [
         "Web"
       ],
-      "license": "Нужно проверить в официальном источнике",
-      "pricing": "Актуальную стоимость нужно проверить на официальной странице",
+      "license": "Проприетарный SaaS по Shipper Terms of Service; generated output принадлежит клиенту, сама платформа остаётся IP Shipper",
+      "pricing": "Freemium: free tier — 5 daily credits, но не более 10 в месяц и только public projects. Pricing page одновременно показывает разные Pro-цены ($25 и $39 за пользователя в месяц), поэтому checkout нужно перепроверить перед оплатой.",
       "access": {
-        "cost": "unknown",
-        "signup": "unknown",
+        "cost": "freemium",
+        "signup": "required",
         "runtime": "cloud"
       },
-      "trust": "unknown",
-      "trustReason": "Запись структурирована автоматически из опубликованного описания. Официальный источник, лицензия и условия ещё не прошли отдельную редакторскую проверку.",
+      "trust": "caution",
+      "trustReason": "Проверены официальный сайт, pricing, Terms и Privacy Policy компании CHGROUP – FZCO. Сервис реально существует, но громкие заявления о сокращении bugs, времени и стоимости опубликованы самим поставщиком и не подтверждены независимыми evidence; на pricing page есть внутренне противоречивые цены.",
       "projects": [
         "Eclipse Chat",
+        "Eclipse AI Hub",
+        "Hopson Sentinel",
         "Eclipse Forge Landing",
         "Eclipse Library"
       ],
       "decision": "reference",
       "riskLevel": "medium",
       "risks": [
-        "Лицензия, цена, permissions и обработка данных могут отличаться от краткого описания."
+        "Free-проекты публичные: нельзя загружать source code, credentials, клиентские данные или закрытые product plans",
+        "Сервис обрабатывает prompts, generated output, project metadata, API logs и error traces; account data и backups могут храниться до 12 месяцев после закрытия",
+        "Paid plans auto-renew, использованные credits не возвращаются, а Terms требуют уведомить о non-renewal минимум за 30 дней",
+        "Connectors, hosting и автоматический deploy расширяют supply-chain и blast radius; production credentials давать нельзя",
+        "Маркетинговые обещания 91% fewer bugs, 95% faster development и доходы не подтверждены независимым аудитом"
       ],
-      "verifiedAt": null,
+      "verifiedAt": "2026-08-04",
       "quickStart": [
-        "Откройте официальный источник и проверьте владельца, лицензию и дату обновления.",
-        "Не передавайте secrets или рабочие данные; начните с пустого тестового проекта.",
-        "Сравните результат с текущим способом работы и только потом решайте об интеграции."
+        "Не подключать Shipper к GitHub, payments, production domains или рабочим данным Eclipse Forge",
+        "Если нужен benchmark — создать отдельный публичный throwaway prototype без бренда, secrets и персональных данных",
+        "Записать время, качество, экспортируемость кода и фактический расход credits; архитектурные идеи реализовывать в собственных проектах"
       ],
-      "reviewStatus": "inferred",
+      "reviewStatus": "verified",
       "source": {
         "file": "README.md",
         "line": 2128,
         "category": "Подборка Eclipse (18–19.07.2026)",
         "subcategory": "Skills / design / agent workflow"
       },
-      "addedAt": "2026-07-18"
+      "addedAt": "2026-07-18",
+      "licenseEvidence": [
+        {
+          "kind": "terms",
+          "label": "Shipper Terms of Service",
+          "url": "https://shipper.now/terms/"
+        },
+        {
+          "kind": "privacy",
+          "label": "Shipper Privacy Policy",
+          "url": "https://shipper.now/privacy-policy/"
+        },
+        {
+          "kind": "pricing",
+          "label": "Shipper pricing",
+          "url": "https://shipper.now/pricing/"
+        }
+      ]
     },
     {
       "id": "shipthatcode-shipthatcode-com",
@@ -25537,6 +25593,72 @@
         "subcategory": "Платежи"
       },
       "addedAt": null
+    },
+    {
+      "id": "ytsage",
+      "url": "https://github.com/oop7/YTSage",
+      "title": "YTSage",
+      "type": "media",
+      "category": "Подборка Eclipse",
+      "subcategory": "Media / download workflow",
+      "simpleDescription": "YTSage — MIT-licensed desktop GUI поверх yt-dlp для Windows, macOS и Linux. Он показывает доступные video/audio formats, умеет playlists, subtitles, chapters, trimming, SponsorBlock, history и dependency updates. Это удобный интерфейс для личного скачивания разрешённого контента, но не легальный способ копировать любые ролики: пользователь обязан соблюдать права автора и Terms источника.",
+      "useCases": [
+        "Взять для Eclipse Media понятный intake UX: ссылка → metadata → format table → очередь → progress → история",
+        "Добавить Dependency Doctor для yt-dlp, FFmpeg и optional Deno вместо непонятных ошибок пользователю",
+        "Спроектировать импорт subtitles, chapters и пользовательского trim-range для законно доступных исходников",
+        "Использовать в Shotforge только как reference для подготовки собственных или лицензированных видео-референсов"
+      ],
+      "platforms": [
+        "Windows",
+        "macOS",
+        "Linux",
+        "Python",
+        "PySide6",
+        "yt-dlp"
+      ],
+      "license": "MIT",
+      "licenseEvidence": [
+        {
+          "kind": "license",
+          "label": "YTSage MIT license",
+          "url": "https://github.com/oop7/YTSage/blob/main/LICENSE"
+        }
+      ],
+      "pricing": "Бесплатный open-source desktop app; network traffic и внешние media services регулируются их собственными условиями",
+      "access": {
+        "cost": "free",
+        "signup": "none",
+        "runtime": "local"
+      },
+      "trust": "caution",
+      "trustReason": "Проверены официальный repository, README, MIT LICENSE и актуальный release v5.4.5. Проект активен и основан на известном yt-dlp, но включает browser-cookie extraction, proxy, custom yt-dlp commands и встроенные updater paths, поэтому готовые binaries и расширенные функции требуют осторожности.",
+      "projects": [
+        "Eclipse Media",
+        "Shotforge",
+        "Educator-AI"
+      ],
+      "decision": "reference",
+      "riskLevel": "high",
+      "risks": [
+        "Скачивание может нарушать copyright, YouTube Terms или правила конкретного источника; использовать только собственный, public-domain или явно разрешённый контент",
+        "Импорт cookies из браузера даёт приложению доступ к активным сессиям и не должен появляться в Eclipse workflow",
+        "Custom commands, proxy и auto-updaters увеличивают command-injection и supply-chain surface",
+        "Prebuilt executables и nightly dependencies нельзя запускать на основной машине без signature/hash verification и sandbox test"
+      ],
+      "verifiedAt": "2026-08-04",
+      "quickStart": [
+        "Не устанавливать YTSage из карточки: изучить UX и отдельно реализовать безопасный Media Intake contract поверх уже выбранного Eclipse Media backend",
+        "Запретить cookies, arbitrary commands и proxy by default; принимать только allowlisted providers и явное подтверждение прав на материал",
+        "Для личного теста использовать disposable VM, официальный release и несекретный public-domain ролик"
+      ],
+      "reviewStatus": "verified",
+      "source": {
+        "file": "direct-submission",
+        "line": null,
+        "category": "Подборка Eclipse (04.08.2026)",
+        "subcategory": "Media / download workflow"
+      },
+      "addedAt": "2026-08-04"
     }
   ]
 }

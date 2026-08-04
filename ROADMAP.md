@@ -1,18 +1,18 @@
 # Eclipse Library Roadmap
 
-Последнее обновление: **03.08.2026**
+Последнее обновление: **04.08.2026**
 
 ## Текущее состояние
 
-- `catalog/resources.json` — канонический structured catalog из 534 уникальных записей;
+- `catalog/resources.json` — канонический structured catalog из 535 уникальных записей;
   `README.md` сокращён до документации и больше не является runtime-источником данных.
 - `web/app.js` — client-side поиск, фильтры, detail view и guide viewer; structured adapter
   вынесен в `web/catalog-runtime.js`, поэтому frontend не разбирает Markdown-таблицы.
-- `web/catalog-index.json` — production schema v2: 84 записи редакторски проверены,
-  450 честно помечены `inferred`, 247 имеют отдельный `addedAt`, даты удалены из category.
-- License layer: 219 лицензий подтверждаются official GitHub metadata с evidence URL,
-  34 редакторски проверены, 281 ещё требуют отдельного review.
-- Agent policy: 463 записи доступны автоматическим consumers, 71 исключена fail closed;
+- `web/catalog-index.json` — production schema v2: 88 записей редакторски проверены,
+  447 честно помечены `inferred`, 248 имеют отдельный `addedAt`, даты удалены из category.
+- License layer: 220 лицензий подтверждаются official GitHub metadata с evidence URL,
+  35 редакторски проверены, 280 ещё требуют отдельного review.
+- Agent policy: 464 записи доступны автоматическим consumers, 71 исключена fail closed;
   все 64 grey-ресурса скрыты от recommendations, direct install запрещён для всех записей.
 - `web/api/v1/` — versioned static exports для full catalog, agents, StarCRM и StarAI;
   consumers больше не должны читать README.
@@ -57,6 +57,12 @@
 - [x] Проверить и добавить Operational Agent Stack: Claude Ads, Fincept Terminal, Vibe Trading,
       Camofox Browser, HyperFrames и Open-Generative-AI с лицензиями, trust/risk границами,
       проектной применимостью и понятным порядком внедрения.
+- [ ] Eclipse AI Hub / Chat / Educator-AI: провести isolated PPT Master proof-of-concept на
+      публичном документе и фирменном template; после claim/copyright/provider review спроектировать
+      собственный `DeckJob` flow `source -> outline approval -> render -> preview -> export`.
+- [ ] Eclipse Media: спроектировать legal-first Media Intake и TV navigation по UX-reference
+      YTSage/Reiverr — allowlisted sources, явное подтверждение прав, без browser cookies, arbitrary
+      commands, Torrent-Stream и скрытого AGPL-кода.
 - [x] Запустить P0 внедрение HyperFrames в Eclipse Media как локальный release-video pipeline;
       публикация остаётся ручной после human review.
 - [x] Завершить HyperFrames P0: проверить integrity exact `hyperframes@0.7.88`, зафиксировать
@@ -165,6 +171,23 @@
       self-check, EN/RU copy и без обязательного API key.
 
 ## Changelog
+
+### 2026-08-04
+
+- Добавлен YTSage и редакторски обновлены пять найденных дублей: PPT Master, NtWarden,
+  Reiverr, Shipper.now и FluentTweaker. Каталог вырос до 535 материалов; verified queue — до 88.
+- Карточка Shipper исправлена по официальному сайту: это proprietary cloud AI app builder, а не
+  anti-slop guide. Зафиксированы public-only free projects, противоречивые цены, auto-renewal,
+  обработка prompts/project logs, retention до 12 месяцев и неподтверждённые marketing claims.
+- PPT Master отправлен в roadmap как основа собственного `DeckJob` для AI Hub, Chat и Educator-AI.
+  MIT подтверждена, но affiliate API relays, внешние модели, web images и voice cloning требуют
+  отдельных provider, copyright, privacy и biometric approval gates.
+- YTSage, Reiverr и NtWarden оставлены только reference: для Eclipse Media берём intake/TV UX,
+  для Sentinel — read-only user-mode diagnostics. Cookies, arbitrary downloader commands, torrents,
+  unauthenticated TCP server и kernel driver в production не допускаются.
+- FluentTweaker остаётся `Не использовать`: лицензия отсутствует, а Windows system tweaks можно
+  изучать только по одному в disposable VM. Все записи имеют official evidence; direct install
+  из Library по-прежнему запрещён.
 
 ### 2026-08-03
 

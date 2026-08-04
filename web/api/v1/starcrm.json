@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "consumer": "StarCRM",
-  "catalogVersion": "d739cc9b068d0f5fd6a7d91af3d568468d9d5ce52b095afd026feee04902da89",
+  "catalogVersion": "ae4dbb9f31bdf1ecfe2afe4c59a83313e9dfc166f30efa424fb6dfc15ef9a3b0",
   "generatedAt": null,
   "policy": {
     "greyResourcesExcluded": true,
@@ -9,7 +9,7 @@
     "externalMutationsRequireHumanApproval": true
   },
   "totals": {
-    "items": 463
+    "items": 464
   },
   "items": [
     {
@@ -7909,6 +7909,85 @@
           "kind": "official-source",
           "label": "Официальный источник",
           "url": "https://docs.medusajs.com"
+        }
+      ],
+      "actions": {
+        "openOfficialSource": true,
+        "installFromCatalog": false,
+        "mutateExternalSystems": false
+      }
+    },
+    {
+      "id": "ytsage",
+      "title": "YTSage",
+      "url": "https://github.com/oop7/YTSage",
+      "type": "media",
+      "category": "Подборка Eclipse",
+      "subcategory": "Media / download workflow",
+      "addedAt": "2026-08-04",
+      "description": "YTSage — MIT-licensed desktop GUI поверх yt-dlp для Windows, macOS и Linux. Он показывает доступные video/audio formats, умеет playlists, subtitles, chapters, trimming, SponsorBlock, history и dependency updates. Это удобный интерфейс для личного скачивания разрешённого контента, но не легальный способ копировать любые ролики: пользователь обязан соблюдать права автора и Terms источника.",
+      "useCases": [
+        "Взять для Eclipse Media понятный intake UX: ссылка → metadata → format table → очередь → progress → история",
+        "Добавить Dependency Doctor для yt-dlp, FFmpeg и optional Deno вместо непонятных ошибок пользователю",
+        "Спроектировать импорт subtitles, chapters и пользовательского trim-range для законно доступных исходников",
+        "Использовать в Shotforge только как reference для подготовки собственных или лицензированных видео-референсов"
+      ],
+      "platforms": [
+        "Windows",
+        "macOS",
+        "Linux",
+        "Python",
+        "PySide6",
+        "yt-dlp"
+      ],
+      "license": {
+        "label": "MIT",
+        "original": "MIT",
+        "spdx": "MIT",
+        "kind": "open-source",
+        "status": "source-declared",
+        "requiresReview": false,
+        "evidence": [
+          {
+            "kind": "license",
+            "label": "MIT license",
+            "url": "https://api.github.com/repos/oop7/ytsage/license"
+          },
+          {
+            "kind": "license",
+            "label": "YTSage MIT license",
+            "url": "https://github.com/oop7/YTSage/blob/main/LICENSE"
+          }
+        ]
+      },
+      "access": {
+        "cost": "free",
+        "signup": "none",
+        "runtime": "local"
+      },
+      "trust": "caution",
+      "decision": "reference",
+      "riskLevel": "high",
+      "projects": [
+        "Eclipse Media",
+        "Shotforge",
+        "Educator-AI"
+      ],
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://github.com/oop7/YTSage"
+        },
+        {
+          "kind": "license",
+          "label": "MIT license",
+          "url": "https://api.github.com/repos/oop7/ytsage/license"
+        },
+        {
+          "kind": "license",
+          "label": "YTSage MIT license",
+          "url": "https://github.com/oop7/YTSage/blob/main/LICENSE"
         }
       ],
       "actions": {
@@ -20541,17 +20620,23 @@
       "category": "Подборка Eclipse",
       "subcategory": "Presentations / reports",
       "addedAt": "2026-06-30",
-      "description": "PPT Master — AI skill/workflow для генерации реального редактируемого PowerPoint, а не картинок-слайдов: native shapes/text/charts, анимации, speaker notes, audio narration, можно использовать свой .pptx template. Pipeline в основном локальный, кроме общения с выбранной AI-моделью; работает с Claude Code, Cursor, VS Code Copilot и разными моделями. MIT. Зачем нам:…. Карточка помогает понять назначение ресурса и начать с небольшой безопасной проверки; условия использования ещё нужно сверить с официальным источником.",
+      "description": "PPT Master — MIT-licensed AI workflow, который превращает тему, PDF, DOCX или web-материал в настоящий редактируемый .pptx. В результате остаются native PowerPoint shapes, charts, tables, transitions, animations, speaker notes и optional narration; можно заполнить собственный корпоративный template. Workflow запускается через Claude Code, Codex, Cursor и другие agent-capable инструменты, а качество и стоимость зависят от выбранной AI-модели.",
       "useCases": [
-        "Разобраться, подходит ли PPT Master для вашей задачи",
-        "Проверить возможности на небольшом тестовом сценарии до интеграции"
+        "Добавить в Eclipse AI Hub сценарий «документ или исследование → структура → редактируемая презентация»",
+        "Дать Educator-AI экспорт урока, лекции или методички в slides с notes и источниками",
+        "Позволить Eclipse Chat собрать deck в комнате проекта, показать preview и скачать .pptx после ручного review",
+        "Применять фирменный Eclipse Forge .pptx template для кейсов, коммерческих предложений и отчётов"
       ],
       "platforms": [
-        "Self-host"
+        "Windows",
+        "macOS",
+        "Linux",
+        "Python",
+        "AI coding agents"
       ],
       "license": {
         "label": "MIT",
-        "original": "mit",
+        "original": "MIT",
         "spdx": "MIT",
         "kind": "open-source",
         "status": "source-declared",
@@ -20561,16 +20646,21 @@
             "kind": "license",
             "label": "MIT license",
             "url": "https://api.github.com/repos/hugohe3/ppt-master/license"
+          },
+          {
+            "kind": "license",
+            "label": "PPT Master MIT license",
+            "url": "https://github.com/hugohe3/ppt-master/blob/main/LICENSE"
           }
         ]
       },
       "access": {
         "cost": "free",
         "signup": "none",
-        "runtime": "self-host"
+        "runtime": "hybrid"
       },
       "trust": "community",
-      "decision": "reference",
+      "decision": "roadmap",
       "riskLevel": "medium",
       "projects": [
         "Eclipse Chat",
@@ -20587,6 +20677,11 @@
           "kind": "license",
           "label": "MIT license",
           "url": "https://api.github.com/repos/hugohe3/ppt-master/license"
+        },
+        {
+          "kind": "license",
+          "label": "PPT Master MIT license",
+          "url": "https://github.com/hugohe3/ppt-master/blob/main/LICENSE"
         }
       ],
       "actions": {
@@ -21919,17 +22014,21 @@
       "category": "Подборка Eclipse",
       "subcategory": "Security / workstation diagnostics",
       "addedAt": "2026-07-05",
-      "description": "NtWarden — Windows Analysis and Research Toolkit: processes, services, network, kernel internals, local/remote via WinSysServer. README автора предупреждает: kernel driver only in Test VM; network protocol has no auth and should run only in isolated lab/VM. Зачем нам: reference для Hopson Sentinel security doctor и workstation diagnostics; не ставить на рабочую…. Карточка помогает понять назначение ресурса и начать с небольшой безопасной проверки; условия использования ещё нужно сверить с официальным источником.",
+      "description": "NtWarden — исследовательский Windows toolkit для просмотра процессов, services, TCP/UDP connections, certificates, ETW, IPC, registry и kernel internals. User-mode диагностика работает без драйвера, а расширенный режим ставит KWinSys и умеет читать и писать kernel memory; удалённый WinSysServer использует TCP-протокол без authentication. Это лабораторный reference, не готовый production security-agent.",
       "useCases": [
-        "Разобраться, подходит ли NtWarden для вашей задачи",
-        "Проверить возможности на небольшом тестовом сценарии до интеграции"
+        "Спроектировать для Hopson Sentinel read-only Windows Security Doctor: процессы, services, connections, root certificates и suspicious memory indicators",
+        "Взять перечень диагностических экранов и объяснять пользователю, что именно найдено и почему это важно",
+        "Изучать kernel integrity и hidden-process detection только внутри изолированной исследовательской VM"
       ],
       "platforms": [
-        "Windows"
+        "Windows",
+        "C++",
+        "Kernel driver",
+        "TCP"
       ],
       "license": {
         "label": "MIT",
-        "original": "Нужно проверить в официальном источнике",
+        "original": "MIT",
         "spdx": "MIT",
         "kind": "open-source",
         "status": "source-declared",
@@ -21939,6 +22038,11 @@
             "kind": "license",
             "label": "MIT license",
             "url": "https://api.github.com/repos/mrt4ntr4/ntwarden/license"
+          },
+          {
+            "kind": "license",
+            "label": "NtWarden MIT license",
+            "url": "https://github.com/mrT4ntr4/NtWarden/blob/master/LICENSE"
           }
         ]
       },
@@ -21947,9 +22051,9 @@
         "signup": "none",
         "runtime": "local"
       },
-      "trust": "community",
+      "trust": "caution",
       "decision": "reference",
-      "riskLevel": "medium",
+      "riskLevel": "high",
       "projects": [
         "Hopson Sentinel"
       ],
@@ -21963,6 +22067,11 @@
           "kind": "license",
           "label": "MIT license",
           "url": "https://api.github.com/repos/mrt4ntr4/ntwarden/license"
+        },
+        {
+          "kind": "license",
+          "label": "NtWarden MIT license",
+          "url": "https://github.com/mrT4ntr4/NtWarden/blob/master/LICENSE"
         }
       ],
       "actions": {
@@ -23519,45 +23628,58 @@
     },
     {
       "id": "shipper-anti-slop-guide-shipper-now",
-      "title": "Shipper anti-slop guide",
+      "title": "Shipper.now",
       "url": "https://shipper.now/",
-      "type": "skill",
+      "type": "tool",
       "category": "Подборка Eclipse",
-      "subcategory": "Skills / design / agent workflow",
+      "subcategory": "AI app builders / SaaS",
       "addedAt": "2026-07-18",
-      "description": "Shipper anti-slop guide — Anti-slop .md для web/design генерации: режет типовые AI-паттерны вроде лишних shadows, emoji, generic LIVE pills, purple-blue gradients и заезженных слов. Зачем нам: дополняет The Taste для EclipseForgeLanding, Eclipse Chat landing/library UI и Kwork лендингов. Оговорка: применять контекстно, не механически уничтожать все shadows/акценты. Карточка помогает понять назначение ресурса и начать с небольшой безопасной проверки; условия использования ещё нужно сверить с официальным источником.",
+      "description": "Shipper.now — коммерческий no-code AI builder: пользователь описывает приложение обычным языком, сервис генерирует web/mobile app, hosting, integrations и предлагает AI Advisor для следующих продуктовых шагов. Это закрытая cloud-платформа, а не anti-slop design guide и не open-source framework; free tier создаёт только публичные проекты с очень небольшим лимитом credits.",
       "useCases": [
-        "Разобраться, подходит ли Shipper anti-slop guide для вашей задачи",
-        "Проверить возможности на небольшом тестовом сценарии до интеграции"
+        "Оставить как продуктовый reference для собственного Eclipse AI Hub Builder: brief → plan → build queue → preview → publish",
+        "Изучить Advisor как отдельного критика проекта, который не смешивается с coding agent и предлагает следующий измеримый шаг",
+        "Сравнивать скорость простого public prototype с текущим Eclipse Forge workflow только на несекретных данных"
       ],
       "platforms": [
         "Web"
       ],
       "license": {
-        "label": "Нужно проверить в официальном источнике",
-        "original": "Нужно проверить в официальном источнике",
+        "label": "Проприетарный SaaS по Shipper Terms of Service; generated output принадлежит клиенту, сама платформа остаётся IP Shipper",
+        "original": "Проприетарный SaaS по Shipper Terms of Service; generated output принадлежит клиенту, сама платформа остаётся IP Shipper",
         "spdx": null,
-        "kind": "unknown",
-        "status": "unverified",
-        "requiresReview": true,
+        "kind": "service-terms",
+        "status": "editor-reviewed",
+        "requiresReview": false,
         "evidence": [
           {
-            "kind": "official-source",
-            "label": "Официальный источник; точные условия ещё нужно сверить",
-            "url": "https://shipper.now/"
+            "kind": "terms",
+            "label": "Shipper Terms of Service",
+            "url": "https://shipper.now/terms/"
+          },
+          {
+            "kind": "privacy",
+            "label": "Shipper Privacy Policy",
+            "url": "https://shipper.now/privacy-policy/"
+          },
+          {
+            "kind": "pricing",
+            "label": "Shipper pricing",
+            "url": "https://shipper.now/pricing/"
           }
         ]
       },
       "access": {
-        "cost": "unknown",
-        "signup": "unknown",
+        "cost": "freemium",
+        "signup": "required",
         "runtime": "cloud"
       },
-      "trust": "unknown",
+      "trust": "caution",
       "decision": "reference",
       "riskLevel": "medium",
       "projects": [
         "Eclipse Chat",
+        "Eclipse AI Hub",
+        "Hopson Sentinel",
         "Eclipse Forge Landing",
         "Eclipse Library"
       ],
@@ -23566,6 +23688,21 @@
           "kind": "official-source",
           "label": "Официальный источник",
           "url": "https://shipper.now/"
+        },
+        {
+          "kind": "terms",
+          "label": "Shipper Terms of Service",
+          "url": "https://shipper.now/terms/"
+        },
+        {
+          "kind": "privacy",
+          "label": "Shipper Privacy Policy",
+          "url": "https://shipper.now/privacy-policy/"
+        },
+        {
+          "kind": "pricing",
+          "label": "Shipper pricing",
+          "url": "https://shipper.now/pricing/"
         }
       ],
       "actions": {
@@ -24302,10 +24439,11 @@
       "category": "Подборка Eclipse",
       "subcategory": "Local AI / media runtime",
       "addedAt": "2026-07-15",
-      "description": "Красивый интерфейс поверх Jellyfin, TMDB, Radarr и Sonarr: помогает искать медиаконтент, продолжать просмотр и пользоваться библиотекой с телевизора.",
+      "description": "Reiverr — ранний self-hosted media interface для телевизора и web: объединяет discovery из TMDB, просмотр из Jellyfin и подключаемые playback plugins в одном крупном, управляемом с пульта UI. Это не каталог фильмов и не streaming service сам по себе: пользователь настраивает собственный backend и источники; встроенный Torrent-Stream plugin требует Jackett и создаёт отдельные правовые и security-риски.",
       "useCases": [
-        "Изучить media discovery UX",
-        "Спроектировать watch progress и TV layout"
+        "Взять для Eclipse Media паттерны TV-first navigation, focus states, большие targets и управление с пульта",
+        "Спроектировать единый discovery → details → play flow и продолжение просмотра между устройствами",
+        "Изучить plugin contract для легальных media providers, сохранив allowlist и ручное подключение источников"
       ],
       "platforms": [
         "Web",
@@ -24334,7 +24472,7 @@
       },
       "trust": "community",
       "decision": "reference",
-      "riskLevel": "medium",
+      "riskLevel": "high",
       "projects": [
         "Eclipse Media"
       ],
