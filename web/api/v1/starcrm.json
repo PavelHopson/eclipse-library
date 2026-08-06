@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "consumer": "StarCRM",
-  "catalogVersion": "bc1cf8801faaf207882ca1bdfce8a5d1e45ed54f81e7c1187dafeb230bc0ed2f",
+  "catalogVersion": "0a4f3de5623da5fcdaf1d24d72153fc793a99b69090d641904ae5764c02838a5",
   "generatedAt": null,
   "policy": {
     "greyResourcesExcluded": true,
@@ -9,7 +9,7 @@
     "externalMutationsRequireHumanApproval": true
   },
   "totals": {
-    "items": 484
+    "items": 487
   },
   "items": [
     {
@@ -28066,6 +28066,247 @@
           "kind": "source",
           "label": "Official Cloudflare announcement",
           "url": "https://blog.cloudflare.com/cloudflare-os/"
+        }
+      ],
+      "actions": {
+        "openOfficialSource": true,
+        "installFromCatalog": false,
+        "mutateExternalSystems": false
+      }
+    },
+    {
+      "id": "banana-prompts-team-gallery",
+      "title": "Banana Prompts: галерея команды",
+      "url": "https://www.bananaprompts.xyz/creator/266feef8-bb5d-4954-baff-4bcab8751544",
+      "type": "prompt",
+      "category": "Промпты",
+      "subcategory": "AI image и video prompt galleries",
+      "addedAt": "2026-08-06",
+      "description": "Community-галерея с сотнями промптов для генерации изображений и видео. Она помогает разобрать визуальный язык и структуру запроса, но публикация промпта на сайте не передаёт права на чужие идеи, персонажей, бренды или внешность людей.",
+      "useCases": [
+        "Собирать словарь стилей и композиционных приёмов для Eclipse Media и Text2Image",
+        "Сравнивать структуру image/video промптов в Eclipse AI Hub",
+        "Готовить оригинальные раскадровки и prompt recipes для Shotforge без копирования чужих работ"
+      ],
+      "platforms": [
+        "Web",
+        "Gemini",
+        "Midjourney",
+        "Stable Diffusion",
+        "DALL-E"
+      ],
+      "license": {
+        "label": "Needs verification per creator and model policy; submissions remain creator-owned under Banana Prompts Terms",
+        "original": "Needs verification per creator and model policy; submissions remain creator-owned under Banana Prompts Terms",
+        "spdx": null,
+        "kind": "service-terms",
+        "status": "unverified",
+        "requiresReview": true,
+        "evidence": [
+          {
+            "kind": "terms",
+            "label": "Banana Prompts Terms",
+            "url": "https://www.bananaprompts.xyz/terms"
+          },
+          {
+            "kind": "privacy",
+            "label": "Banana Prompts Privacy Policy",
+            "url": "https://www.bananaprompts.xyz/privacy"
+          },
+          {
+            "kind": "source",
+            "label": "Banana Prompts FAQ",
+            "url": "https://www.bananaprompts.xyz/faq"
+          }
+        ]
+      },
+      "access": {
+        "cost": "freemium",
+        "signup": "optional",
+        "runtime": "cloud"
+      },
+      "trust": "community",
+      "decision": "reference",
+      "riskLevel": "high",
+      "projects": [
+        "Eclipse Media",
+        "Text2Image",
+        "Shotforge",
+        "Eclipse AI Hub"
+      ],
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://www.bananaprompts.xyz/creator/266feef8-bb5d-4954-baff-4bcab8751544"
+        },
+        {
+          "kind": "terms",
+          "label": "Banana Prompts Terms",
+          "url": "https://www.bananaprompts.xyz/terms"
+        },
+        {
+          "kind": "privacy",
+          "label": "Banana Prompts Privacy Policy",
+          "url": "https://www.bananaprompts.xyz/privacy"
+        },
+        {
+          "kind": "source",
+          "label": "Banana Prompts FAQ",
+          "url": "https://www.bananaprompts.xyz/faq"
+        }
+      ],
+      "actions": {
+        "openOfficialSource": true,
+        "installFromCatalog": false,
+        "mutateExternalSystems": false
+      }
+    },
+    {
+      "id": "nucleo-svg-pattern-generator",
+      "title": "Nucleo SVG Pattern Generator",
+      "url": "https://nucleoapp.com/svg-patterns/",
+      "type": "tool",
+      "category": "Dev Tools & CLI",
+      "subcategory": "Design assets и SVG",
+      "addedAt": "2026-08-06",
+      "description": "Бесплатный web-генератор бесшовных SVG-паттернов: можно выбрать элементы, настроить цвет, размер, расстояние и слои, сразу увидеть результат и скопировать SVG. Экспорт подходит для коммерческих проектов, но саму библиотеку паттернов нельзя перепродавать или превращать в конкурирующий сервис.",
+      "useCases": [
+        "Создавать лёгкие локальные фоновые паттерны для Eclipse Forge Landing и Eclipse Library",
+        "Оформлять комнаты, empty states и обложки в Eclipse Chat",
+        "Готовить оригинальные SVG-слои для Eclipse Media без растровых фоновых файлов"
+      ],
+      "platforms": [
+        "Web",
+        "SVG",
+        "CSS"
+      ],
+      "license": {
+        "label": "Generated SVG patterns may be used in personal and commercial projects; redistribution, resale and competing libraries are prohibited",
+        "original": "Generated SVG patterns may be used in personal and commercial projects; redistribution, resale and competing libraries are prohibited",
+        "spdx": null,
+        "kind": "service-terms",
+        "status": "editor-reviewed",
+        "requiresReview": false,
+        "evidence": [
+          {
+            "kind": "terms",
+            "label": "Official SVG Patterns FAQ",
+            "url": "https://nucleoapp.com/svg-patterns/"
+          },
+          {
+            "kind": "terms",
+            "label": "Nucleo license terms",
+            "url": "https://nucleoapp.com/license"
+          }
+        ]
+      },
+      "access": {
+        "cost": "free",
+        "signup": "none",
+        "runtime": "cloud"
+      },
+      "trust": "official",
+      "decision": "now",
+      "riskLevel": "medium",
+      "projects": [
+        "Eclipse Forge Landing",
+        "Eclipse Library",
+        "Eclipse Chat",
+        "Eclipse Media"
+      ],
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://nucleoapp.com/svg-patterns/"
+        },
+        {
+          "kind": "terms",
+          "label": "Nucleo license terms",
+          "url": "https://nucleoapp.com/license"
+        }
+      ],
+      "actions": {
+        "openOfficialSource": true,
+        "installFromCatalog": false,
+        "mutateExternalSystems": false
+      }
+    },
+    {
+      "id": "motionsites-ai-prompt-library",
+      "title": "MotionSites AI",
+      "url": "https://motionsites.ai/",
+      "type": "prompt",
+      "category": "Промпты",
+      "subcategory": "Animated website prompts",
+      "addedAt": "2026-08-06",
+      "description": "Каталог промптов и уроков для анимированных React/Tailwind-сайтов, рассчитанный на Lovable, Bolt, Cursor и Claude. Полезен как visual-motion reference, но готовый prompt может незаметно добавить внешние шрифты, trackers и незакреплённые зависимости, поэтому вставлять его прямо в production нельзя.",
+      "useCases": [
+        "Изучать motion patterns для Eclipse Forge Landing без копирования платных prompts",
+        "Создавать собственные проверяемые animation recipes для Shotforge и Eclipse Media",
+        "Сравнивать AI-generated landing prototypes в isolated preview Eclipse AI Hub"
+      ],
+      "platforms": [
+        "Web",
+        "React",
+        "Tailwind CSS",
+        "Framer Motion"
+      ],
+      "license": {
+        "label": "Proprietary; exact subscription, reuse and redistribution terms need verification",
+        "original": "Proprietary; exact subscription, reuse and redistribution terms need verification",
+        "spdx": null,
+        "kind": "service-terms",
+        "status": "unverified",
+        "requiresReview": true,
+        "evidence": [
+          {
+            "kind": "source",
+            "label": "MotionSites official site",
+            "url": "https://motionsites.ai/"
+          },
+          {
+            "kind": "terms",
+            "label": "MotionSites Unlimited pricing",
+            "url": "https://motionsites.ai/unlimited"
+          },
+          {
+            "kind": "terms",
+            "label": "MotionSites Terms route",
+            "url": "https://motionsites.ai/terms"
+          }
+        ]
+      },
+      "access": {
+        "cost": "freemium",
+        "signup": "optional",
+        "runtime": "cloud"
+      },
+      "trust": "caution",
+      "decision": "reference",
+      "riskLevel": "high",
+      "projects": [
+        "Eclipse Forge Landing",
+        "Shotforge",
+        "Eclipse Media",
+        "Eclipse AI Hub"
+      ],
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://motionsites.ai/"
+        },
+        {
+          "kind": "terms",
+          "label": "MotionSites Unlimited pricing",
+          "url": "https://motionsites.ai/unlimited"
+        },
+        {
+          "kind": "terms",
+          "label": "MotionSites Terms route",
+          "url": "https://motionsites.ai/terms"
         }
       ],
       "actions": {

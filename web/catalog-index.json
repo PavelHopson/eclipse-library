@@ -1,20 +1,20 @@
 {
   "schemaVersion": 2,
-  "sourceHash": "bc1cf8801faaf207882ca1bdfce8a5d1e45ed54f81e7c1187dafeb230bc0ed2f",
+  "sourceHash": "0a4f3de5623da5fcdaf1d24d72153fc793a99b69090d641904ae5764c02838a5",
   "policy": {
     "canonicalSource": "catalog/resources.json",
     "directInstallForbidden": true,
     "greyResourcesExcludedFromAgentRecommendations": true
   },
   "totals": {
-    "all": 556,
-    "verified": 112,
+    "all": 560,
+    "verified": 116,
     "inferred": 444,
-    "licenseReviewRequired": 279,
-    "agentSafe": 484,
-    "agentExcluded": 72,
-    "grey": 65,
-    "withAddedAt": 272
+    "licenseReviewRequired": 282,
+    "agentSafe": 487,
+    "agentExcluded": 73,
+    "grey": 66,
+    "withAddedAt": 276
   },
   "items": [
     {
@@ -46385,6 +46385,483 @@
       "agentEligibility": {
         "eligible": true,
         "reasons": [],
+        "installAllowed": false
+      }
+    },
+    {
+      "id": "banana-prompts-team-gallery",
+      "url": "https://www.bananaprompts.xyz/creator/266feef8-bb5d-4954-baff-4bcab8751544",
+      "title": "Banana Prompts: галерея команды",
+      "type": "prompt",
+      "category": "Промпты",
+      "subcategory": "AI image и video prompt galleries",
+      "simpleDescription": "Community-галерея с сотнями промптов для генерации изображений и видео. Она помогает разобрать визуальный язык и структуру запроса, но публикация промпта на сайте не передаёт права на чужие идеи, персонажей, бренды или внешность людей.",
+      "useCases": [
+        "Собирать словарь стилей и композиционных приёмов для Eclipse Media и Text2Image",
+        "Сравнивать структуру image/video промптов в Eclipse AI Hub",
+        "Готовить оригинальные раскадровки и prompt recipes для Shotforge без копирования чужих работ"
+      ],
+      "platforms": [
+        "Web",
+        "Gemini",
+        "Midjourney",
+        "Stable Diffusion",
+        "DALL-E"
+      ],
+      "license": "Needs verification per creator and model policy; submissions remain creator-owned under Banana Prompts Terms",
+      "licenseEvidence": [
+        {
+          "kind": "terms",
+          "label": "Banana Prompts Terms",
+          "url": "https://www.bananaprompts.xyz/terms"
+        },
+        {
+          "kind": "privacy",
+          "label": "Banana Prompts Privacy Policy",
+          "url": "https://www.bananaprompts.xyz/privacy"
+        },
+        {
+          "kind": "source",
+          "label": "Banana Prompts FAQ",
+          "url": "https://www.bananaprompts.xyz/faq"
+        }
+      ],
+      "pricing": "Просмотр community-промптов бесплатный; Studio и premium prompts используют платные credits",
+      "access": {
+        "cost": "freemium",
+        "signup": "optional",
+        "runtime": "cloud"
+      },
+      "trust": "community",
+      "trustReason": "Проверены creator page, FAQ, Terms и Privacy. Маркетинговые примеры считаются вдохновением, а не доказательством качества результата или универсальной коммерческой лицензией.",
+      "projects": [
+        "Eclipse Media",
+        "Text2Image",
+        "Shotforge",
+        "Eclipse AI Hub"
+      ],
+      "decision": "reference",
+      "riskLevel": "high",
+      "risks": [
+        "Права на prompts и загруженные работы остаются у creators; массовое копирование и перепродажа запрещены",
+        "Примеры могут использовать trademarks, персонажей, celebrity likeness и стили с неясными правами",
+        "Введённые prompts и загруженные материалы могут обрабатываться внешними AI и moderation providers"
+      ],
+      "quickStart": [
+        "Открыть публичную галерею без входа и не загружать личные фотографии или закрытые материалы",
+        "Выбрать три примера и выписать только абстрактные приёмы: свет, камера, композиция и темп",
+        "Создать собственный prompt, сохранить источник, модель и условия, затем провести human review результата"
+      ],
+      "verifiedAt": "2026-08-06",
+      "reviewStatus": "verified",
+      "source": {
+        "file": "catalog/resources.json",
+        "key": "banana-prompts-team-gallery",
+        "legacy": {
+          "file": "user-message",
+          "line": 1,
+          "category": "Новые источники 06.08.2026",
+          "subcategory": "Prompt galleries"
+        }
+      },
+      "addedAt": "2026-08-06",
+      "catalogOrder": 2453,
+      "licenseInfo": {
+        "label": "Needs verification per creator and model policy; submissions remain creator-owned under Banana Prompts Terms",
+        "original": "Needs verification per creator and model policy; submissions remain creator-owned under Banana Prompts Terms",
+        "spdx": null,
+        "kind": "service-terms",
+        "status": "unverified",
+        "requiresReview": true,
+        "evidence": [
+          {
+            "kind": "terms",
+            "label": "Banana Prompts Terms",
+            "url": "https://www.bananaprompts.xyz/terms"
+          },
+          {
+            "kind": "privacy",
+            "label": "Banana Prompts Privacy Policy",
+            "url": "https://www.bananaprompts.xyz/privacy"
+          },
+          {
+            "kind": "source",
+            "label": "Banana Prompts FAQ",
+            "url": "https://www.bananaprompts.xyz/faq"
+          }
+        ]
+      },
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://www.bananaprompts.xyz/creator/266feef8-bb5d-4954-baff-4bcab8751544"
+        },
+        {
+          "kind": "terms",
+          "label": "Banana Prompts Terms",
+          "url": "https://www.bananaprompts.xyz/terms"
+        },
+        {
+          "kind": "privacy",
+          "label": "Banana Prompts Privacy Policy",
+          "url": "https://www.bananaprompts.xyz/privacy"
+        },
+        {
+          "kind": "source",
+          "label": "Banana Prompts FAQ",
+          "url": "https://www.bananaprompts.xyz/faq"
+        }
+      ],
+      "agentEligibility": {
+        "eligible": true,
+        "reasons": [],
+        "installAllowed": false
+      }
+    },
+    {
+      "id": "nucleo-svg-pattern-generator",
+      "url": "https://nucleoapp.com/svg-patterns/",
+      "title": "Nucleo SVG Pattern Generator",
+      "type": "tool",
+      "category": "Dev Tools & CLI",
+      "subcategory": "Design assets и SVG",
+      "simpleDescription": "Бесплатный web-генератор бесшовных SVG-паттернов: можно выбрать элементы, настроить цвет, размер, расстояние и слои, сразу увидеть результат и скопировать SVG. Экспорт подходит для коммерческих проектов, но саму библиотеку паттернов нельзя перепродавать или превращать в конкурирующий сервис.",
+      "useCases": [
+        "Создавать лёгкие локальные фоновые паттерны для Eclipse Forge Landing и Eclipse Library",
+        "Оформлять комнаты, empty states и обложки в Eclipse Chat",
+        "Готовить оригинальные SVG-слои для Eclipse Media без растровых фоновых файлов"
+      ],
+      "platforms": [
+        "Web",
+        "SVG",
+        "CSS"
+      ],
+      "license": "Generated SVG patterns may be used in personal and commercial projects; redistribution, resale and competing libraries are prohibited",
+      "licenseEvidence": [
+        {
+          "kind": "terms",
+          "label": "Official SVG Patterns FAQ",
+          "url": "https://nucleoapp.com/svg-patterns/"
+        },
+        {
+          "kind": "terms",
+          "label": "Nucleo license terms",
+          "url": "https://nucleoapp.com/license"
+        }
+      ],
+      "pricing": "Генератор паттернов бесплатный; основной Nucleo icon library имеет отдельные платные планы",
+      "access": {
+        "cost": "free",
+        "signup": "none",
+        "runtime": "cloud"
+      },
+      "trust": "official",
+      "trustReason": "Проверены официальный генератор, FAQ и лицензионные ограничения. Разрешено использовать отдельные экспорты в дизайне, но не копировать генератор или распространять коллекцию как собственную библиотеку.",
+      "projects": [
+        "Eclipse Forge Landing",
+        "Eclipse Library",
+        "Eclipse Chat",
+        "Eclipse Media"
+      ],
+      "decision": "now",
+      "riskLevel": "medium",
+      "risks": [
+        "Скопированный SVG нужно проверить на scripts, event handlers и внешние references перед публикацией",
+        "Нельзя собирать и перепродавать экспортированные паттерны как отдельную библиотеку",
+        "Слишком плотный декоративный фон ухудшит читаемость, contrast и производительность"
+      ],
+      "quickStart": [
+        "Собрать один спокойный паттерн под текущие Eclipse tokens и экспортировать SVG",
+        "Удалить metadata, scripts, event handlers и внешние references; проверить SVG статическим scanner",
+        "Сохранить asset локально, проверить contrast, размер и reduced-motion на desktop и mobile"
+      ],
+      "verifiedAt": "2026-08-06",
+      "reviewStatus": "verified",
+      "source": {
+        "file": "catalog/resources.json",
+        "key": "nucleo-svg-pattern-generator",
+        "legacy": {
+          "file": "user-message",
+          "line": 2,
+          "category": "Новые источники 06.08.2026",
+          "subcategory": "Design assets"
+        }
+      },
+      "addedAt": "2026-08-06",
+      "catalogOrder": 2454,
+      "licenseInfo": {
+        "label": "Generated SVG patterns may be used in personal and commercial projects; redistribution, resale and competing libraries are prohibited",
+        "original": "Generated SVG patterns may be used in personal and commercial projects; redistribution, resale and competing libraries are prohibited",
+        "spdx": null,
+        "kind": "service-terms",
+        "status": "editor-reviewed",
+        "requiresReview": false,
+        "evidence": [
+          {
+            "kind": "terms",
+            "label": "Official SVG Patterns FAQ",
+            "url": "https://nucleoapp.com/svg-patterns/"
+          },
+          {
+            "kind": "terms",
+            "label": "Nucleo license terms",
+            "url": "https://nucleoapp.com/license"
+          }
+        ]
+      },
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://nucleoapp.com/svg-patterns/"
+        },
+        {
+          "kind": "terms",
+          "label": "Nucleo license terms",
+          "url": "https://nucleoapp.com/license"
+        }
+      ],
+      "agentEligibility": {
+        "eligible": true,
+        "reasons": [],
+        "installAllowed": false
+      }
+    },
+    {
+      "id": "motionsites-ai-prompt-library",
+      "url": "https://motionsites.ai/",
+      "title": "MotionSites AI",
+      "type": "prompt",
+      "category": "Промпты",
+      "subcategory": "Animated website prompts",
+      "simpleDescription": "Каталог промптов и уроков для анимированных React/Tailwind-сайтов, рассчитанный на Lovable, Bolt, Cursor и Claude. Полезен как visual-motion reference, но готовый prompt может незаметно добавить внешние шрифты, trackers и незакреплённые зависимости, поэтому вставлять его прямо в production нельзя.",
+      "useCases": [
+        "Изучать motion patterns для Eclipse Forge Landing без копирования платных prompts",
+        "Создавать собственные проверяемые animation recipes для Shotforge и Eclipse Media",
+        "Сравнивать AI-generated landing prototypes в isolated preview Eclipse AI Hub"
+      ],
+      "platforms": [
+        "Web",
+        "React",
+        "Tailwind CSS",
+        "Framer Motion"
+      ],
+      "license": "Proprietary; exact subscription, reuse and redistribution terms need verification",
+      "licenseEvidence": [
+        {
+          "kind": "source",
+          "label": "MotionSites official site",
+          "url": "https://motionsites.ai/"
+        },
+        {
+          "kind": "terms",
+          "label": "MotionSites Unlimited pricing",
+          "url": "https://motionsites.ai/unlimited"
+        },
+        {
+          "kind": "terms",
+          "label": "MotionSites Terms route",
+          "url": "https://motionsites.ai/terms"
+        }
+      ],
+      "pricing": "Есть бесплатные примеры; Unlimited заявлен как платная подписка, цены и lifetime promotion меняются",
+      "access": {
+        "cost": "freemium",
+        "signup": "optional",
+        "runtime": "cloud"
+      },
+      "trust": "caution",
+      "trustReason": "Проверены официальный каталог, pricing page и один открытый lesson. Заявления о production-ready результате и стоимости создаваемых сайтов являются маркетингом; подробные Terms не удалось подтвердить в читаемом виде.",
+      "projects": [
+        "Eclipse Forge Landing",
+        "Shotforge",
+        "Eclipse Media",
+        "Eclipse AI Hub"
+      ],
+      "decision": "reference",
+      "riskLevel": "high",
+      "risks": [
+        "Платные prompts и обучающие материалы нельзя копировать или публиковать без явного разрешения",
+        "Prompts могут подключать remote fonts, trackers и unpinned npm dependencies",
+        "Сайт использует analytics, affiliate и advertising trackers; условия lifetime promotions могут меняться"
+      ],
+      "quickStart": [
+        "Использовать только бесплатный публичный пример в disposable prototype без секретов и production data",
+        "До запуска перечислить все dependencies, fonts, images, analytics и их лицензии",
+        "Переписать идею в собственный Eclipse component и проверить accessibility, performance, reduced-motion и security"
+      ],
+      "verifiedAt": "2026-08-06",
+      "reviewStatus": "verified",
+      "source": {
+        "file": "catalog/resources.json",
+        "key": "motionsites-ai-prompt-library",
+        "legacy": {
+          "file": "user-message",
+          "line": 3,
+          "category": "Новые источники 06.08.2026",
+          "subcategory": "Motion design prompts"
+        }
+      },
+      "addedAt": "2026-08-06",
+      "catalogOrder": 2455,
+      "licenseInfo": {
+        "label": "Proprietary; exact subscription, reuse and redistribution terms need verification",
+        "original": "Proprietary; exact subscription, reuse and redistribution terms need verification",
+        "spdx": null,
+        "kind": "service-terms",
+        "status": "unverified",
+        "requiresReview": true,
+        "evidence": [
+          {
+            "kind": "source",
+            "label": "MotionSites official site",
+            "url": "https://motionsites.ai/"
+          },
+          {
+            "kind": "terms",
+            "label": "MotionSites Unlimited pricing",
+            "url": "https://motionsites.ai/unlimited"
+          },
+          {
+            "kind": "terms",
+            "label": "MotionSites Terms route",
+            "url": "https://motionsites.ai/terms"
+          }
+        ]
+      },
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://motionsites.ai/"
+        },
+        {
+          "kind": "terms",
+          "label": "MotionSites Unlimited pricing",
+          "url": "https://motionsites.ai/unlimited"
+        },
+        {
+          "kind": "terms",
+          "label": "MotionSites Terms route",
+          "url": "https://motionsites.ai/terms"
+        }
+      ],
+      "agentEligibility": {
+        "eligible": true,
+        "reasons": [],
+        "installAllowed": false
+      }
+    },
+    {
+      "id": "northbound-recreation-prompt-pagey",
+      "url": "https://panda-orchid-barn.pagey.site/prompt.html",
+      "title": "NØRTHBOUND Recreation Prompt",
+      "type": "grey",
+      "category": "Security & Privacy",
+      "subcategory": "Unlicensed website recreation prompts",
+      "simpleDescription": "Публичный master prompt для покадрового воссоздания cinematic landing с длинной scroll-video сценой. Внутри прямо предлагается повторить чужую страницу один в один и скачать внешние видео, постеры и шрифты; лицензия на prompt и assets не указана, поэтому материал нельзя использовать как готовый шаблон.",
+      "useCases": [
+        "Изучить только общие идеи deterministic scroll timing и reverse playback для Eclipse Media",
+        "Составить собственный checklist для cinematic product demo в Shotforge",
+        "Не переносить исходные тексты, композицию, видео, постеры, fonts или точные timing values в Eclipse Forge Landing"
+      ],
+      "platforms": [
+        "Web",
+        "HTML",
+        "GSAP",
+        "ScrollTrigger"
+      ],
+      "license": "Unknown; no explicit license found for the prompt, footage, posters or fonts",
+      "licenseEvidence": [
+        {
+          "kind": "source",
+          "label": "Public recreation page",
+          "url": "https://panda-orchid-barn.pagey.site/prompt.html"
+        },
+        {
+          "kind": "source",
+          "label": "Published master prompt",
+          "url": "https://panda-orchid-barn.pagey.site/master-prompt.txt"
+        }
+      ],
+      "pricing": "Публичная страница бесплатна, но это не означает разрешение на копирование материалов",
+      "access": {
+        "cost": "free",
+        "signup": "none",
+        "runtime": "cloud"
+      },
+      "trust": "caution",
+      "trustReason": "HTML и текст prompt проверены статически без запуска scripts и внешних media. LICENSE/Terms не найдены; exact recreation, hotlinking и загрузка неизвестных assets создают copyright, privacy и supply-chain риски.",
+      "projects": [
+        "Eclipse Media",
+        "Shotforge",
+        "Eclipse Forge Landing"
+      ],
+      "decision": "no",
+      "riskLevel": "high",
+      "risks": [
+        "One-to-one копирование layout, copy и assets может нарушать copyright и права бренда",
+        "Внешние video/font hosts и free-hosted scripts не имеют подтверждённой цепочки доверия",
+        "Очень длинная scroll scene и несколько видео создают performance, accessibility и mobile UX проблемы"
+      ],
+      "quickStart": [
+        "Не вставлять master prompt в coding agent и не скачивать перечисленные assets",
+        "Выписать только абстрактные принципы: central config, deterministic timing, reverse scroll и reduced-motion fallback",
+        "Создать полностью оригинальные copy, media, composition и motion; отдельно подтвердить каждую лицензию"
+      ],
+      "verifiedAt": "2026-08-06",
+      "reviewStatus": "verified",
+      "source": {
+        "file": "catalog/resources.json",
+        "key": "northbound-recreation-prompt-pagey",
+        "legacy": {
+          "file": "user-message",
+          "line": 4,
+          "category": "Новые источники 06.08.2026",
+          "subcategory": "Unlicensed recreation prompts"
+        }
+      },
+      "addedAt": "2026-08-06",
+      "catalogOrder": 2456,
+      "licenseInfo": {
+        "label": "Unknown; no explicit license found for the prompt, footage, posters or fonts",
+        "original": "Unknown; no explicit license found for the prompt, footage, posters or fonts",
+        "spdx": null,
+        "kind": "unknown",
+        "status": "unverified",
+        "requiresReview": true,
+        "evidence": [
+          {
+            "kind": "source",
+            "label": "Public recreation page",
+            "url": "https://panda-orchid-barn.pagey.site/prompt.html"
+          },
+          {
+            "kind": "source",
+            "label": "Published master prompt",
+            "url": "https://panda-orchid-barn.pagey.site/master-prompt.txt"
+          }
+        ]
+      },
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://panda-orchid-barn.pagey.site/prompt.html"
+        },
+        {
+          "kind": "source",
+          "label": "Published master prompt",
+          "url": "https://panda-orchid-barn.pagey.site/master-prompt.txt"
+        }
+      ],
+      "agentEligibility": {
+        "eligible": false,
+        "reasons": [
+          "grey-resource",
+          "editorial-decision-no"
+        ],
         "installAllowed": false
       }
     }

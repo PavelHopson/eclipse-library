@@ -83,6 +83,7 @@
     blocked: 'Не запускать',
   };
   const TOPIC_ROUTES = {
+    recent: { title: 'Новое и проверенное', description: 'Последние материалы, которые редактор проверил вручную и добавил с понятным решением для Eclipse Forge.', match: (c) => Boolean(c.resource.detail && c.resource.addedAt) },
     verified: { title: 'Проверено редактором', description: 'Материалы с ручной проверкой источника, лицензии, условий, рисков и применимости к проектам Eclipse Forge.', match: (c) => Boolean(c.resource.detail) },
     skills: { title: 'Skills для AI-агентов', description: 'Готовые инструкции и повторяемые workflows. Перед установкой проверьте permissions и содержимое skill.', type: 'skill', match: (c) => c.type === 'skill' },
     mcp: { title: 'MCP и интеграции', description: 'Серверы и инструменты, которые подключают AI к внешним данным и действиям. Начинайте с минимальных прав.', match: (c) => /\bmcp\b/i.test(c.text) },
@@ -528,6 +529,13 @@
           use.innerHTML = `<b>Когда пригодится:</b> ${esc(r.useCases[0] || 'для небольшой тестовой задачи')}`;
           card.appendChild(use);
 
+          const decision = el('div', `card-decision decision-${r.decision}`);
+          decision.innerHTML =
+            `<span><small>Решение</small><b>${esc(DECISIONS[r.decision] || DECISIONS.reference)}</b></span>` +
+            `<span><small>Куда применить</small><b>${esc(r.projects[0] || 'Нужен отдельный выбор проекта')}</b></span>` +
+            `<span><small>Риск</small><b>${esc(RISK[r.riskLevel] || RISK.medium)}</b></span>`;
+          card.appendChild(decision);
+
           const meta = el('div', 'card-meta');
           meta.appendChild(el('span', 'meta-chip', esc(RUNTIME[r.runtime] || RUNTIME.unknown)));
           meta.appendChild(el('span', 'meta-chip meta-price', esc(COST[r.cost] || COST.unknown)));
@@ -540,7 +548,7 @@
           let dom = ''; try { dom = new URL(r.url).hostname.replace(/^www\./, ''); } catch (e) {}
           const foot = el('div', 'card-foot');
           foot.innerHTML =
-            `<a class="detail-link" href="#item/${encodeURIComponent(r.id)}">Понять и применить →</a>` +
+            `<a class="detail-link" href="#item/${encodeURIComponent(r.id)}">Открыть полный анализ →</a>` +
             (r.linkHealth.status === 'blocked'
               ? '<span class="source-link source-blocked">Источник заблокирован</span>'
               : `<a class="source-link" href="${escAttr(r.url)}" target="_blank" rel="noopener" aria-label="Открыть официальный источник">${esc(dom || 'Источник')} ↗</a>`);
@@ -592,6 +600,7 @@
 
     buildFilters(typeCounts);
     buildQuickRoutes(cats, typeCounts);
+    renderEditorialRecent();
     pruneFavorites();
     pruneRecent();
     updateFavoritesUI();
@@ -650,6 +659,28 @@
     return cats.find((c) => re.test(c.label.toLowerCase()));
   }
 
+  function renderEditorialRecent() {
+    let section = $('#recentEditorial');
+    if (!section) {
+      section = el('section', 'recent-editorial');
+      section.id = 'recentEditorial';
+      section.setAttribute('aria-labelledby', 'recentEditorialTitle');
+      $('#hero').insertAdjacentElement('afterend', section);
+    }
+    const latest = cards
+      .filter((card) => card.resource.detail && card.resource.addedAt)
+      .sort((a, b) => (Date.parse(b.resource.addedAt) || 0) - (Date.parse(a.resource.addedAt) || 0) || b.resource.catalogOrder - a.resource.catalogOrder)
+      .slice(0, 6);
+    section.hidden = latest.length === 0;
+    section.innerHTML =
+      `<header class="recent-editorial-head"><div><span>Редакционная лента</span><h2 id="recentEditorialTitle">Новое и проверенное</h2><p>Свежие разборы: что это, можно ли доверять и куда применить.</p></div><a href="#browse/recent">Показать все новые →</a></header>` +
+      `<div class="recent-editorial-list">${latest.map((card) => {
+        const r = card.resource;
+        const projects = r.projects.slice(0, 2).join(', ') || 'Применимость уточняется';
+        return `<a class="recent-editorial-item decision-${r.decision}" href="#item/${encodeURIComponent(r.id)}"><div class="recent-editorial-meta"><time datetime="${escAttr(r.addedAt)}">${esc(formatAddedAt(r.addedAt))}</time><span>${esc(DECISIONS[r.decision] || DECISIONS.reference)}</span></div><h3>${esc(r.title)}</h3><p>${esc(r.simpleDescription)}</p><footer><span>Для: ${esc(projects)}</span><b>${esc(RISK[r.riskLevel] || RISK.medium)}</b></footer></a>`;
+      }).join('')}</div>`;
+  }
+
   function buildQuickRoutes(cats, typeCounts) {
     const box = $('#quickRoutes');
     if (!box) return;
@@ -658,6 +689,7 @@
     const projects = findCat(cats, /наши проекты/);
     const latestDrop = [...cats].reverse().find((c) => /подборка eclipse/.test(c.label.toLowerCase()));
     const routes = [
+      { label: 'Новое', hint: 'последние редакционные разборы', href: '#browse/recent', count: cards.filter(TOPIC_ROUTES.recent.match).length },
       { label: 'Проверено', hint: 'полный редакторский разбор', href: '#browse/verified', count: cards.filter(TOPIC_ROUTES.verified.match).length },
       { label: 'Skills', hint: 'готовые роли и workflows', href: '#browse/skills', count: typeCounts.skill || 0 },
       { label: 'MCP', hint: 'данные и внешние действия', href: '#browse/mcp', count: cards.filter(TOPIC_ROUTES.mcp.match).length },
@@ -711,6 +743,8 @@
     fillSelect($('#projectFilter'), [...new Set(cards.flatMap((c) => c.projects))]);
     fillSelect($('#freshnessFilter'), [...new Set(cards.map((c) => c.freshness))], (value) => FRESHNESS[value] || value);
     fillSelect($('#repositoryFilter'), [...new Set(cards.map((c) => c.repositoryState))], (value) => REPOSITORY_STATE[value] || value);
+    const newestOption = $('#sortFilter')?.querySelector('[value="freshness"]');
+    if (newestOption) newestOption.textContent = 'Сначала новые';
 
     const reset = $('#filterReset');
     reset.addEventListener('click', () => clearLibraryFilters({ focus: true }));
@@ -904,6 +938,8 @@
     if (!sortedMode) updateNavVisibility();
     const filtering = !!(q || activeTask || activeType || activeCost || activeSignup || activeRuntime || activePlatform || activeLicense || activeTrust || activeProject || activeFreshness || activeRepositoryState || activeTopic || activeFavorites);
     $('#hero').classList.toggle('dim', filtering);
+    const recentEditorial = $('#recentEditorial');
+    if (recentEditorial) recentEditorial.hidden = filtering || currentView !== 'catalog';
     const shown = Math.min(matched, visibleLimit);
     $('#resultcount').textContent = shown < matched ? `${shown} из ${matched}` : `${matched} ${matched === 1 ? 'материал' : 'материалов'}`;
     const loadMoreWrap = $('#loadMoreWrap');
@@ -942,8 +978,8 @@
     if (activeSort === 'title') return a.resource.title.localeCompare(b.resource.title, 'ru');
     const trustRank = { official: 5, verified: 4, community: 3, unknown: 2, caution: 1 };
     const decisionRank = { now: 4, roadmap: 3, reference: 2, no: 0 };
-    const dateA = Date.parse(a.resource.verifiedAt || '') || 0;
-    const dateB = Date.parse(b.resource.verifiedAt || '') || 0;
+    const dateA = Date.parse(a.resource.addedAt || a.resource.verifiedAt || '') || 0;
+    const dateB = Date.parse(b.resource.addedAt || b.resource.verifiedAt || '') || 0;
     if (activeSort === 'trust') return (trustRank[b.trust] || 0) - (trustRank[a.trust] || 0) || dateB - dateA || a.order - b.order;
     if (activeSort === 'freshness') return dateB - dateA || (trustRank[b.trust] || 0) - (trustRank[a.trust] || 0) || a.order - b.order;
     const score = (card) => (card.resource.detail ? 30 : 0) + (decisionRank[card.resource.decision] || 0) * 8 + (trustRank[card.trust] || 0) * 4 + (card.freshness === 'fresh' ? 8 : 0) - (card.resource.riskLevel === 'high' ? 8 : 0) - (['archived', 'disabled'].includes(card.repositoryState) ? 40 : 0);
@@ -1003,6 +1039,8 @@
     document.body.classList.toggle('projects-mode', projectMode);
     $('#projectsView').hidden = !projectMode;
     $('#hero').hidden = projectMode;
+    const recentEditorial = $('#recentEditorial');
+    if (recentEditorial) recentEditorial.hidden = projectMode;
     $('#topicContext').hidden = projectMode || !activeTopic;
     $('#filters').hidden = projectMode;
     $('#results').hidden = projectMode || activeSort !== 'catalog';
@@ -1382,6 +1420,12 @@
         `<span class="verify-date">${esc(formatVerifiedAt(r.verifiedAt))}</span></div>` +
       `<h1 id="itemTitle">${esc(r.title)}</h1>` +
       `<p class="item-lead">${esc(r.simpleDescription)}</p>` +
+      `<div class="item-decision-panel decision-${r.decision}">` +
+        `<div><span>Редакторское решение</span><b>${esc(DECISIONS[r.decision] || DECISIONS.reference)}</b></div>` +
+        `<div><span>Куда применить</span><b>${esc(r.projects.slice(0, 2).join(', ') || 'Нужен отдельный выбор проекта')}</b></div>` +
+        `<div><span>Главный риск</span><b>${esc(r.risks[0] || 'Нужна проверка перед запуском')}</b></div>` +
+        `<div><span>Первый безопасный шаг</span><b>${esc(r.quickStart[0] || 'Открыть официальный источник и проверить условия')}</b></div>` +
+      `</div>` +
       repositoryNotice +
       mcpAuditNotice +
       `<div id="itemActionSlot" class="item-action-slot"></div>` +
