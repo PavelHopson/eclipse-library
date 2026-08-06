@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "consumer": "StarCRM",
-  "catalogVersion": "ae4dbb9f31bdf1ecfe2afe4c59a83313e9dfc166f30efa424fb6dfc15ef9a3b0",
+  "catalogVersion": "bc1cf8801faaf207882ca1bdfce8a5d1e45ed54f81e7c1187dafeb230bc0ed2f",
   "generatedAt": null,
   "policy": {
     "greyResourcesExcluded": true,
@@ -9,7 +9,7 @@
     "externalMutationsRequireHumanApproval": true
   },
   "totals": {
-    "items": 464
+    "items": 484
   },
   "items": [
     {
@@ -497,49 +497,73 @@
     },
     {
       "id": "nvidia-build-95-моделей-build-nvidia-com",
-      "title": "NVIDIA Build (95 моделей)",
+      "title": "NVIDIA Build / NIM APIs",
       "url": "https://build.nvidia.com/models",
-      "type": "model",
+      "type": "api",
       "category": "AI & Claude Code",
-      "subcategory": "Бесплатные API",
-      "addedAt": null,
-      "description": "NVIDIA Build (95 моделей) — Бесплатные API: Qwen, GLM, DeepSeek, Kimi, Gemma, Mistral, Nemotron (проверять условия). Карточка помогает понять назначение ресурса и начать с небольшой безопасной проверки; условия использования ещё нужно сверить с официальным источником.",
+      "subcategory": "Model gateways и inference",
+      "addedAt": "2026-08-06",
+      "description": "Официальный каталог NVIDIA с hosted NIM inference endpoints, моделями и готовыми AI workflows. Бесплатные endpoints предназначены прежде всего для разработки и тестов: доступ, квоты и лицензия зависят от конкретной модели и могут меняться.",
       "useCases": [
-        "Разобраться, подходит ли NVIDIA Build (95 моделей) для вашей задачи",
-        "Проверить возможности на небольшом тестовом сценарии до интеграции"
+        "Провести воспроизводимый benchmark моделей для Eclipse AI Hub без немедленного self-hosting",
+        "Проверить coding, RAG и agentic сценарии Hopson Sentinel на обезличенных тестах",
+        "Изучить NIM API как один из провайдеров Eclipse Model Registry"
       ],
       "platforms": [
-        "API"
+        "Web",
+        "API",
+        "Cloud",
+        "NVIDIA NIM"
       ],
       "license": {
-        "label": "Нужно проверить в официальном источнике",
-        "original": "Нужно проверить в официальном источнике",
+        "label": "NVIDIA Technology Access Terms; лицензия и допустимое использование проверяются для каждой модели отдельно",
+        "original": "NVIDIA Technology Access Terms; лицензия и допустимое использование проверяются для каждой модели отдельно",
         "spdx": null,
-        "kind": "unknown",
-        "status": "unverified",
-        "requiresReview": true,
+        "kind": "service-terms",
+        "status": "editor-reviewed",
+        "requiresReview": false,
         "evidence": [
           {
-            "kind": "official-source",
-            "label": "Официальный источник; точные условия ещё нужно сверить",
-            "url": "https://build.nvidia.com/models"
+            "kind": "terms",
+            "label": "NVIDIA Technology Access Terms",
+            "url": "https://www.nvidia.com/en-us/agreements/enterprise-software/nvidia-software-license-agreement/"
+          },
+          {
+            "kind": "pricing",
+            "label": "NVIDIA Build access and credits",
+            "url": "https://build.nvidia.com/settings/credits"
           }
         ]
       },
       "access": {
-        "cost": "free",
-        "signup": "unknown",
+        "cost": "freemium",
+        "signup": "required",
         "runtime": "cloud"
       },
-      "trust": "unknown",
-      "decision": "reference",
+      "trust": "official",
+      "decision": "roadmap",
       "riskLevel": "medium",
-      "projects": [],
+      "projects": [
+        "Eclipse AI Hub",
+        "Hopson Sentinel",
+        "ModelForge",
+        "oh-my-claudecode"
+      ],
       "evidence": [
         {
           "kind": "official-source",
           "label": "Официальный источник",
           "url": "https://build.nvidia.com/models"
+        },
+        {
+          "kind": "terms",
+          "label": "NVIDIA Technology Access Terms",
+          "url": "https://www.nvidia.com/en-us/agreements/enterprise-software/nvidia-software-license-agreement/"
+        },
+        {
+          "kind": "pricing",
+          "label": "NVIDIA Build access and credits",
+          "url": "https://build.nvidia.com/settings/credits"
         }
       ],
       "actions": {
@@ -5227,53 +5251,74 @@
     },
     {
       "id": "taste-skill-www-tasteskill-dev",
-      "title": "Taste Skill",
+      "title": "Taste Skill / design-taste-frontend",
       "url": "https://www.tasteskill.dev/",
       "type": "skill",
       "category": "Скиллы для Claude",
-      "subcategory": "Скиллы для Claude",
-      "addedAt": null,
-      "description": "Taste Skill — design-taste-frontend — anti-slop frontend skill: читает brief, выводит дизайн-направление, подбирает реальную дизайн-систему, усиливает типографику, motion, spacing и делает pre-flight перед сдачей. Install: npx skills add https://github.com/Leonxlnx/taste-skill --skill \"design-taste-frontend\" · EclipseForgeLanding, landing/home Eclipse Chat, Eclipse…. Карточка помогает понять назначение ресурса и начать с небольшой безопасной проверки; условия использования ещё нужно сверить с официальным источником.",
+      "subcategory": "Frontend design review",
+      "addedAt": "2026-08-06",
+      "description": "Open-source skill с anti-slop правилами для frontend: помогает выбрать дизайн-направление, усилить типографику, spacing, motion и провести pre-flight review. Это набор инструкций для агента, а не автоматическая гарантия хорошего UX.",
       "useCases": [
-        "Разобраться, подходит ли Taste Skill для вашей задачи",
-        "Проверить возможности на небольшом тестовом сценарии до интеграции"
+        "Применять как обязательный UI review baseline для Eclipse Forge Landing и Eclipse Library",
+        "Проверять 3-second test, hierarchy и responsive states в Eclipse Chat и DnD Forge",
+        "Сокращать случайные градиенты, карточные сетки и декоративную перегрузку"
       ],
       "platforms": [
-        "Web"
+        "Claude Code",
+        "Codex",
+        "Cursor",
+        "Gemini CLI",
+        "Skill file"
       ],
       "license": {
-        "label": "Нужно проверить в официальном источнике",
-        "original": "Нужно проверить в официальном источнике",
-        "spdx": null,
-        "kind": "unknown",
-        "status": "unverified",
-        "requiresReview": true,
+        "label": "MIT",
+        "original": "MIT",
+        "spdx": "MIT",
+        "kind": "open-source",
+        "status": "editor-reviewed",
+        "requiresReview": false,
         "evidence": [
           {
-            "kind": "official-source",
-            "label": "Официальный источник; точные условия ещё нужно сверить",
-            "url": "https://www.tasteskill.dev/"
+            "kind": "license",
+            "label": "Repository MIT license",
+            "url": "https://github.com/Leonxlnx/taste-skill/blob/main/LICENSE"
+          },
+          {
+            "kind": "source",
+            "label": "Official repository",
+            "url": "https://github.com/Leonxlnx/taste-skill"
           }
         ]
       },
       "access": {
-        "cost": "unknown",
-        "signup": "unknown",
-        "runtime": "cloud"
+        "cost": "free",
+        "signup": "none",
+        "runtime": "local"
       },
-      "trust": "unknown",
-      "decision": "reference",
+      "trust": "community",
+      "decision": "now",
       "riskLevel": "medium",
       "projects": [
+        "Eclipse Forge Landing",
+        "Eclipse Library",
         "Eclipse Chat",
-        "Eclipse DnD Forge",
-        "Eclipse Forge Landing"
+        "Eclipse DnD Forge"
       ],
       "evidence": [
         {
           "kind": "official-source",
           "label": "Официальный источник",
           "url": "https://www.tasteskill.dev/"
+        },
+        {
+          "kind": "license",
+          "label": "Repository MIT license",
+          "url": "https://github.com/Leonxlnx/taste-skill/blob/main/LICENSE"
+        },
+        {
+          "kind": "source",
+          "label": "Official repository",
+          "url": "https://github.com/Leonxlnx/taste-skill"
         }
       ],
       "actions": {
@@ -9996,22 +10041,25 @@
       "id": "scraperai-github-com",
       "title": "ScraperAI",
       "url": "https://github.com/scraperai/scraperai",
-      "type": "model",
+      "type": "tool",
       "category": "Dev Tools & CLI",
-      "subcategory": "Dev Tools & CLI",
-      "addedAt": null,
-      "description": "ScraperAI — Python · AI-парсер с локальными моделями — Selenium, минимизация HTML, маскировка, гибкие настройки. Карточка помогает понять назначение ресурса и начать с небольшой безопасной проверки; условия использования ещё нужно сверить с официальным источником.",
+      "subcategory": "Web extraction и browser automation",
+      "addedAt": "2026-08-06",
+      "description": "Community Python-инструмент для извлечения структурированных данных с веб-страниц при помощи Selenium и LLM. Может сокращать HTML и использовать локальные модели, но браузерная автоматизация, маскировка и произвольные URL создают заметную security и legal поверхность.",
       "useCases": [
-        "Разобраться, подходит ли ScraperAI для вашей задачи",
-        "Проверить возможности на небольшом тестовом сценарии до интеграции"
+        "Оставить как reference для extraction pipeline Eclipse Webclaw",
+        "Сравнить качество schema extraction на разрешённых тестовых сайтах",
+        "Изучить сокращение HTML перед передачей модели без копирования всего продукта"
       ],
       "platforms": [
+        "Python",
         "CLI",
+        "Selenium",
         "Self-host"
       ],
       "license": {
         "label": "GPL-3.0",
-        "original": "Нужно проверить в официальном источнике",
+        "original": "GPL-3.0",
         "spdx": "GPL-3.0",
         "kind": "open-source",
         "status": "source-declared",
@@ -10021,18 +10069,27 @@
             "kind": "license",
             "label": "GPL-3.0 license",
             "url": "https://api.github.com/repos/scraperai/scraperai/license"
+          },
+          {
+            "kind": "license",
+            "label": "Repository GPL-3.0 license",
+            "url": "https://github.com/scraperai/scraperai/blob/main/LICENSE"
           }
         ]
       },
       "access": {
-        "cost": "free",
+        "cost": "freemium",
         "signup": "none",
         "runtime": "self-host"
       },
       "trust": "community",
       "decision": "reference",
-      "riskLevel": "medium",
-      "projects": [],
+      "riskLevel": "high",
+      "projects": [
+        "Eclipse Webclaw",
+        "Hopson Sentinel",
+        "Eclipse AI Hub"
+      ],
       "evidence": [
         {
           "kind": "official-source",
@@ -10043,6 +10100,11 @@
           "kind": "license",
           "label": "GPL-3.0 license",
           "url": "https://api.github.com/repos/scraperai/scraperai/license"
+        },
+        {
+          "kind": "license",
+          "label": "Repository GPL-3.0 license",
+          "url": "https://github.com/scraperai/scraperai/blob/main/LICENSE"
         }
       ],
       "actions": {
@@ -26731,6 +26793,1279 @@
           "kind": "license",
           "label": "Apache-2.0 license",
           "url": "https://api.github.com/repos/heygen-com/hyperframes/license"
+        }
+      ],
+      "actions": {
+        "openOfficialSource": true,
+        "installFromCatalog": false,
+        "mutateExternalSystems": false
+      }
+    },
+    {
+      "id": "presentation-workflow-5-prompts",
+      "title": "Презентация: проверяемый workflow из 5 промптов",
+      "url": "https://raw.githubusercontent.com/PavelHopson/eclipse-library/master/prompts/presentation-workflow-5.md",
+      "type": "prompt",
+      "category": "Промпты",
+      "subcategory": "Презентации и product storytelling",
+      "addedAt": "2026-08-06",
+      "description": "Редакторский workflow Eclipse Library: структура, текст, автономная HTML-презентация, визуальный review и проверка PDF. В отличие от исходной подборки он требует источники для цифр, ограничения продукта, accessibility и реальный просмотр экспорта.",
+      "useCases": [
+        "Готовить product deck для Eclipse Forge Landing",
+        "Собирать case-study и release deck для Eclipse Media и Shotforge",
+        "Создавать клиентские предложения без выдуманных цифр и отзывов"
+      ],
+      "platforms": [
+        "Markdown",
+        "Any LLM",
+        "HTML",
+        "PDF"
+      ],
+      "license": {
+        "label": "Eclipse Forge adapted material; отдельная лицензия на перераспространение не объявлена",
+        "original": "Eclipse Forge adapted material; отдельная лицензия на перераспространение не объявлена",
+        "spdx": null,
+        "kind": "custom",
+        "status": "editor-reviewed",
+        "requiresReview": false,
+        "evidence": [
+          {
+            "kind": "source",
+            "label": "Prompt source in Eclipse Library",
+            "url": "https://github.com/PavelHopson/eclipse-library/blob/master/prompts/presentation-workflow-5.md"
+          }
+        ]
+      },
+      "access": {
+        "cost": "free",
+        "signup": "none",
+        "runtime": "local"
+      },
+      "trust": "verified",
+      "decision": "now",
+      "riskLevel": "low",
+      "projects": [
+        "Eclipse Forge Landing",
+        "Eclipse Media",
+        "Shotforge",
+        "Eclipse AI Hub"
+      ],
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://raw.githubusercontent.com/PavelHopson/eclipse-library/master/prompts/presentation-workflow-5.md"
+        },
+        {
+          "kind": "source",
+          "label": "Prompt source in Eclipse Library",
+          "url": "https://github.com/PavelHopson/eclipse-library/blob/master/prompts/presentation-workflow-5.md"
+        }
+      ],
+      "actions": {
+        "openOfficialSource": true,
+        "installFromCatalog": false,
+        "mutateExternalSystems": false
+      }
+    },
+    {
+      "id": "software-engineering-roles-8-prompts",
+      "title": "Software engineering: 8 evidence-first ролей",
+      "url": "https://raw.githubusercontent.com/PavelHopson/eclipse-library/master/prompts/software-engineering-roles-8.md",
+      "type": "prompt",
+      "category": "Промпты",
+      "subcategory": "Разработка и code review",
+      "addedAt": "2026-08-06",
+      "description": "Восемь коротких инженерных ролей для implementation, code review, debugging, architecture, performance, multi-role review, enterprise UI и technical planning. Общий пролог требует сначала изучить repository, сохранить чужие изменения и подтвердить результат тестами.",
+      "useCases": [
+        "Стандартизировать задачи Hopson Sentinel и oh-my-claudecode",
+        "Проводить evidence-first review модулей Eclipse AI Hub",
+        "Задавать обязательные UX и security states при frontend-разработке"
+      ],
+      "platforms": [
+        "Markdown",
+        "Claude Code",
+        "Codex",
+        "Cursor"
+      ],
+      "license": {
+        "label": "Eclipse Forge adapted material; отдельная лицензия на перераспространение не объявлена",
+        "original": "Eclipse Forge adapted material; отдельная лицензия на перераспространение не объявлена",
+        "spdx": null,
+        "kind": "custom",
+        "status": "editor-reviewed",
+        "requiresReview": false,
+        "evidence": [
+          {
+            "kind": "source",
+            "label": "Prompt source in Eclipse Library",
+            "url": "https://github.com/PavelHopson/eclipse-library/blob/master/prompts/software-engineering-roles-8.md"
+          }
+        ]
+      },
+      "access": {
+        "cost": "free",
+        "signup": "none",
+        "runtime": "local"
+      },
+      "trust": "verified",
+      "decision": "now",
+      "riskLevel": "medium",
+      "projects": [
+        "Hopson Sentinel",
+        "oh-my-claudecode",
+        "Eclipse AI Hub",
+        "Eclipse Chat"
+      ],
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://raw.githubusercontent.com/PavelHopson/eclipse-library/master/prompts/software-engineering-roles-8.md"
+        },
+        {
+          "kind": "source",
+          "label": "Prompt source in Eclipse Library",
+          "url": "https://github.com/PavelHopson/eclipse-library/blob/master/prompts/software-engineering-roles-8.md"
+        }
+      ],
+      "actions": {
+        "openOfficialSource": true,
+        "installFromCatalog": false,
+        "mutateExternalSystems": false
+      }
+    },
+    {
+      "id": "procrastination-detective-prompt",
+      "title": "Детектив прокрастинации",
+      "url": "https://raw.githubusercontent.com/PavelHopson/eclipse-library/master/prompts/procrastination-detective.md",
+      "type": "prompt",
+      "category": "Промпты",
+      "subcategory": "Обучение и личная продуктивность",
+      "addedAt": "2026-08-06",
+      "description": "Мягкий self-reflection prompt: задаёт до пяти вопросов, отделяет факты от предположений и помогает выбрать обратимый шаг на 5–15 минут. Он не ставит диагнозы и не позиционируется как психотерапия или лечение.",
+      "useCases": [
+        "Помочь ученику Educator-AI начать конкретное учебное задание",
+        "Создать безопасный focus flow в Eclipse Chat",
+        "Разбить перегруженную личную задачу на минимальный следующий шаг"
+      ],
+      "platforms": [
+        "Markdown",
+        "Any LLM"
+      ],
+      "license": {
+        "label": "Eclipse Forge adapted material; отдельная лицензия на перераспространение не объявлена",
+        "original": "Eclipse Forge adapted material; отдельная лицензия на перераспространение не объявлена",
+        "spdx": null,
+        "kind": "custom",
+        "status": "editor-reviewed",
+        "requiresReview": false,
+        "evidence": [
+          {
+            "kind": "source",
+            "label": "Prompt source in Eclipse Library",
+            "url": "https://github.com/PavelHopson/eclipse-library/blob/master/prompts/procrastination-detective.md"
+          }
+        ]
+      },
+      "access": {
+        "cost": "free",
+        "signup": "none",
+        "runtime": "local"
+      },
+      "trust": "verified",
+      "decision": "reference",
+      "riskLevel": "medium",
+      "projects": [
+        "Educator-AI",
+        "Eclipse Chat"
+      ],
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://raw.githubusercontent.com/PavelHopson/eclipse-library/master/prompts/procrastination-detective.md"
+        },
+        {
+          "kind": "source",
+          "label": "Prompt source in Eclipse Library",
+          "url": "https://github.com/PavelHopson/eclipse-library/blob/master/prompts/procrastination-detective.md"
+        }
+      ],
+      "actions": {
+        "openOfficialSource": true,
+        "installFromCatalog": false,
+        "mutateExternalSystems": false
+      }
+    },
+    {
+      "id": "chase-ai-plus-community",
+      "title": "Chase AI+",
+      "url": "https://www.skool.com/chase-ai/about",
+      "type": "learn",
+      "category": "Обучение IT",
+      "subcategory": "AI agency и client acquisition",
+      "addedAt": "2026-08-06",
+      "description": "Закрытое платное Skool-сообщество с masterclasses по Claude Code и Codex, шаблонами AI-агентов и программой запуска AI-агентства. Доходы автора и обещания первых клиентов являются sales claims, а не независимо подтверждёнными результатами ученика.",
+      "useCases": [
+        "Изучить упаковку образовательной подписки как конкурентный reference для Educator-AI",
+        "Сравнить оффер и learning path с собственными бесплатными материалами Eclipse Forge",
+        "Не покупать до проверки программы, refund terms и актуальной цены"
+      ],
+      "platforms": [
+        "Web",
+        "Skool"
+      ],
+      "license": {
+        "label": "Proprietary paid course content under Skool/service terms",
+        "original": "Proprietary paid course content under Skool/service terms",
+        "spdx": null,
+        "kind": "service-terms",
+        "status": "editor-reviewed",
+        "requiresReview": false,
+        "evidence": [
+          {
+            "kind": "terms",
+            "label": "Official community and current price",
+            "url": "https://www.skool.com/chase-ai/about"
+          }
+        ]
+      },
+      "access": {
+        "cost": "paid",
+        "signup": "required",
+        "runtime": "cloud"
+      },
+      "trust": "caution",
+      "decision": "reference",
+      "riskLevel": "medium",
+      "projects": [
+        "Educator-AI",
+        "Eclipse Forge Landing"
+      ],
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://www.skool.com/chase-ai/about"
+        }
+      ],
+      "actions": {
+        "openOfficialSource": true,
+        "installFromCatalog": false,
+        "mutateExternalSystems": false
+      }
+    },
+    {
+      "id": "neuraldeep-skills-mcp-catalog",
+      "title": "NeuralDeep: каталог skills и MCP",
+      "url": "https://neuraldeep.ru/skills",
+      "type": "tool",
+      "category": "Skills & MCP",
+      "subcategory": "Русскоязычные каталоги",
+      "addedAt": "2026-08-06",
+      "description": "Русскоязычный агрегатор skills, MCP и CLI-инструментов для AI-агентов с фокусом на Яндекс, 1С, GigaChat, Wildberries и другие локальные сервисы. В каталоге 78 записей на момент проверки, но лицензия и безопасность должны оцениваться отдельно для каждого источника.",
+      "useCases": [
+        "Искать кандидатов для редакционного intake Eclipse Library",
+        "Сравнить UX каталога, фильтры и рубрикацию российских интеграций",
+        "Находить MCP для ручного security review без автоматической установки"
+      ],
+      "platforms": [
+        "Web",
+        "Skills",
+        "MCP",
+        "CLI"
+      ],
+      "license": {
+        "label": "Лицензия агрегатора не подтверждена; у каждой записи собственная лицензия и условия",
+        "original": "Лицензия агрегатора не подтверждена; у каждой записи собственная лицензия и условия",
+        "spdx": null,
+        "kind": "custom",
+        "status": "editor-reviewed",
+        "requiresReview": false,
+        "evidence": [
+          {
+            "kind": "source",
+            "label": "Official NeuralDeep catalog",
+            "url": "https://neuraldeep.ru/skills"
+          }
+        ]
+      },
+      "access": {
+        "cost": "freemium",
+        "signup": "none",
+        "runtime": "cloud"
+      },
+      "trust": "caution",
+      "decision": "reference",
+      "riskLevel": "high",
+      "projects": [
+        "Eclipse Library",
+        "Eclipse AI Hub",
+        "Hopson Sentinel"
+      ],
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://neuraldeep.ru/skills"
+        }
+      ],
+      "actions": {
+        "openOfficialSource": true,
+        "installFromCatalog": false,
+        "mutateExternalSystems": false
+      }
+    },
+    {
+      "id": "echoed-messenger",
+      "title": "Echoed",
+      "url": "https://echoed.gg/",
+      "type": "tool",
+      "category": "Communication",
+      "subcategory": "Gaming messenger",
+      "addedAt": "2026-08-06",
+      "description": "Проприетарный мессенджер для игровых сообществ с channels, DMs, voice/video, screen sharing, roles, task boards и desktop-клиентом на Tauri/Rust. Низкое потребление памяти и отсутствие tracking заявлены владельцем сервиса, но не подтверждены независимым benchmark или открытым кодом.",
+      "useCases": [
+        "Использовать как competitor reference для Eclipse Chat",
+        "Изучить совмещение общения, задач и игровых community flows",
+        "Сравнить lightweight desktop UX на одинаковом тестовом устройстве"
+      ],
+      "platforms": [
+        "Web",
+        "Windows",
+        "macOS",
+        "Linux",
+        "iOS"
+      ],
+      "license": {
+        "label": "Proprietary service; публичная open-source лицензия не найдена",
+        "original": "Proprietary service; публичная open-source лицензия не найдена",
+        "spdx": null,
+        "kind": "custom",
+        "status": "editor-reviewed",
+        "requiresReview": false,
+        "evidence": [
+          {
+            "kind": "source",
+            "label": "Official Echoed product page",
+            "url": "https://echoed.gg/"
+          }
+        ]
+      },
+      "access": {
+        "cost": "free",
+        "signup": "required",
+        "runtime": "cloud"
+      },
+      "trust": "caution",
+      "decision": "reference",
+      "riskLevel": "medium",
+      "projects": [
+        "Eclipse Chat",
+        "Eclipse DnD Forge"
+      ],
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://echoed.gg/"
+        }
+      ],
+      "actions": {
+        "openOfficialSource": true,
+        "installFromCatalog": false,
+        "mutateExternalSystems": false
+      }
+    },
+    {
+      "id": "opencode-zen-gateway",
+      "title": "OpenCode Zen",
+      "url": "https://opencode.ai/docs/zen/",
+      "type": "api",
+      "category": "AI & Claude Code",
+      "subcategory": "Model gateways и coding agents",
+      "addedAt": "2026-08-06",
+      "description": "Опциональный AI gateway команды OpenCode с проверенным списком моделей и OpenAI/Anthropic-compatible endpoints. Большинство моделей оплачивается по запросам; несколько free model IDs доступны только ограниченное время, поэтому обещание «100 млрд бесплатных токенов» не подтверждено.",
+      "useCases": [
+        "Добавить в benchmark matrix Eclipse AI Hub",
+        "Сравнить coding models для Hopson Sentinel и oh-my-claudecode",
+        "Изучить provider UX, model metadata и team usage limits"
+      ],
+      "platforms": [
+        "API",
+        "OpenCode",
+        "Cloud"
+      ],
+      "license": {
+        "label": "OpenCode Zen service terms; model-specific provider terms apply",
+        "original": "OpenCode Zen service terms; model-specific provider terms apply",
+        "spdx": null,
+        "kind": "service-terms",
+        "status": "editor-reviewed",
+        "requiresReview": false,
+        "evidence": [
+          {
+            "kind": "terms",
+            "label": "Official Zen documentation, pricing and privacy",
+            "url": "https://opencode.ai/docs/zen/"
+          }
+        ]
+      },
+      "access": {
+        "cost": "freemium",
+        "signup": "required",
+        "runtime": "cloud"
+      },
+      "trust": "official",
+      "decision": "roadmap",
+      "riskLevel": "medium",
+      "projects": [
+        "Eclipse AI Hub",
+        "Hopson Sentinel",
+        "oh-my-claudecode"
+      ],
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://opencode.ai/docs/zen/"
+        }
+      ],
+      "actions": {
+        "openOfficialSource": true,
+        "installFromCatalog": false,
+        "mutateExternalSystems": false
+      }
+    },
+    {
+      "id": "waku-agent",
+      "title": "Waku Agent",
+      "url": "https://github.com/ShenSeanChen/waku-agent",
+      "type": "agent",
+      "category": "AI Agents",
+      "subcategory": "Local-first assistants",
+      "addedAt": "2026-08-06",
+      "description": "Экспериментальный local-first персональный ассистент на Python с компактным agent loop, SQLite memory, dashboard, CLI, Telegram и voice-интерфейсами. Поддерживает BYOK providers, MCP и eval gates, поэтому полезен как прозрачный учебный reference, но не как готовый production-оператор.",
+      "useCases": [
+        "Изучить минимальный agent loop для Hopson Sentinel",
+        "Сравнить local memory и eval gates с Eclipse AI Hub",
+        "Взять UX-идеи dashboard и Telegram channel через clean-room implementation"
+      ],
+      "platforms": [
+        "Python",
+        "SQLite",
+        "CLI",
+        "Telegram",
+        "MCP"
+      ],
+      "license": {
+        "label": "MIT",
+        "original": "MIT; whiteboard diagram отдельно CC BY-NC-SA 4.0",
+        "spdx": "MIT",
+        "kind": "open-source",
+        "status": "editor-reviewed",
+        "requiresReview": false,
+        "evidence": [
+          {
+            "kind": "license",
+            "label": "Repository MIT license",
+            "url": "https://github.com/ShenSeanChen/waku-agent/blob/main/LICENSE"
+          }
+        ]
+      },
+      "access": {
+        "cost": "freemium",
+        "signup": "optional",
+        "runtime": "local"
+      },
+      "trust": "community",
+      "decision": "reference",
+      "riskLevel": "high",
+      "projects": [
+        "Hopson Sentinel",
+        "Eclipse AI Hub",
+        "Eclipse Chat"
+      ],
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://github.com/ShenSeanChen/waku-agent"
+        },
+        {
+          "kind": "license",
+          "label": "Repository MIT license",
+          "url": "https://github.com/ShenSeanChen/waku-agent/blob/main/LICENSE"
+        }
+      ],
+      "actions": {
+        "openOfficialSource": true,
+        "installFromCatalog": false,
+        "mutateExternalSystems": false
+      }
+    },
+    {
+      "id": "tencentdb-agent-memory",
+      "title": "TencentDB Agent Memory",
+      "url": "https://github.com/TencentCloud/TencentDB-Agent-Memory",
+      "type": "agent",
+      "category": "AI Agents",
+      "subcategory": "Memory и context management",
+      "addedAt": "2026-08-06",
+      "description": "Open-source memory hub для команд AI-агентов: уровни памяти L0–L3, SQLite/sqlite-vec, hybrid retrieval, skills, wiki, CodeGraph и ACL. Официальный README показывает рост PersonaMem с 48% до 76%; новостное обещание «экономии 60% токенов» не подтверждено.",
+      "useCases": [
+        "Спроектировать shared memory для Eclipse Chat и AI Hub",
+        "Провести изолированный benchmark retrieval для Hopson Sentinel",
+        "Изучить ACL и visibility levels для собственного Eclipse Agent Memory"
+      ],
+      "platforms": [
+        "Python",
+        "SQLite",
+        "Vector search",
+        "API",
+        "Self-host"
+      ],
+      "license": {
+        "label": "MIT",
+        "original": "MIT",
+        "spdx": "MIT",
+        "kind": "open-source",
+        "status": "editor-reviewed",
+        "requiresReview": false,
+        "evidence": [
+          {
+            "kind": "license",
+            "label": "Repository MIT license",
+            "url": "https://github.com/TencentCloud/TencentDB-Agent-Memory/blob/main/LICENSE"
+          }
+        ]
+      },
+      "access": {
+        "cost": "freemium",
+        "signup": "none",
+        "runtime": "self-host"
+      },
+      "trust": "community",
+      "decision": "roadmap",
+      "riskLevel": "high",
+      "projects": [
+        "Eclipse Chat",
+        "Eclipse AI Hub",
+        "Hopson Sentinel"
+      ],
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://github.com/TencentCloud/TencentDB-Agent-Memory"
+        },
+        {
+          "kind": "license",
+          "label": "Repository MIT license",
+          "url": "https://github.com/TencentCloud/TencentDB-Agent-Memory/blob/main/LICENSE"
+        }
+      ],
+      "actions": {
+        "openOfficialSource": true,
+        "installFromCatalog": false,
+        "mutateExternalSystems": false
+      }
+    },
+    {
+      "id": "50languages",
+      "title": "50languages",
+      "url": "https://www.50languages.com/",
+      "type": "learn",
+      "category": "Обучение",
+      "subcategory": "Изучение языков",
+      "addedAt": "2026-08-06",
+      "description": "Сайт и приложения с phrasebooks, vocabulary, audio, games и уроками для более чем 50 языков. Бесплатная версия содержит рекламу, premium убирает её; обещание «выучить язык до уровня носителя за несколько месяцев» официальным материалом не подтверждено.",
+      "useCases": [
+        "Изучить короткие bilingual lessons как reference для Educator-AI",
+        "Прототипировать spaced repetition и audio exercises на собственном контенте",
+        "Сравнить onboarding без копирования proprietary lesson database"
+      ],
+      "platforms": [
+        "Web",
+        "Android",
+        "iOS",
+        "Audio"
+      ],
+      "license": {
+        "label": "Proprietary content; заявлено бесплатное personal non-commercial и public-school use",
+        "original": "Proprietary content; заявлено бесплатное personal non-commercial и public-school use",
+        "spdx": null,
+        "kind": "service-terms",
+        "status": "editor-reviewed",
+        "requiresReview": false,
+        "evidence": [
+          {
+            "kind": "terms",
+            "label": "Official 50languages product and usage notice",
+            "url": "https://www.50languages.com/"
+          }
+        ]
+      },
+      "access": {
+        "cost": "freemium",
+        "signup": "optional",
+        "runtime": "cloud"
+      },
+      "trust": "official",
+      "decision": "reference",
+      "riskLevel": "low",
+      "projects": [
+        "Educator-AI"
+      ],
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://www.50languages.com/"
+        }
+      ],
+      "actions": {
+        "openOfficialSource": true,
+        "installFromCatalog": false,
+        "mutateExternalSystems": false
+      }
+    },
+    {
+      "id": "invidious-youtube-frontend",
+      "title": "Invidious",
+      "url": "https://github.com/iv-org/invidious",
+      "type": "media",
+      "category": "Media & Content",
+      "subcategory": "Alternative frontends",
+      "addedAt": "2026-08-06",
+      "description": "Open-source альтернативный frontend для YouTube без официального YouTube API: subscriptions без Google account, audio-only, import/export и self-hosting. Проект не даёт права нарушать copyright или Terms, а публичные instances имеют собственный trust boundary.",
+      "useCases": [
+        "Изучить privacy-first media UX как reference для Eclipse Media",
+        "Сравнить lightweight subscriptions и import/export patterns",
+        "Не использовать как способ обхода оплаты, рекламы или прав правообладателей"
+      ],
+      "platforms": [
+        "Web",
+        "Self-host",
+        "Crystal"
+      ],
+      "license": {
+        "label": "AGPL-3.0",
+        "original": "AGPL-3.0",
+        "spdx": "AGPL-3.0",
+        "kind": "open-source",
+        "status": "editor-reviewed",
+        "requiresReview": false,
+        "evidence": [
+          {
+            "kind": "license",
+            "label": "Repository AGPL-3.0 license",
+            "url": "https://github.com/iv-org/invidious/blob/master/LICENSE"
+          }
+        ]
+      },
+      "access": {
+        "cost": "free",
+        "signup": "optional",
+        "runtime": "self-host"
+      },
+      "trust": "community",
+      "decision": "reference",
+      "riskLevel": "high",
+      "projects": [
+        "Eclipse Media"
+      ],
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://github.com/iv-org/invidious"
+        },
+        {
+          "kind": "license",
+          "label": "Repository AGPL-3.0 license",
+          "url": "https://github.com/iv-org/invidious/blob/master/LICENSE"
+        }
+      ],
+      "actions": {
+        "openOfficialSource": true,
+        "installFromCatalog": false,
+        "mutateExternalSystems": false
+      }
+    },
+    {
+      "id": "apple-stolen-device-protection",
+      "title": "Apple Stolen Device Protection",
+      "url": "https://support.apple.com/en-us/120340",
+      "type": "privacy",
+      "category": "Security & Privacy",
+      "subcategory": "Mobile device hardening",
+      "addedAt": "2026-08-06",
+      "description": "Официальная функция iPhone, которая требует Face ID/Touch ID и иногда Security Delay для критических изменений, особенно вне знакомых мест. Она снижает риск захвата Apple Account при известном коде устройства, но не делает телефон неуязвимым и должна быть включена до кражи.",
+      "useCases": [
+        "Добавить официальный mobile-hardening checklist в Educator-AI",
+        "Использовать как read-only рекомендацию Hopson Sentinel",
+        "Заменить вирусные обещания «телефон нельзя украсть» на проверяемые Apple instructions"
+      ],
+      "platforms": [
+        "iPhone",
+        "iOS 17.3+"
+      ],
+      "license": {
+        "label": "Apple proprietary system feature; support content subject to Apple terms",
+        "original": "Apple proprietary system feature; support content subject to Apple terms",
+        "spdx": null,
+        "kind": "service-terms",
+        "status": "editor-reviewed",
+        "requiresReview": false,
+        "evidence": [
+          {
+            "kind": "source",
+            "label": "Official Apple Support",
+            "url": "https://support.apple.com/en-us/120340"
+          }
+        ]
+      },
+      "access": {
+        "cost": "free",
+        "signup": "required",
+        "runtime": "local"
+      },
+      "trust": "official",
+      "decision": "now",
+      "riskLevel": "low",
+      "projects": [
+        "Educator-AI",
+        "Hopson Sentinel"
+      ],
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://support.apple.com/en-us/120340"
+        }
+      ],
+      "actions": {
+        "openOfficialSource": true,
+        "installFromCatalog": false,
+        "mutateExternalSystems": false
+      }
+    },
+    {
+      "id": "oo-shutup10-plusplus",
+      "title": "O&O ShutUp10++",
+      "url": "https://www.oo-software.com/en/shutup10",
+      "type": "privacy",
+      "category": "Security & Privacy",
+      "subcategory": "Windows privacy hardening",
+      "addedAt": "2026-08-06",
+      "description": "Portable Windows 10/11 utility с примерно 300 privacy, telemetry и system settings, рекомендациями и undo/restore workflow. Она работает с administrator privileges и меняет Registry/system policy, поэтому «один клик» не является безопасным универсальным режимом.",
+      "useCases": [
+        "Использовать как reference для read-only Windows Doctor в Hopson Sentinel",
+        "Составить объяснимый hardening checklist с diff и rollback",
+        "Не автоматизировать применение настроек без review владельца устройства"
+      ],
+      "platforms": [
+        "Windows 10",
+        "Windows 11",
+        "Portable app"
+      ],
+      "license": {
+        "label": "Proprietary freeware; optional premium/commercial terms",
+        "original": "Proprietary freeware; optional premium/commercial terms",
+        "spdx": null,
+        "kind": "service-terms",
+        "status": "editor-reviewed",
+        "requiresReview": false,
+        "evidence": [
+          {
+            "kind": "terms",
+            "label": "Official O&O product page",
+            "url": "https://www.oo-software.com/en/shutup10"
+          }
+        ]
+      },
+      "access": {
+        "cost": "freemium",
+        "signup": "none",
+        "runtime": "local"
+      },
+      "trust": "official",
+      "decision": "reference",
+      "riskLevel": "high",
+      "projects": [
+        "Hopson Sentinel"
+      ],
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://www.oo-software.com/en/shutup10"
+        }
+      ],
+      "actions": {
+        "openOfficialSource": true,
+        "installFromCatalog": false,
+        "mutateExternalSystems": false
+      }
+    },
+    {
+      "id": "openworker-desktop-agent",
+      "title": "OpenWorker",
+      "url": "https://github.com/andrewyng/openworker",
+      "type": "agent",
+      "category": "AI Agents",
+      "subcategory": "Desktop automation",
+      "addedAt": "2026-08-06",
+      "description": "Open-beta desktop AI-agent с локальным Python backend, React/Tauri UI, files, terminal, MCP, schedules, BYOK/Ollama и более чем 25 connectors. Он спрашивает разрешение перед writes, sends и shell, но unattended tasks и broad connectors всё равно требуют строгого authority control.",
+      "useCases": [
+        "Изучить approval inbox и local desktop UX для Hopson Sentinel",
+        "Взять reference для Agent Office в Eclipse Chat и AI Hub",
+        "Сравнить connector isolation и scheduled workflows на synthetic accounts"
+      ],
+      "platforms": [
+        "Windows",
+        "macOS",
+        "Linux",
+        "Python",
+        "Tauri"
+      ],
+      "license": {
+        "label": "MIT",
+        "original": "MIT",
+        "spdx": "MIT",
+        "kind": "open-source",
+        "status": "editor-reviewed",
+        "requiresReview": false,
+        "evidence": [
+          {
+            "kind": "license",
+            "label": "Repository MIT license",
+            "url": "https://github.com/andrewyng/openworker/blob/main/LICENSE"
+          }
+        ]
+      },
+      "access": {
+        "cost": "freemium",
+        "signup": "optional",
+        "runtime": "hybrid"
+      },
+      "trust": "community",
+      "decision": "roadmap",
+      "riskLevel": "high",
+      "projects": [
+        "Hopson Sentinel",
+        "Eclipse Chat",
+        "Eclipse AI Hub"
+      ],
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://github.com/andrewyng/openworker"
+        },
+        {
+          "kind": "license",
+          "label": "Repository MIT license",
+          "url": "https://github.com/andrewyng/openworker/blob/main/LICENSE"
+        }
+      ],
+      "actions": {
+        "openOfficialSource": true,
+        "installFromCatalog": false,
+        "mutateExternalSystems": false
+      }
+    },
+    {
+      "id": "learning-rust-guide",
+      "title": "Learning Rust",
+      "url": "https://learning-rust.github.io/",
+      "type": "learn",
+      "category": "Обучение IT",
+      "subcategory": "Rust",
+      "addedAt": "2026-08-06",
+      "description": "Бесплатный community tutorial по Rust: syntax, ownership-related основы, structs, traits, iterators, generics и практические примеры. Материал полезен как справочник, но обещание освоить язык «за месяц» зависит от опыта и не подтверждено программой.",
+      "useCases": [
+        "Добавить Rust learning path в Educator-AI",
+        "Использовать как справочник при развитии Rust runtime Hopson Sentinel",
+        "Сравнить объяснение тем с официальной Rust Book"
+      ],
+      "platforms": [
+        "Web",
+        "GitHub Pages",
+        "Rust"
+      ],
+      "license": {
+        "label": "Отдельная лицензия на содержание repository не обнаружена",
+        "original": "Отдельная лицензия на содержание repository не обнаружена",
+        "spdx": null,
+        "kind": "custom",
+        "status": "editor-reviewed",
+        "requiresReview": false,
+        "evidence": [
+          {
+            "kind": "source",
+            "label": "Official tutorial site",
+            "url": "https://learning-rust.github.io/"
+          }
+        ]
+      },
+      "access": {
+        "cost": "free",
+        "signup": "none",
+        "runtime": "cloud"
+      },
+      "trust": "community",
+      "decision": "reference",
+      "riskLevel": "low",
+      "projects": [
+        "Educator-AI",
+        "Hopson Sentinel"
+      ],
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://learning-rust.github.io/"
+        }
+      ],
+      "actions": {
+        "openOfficialSource": true,
+        "installFromCatalog": false,
+        "mutateExternalSystems": false
+      }
+    },
+    {
+      "id": "nri-atlas",
+      "title": "NRI Atlas",
+      "url": "https://vasaris.github.io/nri-atlas/",
+      "type": "tool",
+      "category": "DnD & Games",
+      "subcategory": "Tabletop RPG discovery",
+      "addedAt": "2026-08-06",
+      "description": "Молодой community-каталог настольных ролевых систем с краткими описаниями и оценками, помогающий выбрать игру под группу. Repository существует, но отдельная лицензия не указана, поэтому данные, тексты и код нельзя переносить в коммерческий продукт без разрешения.",
+      "useCases": [
+        "Использовать taxonomy и comparison UX как reference для Eclipse DnD Forge",
+        "Спроектировать собственный выбор системы по жанру, сложности и длительности",
+        "Не копировать оценки, описания и dataset"
+      ],
+      "platforms": [
+        "Web",
+        "GitHub Pages"
+      ],
+      "license": {
+        "label": "Лицензия repository и dataset не указана",
+        "original": "Лицензия repository и dataset не указана",
+        "spdx": null,
+        "kind": "unknown",
+        "status": "unverified",
+        "requiresReview": true,
+        "evidence": [
+          {
+            "kind": "source",
+            "label": "Official NRI Atlas site",
+            "url": "https://vasaris.github.io/nri-atlas/"
+          },
+          {
+            "kind": "source",
+            "label": "Source repository",
+            "url": "https://github.com/vasaris/nri-atlas"
+          }
+        ]
+      },
+      "access": {
+        "cost": "free",
+        "signup": "none",
+        "runtime": "cloud"
+      },
+      "trust": "community",
+      "decision": "reference",
+      "riskLevel": "medium",
+      "projects": [
+        "Eclipse DnD Forge"
+      ],
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://vasaris.github.io/nri-atlas/"
+        },
+        {
+          "kind": "source",
+          "label": "Source repository",
+          "url": "https://github.com/vasaris/nri-atlas"
+        }
+      ],
+      "actions": {
+        "openOfficialSource": true,
+        "installFromCatalog": false,
+        "mutateExternalSystems": false
+      }
+    },
+    {
+      "id": "anydoc-firecrawl",
+      "title": "AnyDoc",
+      "url": "https://github.com/firecrawl/anydoc",
+      "type": "tool",
+      "category": "Dev Tools & CLI",
+      "subcategory": "Document ingestion",
+      "addedAt": "2026-08-06",
+      "description": "Rust library от Firecrawl для локального преобразования Word, PowerPoint, Excel, OpenDocument, RTF, EPUB, CSV и text-based PDF в GitHub Flavored Markdown. Есть Node, Python и WASM bindings; локальный parser не делает OCR для сканов.",
+      "useCases": [
+        "Внедрить изолированный document intake в Eclipse AI Hub и Educator-AI",
+        "Готовить документы для RAG в Eclipse Chat и Library",
+        "Использовать WASM preview для локальной конвертации без отправки файла в cloud"
+      ],
+      "platforms": [
+        "Rust",
+        "Node.js",
+        "Python",
+        "WASM",
+        "Local"
+      ],
+      "license": {
+        "label": "MIT",
+        "original": "MIT",
+        "spdx": "MIT",
+        "kind": "open-source",
+        "status": "editor-reviewed",
+        "requiresReview": false,
+        "evidence": [
+          {
+            "kind": "license",
+            "label": "Repository MIT license",
+            "url": "https://github.com/firecrawl/anydoc/blob/main/LICENSE"
+          }
+        ]
+      },
+      "access": {
+        "cost": "freemium",
+        "signup": "none",
+        "runtime": "local"
+      },
+      "trust": "community",
+      "decision": "now",
+      "riskLevel": "high",
+      "projects": [
+        "Eclipse AI Hub",
+        "Educator-AI",
+        "Eclipse Chat",
+        "Eclipse Library"
+      ],
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://github.com/firecrawl/anydoc"
+        },
+        {
+          "kind": "license",
+          "label": "Repository MIT license",
+          "url": "https://github.com/firecrawl/anydoc/blob/main/LICENSE"
+        }
+      ],
+      "actions": {
+        "openOfficialSource": true,
+        "installFromCatalog": false,
+        "mutateExternalSystems": false
+      }
+    },
+    {
+      "id": "e4steam-minecraft-mod",
+      "title": "e4steam",
+      "url": "https://www.curseforge.com/minecraft/mc-mods/e4steam",
+      "type": "tool",
+      "category": "DnD & Games",
+      "subcategory": "Multiplayer invite UX",
+      "addedAt": "2026-08-06",
+      "description": "Неофициальный early-testing mod для Fabric, Quilt, Forge и NeoForge, который позволяет приглашать друзей в Minecraft через Steam. Это fork e4mc; официальная страница не подтверждает новостное обещание работы с пиратскими копиями, поэтому такой сценарий исключён.",
+      "useCases": [
+        "Изучить invite-from-chat UX как reference для Eclipse DnD Forge",
+        "Сравнить временные session invites и friend presence",
+        "Не интегрировать Minecraft/Steam code в проекты Eclipse"
+      ],
+      "platforms": [
+        "Minecraft",
+        "Steam",
+        "Fabric",
+        "Forge",
+        "NeoForge"
+      ],
+      "license": {
+        "label": "MIT",
+        "original": "MIT",
+        "spdx": "MIT",
+        "kind": "open-source",
+        "status": "editor-reviewed",
+        "requiresReview": false,
+        "evidence": [
+          {
+            "kind": "license",
+            "label": "License declared on official CurseForge page",
+            "url": "https://www.curseforge.com/minecraft/mc-mods/e4steam"
+          }
+        ]
+      },
+      "access": {
+        "cost": "free",
+        "signup": "required",
+        "runtime": "local"
+      },
+      "trust": "community",
+      "decision": "reference",
+      "riskLevel": "medium",
+      "projects": [
+        "Eclipse DnD Forge",
+        "Eclipse Chat"
+      ],
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://www.curseforge.com/minecraft/mc-mods/e4steam"
+        }
+      ],
+      "actions": {
+        "openOfficialSource": true,
+        "installFromCatalog": false,
+        "mutateExternalSystems": false
+      }
+    },
+    {
+      "id": "repowise-codebase-intelligence",
+      "title": "RepoWise",
+      "url": "https://github.com/repowise-dev/repowise",
+      "type": "tool",
+      "category": "Dev Tools & CLI",
+      "subcategory": "Codebase intelligence",
+      "addedAt": "2026-08-06",
+      "description": "Local codebase intelligence platform с dependency graph, docs, git analytics, dead-code hints, decisions, health view и MCP tools. README показывает 97% сокращение только для загрузки commit context, а общий agent-loop test — около 15.9%, поэтому claim «экономит 96% токенов на кодинге» неверен.",
+      "useCases": [
+        "Провести изолированный benchmark для Hopson Sentinel и oh-my-claudecode",
+        "Изучить decision memory и dependency graph UX",
+        "Использовать как architecture reference без копирования AGPL code в закрытые продукты"
+      ],
+      "platforms": [
+        "Local",
+        "MCP",
+        "Git",
+        "Web UI"
+      ],
+      "license": {
+        "label": "AGPL-3.0",
+        "original": "AGPL-3.0; commercial license требуется для embedding без AGPL obligations",
+        "spdx": "AGPL-3.0",
+        "kind": "open-source",
+        "status": "editor-reviewed",
+        "requiresReview": false,
+        "evidence": [
+          {
+            "kind": "license",
+            "label": "Repository AGPL-3.0 license",
+            "url": "https://github.com/repowise-dev/repowise/blob/main/LICENSE"
+          }
+        ]
+      },
+      "access": {
+        "cost": "freemium",
+        "signup": "none",
+        "runtime": "local"
+      },
+      "trust": "community",
+      "decision": "reference",
+      "riskLevel": "high",
+      "projects": [
+        "Hopson Sentinel",
+        "oh-my-claudecode",
+        "Eclipse AI Hub"
+      ],
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://github.com/repowise-dev/repowise"
+        },
+        {
+          "kind": "license",
+          "label": "Repository AGPL-3.0 license",
+          "url": "https://github.com/repowise-dev/repowise/blob/main/LICENSE"
+        }
+      ],
+      "actions": {
+        "openOfficialSource": true,
+        "installFromCatalog": false,
+        "mutateExternalSystems": false
+      }
+    },
+    {
+      "id": "cloudflare-os-agent-workspace",
+      "title": "Cloudflare OS",
+      "url": "https://github.com/cloudflare/cloudflare-os",
+      "type": "agent",
+      "category": "AI Agents",
+      "subcategory": "Agent workspaces и approval gates",
+      "addedAt": "2026-08-06",
+      "description": "Официальный open-source Cloudflare agent workspace: browser UI, AI-generated Gadgets, Gatekeepers, capability-based access, approvals и audit log поверх Workers/Durable Objects. Проект в early access; полноценная self-host документация для workerd ещё не готова.",
+      "useCases": [
+        "Использовать architecture reference для Eclipse Agent Office в Chat и AI Hub",
+        "Перенести идеи capability grants, explicit resource introductions и audit log в Hopson Sentinel",
+        "Изучить non-blocking approval simulation для безопасного agent UX"
+      ],
+      "platforms": [
+        "Cloudflare Workers",
+        "Durable Objects",
+        "Web",
+        "TypeScript"
+      ],
+      "license": {
+        "label": "Apache-2.0",
+        "original": "Apache-2.0",
+        "spdx": "Apache-2.0",
+        "kind": "open-source",
+        "status": "editor-reviewed",
+        "requiresReview": false,
+        "evidence": [
+          {
+            "kind": "license",
+            "label": "Repository Apache-2.0 license",
+            "url": "https://github.com/cloudflare/cloudflare-os/blob/main/LICENSE"
+          },
+          {
+            "kind": "source",
+            "label": "Official Cloudflare announcement",
+            "url": "https://blog.cloudflare.com/cloudflare-os/"
+          }
+        ]
+      },
+      "access": {
+        "cost": "freemium",
+        "signup": "optional",
+        "runtime": "hybrid"
+      },
+      "trust": "official",
+      "decision": "roadmap",
+      "riskLevel": "high",
+      "projects": [
+        "Eclipse Chat",
+        "Eclipse AI Hub",
+        "Hopson Sentinel"
+      ],
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://github.com/cloudflare/cloudflare-os"
+        },
+        {
+          "kind": "license",
+          "label": "Repository Apache-2.0 license",
+          "url": "https://github.com/cloudflare/cloudflare-os/blob/main/LICENSE"
+        },
+        {
+          "kind": "source",
+          "label": "Official Cloudflare announcement",
+          "url": "https://blog.cloudflare.com/cloudflare-os/"
         }
       ],
       "actions": {

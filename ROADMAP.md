@@ -1,19 +1,19 @@
 # Eclipse Library Roadmap
 
-Последнее обновление: **04.08.2026**
+Последнее обновление: **06.08.2026**
 
 ## Текущее состояние
 
-- `catalog/resources.json` — канонический structured catalog из 535 уникальных записей;
+- `catalog/resources.json` — канонический structured catalog из 556 уникальных записей;
   `README.md` сокращён до документации и больше не является runtime-источником данных.
 - `web/app.js` — client-side поиск, фильтры, detail view и guide viewer; structured adapter
   вынесен в `web/catalog-runtime.js`, поэтому frontend не разбирает Markdown-таблицы.
-- `web/catalog-index.json` — production schema v2: 88 записей редакторски проверены,
-  447 честно помечены `inferred`, 248 имеют отдельный `addedAt`, даты удалены из category.
+- `web/catalog-index.json` — production schema v2: 112 записей редакторски проверены,
+  444 честно помечены `inferred`, 272 имеют отдельный `addedAt`, даты удалены из category.
 - License layer: 220 лицензий подтверждаются official GitHub metadata с evidence URL,
-  35 редакторски проверены, 280 ещё требуют отдельного review.
-- Agent policy: 464 записи доступны автоматическим consumers, 71 исключена fail closed;
-  все 64 grey-ресурса скрыты от recommendations, direct install запрещён для всех записей.
+  57 редакторски проверены, 279 ещё требуют отдельного review.
+- Agent policy: 484 записи доступны автоматическим consumers, 72 исключены fail closed;
+  все 65 grey-ресурсов скрыты от recommendations, direct install запрещён для всех записей.
 - `web/api/v1/` — versioned static exports для full catalog, agents, StarCRM и StarAI;
   consumers больше не должны читать README.
 - `web/link-health.json` — безопасный публичный snapshot weekly-аудита: доступность ссылки
@@ -51,6 +51,15 @@
 - [ ] Eclipse Chat / AI Hub: собрать owned Growth OS MVP без зависимости от Teamly — один bounded
       workflow `Finding -> Brief -> Draft -> Claims review -> Approved artifact`, observable run log,
       stop/pause, budget, provenance и deny-by-default approval; без connectors и публикации.
+- [ ] Eclipse AI Hub / Educator-AI: внедрить AnyDoc как изолированный document-intake P1/M —
+      pinned Rust dependency, magic-byte/type/size/page/time limits, no-network parser, zip-bomb и
+      malformed-file fixtures, запрет macros/embedded execution и гарантированное удаление temp files.
+- [ ] Eclipse Chat / AI Hub / Sentinel: спроектировать собственный Agent Memory P1/L по reference
+      TencentDB Agent Memory — tenant ACL, retention/delete, provenance, synthetic retrieval benchmark;
+      Waku Agent, OpenWorker и Cloudflare OS использовать только как architecture/approval reference.
+- [ ] Eclipse AI Hub / Sentinel / oh-my-claudecode: добавить NVIDIA Build и OpenCode Zen в единый
+      provider benchmark P1/M — без production routing, на обезличенных fixtures, с budget cap,
+      retention/Terms check и отдельной фиксацией временных free model IDs.
 - [ ] Провести первый 30-дневный brand pilot: зафиксировать Landing/channel baseline, выпустить
       12 evidence-backed материалов, измерить product visits, qualified leads, conversion и effort,
       затем принять решение continue/change/stop по каждому формату. Начинать только после owned MVP.
@@ -166,11 +175,35 @@
       собранном из pinned source с отключёнными telemetry, sponsored discovery, hooks, MCP и self-dev.
 - [ ] Eclipse DnD Forge: отдельно аудировать и адаптировать три MengTo GameDev skills —
       `author-game-levels`, `test-playable-web-games`, `build-game-audio-feedback`; коллекцию целиком не ставить.
+- [ ] Eclipse DnD Forge: проверить собственный system-discovery flow P2/M по taxonomy reference NRI Atlas —
+      жанр, сложность, длительность и размер группы; descriptions и ratings создать самостоятельно,
+      потому что у reference repository нет разрешающей лицензии.
+- [ ] Eclipse Chat: провести competitor benchmark Echoed P2/S на одном устройстве — startup, idle RAM,
+      voice latency, task-board flow и privacy disclosures; claims владельца не принимать без измерений.
+- [ ] Hopson Sentinel: сделать read-only Windows Privacy Doctor P2/M по идеям O&O ShutUp10++ —
+      только объяснимый diff, official-source evidence, restore point и ручной approval; не запускать
+      proprietary utility и не менять Registry автоматически.
 - [x] Educator-AI: адаптировать официальный GitHub Hello World в интерактивный практический
       onboarding repository → branch → commit → pull request → merge с локальным прогрессом,
       self-check, EN/RU copy и без обязательного API key.
 
 ## Changelog
+
+### 2026-08-06
+
+- Разобрана подборка из 26 находок: добавлена 21 новая карточка и редакторски обновлены три дубля —
+  NVIDIA Build, ScraperAI и Taste Skill. Каталог вырос до 556 материалов, verified queue — до 112.
+- Добавлены Waku Agent, TencentDB Agent Memory, OpenWorker, Cloudflare OS, AnyDoc, RepoWise,
+  OpenCode Zen, Echoed, NeuralDeep, 50languages, Invidious, O&O ShutUp10++, NRI Atlas, e4steam,
+  Chase AI+ и официальный Apple Stolen Device Protection с лицензиями, trust/risk и Eclipse mapping.
+- Четыре исходных prompt-идеи переработаны в безопасные evidence-first шаблоны: presentation workflow,
+  software engineering roles, procrastination self-reflection и defensive digital-footprint self-audit.
+  Последний помечен `grey`, поэтому виден человеку, но не попадает в agent recommendations.
+- Не добавлены как подтверждённые материалы: несуществующий в официальном каталоге `Qwen 3.8 Max`
+  и недоступный для проверки Google Doc `GPT Image 2 Prompts`. Claims про 60/96% token savings,
+  «100 млрд бесплатных токенов», piracy, native fluency и гарантированный доход удалены или уточнены.
+- В roadmap зафиксированы P1 AnyDoc intake, собственная Agent Memory и provider benchmark;
+  Echoed, NRI Atlas и O&O ShutUp10++ оставлены P2/reference с clean-room и approval boundaries.
 
 ### 2026-08-04
 
