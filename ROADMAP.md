@@ -20,12 +20,11 @@
 - `web/link-health.json` — безопасный публичный snapshot weekly-аудита: доступность ссылки
   показывается отдельно от редакторского доверия и не считается security endorsement.
 - Deploy: GitHub Actions → VPS/Caddy из ветки `master`.
-- Production синхронизирован с commit `2321f68`: quality
-  [#31102065133](https://github.com/PavelHopson/eclipse-library/actions/runs/31102065133)
-  и deploy [#31102064864](https://github.com/PavelHopson/eclipse-library/actions/runs/31102064864)
-  от 06.08.2026 успешно завершены. Independent smoke подтвердил `app.js?v=36`,
-  `styles.css?v=23`, 560 материалов, 116 ручных разборов, 487 agent-safe записей,
-  все четыре новых ID и fail-closed исключение NØRTHBOUND из agent exports.
+- Production синхронизирован с commit `acdc1bf`: quality
+  [#31104726072](https://github.com/PavelHopson/eclipse-library/actions/runs/31104726072)
+  и deploy [#31104725983](https://github.com/PavelHopson/eclipse-library/actions/runs/31104725983)
+  от 06.08.2026 успешно завершены. Independent smoke подтвердил `app.js?v=37`, три новых UI-модуля,
+  560 материалов и ровно 36 live catalog cards на 1440×900 и 390×844 без horizontal overflow.
 
 ## Приоритеты
 
