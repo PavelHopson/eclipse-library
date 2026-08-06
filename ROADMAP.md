@@ -6,8 +6,9 @@
 
 - `catalog/resources.json` — канонический structured catalog из 560 уникальных записей;
   `README.md` сокращён до документации и больше не является runtime-источником данных.
-- `web/app.js` — client-side поиск, фильтры, detail view и guide viewer; structured adapter
-  вынесен в `web/catalog-runtime.js`, поэтому frontend не разбирает Markdown-таблицы.
+- `web/app.js` — client-side поиск, фильтры, detail view и guide viewer; structured adapter,
+  карточки, редакционная лента и progressive DOM вынесены в отдельные модули. При старте в DOM
+  создаются только первые 36 карточек вместо всех 560.
 - `web/catalog-index.json` — production schema v2: 116 записей редакторски проверены,
   444 честно помечены `inferred`, 276 имеют отдельный `addedAt`, даты удалены из category.
 - License layer: 220 лицензий подтверждаются official GitHub metadata с evidence URL,
@@ -109,7 +110,7 @@
 - [x] Stage 12 — нормализовать стоимость, регистрацию и место запуска для подробно проверенных карточек,
       добавить shareable access filters, incremental duplicate gate и честный MCP runtime-audit status.
 - [x] Stage 13 — добавить редакционную ленту «Новое и проверенное», решение, целевой проект и риск прямо на карточку, decision summary в detail view, сортировку по `addedAt` и убрать дублирующую desktop-навигацию.
-- [ ] Stage 14 — разбить `web/app.js` по модулям и создавать DOM карточек порциями, а не строить все 560 сразу; зафиксировать browser performance budget и regression test для desktop/mobile.
+- [x] Stage 14 — карточка, редакционная лента и progressive DOM вынесены из `web/app.js`; live DOM ограничен текущей порцией по 36 результатов, unit regression фиксирует budget, desktop/mobile browser QA обязателен перед публикацией.
 - [ ] Eclipse Webclaw / Kwork #18: benchmark Lightpanda как optional beta JS-renderer против
       Playwright на representative page set — success rate, extraction quality, p95, RAM, robots/rate limits;
       telemetry off, pinned image/source и AGPL review обязательны.
@@ -193,6 +194,7 @@
 
 ### 2026-08-06
 
+- Stage 14: карточки каталога теперь создаются по требованию порциями по 36, а не все 560 при загрузке. Card renderer, редакционная лента и progressive DOM вынесены в отдельные модули; добавлен regression test на DOM budget, detach/mount и порядок подключения assets.
 - Проверены Banana Prompts, Nucleo SVG Pattern Generator, MotionSites AI и NØRTHBOUND Recreation Prompt. Nucleo принят для безопасного использования отдельных SVG-экспортов; Banana Prompts и MotionSites оставлены reference; NØRTHBOUND помечен `Не использовать` и исключён из agent exports из-за exact-copy инструкции и отсутствия лицензии на prompt/media/fonts.
 - Каталог вырос до 560 материалов и 116 ручных разборов. UI получил ленту «Новое и проверенное», decision-first карточки, первый безопасный шаг в detail header, сортировку по `addedAt`, компактный hero и одну desktop-навигацию; asset keys подняты до `app.js?v=36` / `styles.css?v=23`.
 - Local browser QA на 1440×900 и 390×844 подтвердил шесть свежих карточек, корректный Nucleo detail, отсутствие horizontal overflow и стабильный mobile scroll на 900 px. Data/API/policy/MCP/smoke regression checks зелёные; новые ссылки проверены по официальным источникам, полный weekly link snapshot не перезаписывался.

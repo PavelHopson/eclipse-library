@@ -26,6 +26,9 @@ jobs:
       - name: Check JavaScript syntax
         run: |
           node --check web/catalog-runtime.js
+          node --check web/catalog-card.js
+          node --check web/catalog-editorial.js
+          node --check web/catalog-progressive.js
           node --check web/app.js
       - name: Validate structured catalog
         run: |
@@ -35,6 +38,7 @@ jobs:
           node scripts/validate-catalog-index.mjs
           node scripts/validate-catalog.mjs
           node --test scripts/catalog-policy.test.mjs
+          node --test scripts/catalog-progressive.test.mjs
       - name: Validate Eclipse Forge projects
         run: node scripts/validate-projects.mjs
       - name: Validate published link health

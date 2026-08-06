@@ -16,6 +16,10 @@
   const RECENT_KEY = 'eclipse-library:recent:v1';
   const runtime = window.EclipseCatalogRuntime;
   if (!runtime) throw new Error('catalog-runtime.js is required before app.js');
+  const cardRuntime = window.EclipseCatalogCard;
+  const editorialRuntime = window.EclipseCatalogEditorial;
+  const progressiveRuntime = window.EclipseCatalogProgressive;
+  if (!cardRuntime || !editorialRuntime || !progressiveRuntime) throw new Error('catalog UI modules are required before app.js');
   const { canonicalUrl, githubRepoKey, groupsFromItems } = runtime;
   const DECISIONS = {
     now: 'Внедрить сейчас',
@@ -440,8 +444,20 @@
   }
 
   // ---- render ----
-  const cards = []; // {node, text, type, sub, cat, grid, order}
+  const cards = []; // lightweight descriptors; card DOM is created only when visible
   let allCats = [];
+  function ensureCardNode(card) {
+    if (!card.node) {
+      card.node = cardRuntime.createCatalogCard(card.resource, {
+        el, esc, escAttr, types: TYPES, trust: TRUST, linkHealth: LINK_HEALTH,
+        mcpAudit: MCP_AUDIT, decisions: DECISIONS, risks: RISK, runtime: RUNTIME,
+        cost: COST, signup: SIGNUP, licenseGroups: LICENSE_GROUPS, licenseGroup,
+        compareButton, favoriteButton,
+      });
+    }
+    return card.node;
+  }
+
   function render(cats) {
     allCats = cats;
     const nav = $('#nav'), results = $('#results'), catgrid = $('#catgrid');
@@ -477,91 +493,13 @@
         const grid = el('div', 'grid');
         s.resources.forEach((r) => {
           typeCounts[r.type] = (typeCounts[r.type] || 0) + 1;
-          const repositoryInactive = ['archived', 'disabled'].includes(r.repositoryState);
-          const card = el('article', 'card' + (r.riskLevel === 'high' || r.trust === 'caution' ? ' risk' : '') + (r.detail ? ' enriched' : '') + (repositoryInactive ? ' repository-inactive' : ''));
-          card.dataset.type = r.type;
-          card.dataset.itemId = r.id;
-          card.dataset.freshness = r.freshness;
-
-          const top = el('div', 'card-top');
-          top.appendChild(el('span', 'type-chip t-' + r.type, esc(TYPES[r.type] || r.type)));
-          top.appendChild(el('span', `trust-chip trust-${r.trust}`, esc(TRUST[r.trust] || TRUST.unknown)));
-          const health = el('span', `link-health health-${r.linkHealth.status}`, esc(LINK_HEALTH[r.linkHealth.status] || LINK_HEALTH.unchecked));
-          health.title = 'Автоматическая проверка доступности ссылки, а не гарантия безопасности продукта';
-          top.appendChild(health);
-          if (repositoryInactive) {
-            const repository = el('span', `repository-state repository-${r.repositoryState}`, esc(r.repositoryState === 'archived' ? 'Репозиторий архивирован' : 'Репозиторий отключён'));
-            repository.title = 'Проект больше не принимает обычные изменения; используйте как reference и ищите поддерживаемую альтернативу.';
-            top.appendChild(repository);
-          }
-          if (r.mcpAudit) {
-            const auditStatus = ['runtime-reviewed', 'runtime-scanned', 'blocked'].includes(r.mcpAudit.status) ? r.mcpAudit.status : 'runtime-pending';
-            const auditLabel = r.mcpAudit.status === 'runtime-scanned' && r.mcpAudit.manualReview?.outcome === 'conditional'
-              ? 'Проверено с ограничениями'
-              : MCP_AUDIT[r.mcpAudit.status] || MCP_AUDIT['runtime-pending'];
-            const audit = el('span', `mcp-audit mcp-audit-${auditStatus}`, esc(auditLabel));
-            audit.title = r.mcpAudit.status === 'runtime-reviewed'
-              ? 'Tool descriptions проверены вручную, а разрешённые boundary tests пройдены в изолированном окружении.'
-              : r.mcpAudit.status === 'blocked'
-                ? r.mcpAudit.summary
-              : r.mcpAudit.status === 'runtime-scanned'
-                ? r.mcpAudit.manualReview?.outcome === 'conditional'
-                  ? `Ручной review завершён с ограничением: ${r.mcpAudit.manualReview.finding}`
-                  : 'Pinned server проверен автоматическим inspector в disposable runner; перед рабочим подключением ещё нужен ручной review приватного artifact.'
-                : 'Сервер не запускался на основной машине: перед подключением нужен sandbox-аудит tool descriptions.';
-            top.appendChild(audit);
-          }
-          if (r.starsRepo) {
-            const img = el('img', 'stars'); img.loading = 'lazy'; img.alt = 'GitHub stars';
-            img.src = `https://img.shields.io/github/stars/${r.starsRepo}?style=flat&color=8b5cf6&labelColor=15151c&logo=github&logoColor=cfcfe0`;
-            top.appendChild(img);
-          }
-          top.appendChild(compareButton(r));
-          top.appendChild(favoriteButton(r));
-          card.appendChild(top);
-
-          const h = el('h4', 'card-title');
-          h.innerHTML = `<a href="#item/${encodeURIComponent(r.id)}">${esc(r.title)}<svg class="ext" viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M9 18l6-6-6-6"/></svg></a>`;
-          card.appendChild(h);
-
-          card.appendChild(el('p', 'desc', esc(r.simpleDescription)));
-          const use = el('p', 'card-use');
-          use.innerHTML = `<b>Когда пригодится:</b> ${esc(r.useCases[0] || 'для небольшой тестовой задачи')}`;
-          card.appendChild(use);
-
-          const decision = el('div', `card-decision decision-${r.decision}`);
-          decision.innerHTML =
-            `<span><small>Решение</small><b>${esc(DECISIONS[r.decision] || DECISIONS.reference)}</b></span>` +
-            `<span><small>Куда применить</small><b>${esc(r.projects[0] || 'Нужен отдельный выбор проекта')}</b></span>` +
-            `<span><small>Риск</small><b>${esc(RISK[r.riskLevel] || RISK.medium)}</b></span>`;
-          card.appendChild(decision);
-
-          const meta = el('div', 'card-meta');
-          meta.appendChild(el('span', 'meta-chip', esc(RUNTIME[r.runtime] || RUNTIME.unknown)));
-          meta.appendChild(el('span', 'meta-chip meta-price', esc(COST[r.cost] || COST.unknown)));
-          meta.appendChild(el('span', 'meta-chip', esc(SIGNUP[r.signup] || SIGNUP.unknown)));
-          const license = el('span', 'meta-chip', esc(LICENSE_GROUPS[licenseGroup(r.license)]));
-          license.title = `Точные условия: ${r.license}`;
-          meta.appendChild(license);
-          card.appendChild(meta);
-
-          let dom = ''; try { dom = new URL(r.url).hostname.replace(/^www\./, ''); } catch (e) {}
-          const foot = el('div', 'card-foot');
-          foot.innerHTML =
-            `<a class="detail-link" href="#item/${encodeURIComponent(r.id)}">Открыть полный анализ →</a>` +
-            (r.linkHealth.status === 'blocked'
-              ? '<span class="source-link source-blocked">Источник заблокирован</span>'
-              : `<a class="source-link" href="${escAttr(r.url)}" target="_blank" rel="noopener" aria-label="Открыть официальный источник">${esc(dom || 'Источник')} ↗</a>`);
-          card.appendChild(foot);
-
-          grid.appendChild(card);
           const searchText = [
             r.title, r.rawText, r.simpleDescription, r.type, r.license, r.pricing,
             r.platforms.join(' '), r.projects.join(' '), r.useCases.join(' '), TRUST[r.trust], LINK_HEALTH[r.linkHealth.status], REPOSITORY_STATE[r.repositoryState] || '',
             COST[r.cost], SIGNUP[r.signup], RUNTIME[r.runtime], MCP_AUDIT[r.mcpAudit?.status] || '',
           ].join(' ').toLowerCase();
           cards.push({
-            node: card,
+            node: null,
             resource: r,
             favoriteKey: canonicalUrl(r.url),
             grid,
@@ -600,7 +538,9 @@
 
     buildFilters(typeCounts);
     buildQuickRoutes(cats, typeCounts);
-    renderEditorialRecent();
+    editorialRuntime.renderEditorialRecent({
+      cards, $, el, esc, escAttr, formatAddedAt, decisions: DECISIONS, risks: RISK,
+    });
     pruneFavorites();
     pruneRecent();
     updateFavoritesUI();
@@ -657,28 +597,6 @@
 
   function findCat(cats, re) {
     return cats.find((c) => re.test(c.label.toLowerCase()));
-  }
-
-  function renderEditorialRecent() {
-    let section = $('#recentEditorial');
-    if (!section) {
-      section = el('section', 'recent-editorial');
-      section.id = 'recentEditorial';
-      section.setAttribute('aria-labelledby', 'recentEditorialTitle');
-      $('#hero').insertAdjacentElement('afterend', section);
-    }
-    const latest = cards
-      .filter((card) => card.resource.detail && card.resource.addedAt)
-      .sort((a, b) => (Date.parse(b.resource.addedAt) || 0) - (Date.parse(a.resource.addedAt) || 0) || b.resource.catalogOrder - a.resource.catalogOrder)
-      .slice(0, 6);
-    section.hidden = latest.length === 0;
-    section.innerHTML =
-      `<header class="recent-editorial-head"><div><span>Редакционная лента</span><h2 id="recentEditorialTitle">Новое и проверенное</h2><p>Свежие разборы: что это, можно ли доверять и куда применить.</p></div><a href="#browse/recent">Показать все новые →</a></header>` +
-      `<div class="recent-editorial-list">${latest.map((card) => {
-        const r = card.resource;
-        const projects = r.projects.slice(0, 2).join(', ') || 'Применимость уточняется';
-        return `<a class="recent-editorial-item decision-${r.decision}" href="#item/${encodeURIComponent(r.id)}"><div class="recent-editorial-meta"><time datetime="${escAttr(r.addedAt)}">${esc(formatAddedAt(r.addedAt))}</time><span>${esc(DECISIONS[r.decision] || DECISIONS.reference)}</span></div><h3>${esc(r.title)}</h3><p>${esc(r.simpleDescription)}</p><footer><span>Для: ${esc(projects)}</span><b>${esc(RISK[r.riskLevel] || RISK.medium)}</b></footer></a>`;
-      }).join('')}</div>`;
   }
 
   function buildQuickRoutes(cats, typeCounts) {
@@ -923,18 +841,20 @@
         (!activeFavorites || favorites.has(c.favoriteKey)) &&
         (!activeTopic || TOPIC_ROUTES[activeTopic]?.match(c))
     ).sort(sortCards);
-    const visible = new Set(matching.slice(0, visibleLimit));
-    cards.sort((a, b) => a.order - b.order).forEach((c) => c.grid.appendChild(c.node));
-    cards.forEach((c) => { c.node.hidden = !visible.has(c); });
+    const visibleCards = progressiveRuntime.take(matching, visibleLimit);
+    if (revealObs) cards.forEach((card) => { if (card.node) revealObs.unobserve(card.node); });
+    progressiveRuntime.detach(cards);
     const sortedMode = activeSort !== 'catalog';
     const sortedResults = $('#sortedResults');
     const sortedGrid = $('#sortedGrid');
-    if (sortedMode) matching.slice(0, visibleLimit).forEach((c) => sortedGrid.appendChild(c.node));
+    progressiveRuntime.mount(visibleCards, (card) => sortedMode ? sortedGrid : card.grid, ensureCardNode);
     $('#results').hidden = sortedMode;
     sortedResults.hidden = !sortedMode;
     const matched = matching.length;
-    document.querySelectorAll('.sub').forEach((s) => { s.hidden = !s.querySelector('.card:not([hidden])'); });
-    document.querySelectorAll('.cat').forEach((s) => { s.hidden = !s.querySelector('.card:not([hidden])'); });
+    const visibleSubs = new Set(visibleCards.map((card) => card.sub));
+    const visibleCats = new Set(visibleCards.map((card) => card.cat));
+    document.querySelectorAll('.sub').forEach((sub) => { sub.hidden = !visibleSubs.has(sub); });
+    document.querySelectorAll('.cat').forEach((cat) => { cat.hidden = !visibleCats.has(cat); });
     if (!sortedMode) updateNavVisibility();
     const filtering = !!(q || activeTask || activeType || activeCost || activeSignup || activeRuntime || activePlatform || activeLicense || activeTrust || activeProject || activeFreshness || activeRepositoryState || activeTopic || activeFavorites);
     $('#hero').classList.toggle('dim', filtering);
@@ -1103,7 +1023,9 @@
         entries.forEach((e, i) => { if (e.isIntersecting) { e.target.classList.add('in'); revealObs.unobserve(e.target); } });
       }, { rootMargin: '0px 0px -8% 0px' });
     }
-    cards.forEach((c) => { if (!c.node.hidden && !c.node.classList.contains('in')) revealObs.observe(c.node); });
+    cards.forEach((card) => {
+      if (card.node?.isConnected && !card.node.classList.contains('in')) revealObs.observe(card.node);
+    });
   }
 
   // ---- scrollspy ----

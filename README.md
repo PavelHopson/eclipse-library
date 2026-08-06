@@ -26,6 +26,7 @@ README больше не является базой данных и не раз
 | [`web/catalog-details.json`](web/catalog-details.json) | Исторический набор ручных editorial reviews; его содержимое уже мигрировано в canonical records. |
 | [`web/github-metadata.json`](web/github-metadata.json) | Official GitHub state и license evidence для repository URL. |
 | [`web/guides.json`](web/guides.json) | Manifest учебных материалов. |
+| [`web/catalog-card.js`](web/catalog-card.js), [`web/catalog-editorial.js`](web/catalog-editorial.js), [`web/catalog-progressive.js`](web/catalog-progressive.js) | UI-модули карточки, редакционной ленты и progressive DOM; первая страница ограничена 36 карточками. |
 | [`web/api/v1/`](web/api/v1/) | Static JSON exports для внешних consumers и AI-агентов. |
 | [`lists/catalog-legacy-2026-08-03.md`](lists/catalog-legacy-2026-08-03.md) | Read-only архив старого Markdown-каталога; application его не читает. |
 
@@ -98,7 +99,7 @@ Quality workflow проверяет:
 - запрет grey resources в agent exports;
 - запрет direct install;
 - link-health, GitHub metadata, MCP audit и projects schemas;
-- JavaScript syntax, mobile scroll guards и production smoke contract.
+- JavaScript syntax, progressive DOM budget в 36 карточек, mobile scroll guards и production smoke contract.
 
 ## Документация
 
