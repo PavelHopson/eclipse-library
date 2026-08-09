@@ -656,10 +656,10 @@
         "API"
       ],
       "license": {
-        "label": "MIT",
+        "label": "MIT для Ollama; лицензия и допустимое использование каждой загружаемой модели проверяются отдельно",
         "original": "MIT для Ollama; лицензия и допустимое использование каждой загружаемой модели проверяются отдельно",
-        "spdx": "MIT",
-        "kind": "open-source",
+        "spdx": null,
+        "kind": "custom",
         "status": "editor-reviewed",
         "requiresReview": false,
         "evidence": [
@@ -849,10 +849,10 @@
         "Self-host"
       ],
       "license": {
-        "label": "MIT",
+        "label": "MIT для GPT4All; лицензия каждой скачанной GGUF-модели и набора данных проверяется отдельно",
         "original": "MIT для GPT4All; лицензия каждой скачанной GGUF-модели и набора данных проверяется отдельно",
-        "spdx": "MIT",
-        "kind": "open-source",
+        "spdx": null,
+        "kind": "custom",
         "status": "editor-reviewed",
         "requiresReview": false,
         "evidence": [
@@ -28587,11 +28587,11 @@
         "WebSocket"
       ],
       "license": {
-        "label": "Apache-2.0",
+        "label": "NeMo code — Apache-2.0; VoiceChat model — NVIDIA Open Model Development and Work License 1.1 (OpenMDW-1.1)",
         "original": "NeMo code — Apache-2.0; VoiceChat model — NVIDIA Open Model Development and Work License 1.1 (OpenMDW-1.1)",
-        "spdx": "Apache-2.0",
-        "kind": "open-source",
-        "status": "source-declared",
+        "spdx": null,
+        "kind": "custom",
+        "status": "editor-reviewed",
         "requiresReview": false,
         "evidence": [
           {
@@ -28676,11 +28676,11 @@
         "Self-host"
       ],
       "license": {
-        "label": "MIT",
+        "label": "MIT для converter; Qwen3-TTS model weights, входные книги, шрифты и голоса проверяются отдельно",
         "original": "MIT для converter; Qwen3-TTS model weights, входные книги, шрифты и голоса проверяются отдельно",
-        "spdx": "MIT",
-        "kind": "open-source",
-        "status": "source-declared",
+        "spdx": null,
+        "kind": "custom",
+        "status": "editor-reviewed",
         "requiresReview": false,
         "evidence": [
           {

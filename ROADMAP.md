@@ -218,6 +218,7 @@
 - Исправлены рекламные claims: VoiceChat требует 80 GB GPU, имеет один голос и не поддерживает cloning; официальный xAI release называется Quality Mode, а не Imagine Image 2.0; FreeLLM предупреждает об устаревании; nodumbmode не имеет LICENSE. Selectel affiliate-реклама не добавлена.
 - В roadmap отправлены voice, audiobook, Grok image, RSS intake, offline knowledge и S3-storage benchmarks. OriginKit, skills hubs и self-hosted/design stack оставлены reference с license, copyleft, privacy, prompt-injection и supply-chain boundaries.
 - GitHub metadata refresh расширен до 305 repositories и исправлен fail-closed edge case: удалённый или private repository теперь явно получает `state: unknown` и `licenseInfo: null`, поэтому schema validator не падает и не выдумывает лицензию.
+- License normalizer больше не сворачивает mixed code/model terms в первый GitHub SPDX: Nemotron VoiceChat показывает Apache-2.0 для кода и OpenMDW-1.1 для checkpoint целиком, с отдельным regression test.
 
 ### 2026-08-06
 

@@ -40,29 +40,32 @@ function isoDate(year, month, day) {
   return Number.isNaN(parsed.valueOf()) || parsed.toISOString().slice(0, 10) !== result ? null : result;
 }
 
-function spdxFromText(value) {
+function spdxValuesFromText(value) {
   const text = String(value || '');
-  for (const [needle, spdx] of SPDX_ALIASES) {
-    if (new RegExp(`(?:^|[^a-z0-9])${needle.replace(/[.]/g, '\\.')}(?:$|[^a-z0-9])`, 'i').test(text)) return spdx;
-  }
-  return null;
+  return [...new Set([...SPDX_ALIASES].filter(([needle]) =>
+    new RegExp(`(?:^|[^a-z0-9])${needle.replace(/[.]/g, '\\.')}(?:$|[^a-z0-9])`, 'i').test(text)
+  ).map(([, spdx]) => spdx))];
 }
 
 export function normalizeLicense(item, repository) {
   const original = String(item.license || '').trim();
   const repoLicense = repository?.licenseInfo || null;
   const repoSpdx = repoLicense?.spdxId && repoLicense.spdxId !== 'NOASSERTION' ? repoLicense.spdxId : null;
-  const spdx = spdxFromText(original) || repoSpdx || null;
+  const declaredSpdx = spdxValuesFromText(original);
+  const mixedTerms = declaredSpdx.length > 1 || (declaredSpdx.length > 0 && /OpenMDW|model weights|каждой.*модел|separate.*license/i.test(original));
+  const spdx = mixedTerms ? null : declaredSpdx[0] || repoSpdx || null;
   const unknown = !original || UNKNOWN_LICENSE.test(original);
-  const kind = spdx
-    ? 'open-source'
-    : SOURCE_AVAILABLE.test(original)
-      ? 'source-available'
-      : SERVICE_LICENSE.test(original)
-        ? 'service-terms'
-        : unknown
-          ? 'unknown'
-          : 'custom';
+  const kind = mixedTerms
+    ? 'custom'
+    : spdx
+      ? 'open-source'
+      : SOURCE_AVAILABLE.test(original)
+        ? 'source-available'
+        : SERVICE_LICENSE.test(original)
+          ? 'service-terms'
+          : unknown
+            ? 'unknown'
+            : 'custom';
   const status = spdx && repoLicense?.url
     ? 'source-declared'
     : item.reviewStatus === 'verified' && !unknown
@@ -75,7 +78,7 @@ export function normalizeLicense(item, repository) {
   });
   if (!evidence.length) evidence.push({ kind: 'official-source', label: 'Официальный источник; точные условия ещё нужно сверить', url: item.url });
   return {
-    label: spdx || original || 'Лицензия не указана',
+    label: mixedTerms ? original : spdx || original || 'Лицензия не указана',
     original: original || null,
     spdx,
     kind,

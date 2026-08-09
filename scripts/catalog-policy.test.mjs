@@ -32,3 +32,16 @@ test('excludes insecure official sources from agent recommendations', () => {
   assert.equal(result.eligible, false);
   assert.deepEqual(result.reasons, ['insecure-transport']);
 });
+
+test('preserves mixed code and model license terms instead of collapsing to repository SPDX', () => {
+  const original = 'NeMo code — Apache-2.0; VoiceChat model — OpenMDW-1.1';
+  const result = normalizeLicense(
+    { license: original, reviewStatus: 'verified', url: 'https://github.com/nvidia-nemo/speech' },
+    { licenseInfo: { name: 'Apache License 2.0', spdxId: 'Apache-2.0', url: 'https://api.github.com/repos/nvidia-nemo/speech/license' } },
+  );
+  assert.equal(result.label, original);
+  assert.equal(result.spdx, null);
+  assert.equal(result.kind, 'custom');
+  assert.equal(result.status, 'editor-reviewed');
+  assert.equal(result.requiresReview, false);
+});
