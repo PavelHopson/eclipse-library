@@ -1,19 +1,19 @@
 # Eclipse Library Roadmap
 
-Последнее обновление: **06.08.2026**
+Последнее обновление: **09.08.2026**
 
 ## Текущее состояние
 
-- `catalog/resources.json` — канонический structured catalog из 560 уникальных записей;
+- `catalog/resources.json` — канонический structured catalog из 586 уникальных записей;
   `README.md` сокращён до документации и больше не является runtime-источником данных.
 - `web/app.js` — client-side поиск, фильтры, detail view и guide viewer; structured adapter,
   карточки, редакционная лента и progressive DOM вынесены в отдельные модули. При старте в DOM
-  создаются только первые 36 карточек вместо всех 560.
-- `web/catalog-index.json` — production schema v2: 116 записей редакторски проверены,
-  444 честно помечены `inferred`, 276 имеют отдельный `addedAt`, даты удалены из category.
-- License layer: 220 лицензий подтверждаются official GitHub metadata с evidence URL,
-  58 редакторски проверены, 282 ещё требуют отдельного review.
-- Agent policy: 487 записей доступны автоматическим consumers, 73 исключены fail closed;
+  создаются только первые 36 карточек вместо всех 586.
+- `web/catalog-index.json` — production schema v2: 144 записи редакторски проверены,
+  442 честно помечены `inferred`, 303 имеют отдельный `addedAt`, даты удалены из category.
+- License layer: у 305 записей лицензия или условия нормализованы с evidence URL,
+  281 ещё требуют отдельного review.
+- Agent policy: 513 записей доступны автоматическим consumers, 73 исключены fail closed;
   все 66 grey-ресурсов скрыты от recommendations, direct install запрещён для всех записей.
 - `web/api/v1/` — versioned static exports для full catalog, agents, StarCRM и StarAI;
   consumers больше не должны читать README.
@@ -60,6 +60,15 @@
 - [ ] Eclipse AI Hub / Sentinel / oh-my-claudecode: добавить NVIDIA Build и OpenCode Zen в единый
       provider benchmark P1/M — без production routing, на обезличенных fixtures, с budget cap,
       retention/Terms check и отдельной фиксацией временных free model IDs.
+- [ ] Hopson Sentinel / Eclipse Chat / Educator-AI: провести isolated NemotronLabs VoiceChat
+      benchmark P1/L — отдельный 80 GB GPU sandbox, RU/EN interruptions и tool accuracy, максимум
+      пять read-only tools, consent/retention/approval; production actions и voice cloning запрещены.
+- [ ] Eclipse Media / Educator-AI / DnD Forge: собрать legal-first audiobook spike P1/M на
+      public-domain тексте — sandbox parsers, type/size/page limits, встроенный голос, без voice
+      cloning; измерить русский TTS, VRAM, скорость и ошибки до собственного pipeline.
+- [ ] Eclipse AI Hub / Text2Image / Eclipse Media: добавить Grok Imagine Quality Mode в provider
+      benchmark P1/M — official model id, цена, retention, rights и единый набор text/edit/reference
+      prompts; рекламное название «Imagine Image 2.0» и текущий rank не считать устойчивыми фактами.
 - [ ] Провести первый 30-дневный brand pilot: зафиксировать Landing/channel baseline, выпустить
       12 evidence-backed материалов, измерить product visits, qualified leads, conversion и effort,
       затем принять решение continue/change/stop по каждому формату. Начинать только после owned MVP.
@@ -173,7 +182,18 @@
       `unknown` / `broken` / `blocked`; archived repository metadata показывается отдельным lifecycle status.
 - [x] Автоматический GitHub metadata refresh без доверия к stars как quality score.
 - [x] Отдельные landing routes для skills, MCP, models, prompts, courses и security.
-- [ ] Sentinel / oh-my-claudecode: сравнить Jcode memory/swarm/resume на synthetic repository,
+- [ ] Eclipse Library: собрать read-only RSS intake P2/M по reference FreshRSS — allowlist
++      official feeds, sanitization, provenance, dedupe и ручной editorial approval; feed content
++      считать untrusted и никогда не публиковать автоматически.
++- [ ] Educator-AI / Eclipse DnD Forge: проверить Kiwix/ZIM offline knowledge packs P2/M на
++      маленьком архиве с явной content license, snapshot date, attribution и controlled updates.
++- [ ] Eclipse Media / Chat / AI Hub: провести Sia Storage S3d benchmark P2/M на synthetic data —
++      client publisher/checksum, key recovery, deletion, durability, latency, jurisdiction и exit plan;
++      единственную production-копию и персональные данные не переносить.
++- [ ] Hopson Sentinel: спроектировать read-only Home Assistant adapter P2/L — отдельный test
++      instance, entity allowlist и audit; physical write actions только после отдельного threat model,
++      explicit confirmation и emergency stop.
++- [ ] Sentinel / oh-my-claudecode: сравнить Jcode memory/swarm/resume на synthetic repository,
       собранном из pinned source с отключёнными telemetry, sponsored discovery, hooks, MCP и self-dev.
 - [ ] Eclipse DnD Forge: отдельно аудировать и адаптировать три MengTo GameDev skills —
       `author-game-levels`, `test-playable-web-games`, `build-game-audio-feedback`; коллекцию целиком не ставить.
@@ -190,6 +210,14 @@
       self-check, EN/RU copy и без обязательного API key.
 
 ## Changelog
+
+### 2026-08-09
+
+- Проверена новостная пачка 07–09.08.2026: 26 новых подробных карточек и три редакторских обновления вместо дублей. Каталог вырос до 586 материалов, verified queue — до 144; `addedAt` есть у 303 записей.
+- Добавлены OriginKit, Hermes Skills Hub, NemotronLabs VoiceChat, Qwen Audiobook Converter, freeLLM, nodumbmode, Checklist Design, Grok Imagine Quality Mode, Sia Storage, восемь self-hosted сервисов и девять актуальных design references. Ollama уже был verified; Frigate, Mobbin и Hermes Agent обогащены без новых дублей.
+- Исправлены рекламные claims: VoiceChat требует 80 GB GPU, имеет один голос и не поддерживает cloning; официальный xAI release называется Quality Mode, а не Imagine Image 2.0; FreeLLM предупреждает об устаревании; nodumbmode не имеет LICENSE. Selectel affiliate-реклама не добавлена.
+- В roadmap отправлены voice, audiobook, Grok image, RSS intake, offline knowledge и S3-storage benchmarks. OriginKit, skills hubs и self-hosted/design stack оставлены reference с license, copyleft, privacy, prompt-injection и supply-chain boundaries.
+- GitHub metadata refresh расширен до 305 repositories и исправлен fail-closed edge case: удалённый или private repository теперь явно получает `state: unknown` и `licenseInfo: null`, поэтому schema validator не падает и не выдумывает лицензию.
 
 ### 2026-08-06
 

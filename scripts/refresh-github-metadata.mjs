@@ -36,6 +36,23 @@ export function buildRepositoryQuery(keys) {
   return `query EclipseLibraryRepositoryStatus { ${fields.join('\n')} }`;
 }
 
+export function normalizeRepositoryResult(key, repo) {
+  if (!repo || repo.isPrivate) return { key, state: 'unknown', url: `https://github.com/${key}`, pushedAt: null, updatedAt: null, licenseInfo: null };
+  const state = repo.isDisabled ? 'disabled' : repo.isArchived ? 'archived' : 'active';
+  return {
+    key,
+    state: allowedStates.has(state) ? state : 'unknown',
+    url: repo.url,
+    pushedAt: repo.pushedAt || null,
+    updatedAt: repo.updatedAt || null,
+    licenseInfo: repo.licenseInfo ? {
+      name: repo.licenseInfo.name,
+      spdxId: repo.licenseInfo.spdxId || null,
+      url: `https://api.github.com/repos/${key}/license`,
+    } : null,
+  };
+}
+
 async function requestBatch(keys, token) {
   const response = await fetch('https://api.github.com/graphql', {
     method: 'POST',
@@ -53,23 +70,7 @@ async function requestBatch(keys, token) {
   if (!payload?.data || (payload.errors && !Object.keys(payload.data).length)) {
     throw new Error('GitHub GraphQL response did not contain repository data.');
   }
-  return keys.map((key, index) => {
-    const repo = payload.data[`r${index}`];
-    if (!repo || repo.isPrivate) return { key, state: 'unknown', url: `https://github.com/${key}`, pushedAt: null, updatedAt: null };
-    const state = repo.isDisabled ? 'disabled' : repo.isArchived ? 'archived' : 'active';
-    return {
-      key,
-      state: allowedStates.has(state) ? state : 'unknown',
-      url: repo.url,
-      pushedAt: repo.pushedAt || null,
-      updatedAt: repo.updatedAt || null,
-      licenseInfo: repo.licenseInfo ? {
-        name: repo.licenseInfo.name,
-        spdxId: repo.licenseInfo.spdxId || null,
-        url: `https://api.github.com/repos/${key}/license`,
-      } : null,
-    };
-  });
+  return keys.map((key, index) => normalizeRepositoryResult(key, payload.data[`r${index}`]));
 }
 
 export async function refreshGithubMetadata({ token, output = defaultOutput } = {}) {

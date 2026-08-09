@@ -1,20 +1,20 @@
 {
   "schemaVersion": 2,
-  "sourceHash": "0a4f3de5623da5fcdaf1d24d72153fc793a99b69090d641904ae5764c02838a5",
+  "sourceHash": "feb6b428a92e9dedda4e8a7d9fcd05a0f815f6e3948d701771a40c616d416401",
   "policy": {
     "canonicalSource": "catalog/resources.json",
     "directInstallForbidden": true,
     "greyResourcesExcludedFromAgentRecommendations": true
   },
   "totals": {
-    "all": 560,
-    "verified": 116,
-    "inferred": 444,
-    "licenseReviewRequired": 282,
-    "agentSafe": 487,
+    "all": 586,
+    "verified": 144,
+    "inferred": 442,
+    "licenseReviewRequired": 281,
+    "agentSafe": 513,
     "agentExcluded": 73,
     "grey": 66,
-    "withAddedAt": 276
+    "withAddedAt": 303
   },
   "items": [
     {
@@ -13193,36 +13193,45 @@
       "type": "learn",
       "category": "Лендинги — учебный курс",
       "subcategory": "Дизайн-инспирация и ассеты",
-      "simpleDescription": "Mobbin — Паттерны и топовые сайты. Карточка помогает понять назначение ресурса и начать с небольшой безопасной проверки; условия использования ещё нужно сверить с официальным источником.",
+      "simpleDescription": "Каталог реальных mobile и web интерфейсов с поиском по screens, UI elements и полным user flows. Он помогает увидеть, как зрелые продукты решают onboarding, search, payments и settings, но доступ к референсам не разрешает копировать чужие assets или бренд.",
       "useCases": [
-        "Разобраться, подходит ли Mobbin для вашей задачи",
-        "Проверить возможности на небольшом тестовом сценарии до интеграции"
+        "Сравнить onboarding и chat flows для Eclipse Chat.",
+        "Проверить mobile patterns поиска и фильтров Eclipse Library.",
+        "Собрать evidence-backed UX reference до проектирования Eclipse AI Hub."
       ],
       "platforms": [
-        "Web"
+        "Web",
+        "iOS references",
+        "Figma"
       ],
-      "license": "Нужно проверить в официальном источнике",
-      "pricing": "Актуальную стоимость нужно проверить на официальной странице",
+      "license": "Proprietary reference service; права на показанные интерфейсы и assets остаются у исходных продуктов",
+      "pricing": "Freemium: часть просмотра доступна после регистрации, полный архив и расширенные функции зависят от платного тарифа",
       "access": {
-        "cost": "unknown",
-        "signup": "unknown",
+        "cost": "freemium",
+        "signup": "required",
         "runtime": "cloud"
       },
-      "trust": "unknown",
-      "trustReason": "Запись структурирована автоматически из опубликованного описания. Официальный источник, лицензия и условия ещё не прошли отдельную редакторскую проверку.",
-      "projects": [],
+      "trust": "official",
+      "trustReason": "Проверены официальный сайт, pricing entry point, screen/flow search и Figma workflow. Числа каталога динамические и не фиксируются в карточке.",
+      "projects": [
+        "Eclipse Chat",
+        "Eclipse Library",
+        "Eclipse AI Hub",
+        "Eclipse Forge Landing"
+      ],
       "decision": "reference",
-      "riskLevel": "medium",
+      "riskLevel": "low",
       "risks": [
-        "Лицензия, цена, permissions и обработка данных могут отличаться от краткого описания."
+        "Копирование чужих screens, copy или assets нарушает права и не гарантирует product fit.",
+        "Cloud collections нельзя использовать для закрытых клиентских материалов без privacy review."
       ],
-      "verifiedAt": null,
+      "verifiedAt": "2026-08-09",
       "quickStart": [
-        "Откройте официальный источник и проверьте владельца, лицензию и дату обновления.",
-        "Не передавайте secrets или рабочие данные; начните с пустого тестового проекта.",
-        "Сравните результат с текущим способом работы и только потом решайте об интеграции."
+        "Выбрать один конкретный flow.",
+        "Сравнить минимум три продукта и выписать общий паттерн.",
+        "Собрать оригинальный Eclipse-вариант и проверить desktop/mobile/accessibility."
       ],
-      "reviewStatus": "inferred",
+      "reviewStatus": "verified",
       "source": {
         "file": "catalog/resources.json",
         "key": "mobbin-mobbin-com",
@@ -13233,20 +13242,37 @@
           "subcategory": "Дизайн-инспирация и ассеты"
         }
       },
-      "addedAt": null,
+      "addedAt": "2026-08-09",
+      "licenseEvidence": [
+        {
+          "kind": "source",
+          "label": "Official website",
+          "url": "https://mobbin.com/"
+        },
+        {
+          "kind": "source",
+          "label": "Official pricing",
+          "url": "https://mobbin.com/pricing"
+        }
+      ],
       "catalogOrder": 613,
       "licenseInfo": {
-        "label": "Нужно проверить в официальном источнике",
-        "original": "Нужно проверить в официальном источнике",
+        "label": "Proprietary reference service; права на показанные интерфейсы и assets остаются у исходных продуктов",
+        "original": "Proprietary reference service; права на показанные интерфейсы и assets остаются у исходных продуктов",
         "spdx": null,
-        "kind": "unknown",
-        "status": "unverified",
-        "requiresReview": true,
+        "kind": "custom",
+        "status": "editor-reviewed",
+        "requiresReview": false,
         "evidence": [
           {
-            "kind": "official-source",
-            "label": "Официальный источник; точные условия ещё нужно сверить",
-            "url": "https://mobbin.com"
+            "kind": "source",
+            "label": "Official website",
+            "url": "https://mobbin.com/"
+          },
+          {
+            "kind": "source",
+            "label": "Official pricing",
+            "url": "https://mobbin.com/pricing"
           }
         ]
       },
@@ -13255,6 +13281,16 @@
           "kind": "official-source",
           "label": "Официальный источник",
           "url": "https://mobbin.com"
+        },
+        {
+          "kind": "source",
+          "label": "Official website",
+          "url": "https://mobbin.com/"
+        },
+        {
+          "kind": "source",
+          "label": "Official pricing",
+          "url": "https://mobbin.com/pricing"
         }
       ],
       "agentEligibility": {
@@ -23353,7 +23389,7 @@
       "platforms": [
         "Web"
       ],
-      "license": "Нужно проверить в официальном источнике",
+      "license": "MIT",
       "pricing": "Исходный код доступен публично; hosting, модели и внешние API могут оплачиваться отдельно",
       "access": {
         "cost": "free",
@@ -23388,16 +23424,16 @@
       "addedAt": "2026-05-27",
       "catalogOrder": 1030,
       "licenseInfo": {
-        "label": "Нужно проверить в официальном источнике",
+        "label": "MIT",
         "original": "Нужно проверить в официальном источнике",
-        "spdx": null,
-        "kind": "unknown",
-        "status": "unverified",
-        "requiresReview": true,
+        "spdx": "MIT",
+        "kind": "open-source",
+        "status": "source-declared",
+        "requiresReview": false,
         "evidence": [
           {
             "kind": "license",
-            "label": "Other license",
+            "label": "MIT license",
             "url": "https://api.github.com/repos/elementalsouls/claude-bughunter/license"
           }
         ]
@@ -23410,7 +23446,7 @@
         },
         {
           "kind": "license",
-          "label": "Other license",
+          "label": "MIT license",
           "url": "https://api.github.com/repos/elementalsouls/claude-bughunter/license"
         }
       ],
@@ -24503,37 +24539,46 @@
       "type": "privacy",
       "category": "Подборка Eclipse",
       "subcategory": "Self-hosted security",
-      "simpleDescription": "Frigate — Python / Docker / TensorFlow Lite · Self-hosted NVR с AI object detection (object-aware recording). Local-only: ноль cloud subscription как у Ring / Google Nest. Поддержка IP camera RTSP. Альтернатива нашему уже залистанному Viseron — Frigate более активен (60K+ stars, eco-system: integrations с Home Assistant). Карточка помогает понять назначение ресурса и начать с небольшой безопасной проверки; условия использования ещё нужно сверить с официальным источником.",
+      "simpleDescription": "Self-hosted network video recorder для IP-камер с локальным real-time object detection, recordings и событиями. Полезен как reference для privacy-first vision pipeline, но камеры и биометрические события требуют отдельного consent, retention и network security проекта.",
       "useCases": [
-        "Разобраться, подходит ли Frigate для вашей задачи",
-        "Проверить возможности на небольшом тестовом сценарии до интеграции"
+        "Изучить local event detection для Hopson Sentinel.",
+        "Сравнить event timeline и alerts с security-модулем Eclipse AI Hub.",
+        "Использовать только на собственной тестовой камере в изолированной сети."
       ],
       "platforms": [
+        "Linux",
+        "Docker",
         "Self-host",
-        "Cloud"
+        "IP camera",
+        "Coral / GPU"
       ],
       "license": "MIT",
-      "pricing": "Исходный код доступен публично; hosting, модели и внешние API могут оплачиваться отдельно",
+      "pricing": "Код бесплатный; камеры, accelerator, storage и optional Frigate+ services оплачиваются отдельно",
       "access": {
-        "cost": "free",
-        "signup": "unknown",
-        "runtime": "hybrid"
+        "cost": "freemium",
+        "signup": "none",
+        "runtime": "self-host"
       },
       "trust": "community",
-      "trustReason": "Запись структурирована автоматически из опубликованного описания. Официальный источник, лицензия и условия ещё не прошли отдельную редакторскую проверку.",
-      "projects": [],
+      "trustReason": "Canonical repository, active development и MIT license проверены через GitHub API 09.08.2026. Runtime не запускался.",
+      "projects": [
+        "Hopson Sentinel",
+        "Eclipse AI Hub"
+      ],
       "decision": "reference",
-      "riskLevel": "medium",
+      "riskLevel": "high",
       "risks": [
-        "Лицензия, цена, permissions и обработка данных могут отличаться от краткого описания."
+        "Видео, лица, номера и домашние события являются чувствительными или биометрическими данными.",
+        "RTSP cameras и web UI нельзя открывать в internet без segmentation, auth и patching.",
+        "False positives нельзя автоматически превращать в опасные действия."
       ],
-      "verifiedAt": null,
+      "verifiedAt": "2026-08-09",
       "quickStart": [
-        "Откройте официальный источник и проверьте владельца, лицензию и дату обновления.",
-        "Не передавайте secrets или рабочие данные; начните с пустого тестового проекта.",
-        "Сравните результат с текущим способом работы и только потом решайте об интеграции."
+        "Только synthetic/public тестовое видео или собственная камера с consent.",
+        "Запускать в отдельном VLAN/container без production secrets.",
+        "Проверить retention, deletion, false positives и alert approval."
       ],
-      "reviewStatus": "inferred",
+      "reviewStatus": "verified",
       "source": {
         "file": "catalog/resources.json",
         "key": "frigate-github-com",
@@ -24545,10 +24590,22 @@
         }
       },
       "addedAt": "2026-05-27",
+      "licenseEvidence": [
+        {
+          "kind": "source",
+          "label": "Canonical repository",
+          "url": "https://github.com/blakeblackshear/frigate"
+        },
+        {
+          "kind": "license",
+          "label": "MIT license",
+          "url": "https://github.com/blakeblackshear/frigate/blob/dev/LICENSE"
+        }
+      ],
       "catalogOrder": 1069,
       "licenseInfo": {
         "label": "MIT",
-        "original": "Нужно проверить в официальном источнике",
+        "original": "MIT для canonical repository; container images, models и integrations проверяются отдельно",
         "spdx": "MIT",
         "kind": "open-source",
         "status": "source-declared",
@@ -24558,6 +24615,16 @@
             "kind": "license",
             "label": "MIT license",
             "url": "https://api.github.com/repos/blakeblackshear/frigate/license"
+          },
+          {
+            "kind": "source",
+            "label": "Canonical repository",
+            "url": "https://github.com/blakeblackshear/frigate"
+          },
+          {
+            "kind": "license",
+            "label": "MIT license",
+            "url": "https://github.com/blakeblackshear/frigate/blob/dev/LICENSE"
           }
         ]
       },
@@ -24571,6 +24638,11 @@
           "kind": "license",
           "label": "MIT license",
           "url": "https://api.github.com/repos/blakeblackshear/frigate/license"
+        },
+        {
+          "kind": "license",
+          "label": "MIT license",
+          "url": "https://github.com/blakeblackshear/frigate/blob/dev/LICENSE"
         }
       ],
       "agentEligibility": {
@@ -26273,9 +26345,9 @@
       "subcategory": "AI-воркспейсы и автономные агенты",
       "simpleDescription": "Локальный AI-агент с памятью, skills, tool calls и несколькими способами запуска. Полезен как готовый reference того, как CLI и desktop-интерфейс делят одно ядро.",
       "useCases": [
-        "Сравнить архитектуру локального оператора",
-        "Изучить перенос памяти и sessions между CLI и GUI",
-        "Проверить UX подключения tools и skills"
+        "Сравнить архитектуру локального оператора и self-improvement loop.",
+        "Изучить progressive skill loading, quarantine, security scan и approval gates.",
+        "Проверить UX переноса sessions и skills между CLI и desktop."
       ],
       "platforms": [
         "Windows",
@@ -26292,7 +26364,7 @@
         "runtime": "self-host"
       },
       "trust": "community",
-      "trustReason": "Canonical repository NousResearch, активность и MIT license подтверждены официальным GitHub API; маркетинговые показатели качества не подтверждены нашим benchmark.",
+      "trustReason": "Canonical repository NousResearch, MIT license и официальная документация Skills System проверены. Skills Hub теперь агрегирует несколько внешних registries, поэтому каждый community skill остаётся отдельным supply-chain объектом.",
       "projects": [
         "Hopson Sentinel",
         "oh-my-claudecode"
@@ -26300,11 +26372,11 @@
       "decision": "reference",
       "riskLevel": "high",
       "risks": [
-        "Агент может выполнять команды и обращаться к чувствительным данным",
-        "Community skills и tools требуют отдельного аудита",
-        "Память и logs могут сохранять secrets или персональные данные"
+        "Агент может выполнять команды и обращаться к чувствительным данным.",
+        "Community skills и внешние taps требуют отдельного статического аудита, pin и approval.",
+        "Память, logs и tool responses могут сохранять secrets или персональные данные."
       ],
-      "verifiedAt": "2026-07-27",
+      "verifiedAt": "2026-08-09",
       "quickStart": [
         "Изучить архитектуру и permissions без подключения production accounts",
         "Если нужен запуск — использовать VM/container и тестовые credentials",
@@ -45187,9 +45259,14 @@
         "original": "MIT; whiteboard diagram отдельно CC BY-NC-SA 4.0",
         "spdx": "MIT",
         "kind": "open-source",
-        "status": "editor-reviewed",
+        "status": "source-declared",
         "requiresReview": false,
         "evidence": [
+          {
+            "kind": "license",
+            "label": "MIT license",
+            "url": "https://api.github.com/repos/shenseanchen/waku-agent/license"
+          },
           {
             "kind": "license",
             "label": "Repository MIT license",
@@ -45202,6 +45279,11 @@
           "kind": "official-source",
           "label": "Официальный источник",
           "url": "https://github.com/ShenSeanChen/waku-agent"
+        },
+        {
+          "kind": "license",
+          "label": "MIT license",
+          "url": "https://api.github.com/repos/shenseanchen/waku-agent/license"
         },
         {
           "kind": "license",
@@ -45287,9 +45369,14 @@
         "original": "MIT",
         "spdx": "MIT",
         "kind": "open-source",
-        "status": "editor-reviewed",
+        "status": "source-declared",
         "requiresReview": false,
         "evidence": [
+          {
+            "kind": "license",
+            "label": "Other license",
+            "url": "https://api.github.com/repos/tencentcloud/tencentdb-agent-memory/license"
+          },
           {
             "kind": "license",
             "label": "Repository MIT license",
@@ -45302,6 +45389,11 @@
           "kind": "official-source",
           "label": "Официальный источник",
           "url": "https://github.com/TencentCloud/TencentDB-Agent-Memory"
+        },
+        {
+          "kind": "license",
+          "label": "Other license",
+          "url": "https://api.github.com/repos/tencentcloud/tencentdb-agent-memory/license"
         },
         {
           "kind": "license",
@@ -45475,9 +45567,14 @@
         "original": "AGPL-3.0",
         "spdx": "AGPL-3.0",
         "kind": "open-source",
-        "status": "editor-reviewed",
+        "status": "source-declared",
         "requiresReview": false,
         "evidence": [
+          {
+            "kind": "license",
+            "label": "AGPL-3.0 license",
+            "url": "https://api.github.com/repos/iv-org/invidious/license"
+          },
           {
             "kind": "license",
             "label": "Repository AGPL-3.0 license",
@@ -45490,6 +45587,11 @@
           "kind": "official-source",
           "label": "Официальный источник",
           "url": "https://github.com/iv-org/invidious"
+        },
+        {
+          "kind": "license",
+          "label": "AGPL-3.0 license",
+          "url": "https://api.github.com/repos/iv-org/invidious/license"
         },
         {
           "kind": "license",
@@ -45756,9 +45858,14 @@
         "original": "MIT",
         "spdx": "MIT",
         "kind": "open-source",
-        "status": "editor-reviewed",
+        "status": "source-declared",
         "requiresReview": false,
         "evidence": [
+          {
+            "kind": "license",
+            "label": "MIT license",
+            "url": "https://api.github.com/repos/andrewyng/openworker/license"
+          },
           {
             "kind": "license",
             "label": "Repository MIT license",
@@ -45771,6 +45878,11 @@
           "kind": "official-source",
           "label": "Официальный источник",
           "url": "https://github.com/andrewyng/openworker"
+        },
+        {
+          "kind": "license",
+          "label": "MIT license",
+          "url": "https://api.github.com/repos/andrewyng/openworker/license"
         },
         {
           "kind": "license",
@@ -46053,9 +46165,14 @@
         "original": "MIT",
         "spdx": "MIT",
         "kind": "open-source",
-        "status": "editor-reviewed",
+        "status": "source-declared",
         "requiresReview": false,
         "evidence": [
+          {
+            "kind": "license",
+            "label": "MIT license",
+            "url": "https://api.github.com/repos/firecrawl/anydoc/license"
+          },
           {
             "kind": "license",
             "label": "Repository MIT license",
@@ -46068,6 +46185,11 @@
           "kind": "official-source",
           "label": "Официальный источник",
           "url": "https://github.com/firecrawl/anydoc"
+        },
+        {
+          "kind": "license",
+          "label": "MIT license",
+          "url": "https://api.github.com/repos/firecrawl/anydoc/license"
         },
         {
           "kind": "license",
@@ -46246,9 +46368,14 @@
         "original": "AGPL-3.0; commercial license требуется для embedding без AGPL obligations",
         "spdx": "AGPL-3.0",
         "kind": "open-source",
-        "status": "editor-reviewed",
+        "status": "source-declared",
         "requiresReview": false,
         "evidence": [
+          {
+            "kind": "license",
+            "label": "AGPL-3.0 license",
+            "url": "https://api.github.com/repos/repowise-dev/repowise/license"
+          },
           {
             "kind": "license",
             "label": "Repository AGPL-3.0 license",
@@ -46261,6 +46388,11 @@
           "kind": "official-source",
           "label": "Официальный источник",
           "url": "https://github.com/repowise-dev/repowise"
+        },
+        {
+          "kind": "license",
+          "label": "AGPL-3.0 license",
+          "url": "https://api.github.com/repos/repowise-dev/repowise/license"
         },
         {
           "kind": "license",
@@ -46350,9 +46482,14 @@
         "original": "Apache-2.0",
         "spdx": "Apache-2.0",
         "kind": "open-source",
-        "status": "editor-reviewed",
+        "status": "source-declared",
         "requiresReview": false,
         "evidence": [
+          {
+            "kind": "license",
+            "label": "Apache-2.0 license",
+            "url": "https://api.github.com/repos/cloudflare/cloudflare-os/license"
+          },
           {
             "kind": "license",
             "label": "Repository Apache-2.0 license",
@@ -46370,6 +46507,11 @@
           "kind": "official-source",
           "label": "Официальный источник",
           "url": "https://github.com/cloudflare/cloudflare-os"
+        },
+        {
+          "kind": "license",
+          "label": "Apache-2.0 license",
+          "url": "https://api.github.com/repos/cloudflare/cloudflare-os/license"
         },
         {
           "kind": "license",
@@ -46862,6 +47004,2753 @@
           "grey-resource",
           "editorial-decision-no"
         ],
+        "installAllowed": false
+      }
+    },
+    {
+      "category": "Подборка Eclipse",
+      "verifiedAt": "2026-08-09",
+      "reviewStatus": "verified",
+      "id": "originkit-animated-components",
+      "url": "https://www.originkit.dev/",
+      "title": "OriginKit",
+      "type": "tool",
+      "subcategory": "React / Framer UI-компоненты и анимации",
+      "simpleDescription": "Каталог настраиваемых анимированных элементов для современных сайтов: фон, текст, курсор и интерактивные блоки можно посмотреть, настроить и перенести в React, Next.js, Vite или Framer. Это источник прототипов, а не готовая дизайн-система Eclipse Forge.",
+      "useCases": [
+        "Быстро прототипировать один заметный motion-акцент для Eclipse Forge Landing или страницы релиза.",
+        "Изучить реализацию интерактивного фона или текста для Eclipse Media и Shotforge.",
+        "Собрать собственный безопасный компонент после проверки accessibility, bundle size и лицензии конкретного фрагмента."
+      ],
+      "platforms": [
+        "Web",
+        "React",
+        "Next.js",
+        "Vite",
+        "Framer"
+      ],
+      "license": "Не найдена единая явная лицензия на копируемый код; слово «free» не заменяет разрешение на коммерческое переиспользование",
+      "licenseEvidence": [
+        {
+          "kind": "source",
+          "label": "Official component library",
+          "url": "https://www.originkit.dev/"
+        }
+      ],
+      "pricing": "Каталог заявлен как бесплатный; для получения исходника через сторонние интеграции может требоваться бесплатный ключ OriginKit",
+      "access": {
+        "cost": "free",
+        "signup": "optional",
+        "runtime": "cloud"
+      },
+      "trust": "caution",
+      "trustReason": "Официальный сайт и назначение подтверждены, но единая публичная лицензия на копируемые компоненты не найдена. До письменного подтверждения используем только как reference.",
+      "projects": [
+        "Eclipse Forge Landing",
+        "Eclipse Library",
+        "Eclipse Media",
+        "Shotforge"
+      ],
+      "decision": "reference",
+      "riskLevel": "medium",
+      "risks": [
+        "Неясные права на code snippets запрещают прямой перенос в коммерческий продукт без отдельной проверки.",
+        "Сторонний код может содержать зависимости, telemetry, тяжёлые canvas/WebGL эффекты или несовместимые версии React.",
+        "Cursor effects и постоянное движение могут нарушить accessibility и ухудшить мобильный scroll."
+      ],
+      "quickStart": [
+        "Выбрать один компонент под конкретную задачу, не копировать всю библиотеку.",
+        "Проверить условия именно этого компонента и вручную прочитать весь код и зависимости.",
+        "Переписать в существующих tokens/components Eclipse Forge, добавить reduced-motion fallback и измерить Lighthouse."
+      ],
+      "addedAt": "2026-08-07",
+      "source": {
+        "file": "catalog/resources.json",
+        "key": "originkit-animated-components",
+        "legacy": {
+          "file": "user-message",
+          "line": 2457,
+          "category": "Новые источники 07–09.08.2026",
+          "subcategory": "React / Framer UI-компоненты и анимации"
+        }
+      },
+      "catalogOrder": 2457,
+      "licenseInfo": {
+        "label": "Не найдена единая явная лицензия на копируемый код; слово «free» не заменяет разрешение на коммерческое переиспользование",
+        "original": "Не найдена единая явная лицензия на копируемый код; слово «free» не заменяет разрешение на коммерческое переиспользование",
+        "spdx": null,
+        "kind": "custom",
+        "status": "editor-reviewed",
+        "requiresReview": false,
+        "evidence": [
+          {
+            "kind": "source",
+            "label": "Official component library",
+            "url": "https://www.originkit.dev/"
+          }
+        ]
+      },
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://www.originkit.dev/"
+        }
+      ],
+      "agentEligibility": {
+        "eligible": true,
+        "reasons": [],
+        "installAllowed": false
+      }
+    },
+    {
+      "category": "Подборка Eclipse",
+      "verifiedAt": "2026-08-09",
+      "reviewStatus": "verified",
+      "id": "hermes-skills-hub",
+      "url": "https://hermes-agent.nousresearch.com/docs/skills",
+      "title": "Hermes Skills Hub",
+      "type": "skill",
+      "subcategory": "Каталоги skills и supply-chain",
+      "simpleDescription": "Поисковый каталог Nous Research поверх нескольких skill-источников, включая official optional skills, skills.sh, GitHub taps и прямые SKILL.md. Он помогает найти и предварительно inspect-ить навык, но большое число записей не означает одинаковое качество, безопасность или совместимость.",
+      "useCases": [
+        "Использовать как discovery-источник для Skill Registry в Hopson Sentinel и oh-my-claudecode.",
+        "Заимствовать UX inspect → security scan → approval → pinned install для Eclipse AI Hub.",
+        "Сравнивать найденный skill с уже установленными возможностями и отбрасывать дубли до установки."
+      ],
+      "platforms": [
+        "Web",
+        "CLI",
+        "Linux",
+        "macOS"
+      ],
+      "license": "MIT",
+      "licenseEvidence": [
+        {
+          "kind": "source",
+          "label": "Official Skills Hub",
+          "url": "https://hermes-agent.nousresearch.com/docs/skills"
+        },
+        {
+          "kind": "source",
+          "label": "Official skills documentation",
+          "url": "https://hermes-agent.nousresearch.com/docs/user-guide/features/skills"
+        }
+      ],
+      "pricing": "Каталог и код Hermes бесплатны; внешние skills, модели и подключаемые сервисы могут быть платными",
+      "access": {
+        "cost": "free",
+        "signup": "none",
+        "runtime": "hybrid"
+      },
+      "trust": "official",
+      "trustReason": "Проверены официальные документы Nous Research. Текущий интерфейс сообщает о загрузке 88k+ skills, но динамический счётчик и категории меняются, поэтому число 90 684 не фиксируем как постоянный факт.",
+      "projects": [
+        "Hopson Sentinel",
+        "oh-my-claudecode",
+        "Eclipse AI Hub",
+        "Eclipse Library"
+      ],
+      "decision": "reference",
+      "riskLevel": "high",
+      "risks": [
+        "Community skill является исполняемой инструкцией для агента и может содержать prompt injection, exfiltration или destructive commands.",
+        "Совместимость формата не гарантирует наличие нужных tools, OS или безопасных permissions.",
+        "Автообновление без pin и повторного diff-а создаёт supply-chain риск."
+      ],
+      "quickStart": [
+        "Искать только под конкретный отсутствующий сценарий, сначала проверив дубли в Eclipse Library.",
+        "Открыть источник, лицензию, scripts/references и полный diff без запуска install-команд.",
+        "Разрешать pinned установку только в sandbox после статического аудита и ручного approval."
+      ],
+      "addedAt": "2026-08-09",
+      "source": {
+        "file": "catalog/resources.json",
+        "key": "hermes-skills-hub",
+        "legacy": {
+          "file": "user-message",
+          "line": 2458,
+          "category": "Новые источники 07–09.08.2026",
+          "subcategory": "Каталоги skills и supply-chain"
+        }
+      },
+      "catalogOrder": 2458,
+      "licenseInfo": {
+        "label": "MIT",
+        "original": "Hermes Agent — MIT; у каждого внешнего skill своя лицензия и владелец",
+        "spdx": "MIT",
+        "kind": "open-source",
+        "status": "editor-reviewed",
+        "requiresReview": false,
+        "evidence": [
+          {
+            "kind": "source",
+            "label": "Official Skills Hub",
+            "url": "https://hermes-agent.nousresearch.com/docs/skills"
+          },
+          {
+            "kind": "source",
+            "label": "Official skills documentation",
+            "url": "https://hermes-agent.nousresearch.com/docs/user-guide/features/skills"
+          }
+        ]
+      },
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://hermes-agent.nousresearch.com/docs/skills"
+        },
+        {
+          "kind": "source",
+          "label": "Official skills documentation",
+          "url": "https://hermes-agent.nousresearch.com/docs/user-guide/features/skills"
+        }
+      ],
+      "agentEligibility": {
+        "eligible": true,
+        "reasons": [],
+        "installAllowed": false
+      }
+    },
+    {
+      "category": "Подборка Eclipse",
+      "verifiedAt": "2026-08-09",
+      "reviewStatus": "verified",
+      "id": "nvidia-nemotronlabs-voicechat",
+      "url": "https://github.com/NVIDIA-NeMo/Speech/tree/nemotron-labs-voicechat",
+      "title": "NVIDIA NemotronLabs VoiceChat 11B",
+      "type": "model",
+      "subcategory": "Realtime voice agents и tool calling",
+      "simpleDescription": "Экспериментальная full-duplex speech-to-speech модель NVIDIA: слушает и отвечает потоковым аудио, а отдельный канал формирует tool calls. Текущий checkpoint использует один фиксированный голос, не умеет voice cloning и требует NVIDIA GPU минимум с 80 ГБ памяти.",
+      "useCases": [
+        "Провести offline benchmark перебивания, задержки и tool accuracy для голосового режима Hopson Sentinel.",
+        "Исследовать voice rooms для Eclipse Chat без немедленного подключения production tools.",
+        "Проверить сценарий разговорного AI-репетитора в Educator-AI на синтетических данных."
+      ],
+      "platforms": [
+        "Linux",
+        "NVIDIA GPU",
+        "Docker",
+        "Self-host",
+        "WebSocket"
+      ],
+      "license": "Apache-2.0",
+      "licenseEvidence": [
+        {
+          "kind": "source",
+          "label": "Experimental branch README",
+          "url": "https://github.com/NVIDIA-NeMo/Speech/blob/nemotron-labs-voicechat/README.md"
+        },
+        {
+          "kind": "license",
+          "label": "Model license",
+          "url": "https://github.com/NVIDIA-NeMo/Speech/blob/nemotron-labs-voicechat/LICENSE_OpenMDW-1.1"
+        }
+      ],
+      "pricing": "Код и checkpoint доступны публично; нужен дорогой GPU с 80 ГБ VRAM или аренда соответствующей инфраструктуры",
+      "access": {
+        "cost": "free",
+        "signup": "optional",
+        "runtime": "self-host"
+      },
+      "trust": "official",
+      "trustReason": "Проверены официальный экспериментальный branch NVIDIA, README, hardware requirements, лицензии и documented limitations. Рекламные заявления о разных голосах и универсальности текущий release не подтверждает.",
+      "projects": [
+        "Hopson Sentinel",
+        "Eclipse Chat",
+        "Educator-AI",
+        "Eclipse AI Hub"
+      ],
+      "decision": "roadmap",
+      "riskLevel": "high",
+      "risks": [
+        "Tool calling может пропускать вызовы, выдумывать аргументы или продолжать говорить без запроса; NVIDIA рекомендует не более пяти tools за session.",
+        "Модель не ориентирована на safety и сложное reasoning, контекст длиннее примерно двух минут ненадёжен.",
+        "Голос, транскрипты и команды являются чувствительными данными; нужны consent, retention policy, auth и approval перед любым side effect."
+      ],
+      "quickStart": [
+        "Не устанавливать на рабочую машину: подготовить отдельный GPU sandbox без secrets и production accounts.",
+        "Запустить offline набор на русском и английском: interruptions, noisy audio, missing arguments, tool denial и runaway speech.",
+        "Только после измерений добавить proxy с allowlist, schema validation, confirmation и полным audit log."
+      ],
+      "addedAt": "2026-08-09",
+      "source": {
+        "file": "catalog/resources.json",
+        "key": "nvidia-nemotronlabs-voicechat",
+        "legacy": {
+          "file": "user-message",
+          "line": 2459,
+          "category": "Новые источники 07–09.08.2026",
+          "subcategory": "Realtime voice agents и tool calling"
+        }
+      },
+      "catalogOrder": 2459,
+      "licenseInfo": {
+        "label": "Apache-2.0",
+        "original": "NeMo code — Apache-2.0; VoiceChat model — NVIDIA Open Model Development and Work License 1.1 (OpenMDW-1.1)",
+        "spdx": "Apache-2.0",
+        "kind": "open-source",
+        "status": "source-declared",
+        "requiresReview": false,
+        "evidence": [
+          {
+            "kind": "license",
+            "label": "Apache-2.0 license",
+            "url": "https://api.github.com/repos/nvidia-nemo/speech/license"
+          },
+          {
+            "kind": "source",
+            "label": "Experimental branch README",
+            "url": "https://github.com/NVIDIA-NeMo/Speech/blob/nemotron-labs-voicechat/README.md"
+          },
+          {
+            "kind": "license",
+            "label": "Model license",
+            "url": "https://github.com/NVIDIA-NeMo/Speech/blob/nemotron-labs-voicechat/LICENSE_OpenMDW-1.1"
+          }
+        ]
+      },
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://github.com/NVIDIA-NeMo/Speech/tree/nemotron-labs-voicechat"
+        },
+        {
+          "kind": "license",
+          "label": "Apache-2.0 license",
+          "url": "https://api.github.com/repos/nvidia-nemo/speech/license"
+        },
+        {
+          "kind": "source",
+          "label": "Experimental branch README",
+          "url": "https://github.com/NVIDIA-NeMo/Speech/blob/nemotron-labs-voicechat/README.md"
+        },
+        {
+          "kind": "license",
+          "label": "Model license",
+          "url": "https://github.com/NVIDIA-NeMo/Speech/blob/nemotron-labs-voicechat/LICENSE_OpenMDW-1.1"
+        }
+      ],
+      "agentEligibility": {
+        "eligible": true,
+        "reasons": [],
+        "installAllowed": false
+      }
+    },
+    {
+      "category": "Подборка Eclipse",
+      "verifiedAt": "2026-08-09",
+      "reviewStatus": "verified",
+      "id": "qwen3-audiobook-converter",
+      "url": "https://github.com/WhiskeyCoder/Qwen3-Audiobook-Converter",
+      "title": "Qwen Audiobook Converter",
+      "type": "media",
+      "subcategory": "Документы в аудиокниги и локальный TTS",
+      "simpleDescription": "Community Python-конвертер, который извлекает текст из PDF, EPUB, DOCX, DOC или TXT, режет его на фрагменты и отправляет в локальный Qwen3-TTS Gradio server. Поддерживает готовые голоса и voice clone, но не обещанную рекламой автоматическую многоголосую драматизацию персонажей.",
+      "useCases": [
+        "Сделать контролируемый document → narration pipeline для Eclipse Media.",
+        "Готовить доступные аудиоверсии собственных учебных материалов Educator-AI.",
+        "Озвучивать пользовательские DnD lore-документы в Eclipse DnD Forge только с подтверждёнными правами."
+      ],
+      "platforms": [
+        "Windows",
+        "macOS",
+        "Linux",
+        "Python",
+        "FFmpeg",
+        "Self-host"
+      ],
+      "license": "MIT",
+      "licenseEvidence": [
+        {
+          "kind": "source",
+          "label": "Canonical repository",
+          "url": "https://github.com/WhiskeyCoder/Qwen3-Audiobook-Converter"
+        },
+        {
+          "kind": "license",
+          "label": "MIT license",
+          "url": "https://github.com/WhiskeyCoder/Qwen3-Audiobook-Converter/blob/main/LICENSE"
+        }
+      ],
+      "pricing": "Код бесплатный; локальная генерация требует собственных вычислений и диска",
+      "access": {
+        "cost": "free",
+        "signup": "none",
+        "runtime": "self-host"
+      },
+      "trust": "community",
+      "trustReason": "Canonical repository, MIT license и README сверены через GitHub. Код не запускался; поддержка форматов подтверждена документацией проекта, качество и безопасность требуют собственного benchmark.",
+      "projects": [
+        "Eclipse Media",
+        "Educator-AI",
+        "Eclipse DnD Forge",
+        "Shotforge"
+      ],
+      "decision": "roadmap",
+      "riskLevel": "high",
+      "risks": [
+        "Voice cloning требует явного согласия владельца голоса и защиты биометрических данных.",
+        "PDF/DOC/EPUB — недоверенные файлы: возможны parser bugs, zip bombs, огромные документы и copyright нарушения.",
+        "Проект зависит от локального Gradio API и FFmpeg; нельзя открывать их наружу без auth и sandbox."
+      ],
+      "quickStart": [
+        "Статически проверить dependencies и parsers, затем запускать только в контейнере без сети и secrets.",
+        "Использовать короткий public-domain текст и встроенный голос; voice cloning выключить.",
+        "Измерить качество русского языка, длительность, VRAM, ошибки извлечения и стоимость часа до интеграции."
+      ],
+      "addedAt": "2026-08-09",
+      "source": {
+        "file": "catalog/resources.json",
+        "key": "qwen3-audiobook-converter",
+        "legacy": {
+          "file": "user-message",
+          "line": 2460,
+          "category": "Новые источники 07–09.08.2026",
+          "subcategory": "Документы в аудиокниги и локальный TTS"
+        }
+      },
+      "catalogOrder": 2460,
+      "licenseInfo": {
+        "label": "MIT",
+        "original": "MIT для converter; Qwen3-TTS model weights, входные книги, шрифты и голоса проверяются отдельно",
+        "spdx": "MIT",
+        "kind": "open-source",
+        "status": "source-declared",
+        "requiresReview": false,
+        "evidence": [
+          {
+            "kind": "license",
+            "label": "MIT license",
+            "url": "https://api.github.com/repos/whiskeycoder/qwen3-audiobook-converter/license"
+          },
+          {
+            "kind": "source",
+            "label": "Canonical repository",
+            "url": "https://github.com/WhiskeyCoder/Qwen3-Audiobook-Converter"
+          },
+          {
+            "kind": "license",
+            "label": "MIT license",
+            "url": "https://github.com/WhiskeyCoder/Qwen3-Audiobook-Converter/blob/main/LICENSE"
+          }
+        ]
+      },
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://github.com/WhiskeyCoder/Qwen3-Audiobook-Converter"
+        },
+        {
+          "kind": "license",
+          "label": "MIT license",
+          "url": "https://api.github.com/repos/whiskeycoder/qwen3-audiobook-converter/license"
+        },
+        {
+          "kind": "license",
+          "label": "MIT license",
+          "url": "https://github.com/WhiskeyCoder/Qwen3-Audiobook-Converter/blob/main/LICENSE"
+        }
+      ],
+      "agentEligibility": {
+        "eligible": true,
+        "reasons": [],
+        "installAllowed": false
+      }
+    },
+    {
+      "category": "Подборка Eclipse",
+      "verifiedAt": "2026-08-09",
+      "reviewStatus": "verified",
+      "id": "freellm-directory",
+      "url": "https://freellm.sh/",
+      "title": "freeLLM",
+      "type": "learn",
+      "subcategory": "Каталоги AI-провайдеров и free tiers",
+      "simpleDescription": "Небольшой независимый каталог бесплатного доступа к AI-моделям и провайдерам. Можно фильтровать по типу модели, регистрации, карте, телефону, data training и виду free tier, но сам автор предупреждает, что отдельные лимиты и статусы могут устареть.",
+      "useCases": [
+        "Находить кандидатов для ручного Provider Registry review в Eclipse AI Hub.",
+        "Сравнивать требования регистрации и privacy перед benchmark в Hopson Sentinel и oh-my-claudecode.",
+        "Собирать идеи для фильтров стоимости и приватности в Eclipse Model Registry."
+      ],
+      "platforms": [
+        "Web"
+      ],
+      "license": "Proprietary directory content; условия каждой модели и provider API проверяются отдельно",
+      "licenseEvidence": [
+        {
+          "kind": "source",
+          "label": "Official directory",
+          "url": "https://freellm.sh/"
+        }
+      ],
+      "pricing": "Каталог бесплатный; перечисленные free tiers имеют собственные квоты, требования и могут измениться без предупреждения",
+      "access": {
+        "cost": "free",
+        "signup": "none",
+        "runtime": "cloud"
+      },
+      "trust": "caution",
+      "trustReason": "Сайт и 18 текущих записей проверены 09.08.2026. На странице есть явное предупреждение об устаревании, а метод независимого мониторинга и юридические условия каталога не опубликованы.",
+      "projects": [
+        "Eclipse AI Hub",
+        "Hopson Sentinel",
+        "oh-my-claudecode",
+        "Eclipse Library"
+      ],
+      "decision": "reference",
+      "riskLevel": "medium",
+      "risks": [
+        "Free tier может закончиться, потребовать карту или использовать запросы для обучения.",
+        "Каталог не заменяет официальный Terms, DPA, retention, region и rate-limit review.",
+        "Нельзя автоматически получать или распределять API keys через этот список."
+      ],
+      "quickStart": [
+        "Выбрать кандидата в каталоге и открыть только его официальный provider page.",
+        "Проверить Terms, pricing, DPA, retention, data training, регион, лимиты и владельца.",
+        "Добавлять provider в AI Hub только после собственного eval и с kill switch; FreeLLM не использовать как runtime dependency."
+      ],
+      "addedAt": "2026-08-07",
+      "source": {
+        "file": "catalog/resources.json",
+        "key": "freellm-directory",
+        "legacy": {
+          "file": "user-message",
+          "line": 2461,
+          "category": "Новые источники 07–09.08.2026",
+          "subcategory": "Каталоги AI-провайдеров и free tiers"
+        }
+      },
+      "catalogOrder": 2461,
+      "licenseInfo": {
+        "label": "Proprietary directory content; условия каждой модели и provider API проверяются отдельно",
+        "original": "Proprietary directory content; условия каждой модели и provider API проверяются отдельно",
+        "spdx": null,
+        "kind": "custom",
+        "status": "editor-reviewed",
+        "requiresReview": false,
+        "evidence": [
+          {
+            "kind": "source",
+            "label": "Official directory",
+            "url": "https://freellm.sh/"
+          }
+        ]
+      },
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://freellm.sh/"
+        }
+      ],
+      "agentEligibility": {
+        "eligible": true,
+        "reasons": [],
+        "installAllowed": false
+      }
+    },
+    {
+      "category": "Подборка Eclipse",
+      "verifiedAt": "2026-08-09",
+      "reviewStatus": "verified",
+      "id": "nodumbmode-agent-skills",
+      "url": "https://github.com/hanumatori/nodumbmode",
+      "title": "nodumbmode",
+      "type": "skill",
+      "subcategory": "Skills / product reasoning / change discipline",
+      "simpleDescription": "Четыре небольших русскоязычных skill-документа для coding agents: предварительная проверка фактов, журнал решений, проверка понятной системной обратной связи и разбор UX-задачи до реализации. Это инструкции, а не гарантия меньшего расхода токенов или отсутствия ошибок.",
+      "useCases": [
+        "Сравнить nodumb и ask-nodumb с действующими AGENTS.md и Product UX Principles.",
+        "Заимствовать недостающие regression-вопросы для oh-my-claudecode и Hopson Sentinel.",
+        "Использовать system-feedback как reference для проверки loading, error, success и recovery states."
+      ],
+      "platforms": [
+        "Claude Code",
+        "Codex",
+        "Cursor",
+        "Agent Skills"
+      ],
+      "license": "Лицензия в canonical repository не указана; публичный доступ не даёт права копировать или распространять тексты",
+      "licenseEvidence": [
+        {
+          "kind": "source",
+          "label": "Canonical repository after owner redirect",
+          "url": "https://github.com/hanumatori/nodumbmode"
+        }
+      ],
+      "pricing": "Публичный repository бесплатен для просмотра",
+      "access": {
+        "cost": "free",
+        "signup": "none",
+        "runtime": "local"
+      },
+      "trust": "caution",
+      "trustReason": "README и четыре заявленных skill-пути проверены статически; repository переехал с hronicasync на hanumatori, явной LICENSE нет. Команда npx не запускалась.",
+      "projects": [
+        "oh-my-claudecode",
+        "Hopson Sentinel",
+        "Eclipse AI Hub",
+        "Eclipse Library"
+      ],
+      "decision": "reference",
+      "riskLevel": "medium",
+      "risks": [
+        "npx skills@latest исполняет внешний package и записывает файлы/симлинки сразу в несколько agent directories.",
+        "Автообновление может изменить инструкции без review; отсутствие лицензии блокирует прямое включение в наш продукт.",
+        "Часть правил уже есть в Eclipse Forge, поэтому wholesale install создаст конфликт и лишний context."
+      ],
+      "quickStart": [
+        "Не запускать npx. Открыть каждый SKILL.md, references и историю commits вручную.",
+        "Составить diff с AGENTS.md и выписать только реально отсутствующие regression checks.",
+        "Если автор добавит подходящую лицензию, перенести идеи собственной формулировкой и покрыть тестовым сценарием."
+      ],
+      "addedAt": "2026-08-08",
+      "source": {
+        "file": "catalog/resources.json",
+        "key": "nodumbmode-agent-skills",
+        "legacy": {
+          "file": "user-message",
+          "line": 2462,
+          "category": "Новые источники 07–09.08.2026",
+          "subcategory": "Skills / product reasoning / change discipline"
+        }
+      },
+      "catalogOrder": 2462,
+      "licenseInfo": {
+        "label": "Лицензия в canonical repository не указана; публичный доступ не даёт права копировать или распространять тексты",
+        "original": "Лицензия в canonical repository не указана; публичный доступ не даёт права копировать или распространять тексты",
+        "spdx": null,
+        "kind": "unknown",
+        "status": "unverified",
+        "requiresReview": true,
+        "evidence": [
+          {
+            "kind": "source",
+            "label": "Canonical repository after owner redirect",
+            "url": "https://github.com/hanumatori/nodumbmode"
+          }
+        ]
+      },
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://github.com/hanumatori/nodumbmode"
+        }
+      ],
+      "agentEligibility": {
+        "eligible": true,
+        "reasons": [],
+        "installAllowed": false
+      }
+    },
+    {
+      "category": "Подборка Eclipse",
+      "verifiedAt": "2026-08-09",
+      "reviewStatus": "verified",
+      "id": "checklist-design",
+      "url": "https://www.checklist.design/",
+      "title": "Checklist Design",
+      "type": "learn",
+      "subcategory": "UX/UI review checklists",
+      "simpleDescription": "Справочник по проверке экранов, flows и UI-компонентов: вместо абстрактного «сделать удобно» показывает конкретные вопросы для login, search, pricing, forms и других сценариев. Полезен как человеческий review companion, но не заменяет accessibility tests и исследования пользователей.",
+      "useCases": [
+        "Применять подходящий checklist при review Eclipse Library, Chat, AI Hub и Landing.",
+        "Дополнить собственный Definition of Done состояниями loading, empty, error, success, disabled и recovery.",
+        "Готовить короткие acceptance criteria до реализации нового экрана."
+      ],
+      "platforms": [
+        "Web"
+      ],
+      "license": "Proprietary reference content; нельзя массово копировать и перепубликовывать чек-листы без разрешения",
+      "licenseEvidence": [
+        {
+          "kind": "source",
+          "label": "Official website",
+          "url": "https://www.checklist.design/"
+        },
+        {
+          "kind": "source",
+          "label": "Browse checklists",
+          "url": "https://www.checklist.design/browse"
+        }
+      ],
+      "pricing": "Публичные checklist pages доступны бесплатно; условия сохранения прогресса и дополнительных функций нужно проверять на сайте",
+      "access": {
+        "cost": "free",
+        "signup": "optional",
+        "runtime": "cloud"
+      },
+      "trust": "official",
+      "trustReason": "Официальный сайт, browse и category pages проверены. Заявление «100+» не используем как постоянную характеристику: состав каталога меняется.",
+      "projects": [
+        "Eclipse Library",
+        "Eclipse Chat",
+        "Eclipse AI Hub",
+        "Eclipse Forge Landing"
+      ],
+      "decision": "now",
+      "riskLevel": "low",
+      "risks": [
+        "Чек-лист может создать ложное чувство готовности без keyboard, screen reader, performance и реального user testing.",
+        "Пункты нужно адаптировать к продукту, а не копировать как универсальный стандарт."
+      ],
+      "quickStart": [
+        "До coding выбрать один checklist, соответствующий изменяемому экрану или flow.",
+        "Перевести релевантные пункты в измеримые acceptance criteria и добавить обязательные Eclipse UX states.",
+        "После реализации проверить desktop/mobile, keyboard, reduced motion и основное действие за три секунды."
+      ],
+      "addedAt": "2026-08-08",
+      "source": {
+        "file": "catalog/resources.json",
+        "key": "checklist-design",
+        "legacy": {
+          "file": "user-message",
+          "line": 2463,
+          "category": "Новые источники 07–09.08.2026",
+          "subcategory": "UX/UI review checklists"
+        }
+      },
+      "catalogOrder": 2463,
+      "licenseInfo": {
+        "label": "Proprietary reference content; нельзя массово копировать и перепубликовывать чек-листы без разрешения",
+        "original": "Proprietary reference content; нельзя массово копировать и перепубликовывать чек-листы без разрешения",
+        "spdx": null,
+        "kind": "custom",
+        "status": "editor-reviewed",
+        "requiresReview": false,
+        "evidence": [
+          {
+            "kind": "source",
+            "label": "Official website",
+            "url": "https://www.checklist.design/"
+          },
+          {
+            "kind": "source",
+            "label": "Browse checklists",
+            "url": "https://www.checklist.design/browse"
+          }
+        ]
+      },
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://www.checklist.design/"
+        },
+        {
+          "kind": "source",
+          "label": "Browse checklists",
+          "url": "https://www.checklist.design/browse"
+        }
+      ],
+      "agentEligibility": {
+        "eligible": true,
+        "reasons": [],
+        "installAllowed": false
+      }
+    },
+    {
+      "category": "Подборка Eclipse",
+      "verifiedAt": "2026-08-09",
+      "reviewStatus": "verified",
+      "id": "grok-imagine-quality-mode",
+      "url": "https://x.ai/news/grok-imagine-quality-mode",
+      "title": "Grok Imagine Quality Mode",
+      "type": "model",
+      "subcategory": "Cloud image generation and editing",
+      "simpleDescription": "Официальный quality-режим xAI для генерации и редактирования изображений через Grok Imagine API. xAI заявляет более реалистичные детали, сильный text rendering, точнее prompt following и работу с reference images; название «Imagine Image 2.0» в официальном релизе не используется.",
+      "useCases": [
+        "Добавить в controlled image benchmark Eclipse AI Hub и Text2Image.",
+        "Сравнить product assets, typography и reference consistency для Eclipse Media и Shotforge.",
+        "Использовать только после показа цены, provider, policy и expected output до запуска."
+      ],
+      "platforms": [
+        "Web",
+        "Cloud",
+        "API"
+      ],
+      "license": "Proprietary xAI service; output rights, acceptable use and data handling определяются действующими xAI Terms и API terms",
+      "licenseEvidence": [
+        {
+          "kind": "source",
+          "label": "Official xAI release",
+          "url": "https://x.ai/news/grok-imagine-quality-mode"
+        },
+        {
+          "kind": "source",
+          "label": "xAI API documentation",
+          "url": "https://docs.x.ai/docs/guides/image-generations"
+        }
+      ],
+      "pricing": "Доступ через Grok и enterprise/API; актуальную цену и квоты нужно показывать из официальной pricing page перед каждым запуском",
+      "access": {
+        "cost": "paid",
+        "signup": "required",
+        "runtime": "cloud"
+      },
+      "trust": "official",
+      "trustReason": "Проверен официальный релиз xAI от 06.05.2026 и актуальный Arena leaderboard. Маркетинговое название и «серебро» из поста не совпадают с текущими официальными таблицами, поэтому исключены.",
+      "projects": [
+        "Text2Image",
+        "Eclipse Media",
+        "Shotforge",
+        "Eclipse AI Hub"
+      ],
+      "decision": "roadmap",
+      "riskLevel": "medium",
+      "risks": [
+        "Изображения и prompts уходят внешнему cloud provider; нужны privacy, retention и DPA review.",
+        "Генерация логотипов, людей и brand assets требует проверки прав, similarity и consent.",
+        "Leaderboard быстро меняется и не заменяет наш benchmark на русских prompts и реальных задачах."
+      ],
+      "quickStart": [
+        "Зафиксировать API model id, цену, terms и retention на дату теста.",
+        "Прогнать одинаковый набор prompts без персональных данных: text, edit, product, 1–5 references и unsafe cases.",
+        "Сравнить качество, latency, стоимость и refusal rate; production routing включать только через approval и budget limit."
+      ],
+      "addedAt": "2026-08-08",
+      "source": {
+        "file": "catalog/resources.json",
+        "key": "grok-imagine-quality-mode",
+        "legacy": {
+          "file": "user-message",
+          "line": 2464,
+          "category": "Новые источники 07–09.08.2026",
+          "subcategory": "Cloud image generation and editing"
+        }
+      },
+      "catalogOrder": 2464,
+      "licenseInfo": {
+        "label": "Proprietary xAI service; output rights, acceptable use and data handling определяются действующими xAI Terms и API terms",
+        "original": "Proprietary xAI service; output rights, acceptable use and data handling определяются действующими xAI Terms и API terms",
+        "spdx": null,
+        "kind": "service-terms",
+        "status": "editor-reviewed",
+        "requiresReview": false,
+        "evidence": [
+          {
+            "kind": "source",
+            "label": "Official xAI release",
+            "url": "https://x.ai/news/grok-imagine-quality-mode"
+          },
+          {
+            "kind": "source",
+            "label": "xAI API documentation",
+            "url": "https://docs.x.ai/docs/guides/image-generations"
+          }
+        ]
+      },
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://x.ai/news/grok-imagine-quality-mode"
+        },
+        {
+          "kind": "source",
+          "label": "xAI API documentation",
+          "url": "https://docs.x.ai/docs/guides/image-generations"
+        }
+      ],
+      "agentEligibility": {
+        "eligible": true,
+        "reasons": [],
+        "installAllowed": false
+      }
+    },
+    {
+      "category": "Подборка Eclipse",
+      "verifiedAt": "2026-08-09",
+      "reviewStatus": "verified",
+      "id": "casaos-personal-cloud",
+      "url": "https://github.com/IceWhaleTech/CasaOS",
+      "title": "CasaOS",
+      "type": "oss",
+      "subcategory": "Self-hosted инфраструктура и локальные сервисы",
+      "simpleDescription": "Web-панель для домашнего Linux-сервера с понятной установкой приложений, storage overview и Docker-based app management. Для Eclipse Forge ценнее как reference appliance UX, а не как основа production-инфраструктуры или доверенный app store.",
+      "useCases": [
+        "Изучить one-screen onboarding локального AI-узла для Hopson Sentinel.",
+        "Заимствовать понятные health/storage cards для Eclipse AI Hub Hardware Doctor.",
+        "Сравнить UX каталог → permissions → install для будущнего Eclipse Appliance."
+      ],
+      "platforms": [
+        "Linux",
+        "Docker",
+        "Self-host"
+      ],
+      "license": "Apache-2.0",
+      "licenseEvidence": [
+        {
+          "kind": "source",
+          "label": "Canonical repository",
+          "url": "https://github.com/IceWhaleTech/CasaOS"
+        },
+        {
+          "kind": "license",
+          "label": "Repository license",
+          "url": "https://github.com/IceWhaleTech/CasaOS/blob/HEAD/LICENSE"
+        }
+      ],
+      "pricing": "Код бесплатный; железо, диски, электричество и сторонние Docker apps оплачиваются отдельно",
+      "access": {
+        "cost": "free",
+        "signup": "none",
+        "runtime": "self-host"
+      },
+      "trust": "community",
+      "trustReason": "Canonical GitHub repository, активность и SPDX-лицензия сверены через GitHub API 09.08.2026. Это не означает автоматическую безопасность образов, plugins и обновлений.",
+      "projects": [
+        "Hopson Sentinel",
+        "Eclipse AI Hub",
+        "Eclipse Forge Landing"
+      ],
+      "decision": "reference",
+      "riskLevel": "medium",
+      "risks": [
+        "App store images и install scripts имеют отдельную supply chain.",
+        "Web admin с Docker privileges является критичной поверхностью и не должен быть открыт в интернет.",
+        "Проект не заменяет backups, patch management и hardening хоста."
+      ],
+      "quickStart": [
+        "Не устанавливать на production host.",
+        "Изучить flows и permission boundaries по документации и коду.",
+        "Прототипировать собственный read-only Hardware Doctor без Docker socket."
+      ],
+      "addedAt": "2026-08-08",
+      "source": {
+        "file": "catalog/resources.json",
+        "key": "casaos-personal-cloud",
+        "legacy": {
+          "file": "user-message",
+          "line": 2465,
+          "category": "Новые источники 07–09.08.2026",
+          "subcategory": "Self-hosted инфраструктура и локальные сервисы"
+        }
+      },
+      "catalogOrder": 2465,
+      "licenseInfo": {
+        "label": "Apache-2.0",
+        "original": "Apache-2.0",
+        "spdx": "Apache-2.0",
+        "kind": "open-source",
+        "status": "source-declared",
+        "requiresReview": false,
+        "evidence": [
+          {
+            "kind": "license",
+            "label": "Apache-2.0 license",
+            "url": "https://api.github.com/repos/icewhaletech/casaos/license"
+          },
+          {
+            "kind": "source",
+            "label": "Canonical repository",
+            "url": "https://github.com/IceWhaleTech/CasaOS"
+          },
+          {
+            "kind": "license",
+            "label": "Repository license",
+            "url": "https://github.com/IceWhaleTech/CasaOS/blob/HEAD/LICENSE"
+          }
+        ]
+      },
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://github.com/IceWhaleTech/CasaOS"
+        },
+        {
+          "kind": "license",
+          "label": "Apache-2.0 license",
+          "url": "https://api.github.com/repos/icewhaletech/casaos/license"
+        },
+        {
+          "kind": "license",
+          "label": "Repository license",
+          "url": "https://github.com/IceWhaleTech/CasaOS/blob/HEAD/LICENSE"
+        }
+      ],
+      "agentEligibility": {
+        "eligible": true,
+        "reasons": [],
+        "installAllowed": false
+      }
+    },
+    {
+      "category": "Подборка Eclipse",
+      "verifiedAt": "2026-08-09",
+      "reviewStatus": "verified",
+      "id": "jellyfin-media-system",
+      "url": "https://github.com/jellyfin/jellyfin",
+      "title": "Jellyfin",
+      "type": "oss",
+      "subcategory": "Self-hosted инфраструктура и локальные сервисы",
+      "simpleDescription": "Self-hosted media server с библиотекой фильмов, сериалов, музыки, metadata, streaming и клиентскими приложениями. Полезен как зрелый reference для Eclipse Media, но GPL-код нельзя просто перенести в закрытые сервисы без выполнения copyleft-обязательств.",
+      "useCases": [
+        "Изучить media library, playback progress, subtitles и device sessions для Eclipse Media.",
+        "Сравнить API и transcoding pipeline с нашим сценарным контуром.",
+        "Использовать как отдельный совместимый backend только после архитектурного и лицензионного решения."
+      ],
+      "platforms": [
+        "Linux",
+        "Docker",
+        "Self-host"
+      ],
+      "license": "GPL-2.0",
+      "licenseEvidence": [
+        {
+          "kind": "source",
+          "label": "Canonical repository",
+          "url": "https://github.com/jellyfin/jellyfin"
+        },
+        {
+          "kind": "license",
+          "label": "Repository license",
+          "url": "https://github.com/jellyfin/jellyfin/blob/HEAD/LICENSE"
+        }
+      ],
+      "pricing": "Код бесплатный; transcoding, storage, bandwidth и hardware оплачивает владелец сервера",
+      "access": {
+        "cost": "free",
+        "signup": "none",
+        "runtime": "self-host"
+      },
+      "trust": "community",
+      "trustReason": "Canonical GitHub repository, активность и SPDX-лицензия сверены через GitHub API 09.08.2026. Это не означает автоматическую безопасность образов, plugins и обновлений.",
+      "projects": [
+        "Eclipse Media",
+        "Shotforge",
+        "Eclipse Chat"
+      ],
+      "decision": "reference",
+      "riskLevel": "medium",
+      "risks": [
+        "GPL-2.0 требует отдельного legal/architecture review.",
+        "Media files и metadata могут нарушать copyright или раскрывать пользовательские привычки.",
+        "FFmpeg/transcoding и plugins увеличивают attack surface и resource usage."
+      ],
+      "quickStart": [
+        "Не копировать код в proprietary компоненты.",
+        "Изучить API/schema и UX на тестовой public-domain медиатеке.",
+        "Решить: отдельная интеграция по API или собственная реализация паттернов."
+      ],
+      "addedAt": "2026-08-08",
+      "source": {
+        "file": "catalog/resources.json",
+        "key": "jellyfin-media-system",
+        "legacy": {
+          "file": "user-message",
+          "line": 2466,
+          "category": "Новые источники 07–09.08.2026",
+          "subcategory": "Self-hosted инфраструктура и локальные сервисы"
+        }
+      },
+      "catalogOrder": 2466,
+      "licenseInfo": {
+        "label": "GPL-2.0",
+        "original": "GPL-2.0",
+        "spdx": "GPL-2.0",
+        "kind": "open-source",
+        "status": "source-declared",
+        "requiresReview": false,
+        "evidence": [
+          {
+            "kind": "license",
+            "label": "GPL-2.0 license",
+            "url": "https://api.github.com/repos/jellyfin/jellyfin/license"
+          },
+          {
+            "kind": "source",
+            "label": "Canonical repository",
+            "url": "https://github.com/jellyfin/jellyfin"
+          },
+          {
+            "kind": "license",
+            "label": "Repository license",
+            "url": "https://github.com/jellyfin/jellyfin/blob/HEAD/LICENSE"
+          }
+        ]
+      },
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://github.com/jellyfin/jellyfin"
+        },
+        {
+          "kind": "license",
+          "label": "GPL-2.0 license",
+          "url": "https://api.github.com/repos/jellyfin/jellyfin/license"
+        },
+        {
+          "kind": "license",
+          "label": "Repository license",
+          "url": "https://github.com/jellyfin/jellyfin/blob/HEAD/LICENSE"
+        }
+      ],
+      "agentEligibility": {
+        "eligible": true,
+        "reasons": [],
+        "installAllowed": false
+      }
+    },
+    {
+      "category": "Подборка Eclipse",
+      "verifiedAt": "2026-08-09",
+      "reviewStatus": "verified",
+      "id": "nextcloud-server",
+      "url": "https://github.com/nextcloud/server",
+      "title": "Nextcloud Server",
+      "type": "oss",
+      "subcategory": "Self-hosted инфраструктура и локальные сервисы",
+      "simpleDescription": "Большая self-hosted платформа файлов, синхронизации, sharing и collaboration. Даёт сильные reference-паттерны для permissions, versions и links, но её масштаб и AGPL делают прямое встраивание в Eclipse Chat или Media отдельным архитектурным проектом.",
+      "useCases": [
+        "Изучить share links, versions, quotas и recovery для Eclipse Chat files.",
+        "Сравнить storage abstraction и collaborative access для Eclipse Media.",
+        "Рассмотреть внешнюю интеграцию, если клиент уже использует Nextcloud."
+      ],
+      "platforms": [
+        "Linux",
+        "Docker",
+        "Self-host"
+      ],
+      "license": "AGPL-3.0",
+      "licenseEvidence": [
+        {
+          "kind": "source",
+          "label": "Canonical repository",
+          "url": "https://github.com/nextcloud/server"
+        },
+        {
+          "kind": "license",
+          "label": "Repository license",
+          "url": "https://github.com/nextcloud/server/blob/master/COPYING"
+        }
+      ],
+      "pricing": "Community server бесплатный; hosting, storage, backup, support и enterprise features оплачиваются отдельно",
+      "access": {
+        "cost": "free",
+        "signup": "none",
+        "runtime": "self-host"
+      },
+      "trust": "community",
+      "trustReason": "Canonical GitHub repository, активность и SPDX-лицензия сверены через GitHub API 09.08.2026. Это не означает автоматическую безопасность образов, plugins и обновлений.",
+      "projects": [
+        "Eclipse Chat",
+        "Eclipse Media",
+        "Eclipse AI Hub"
+      ],
+      "decision": "reference",
+      "riskLevel": "medium",
+      "risks": [
+        "AGPL-3.0 и большой dependency surface требуют legal и security review.",
+        "Ошибки sharing/permissions могут раскрыть документы.",
+        "Необходимы backups, antivirus, rate limits, patch SLA и external storage hardening."
+      ],
+      "quickStart": [
+        "Не встраивать server code в текущие продукты.",
+        "Описать минимальный file-sharing contract Eclipse.",
+        "Если нужна интеграция — тестировать через официальный API на отдельном tenant."
+      ],
+      "addedAt": "2026-08-08",
+      "source": {
+        "file": "catalog/resources.json",
+        "key": "nextcloud-server",
+        "legacy": {
+          "file": "user-message",
+          "line": 2467,
+          "category": "Новые источники 07–09.08.2026",
+          "subcategory": "Self-hosted инфраструктура и локальные сервисы"
+        }
+      },
+      "catalogOrder": 2467,
+      "licenseInfo": {
+        "label": "AGPL-3.0",
+        "original": "AGPL-3.0",
+        "spdx": "AGPL-3.0",
+        "kind": "open-source",
+        "status": "source-declared",
+        "requiresReview": false,
+        "evidence": [
+          {
+            "kind": "license",
+            "label": "AGPL-3.0 license",
+            "url": "https://api.github.com/repos/nextcloud/server/license"
+          },
+          {
+            "kind": "source",
+            "label": "Canonical repository",
+            "url": "https://github.com/nextcloud/server"
+          },
+          {
+            "kind": "license",
+            "label": "Repository license",
+            "url": "https://github.com/nextcloud/server/blob/master/COPYING"
+          }
+        ]
+      },
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://github.com/nextcloud/server"
+        },
+        {
+          "kind": "license",
+          "label": "AGPL-3.0 license",
+          "url": "https://api.github.com/repos/nextcloud/server/license"
+        },
+        {
+          "kind": "license",
+          "label": "Repository license",
+          "url": "https://github.com/nextcloud/server/blob/master/COPYING"
+        }
+      ],
+      "agentEligibility": {
+        "eligible": true,
+        "reasons": [],
+        "installAllowed": false
+      }
+    },
+    {
+      "category": "Подборка Eclipse",
+      "verifiedAt": "2026-08-09",
+      "reviewStatus": "verified",
+      "id": "home-assistant-core",
+      "url": "https://github.com/home-assistant/core",
+      "title": "Home Assistant Core",
+      "type": "oss",
+      "subcategory": "Self-hosted инфраструктура и локальные сервисы",
+      "simpleDescription": "Локальная платформа автоматизации дома с большим набором integrations, событий и устройств. Для Hopson Sentinel это reference capability model: устройства и действия должны иметь явные permissions, state и confirmations, а не универсальный бесконтрольный tool.",
+      "useCases": [
+        "Спроектировать безопасный IoT adapter для Hopson Sentinel.",
+        "Изучить entity/state/event модель для Eclipse AI Hub tools.",
+        "Добавить в roadmap opt-in voice control локальных устройств с ручным approval опасных действий."
+      ],
+      "platforms": [
+        "Linux",
+        "Docker",
+        "Self-host"
+      ],
+      "license": "Apache-2.0",
+      "licenseEvidence": [
+        {
+          "kind": "source",
+          "label": "Canonical repository",
+          "url": "https://github.com/home-assistant/core"
+        },
+        {
+          "kind": "license",
+          "label": "Repository license",
+          "url": "https://github.com/home-assistant/core/blob/dev/LICENSE.md"
+        }
+      ],
+      "pricing": "Core бесплатный; hardware, cloud integrations и подписка Home Assistant Cloud могут оплачиваться отдельно",
+      "access": {
+        "cost": "free",
+        "signup": "none",
+        "runtime": "self-host"
+      },
+      "trust": "community",
+      "trustReason": "Canonical GitHub repository, активность и SPDX-лицензия сверены через GitHub API 09.08.2026. Это не означает автоматическую безопасность образов, plugins и обновлений.",
+      "projects": [
+        "Hopson Sentinel",
+        "Eclipse AI Hub",
+        "Eclipse Chat"
+      ],
+      "decision": "roadmap",
+      "riskLevel": "medium",
+      "risks": [
+        "Управление замками, сигнализацией, питанием и камерами физически опасно.",
+        "Community integrations имеют неодинаковое качество и доступ к домашней сети.",
+        "Voice/agent tool calls требуют allowlist, confirmation, audit и emergency stop."
+      ],
+      "quickStart": [
+        "Начать с read-only sensor states на отдельном тестовом instance.",
+        "Разделить harmless, sensitive и dangerous services.",
+        "Добавить per-device allowlist и explicit confirmation до write actions."
+      ],
+      "addedAt": "2026-08-08",
+      "source": {
+        "file": "catalog/resources.json",
+        "key": "home-assistant-core",
+        "legacy": {
+          "file": "user-message",
+          "line": 2468,
+          "category": "Новые источники 07–09.08.2026",
+          "subcategory": "Self-hosted инфраструктура и локальные сервисы"
+        }
+      },
+      "catalogOrder": 2468,
+      "licenseInfo": {
+        "label": "Apache-2.0",
+        "original": "Apache-2.0",
+        "spdx": "Apache-2.0",
+        "kind": "open-source",
+        "status": "source-declared",
+        "requiresReview": false,
+        "evidence": [
+          {
+            "kind": "license",
+            "label": "Apache-2.0 license",
+            "url": "https://api.github.com/repos/home-assistant/core/license"
+          },
+          {
+            "kind": "source",
+            "label": "Canonical repository",
+            "url": "https://github.com/home-assistant/core"
+          },
+          {
+            "kind": "license",
+            "label": "Repository license",
+            "url": "https://github.com/home-assistant/core/blob/dev/LICENSE.md"
+          }
+        ]
+      },
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://github.com/home-assistant/core"
+        },
+        {
+          "kind": "license",
+          "label": "Apache-2.0 license",
+          "url": "https://api.github.com/repos/home-assistant/core/license"
+        },
+        {
+          "kind": "license",
+          "label": "Repository license",
+          "url": "https://github.com/home-assistant/core/blob/dev/LICENSE.md"
+        }
+      ],
+      "agentEligibility": {
+        "eligible": true,
+        "reasons": [],
+        "installAllowed": false
+      }
+    },
+    {
+      "category": "Подборка Eclipse",
+      "verifiedAt": "2026-08-09",
+      "reviewStatus": "verified",
+      "id": "adguard-home",
+      "url": "https://github.com/AdguardTeam/AdGuardHome",
+      "title": "AdGuard Home",
+      "type": "oss",
+      "subcategory": "Self-hosted инфраструктура и локальные сервисы",
+      "simpleDescription": "Локальный DNS-сервер для блокировки рекламы и trackers во всей сети, с query log, allow/block lists и parental controls. Для Sentinel полезен как reference DNS health/privacy, но неправильная конфигурация может отключить сеть или раскрыть историю доменов.",
+      "useCases": [
+        "Исследовать read-only DNS health card для Hopson Sentinel.",
+        "Показывать аномальные домены и degraded resolver без автоматического блокирования.",
+        "Использовать как отдельный сервис, а не копировать GPL-код в продукт."
+      ],
+      "platforms": [
+        "Linux",
+        "Docker",
+        "Self-host"
+      ],
+      "license": "GPL-3.0",
+      "licenseEvidence": [
+        {
+          "kind": "source",
+          "label": "Canonical repository",
+          "url": "https://github.com/AdguardTeam/AdGuardHome"
+        },
+        {
+          "kind": "license",
+          "label": "Repository license",
+          "url": "https://github.com/AdguardTeam/AdGuardHome/blob/master/LICENSE.txt"
+        }
+      ],
+      "pricing": "Код бесплатный; сервер, DNS upstream и обслуживание оплачивает владелец",
+      "access": {
+        "cost": "free",
+        "signup": "none",
+        "runtime": "self-host"
+      },
+      "trust": "community",
+      "trustReason": "Canonical GitHub repository, активность и SPDX-лицензия сверены через GitHub API 09.08.2026. Это не означает автоматическую безопасность образов, plugins и обновлений.",
+      "projects": [
+        "Hopson Sentinel",
+        "Eclipse AI Hub"
+      ],
+      "decision": "reference",
+      "riskLevel": "medium",
+      "risks": [
+        "DNS query log содержит чувствительную историю устройств и пользователей.",
+        "Ошибочная blocklist ломает платежи, auth, updates и production services.",
+        "Admin API нельзя открывать наружу; нужны auth, TLS, network allowlist и backup config."
+      ],
+      "quickStart": [
+        "Только локальный тестовый resolver и synthetic clients.",
+        "Сначала read-only metrics без query contents.",
+        "Любое изменение blocklist показывать diff-ом и подтверждать вручную."
+      ],
+      "addedAt": "2026-08-08",
+      "source": {
+        "file": "catalog/resources.json",
+        "key": "adguard-home",
+        "legacy": {
+          "file": "user-message",
+          "line": 2469,
+          "category": "Новые источники 07–09.08.2026",
+          "subcategory": "Self-hosted инфраструктура и локальные сервисы"
+        }
+      },
+      "catalogOrder": 2469,
+      "licenseInfo": {
+        "label": "GPL-3.0",
+        "original": "GPL-3.0",
+        "spdx": "GPL-3.0",
+        "kind": "open-source",
+        "status": "source-declared",
+        "requiresReview": false,
+        "evidence": [
+          {
+            "kind": "license",
+            "label": "GPL-3.0 license",
+            "url": "https://api.github.com/repos/adguardteam/adguardhome/license"
+          },
+          {
+            "kind": "source",
+            "label": "Canonical repository",
+            "url": "https://github.com/AdguardTeam/AdGuardHome"
+          },
+          {
+            "kind": "license",
+            "label": "Repository license",
+            "url": "https://github.com/AdguardTeam/AdGuardHome/blob/master/LICENSE.txt"
+          }
+        ]
+      },
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://github.com/AdguardTeam/AdGuardHome"
+        },
+        {
+          "kind": "license",
+          "label": "GPL-3.0 license",
+          "url": "https://api.github.com/repos/adguardteam/adguardhome/license"
+        },
+        {
+          "kind": "license",
+          "label": "Repository license",
+          "url": "https://github.com/AdguardTeam/AdGuardHome/blob/master/LICENSE.txt"
+        }
+      ],
+      "agentEligibility": {
+        "eligible": true,
+        "reasons": [],
+        "installAllowed": false
+      }
+    },
+    {
+      "category": "Подборка Eclipse",
+      "verifiedAt": "2026-08-09",
+      "reviewStatus": "verified",
+      "id": "paperless-ngx",
+      "url": "https://github.com/paperless-ngx/paperless-ngx",
+      "title": "Paperless-ngx",
+      "type": "oss",
+      "subcategory": "Self-hosted инфраструктура и локальные сервисы",
+      "simpleDescription": "Self-hosted document management system: принимает сканы и файлы, запускает OCR, индексирует текст и помогает архивировать документы. Это хороший reference ingestion UX для Educator-AI, но не готовый безопасный parser для чужих документов.",
+      "useCases": [
+        "Изучить inbox → OCR → tags → search flow для Educator-AI.",
+        "Сравнить metadata extraction и full-text search с Eclipse AI Hub RAG.",
+        "Спроектировать безопасную очередь обработки документов с quarantine."
+      ],
+      "platforms": [
+        "Linux",
+        "Docker",
+        "Self-host"
+      ],
+      "license": "GPL-3.0",
+      "licenseEvidence": [
+        {
+          "kind": "source",
+          "label": "Canonical repository",
+          "url": "https://github.com/paperless-ngx/paperless-ngx"
+        },
+        {
+          "kind": "license",
+          "label": "Repository license",
+          "url": "https://github.com/paperless-ngx/paperless-ngx/blob/HEAD/LICENSE"
+        }
+      ],
+      "pricing": "Код бесплатный; OCR CPU, storage, backups и optional integrations требуют своих ресурсов",
+      "access": {
+        "cost": "free",
+        "signup": "none",
+        "runtime": "self-host"
+      },
+      "trust": "community",
+      "trustReason": "Canonical GitHub repository, активность и SPDX-лицензия сверены через GitHub API 09.08.2026. Это не означает автоматическую безопасность образов, plugins и обновлений.",
+      "projects": [
+        "Educator-AI",
+        "Eclipse AI Hub",
+        "Eclipse Library"
+      ],
+      "decision": "roadmap",
+      "riskLevel": "medium",
+      "risks": [
+        "Документы содержат PII, secrets и malicious parser payloads.",
+        "GPL-3.0 блокирует прямое копирование без выполнения лицензии.",
+        "OCR может ошибаться, а auto-tags нельзя считать доказанными данными."
+      ],
+      "quickStart": [
+        "Использовать только synthetic/public-domain документы в sandbox.",
+        "Ограничить size/pages/types и изолировать OCR workers без сети.",
+        "Сравнить extraction accuracy и recovery states до проектирования своего intake."
+      ],
+      "addedAt": "2026-08-08",
+      "source": {
+        "file": "catalog/resources.json",
+        "key": "paperless-ngx",
+        "legacy": {
+          "file": "user-message",
+          "line": 2470,
+          "category": "Новые источники 07–09.08.2026",
+          "subcategory": "Self-hosted инфраструктура и локальные сервисы"
+        }
+      },
+      "catalogOrder": 2470,
+      "licenseInfo": {
+        "label": "GPL-3.0",
+        "original": "GPL-3.0",
+        "spdx": "GPL-3.0",
+        "kind": "open-source",
+        "status": "source-declared",
+        "requiresReview": false,
+        "evidence": [
+          {
+            "kind": "license",
+            "label": "GPL-3.0 license",
+            "url": "https://api.github.com/repos/paperless-ngx/paperless-ngx/license"
+          },
+          {
+            "kind": "source",
+            "label": "Canonical repository",
+            "url": "https://github.com/paperless-ngx/paperless-ngx"
+          },
+          {
+            "kind": "license",
+            "label": "Repository license",
+            "url": "https://github.com/paperless-ngx/paperless-ngx/blob/HEAD/LICENSE"
+          }
+        ]
+      },
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://github.com/paperless-ngx/paperless-ngx"
+        },
+        {
+          "kind": "license",
+          "label": "GPL-3.0 license",
+          "url": "https://api.github.com/repos/paperless-ngx/paperless-ngx/license"
+        },
+        {
+          "kind": "license",
+          "label": "Repository license",
+          "url": "https://github.com/paperless-ngx/paperless-ngx/blob/HEAD/LICENSE"
+        }
+      ],
+      "agentEligibility": {
+        "eligible": true,
+        "reasons": [],
+        "installAllowed": false
+      }
+    },
+    {
+      "category": "Подборка Eclipse",
+      "verifiedAt": "2026-08-09",
+      "reviewStatus": "verified",
+      "id": "freshrss",
+      "url": "https://github.com/FreshRSS/FreshRSS",
+      "title": "FreshRSS",
+      "type": "oss",
+      "subcategory": "Self-hosted инфраструктура и локальные сервисы",
+      "simpleDescription": "Лёгкий self-hosted RSS/Atom aggregator с подписками, фильтрами, поиском и API. Полезен как reference и возможный отдельный источник для редакционного intake Eclipse Library, но сам feed не делает новость достоверной.",
+      "useCases": [
+        "Собрать allowlisted feeds официальных vendors для Eclipse Library.",
+        "Заимствовать unread, dedupe и source health patterns.",
+        "Подавать новые items в review queue, а не публиковать автоматически."
+      ],
+      "platforms": [
+        "Linux",
+        "Docker",
+        "Self-host"
+      ],
+      "license": "AGPL-3.0",
+      "licenseEvidence": [
+        {
+          "kind": "source",
+          "label": "Canonical repository",
+          "url": "https://github.com/FreshRSS/FreshRSS"
+        },
+        {
+          "kind": "license",
+          "label": "Repository license",
+          "url": "https://github.com/FreshRSS/FreshRSS/blob/edge/LICENSE.txt"
+        }
+      ],
+      "pricing": "Код бесплатный; hosting и хранение архива оплачивает владелец",
+      "access": {
+        "cost": "free",
+        "signup": "none",
+        "runtime": "self-host"
+      },
+      "trust": "community",
+      "trustReason": "Canonical GitHub repository, активность и SPDX-лицензия сверены через GitHub API 09.08.2026. Это не означает автоматическую безопасность образов, plugins и обновлений.",
+      "projects": [
+        "Eclipse Library",
+        "Hopson Sentinel",
+        "Eclipse AI Hub"
+      ],
+      "decision": "roadmap",
+      "riskLevel": "medium",
+      "risks": [
+        "Feed content является недоверенным HTML и может содержать prompt injection или tracking.",
+        "AGPL-3.0 требует review при модификации/сетевом использовании.",
+        "Автоматическая публикация размножит ошибки, рекламу и дубли."
+      ],
+      "quickStart": [
+        "Составить allowlist из официальных RSS/Atom источников.",
+        "Санитизировать HTML и хранить source URL/receivedAt.",
+        "Создать только read-only editorial queue с dedupe и ручным подтверждением."
+      ],
+      "addedAt": "2026-08-08",
+      "source": {
+        "file": "catalog/resources.json",
+        "key": "freshrss",
+        "legacy": {
+          "file": "user-message",
+          "line": 2471,
+          "category": "Новые источники 07–09.08.2026",
+          "subcategory": "Self-hosted инфраструктура и локальные сервисы"
+        }
+      },
+      "catalogOrder": 2471,
+      "licenseInfo": {
+        "label": "AGPL-3.0",
+        "original": "AGPL-3.0",
+        "spdx": "AGPL-3.0",
+        "kind": "open-source",
+        "status": "source-declared",
+        "requiresReview": false,
+        "evidence": [
+          {
+            "kind": "license",
+            "label": "AGPL-3.0 license",
+            "url": "https://api.github.com/repos/freshrss/freshrss/license"
+          },
+          {
+            "kind": "source",
+            "label": "Canonical repository",
+            "url": "https://github.com/FreshRSS/FreshRSS"
+          },
+          {
+            "kind": "license",
+            "label": "Repository license",
+            "url": "https://github.com/FreshRSS/FreshRSS/blob/edge/LICENSE.txt"
+          }
+        ]
+      },
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://github.com/FreshRSS/FreshRSS"
+        },
+        {
+          "kind": "license",
+          "label": "AGPL-3.0 license",
+          "url": "https://api.github.com/repos/freshrss/freshrss/license"
+        },
+        {
+          "kind": "license",
+          "label": "Repository license",
+          "url": "https://github.com/FreshRSS/FreshRSS/blob/edge/LICENSE.txt"
+        }
+      ],
+      "agentEligibility": {
+        "eligible": true,
+        "reasons": [],
+        "installAllowed": false
+      }
+    },
+    {
+      "category": "Подборка Eclipse",
+      "verifiedAt": "2026-08-09",
+      "reviewStatus": "verified",
+      "id": "kiwix-tools",
+      "url": "https://github.com/kiwix/kiwix-tools",
+      "title": "Kiwix Tools",
+      "type": "oss",
+      "subcategory": "Self-hosted инфраструктура и локальные сервисы",
+      "simpleDescription": "CLI-инструменты Kiwix для работы с офлайн-архивами ZIM и запуска локального web server. Подходит как reference offline knowledge packs для Educator-AI и DnD Forge, но лицензия каждого ZIM-контента проверяется отдельно от кода.",
+      "useCases": [
+        "Исследовать offline knowledge packs для Educator-AI.",
+        "Давать локальный справочник Eclipse DnD Forge без постоянного интернета.",
+        "Проверить ZIM как формат доставки curated documentation."
+      ],
+      "platforms": [
+        "Linux",
+        "Docker",
+        "Self-host"
+      ],
+      "license": "GPL-3.0",
+      "licenseEvidence": [
+        {
+          "kind": "source",
+          "label": "Canonical repository",
+          "url": "https://github.com/kiwix/kiwix-tools"
+        },
+        {
+          "kind": "license",
+          "label": "Repository license",
+          "url": "https://github.com/kiwix/kiwix-tools/blob/main/COPYING"
+        }
+      ],
+      "pricing": "Код бесплатный; архивы, storage, обновления и distribution оплачиваются отдельно",
+      "access": {
+        "cost": "free",
+        "signup": "none",
+        "runtime": "self-host"
+      },
+      "trust": "community",
+      "trustReason": "Canonical GitHub repository, активность и SPDX-лицензия сверены через GitHub API 09.08.2026. Это не означает автоматическую безопасность образов, plugins и обновлений.",
+      "projects": [
+        "Educator-AI",
+        "Eclipse DnD Forge",
+        "Eclipse Library"
+      ],
+      "decision": "roadmap",
+      "riskLevel": "medium",
+      "risks": [
+        "GPL-3.0 относится к tools, а content packs имеют собственные лицензии.",
+        "Устаревший offline snapshot может давать опасные или неверные ответы.",
+        "Локальный web server нельзя открывать наружу без auth/network controls."
+      ],
+      "quickStart": [
+        "Выбрать маленький ZIM с явной permissive content license.",
+        "Запустить в offline container и проверить поиск/обновление.",
+        "Добавить visible snapshot date, source attribution и manual refresh."
+      ],
+      "addedAt": "2026-08-08",
+      "source": {
+        "file": "catalog/resources.json",
+        "key": "kiwix-tools",
+        "legacy": {
+          "file": "user-message",
+          "line": 2472,
+          "category": "Новые источники 07–09.08.2026",
+          "subcategory": "Self-hosted инфраструктура и локальные сервисы"
+        }
+      },
+      "catalogOrder": 2472,
+      "licenseInfo": {
+        "label": "GPL-3.0",
+        "original": "GPL-3.0",
+        "spdx": "GPL-3.0",
+        "kind": "open-source",
+        "status": "source-declared",
+        "requiresReview": false,
+        "evidence": [
+          {
+            "kind": "license",
+            "label": "GPL-3.0 license",
+            "url": "https://api.github.com/repos/kiwix/kiwix-tools/license"
+          },
+          {
+            "kind": "source",
+            "label": "Canonical repository",
+            "url": "https://github.com/kiwix/kiwix-tools"
+          },
+          {
+            "kind": "license",
+            "label": "Repository license",
+            "url": "https://github.com/kiwix/kiwix-tools/blob/main/COPYING"
+          }
+        ]
+      },
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://github.com/kiwix/kiwix-tools"
+        },
+        {
+          "kind": "license",
+          "label": "GPL-3.0 license",
+          "url": "https://api.github.com/repos/kiwix/kiwix-tools/license"
+        },
+        {
+          "kind": "license",
+          "label": "Repository license",
+          "url": "https://github.com/kiwix/kiwix-tools/blob/main/COPYING"
+        }
+      ],
+      "agentEligibility": {
+        "eligible": true,
+        "reasons": [],
+        "installAllowed": false
+      }
+    },
+    {
+      "category": "Подборка Eclipse",
+      "verifiedAt": "2026-08-09",
+      "reviewStatus": "verified",
+      "id": "sia-storage",
+      "url": "https://sia.storage/",
+      "title": "Sia Storage",
+      "type": "privacy",
+      "subcategory": "Encrypted decentralized cloud storage",
+      "simpleDescription": "Потребительский cloud storage поверх децентрализованной сети Sia: приложение шифрует файлы на устройстве до загрузки и распределяет данные по независимым hosts. Официально заявлены бесплатные 50 ГБ, приложения для iOS/Android/desktop и S3-compatible доступ через S3d.",
+      "useCases": [
+        "Провести object-storage benchmark для зашифрованных backup-ов Eclipse Media.",
+        "Исследовать S3-compatible adapter и client-side encryption для Eclipse Chat attachments.",
+        "Использовать privacy UX как reference для Eclipse AI Hub private storage."
+      ],
+      "platforms": [
+        "iOS",
+        "Android",
+        "Desktop",
+        "Cloud",
+        "S3 API"
+      ],
+      "license": "Cloud service is proprietary; Sia protocol and individual client applications have separate open-source licenses",
+      "licenseEvidence": [
+        {
+          "kind": "source",
+          "label": "Official product and pricing",
+          "url": "https://sia.storage/"
+        },
+        {
+          "kind": "source",
+          "label": "Privacy Policy",
+          "url": "https://sia.storage/resources/privacy"
+        },
+        {
+          "kind": "source",
+          "label": "Terms of Service",
+          "url": "https://sia.storage/resources/terms"
+        }
+      ],
+      "pricing": "50 ГБ бесплатно; официальная страница 09.08.2026 показывает 500 ГБ за $7.99/мес, 5 ТБ за $14.99 и 10 ТБ за $19.99",
+      "access": {
+        "cost": "freemium",
+        "signup": "required",
+        "runtime": "cloud"
+      },
+      "trust": "official",
+      "trustReason": "Проверены официальный product page, pricing, Privacy Policy и Terms. Шифрование контента заявлено продуктом; приложение может поставляться Sia Foundation или third-party developer, поэтому конкретный client требует отдельной проверки.",
+      "projects": [
+        "Eclipse Media",
+        "Eclipse Chat",
+        "Eclipse AI Hub",
+        "Hopson Sentinel"
+      ],
+      "decision": "roadmap",
+      "riskLevel": "high",
+      "risks": [
+        "Потеря client-side keys может сделать данные невосстановимыми; нужен проверенный recovery и backup ключей.",
+        "Metadata, аккаунт, IP, usage и payment information всё равно обрабатываются сервисом и subprocessors.",
+        "Нельзя хранить единственную копию production data до независимого durability, deletion, jurisdiction и incident review."
+      ],
+      "quickStart": [
+        "Проверить publisher, checksum, license и update channel конкретного приложения до установки.",
+        "Использовать synthetic encrypted files без персональных данных и измерить upload/download/recovery.",
+        "Сравнить S3d с текущим storage по цене, latency, deletion, key recovery и vendor exit; не мигрировать единственную копию."
+      ],
+      "addedAt": "2026-08-09",
+      "source": {
+        "file": "catalog/resources.json",
+        "key": "sia-storage",
+        "legacy": {
+          "file": "user-message",
+          "line": 2473,
+          "category": "Новые источники 07–09.08.2026",
+          "subcategory": "Encrypted decentralized cloud storage"
+        }
+      },
+      "catalogOrder": 2473,
+      "licenseInfo": {
+        "label": "Cloud service is proprietary; Sia protocol and individual client applications have separate open-source licenses",
+        "original": "Cloud service is proprietary; Sia protocol and individual client applications have separate open-source licenses",
+        "spdx": null,
+        "kind": "custom",
+        "status": "editor-reviewed",
+        "requiresReview": false,
+        "evidence": [
+          {
+            "kind": "source",
+            "label": "Official product and pricing",
+            "url": "https://sia.storage/"
+          },
+          {
+            "kind": "source",
+            "label": "Privacy Policy",
+            "url": "https://sia.storage/resources/privacy"
+          },
+          {
+            "kind": "source",
+            "label": "Terms of Service",
+            "url": "https://sia.storage/resources/terms"
+          }
+        ]
+      },
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://sia.storage/"
+        },
+        {
+          "kind": "source",
+          "label": "Privacy Policy",
+          "url": "https://sia.storage/resources/privacy"
+        },
+        {
+          "kind": "source",
+          "label": "Terms of Service",
+          "url": "https://sia.storage/resources/terms"
+        }
+      ],
+      "agentEligibility": {
+        "eligible": true,
+        "reasons": [],
+        "installAllowed": false
+      }
+    },
+    {
+      "category": "Подборка Eclipse",
+      "verifiedAt": "2026-08-09",
+      "reviewStatus": "verified",
+      "id": "recent-design",
+      "url": "https://recent.design/",
+      "title": "Recent.design (бывший Godly)",
+      "type": "learn",
+      "subcategory": "Дизайн-референсы и продуктовые паттерны",
+      "simpleDescription": "Галерея сайтов с выраженным visual direction; старый домен Godly теперь перенаправляет сюда. Полезна для поиска композиционных идей Landing и Media, но эффектные award-style решения нельзя переносить в рабочие dashboards без проверки ясности и скорости.",
+      "useCases": [
+        "Собрать moodboard главного Eclipse Forge Landing.",
+        "Сравнить композицию launch pages Eclipse Media.",
+        "Выбирать один визуальный принцип, сохраняя понятный CTA и product hierarchy."
+      ],
+      "platforms": [
+        "Web"
+      ],
+      "license": "Proprietary reference service; просмотр не разрешает копировать чужие экраны, тексты, иллюстрации или бренд",
+      "licenseEvidence": [
+        {
+          "kind": "source",
+          "label": "Official website",
+          "url": "https://recent.design/"
+        }
+      ],
+      "pricing": "Просмотр части материалов доступен бесплатно; аккаунт, расширенный поиск или полный архив могут требовать платный тариф",
+      "access": {
+        "cost": "freemium",
+        "signup": "optional",
+        "runtime": "cloud"
+      },
+      "trust": "official",
+      "trustReason": "Проверены официальный сайт, назначение и доступность. Материалы внутри принадлежат их авторам, поэтому используем их для анализа паттернов, а не для покадрового копирования.",
+      "projects": [
+        "Eclipse Forge Landing",
+        "Eclipse Library",
+        "Eclipse Chat",
+        "Eclipse AI Hub"
+      ],
+      "decision": "reference",
+      "riskLevel": "low",
+      "risks": [
+        "Слепое копирование чужого интерфейса создаёт copyright, trademark и product-fit риски.",
+        "Эффектная анимация может ухудшить скорость, accessibility и mobile UX.",
+        "Старые ссылки и название Godly уже не являются каноническими."
+      ],
+      "quickStart": [
+        "Сначала сформулировать конкретную задачу экрана: onboarding, поиск, hero, empty state или feedback.",
+        "Сравнить минимум три разных решения и выписать общий принцип без копирования assets и текста.",
+        "Собрать оригинальный вариант в дизайн-системе Eclipse Forge и проверить desktop, mobile, keyboard и reduced motion."
+      ],
+      "addedAt": "2026-08-09",
+      "source": {
+        "file": "catalog/resources.json",
+        "key": "recent-design",
+        "legacy": {
+          "file": "user-message",
+          "line": 2474,
+          "category": "Новые источники 07–09.08.2026",
+          "subcategory": "Дизайн-референсы и продуктовые паттерны"
+        }
+      },
+      "catalogOrder": 2474,
+      "licenseInfo": {
+        "label": "Proprietary reference service; просмотр не разрешает копировать чужие экраны, тексты, иллюстрации или бренд",
+        "original": "Proprietary reference service; просмотр не разрешает копировать чужие экраны, тексты, иллюстрации или бренд",
+        "spdx": null,
+        "kind": "custom",
+        "status": "editor-reviewed",
+        "requiresReview": false,
+        "evidence": [
+          {
+            "kind": "source",
+            "label": "Official website",
+            "url": "https://recent.design/"
+          }
+        ]
+      },
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://recent.design/"
+        }
+      ],
+      "agentEligibility": {
+        "eligible": true,
+        "reasons": [],
+        "installAllowed": false
+      }
+    },
+    {
+      "category": "Подборка Eclipse",
+      "verifiedAt": "2026-08-09",
+      "reviewStatus": "verified",
+      "id": "awwwards-design-gallery",
+      "url": "https://www.awwwards.com/",
+      "title": "Awwwards",
+      "type": "learn",
+      "subcategory": "Дизайн-референсы и продуктовые паттерны",
+      "simpleDescription": "Премия и галерея сайтов, оценивающая design, usability, creativity и implementation. Подходит для арт-дирекшена и технических референсов Landing, но award-сайты часто тяжелее и сложнее обычных продуктовых интерфейсов.",
+      "useCases": [
+        "Искать арт-дирекшен для Eclipse Forge Landing.",
+        "Разбирать motion и storytelling для Eclipse Media.",
+        "Сравнивать эффект с Lighthouse, accessibility и conversion."
+      ],
+      "platforms": [
+        "Web"
+      ],
+      "license": "Proprietary reference service; просмотр не разрешает копировать чужие экраны, тексты, иллюстрации или бренд",
+      "licenseEvidence": [
+        {
+          "kind": "source",
+          "label": "Official website",
+          "url": "https://www.awwwards.com/"
+        }
+      ],
+      "pricing": "Просмотр части материалов доступен бесплатно; аккаунт, расширенный поиск или полный архив могут требовать платный тариф",
+      "access": {
+        "cost": "freemium",
+        "signup": "optional",
+        "runtime": "cloud"
+      },
+      "trust": "official",
+      "trustReason": "Проверены официальный сайт, назначение и доступность. Материалы внутри принадлежат их авторам, поэтому используем их для анализа паттернов, а не для покадрового копирования.",
+      "projects": [
+        "Eclipse Forge Landing",
+        "Eclipse Library",
+        "Eclipse Chat",
+        "Eclipse AI Hub"
+      ],
+      "decision": "reference",
+      "riskLevel": "low",
+      "risks": [
+        "Слепое копирование чужого интерфейса создаёт copyright, trademark и product-fit риски.",
+        "Эффектная анимация может ухудшить скорость, accessibility и mobile UX."
+      ],
+      "quickStart": [
+        "Сначала сформулировать конкретную задачу экрана: onboarding, поиск, hero, empty state или feedback.",
+        "Сравнить минимум три разных решения и выписать общий принцип без копирования assets и текста.",
+        "Собрать оригинальный вариант в дизайн-системе Eclipse Forge и проверить desktop, mobile, keyboard и reduced motion."
+      ],
+      "addedAt": "2026-08-09",
+      "source": {
+        "file": "catalog/resources.json",
+        "key": "awwwards-design-gallery",
+        "legacy": {
+          "file": "user-message",
+          "line": 2475,
+          "category": "Новые источники 07–09.08.2026",
+          "subcategory": "Дизайн-референсы и продуктовые паттерны"
+        }
+      },
+      "catalogOrder": 2475,
+      "licenseInfo": {
+        "label": "Proprietary reference service; просмотр не разрешает копировать чужие экраны, тексты, иллюстрации или бренд",
+        "original": "Proprietary reference service; просмотр не разрешает копировать чужие экраны, тексты, иллюстрации или бренд",
+        "spdx": null,
+        "kind": "custom",
+        "status": "editor-reviewed",
+        "requiresReview": false,
+        "evidence": [
+          {
+            "kind": "source",
+            "label": "Official website",
+            "url": "https://www.awwwards.com/"
+          }
+        ]
+      },
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://www.awwwards.com/"
+        }
+      ],
+      "agentEligibility": {
+        "eligible": true,
+        "reasons": [],
+        "installAllowed": false
+      }
+    },
+    {
+      "category": "Подборка Eclipse",
+      "verifiedAt": "2026-08-09",
+      "reviewStatus": "verified",
+      "id": "cosmos-design-moodboard",
+      "url": "https://www.cosmos.so/",
+      "title": "Cosmos",
+      "type": "learn",
+      "subcategory": "Дизайн-референсы и продуктовые паттерны",
+      "simpleDescription": "Визуальная discovery-платформа и moodboard для сохранения изображений, ссылок и идей. Полезна для раннего research бренда Eclipse Forge, но загружать туда закрытые макеты, клиентские данные или невыпущенные assets нельзя без privacy review.",
+      "useCases": [
+        "Собрать moodboard бренда Eclipse Forge.",
+        "Группировать визуальные направления для Shotforge и Text2Image.",
+        "Обсуждать reference-набор до генерации original assets."
+      ],
+      "platforms": [
+        "Web"
+      ],
+      "license": "Proprietary reference service; просмотр не разрешает копировать чужие экраны, тексты, иллюстрации или бренд",
+      "licenseEvidence": [
+        {
+          "kind": "source",
+          "label": "Official website",
+          "url": "https://www.cosmos.so/"
+        }
+      ],
+      "pricing": "Просмотр части материалов доступен бесплатно; аккаунт, расширенный поиск или полный архив могут требовать платный тариф",
+      "access": {
+        "cost": "freemium",
+        "signup": "optional",
+        "runtime": "cloud"
+      },
+      "trust": "official",
+      "trustReason": "Проверены официальный сайт, назначение и доступность. Материалы внутри принадлежат их авторам, поэтому используем их для анализа паттернов, а не для покадрового копирования.",
+      "projects": [
+        "Eclipse Forge Landing",
+        "Eclipse Library",
+        "Eclipse Chat",
+        "Eclipse AI Hub"
+      ],
+      "decision": "reference",
+      "riskLevel": "low",
+      "risks": [
+        "Слепое копирование чужого интерфейса создаёт copyright, trademark и product-fit риски.",
+        "Эффектная анимация может ухудшить скорость, accessibility и mobile UX.",
+        "Персонализация и cloud storage создают privacy риск для загруженных материалов."
+      ],
+      "quickStart": [
+        "Сначала сформулировать конкретную задачу экрана: onboarding, поиск, hero, empty state или feedback.",
+        "Сравнить минимум три разных решения и выписать общий принцип без копирования assets и текста.",
+        "Собрать оригинальный вариант в дизайн-системе Eclipse Forge и проверить desktop, mobile, keyboard и reduced motion."
+      ],
+      "addedAt": "2026-08-09",
+      "source": {
+        "file": "catalog/resources.json",
+        "key": "cosmos-design-moodboard",
+        "legacy": {
+          "file": "user-message",
+          "line": 2476,
+          "category": "Новые источники 07–09.08.2026",
+          "subcategory": "Дизайн-референсы и продуктовые паттерны"
+        }
+      },
+      "catalogOrder": 2476,
+      "licenseInfo": {
+        "label": "Proprietary reference service; просмотр не разрешает копировать чужие экраны, тексты, иллюстрации или бренд",
+        "original": "Proprietary reference service; просмотр не разрешает копировать чужие экраны, тексты, иллюстрации или бренд",
+        "spdx": null,
+        "kind": "custom",
+        "status": "editor-reviewed",
+        "requiresReview": false,
+        "evidence": [
+          {
+            "kind": "source",
+            "label": "Official website",
+            "url": "https://www.cosmos.so/"
+          }
+        ]
+      },
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://www.cosmos.so/"
+        }
+      ],
+      "agentEligibility": {
+        "eligible": true,
+        "reasons": [],
+        "installAllowed": false
+      }
+    },
+    {
+      "category": "Подборка Eclipse",
+      "verifiedAt": "2026-08-09",
+      "reviewStatus": "verified",
+      "id": "craftwork-curated-websites",
+      "url": "https://craftwork.design/curated/websites",
+      "title": "Craftwork Curated Websites",
+      "type": "learn",
+      "subcategory": "Дизайн-референсы и продуктовые паттерны",
+      "simpleDescription": "Категоризированная подборка web-design примеров Craftwork; прежний curated.design перенаправляет на этот раздел. Удобна для быстрого сравнения страниц по типу, но коммерческие Craftwork assets имеют собственные лицензии.",
+      "useCases": [
+        "Сравнить структуру portfolio и SaaS страниц Eclipse Forge Landing.",
+        "Подобрать layout reference для Library guides.",
+        "Отделять идеи страницы от платных assets Craftwork."
+      ],
+      "platforms": [
+        "Web"
+      ],
+      "license": "Proprietary reference service; просмотр не разрешает копировать чужие экраны, тексты, иллюстрации или бренд",
+      "licenseEvidence": [
+        {
+          "kind": "source",
+          "label": "Official website",
+          "url": "https://craftwork.design/curated/websites"
+        }
+      ],
+      "pricing": "Просмотр части материалов доступен бесплатно; аккаунт, расширенный поиск или полный архив могут требовать платный тариф",
+      "access": {
+        "cost": "freemium",
+        "signup": "optional",
+        "runtime": "cloud"
+      },
+      "trust": "official",
+      "trustReason": "Проверены официальный сайт, назначение и доступность. Материалы внутри принадлежат их авторам, поэтому используем их для анализа паттернов, а не для покадрового копирования.",
+      "projects": [
+        "Eclipse Forge Landing",
+        "Eclipse Library",
+        "Eclipse Chat",
+        "Eclipse AI Hub"
+      ],
+      "decision": "reference",
+      "riskLevel": "low",
+      "risks": [
+        "Слепое копирование чужого интерфейса создаёт copyright, trademark и product-fit риски.",
+        "Эффектная анимация может ухудшить скорость, accessibility и mobile UX.",
+        "Redirect означает, что прежнее название и условия могли измениться."
+      ],
+      "quickStart": [
+        "Сначала сформулировать конкретную задачу экрана: onboarding, поиск, hero, empty state или feedback.",
+        "Сравнить минимум три разных решения и выписать общий принцип без копирования assets и текста.",
+        "Собрать оригинальный вариант в дизайн-системе Eclipse Forge и проверить desktop, mobile, keyboard и reduced motion."
+      ],
+      "addedAt": "2026-08-09",
+      "source": {
+        "file": "catalog/resources.json",
+        "key": "craftwork-curated-websites",
+        "legacy": {
+          "file": "user-message",
+          "line": 2477,
+          "category": "Новые источники 07–09.08.2026",
+          "subcategory": "Дизайн-референсы и продуктовые паттерны"
+        }
+      },
+      "catalogOrder": 2477,
+      "licenseInfo": {
+        "label": "Proprietary reference service; просмотр не разрешает копировать чужие экраны, тексты, иллюстрации или бренд",
+        "original": "Proprietary reference service; просмотр не разрешает копировать чужие экраны, тексты, иллюстрации или бренд",
+        "spdx": null,
+        "kind": "custom",
+        "status": "editor-reviewed",
+        "requiresReview": false,
+        "evidence": [
+          {
+            "kind": "source",
+            "label": "Official website",
+            "url": "https://craftwork.design/curated/websites"
+          }
+        ]
+      },
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://craftwork.design/curated/websites"
+        }
+      ],
+      "agentEligibility": {
+        "eligible": true,
+        "reasons": [],
+        "installAllowed": false
+      }
+    },
+    {
+      "category": "Подборка Eclipse",
+      "verifiedAt": "2026-08-09",
+      "reviewStatus": "verified",
+      "id": "design-spells",
+      "url": "https://designspells.com/",
+      "title": "Design Spells",
+      "type": "learn",
+      "subcategory": "Дизайн-референсы и продуктовые паттерны",
+      "simpleDescription": "Подборка небольших, хорошо выполненных деталей реальных продуктов: состояния, microinteractions, copy и неожиданные UX-решения. Полезнее всего для точечного улучшения feedback, а не для полного редизайна по одному screenshot.",
+      "useCases": [
+        "Находить идеи feedback states для Eclipse Chat.",
+        "Улучшать поиск и empty states Eclipse Library.",
+        "Разбирать одну microinteraction с доступным fallback."
+      ],
+      "platforms": [
+        "Web"
+      ],
+      "license": "Proprietary reference service; просмотр не разрешает копировать чужие экраны, тексты, иллюстрации или бренд",
+      "licenseEvidence": [
+        {
+          "kind": "source",
+          "label": "Official website",
+          "url": "https://designspells.com/"
+        }
+      ],
+      "pricing": "Просмотр части материалов доступен бесплатно; аккаунт, расширенный поиск или полный архив могут требовать платный тариф",
+      "access": {
+        "cost": "freemium",
+        "signup": "optional",
+        "runtime": "cloud"
+      },
+      "trust": "official",
+      "trustReason": "Проверены официальный сайт, назначение и доступность. Материалы внутри принадлежат их авторам, поэтому используем их для анализа паттернов, а не для покадрового копирования.",
+      "projects": [
+        "Eclipse Forge Landing",
+        "Eclipse Library",
+        "Eclipse Chat",
+        "Eclipse AI Hub"
+      ],
+      "decision": "reference",
+      "riskLevel": "low",
+      "risks": [
+        "Слепое копирование чужого интерфейса создаёт copyright, trademark и product-fit риски.",
+        "Эффектная анимация может ухудшить скорость, accessibility и mobile UX."
+      ],
+      "quickStart": [
+        "Сначала сформулировать конкретную задачу экрана: onboarding, поиск, hero, empty state или feedback.",
+        "Сравнить минимум три разных решения и выписать общий принцип без копирования assets и текста.",
+        "Собрать оригинальный вариант в дизайн-системе Eclipse Forge и проверить desktop, mobile, keyboard и reduced motion."
+      ],
+      "addedAt": "2026-08-09",
+      "source": {
+        "file": "catalog/resources.json",
+        "key": "design-spells",
+        "legacy": {
+          "file": "user-message",
+          "line": 2478,
+          "category": "Новые источники 07–09.08.2026",
+          "subcategory": "Дизайн-референсы и продуктовые паттерны"
+        }
+      },
+      "catalogOrder": 2478,
+      "licenseInfo": {
+        "label": "Proprietary reference service; просмотр не разрешает копировать чужие экраны, тексты, иллюстрации или бренд",
+        "original": "Proprietary reference service; просмотр не разрешает копировать чужие экраны, тексты, иллюстрации или бренд",
+        "spdx": null,
+        "kind": "custom",
+        "status": "editor-reviewed",
+        "requiresReview": false,
+        "evidence": [
+          {
+            "kind": "source",
+            "label": "Official website",
+            "url": "https://designspells.com/"
+          }
+        ]
+      },
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://designspells.com/"
+        }
+      ],
+      "agentEligibility": {
+        "eligible": true,
+        "reasons": [],
+        "installAllowed": false
+      }
+    },
+    {
+      "category": "Подборка Eclipse",
+      "verifiedAt": "2026-08-09",
+      "reviewStatus": "verified",
+      "id": "60fps-design",
+      "url": "https://60fps.design/",
+      "title": "60fps",
+      "type": "learn",
+      "subcategory": "Дизайн-референсы и продуктовые паттерны",
+      "simpleDescription": "Галерея UI/UX-анимаций для mobile и web, сфокусированная на реальных transitions и interactions. Используем для motion timing и feedback, сохраняя prefers-reduced-motion и не привязывая core flow к анимации.",
+      "useCases": [
+        "Сравнить transitions Eclipse Chat и AI Hub.",
+        "Подобрать feedback motion для Library filters.",
+        "Сделать motion spec для Eclipse Media."
+      ],
+      "platforms": [
+        "Web"
+      ],
+      "license": "Proprietary reference service; просмотр не разрешает копировать чужие экраны, тексты, иллюстрации или бренд",
+      "licenseEvidence": [
+        {
+          "kind": "source",
+          "label": "Official website",
+          "url": "https://60fps.design/"
+        }
+      ],
+      "pricing": "Просмотр части материалов доступен бесплатно; аккаунт, расширенный поиск или полный архив могут требовать платный тариф",
+      "access": {
+        "cost": "freemium",
+        "signup": "optional",
+        "runtime": "cloud"
+      },
+      "trust": "official",
+      "trustReason": "Проверены официальный сайт, назначение и доступность. Материалы внутри принадлежат их авторам, поэтому используем их для анализа паттернов, а не для покадрового копирования.",
+      "projects": [
+        "Eclipse Forge Landing",
+        "Eclipse Library",
+        "Eclipse Chat",
+        "Eclipse AI Hub"
+      ],
+      "decision": "reference",
+      "riskLevel": "low",
+      "risks": [
+        "Слепое копирование чужого интерфейса создаёт copyright, trademark и product-fit риски.",
+        "Эффектная анимация может ухудшить скорость, accessibility и mobile UX."
+      ],
+      "quickStart": [
+        "Сначала сформулировать конкретную задачу экрана: onboarding, поиск, hero, empty state или feedback.",
+        "Сравнить минимум три разных решения и выписать общий принцип без копирования assets и текста.",
+        "Собрать оригинальный вариант в дизайн-системе Eclipse Forge и проверить desktop, mobile, keyboard и reduced motion."
+      ],
+      "addedAt": "2026-08-09",
+      "source": {
+        "file": "catalog/resources.json",
+        "key": "60fps-design",
+        "legacy": {
+          "file": "user-message",
+          "line": 2479,
+          "category": "Новые источники 07–09.08.2026",
+          "subcategory": "Дизайн-референсы и продуктовые паттерны"
+        }
+      },
+      "catalogOrder": 2479,
+      "licenseInfo": {
+        "label": "Proprietary reference service; просмотр не разрешает копировать чужие экраны, тексты, иллюстрации или бренд",
+        "original": "Proprietary reference service; просмотр не разрешает копировать чужие экраны, тексты, иллюстрации или бренд",
+        "spdx": null,
+        "kind": "custom",
+        "status": "editor-reviewed",
+        "requiresReview": false,
+        "evidence": [
+          {
+            "kind": "source",
+            "label": "Official website",
+            "url": "https://60fps.design/"
+          }
+        ]
+      },
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://60fps.design/"
+        }
+      ],
+      "agentEligibility": {
+        "eligible": true,
+        "reasons": [],
+        "installAllowed": false
+      }
+    },
+    {
+      "category": "Подборка Eclipse",
+      "verifiedAt": "2026-08-09",
+      "reviewStatus": "verified",
+      "id": "supahero",
+      "url": "https://supahero.io/",
+      "title": "Supahero",
+      "type": "learn",
+      "subcategory": "Дизайн-референсы и продуктовые паттерны",
+      "simpleDescription": "Специализированная галерея hero-секций сайтов. Помогает быстро сравнить headline, proof, visual и CTA, но hero Eclipse Forge должен объяснять продукт за три секунды, а не только выглядеть эффектно.",
+      "useCases": [
+        "Пересобрать hero главного Eclipse Forge Landing.",
+        "Сравнить CTA и social proof для product pages.",
+        "Проверить mobile hierarchy без декоративной перегрузки."
+      ],
+      "platforms": [
+        "Web"
+      ],
+      "license": "Proprietary reference service; просмотр не разрешает копировать чужие экраны, тексты, иллюстрации или бренд",
+      "licenseEvidence": [
+        {
+          "kind": "source",
+          "label": "Official website",
+          "url": "https://supahero.io/"
+        }
+      ],
+      "pricing": "Просмотр части материалов доступен бесплатно; аккаунт, расширенный поиск или полный архив могут требовать платный тариф",
+      "access": {
+        "cost": "freemium",
+        "signup": "optional",
+        "runtime": "cloud"
+      },
+      "trust": "official",
+      "trustReason": "Проверены официальный сайт, назначение и доступность. Материалы внутри принадлежат их авторам, поэтому используем их для анализа паттернов, а не для покадрового копирования.",
+      "projects": [
+        "Eclipse Forge Landing",
+        "Eclipse Library",
+        "Eclipse Chat",
+        "Eclipse AI Hub"
+      ],
+      "decision": "reference",
+      "riskLevel": "low",
+      "risks": [
+        "Слепое копирование чужого интерфейса создаёт copyright, trademark и product-fit риски.",
+        "Эффектная анимация может ухудшить скорость, accessibility и mobile UX."
+      ],
+      "quickStart": [
+        "Сначала сформулировать конкретную задачу экрана: onboarding, поиск, hero, empty state или feedback.",
+        "Сравнить минимум три разных решения и выписать общий принцип без копирования assets и текста.",
+        "Собрать оригинальный вариант в дизайн-системе Eclipse Forge и проверить desktop, mobile, keyboard и reduced motion."
+      ],
+      "addedAt": "2026-08-09",
+      "source": {
+        "file": "catalog/resources.json",
+        "key": "supahero",
+        "legacy": {
+          "file": "user-message",
+          "line": 2480,
+          "category": "Новые источники 07–09.08.2026",
+          "subcategory": "Дизайн-референсы и продуктовые паттерны"
+        }
+      },
+      "catalogOrder": 2480,
+      "licenseInfo": {
+        "label": "Proprietary reference service; просмотр не разрешает копировать чужие экраны, тексты, иллюстрации или бренд",
+        "original": "Proprietary reference service; просмотр не разрешает копировать чужие экраны, тексты, иллюстрации или бренд",
+        "spdx": null,
+        "kind": "custom",
+        "status": "editor-reviewed",
+        "requiresReview": false,
+        "evidence": [
+          {
+            "kind": "source",
+            "label": "Official website",
+            "url": "https://supahero.io/"
+          }
+        ]
+      },
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://supahero.io/"
+        }
+      ],
+      "agentEligibility": {
+        "eligible": true,
+        "reasons": [],
+        "installAllowed": false
+      }
+    },
+    {
+      "category": "Подборка Eclipse",
+      "verifiedAt": "2026-08-09",
+      "reviewStatus": "verified",
+      "id": "saaspo",
+      "url": "https://saaspo.com/",
+      "title": "SaaSpo",
+      "type": "learn",
+      "subcategory": "Дизайн-референсы и продуктовые паттерны",
+      "simpleDescription": "Каталог SaaS-сайтов и отдельных page sections с фильтрами. Подходит для анализа product messaging, pricing, integrations и case studies, но тексты и композицию конкурентов нельзя переносить один в один.",
+      "useCases": [
+        "Сравнить структуру SaaS product pages Eclipse Forge.",
+        "Разобрать pricing и FAQ patterns для Kwork-офферов.",
+        "Собрать оригинальный conversion flow для Eclipse AI Hub."
+      ],
+      "platforms": [
+        "Web"
+      ],
+      "license": "Proprietary reference service; просмотр не разрешает копировать чужие экраны, тексты, иллюстрации или бренд",
+      "licenseEvidence": [
+        {
+          "kind": "source",
+          "label": "Official website",
+          "url": "https://saaspo.com/"
+        }
+      ],
+      "pricing": "Просмотр части материалов доступен бесплатно; аккаунт, расширенный поиск или полный архив могут требовать платный тариф",
+      "access": {
+        "cost": "freemium",
+        "signup": "optional",
+        "runtime": "cloud"
+      },
+      "trust": "official",
+      "trustReason": "Проверены официальный сайт, назначение и доступность. Материалы внутри принадлежат их авторам, поэтому используем их для анализа паттернов, а не для покадрового копирования.",
+      "projects": [
+        "Eclipse Forge Landing",
+        "Eclipse Library",
+        "Eclipse Chat",
+        "Eclipse AI Hub"
+      ],
+      "decision": "reference",
+      "riskLevel": "low",
+      "risks": [
+        "Слепое копирование чужого интерфейса создаёт copyright, trademark и product-fit риски.",
+        "Эффектная анимация может ухудшить скорость, accessibility и mobile UX."
+      ],
+      "quickStart": [
+        "Сначала сформулировать конкретную задачу экрана: onboarding, поиск, hero, empty state или feedback.",
+        "Сравнить минимум три разных решения и выписать общий принцип без копирования assets и текста.",
+        "Собрать оригинальный вариант в дизайн-системе Eclipse Forge и проверить desktop, mobile, keyboard и reduced motion."
+      ],
+      "addedAt": "2026-08-09",
+      "source": {
+        "file": "catalog/resources.json",
+        "key": "saaspo",
+        "legacy": {
+          "file": "user-message",
+          "line": 2481,
+          "category": "Новые источники 07–09.08.2026",
+          "subcategory": "Дизайн-референсы и продуктовые паттерны"
+        }
+      },
+      "catalogOrder": 2481,
+      "licenseInfo": {
+        "label": "Proprietary reference service; просмотр не разрешает копировать чужие экраны, тексты, иллюстрации или бренд",
+        "original": "Proprietary reference service; просмотр не разрешает копировать чужие экраны, тексты, иллюстрации или бренд",
+        "spdx": null,
+        "kind": "custom",
+        "status": "editor-reviewed",
+        "requiresReview": false,
+        "evidence": [
+          {
+            "kind": "source",
+            "label": "Official website",
+            "url": "https://saaspo.com/"
+          }
+        ]
+      },
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://saaspo.com/"
+        }
+      ],
+      "agentEligibility": {
+        "eligible": true,
+        "reasons": [],
+        "installAllowed": false
+      }
+    },
+    {
+      "category": "Подборка Eclipse",
+      "verifiedAt": "2026-08-09",
+      "reviewStatus": "verified",
+      "id": "layers-design-community",
+      "url": "https://layers.to/",
+      "title": "Layers",
+      "type": "learn",
+      "subcategory": "Дизайн-референсы и продуктовые паттерны",
+      "simpleDescription": "Design community и портфолио-платформа с работами отдельных авторов. Полезна для поиска людей и направлений, но это не единый проверенный стандарт интерфейсов и не источник свободных для копирования assets.",
+      "useCases": [
+        "Искать авторов и визуальные направления для Eclipse Forge.",
+        "Собирать diverse references вместо одного тренда.",
+        "Проверять происхождение каждой работы перед использованием в moodboard."
+      ],
+      "platforms": [
+        "Web"
+      ],
+      "license": "Proprietary reference service; просмотр не разрешает копировать чужие экраны, тексты, иллюстрации или бренд",
+      "licenseEvidence": [
+        {
+          "kind": "source",
+          "label": "Official website",
+          "url": "https://layers.to/"
+        }
+      ],
+      "pricing": "Просмотр части материалов доступен бесплатно; аккаунт, расширенный поиск или полный архив могут требовать платный тариф",
+      "access": {
+        "cost": "freemium",
+        "signup": "optional",
+        "runtime": "cloud"
+      },
+      "trust": "official",
+      "trustReason": "Проверены официальный сайт, назначение и доступность. Материалы внутри принадлежат их авторам, поэтому используем их для анализа паттернов, а не для покадрового копирования.",
+      "projects": [
+        "Eclipse Forge Landing",
+        "Eclipse Library",
+        "Eclipse Chat",
+        "Eclipse AI Hub"
+      ],
+      "decision": "reference",
+      "riskLevel": "low",
+      "risks": [
+        "Слепое копирование чужого интерфейса создаёт copyright, trademark и product-fit риски.",
+        "Эффектная анимация может ухудшить скорость, accessibility и mobile UX."
+      ],
+      "quickStart": [
+        "Сначала сформулировать конкретную задачу экрана: onboarding, поиск, hero, empty state или feedback.",
+        "Сравнить минимум три разных решения и выписать общий принцип без копирования assets и текста.",
+        "Собрать оригинальный вариант в дизайн-системе Eclipse Forge и проверить desktop, mobile, keyboard и reduced motion."
+      ],
+      "addedAt": "2026-08-09",
+      "source": {
+        "file": "catalog/resources.json",
+        "key": "layers-design-community",
+        "legacy": {
+          "file": "user-message",
+          "line": 2482,
+          "category": "Новые источники 07–09.08.2026",
+          "subcategory": "Дизайн-референсы и продуктовые паттерны"
+        }
+      },
+      "catalogOrder": 2482,
+      "licenseInfo": {
+        "label": "Proprietary reference service; просмотр не разрешает копировать чужие экраны, тексты, иллюстрации или бренд",
+        "original": "Proprietary reference service; просмотр не разрешает копировать чужие экраны, тексты, иллюстрации или бренд",
+        "spdx": null,
+        "kind": "custom",
+        "status": "editor-reviewed",
+        "requiresReview": false,
+        "evidence": [
+          {
+            "kind": "source",
+            "label": "Official website",
+            "url": "https://layers.to/"
+          }
+        ]
+      },
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://layers.to/"
+        }
+      ],
+      "agentEligibility": {
+        "eligible": true,
+        "reasons": [],
         "installAllowed": false
       }
     }
