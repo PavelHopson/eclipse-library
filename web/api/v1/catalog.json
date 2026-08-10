@@ -1,18 +1,18 @@
 {
   "schemaVersion": 2,
-  "sourceHash": "feb6b428a92e9dedda4e8a7d9fcd05a0f815f6e3948d701771a40c616d416401",
+  "sourceHash": "03c22610e98a7c112a0fa21467582a811029ae540386a8cebb3f9ff09cee6659",
   "policy": {
     "directInstallForbidden": true
   },
   "totals": {
-    "all": 586,
-    "verified": 144,
+    "all": 589,
+    "verified": 147,
     "inferred": 442,
-    "licenseReviewRequired": 281,
-    "agentSafe": 513,
+    "licenseReviewRequired": 283,
+    "agentSafe": 516,
     "agentExcluded": 73,
     "grey": 66,
-    "withAddedAt": 303
+    "withAddedAt": 306
   },
   "items": [
     {
@@ -49744,6 +49744,379 @@
           "kind": "official-source",
           "label": "Официальный источник",
           "url": "https://layers.to/"
+        }
+      ],
+      "agentEligibility": {
+        "eligible": true,
+        "reasons": [],
+        "installAllowed": false
+      }
+    },
+    {
+      "category": "AI-модели",
+      "verifiedAt": "2026-08-10",
+      "reviewStatus": "verified",
+      "id": "krea-ai",
+      "url": "https://www.krea.ai/",
+      "title": "Krea AI",
+      "type": "tool",
+      "subcategory": "Облачная генерация и редактирование изображений и видео",
+      "simpleDescription": "Krea — облачная творческая студия, в которой можно генерировать и редактировать изображения и видео через разные AI-модели из одного интерфейса. Это удобно для быстрых макетов и сравнений, но файлы отправляются внешнему сервису, набор моделей и цена могут меняться, а подписка приложения не равна балансу API.",
+      "useCases": [
+        "Быстро собрать визуальный прототип лендинга из лицензированных исходников.",
+        "Сравнить несколько image и video providers перед добавлением в Eclipse Model Registry.",
+        "Подготовить product mockups и короткие демо для Eclipse Media и Shotforge."
+      ],
+      "platforms": [
+        "Web",
+        "Cloud",
+        "API"
+      ],
+      "license": "Proprietary cloud SaaS; права на коммерческое использование зависят от тарифа Krea и отдельных условий выбранной модели или provider; exact Terms need verification",
+      "licenseEvidence": [
+        {
+          "kind": "terms",
+          "label": "Official pricing and plan rights",
+          "url": "https://www.krea.ai/pricing"
+        },
+        {
+          "kind": "security",
+          "label": "Official security overview",
+          "url": "https://www.krea.ai/security"
+        },
+        {
+          "kind": "source",
+          "label": "Official API overview",
+          "url": "https://www.krea.ai/features/api"
+        }
+      ],
+      "pricing": "Freemium: на 10.08.2026 публичная страница указывает Free с 100 compute units в день, Basic от $9/месяц, Pro от $35/месяц, Max от $105/месяц и Business от $200/месяц. API оплачивается отдельным балансом; цены и доступность конкретных моделей нужно проверять перед запуском.",
+      "access": {
+        "cost": "freemium",
+        "signup": "required",
+        "runtime": "cloud"
+      },
+      "trust": "official",
+      "trustReason": "Существование продукта, тарифы, отдельный API-баланс и security overview подтверждены официальными страницами Krea. Публичные Terms и Privacy не удалось надёжно открыть во время проверки, поэтому обработка клиентских и конфиденциальных материалов остаётся непроверенной границей.",
+      "projects": [
+        "Eclipse AI Hub",
+        "Eclipse Media",
+        "Shotforge",
+        "Text2Image",
+        "Eclipse Forge Landing"
+      ],
+      "decision": "reference",
+      "riskLevel": "medium",
+      "risks": [
+        "Промпты, изображения и видео передаются стороннему облачному сервису; не загружать секретные или клиентские материалы без проверки Terms, Privacy и DPA.",
+        "Коммерческие права на результат не отменяют необходимость иметь права на исходные фотографии, логотипы, лица и музыку.",
+        "Модель, цена и доступность могут отличаться между web-приложением и API; публичный API Krea сейчас перечисляет Kling 2.6, а не подтверждённый production-доступ к Kling 3.0."
+      ],
+      "quickStart": [
+        "Начать с публичных или собственных тестовых материалов и записать, какая модель, provider и цена использовались.",
+        "Сделать один и тот же небольшой сценарий в Krea и прямом API provider: генерация, редактирование, текст на изображении и стоимость.",
+        "Сохранить provenance и результат только как draft; публикацию, оплату и передачу клиенту подтверждает человек."
+      ],
+      "guide": "ai-landing-sprint",
+      "addedAt": "2026-08-10",
+      "source": {
+        "file": "catalog/resources.json",
+        "key": "krea-ai",
+        "legacy": {
+          "file": "user-video",
+          "line": 2483,
+          "category": "AI-модели",
+          "subcategory": "Облачная генерация и редактирование изображений и видео"
+        }
+      },
+      "catalogOrder": 2483,
+      "licenseInfo": {
+        "label": "Proprietary cloud SaaS; права на коммерческое использование зависят от тарифа Krea и отдельных условий выбранной модели или provider; exact Terms need verification",
+        "original": "Proprietary cloud SaaS; права на коммерческое использование зависят от тарифа Krea и отдельных условий выбранной модели или provider; exact Terms need verification",
+        "spdx": null,
+        "kind": "service-terms",
+        "status": "unverified",
+        "requiresReview": true,
+        "evidence": [
+          {
+            "kind": "terms",
+            "label": "Official pricing and plan rights",
+            "url": "https://www.krea.ai/pricing"
+          },
+          {
+            "kind": "security",
+            "label": "Official security overview",
+            "url": "https://www.krea.ai/security"
+          },
+          {
+            "kind": "source",
+            "label": "Official API overview",
+            "url": "https://www.krea.ai/features/api"
+          }
+        ]
+      },
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://www.krea.ai/"
+        },
+        {
+          "kind": "terms",
+          "label": "Official pricing and plan rights",
+          "url": "https://www.krea.ai/pricing"
+        },
+        {
+          "kind": "security",
+          "label": "Official security overview",
+          "url": "https://www.krea.ai/security"
+        },
+        {
+          "kind": "source",
+          "label": "Official API overview",
+          "url": "https://www.krea.ai/features/api"
+        }
+      ],
+      "agentEligibility": {
+        "eligible": true,
+        "reasons": [],
+        "installAllowed": false
+      }
+    },
+    {
+      "category": "AI-модели",
+      "verifiedAt": "2026-08-10",
+      "reviewStatus": "verified",
+      "id": "google-nano-banana-pro",
+      "url": "https://ai.google.dev/gemini-api/docs/models/gemini-3-pro-image",
+      "title": "Google Nano Banana Pro (Gemini 3 Pro Image)",
+      "type": "model",
+      "subcategory": "Облачная генерация и редактирование изображений",
+      "simpleDescription": "Nano Banana Pro — коммерческое название облачной модели Google Gemini 3 Pro Image. Она создаёт и редактирует изображения по тексту и референсам, хорошо подходит для product mockups, текста внутри картинки и визуальных черновиков, но не запускается локально и не является бесплатной open-source моделью.",
+      "useCases": [
+        "Провести контролируемый quality, latency и cost benchmark для Text2Image и Eclipse AI Hub.",
+        "Создавать лицензированные product mockups и варианты key visual для Eclipse Forge Landing.",
+        "Готовить исходные кадры и окружение для Eclipse Media и Shotforge с обязательным human review."
+      ],
+      "platforms": [
+        "Google AI Studio",
+        "Gemini API",
+        "Cloud"
+      ],
+      "license": "Proprietary Google model and Gemini API service terms; documentation code samples may have separate open licenses, но это не делает модель или сервис open-source",
+      "licenseEvidence": [
+        {
+          "kind": "terms",
+          "label": "Gemini API Additional Terms",
+          "url": "https://ai.google.dev/gemini-api/terms"
+        },
+        {
+          "kind": "pricing",
+          "label": "Official Gemini API pricing",
+          "url": "https://ai.google.dev/gemini-api/docs/pricing"
+        },
+        {
+          "kind": "source",
+          "label": "Official image generation documentation",
+          "url": "https://ai.google.dev/gemini-api/docs/image-generation"
+        }
+      ],
+      "pricing": "Paid API model: на 10.08.2026 стандартная цена изображения составляет примерно $0.134 для 1K/2K и $0.24 для 4K; batch/flex — примерно $0.067 и $0.12 соответственно. Отдельного free tier для этой модели в публичной таблице нет; input, grounding и другие операции могут тарифицироваться дополнительно.",
+      "access": {
+        "cost": "paid",
+        "signup": "required",
+        "runtime": "cloud"
+      },
+      "trust": "official",
+      "trustReason": "Model ID gemini-3-pro-image, функции, стабильный статус, цены и SynthID подтверждены официальной документацией Google. Результат всё равно требует проверки: генеративная модель может ошибаться в брендах, тексте, фактах и деталях продукта.",
+      "projects": [
+        "Text2Image",
+        "Eclipse AI Hub",
+        "Eclipse Media",
+        "Shotforge",
+        "Eclipse Forge Landing"
+      ],
+      "decision": "roadmap",
+      "riskLevel": "medium",
+      "risks": [
+        "Промпты и изображения обрабатываются Google; режим использования данных зависит от Paid Services, региона и актуальных Gemini API Terms.",
+        "Изображение с реальным человеком, чужим брендом или защищённым контентом требует согласия и проверки прав, даже если технически сгенерировано моделью.",
+        "SynthID помогает обозначить AI-происхождение, но не доказывает фактическую точность, лицензионную чистоту или согласие изображённого человека."
+      ],
+      "quickStart": [
+        "Добавить provider только в server-side registry: API key не должен попадать в браузер, логи или репозиторий.",
+        "Прогнать одинаковый набор лицензированных fixtures: генерация с нуля, редактирование, сохранение текста, референсов и стиля.",
+        "Зафиксировать стоимость, latency, ошибки, provenance и manual approval; автопубликацию оставить выключенной."
+      ],
+      "guide": "ai-landing-sprint",
+      "addedAt": "2026-08-10",
+      "source": {
+        "file": "catalog/resources.json",
+        "key": "google-nano-banana-pro",
+        "legacy": {
+          "file": "user-video",
+          "line": 2484,
+          "category": "AI-модели",
+          "subcategory": "Облачная генерация и редактирование изображений"
+        }
+      },
+      "catalogOrder": 2484,
+      "licenseInfo": {
+        "label": "Proprietary Google model and Gemini API service terms; documentation code samples may have separate open licenses, но это не делает модель или сервис open-source",
+        "original": "Proprietary Google model and Gemini API service terms; documentation code samples may have separate open licenses, но это не делает модель или сервис open-source",
+        "spdx": null,
+        "kind": "service-terms",
+        "status": "editor-reviewed",
+        "requiresReview": false,
+        "evidence": [
+          {
+            "kind": "terms",
+            "label": "Gemini API Additional Terms",
+            "url": "https://ai.google.dev/gemini-api/terms"
+          },
+          {
+            "kind": "pricing",
+            "label": "Official Gemini API pricing",
+            "url": "https://ai.google.dev/gemini-api/docs/pricing"
+          },
+          {
+            "kind": "source",
+            "label": "Official image generation documentation",
+            "url": "https://ai.google.dev/gemini-api/docs/image-generation"
+          }
+        ]
+      },
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://ai.google.dev/gemini-api/docs/models/gemini-3-pro-image"
+        },
+        {
+          "kind": "terms",
+          "label": "Gemini API Additional Terms",
+          "url": "https://ai.google.dev/gemini-api/terms"
+        },
+        {
+          "kind": "pricing",
+          "label": "Official Gemini API pricing",
+          "url": "https://ai.google.dev/gemini-api/docs/pricing"
+        },
+        {
+          "kind": "source",
+          "label": "Official image generation documentation",
+          "url": "https://ai.google.dev/gemini-api/docs/image-generation"
+        }
+      ],
+      "agentEligibility": {
+        "eligible": true,
+        "reasons": [],
+        "installAllowed": false
+      }
+    },
+    {
+      "category": "AI-модели",
+      "verifiedAt": "2026-08-10",
+      "reviewStatus": "verified",
+      "id": "kuaishou-kling-ai-3",
+      "url": "https://ir.kuaishou.com/node/11216/pdf",
+      "title": "Kuaishou Kling AI 3.0",
+      "type": "model",
+      "subcategory": "Облачная генерация видео, звука и мультимодальное редактирование",
+      "simpleDescription": "Kling AI 3.0 — проприетарная линейка Kuaishou для генерации и редактирования видео из текста, изображений, аудио и референсного видео. Официально заявлены ролики до 15 секунд, multi-shot управление и native audio, но доступность конкретной версии, цена и разрешённые сценарии зависят от региона и площадки.",
+      "useCases": [
+        "Провести безопасный video benchmark для Eclipse Media и Shotforge на синтетических или лицензированных материалах.",
+        "Собрать короткие draft-демо продукта для Eclipse Forge Landing без автоматической публикации.",
+        "Проверить консистентность персонажей и сцен для Eclipse DnD Forge без копирования голоса или внешности реальных людей."
+      ],
+      "platforms": [
+        "Web",
+        "Cloud",
+        "API через поддерживаемых providers"
+      ],
+      "license": "Proprietary Kuaishou/Kling AI service terms; commercial use, input rights, output rights, региональная доступность и API terms требуют проверки перед каждым production-сценарием; exact Terms need verification",
+      "licenseEvidence": [
+        {
+          "kind": "source",
+          "label": "Official Kling AI 3.0 release",
+          "url": "https://ir.kuaishou.com/node/11216/pdf"
+        },
+        {
+          "kind": "source",
+          "label": "Official Kuaishou Q1 2026 disclosure",
+          "url": "https://ir.kuaishou.com/static-files/51eda7e7-a9e8-43c1-b688-43f131104d98"
+        }
+      ],
+      "pricing": "Платный proprietary cloud service. Точную цену Kling 3.0, credits, API provider и доступность в регионе нужно сверять непосредственно перед запуском: публичная API-страница Krea на 10.08.2026 показывает цену для Kling 2.6, а не подтверждённый тариф Kling 3.0.",
+      "access": {
+        "cost": "paid",
+        "signup": "required",
+        "runtime": "cloud"
+      },
+      "trust": "official",
+      "trustReason": "Запуск Kling AI 3.0, multimodal input/output, генерация до 15 секунд, storyboards и native audio подтверждены пресс-релизом и биржевой отчётностью Kuaishou. Стабильный доступ через конкретного provider и актуальная цена не подтверждены единым публичным источником.",
+      "projects": [
+        "Eclipse Media",
+        "Shotforge",
+        "Eclipse Forge Landing",
+        "Eclipse DnD Forge",
+        "Eclipse AI Hub"
+      ],
+      "decision": "roadmap",
+      "riskLevel": "high",
+      "risks": [
+        "Reference video и audio могут переносить внешность, движения и особенности голоса: нужен явный consent, запрет скрытого клонирования и журнал provenance.",
+        "Исходные изображения, музыка, логотипы и персонажи могут быть защищены авторским правом или trademark; генерация не очищает эти права.",
+        "Cloud uploads, региональные Terms, стоимость и rollout версии меняются; запрещены production secrets, автопубликация и финансовые действия без человека."
+      ],
+      "quickStart": [
+        "Использовать только собственные, лицензированные или полностью синтетические fixtures; реальные лица и голоса исключить из первого benchmark.",
+        "Сравнить prompt adherence, консистентность, native audio, latency, стоимость и safety rejection на коротком сценарии.",
+        "Хранить результат как draft с model/provider/version metadata; скачивание или публикацию разрешать только после human approval."
+      ],
+      "guide": "ai-landing-sprint",
+      "addedAt": "2026-08-10",
+      "source": {
+        "file": "catalog/resources.json",
+        "key": "kuaishou-kling-ai-3",
+        "legacy": {
+          "file": "user-video",
+          "line": 2485,
+          "category": "AI-модели",
+          "subcategory": "Облачная генерация видео, звука и мультимодальное редактирование"
+        }
+      },
+      "catalogOrder": 2485,
+      "licenseInfo": {
+        "label": "Proprietary Kuaishou/Kling AI service terms; commercial use, input rights, output rights, региональная доступность и API terms требуют проверки перед каждым production-сценарием; exact Terms need verification",
+        "original": "Proprietary Kuaishou/Kling AI service terms; commercial use, input rights, output rights, региональная доступность и API terms требуют проверки перед каждым production-сценарием; exact Terms need verification",
+        "spdx": null,
+        "kind": "service-terms",
+        "status": "unverified",
+        "requiresReview": true,
+        "evidence": [
+          {
+            "kind": "source",
+            "label": "Official Kling AI 3.0 release",
+            "url": "https://ir.kuaishou.com/node/11216/pdf"
+          },
+          {
+            "kind": "source",
+            "label": "Official Kuaishou Q1 2026 disclosure",
+            "url": "https://ir.kuaishou.com/static-files/51eda7e7-a9e8-43c1-b688-43f131104d98"
+          }
+        ]
+      },
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://ir.kuaishou.com/node/11216/pdf"
+        },
+        {
+          "kind": "source",
+          "label": "Official Kuaishou Q1 2026 disclosure",
+          "url": "https://ir.kuaishou.com/static-files/51eda7e7-a9e8-43c1-b688-43f131104d98"
         }
       ],
       "agentEligibility": {

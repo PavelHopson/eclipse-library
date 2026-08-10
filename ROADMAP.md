@@ -1,19 +1,19 @@
 # Eclipse Library Roadmap
 
-Последнее обновление: **09.08.2026**
+Последнее обновление: **10.08.2026**
 
 ## Текущее состояние
 
-- `catalog/resources.json` — канонический structured catalog из 586 уникальных записей;
+- `catalog/resources.json` — канонический structured catalog из 589 уникальных записей;
   `README.md` сокращён до документации и больше не является runtime-источником данных.
 - `web/app.js` — client-side поиск, фильтры, detail view и guide viewer; structured adapter,
   карточки, редакционная лента и progressive DOM вынесены в отдельные модули. При старте в DOM
-  создаются только первые 36 карточек вместо всех 586.
-- `web/catalog-index.json` — production schema v2: 144 записи редакторски проверены,
-  442 честно помечены `inferred`, 303 имеют отдельный `addedAt`, даты удалены из category.
-- License layer: у 305 записей лицензия или условия нормализованы с evidence URL,
-  281 ещё требуют отдельного review.
-- Agent policy: 513 записей доступны автоматическим consumers, 73 исключены fail closed;
+  создаются только первые 36 карточек вместо всех 589.
+- `web/catalog-index.json` — production schema v2: 147 записей редакторски проверены,
+  442 честно помечены `inferred`, 306 имеют отдельный `addedAt`, даты удалены из category.
+- License layer: у 306 записей лицензия или условия нормализованы с evidence URL,
+  283 ещё требуют отдельного review.
+- Agent policy: 516 записей доступны автоматическим consumers, 73 исключены fail closed;
   все 66 grey-ресурсов скрыты от recommendations, direct install запрещён для всех записей.
 - `web/api/v1/` — versioned static exports для full catalog, agents, StarCRM и StarAI;
   consumers больше не должны читать README.
@@ -41,6 +41,8 @@
 - [x] Перевести Library с README parsing на canonical `catalog/resources.json`, добавить schema v2,
       normalized license evidence, `addedAt`, agent-safe exports, fail-closed install policy,
       локальные WOFF2 fonts и разбить frontend runtime.
+
+- [x] Добавить `AI Landing Sprint`: безопасный путь brief → evidence/rights → wireframe → AI drafts → code → claims/QA/security → human approval → deploy; добавить отдельные verified-карточки Krea, Google Nano Banana Pro и Kling AI 3.0 с актуальными pricing, rollout, privacy, IP и biometric boundaries.
 
 - [x] Добавить доказательный Eclipse Growth OS: разобрать SMM-шаблоны без рекламных claims,
       подготовить заполненную основу бренда, 30-дневный pilot, lead magnets, KPI, approval gate,
@@ -210,6 +212,14 @@
       self-check, EN/RU copy и без обязательного API key.
 
 ## Changelog
+
+### 2026-08-10
+
+- Разобрано видео «30 минут + ИИ = сайт, который можно продать за 100 000 ₽»: подтверждён быстрый prototype workflow, но не production-ready сайт и не заявленная стоимость. Зафиксированы отсутствующие mobile/backend/deploy gates, неподтверждённые claims, права на marketplace-фотографии и опасность blind agent permissions.
+- Добавлены три отдельные verified-карточки: Krea AI, Google Nano Banana Pro (Gemini 3 Pro Image) и Kuaishou Kling AI 3.0. Каталог вырос до 589 материалов и 147 ручных reviews; 306 записей имеют addedAt, 516 доступны agent consumers.
+- Krea оставлена reference: её публичный API показывает Kling 2.6, а Kling 3 Turbo — Soon; subscription и API balance разделены, публичные Terms/Privacy не удалось надёжно открыть. Nano Banana Pro и Kling AI 3.0 отправлены в roadmap только как controlled provider benchmarks.
+- Добавлено руководство «AI Landing Sprint» с business brief, evidence и asset registers, human approvals, production checklist и картой внедрения для Landing, AI Hub, Chat, Media, Shotforge, Sentinel, Text2Image и DnD Forge.
+- Пересобраны production index, guide manifest и API exports. Прямые установки из каталога по-прежнему запрещены; cloud uploads, API keys, лица, голоса и публикация закрыты fail-closed правилами.
 
 ### 2026-08-09
 
