@@ -27,6 +27,7 @@ README больше не является базой данных и не раз
 | [`web/github-metadata.json`](web/github-metadata.json) | Official GitHub state и license evidence для repository URL. |
 | [`web/guides.json`](web/guides.json) | Manifest учебных материалов. |
 | [`web/catalog-card.js`](web/catalog-card.js), [`web/catalog-editorial.js`](web/catalog-editorial.js), [`web/catalog-progressive.js`](web/catalog-progressive.js) | UI-модули карточки, редакционной ленты и progressive DOM; первая страница ограничена 36 карточками. |
+| [`web/catalog-inspector.js`](web/catalog-inspector.js), [`web/navigator.css`](web/navigator.css) | Безопасный evidence-first быстрый обзор и отдельный responsive visual layer Knowledge Navigator. |
 | [`web/api/v1/`](web/api/v1/) | Static JSON exports для внешних consumers и AI-агентов. |
 | [`lists/catalog-legacy-2026-08-03.md`](lists/catalog-legacy-2026-08-03.md) | Read-only архив старого Markdown-каталога; application его не читает. |
 

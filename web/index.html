@@ -15,6 +15,7 @@
   <link rel="preload" href="assets/fonts/manrope-cyrillic.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="preload" href="assets/fonts/manrope-latin.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="stylesheet" href="styles.css?v=23" />
+  <link rel="stylesheet" href="navigator.css?v=1" />
 </head>
 <body>
   <a class="skip" href="#results">Перейти к каталогу</a>
@@ -28,7 +29,7 @@
         </span>
         <span class="brand-text">
           <strong>Eclipse Library</strong>
-          <small>Собираем лучшее — ничего не теряем</small>
+          <small>Проверенные решения для Eclipse Forge</small>
         </span>
       </a>
       <nav class="primary-nav" aria-label="Главная навигация">
@@ -38,8 +39,8 @@
       </nav>
       <div class="search-wrap">
         <svg class="search-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 21l-4.3-4.3M11 19a8 8 0 1 1 0-16 8 8 0 0 1 0 16z" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
-        <input id="search" type="search" placeholder="Найти инструмент, модель, skill или гайд…" autocomplete="off" spellcheck="false" aria-label="Поиск по библиотеке" />
-        <kbd aria-hidden="true">/</kbd>
+        <input id="search" type="search" placeholder="Поиск по 589 материалам" autocomplete="off" spellcheck="false" aria-label="Поиск по библиотеке" />
+        <kbd aria-hidden="true">Ctrl K</kbd>
       </div>
       <a class="gh-link" href="https://github.com/PavelHopson/eclipse-library" target="_blank" rel="noopener" title="Репозиторий на GitHub" aria-label="GitHub">
         <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path fill="currentColor" d="M12 .5C5.7.5.5 5.7.5 12c0 5.1 3.3 9.4 7.9 10.9.6.1.8-.2.8-.5v-2c-3.2.7-3.9-1.4-3.9-1.4-.5-1.3-1.3-1.7-1.3-1.7-1.1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.7 1.3 3.4 1 .1-.8.4-1.3.7-1.6-2.6-.3-5.3-1.3-5.3-5.7 0-1.3.4-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0C17 4.6 18 4.9 18 4.9c.6 1.6.2 2.8.1 3.1.8.8 1.2 1.8 1.2 3.1 0 4.4-2.7 5.4-5.3 5.7.4.4.8 1.1.8 2.2v3.3c0 .3.2.6.8.5 4.6-1.5 7.9-5.8 7.9-10.9C23.5 5.7 18.3.5 12 .5z"/></svg>
@@ -61,24 +62,39 @@
 
     <main class="content">
       <nav class="view-switcher" aria-label="Что открыть">
-        <a href="#catalog" data-view-link="catalog"><span>Инструменты</span><small>проверенные находки</small></a>
+        <a href="#catalog" data-view-link="catalog"><span>Каталог</span><small>проверенные находки</small></a>
         <a href="#projects" data-view-link="projects"><span>Проекты</span><small>продукты Eclipse Forge</small></a>
         <a href="#guidesFeat"><span>Гайды</span><small>пошаговое обучение</small></a>
       </nav>
 
       <section id="hero" class="hero" aria-labelledby="hero-h1">
-        <div class="eyebrow">Eclipse Forge · кураторская подборка</div>
-        <h1 id="hero-h1">Библиотека инструментов,<br><span class="grad">ресурсов и знаний</span></h1>
-        <p class="hero-sub">Найдите нужный инструмент и сразу поймите: что он делает, бесплатный ли он, где запускается, можно ли ему доверять и как применить в проектах Eclipse Forge.</p>
-        <ol class="how-it-works" aria-label="Как пользоваться библиотекой">
-          <li><b>1. Опишите задачу</b><span>Например: «локальная модель», «передать файл» или «skill для review».</span></li>
-          <li><b>2. Сузьте выбор</b><span>Используйте простые фильтры по платформе, лицензии, доверию и проекту.</span></li>
-          <li><b>3. Откройте карточку</b><span>Получите понятное описание, ограничения и безопасные первые шаги.</span></li>
-        </ol>
-        <div id="stats" class="stats"></div>
-        <div id="healthSummary" class="health-summary health-summary-loading" aria-live="polite">
-          <span class="health-summary-dot" aria-hidden="true"></span>
-          <span>Загружаю последнюю автоматическую проверку ссылок…</span>
+        <div class="hero-grid">
+          <div class="hero-copy">
+            <div class="eyebrow">Eclipse Forge Knowledge Navigator</div>
+            <h1 id="hero-h1">Найдите инструмент <span>под задачу</span></h1>
+            <p class="hero-sub">Сразу увидите назначение, условия, доверие, риски и применение в проектах Eclipse Forge.</p>
+            <form id="heroCommand" class="hero-command" role="search">
+              <label for="heroSearch">Что хотите сделать?</label>
+              <div class="hero-command-field">
+                <input id="heroSearch" type="search" placeholder="Например: локальная модель для изображений" autocomplete="off" spellcheck="false" />
+                <button type="submit">Найти</button>
+              </div>
+            </form>
+            <div class="hero-task-shortcuts" aria-label="Популярные задачи">
+              <button type="button" data-hero-task="local-ai">Локальный AI</button>
+              <button type="button" data-hero-task="growth">Продвижение</button>
+              <button type="button" data-hero-task="media">Медиа</button>
+              <button type="button" data-hero-task="security">Безопасность</button>
+            </div>
+          </div>
+          <aside class="hero-signal" aria-label="Состояние библиотеки">
+            <div class="hero-signal-head"><span>Состояние каталога</span><b>Обновляется редакцией</b></div>
+            <div id="stats" class="stats"></div>
+            <div id="healthSummary" class="health-summary health-summary-loading" aria-live="polite">
+              <span class="health-summary-dot" aria-hidden="true"></span>
+              <span>Загружаю последнюю автоматическую проверку ссылок...</span>
+            </div>
+          </aside>
         </div>
         <div id="quickRoutes" class="quick-routes" aria-label="Быстрые сценарии"></div>
         <details class="cat-browser">
@@ -225,6 +241,8 @@
         </details>
       </section>
 
+      <div class="catalog-workspace">
+        <div class="catalog-stream">
       <div id="status" class="status">Загружаю библиотеку…</div>
       <div id="results"></div>
       <div id="sortedResults" class="sorted-results" hidden>
@@ -236,6 +254,15 @@
       <div id="empty" class="empty" hidden>
         <p id="emptyMessage">Ничего не найдено.</p>
         <button id="emptyClear" class="btn" type="button">Сбросить фильтры</button>
+      </div>
+        </div>
+        <aside id="catalogInspector" class="catalog-inspector" aria-live="polite" aria-labelledby="inspectorTitle">
+          <div class="inspector-empty">
+            <span>Быстрый обзор</span>
+            <h2 id="inspectorTitle">Выберите материал</h2>
+            <p>Здесь появятся решение редакции, условия, главный риск и безопасный следующий шаг.</p>
+          </div>
+        </aside>
       </div>
       <div id="feedbackToast" class="feedback-toast" role="status" aria-live="polite" hidden></div>
     </main>
@@ -287,9 +314,10 @@
   </footer>
 
   <script src="catalog-runtime.js?v=1"></script>
-  <script src="catalog-card.js?v=1"></script>
+  <script src="catalog-card.js?v=2"></script>
   <script src="catalog-editorial.js?v=1"></script>
   <script src="catalog-progressive.js?v=1"></script>
-  <script src="app.js?v=37"></script>
+  <script src="catalog-inspector.js?v=1"></script>
+  <script src="app.js?v=38"></script>
 </body>
 </html>

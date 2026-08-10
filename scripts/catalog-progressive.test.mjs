@@ -9,6 +9,10 @@ const progressiveSource = fs.readFileSync(path.join(root, 'web', 'catalog-progre
 const context = { window: {} };
 vm.runInNewContext(progressiveSource, context, { filename: 'catalog-progressive.js' });
 const progressive = context.window.EclipseCatalogProgressive;
+const inspectorSource = fs.readFileSync(path.join(root, 'web', 'catalog-inspector.js'), 'utf8');
+const inspectorContext = { window: {}, URL, encodeURIComponent };
+vm.runInNewContext(inspectorSource, inspectorContext, { filename: 'catalog-inspector.js' });
+const inspector = inspectorContext.window.EclipseCatalogInspector;
 
 test('initial catalog page stays inside the 36-card DOM budget', () => {
   const items = Array.from({ length: 560 }, (_, index) => ({ index }));
@@ -32,6 +36,28 @@ test('filter transitions detach stale cards and mount only visible cards', () =>
   assert.deepEqual(mounted, Array.from({ length: 36 }, (_, index) => index + 36));
 });
 
+test('inspector exposes evidence-first data and blocks unsafe source URLs', () => {
+  const resource = {
+    id: 'safe-tool', title: 'Safe Tool', url: 'https://example.com/tool', type: 'tool', trust: 'verified',
+    simpleDescription: 'Проверяемый инструмент.', decision: 'now', riskLevel: 'low', risks: ['Проверить permissions.'],
+    useCases: ['Локальный тест.'], quickStart: ['Начать в sandbox.'], projects: ['Eclipse AI Hub'],
+    runtime: 'local', cost: 'free', signup: 'none', license: 'MIT', evidence: [{ url: 'https://example.com/docs' }],
+    linkHealth: { status: 'ok' },
+  };
+  const model = inspector.createInspectorModel(resource, {
+    types: { tool: 'Инструмент' }, trust: { verified: 'Проверено' }, linkHealth: { ok: 'Работает', unchecked: 'Не проверено' },
+    decisions: { now: 'Внедрить сейчас', reference: 'Reference' }, risks: { low: 'Низкий риск', medium: 'Средний риск' },
+    runtime: { local: 'Локально', unknown: 'Не проверено' }, cost: { free: 'Бесплатно', unknown: 'Не проверено' },
+    signup: { none: 'Без регистрации', unknown: 'Не проверено' },
+  });
+  assert.equal(model.sourceHref, 'https://example.com/tool');
+  assert.equal(model.decision, 'Внедрить сейчас');
+  assert.equal(model.evidenceCount, 1);
+  assert.equal(inspector.safeHttpUrl('javascript:alert(1)'), '');
+  assert.equal(inspector.safeHttpUrl('file:///etc/passwd'), '');
+  assert.equal(inspector.createInspectorModel({ ...resource, linkHealth: { status: 'blocked' } }).sourceHref, '');
+});
+
 test('app wires lazy descriptors and modules before the main bundle', () => {
   const app = fs.readFileSync(path.join(root, 'web', 'app.js'), 'utf8');
   const html = fs.readFileSync(path.join(root, 'web', 'index.html'), 'utf8');
@@ -43,6 +69,9 @@ test('app wires lazy descriptors and modules before the main bundle', () => {
   const cardScript = html.indexOf('catalog-card.js');
   const editorialScript = html.indexOf('catalog-editorial.js');
   const progressiveScript = html.indexOf('catalog-progressive.js');
+  const inspectorScript = html.indexOf('catalog-inspector.js');
   const appScript = html.indexOf('app.js');
-  assert.ok(cardScript > 0 && editorialScript > cardScript && progressiveScript > editorialScript && appScript > progressiveScript);
+  assert.ok(cardScript > 0 && editorialScript > cardScript && progressiveScript > editorialScript && inspectorScript > progressiveScript && appScript > inspectorScript);
+  assert.match(app, /ensureInspectorSelection\(visibleCards\)/);
+  assert.doesNotMatch(fs.readFileSync(path.join(root, 'web', 'catalog-card.js'), 'utf8'), /shields\.io/);
 });

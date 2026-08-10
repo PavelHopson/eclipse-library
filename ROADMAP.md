@@ -6,9 +6,9 @@
 
 - `catalog/resources.json` — канонический structured catalog из 589 уникальных записей;
   `README.md` сокращён до документации и больше не является runtime-источником данных.
-- `web/app.js` — client-side поиск, фильтры, detail view и guide viewer; structured adapter,
-  карточки, редакционная лента и progressive DOM вынесены в отдельные модули. При старте в DOM
-  создаются только первые 36 карточек вместо всех 589.
+- `web/app.js` — command-first поиск, фильтры, detail view и guide viewer; structured adapter,
+  карточки, editorial feed, progressive DOM и evidence-first Inspector вынесены в модули. При старте
+  в DOM создаются только первые 36 карточек вместо всех 589; mobile Inspector открывается как sheet.
 - `web/catalog-index.json` — production schema v2: 147 записей редакторски проверены,
   442 честно помечены `inferred`, 306 имеют отдельный `addedAt`, даты удалены из category.
 - License layer: у 306 записей лицензия или условия нормализованы с evidence URL,
@@ -121,6 +121,7 @@
       добавить shareable access filters, incremental duplicate gate и честный MCP runtime-audit status.
 - [x] Stage 13 — добавить редакционную ленту «Новое и проверенное», решение, целевой проект и риск прямо на карточку, decision summary в detail view, сортировку по `addedAt` и убрать дублирующую desktop-навигацию.
 - [x] Stage 14 — карточка, редакционная лента и progressive DOM вынесены из `web/app.js`; live DOM ограничен текущей порцией по 36 результатов, unit regression фиксирует budget, desktop/mobile browser QA обязателен перед публикацией.
+- [x] Stage 15 — Knowledge Navigator: command-first hero, спокойные decision-first cards, desktop master-detail Inspector, mobile bottom sheet, fixed bottom navigation, keyboard shortcut `Ctrl/Cmd+K`, reduced motion и safe-URL regression без scroll listener.
 - [ ] Eclipse Webclaw / Kwork #18: benchmark Lightpanda как optional beta JS-renderer против
       Playwright на representative page set — success rate, extraction quality, p95, RAM, robots/rate limits;
       telemetry off, pinned image/source и AGPL review обязательны.
@@ -215,6 +216,11 @@
 
 ### 2026-08-10
 
+- Stage 15 переводит Library из «сетки ссылок» в Knowledge Navigator: главный экран начинает с задачи пользователя, популярные сценарии включают фильтр одним действием, а карточки оставляют только назначение, решение, проект и ключевые условия.
+- Добавлен evidence-first Inspector: на desktop он остаётся рядом с выдачей, на tablet/mobile открывается доступным bottom sheet с focus return. External source показывается только для безопасного `http/https` URL и скрывается при security block; regression закрывает `javascript:`/`file:` ссылки.
+- Новый `navigator.css` добавляет спокойный premium devtool-стиль, fixed mobile navigation, responsive master-detail, loading/empty/focus/reduced-motion states. Cursor spotlight и глобальный scroll listener удалены, чтобы снизить шум и не возвращать мобильный scroll jump.
+
+- Local browser QA в Edge/Playwright на 1440×900 и 390×844 подтвердил 36-card DOM budget, working command search и `Ctrl/Cmd+K`, ширину mobile layout/sheet ровно 390 px без horizontal overflow, scroll guard `1000 → 1000` и focus return без console errors.
 - Разобрано видео «30 минут + ИИ = сайт, который можно продать за 100 000 ₽»: подтверждён быстрый prototype workflow, но не production-ready сайт и не заявленная стоимость. Зафиксированы отсутствующие mobile/backend/deploy gates, неподтверждённые claims, права на marketplace-фотографии и опасность blind agent permissions.
 - Добавлены три отдельные verified-карточки: Krea AI, Google Nano Banana Pro (Gemini 3 Pro Image) и Kuaishou Kling AI 3.0. Каталог вырос до 589 материалов и 147 ручных reviews; 306 записей имеют addedAt, 516 доступны agent consumers.
 - Повторная legal/source-проверка уточнила cloud boundaries. У Krea subscription и API balance разделены, API публикует Kling 2.6 по $0.07/сек, Trust Center перечисляет US subprocessors и request-gated DPA; полный текст Notion Terms/Privacy независимо не прочитан. Nano Banana Pro остаётся controlled benchmark.

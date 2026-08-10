@@ -19,7 +19,8 @@
   const cardRuntime = window.EclipseCatalogCard;
   const editorialRuntime = window.EclipseCatalogEditorial;
   const progressiveRuntime = window.EclipseCatalogProgressive;
-  if (!cardRuntime || !editorialRuntime || !progressiveRuntime) throw new Error('catalog UI modules are required before app.js');
+  const inspectorRuntime = window.EclipseCatalogInspector;
+  if (!cardRuntime || !editorialRuntime || !progressiveRuntime || !inspectorRuntime) throw new Error('catalog UI modules are required before app.js');
   const { canonicalUrl, githubRepoKey, groupsFromItems } = runtime;
   const DECISIONS = {
     now: 'Внедрить сейчас',
@@ -131,6 +132,8 @@
   let recentKeys = loadRecent();
   const compareKeys = new Set();
   let feedbackTimer = 0;
+  let inspectorActiveId = '';
+  let inspectorReturnFocus = null;
 
   const $ = (s, r = document) => r.querySelector(s);
   const el = (tag, cls, html) => { const n = document.createElement(tag); if (cls) n.className = cls; if (html != null) n.innerHTML = html; return n; };
@@ -457,6 +460,82 @@
     }
     return card.node;
   }
+  function inspectorContext() {
+    return {
+      types: TYPES, trust: TRUST, linkHealth: LINK_HEALTH, decisions: DECISIONS,
+      risks: RISK, runtime: RUNTIME, cost: COST, signup: SIGNUP,
+      favoriteButton, compareButton,
+    };
+  }
+
+  function markInspectorSelection() {
+    document.querySelectorAll('[data-inspect-id]').forEach((button) => {
+      const selected = button.dataset.inspectId === inspectorActiveId;
+      button.setAttribute('aria-pressed', String(selected));
+      button.closest('.card')?.classList.toggle('inspected', selected);
+    });
+  }
+
+  function openInspectorSheet(root) {
+    if (!window.matchMedia('(max-width: 1100px)').matches) return;
+    root.classList.add('is-open');
+    root.setAttribute('role', 'dialog');
+    root.setAttribute('aria-modal', 'true');
+    document.body.classList.add('inspector-sheet-open');
+    requestAnimationFrame(() => root.querySelector('[data-inspector-close]')?.focus({ preventScroll: true }));
+  }
+
+  function closeInspectorSheet({ restoreFocus = true } = {}) {
+    const root = $('#catalogInspector');
+    if (!root) return;
+    root.classList.remove('is-open');
+    root.removeAttribute('role');
+    root.removeAttribute('aria-modal');
+    document.body.classList.remove('inspector-sheet-open');
+    if (restoreFocus && inspectorReturnFocus?.isConnected) inspectorReturnFocus.focus({ preventScroll: true });
+  }
+
+  function setInspectorSelection(card, options = {}) {
+    const root = $('#catalogInspector');
+    if (!root || !card) return;
+    const sameSelection = inspectorActiveId === card.resource.id && root.classList.contains('has-selection');
+    inspectorActiveId = card.resource.id;
+    if (!sameSelection || options.force) {
+      const update = () => inspectorRuntime.render(root, card.resource, inspectorContext());
+      const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if (!reduced && document.startViewTransition && !options.openMobile) document.startViewTransition(update);
+      else update();
+      updateFavoritesUI();
+      updateCompareUI();
+    }
+    markInspectorSelection();
+    if (options.openMobile) openInspectorSheet(root);
+  }
+
+  function resetInspector() {
+    const root = $('#catalogInspector');
+    if (!root) return;
+    inspectorActiveId = '';
+    root.classList.remove('has-selection', 'is-open');
+    root.removeAttribute('data-item-id');
+    root.replaceChildren();
+    const empty = el('div', 'inspector-empty');
+    empty.append(
+      el('span', '', 'Быстрый обзор'),
+      el('h2', '', 'По запросу ничего нет'),
+      el('p', '', 'Измените поиск или сбросьте один из фильтров.'),
+    );
+    empty.querySelector('h2').id = 'inspectorTitle';
+    root.appendChild(empty);
+    closeInspectorSheet({ restoreFocus: false });
+  }
+
+  function ensureInspectorSelection(visibleCards) {
+    if (!visibleCards.length) { resetInspector(); return; }
+    const active = visibleCards.find((card) => card.resource.id === inspectorActiveId);
+    if (active) { markInspectorSelection(); return; }
+    setInspectorSelection(visibleCards[0]);
+  }
 
   function render(cats) {
     allCats = cats;
@@ -618,7 +697,7 @@
       latestDrop && { label: 'Свежая подборка', hint: latestDrop.label.replace(/^Подборка Eclipse\s*/i, ''), href: `#${latestDrop.id}`, count: latestDrop.subs.reduce((a, s) => a + s.resources.length, 0) },
       ecommerce && { label: 'E-commerce', hint: 'магазины, платежи, storefront', href: `#${ecommerce.id}`, count: ecommerce.subs.reduce((a, s) => a + s.resources.length, 0) },
       projects && { label: 'Наши проекты', hint: 'куда внедрять находки', href: `#${projects.id}`, count: projects.subs.reduce((a, s) => a + s.resources.length, 0) },
-    ].filter(Boolean);
+    ].filter(Boolean).slice(0, 6);
     box.innerHTML = routes.map((r) => {
       const meta = typeof r.count === 'number' ? `${r.count} ${plural(r.count)}` : 'гайды';
       return `<a href="${r.href}" class="quick-route"><span><b>${esc(r.label)}</b><small>${esc(r.hint)}</small></span><i>${esc(meta)}</i></a>`;
@@ -695,6 +774,9 @@
       button.classList.toggle('active', selected);
       button.setAttribute('aria-pressed', String(selected));
     });
+    document.querySelectorAll('[data-hero-task]').forEach((button) => {
+      button.setAttribute('aria-pressed', String(button.dataset.heroTask === activeTask));
+    });
   }
 
   function selectHasValue(id, value) {
@@ -720,6 +802,8 @@
     activeSort = ['recommended', 'trust', 'freshness', 'title'].includes(sort) ? sort : 'catalog';
     query = (params.get('q') || '').trim().slice(0, 160);
     search.value = query;
+    const heroSearch = $('#heroSearch');
+    if (heroSearch) heroSearch.value = query;
     $('#costFilter').value = activeCost;
     $('#signupFilter').value = activeSignup;
     $('#runtimeFilter').value = activeRuntime;
@@ -784,6 +868,8 @@
     activeType = type ? typeGroup(type) : null;
     query = '';
     if (search) search.value = '';
+    const heroSearch = $('#heroSearch');
+    if (heroSearch) heroSearch.value = '';
     updateChipState();
     applyFilters();
   }
@@ -805,6 +891,8 @@
     clearTopicRoute();
     query = '';
     if (search) search.value = '';
+    const heroSearch = $('#heroSearch');
+    if (heroSearch) heroSearch.value = '';
     $('#costFilter').value = '';
     $('#signupFilter').value = '';
     $('#runtimeFilter').value = '';
@@ -890,6 +978,7 @@
     if (share) share.disabled = !(filtering || activeSort !== 'catalog');
     const sheetResult = $('#filterSheetResult');
     if (sheetResult) sheetResult.textContent = `${matched} ${matched === 1 ? 'материал' : 'материалов'}`;
+    ensureInspectorSelection(visibleCards);
     entryReveal();
   }
 
@@ -953,10 +1042,14 @@
     if (currentView !== nextView) {
       query = '';
       search.value = '';
+      const heroSearch = $('#heroSearch');
+      if (heroSearch) heroSearch.value = '';
     }
     currentView = nextView;
     const projectMode = currentView === 'projects';
     document.body.classList.toggle('projects-mode', projectMode);
+    if (projectMode) closeInspectorSheet({ restoreFocus: false });
+    $('#catalogInspector').hidden = projectMode;
     $('#projectsView').hidden = !projectMode;
     $('#hero').hidden = projectMode;
     const recentEditorial = $('#recentEditorial');
@@ -1061,17 +1154,6 @@
     document.querySelectorAll('.cat').forEach((s) => obs.observe(s));
   }
 
-  // ---- spotlight hover (cursor-follow glow) ----
-  function spotlight() {
-    let raf = 0, ev = null;
-    [$('#results'), $('#sortedResults')].forEach((container) => container.addEventListener('pointermove', (e) => {
-      ev = e; if (raf) return;
-      raf = requestAnimationFrame(() => {
-        raf = 0; const card = ev.target.closest && ev.target.closest('.card');
-        if (card) { const r = card.getBoundingClientRect(); card.style.setProperty('--mx', (ev.clientX - r.left) + 'px'); card.style.setProperty('--my', (ev.clientY - r.top) + 'px'); }
-      });
-    }, { passive: true }));
-  }
 
   // ---- courses & guides feature band (structured manifest) ----
   function renderGuides(guides) {
@@ -1521,7 +1603,7 @@
           }
         })(),
       ]);
-      render(categoriesFromStructuredCatalog(structuredItems)); spotlight();
+      render(categoriesFromStructuredCatalog(structuredItems));
       renderGuides(guidesManifest);
       requestAnimationFrame(route);
     }
@@ -1535,12 +1617,37 @@
 
   // ---- events ----
   const search = $('#search');
+  const heroSearch = $('#heroSearch');
+  const heroCommand = $('#heroCommand');
   const navSearch = $('#navSearch');
   let timer;
-  search.addEventListener('input', () => { clearTimeout(timer); timer = setTimeout(() => {
-    query = search.value;
+  function runSearch(value) {
+    query = value.slice(0, 160);
+    search.value = query;
+    if (heroSearch) heroSearch.value = query;
     if (currentView === 'projects') renderProjects(); else applyFilters();
-  }, 110); });
+  }
+  function queueSearch(value) {
+    clearTimeout(timer);
+    timer = setTimeout(() => runSearch(value), 110);
+  }
+  search.addEventListener('input', () => queueSearch(search.value));
+  heroSearch?.addEventListener('input', () => { search.value = heroSearch.value; });
+  heroCommand?.addEventListener('submit', (event) => {
+    event.preventDefault();
+    clearTimeout(timer);
+    runSearch(heroSearch.value);
+    $('#filters').scrollIntoView({ behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth', block: 'start' });
+  });
+  document.querySelectorAll('[data-hero-task]').forEach((button) => button.addEventListener('click', () => {
+    const task = button.dataset.heroTask;
+    if (!TASK_ROUTES[task]) return;
+    clearTopicRoute();
+    activeTask = activeTask === task ? '' : task;
+    updateTaskState();
+    applyFilters();
+    $('#filters').scrollIntoView({ behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth', block: 'start' });
+  }));
   if (navSearch) {
     let navTimer;
     navSearch.addEventListener('input', () => {
@@ -1570,11 +1677,25 @@
         else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
       }
     }
+    if (e.key === 'Tab' && $('#catalogInspector').classList.contains('is-open')) {
+      const focusable = [...$('#catalogInspector').querySelectorAll('a[href], button:not([disabled])')];
+      if (focusable.length) {
+        const first = focusable[0], last = focusable[focusable.length - 1];
+        if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+        else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+      }
+    }
+    if (e.key === 'Escape' && $('#catalogInspector').classList.contains('is-open')) { closeInspectorSheet(); return; }
     if (e.key === 'Escape' && !$('#compareView').hidden) { closeCompare(); return; }
     if (e.key === 'Escape' && !$('#itemView').hidden) { closeItem(); history.replaceState(null, '', location.pathname + location.search); return; }
     if (e.key === 'Escape' && !$('#guideView').hidden) { closeGuide(); history.replaceState(null, '', location.pathname + location.search); return; }
-    if (e.key === '/' && document.activeElement !== search) { e.preventDefault(); search.focus(); }
-    if (e.key === 'Escape' && document.activeElement === search) { search.value = ''; query = ''; applyFilters(); search.blur(); }
+    if (((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'k') || (e.key === '/' && !/input|textarea|select/i.test(document.activeElement?.tagName || ''))) {
+      e.preventDefault(); search.focus(); search.select();
+    }
+    if (e.key === 'Escape' && (document.activeElement === search || document.activeElement === heroSearch)) {
+      runSearch('');
+      document.activeElement.blur();
+    }
     if (e.key === 'Escape' && document.activeElement === navSearch) { navSearch.value = ''; navQuery = ''; updateNavVisibility(); navSearch.blur(); }
   });
   window.addEventListener('hashchange', route);
@@ -1626,6 +1747,17 @@
   window.addEventListener('resize', syncFilterSheetState, { passive: true });
   $('#loadMore').addEventListener('click', () => { visibleLimit += PAGE_SIZE; applyFilters(false); });
   document.addEventListener('click', (event) => {
+    const inspectorClose = event.target.closest('[data-inspector-close]');
+    if (inspectorClose) { closeInspectorSheet(); return; }
+    const inspect = event.target.closest('[data-inspect-id]');
+    if (inspect) {
+      const card = cards.find((item) => item.resource.id === inspect.dataset.inspectId);
+      if (card) {
+        inspectorReturnFocus = inspect;
+        setInspectorSelection(card, { openMobile: true });
+      }
+      return;
+    }
     const favorite = event.target.closest('[data-favorite-key]');
     if (favorite) { toggleFavorite(favorite.dataset.favoriteKey, favorite.dataset.favoriteTitle || 'Материал'); return; }
     const compare = event.target.closest('[data-compare-key]');
@@ -1640,6 +1772,7 @@
     projectStatus = '';
     query = '';
     search.value = '';
+    if (heroSearch) heroSearch.value = '';
     renderProjects();
     search.focus();
   });
@@ -1647,8 +1780,11 @@
   $('#topicClear').addEventListener('click', () => { clearLibraryFilters({ focus: true }); history.replaceState(null, '', location.pathname + location.search); });
 
   const toTop = $('#toTop');
-  toTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
-  window.addEventListener('scroll', () => { toTop.hidden = window.scrollY < 600; }, { passive: true });
+  toTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' }));
+  const topObserver = new IntersectionObserver(([entry]) => {
+    toTop.hidden = entry.isIntersecting || currentView !== 'catalog';
+  }, { rootMargin: '-600px 0px 0px 0px' });
+  topObserver.observe($('#hero'));
 
   load();
 })();
