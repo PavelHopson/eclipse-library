@@ -188,7 +188,16 @@ a:hover { color: #d5eaff; }
 .hero-signal .health-summary { margin: 14px 0 0; padding: 0; border: 0; background: none; font-size: 10.5px; }
 .hero-signal .health-summary-dot { width: 6px; height: 6px; }
 
-.quick-routes { position: relative; z-index: 1; margin: 22px 0 0; padding-top: 16px; border-top: 1px solid var(--nav-line); }
+.quick-routes {
+  position: relative;
+  z-index: 1;
+  margin: 22px 0 0;
+  padding-top: 16px;
+  border-top: 1px solid var(--nav-line);
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.quick-routes::-webkit-scrollbar { display: none; }
 .quick-route {
   flex-basis: 176px;
   min-height: 62px;
@@ -350,6 +359,15 @@ a:hover { color: #d5eaff; }
 ::view-transition-new(catalog-inspector) { animation: inspector-in .18s ease both; }
 @keyframes inspector-out { to { opacity: .2; transform: translateY(-4px); } }
 @keyframes inspector-in { from { opacity: .2; transform: translateY(6px); } }
+
+@media (min-width: 621px) {
+  .quick-routes {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(142px, 1fr));
+    overflow: visible;
+  }
+  .quick-route { min-width: 0; width: 100%; }
+}
 
 @media (max-width: 1180px) and (min-width: 1101px) {
   .catalog-workspace { grid-template-columns: minmax(0, 1fr) 300px; }
