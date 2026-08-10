@@ -42,6 +42,8 @@ Krea, Nano Banana Pro и Kling 3.0 — необязательные cloud provid
 - Записывайте provider, точную модель, версию, промпт, цену и происхождение исходников.
 - Не загружайте клиентские секреты, документы, биометрию и production data без отдельного согласования.
 - Изображения и видео остаются draft до проверки человеком.
+- У Krea app subscription и API balance разделены. Enterprise Zero Data Retention и DPA нельзя считать включёнными в обычный аккаунт без письменного подтверждения.
+- Kling AI 3.0 уже доступен официально, но consumer Terms требуют письменного разрешения для коммерческого использования Output и маркировку Kling AI. До отдельного API/enterprise contract используйте его только как reference, не как production provider.
 
 ### 5. Собрать код в изолированной рабочей области
 
@@ -95,7 +97,7 @@ Krea, Nano Banana Pro и Kling 3.0 — необязательные cloud provid
 
 - Krea — unified creative workspace и сравнение providers.
 - Nano Banana Pro — controlled image generation/edit benchmark.
-- Kling AI 3.0 — video draft и native-audio benchmark только с безопасными fixtures.
+- Kling AI 3.0 — reference для video UX и native-audio pipeline; benchmark допустим только после письменного legal gate и на безопасных fixtures.
 - Taste Skill — иерархия, anti-slop review и базовые правила интерфейса.
 
 ### Не использовать
@@ -109,8 +111,8 @@ Krea, Nano Banana Pro и Kling 3.0 — необязательные cloud provid
 ## Источники и дата проверки
 
 - [Разобранное видео: «30 минут + ИИ = сайт, который можно продать за 100 000 ₽»](https://www.youtube.com/watch?v=YlpG4B6Nvh8)
-- [Krea pricing](https://www.krea.ai/pricing) и [Krea API](https://www.krea.ai/features/api)
+- [Krea pricing](https://www.krea.ai/pricing), [Krea API](https://www.krea.ai/features/api), [Terms](https://www.krea.ai/terms), [Privacy](https://www.krea.ai/privacy) и [Trust Center](https://trust.krea.ai/?format=html)
 - [Google Gemini 3 Pro Image](https://ai.google.dev/gemini-api/docs/models/gemini-3-pro-image), [pricing](https://ai.google.dev/gemini-api/docs/pricing) и [image generation](https://ai.google.dev/gemini-api/docs/image-generation)
-- [Kuaishou: официальный release Kling AI 3.0](https://ir.kuaishou.com/node/11216/pdf)
+- [Kling AI 3.0](https://kling.ai/), [VIDEO 3.0 guide](https://kling.ai/quickstart/klingai-video-3-model-user-guide), [Terms](https://kling.ai/docs/user-policy), [Privacy](https://kling.ai/docs/privacy-policy) и [Kuaishou release](https://ir.kuaishou.com/node/11216/pdf)
 
 Проверено редакцией Eclipse Library: **10.08.2026**. Цены, rollout моделей, Terms и региональная доступность меняются — их нужно повторно проверить перед оплатой и production-интеграцией.

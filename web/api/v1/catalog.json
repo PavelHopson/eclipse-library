@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "sourceHash": "7a08e1187610afc558f4ff02ba7d5fda6cacd23ddb1a458a8747c05a44836583",
+  "sourceHash": "cd2ca6da0b6c8576aa119c53e6614ebeefebcd6ea6b01c9973e30732fa9ceb82",
   "policy": {
     "directInstallForbidden": true
   },
@@ -49772,12 +49772,27 @@
         "Cloud",
         "API"
       ],
-      "license": "Proprietary cloud SaaS; права на коммерческое использование зависят от тарифа Krea и отдельных условий выбранной модели или provider; exact Terms need verification",
+      "license": "Proprietary cloud SaaS; Krea pricing declares commercial use for paid plans, while the selected model or provider may impose separate terms. Official Terms and Privacy links resolve to Krea Notion documents, but the exact contract body needs verification before client or confidential work.",
       "licenseEvidence": [
+        {
+          "kind": "terms",
+          "label": "Official Terms of Service",
+          "url": "https://www.krea.ai/terms"
+        },
+        {
+          "kind": "privacy",
+          "label": "Official Privacy Policy",
+          "url": "https://www.krea.ai/privacy"
+        },
         {
           "kind": "terms",
           "label": "Official pricing and plan rights",
           "url": "https://www.krea.ai/pricing"
+        },
+        {
+          "kind": "security",
+          "label": "Official Trust Center and subprocessors",
+          "url": "https://trust.krea.ai/?format=html"
         },
         {
           "kind": "security",
@@ -49786,18 +49801,18 @@
         },
         {
           "kind": "source",
-          "label": "Official API overview",
+          "label": "Official API overview and model pricing",
           "url": "https://www.krea.ai/features/api"
         }
       ],
-      "pricing": "Freemium: на 10.08.2026 публичная страница указывает Free с 100 compute units в день, Basic от $9/месяц, Pro от $35/месяц, Max от $105/месяц и Business от $200/месяц. API оплачивается отдельным балансом; цены и доступность конкретных моделей нужно проверять перед запуском.",
+      "pricing": "Freemium: на 10.08.2026 публичная страница указывает Free с 100 compute units в день, Basic от $9/месяц, Pro от $35/месяц, Max от $105/месяц и Business от $200/месяц. API имеет отдельный prepaid balance и dollar pricing: например, Nano Banana Pro — $0.15 за изображение, Kling 2.6 — $0.07 за секунду. Business заявляет data-protection/no-training clauses, а Zero Data Retention для API доступен enterprise-клиентам; точные договорные условия нужно получить до загрузки клиентских данных.",
       "access": {
         "cost": "freemium",
         "signup": "required",
         "runtime": "cloud"
       },
       "trust": "official",
-      "trustReason": "Существование продукта, тарифы, отдельный API-баланс и security overview подтверждены официальными страницами Krea. Публичные Terms и Privacy не удалось надёжно открыть во время проверки, поэтому обработка клиентских и конфиденциальных материалов остаётся непроверенной границей.",
+      "trustReason": "Продукт, тарифы, отдельный API-баланс, model pricing и security controls подтверждены официальными страницами Krea. Trust Center перечисляет US subprocessors, request-gated DPA, SOC2 bridge letter и penetration test; сроки retention публично не раскрыты. Terms и Privacy ведут на официальные Notion-документы, но их полный текст не удалось независимо прочитать доступным способом, поэтому confidential/client data остаются закрытой границей.",
       "projects": [
         "Eclipse AI Hub",
         "Eclipse Media",
@@ -49808,9 +49823,10 @@
       "decision": "reference",
       "riskLevel": "medium",
       "risks": [
-        "Промпты, изображения и видео передаются стороннему облачному сервису; не загружать секретные или клиентские материалы без проверки Terms, Privacy и DPA.",
-        "Коммерческие права на результат не отменяют необходимость иметь права на исходные фотографии, логотипы, лица и музыку.",
-        "Модель, цена и доступность могут отличаться между web-приложением и API; публичный API Krea сейчас перечисляет Kling 2.6, а не подтверждённый production-доступ к Kling 3.0."
+        "Промпты, изображения и видео уходят стороннему cloud service и его US subprocessors. Не загружать клиентские секреты, документы, лица или production data без доступного договора, DPA и согласованных retention rules.",
+        "Business no-training и enterprise Zero Data Retention заявлены на публичных страницах, но не должны считаться действующими для обычного аккаунта без письменного подтверждения тарифа и workspace settings.",
+        "Коммерческое право на результат не заменяет права на исходные фотографии, логотипы, лица, музыку и ограничения выбранной модели/provider.",
+        "Web subscription и API balance разделены; model availability и pricing меняются. Публичный API Krea на 10.08.2026 перечисляет Kling 2.6, а не подтверждённый production endpoint Kling 3.0."
       ],
       "quickStart": [
         "Начать с публичных или собственных тестовых материалов и записать, какая модель, provider и цена использовались.",
@@ -49831,8 +49847,8 @@
       },
       "catalogOrder": 2483,
       "licenseInfo": {
-        "label": "Proprietary cloud SaaS; права на коммерческое использование зависят от тарифа Krea и отдельных условий выбранной модели или provider; exact Terms need verification",
-        "original": "Proprietary cloud SaaS; права на коммерческое использование зависят от тарифа Krea и отдельных условий выбранной модели или provider; exact Terms need verification",
+        "label": "Proprietary cloud SaaS; Krea pricing declares commercial use for paid plans, while the selected model or provider may impose separate terms. Official Terms and Privacy links resolve to Krea Notion documents, but the exact contract body needs verification before client or confidential work.",
+        "original": "Proprietary cloud SaaS; Krea pricing declares commercial use for paid plans, while the selected model or provider may impose separate terms. Official Terms and Privacy links resolve to Krea Notion documents, but the exact contract body needs verification before client or confidential work.",
         "spdx": null,
         "kind": "service-terms",
         "status": "unverified",
@@ -49840,8 +49856,23 @@
         "evidence": [
           {
             "kind": "terms",
+            "label": "Official Terms of Service",
+            "url": "https://www.krea.ai/terms"
+          },
+          {
+            "kind": "privacy",
+            "label": "Official Privacy Policy",
+            "url": "https://www.krea.ai/privacy"
+          },
+          {
+            "kind": "terms",
             "label": "Official pricing and plan rights",
             "url": "https://www.krea.ai/pricing"
+          },
+          {
+            "kind": "security",
+            "label": "Official Trust Center and subprocessors",
+            "url": "https://trust.krea.ai/?format=html"
           },
           {
             "kind": "security",
@@ -49850,7 +49881,7 @@
           },
           {
             "kind": "source",
-            "label": "Official API overview",
+            "label": "Official API overview and model pricing",
             "url": "https://www.krea.ai/features/api"
           }
         ]
@@ -49863,8 +49894,23 @@
         },
         {
           "kind": "terms",
+          "label": "Official Terms of Service",
+          "url": "https://www.krea.ai/terms"
+        },
+        {
+          "kind": "privacy",
+          "label": "Official Privacy Policy",
+          "url": "https://www.krea.ai/privacy"
+        },
+        {
+          "kind": "terms",
           "label": "Official pricing and plan rights",
           "url": "https://www.krea.ai/pricing"
+        },
+        {
+          "kind": "security",
+          "label": "Official Trust Center and subprocessors",
+          "url": "https://trust.krea.ai/?format=html"
         },
         {
           "kind": "security",
@@ -49873,7 +49919,7 @@
         },
         {
           "kind": "source",
-          "label": "Official API overview",
+          "label": "Official API overview and model pricing",
           "url": "https://www.krea.ai/features/api"
         }
       ],
@@ -50019,11 +50065,11 @@
       "verifiedAt": "2026-08-10",
       "reviewStatus": "verified",
       "id": "kuaishou-kling-ai-3",
-      "url": "https://ir.kuaishou.com/node/11216/pdf",
+      "url": "https://kling.ai/",
       "title": "Kuaishou Kling AI 3.0",
       "type": "model",
       "subcategory": "Облачная генерация видео, звука и мультимодальное редактирование",
-      "simpleDescription": "Kling AI 3.0 — проприетарная линейка Kuaishou для генерации и редактирования видео из текста, изображений, аудио и референсного видео. Официально заявлены ролики до 15 секунд, multi-shot управление и native audio, но доступность конкретной версии, цена и разрешённые сценарии зависят от региона и площадки.",
+      "simpleDescription": "Kling AI 3.0 — proprietary cloud-линейка Kling AI для генерации и редактирования видео из текста, изображений, аудио и reference video. Официальный сайт подтверждает доступность серии 3.0, native audio, multimodal control и API platform. Для Eclipse Forge это пока только reference: публичные consumer Terms ограничивают коммерческое использование результата без письменного разрешения Kling AI.",
       "useCases": [
         "Провести безопасный video benchmark для Eclipse Media и Shotforge на синтетических или лицензированных материалах.",
         "Собрать короткие draft-демо продукта для Eclipse Forge Landing без автоматической публикации.",
@@ -50034,11 +50080,31 @@
         "Cloud",
         "API через поддерживаемых providers"
       ],
-      "license": "Proprietary Kuaishou/Kling AI service terms; commercial use, input rights, output rights, региональная доступность и API terms требуют проверки перед каждым production-сценарием; exact Terms need verification",
+      "license": "Proprietary Kling AI service. Consumer Terms effective 21.04.2026 say that the user keeps applicable IP in Content, but commercial use of Output requires written permission from Kling AI and Kling attribution. The service receives a broad license to Input and Output and may use Content for product and model development. API, enterprise and regional contract terms need verification before production.",
       "licenseEvidence": [
         {
+          "kind": "terms",
+          "label": "Official Kling AI Terms of Service",
+          "url": "https://kling.ai/docs/user-policy"
+        },
+        {
+          "kind": "privacy",
+          "label": "Official Kling AI Privacy Policy",
+          "url": "https://kling.ai/docs/privacy-policy"
+        },
+        {
+          "kind": "pricing",
+          "label": "Official Kling AI developer pricing",
+          "url": "https://kling.ai/dev/pricing"
+        },
+        {
           "kind": "source",
-          "label": "Official Kling AI 3.0 release",
+          "label": "Official Kling VIDEO 3.0 model guide",
+          "url": "https://kling.ai/quickstart/klingai-video-3-model-user-guide"
+        },
+        {
+          "kind": "source",
+          "label": "Official Kuaishou Kling AI 3.0 release",
           "url": "https://ir.kuaishou.com/node/11216/pdf"
         },
         {
@@ -50047,14 +50113,14 @@
           "url": "https://ir.kuaishou.com/static-files/51eda7e7-a9e8-43c1-b688-43f131104d98"
         }
       ],
-      "pricing": "Платный proprietary cloud service. Точную цену Kling 3.0, credits, API provider и доступность в регионе нужно сверять непосредственно перед запуском: публичная API-страница Krea на 10.08.2026 показывает цену для Kling 2.6, а не подтверждённый тариф Kling 3.0.",
+      "pricing": "Платный proprietary cloud service. Официальный VIDEO 3.0 guide на 10.08.2026 указывает 12 credits/сек для 1080p с native audio, 9 credits/сек для 720p с audio, 8 и 6 credits/сек без audio; Voice Control добавляет 2 credits/сек. Пример: 5 секунд 1080p с audio и Voice Control — 70 credits. Денежную цену credits, API resource packs и региональную доступность нужно сверять в developer account перед benchmark.",
       "access": {
         "cost": "paid",
         "signup": "required",
         "runtime": "cloud"
       },
       "trust": "official",
-      "trustReason": "Запуск Kling AI 3.0, multimodal input/output, генерация до 15 секунд, storyboards и native audio подтверждены пресс-релизом и биржевой отчётностью Kuaishou. Стабильный доступ через конкретного provider и актуальная цена не подтверждены единым публичным источником.",
+      "trustReason": "Доступность Kling AI 3.0, multimodal generation, native audio, API platform и credit consumption подтверждены официальным сайтом, model guide и Kuaishou disclosures. Публичные Terms и Privacy проверены: данные хранятся в Singapore, могут передаваться affiliates и service providers, срок retention определяется целью, а сервис получает широкие права на Content. Отдельные API/enterprise terms и коммерческое разрешение публично не подтверждены.",
       "projects": [
         "Eclipse Media",
         "Shotforge",
@@ -50062,17 +50128,18 @@
         "Eclipse DnD Forge",
         "Eclipse AI Hub"
       ],
-      "decision": "roadmap",
+      "decision": "reference",
       "riskLevel": "high",
       "risks": [
-        "Reference video и audio могут переносить внешность, движения и особенности голоса: нужен явный consent, запрет скрытого клонирования и журнал provenance.",
-        "Исходные изображения, музыка, логотипы и персонажи могут быть защищены авторским правом или trademark; генерация не очищает эти права.",
-        "Cloud uploads, региональные Terms, стоимость и rollout версии меняются; запрещены production secrets, автопубликация и финансовые действия без человека."
+        "Не использовать output в коммерческих проектах Eclipse Forge, пока Kling AI письменно не разрешит такой сценарий или отдельный API/enterprise contract явно не заменит это ограничение. Consumer Terms также требуют заметную маркировку Kling AI.",
+        "Terms дают сервису широкую лицензию на Input и Output, включая улучшение и обучение моделей. Не загружать клиентские, конфиденциальные или ещё не опубликованные материалы.",
+        "Privacy Policy допускает pre-upload User Content, обработку изображений, аудио и portrait feature points, хранение в Singapore и передачу service providers; точный общий срок retention не указан.",
+        "Reference video и audio могут переносить внешность, движения и голос. Нужны явный consent, запрет скрытого cloning, provenance log и права на все исходники, музыку, бренды и персонажей."
       ],
       "quickStart": [
-        "Использовать только собственные, лицензированные или полностью синтетические fixtures; реальные лица и голоса исключить из первого benchmark.",
-        "Сравнить prompt adherence, консистентность, native audio, latency, стоимость и safety rejection на коротком сценарии.",
-        "Хранить результат как draft с model/provider/version metadata; скачивание или публикацию разрешать только после human approval."
+        "До любого benchmark получить письменное подтверждение коммерческих прав и применимых API/enterprise terms; без него использовать карточку только как reference.",
+        "После legal gate тестировать только собственные, лицензированные или синтетические fixtures; реальные лица и голоса исключить из первого benchmark.",
+        "Сравнить prompt adherence, consistency, native audio, latency, стоимость, safety rejection и обязательную attribution; результат хранить только как draft с model/provider/version metadata и human approval."
       ],
       "guide": "ai-landing-sprint",
       "addedAt": "2026-08-10",
@@ -50088,16 +50155,36 @@
       },
       "catalogOrder": 2485,
       "licenseInfo": {
-        "label": "Proprietary Kuaishou/Kling AI service terms; commercial use, input rights, output rights, региональная доступность и API terms требуют проверки перед каждым production-сценарием; exact Terms need verification",
-        "original": "Proprietary Kuaishou/Kling AI service terms; commercial use, input rights, output rights, региональная доступность и API terms требуют проверки перед каждым production-сценарием; exact Terms need verification",
+        "label": "Proprietary Kling AI service. Consumer Terms effective 21.04.2026 say that the user keeps applicable IP in Content, but commercial use of Output requires written permission from Kling AI and Kling attribution. The service receives a broad license to Input and Output and may use Content for product and model development. API, enterprise and regional contract terms need verification before production.",
+        "original": "Proprietary Kling AI service. Consumer Terms effective 21.04.2026 say that the user keeps applicable IP in Content, but commercial use of Output requires written permission from Kling AI and Kling attribution. The service receives a broad license to Input and Output and may use Content for product and model development. API, enterprise and regional contract terms need verification before production.",
         "spdx": null,
         "kind": "service-terms",
         "status": "unverified",
         "requiresReview": true,
         "evidence": [
           {
+            "kind": "terms",
+            "label": "Official Kling AI Terms of Service",
+            "url": "https://kling.ai/docs/user-policy"
+          },
+          {
+            "kind": "privacy",
+            "label": "Official Kling AI Privacy Policy",
+            "url": "https://kling.ai/docs/privacy-policy"
+          },
+          {
+            "kind": "pricing",
+            "label": "Official Kling AI developer pricing",
+            "url": "https://kling.ai/dev/pricing"
+          },
+          {
             "kind": "source",
-            "label": "Official Kling AI 3.0 release",
+            "label": "Official Kling VIDEO 3.0 model guide",
+            "url": "https://kling.ai/quickstart/klingai-video-3-model-user-guide"
+          },
+          {
+            "kind": "source",
+            "label": "Official Kuaishou Kling AI 3.0 release",
             "url": "https://ir.kuaishou.com/node/11216/pdf"
           },
           {
@@ -50111,6 +50198,31 @@
         {
           "kind": "official-source",
           "label": "Официальный источник",
+          "url": "https://kling.ai/"
+        },
+        {
+          "kind": "terms",
+          "label": "Official Kling AI Terms of Service",
+          "url": "https://kling.ai/docs/user-policy"
+        },
+        {
+          "kind": "privacy",
+          "label": "Official Kling AI Privacy Policy",
+          "url": "https://kling.ai/docs/privacy-policy"
+        },
+        {
+          "kind": "pricing",
+          "label": "Official Kling AI developer pricing",
+          "url": "https://kling.ai/dev/pricing"
+        },
+        {
+          "kind": "source",
+          "label": "Official Kling VIDEO 3.0 model guide",
+          "url": "https://kling.ai/quickstart/klingai-video-3-model-user-guide"
+        },
+        {
+          "kind": "source",
+          "label": "Official Kuaishou Kling AI 3.0 release",
           "url": "https://ir.kuaishou.com/node/11216/pdf"
         },
         {
