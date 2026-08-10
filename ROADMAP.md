@@ -20,11 +20,11 @@
 - `web/link-health.json` — безопасный публичный snapshot weekly-аудита: доступность ссылки
   показывается отдельно от редакторского доверия и не считается security endorsement.
 - Deploy: GitHub Actions → VPS/Caddy из ветки `master`.
-- Production синхронизирован с commit `acdc1bf`: quality
-  [#31104726072](https://github.com/PavelHopson/eclipse-library/actions/runs/31104726072)
-  и deploy [#31104725983](https://github.com/PavelHopson/eclipse-library/actions/runs/31104725983)
-  от 06.08.2026 успешно завершены. Independent smoke подтвердил `app.js?v=37`, три новых UI-модуля,
-  560 материалов и ровно 36 live catalog cards на 1440×900 и 390×844 без horizontal overflow.
+- Production синхронизирован с commit `fd0ed36`: quality
+  [#31387494210](https://github.com/PavelHopson/eclipse-library/actions/runs/31387494210)
+  и deploy [#31387494929](https://github.com/PavelHopson/eclipse-library/actions/runs/31387494929)
+  от 10.08.2026 успешно завершены. Independent production smoke подтвердил 589 материалов,
+  516 agent-safe записей, три новые карточки и guide AI Landing Sprint.
 
 ## Приоритеты
 
@@ -220,6 +220,7 @@
 - Krea оставлена reference: её публичный API показывает Kling 2.6, а Kling 3 Turbo — Soon; subscription и API balance разделены, публичные Terms/Privacy не удалось надёжно открыть. Nano Banana Pro и Kling AI 3.0 отправлены в roadmap только как controlled provider benchmarks.
 - Добавлено руководство «AI Landing Sprint» с business brief, evidence и asset registers, human approvals, production checklist и картой внедрения для Landing, AI Hub, Chat, Media, Shotforge, Sentinel, Text2Image и DnD Forge.
 - Пересобраны production index, guide manifest и API exports. Прямые установки из каталога по-прежнему запрещены; cloud uploads, API keys, лица, голоса и публикация закрыты fail-closed правилами.
+- Commit `aeb0aab` безопасно объединён с bot link-health refresh в `fd0ed36` без force push. GitHub quality и deploy зелёные; production API и guide проверены независимым smoke.
 
 ### 2026-08-09
 
