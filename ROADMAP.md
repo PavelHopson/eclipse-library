@@ -23,9 +23,9 @@
 - `web/link-health.json` — безопасный публичный snapshot weekly-аудита: доступность ссылки
   показывается отдельно от редакторского доверия и не считается security endorsement.
 - Deploy: GitHub Actions → VPS/Caddy из ветки `master`.
-- Production синхронизирован с commit `eca75c1`: quality
-  [#31469392091](https://github.com/PavelHopson/eclipse-library/actions/runs/31469392091)
-  и deploy [#31469392070](https://github.com/PavelHopson/eclipse-library/actions/runs/31469392070)
+- Production синхронизирован с commit `5ceb9d6`: quality
+  [#31472006597](https://github.com/PavelHopson/eclipse-library/actions/runs/31472006597)
+  и deploy [#31472006604](https://github.com/PavelHopson/eclipse-library/actions/runs/31472006604)
   от 11.08.2026 успешно завершены. Independent production smoke подтвердил `app.js?v=39`,
   `registry.js?v=1`, `registry.css?v=1`, 589 материалов, 516 agent-safe записей и 26 решений Eclipse.
   Production Edge QA на 1440×900 и 390×844 подтвердил deep link, CSP, hidden product scrollbar,
@@ -232,6 +232,7 @@
 ### 2026-08-11
 
 - Публичные названия продуктовых контуров унифицированы с брендом Eclipse Forge: Eclipse Market (5 решений), Eclipse CRM (11) и Eclipse AI (10). Обновлены Registry, карточки, guides, consumer labels и документация; стабильные machine IDs, deep links и API paths сохранены для обратной совместимости.
+  Commit 5ceb9d6; quality #31472006597 и deploy #31472006604 завершились успешно. Независимый production smoke подтвердил 26 решений и отсутствие старых display names.
 - Stage 17 завершён: подготовлена отдельная Eclipse Technology Registry surface с 26 решениями,
   read-only governance contract, lifecycle/runtime boundary, владельцами, evidence, рисками,
   benchmark и следующими шагами. Добавлены stable entry links, CSP, safe URL/HTML rendering,
