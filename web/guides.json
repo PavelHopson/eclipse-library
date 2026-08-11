@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "totals": {
-    "guides": 30
+    "guides": 31
   },
   "guides": [
     {
@@ -148,6 +148,13 @@
       "name": "qa-temporary-email",
       "title": "QA temporary email checklist",
       "description": "",
+      "modules": 0,
+      "lessons": 0
+    },
+    {
+      "name": "star-technology-registry",
+      "title": "Star Technology Registry: реестр решений для StarMarket, StarCRM и StarAI",
+      "description": "Практический контракт между Eclipse Library, админкой StarCRM и сервисами StarAI.",
       "modules": 0,
       "lessons": 0
     },

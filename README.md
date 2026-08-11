@@ -2,7 +2,7 @@
 
 Кураторская библиотека AI-инструментов, сервисов, моделей, skills, MCP, промптов, курсов и security-материалов для экосистемы Eclipse Forge.
 
-[Открыть библиотеку](https://library.eclipse-forge.ru/) · [Каталог проектов](https://library.eclipse-forge.ru/#projects) · [Курсы и гайды](https://library.eclipse-forge.ru/#browse/courses)
+[Открыть библиотеку](https://library.eclipse-forge.ru/) · [Star Technology Registry](https://library.eclipse-forge.ru/registry.html) · [Каталог проектов](https://library.eclipse-forge.ru/#projects) · [Курсы и гайды](https://library.eclipse-forge.ru/#browse/courses)
 
 ## Текущее состояние
 
@@ -26,6 +26,8 @@ README больше не является базой данных и не раз
 | [`web/catalog-details.json`](web/catalog-details.json) | Исторический набор ручных editorial reviews; его содержимое уже мигрировано в canonical records. |
 | [`web/github-metadata.json`](web/github-metadata.json) | Official GitHub state и license evidence для repository URL. |
 | [`web/guides.json`](web/guides.json) | Manifest учебных материалов. |
+| [`web/star-technology-registry.json`](web/star-technology-registry.json) | Read-only decision registry для StarMarket, StarCRM и StarAI; lifecycle хранится отдельно от runtime health. |
+| [`web/registry.html`](web/registry.html) | Поиск, product filters, evidence, risks, approval policy и stable deep links для решений Star. |
 | [`web/catalog-card.js`](web/catalog-card.js), [`web/catalog-editorial.js`](web/catalog-editorial.js), [`web/catalog-progressive.js`](web/catalog-progressive.js) | UI-модули карточки, редакционной ленты и progressive DOM; первая страница ограничена 36 карточками. |
 | [`web/catalog-inspector.js`](web/catalog-inspector.js), [`web/navigator.css`](web/navigator.css) | Безопасный evidence-first быстрый обзор и отдельный responsive visual layer Knowledge Navigator. |
 | [`web/catalog-search.js`](web/catalog-search.js) | Детерминированный RU/EN search planner: синонимы, короткий stopword-list и tolerance к одной опечатке без отправки запросов во внешний сервис. |
@@ -82,6 +84,7 @@ node scripts/build-catalog-exports.mjs
 node scripts/build-guides-manifest.mjs
 node scripts/validate-catalog-index.mjs
 node scripts/validate-catalog.mjs
+node scripts/validate-star-technology-registry.mjs
 node scripts/check-links.mjs
 ```
 
@@ -112,6 +115,7 @@ Quality workflow проверяет:
 - [Agent Reach security review](guides/agent-reach-security-review-2026-07-31.md)
 - [Azgaar DnD map workflow](guides/azgaar-dnd-map-workflow.md)
 - [MCP runtime audit](guides/mcp-runtime-audit.md)
+- [Star Technology Registry](guides/star-technology-registry.md)
 
 ## License
 

@@ -17,6 +17,9 @@
   все 66 grey-ресурсов скрыты от recommendations, direct install запрещён для всех записей.
 - `web/api/v1/` — versioned static exports для full catalog, agents, StarCRM и StarAI;
   consumers больше не должны читать README.
+- `web/star-technology-registry.json` и `web/registry.html` — отдельный read-only decision
+  registry для StarMarket, StarCRM и StarAI: 26 решений с lifecycle, owner, risk, benchmark,
+  evidence, fallback и следующим шагом; runtime health намеренно остаётся отдельным snapshot.
 - `web/link-health.json` — безопасный публичный snapshot weekly-аудита: доступность ссылки
   показывается отдельно от редакторского доверия и не считается security endorsement.
 - Deploy: GitHub Actions → VPS/Caddy из ветки `master`.
@@ -128,6 +131,11 @@
       Trust Passport в Inspector и скрытый scrollbar без отключения wheel, touch или keyboard scroll.
       Direct Edge visual QA пройден на 1434×934 и 390×844: Inspector прокручивается без видимой
       полосы, mobile sheet возвращает фокус, страница не прыгает вверх и horizontal overflow отсутствует.
+- [x] Stage 17 — Star Technology Registry: отдельный operational workspace с 26 решениями
+      для трёх независимых продуктов, product/search/lifecycle filters, evidence, risk, benchmark,
+      approval policy и stable deep links. Неподтверждённый Ollama benchmark не считается production;
+      external sources остаются reference/manual-only, grey sources fail closed, direct install запрещён.
+      Edge QA пройден на 1440×900, 820×1000 и 390×844 без overflow, scroll jump, console errors и DOM XSS.
 - [ ] Eclipse Webclaw / Kwork #18: benchmark Lightpanda как optional beta JS-renderer против
       Playwright на representative page set — success rate, extraction quality, p95, RAM, robots/rate limits;
       telemetry off, pinned image/source и AGPL review обязательны.
@@ -222,6 +230,13 @@
 
 ### 2026-08-11
 
+- Stage 17 завершён: подготовлена отдельная Star Technology Registry surface с 26 решениями,
+  read-only governance contract, lifecycle/runtime boundary, владельцами, evidence, рисками,
+  benchmark и следующими шагами. Добавлены stable entry links, CSP, safe URL/HTML rendering,
+  loading/empty/error/retry, responsive filters и production smoke для HTML/CSS/JS/JSON.
+- Security audit подтвердил SHA-pinned GitHub Actions, `contents: read`, отсутствие event-expression
+  injection, credential patterns и новых dependencies. Hostile JSON не исполняется; неподтверждённый
+  Ollama smoke status снижен с `production` до `approved` до появления immutable evidence.
 - Stage 16 завершён: внутренний Inspector сохраняет wheel/touch/keyboard scroll, но больше не показывает
   системную полосу; добавлены compact layout, Trust Passport и deterministic RU/EN smart search.
   Edge QA пройден на desktop 1434×934 и mobile 390×844 без console errors, horizontal overflow и

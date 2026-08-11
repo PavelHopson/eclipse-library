@@ -92,7 +92,7 @@ async function fetchText(url) {
 export async function smokeProduction(baseValue, deploySha = '') {
   const base = validateBaseUrl(baseValue);
   const cacheKey = encodeURIComponent(deploySha || Date.now().toString());
-  const [localIndex, localApp, localRuntime, localCatalog, localMetadata, localProjects, localMcpAudit, localGuides, localAgentExport] = await Promise.all([
+  const [localIndex, localApp, localRuntime, localCatalog, localMetadata, localProjects, localMcpAudit, localGuides, localAgentExport, localRegistryPage, localRegistryScript, localRegistryStyle, localRegistry] = await Promise.all([
     readFile(new URL('web/index.html', repoRoot), 'utf8'),
     readFile(new URL('web/app.js', repoRoot), 'utf8'),
     readFile(new URL('web/catalog-runtime.js', repoRoot), 'utf8'),
@@ -102,6 +102,10 @@ export async function smokeProduction(baseValue, deploySha = '') {
     readFile(new URL('web/mcp-audit.json', repoRoot), 'utf8').then(JSON.parse),
     readFile(new URL('web/guides.json', repoRoot), 'utf8').then(JSON.parse),
     readFile(new URL('web/api/v1/agents.json', repoRoot), 'utf8').then(JSON.parse),
+    readFile(new URL('web/registry.html', repoRoot), 'utf8'),
+    readFile(new URL('web/registry.js', repoRoot), 'utf8'),
+    readFile(new URL('web/registry.css', repoRoot), 'utf8'),
+    readFile(new URL('web/star-technology-registry.json', repoRoot), 'utf8').then(JSON.parse),
   ]);
   const liveIndex = await fetchText(new URL(`?deploy=${cacheKey}`, base));
   const localAppAsset = extractVersionedAsset(localIndex, 'app.js');
@@ -126,13 +130,29 @@ export async function smokeProduction(baseValue, deploySha = '') {
   assertTopicRouteResetOrder(localApp);
   assertTopicRouteResetOrder(liveApp);
 
-  const [liveCatalog, liveMetadata, liveProjects, liveMcpAudit, liveGuides, liveAgentExport] = await Promise.all([
+  const registryPageUrl = new URL(`registry.html?deploy=${cacheKey}`, base);
+  const liveRegistryPage = await fetchText(registryPageUrl);
+  assert.doesNotMatch(liveRegistryPage, /fonts\.googleapis\.com|fonts\.gstatic\.com/, 'Star Registry must not depend on Google Fonts.');
+  assert.equal(liveRegistryPage, localRegistryPage, 'Production registry.html does not match the deployed commit.');
+  const registryScriptAsset = extractVersionedAsset(localRegistryPage, 'registry.js');
+  assert.equal(extractVersionedAsset(liveRegistryPage, 'registry.js'), registryScriptAsset, 'Production registry references an unexpected script version.');
+  const registryScriptUrl = new URL(registryScriptAsset, base);
+  registryScriptUrl.searchParams.set('deploy', cacheKey);
+  assert.equal(await fetchText(registryScriptUrl), localRegistryScript, 'Production registry.js does not match the deployed commit.');
+  const registryStyleAsset = extractVersionedAsset(localRegistryPage, 'registry.css');
+  assert.equal(extractVersionedAsset(liveRegistryPage, 'registry.css'), registryStyleAsset, 'Production registry references an unexpected style version.');
+  const registryStyleUrl = new URL(registryStyleAsset, base);
+  registryStyleUrl.searchParams.set('deploy', cacheKey);
+  assert.equal(await fetchText(registryStyleUrl), localRegistryStyle, 'Production registry.css does not match the deployed commit.');
+
+  const [liveCatalog, liveMetadata, liveProjects, liveMcpAudit, liveGuides, liveAgentExport, liveRegistry] = await Promise.all([
     fetchText(new URL(`catalog-index.json?deploy=${cacheKey}`, base)).then(JSON.parse),
     fetchText(new URL(`github-metadata.json?deploy=${cacheKey}`, base)).then(JSON.parse),
     fetchText(new URL(`projects.json?deploy=${cacheKey}`, base)).then(JSON.parse),
     fetchText(new URL(`mcp-audit.json?deploy=${cacheKey}`, base)).then(JSON.parse),
     fetchText(new URL(`guides.json?deploy=${cacheKey}`, base)).then(JSON.parse),
     fetchText(new URL(`api/v1/agents.json?deploy=${cacheKey}`, base)).then(JSON.parse),
+    fetchText(new URL(`star-technology-registry.json?deploy=${cacheKey}`, base)).then(JSON.parse),
   ]);
   assert.equal(liveCatalog?.schemaVersion, 2, 'Production catalog index schema is invalid.');
   assert.equal(liveCatalog?.sourceHash, localCatalog.sourceHash, 'Production catalog index is stale.');
@@ -147,6 +167,10 @@ export async function smokeProduction(baseValue, deploySha = '') {
   assert.deepEqual(liveAgentExport?.totals, localAgentExport.totals, 'Production agent export is stale.');
   assert.ok(liveAgentExport.items.every((item) => item.type !== 'grey'), 'Production agent export contains a grey resource.');
   assert.ok(liveAgentExport.items.every((item) => item.actions?.installFromCatalog === false), 'Production agent export allows direct install.');
+  assert.equal(liveRegistry?.schemaVersion, 1, 'Production Star technology registry schema is invalid.');
+  assert.equal(liveRegistry?.updatedAt, localRegistry.updatedAt, 'Production Star technology registry is stale.');
+  assert.equal(liveRegistry?.entries?.length, localRegistry.entries.length, 'Production Star technology registry entries are stale.');
+  assert.equal(liveRegistry?.policy?.approvalTimeout, 'deny', 'Production Star technology registry must fail closed on approval timeout.');
 
   return {
     appAsset: liveAppAsset,
@@ -154,13 +178,14 @@ export async function smokeProduction(baseValue, deploySha = '') {
     projects: liveProjects.projects.length,
     repositories: liveMetadata.totals.repositories,
     mcpServers: liveMcpAudit.servers.length,
+    registryEntries: liveRegistry.entries.length,
   };
 }
 
 if (process.argv[1] && fileURLToPath(import.meta.url) === resolve(process.argv[1])) {
   try {
     const result = await smokeProduction(process.argv[2] || `https://${allowedHost}/`, process.env.DEPLOY_SHA);
-    console.log(`Production smoke passed: ${result.appAsset}, ${result.catalogItems} catalog items, ${result.projects} projects, ${result.repositories} repositories, ${result.mcpServers} MCP audit records.`);
+    console.log(`Production smoke passed: ${result.appAsset}, ${result.catalogItems} catalog items, ${result.projects} projects, ${result.repositories} repositories, ${result.mcpServers} MCP audit records, ${result.registryEntries} Star registry entries.`);
   } catch (error) {
     console.error(error instanceof Error ? error.message : String(error));
     process.exitCode = 1;

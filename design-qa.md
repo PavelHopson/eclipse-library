@@ -1,36 +1,46 @@
-# Design QA: Search & Trust Workspace
+# Design QA: Star Technology Registry
 
 ## Evidence
 
-- Source visual truth: `C:\Users\garaa\AppData\Local\Temp\codex-clipboard-b7183bfc-a65e-4c7c-85e7-5d7a7bc12b49.png`
-- Browser-rendered desktop implementation: `.artifacts/design-qa/catalog-desktop-inspector.png`
-- Combined source/implementation comparison: `.artifacts/design-qa/comparison-desktop.jpg`
-- Browser-rendered mobile implementation: `.artifacts/design-qa/catalog-mobile-inspector.png`
-- Browser report: `.artifacts/design-qa/browser-report.json`
+- Source visual truth: production Eclipse Library capture at `https://library.eclipse-forge.ru/`, saved as `.artifacts/design-qa/star-registry/source-library-desktop.png`.
+- Browser-rendered final desktop implementation: `.artifacts/design-qa/star-registry/registry-desktop-final.png`.
+- Full-view source/implementation comparison: `.artifacts/design-qa/star-registry/comparison-desktop-final.jpg`.
+- Focused header comparison: `.artifacts/design-qa/star-registry/comparison-header.jpg`.
+- Mobile implementation: `.artifacts/design-qa/star-registry/registry-mobile.png`.
+- Tablet implementation: `.artifacts/design-qa/star-registry/registry-tablet.png`.
+- Final browser/security report: `.artifacts/design-qa/star-registry/final-browser-report.json`.
 
-## Normalization and state
+## Normalization and target
 
-- Source pixels: 1434 × 934. Implementation pixels: 1434 × 934.
-- Desktop CSS viewport: 1434 × 934, `deviceScaleFactor: 1`, dark theme, Inspector selected and internally scrolled.
-- Mobile CSS viewport and pixels: 390 × 844, `deviceScaleFactor: 1`, Inspector bottom sheet selected and internally scrolled.
-- The full-view comparison uses the same desktop crop, viewport and catalog state. A focused Inspector comparison was sufficient because the requested defect was isolated to that region.
+- Source and implementation pixels: 1440 × 900. CSS viewport: 1440 × 900, `deviceScaleFactor: 1`, dark theme.
+- Mobile viewport and pixels: 390 × 844. Tablet viewport and pixels: 820 × 1000.
+- The source is the current Library production design language, not a pixel-identical Registry mock. Comparison therefore checks shared shell, typography, density, color tokens and interaction quality while allowing the new operational information architecture.
+- Full-view comparison is sufficient for the dense results workspace; the header was also compared separately because brand, search, typography and primary navigation are the highest-fidelity shared surfaces.
 
 ## Findings and comparison history
 
-- Initial P1: the source screenshot shows a bright native scrollbar inside the right Inspector. It competes with the dark interface and reads as unfinished browser chrome.
-- Fix: preserve `overflow-y: auto`, add cross-engine hidden scrollbar styling, keep wheel, touch and keyboard scrolling, and contain overscroll inside the Inspector.
-- Post-fix evidence: the implementation screenshot has no visible Inspector scrollbar. Programmatic QA confirms `scrollbar-width: none`, `overflow-y: auto`, and a successful desktop scroll from `0` to `217` and mobile scroll to `363`.
-- P2 regression checks: desktop and mobile document width equal viewport width; mobile page remains at scroll position `1000`; Escape closes the sheet and returns focus to the originating quick-review button.
-- Fonts and typography: existing local Manrope and display hierarchy are preserved; no new wrapping or truncation regression is visible.
-- Spacing and layout: the 330 px desktop Inspector and 390 px mobile sheet remain aligned to the existing workspace. Compact mode does not introduce overflow.
-- Colors and tokens: existing dark neutral, blue action and semantic risk tokens are preserved. No new decorative palette was introduced.
-- Image quality: this catalog workspace has no content imagery in the compared state; existing brand mark and icon treatment are unchanged.
-- Copy and content: Trust Passport labels use direct Russian wording; search expansion is concise and rendered safely.
-- Console and runtime: no console errors or page errors. Reduced-motion mode, synonym search, one-edit typo tolerance, compact mode and Inspector focus flow were exercised.
+- Initial P2, design-system drift: `registry.html` referenced stale `styles.css?v=22` while the current Library uses `v=23`. Fixed by using `v=23`; post-fix browser evidence loads only `/styles.css?v=23` and `/registry.css?v=1`.
+- Initial P2, keyboard focus: product switching rebuilt every button and lost focus after Enter. Fixed by creating the product controls once and updating only `aria-pressed`; final evidence keeps focus on `star-crm` with a visible focus ring.
+- Initial P2, console polish: the page had no explicit favicon and produced a 404. Fixed by reusing the existing Library favicon; final run has zero console errors and zero failed requests.
+- No remaining P0, P1 or P2 visual or interaction findings after the second comparison.
 
-## Remaining P3 polish
+## Required fidelity surfaces
 
-- None required for the scrollbar correction. A future optional pass may add a subtle top/bottom fade to communicate hidden overflow without restoring scrollbar chrome.
+- Fonts and typography: local Manrope, display hierarchy, compact mono metadata and line wrapping match the Library language. No Google Fonts or new font dependency is used.
+- Spacing and layout: desktop keeps a dense results/policy split; tablet stacks policy below results; mobile uses one column without horizontal page overflow.
+- Colors and tokens: the existing neutral, blue, gold, success and risk tokens are reused. No new gradient palette, decorative card stack or high-motion layer was introduced.
+- Image and asset fidelity: the workflow has no content imagery. Existing brand treatment and favicon are reused; no placeholder or generated asset was introduced.
+- Copy and content: the first screen explains the decision/runtime boundary, uses direct Russian labels and exposes owner, risk, benchmark, fallback and next step without relying on instructions.
+
+## States, behavior and accessibility
+
+- Loading, empty, error and retry states are browser-tested. Retry recovers from an initial HTTP 503.
+- Stable `#entry/<id>` links restore the product, open details, scroll to the entry and focus its title.
+- Desktop 1440 px, tablet 820 px and mobile 390 px have document width equal to viewport width.
+- The mobile product strip keeps touch scrolling with `scrollbar-width: none`; page scroll remains `900 -> 900` after live search rendering.
+- Mobile product controls are 58 px tall. Keyboard activation, focus-visible, reduced motion and skip navigation are preserved.
+- Hostile JSON strings remain text: no injected elements, unsafe URL, dialog or JavaScript execution.
+- The final browser run has no console errors or failed network requests.
 
 ## Final Result
 

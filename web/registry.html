@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Star Technology Registry | Eclipse Library</title>
+  <meta name="description" content="Технологический реестр StarMarket, StarCRM и StarAI: статус допуска, риски, benchmark, владельцы и следующие шаги." />
+  <meta name="theme-color" content="#0a0a0e" />
+  <meta name="referrer" content="no-referrer" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; font-src 'self'; img-src 'self' data:; connect-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⚡</text></svg>" />
+  <link rel="preload" href="assets/fonts/manrope-cyrillic.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="assets/fonts/manrope-latin.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="stylesheet" href="styles.css?v=23" />
+  <link rel="stylesheet" href="registry.css?v=1" />
+</head>
+<body class="registry-page">
+  <a class="skip" href="#registryResults">Перейти к решениям</a>
+
+  <header class="topbar">
+    <div class="topbar-inner">
+      <a class="brand" href="index.html" aria-label="Eclipse Library: в библиотеку">
+        <span class="brand-mark" aria-hidden="true"><span class="brand-orb"></span><span class="brand-spark"></span></span>
+        <span class="brand-text"><strong>Eclipse Library</strong><small>Star Technology Registry</small></span>
+      </a>
+      <nav class="primary-nav" aria-label="Главная навигация">
+        <a href="index.html#catalog">Каталог</a>
+        <a href="index.html#projects">Проекты</a>
+        <a class="active" href="registry.html" aria-current="page">Star Registry</a>
+      </nav>
+      <div class="registry-top-search">
+        <label class="sr-only" for="registrySearch">Поиск по технологическому реестру</label>
+        <input id="registrySearch" type="search" placeholder="Найти технологию, функцию или сервис…" autocomplete="off" spellcheck="false" />
+      </div>
+      <a class="registry-back" href="index.html">К библиотеке</a>
+    </div>
+  </header>
+
+  <main class="registry-shell">
+    <header class="registry-titlebar">
+      <div>
+        <span class="registry-kicker">Контур решений Star</span>
+        <h1>Технологический реестр</h1>
+        <p>Что внедряем в StarMarket, StarCRM и StarAI, кто отвечает, какие проверки нужны и почему решение допущено или заблокировано.</p>
+      </div>
+      <div class="registry-title-actions">
+        <a href="index.html#guide/star-technology-registry">Открыть контракт внедрения</a>
+        <span id="registryUpdated">Обновление данных…</span>
+      </div>
+    </header>
+
+    <section class="registry-runtime-note" aria-label="Граница данных">
+      <b>Реестр показывает принятое решение, а не текущий health.</b>
+      <span>Доступность модели, очереди и workers должна приходить в StarCRM отдельным runtime snapshot. При ошибке там показывается «нет связи», а не ноль.</span>
+    </section>
+
+    <section class="registry-summary" aria-label="Сводка реестра">
+      <div><span>Решений в продукте</span><b id="summaryTotal">…</b></div>
+      <div><span>Одобрено и production</span><b id="summaryReady">…</b></div>
+      <div><span>Пилоты</span><b id="summaryPilots">…</b></div>
+      <div><span>Заблокировано</span><b id="summaryBlocked">…</b></div>
+      <div><span>Приоритет P0</span><b id="summaryP0">…</b></div>
+    </section>
+
+    <section class="registry-controls" aria-labelledby="registryControlsTitle">
+      <div class="registry-control-head">
+        <div><span>1. Выберите продукт</span><h2 id="registryControlsTitle">Контур и стадия допуска</h2></div>
+        <button id="registryReset" type="button">Сбросить фильтры</button>
+      </div>
+      <div id="registryProducts" class="registry-products" role="group" aria-label="Продукт"></div>
+      <div class="registry-filter-row">
+        <label>Стадия
+          <select id="registryLifecycle"><option value="">Все стадии</option></select>
+        </label>
+        <label>Приоритет
+          <select id="registryPriority">
+            <option value="">Любой приоритет</option>
+            <option value="P0">P0 · сейчас</option>
+            <option value="P1">P1 · следующий этап</option>
+            <option value="P2">P2 · reference</option>
+          </select>
+        </label>
+        <label>Где выполняется
+          <select id="registryExecution">
+            <option value="">Любой контур</option>
+            <option value="self-host">Свой сервер</option>
+            <option value="local">Локально</option>
+            <option value="cloud">Облако</option>
+            <option value="hybrid">Гибрид</option>
+          </select>
+        </label>
+        <label class="registry-checkbox"><input id="registryVerified" type="checkbox" checked /><span>Только проверенные источники</span></label>
+      </div>
+    </section>
+
+    <div class="registry-workspace">
+      <section id="registryResults" class="registry-results" aria-labelledby="registryResultsTitle">
+        <div class="registry-results-head">
+          <div><span>2. Проверьте решения</span><h2 id="registryResultsTitle">Загружаю реестр…</h2></div>
+          <strong id="registryCount" aria-live="polite"></strong>
+        </div>
+        <div id="registryStatus" class="registry-status" role="status">Загружаю данные и проверяю связи с каталогом…</div>
+        <div id="registryGroups"></div>
+        <div id="registryEmpty" class="registry-empty" hidden>
+          <b>По этим условиям решений нет</b>
+          <span>Сбросьте один из фильтров или выберите другой продукт.</span>
+          <button type="button" data-reset-registry>Показать все решения продукта</button>
+        </div>
+        <div id="registryError" class="registry-error" hidden>
+          <b>Реестр не загрузился</b>
+          <span id="registryErrorText">Проверьте соединение и повторите запрос.</span>
+          <button id="registryRetry" type="button">Повторить загрузку</button>
+        </div>
+      </section>
+
+      <aside class="registry-policy" aria-labelledby="registryPolicyTitle">
+        <span>3. Контур допуска</span>
+        <h2 id="registryPolicyTitle">Что разрешено агентам</h2>
+        <dl>
+          <div><dt>Read-only</dt><dd>Можно запускать автоматически только через server-side allowlist.</dd></div>
+          <div><dt>Изменение данных</dt><dd>Нужно явное подтверждение администратора и запись в audit log.</dd></div>
+          <div><dt>Destructive</dt><dd>Нужны подтверждение, recovery plan и проверяемый результат.</dd></div>
+          <div><dt>Таймаут</dt><dd>Всегда deny. Молчание никогда не означает согласие.</dd></div>
+          <div><dt>Установка</dt><dd>Реестр ничего не устанавливает. Команды проходят отдельный review.</dd></div>
+        </dl>
+        <div class="registry-policy-warning">
+          <b>Teamly.to</b>
+          <p>Используем как UX-reference. Рабочие данные, OAuth-доступы и production-действия туда не передаём.</p>
+        </div>
+      </aside>
+    </div>
+  </main>
+
+  <footer class="footer"><a href="index.html">Eclipse Library</a> · решения StarMarket, StarCRM и StarAI · runtime состояние контролируется отдельно</footer>
+  <script src="registry.js?v=1"></script>
+</body>
+</html>
