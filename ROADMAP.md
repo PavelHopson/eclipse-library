@@ -23,12 +23,13 @@
 - `web/link-health.json` — безопасный публичный snapshot weekly-аудита: доступность ссылки
   показывается отдельно от редакторского доверия и не считается security endorsement.
 - Deploy: GitHub Actions → VPS/Caddy из ветки `master`.
-- Production синхронизирован с commit `1814c41`: quality
-  [#31466344138](https://github.com/PavelHopson/eclipse-library/actions/runs/31466344138)
-  и deploy [#31466344139](https://github.com/PavelHopson/eclipse-library/actions/runs/31466344139)
+- Production синхронизирован с commit `eca75c1`: quality
+  [#31469392091](https://github.com/PavelHopson/eclipse-library/actions/runs/31469392091)
+  и deploy [#31469392070](https://github.com/PavelHopson/eclipse-library/actions/runs/31469392070)
   от 11.08.2026 успешно завершены. Independent production smoke подтвердил `app.js?v=39`,
-  `navigator.css?v=3`, `catalog-search.js?v=1`, 589 материалов и 516 agent-safe записей;
-  Edge QA повторно подтвердил скрытый Inspector scrollbar на desktop и mobile.
+  `registry.js?v=1`, `registry.css?v=1`, 589 материалов, 516 agent-safe записей и 26 решений Star.
+  Production Edge QA на 1440×900 и 390×844 подтвердил deep link, CSP, hidden product scrollbar,
+  отсутствие horizontal overflow, scroll jump, console и network errors.
 
 ## Приоритеты
 
