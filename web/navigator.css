@@ -224,6 +224,7 @@ a:hover { color: #d5eaff; }
 .task-chip:hover, .task-chip.active { border-color: var(--nav-blue-line); background: var(--nav-blue-soft); }
 .chip { border-radius: 9px; }
 .chip.active { border-color: var(--nav-blue-line); background: var(--nav-blue-soft); color: #dcecff; }
+.catalog-actions { flex-wrap: wrap; }
 
 .catalog-workspace {
   display: grid;
@@ -294,9 +295,12 @@ a:hover { color: #d5eaff; }
   border-radius: 16px;
   background: rgba(12, 14, 20, .94);
   box-shadow: 0 24px 72px -54px #000;
-  scrollbar-width: thin;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  overscroll-behavior: contain;
   view-transition-name: catalog-inspector;
 }
+.catalog-inspector::-webkit-scrollbar { width: 0; height: 0; display: none; }
 .inspector-empty { min-height: 220px; display: flex; flex-direction: column; justify-content: center; }
 .inspector-empty span, .inspector-label { color: var(--nav-blue); font: 700 9px var(--mono); letter-spacing: .1em; text-transform: uppercase; }
 .inspector-empty h2 { margin: 9px 0 7px; font: 650 20px/1.25 var(--display); }
@@ -316,6 +320,15 @@ a:hover { color: #d5eaff; }
 .inspector-decision.decision-now b { color: var(--nav-green); }
 .inspector-decision.decision-no { border-color: rgba(239, 150, 153, .28); }
 .inspector-decision.decision-no b { color: var(--nav-red); }
+.trust-passport { margin: 0 0 16px; border-top: 1px solid var(--nav-line); border-bottom: 1px solid var(--nav-line); }
+.trust-passport-head { display: flex; align-items: center; justify-content: space-between; gap: 10px; padding: 10px 0 8px; }
+.trust-passport-head span { color: var(--text); font-size: 11px; font-weight: 800; }
+.trust-passport-head small { color: var(--nav-green); font: 700 8.5px var(--mono); letter-spacing: .06em; text-transform: uppercase; }
+.trust-passport-grid { display: grid; grid-template-columns: 1fr 1fr; margin: 0; }
+.trust-passport-grid .inspector-fact { display: block; padding: 8px 8px 9px 0; border: 0; border-top: 1px solid var(--nav-line); }
+.trust-passport-grid .inspector-fact:nth-child(even) { padding-right: 0; padding-left: 8px; border-left: 1px solid var(--nav-line); }
+.trust-passport-grid .inspector-fact dt { margin-bottom: 4px; }
+.trust-passport-grid .inspector-fact dd { text-align: left; line-height: 1.35; }
 .inspector-facts { margin: 0; border-top: 1px solid var(--nav-line); }
 .inspector-fact { display: grid; grid-template-columns: 84px minmax(0, 1fr); gap: 12px; padding: 9px 0; border-bottom: 1px solid var(--nav-line); }
 .inspector-fact dt { color: var(--muted-2); font-size: 10px; }
@@ -350,6 +363,26 @@ a:hover { color: #d5eaff; }
 .inspector-local-actions .save-button span,
 .inspector-local-actions .compare-button span { display: inline; }
 .inspector-local-actions .compare-button { margin-left: 0; }
+
+.layout-switcher { display: inline-flex; flex: 0 0 auto; gap: 3px; padding: 3px; border: 1px solid var(--nav-line); border-radius: 10px; background: rgba(255, 255, 255, .018); }
+.layout-switcher button { min-height: 30px; padding: 5px 9px; border: 0; border-radius: 7px; background: transparent; color: var(--muted-2); font: 750 10px var(--font); cursor: pointer; }
+.layout-switcher button:hover { color: var(--text); }
+.layout-switcher button[aria-pressed="true"] { background: var(--nav-blue-soft); color: #dcecff; box-shadow: inset 0 0 0 1px var(--nav-blue-line); }
+.search-expansion { display: flex; align-items: center; gap: 6px; min-height: 25px; margin-top: 8px; color: var(--muted-2); font-size: 10px; }
+.search-expansion[hidden] { display: none; }
+.search-expansion b { color: var(--muted); font-weight: 700; }
+.search-expansion span { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+
+body[data-catalog-layout="compact"] .catalog-stream .grid { grid-template-columns: 1fr; gap: 8px; }
+body[data-catalog-layout="compact"] .catalog-stream .card { display: grid; grid-template-columns: minmax(0, .78fr) minmax(0, 1.22fr) auto; grid-template-areas: "top top top" "title desc foot" "decision meta foot"; align-items: center; gap: 8px 16px; padding: 13px 14px; }
+body[data-catalog-layout="compact"] .catalog-stream .card-top { grid-area: top; }
+body[data-catalog-layout="compact"] .catalog-stream .card-title { grid-area: title; margin: 0; }
+body[data-catalog-layout="compact"] .catalog-stream .desc { grid-area: desc; margin: 0; -webkit-line-clamp: 2; }
+body[data-catalog-layout="compact"] .catalog-stream .card-use { display: none; }
+body[data-catalog-layout="compact"] .catalog-stream .card-decision { grid-area: decision; border-bottom: 0; }
+body[data-catalog-layout="compact"] .catalog-stream .card-meta { grid-area: meta; }
+body[data-catalog-layout="compact"] .catalog-stream .card-foot { grid-area: foot; align-self: stretch; flex-direction: column; justify-content: center; min-width: 112px; padding: 0 0 0 12px; border-top: 0; border-left: 1px solid var(--nav-line); }
+body[data-catalog-layout="compact"] .catalog-stream .card-foot > * { width: 100%; justify-content: center; text-align: center; }
 
 .item-body { max-width: 980px; }
 .item-body h1 { max-width: 820px; }
@@ -450,9 +483,14 @@ a:hover { color: #d5eaff; }
   #heroSearch { min-height: 46px; font-size: 16px; }
   .hero-command-field button { min-height: 44px; }
   .hero-signal { display: none; }
-  .quick-routes { margin-top: 18px; }
-  .quick-route { flex-basis: 164px; }
+  .quick-routes { margin-top: 18px; scroll-snap-type: x proximity; overscroll-behavior-inline: contain; -webkit-overflow-scrolling: touch; }
+  .quick-route { flex-basis: 164px; scroll-snap-align: start; }
   .filters { padding: 12px; }
+  .layout-switcher { width: 100%; }
+  .layout-switcher button { flex: 1; min-height: 36px; }
+  body[data-catalog-layout="compact"] .catalog-stream .card { display: flex; gap: 12px; padding: 16px; }
+  body[data-catalog-layout="compact"] .catalog-stream .card-use { display: block; }
+  body[data-catalog-layout="compact"] .catalog-stream .card-foot { width: auto; padding: 10px 0 0; border-top: 1px solid var(--nav-line); border-left: 0; }
   .card { padding: 14px; }
   .card:hover { transform: none; }
   .card-title { font-size: 16px; }

@@ -42,6 +42,7 @@ test('inspector exposes evidence-first data and blocks unsafe source URLs', () =
     simpleDescription: 'Проверяемый инструмент.', decision: 'now', riskLevel: 'low', risks: ['Проверить permissions.'],
     useCases: ['Локальный тест.'], quickStart: ['Начать в sandbox.'], projects: ['Eclipse AI Hub'],
     runtime: 'local', cost: 'free', signup: 'none', license: 'MIT', evidence: [{ url: 'https://example.com/docs' }],
+    reviewStatus: 'verified', verifiedAt: '2026-08-10', licenseInfo: { label: 'MIT', requiresReview: false },
     linkHealth: { status: 'ok' },
   };
   const model = inspector.createInspectorModel(resource, {
@@ -53,6 +54,9 @@ test('inspector exposes evidence-first data and blocks unsafe source URLs', () =
   assert.equal(model.sourceHref, 'https://example.com/tool');
   assert.equal(model.decision, 'Внедрить сейчас');
   assert.equal(model.evidenceCount, 1);
+  assert.equal(model.reviewStatus, 'Проверено редактором');
+  assert.equal(model.licenseStatus, 'Условия проверены');
+  assert.match(model.verifiedAt, /2026/);
   assert.equal(inspector.safeHttpUrl('javascript:alert(1)'), '');
   assert.equal(inspector.safeHttpUrl('file:///etc/passwd'), '');
   assert.equal(inspector.createInspectorModel({ ...resource, linkHealth: { status: 'blocked' } }).sourceHref, '');
@@ -70,8 +74,13 @@ test('app wires lazy descriptors and modules before the main bundle', () => {
   const editorialScript = html.indexOf('catalog-editorial.js');
   const progressiveScript = html.indexOf('catalog-progressive.js');
   const inspectorScript = html.indexOf('catalog-inspector.js');
+  const searchScript = html.indexOf('catalog-search.js');
   const appScript = html.indexOf('app.js');
-  assert.ok(cardScript > 0 && editorialScript > cardScript && progressiveScript > editorialScript && inspectorScript > progressiveScript && appScript > inspectorScript);
+  assert.ok(cardScript > 0 && editorialScript > cardScript && progressiveScript > editorialScript && inspectorScript > progressiveScript && searchScript > inspectorScript && appScript > searchScript);
+  const navigatorCss = fs.readFileSync(path.join(root, 'web', 'navigator.css'), 'utf8');
+  assert.match(navigatorCss, /\.catalog-inspector::-webkit-scrollbar \{[^}]*display: none;[^}]*\}/);
+  assert.match(navigatorCss, /scrollbar-width: none;/);
+  assert.match(navigatorCss, /data-catalog-layout="compact"/);
   assert.match(app, /ensureInspectorSelection\(visibleCards\)/);
   assert.doesNotMatch(fs.readFileSync(path.join(root, 'web', 'catalog-card.js'), 'utf8'), /shields\.io/);
 });

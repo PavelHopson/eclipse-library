@@ -1,6 +1,6 @@
 # Eclipse Library Roadmap
 
-Последнее обновление: **10.08.2026**
+Последнее обновление: **11.08.2026**
 
 ## Текущее состояние
 
@@ -122,6 +122,11 @@
 - [x] Stage 13 — добавить редакционную ленту «Новое и проверенное», решение, целевой проект и риск прямо на карточку, decision summary в detail view, сортировку по `addedAt` и убрать дублирующую desktop-навигацию.
 - [x] Stage 14 — карточка, редакционная лента и progressive DOM вынесены из `web/app.js`; live DOM ограничен текущей порцией по 36 результатов, unit regression фиксирует budget, desktop/mobile browser QA обязателен перед публикацией.
 - [x] Stage 15 — Knowledge Navigator: command-first hero, спокойные decision-first cards, desktop master-detail Inspector, mobile bottom sheet, fixed bottom navigation, keyboard shortcut `Ctrl/Cmd+K`, reduced motion и safe-URL regression без scroll listener.
+- [x] Stage 16 — Search & Trust Workspace: добавлены RU/EN synonyms и tolerance
+      к одной опечатке, объяснение расширенного запроса, сохраняемый режим «Карточки / Компактно»,
+      Trust Passport в Inspector и скрытый scrollbar без отключения wheel, touch или keyboard scroll.
+      Direct Edge visual QA пройден на 1434×934 и 390×844: Inspector прокручивается без видимой
+      полосы, mobile sheet возвращает фокус, страница не прыгает вверх и horizontal overflow отсутствует.
 - [ ] Eclipse Webclaw / Kwork #18: benchmark Lightpanda как optional beta JS-renderer против
       Playwright на representative page set — success rate, extraction quality, p95, RAM, robots/rate limits;
       telemetry off, pinned image/source и AGPL review обязательны.
@@ -213,6 +218,13 @@
       self-check, EN/RU copy и без обязательного API key.
 
 ## Changelog
+
+### 2026-08-11
+
+- Stage 16 завершён: внутренний Inspector сохраняет wheel/touch/keyboard scroll, но больше не показывает
+  системную полосу; добавлены compact layout, Trust Passport и deterministic RU/EN smart search.
+  Edge QA пройден на desktop 1434×934 и mobile 390×844 без console errors, horizontal overflow и
+  возврата страницы наверх; source/implementation comparison зафиксирован в `design-qa.md`.
 
 ### 2026-08-10
 

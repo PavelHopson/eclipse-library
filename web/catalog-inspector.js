@@ -17,6 +17,13 @@
       : fallback;
   }
 
+  function formatDate(value) {
+    const parsed = Date.parse(value || '');
+    return Number.isFinite(parsed)
+      ? new Intl.DateTimeFormat('ru-RU', { day: 'numeric', month: 'short', year: 'numeric' }).format(parsed)
+      : 'Дата не указана';
+  }
+
   function createInspectorModel(resource, labels = {}) {
     const sourceHref = resource?.linkHealth?.status === 'blocked' ? '' : safeHttpUrl(resource?.url);
     return Object.freeze({
@@ -42,6 +49,10 @@
       sourceDomain: sourceHref ? new URL(sourceHref).hostname.replace(/^www\./, '') : '',
       detailHref: '#item/' + encodeURIComponent(String(resource?.id || '')),
       evidenceCount: Array.isArray(resource?.evidence) ? resource.evidence.length : 0,
+      reviewStatus: resource?.reviewStatus === 'verified' ? 'Проверено редактором' : 'Описание сформировано автоматически',
+      licenseStatus: resource?.licenseInfo?.requiresReview === false ? 'Условия проверены' : 'Условия нужно сверить',
+      linkStatus: labels.linkHealth?.[resource?.linkHealth?.status] || labels.linkHealth?.unchecked || 'Ссылка не проверена',
+      verifiedAt: formatDate(resource?.verifiedAt),
     });
   }
 
@@ -91,6 +102,21 @@
       node('p', '', model.useCase),
     );
     root.appendChild(decision);
+
+    const passport = node('section', 'trust-passport');
+    const passportHead = node('div', 'trust-passport-head');
+    passportHead.append(
+      node('span', '', 'Паспорт доверия'),
+      node('small', '', String(model.evidenceCount) + ' источн.'),
+    );
+    passport.appendChild(passportHead);
+    const passportGrid = node('dl', 'trust-passport-grid');
+    addFact(passportGrid, 'Разбор', model.reviewStatus);
+    addFact(passportGrid, 'Лицензия', model.licenseStatus);
+    addFact(passportGrid, 'Ссылка', model.linkStatus);
+    addFact(passportGrid, 'Проверено', model.verifiedAt);
+    passport.appendChild(passportGrid);
+    root.appendChild(passport);
 
     const facts = node('dl', 'inspector-facts');
     addFact(facts, 'Стоимость', model.cost);

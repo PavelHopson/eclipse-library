@@ -14,13 +14,15 @@
   const PAGE_SIZE = 36;
   const FAVORITES_KEY = 'eclipse-library:favorites:v1';
   const RECENT_KEY = 'eclipse-library:recent:v1';
+  const LAYOUT_KEY = 'eclipse-library:layout:v1';
   const runtime = window.EclipseCatalogRuntime;
   if (!runtime) throw new Error('catalog-runtime.js is required before app.js');
   const cardRuntime = window.EclipseCatalogCard;
   const editorialRuntime = window.EclipseCatalogEditorial;
   const progressiveRuntime = window.EclipseCatalogProgressive;
   const inspectorRuntime = window.EclipseCatalogInspector;
-  if (!cardRuntime || !editorialRuntime || !progressiveRuntime || !inspectorRuntime) throw new Error('catalog UI modules are required before app.js');
+  const searchRuntime = window.EclipseCatalogSearch;
+  if (!cardRuntime || !editorialRuntime || !progressiveRuntime || !inspectorRuntime || !searchRuntime) throw new Error('catalog UI modules are required before app.js');
   const { canonicalUrl, githubRepoKey, groupsFromItems } = runtime;
   const DECISIONS = {
     now: 'Внедрить сейчас',
@@ -134,6 +136,7 @@
   let feedbackTimer = 0;
   let inspectorActiveId = '';
   let inspectorReturnFocus = null;
+  let catalogLayout = loadCatalogLayout();
 
   const $ = (s, r = document) => r.querySelector(s);
   const el = (tag, cls, html) => { const n = document.createElement(tag); if (cls) n.className = cls; if (html != null) n.innerHTML = html; return n; };
@@ -143,6 +146,21 @@
       const stored = JSON.parse(localStorage.getItem(FAVORITES_KEY) || '[]');
       return new Set(Array.isArray(stored) ? stored.filter((value) => typeof value === 'string' && /^https?:\/\//.test(value)).slice(0, 500) : []);
     } catch (error) { return new Set(); }
+  }
+
+  function loadCatalogLayout() {
+    try { return localStorage.getItem(LAYOUT_KEY) === 'compact' ? 'compact' : 'cards'; }
+    catch (error) { return 'cards'; }
+  }
+
+  function setCatalogLayout(layout, announce = false) {
+    catalogLayout = layout === 'compact' ? 'compact' : 'cards';
+    document.body.dataset.catalogLayout = catalogLayout;
+    document.querySelectorAll('[data-catalog-layout]').forEach((button) => {
+      button.setAttribute('aria-pressed', String(button.dataset.catalogLayout === catalogLayout));
+    });
+    try { localStorage.setItem(LAYOUT_KEY, catalogLayout); } catch (error) {}
+    if (announce) showFeedback(catalogLayout === 'compact' ? 'Включён компактный список.' : 'Включены подробные карточки.');
   }
 
   function loadRecent() {
@@ -742,6 +760,19 @@
     fillSelect($('#repositoryFilter'), [...new Set(cards.map((c) => c.repositoryState))], (value) => REPOSITORY_STATE[value] || value);
     const newestOption = $('#sortFilter')?.querySelector('[value="freshness"]');
     if (newestOption) newestOption.textContent = 'Сначала новые';
+    const actions = $('.catalog-actions');
+    if (actions && !actions.querySelector('.layout-switcher')) {
+      const switcher = el('div', 'layout-switcher');
+      switcher.setAttribute('role', 'group');
+      switcher.setAttribute('aria-label', 'Вид результатов');
+      switcher.innerHTML = '<button type="button" data-catalog-layout="cards">Карточки</button><button type="button" data-catalog-layout="compact">Компактно</button>';
+      actions.insertBefore(switcher, actions.querySelector('.catalog-sort'));
+      switcher.addEventListener('click', (event) => {
+        const button = event.target.closest('[data-catalog-layout]');
+        if (button) setCatalogLayout(button.dataset.catalogLayout, true);
+      });
+    }
+    setCatalogLayout(catalogLayout);
 
     const reset = $('#filterReset');
     reset.addEventListener('click', () => clearLibraryFilters({ focus: true }));
@@ -913,8 +944,9 @@
   function applyFilters(resetPage = true) {
     if (resetPage) visibleLimit = PAGE_SIZE;
     const q = query.trim().toLowerCase();
+    const queryPlan = searchRuntime.createQueryPlan(q);
     const matching = cards.filter((c) =>
-        (!q || c.text.includes(q)) &&
+        (!q || searchRuntime.matches(c.text, queryPlan)) &&
         (!activeTask || TASK_ROUTES[activeTask]?.match(c)) &&
         (!activeType || TYPE_GROUPS[activeType]?.types.includes(c.type)) &&
         (!activeCost || (activeCost === 'free-start' ? ['free', 'freemium'].includes(c.cost) : c.cost === activeCost)) &&
@@ -950,6 +982,11 @@
     if (recentEditorial) recentEditorial.hidden = filtering || currentView !== 'catalog';
     const shown = Math.min(matched, visibleLimit);
     $('#resultcount').textContent = shown < matched ? `${shown} из ${matched}` : `${matched} ${matched === 1 ? 'материал' : 'материалов'}`;
+    const expansion = $('#searchExpansion');
+    if (expansion) {
+      expansion.hidden = !q || queryPlan.related.length === 0;
+      expansion.querySelector('span').textContent = queryPlan.related.join(', ');
+    }
     const loadMoreWrap = $('#loadMoreWrap');
     const loadMore = $('#loadMore');
     if (loadMoreWrap && loadMore) {
