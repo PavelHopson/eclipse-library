@@ -7,7 +7,7 @@
 > **С оговоркой (та же планка как у [talk-normal](https://github.com/hexiecs/talk-normal) и
 > [Humanize Rewriter](humanize-rewriter.md)):** используем для операторских/
 > контент задач — SMM, маркетплейс-автоответы, копирайтинг для Eclipse AI Hub
-> Copywriter, draft-rewrite в Star CRM CRM-ответы. **НЕ** для academic / научных
+> Copywriter, draft-rewrite в Eclipse CRM CRM-ответы. **НЕ** для academic / научных
 > публикаций, journalist work, или mass-spam обхода AI-детекторов.
 >
 > Совместимо с любым LLM (Claude / GPT / Gemini / DeepSeek / локальные).
@@ -191,7 +191,7 @@ TEXT: [Ваш текст]
 | Куда | Use case |
 |---|---|
 | **Eclipse AI Hub Copywriter** | Pre-prompt пайплайн: user text → Lyra Prompt Optimizer → один из 6 anti-AI-text → final humanized draft. Цепочка: 1️⃣ → 4️⃣ → 6️⃣ типичная для long-form |
-| **Star CRM AutoReply** | Маркетплейс-ответы на отзывы (Wildberries / Ozon): 4️⃣ (rhythm) + 6️⃣ (reputation) — чтобы ответы не звучали как ChatGPT-template |
+| **Eclipse CRM AutoReply** | Маркетплейс-ответы на отзывы (Wildberries / Ozon): 4️⃣ (rhythm) + 6️⃣ (reputation) — чтобы ответы не звучали как ChatGPT-template |
 | **Eclipse Chat AI bot personality** | Bot.personality field (v1.2.27) с препроцессингом draft response через 1️⃣ (anti-cliché) — чтобы бот не отвечал штампами |
 | **Shotforge / Text2Image — caption-gen** | Описания к арт-промптам: 5️⃣ для генерации distinct visual descriptions |
 

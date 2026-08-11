@@ -54,8 +54,8 @@ export async function buildCatalogExports({ check = false } = {}) {
   const files = new Map([
     ['catalog.json', { ...catalog, policy: { directInstallForbidden: true } }],
     ['agents.json', consumerExport('generic-agent', catalog.sourceHash, agentItems)],
-    ['starcrm.json', consumerExport('StarCRM', catalog.sourceHash, agentItems)],
-    ['starai.json', consumerExport('StarAI', catalog.sourceHash, agentItems)],
+    ['starcrm.json', consumerExport('Eclipse CRM', catalog.sourceHash, agentItems)],
+    ['starai.json', consumerExport('Eclipse AI', catalog.sourceHash, agentItems)],
     ['manifest.json', {
       schemaVersion: 1,
       catalogVersion: catalog.sourceHash,

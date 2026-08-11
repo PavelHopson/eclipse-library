@@ -136,7 +136,7 @@ export async function smokeProduction(baseValue, deploySha = '') {
 
   const registryPageUrl = new URL(`registry.html?deploy=${cacheKey}`, base);
   const liveRegistryPage = await fetchText(registryPageUrl);
-  assert.doesNotMatch(liveRegistryPage, /fonts\.googleapis\.com|fonts\.gstatic\.com/, 'Star Registry must not depend on Google Fonts.');
+  assert.doesNotMatch(liveRegistryPage, /fonts\.googleapis\.com|fonts\.gstatic\.com/, 'Eclipse Registry must not depend on Google Fonts.');
   assert.equal(liveRegistryPage, localRegistryPage, 'Production registry.html does not match the deployed commit.');
   const registryScriptAsset = extractVersionedAsset(localRegistryPage, 'registry.js');
   assert.equal(extractVersionedAsset(liveRegistryPage, 'registry.js'), registryScriptAsset, 'Production registry references an unexpected script version.');
@@ -171,10 +171,10 @@ export async function smokeProduction(baseValue, deploySha = '') {
   assert.deepEqual(liveAgentExport?.totals, localAgentExport.totals, 'Production agent export is stale.');
   assert.ok(liveAgentExport.items.every((item) => item.type !== 'grey'), 'Production agent export contains a grey resource.');
   assert.ok(liveAgentExport.items.every((item) => item.actions?.installFromCatalog === false), 'Production agent export allows direct install.');
-  assert.equal(liveRegistry?.schemaVersion, 1, 'Production Star technology registry schema is invalid.');
-  assert.equal(liveRegistry?.updatedAt, localRegistry.updatedAt, 'Production Star technology registry is stale.');
-  assert.equal(liveRegistry?.entries?.length, localRegistry.entries.length, 'Production Star technology registry entries are stale.');
-  assert.equal(liveRegistry?.policy?.approvalTimeout, 'deny', 'Production Star technology registry must fail closed on approval timeout.');
+  assert.equal(liveRegistry?.schemaVersion, 1, 'Production Eclipse technology registry schema is invalid.');
+  assert.equal(liveRegistry?.updatedAt, localRegistry.updatedAt, 'Production Eclipse technology registry is stale.');
+  assert.equal(liveRegistry?.entries?.length, localRegistry.entries.length, 'Production Eclipse technology registry entries are stale.');
+  assert.equal(liveRegistry?.policy?.approvalTimeout, 'deny', 'Production Eclipse technology registry must fail closed on approval timeout.');
 
   return {
     appAsset: liveAppAsset,
@@ -189,7 +189,7 @@ export async function smokeProduction(baseValue, deploySha = '') {
 if (process.argv[1] && fileURLToPath(import.meta.url) === resolve(process.argv[1])) {
   try {
     const result = await smokeProduction(process.argv[2] || `https://${allowedHost}/`, process.env.DEPLOY_SHA);
-    console.log(`Production smoke passed: ${result.appAsset}, ${result.catalogItems} catalog items, ${result.projects} projects, ${result.repositories} repositories, ${result.mcpServers} MCP audit records, ${result.registryEntries} Star registry entries.`);
+    console.log(`Production smoke passed: ${result.appAsset}, ${result.catalogItems} catalog items, ${result.projects} projects, ${result.repositories} repositories, ${result.mcpServers} MCP audit records, ${result.registryEntries} Eclipse registry entries.`);
   } catch (error) {
     console.error(error instanceof Error ? error.message : String(error));
     process.exitCode = 1;

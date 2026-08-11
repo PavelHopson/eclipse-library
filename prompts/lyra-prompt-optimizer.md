@@ -8,7 +8,7 @@
 
 - **Eclipse AI Hub → Copywriter / Code Review / Image Studio** — пресет «Refine prompt» поверх пользовательского ввода. Дополняет существующие 9 пресетов для презентаций.
 - **oh-my-claudecode** — препроцессор для `/autopilot` / `/ultrawork`: пользователь даёт грязный запрос → Lyra переписывает → агент получает структурированную задачу. Снижает количество «уточняющих» итераций в начале сессии.
-- **Star CRM AutoReply / Eclipse-DnD-Forge** — улучшение шаблонов сценариев перед отправкой в LLM.
+- **Eclipse CRM AutoReply / Eclipse-DnD-Forge** — улучшение шаблонов сценариев перед отправкой в LLM.
 - Любой workflow, где качество промпта напрямую влияет на стоимость токенов и итераций.
 
 ## Промпт
@@ -125,7 +125,7 @@ Memory Note: Do not save any information from optimization sessions to memory.
 - Lyra **не для production-генерации текста**, а для **подготовки промпта**. После того как Lyra выдала оптимизированный prompt — его уже используешь в основной LLM-цепочке.
 - Хорошо ложится поверх «Auto Prompt» / GPT-5.5 Prompt Guide (см. секцию «Промпт-коллекции» в основном README) как ручной аналог.
 - В oh-my-claudecode имеет смысл как **первый шаг** в `/ultrawork` pipeline до `research → plan → code → verify`.
-- Для consumer-агентов (Star CRM AutoReply, маркетплейс-ответы) — избыточен, там лучше humanize-rewriter.
+- Для consumer-агентов (Eclipse CRM AutoReply, маркетплейс-ответы) — избыточен, там лучше humanize-rewriter.
 
 ## Источник
 

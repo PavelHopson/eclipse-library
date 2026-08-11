@@ -144,7 +144,7 @@
 
 ### Grey-zone API-прокси (только для pet-проектов)
 
-> ⚠️ **Юридические и ToS-риски.** Эти проекты обходят официальные лимиты Anthropic / OpenAI / Windsurf через ротацию аккаунтов или нелегальные эндпоинты. **Не использовать** в Star CRM, Eclipse AI Hub, Hopson Sentinel, любых коммерческих / продуктивных средах — гарантированный путь к cease-and-desist или внезапной потере доступа. Только для личных экспериментов на свой риск. Легитимные бесплатные альтернативы — таблица **Бесплатные API** выше + локальные модели (Ollama, LM Studio).
+> ⚠️ **Юридические и ToS-риски.** Эти проекты обходят официальные лимиты Anthropic / OpenAI / Windsurf через ротацию аккаунтов или нелегальные эндпоинты. **Не использовать** в Eclipse CRM, Eclipse AI Hub, Hopson Sentinel, любых коммерческих / продуктивных средах — гарантированный путь к cease-and-desist или внезапной потере доступа. Только для личных экспериментов на свой риск. Легитимные бесплатные альтернативы — таблица **Бесплатные API** выше + локальные модели (Ollama, LM Studio).
 
 | Проект | Описание | Звёзды |
 |--------|----------|--------|
@@ -213,7 +213,7 @@
 
 ### Uncensored generative models (high-risk)
 
-> 🚨 **Высокий риск злоупотребления.** Эти модели идут на HuggingFace с маркетинговой подачей «без цензуры» — то есть safety-фильтры намеренно сняты. Возможные вектора злоупотребления: **non-consensual deepfakes**, **NSFW без согласия моделируемого лица**, **CSAM** (при определённых датасетах и промптах). HuggingFace такие модели иногда снимает по abuse-report — ссылка может отвалиться. **Не использовать** в продуктах для публичного релиза (Star CRM, Eclipse AI Hub, eclipse-chat, eclipse-dnd-forge, любой клиентский deliverable). Допустимая зона — закрытый R&D, fantasy-сцены без узнаваемых лиц, тесты ограничений генеративных пайплайнов. Для legit video-gen задач в наших продуктах есть [HY-World 2.0](#видеопродакшн-и-vfx) выше и open-source альтернативы вне «uncensored» позиционирования (Hunyuan Video, Mochi-1, CogVideoX, LTX-Video — добавим при первом реальном продуктовом use-case).
+> 🚨 **Высокий риск злоупотребления.** Эти модели идут на HuggingFace с маркетинговой подачей «без цензуры» — то есть safety-фильтры намеренно сняты. Возможные вектора злоупотребления: **non-consensual deepfakes**, **NSFW без согласия моделируемого лица**, **CSAM** (при определённых датасетах и промптах). HuggingFace такие модели иногда снимает по abuse-report — ссылка может отвалиться. **Не использовать** в продуктах для публичного релиза (Eclipse CRM, Eclipse AI Hub, eclipse-chat, eclipse-dnd-forge, любой клиентский deliverable). Допустимая зона — закрытый R&D, fantasy-сцены без узнаваемых лиц, тесты ограничений генеративных пайплайнов. Для legit video-gen задач в наших продуктах есть [HY-World 2.0](#видеопродакшн-и-vfx) выше и open-source альтернативы вне «uncensored» позиционирования (Hunyuan Video, Mochi-1, CogVideoX, LTX-Video — добавим при первом реальном продуктовом use-case).
 
 | Модель | Описание |
 |--------|----------|
@@ -295,7 +295,7 @@ claude --channels plugin:telegram@claude-plugins-official
 | [claude-code-best-practice](https://github.com/shanraisshan/claude-code-best-practice) | Рабочие имплементации + сравнение 10+ workflow фреймворков — агенты, скиллы, хуки, MCP, примеры `.claude/` конфигов | [![Stars](https://img.shields.io/github/stars/shanraisshan/claude-code-best-practice?style=flat)](https://github.com/shanraisshan/claude-code-best-practice) |
 | [Antigravity Awesome Skills](https://github.com/sickn33/antigravity-awesome-skills) | 860+ скиллов для любых AI-агентов — Claude Code, OpenCode, Gemini, Codex, Cursor. Разработка, DevOps, SEO, бизнес | [![Stars](https://img.shields.io/github/stars/sickn33/antigravity-awesome-skills?style=flat)](https://github.com/sickn33/antigravity-awesome-skills) |
 | [claude-skills](https://github.com/alirezarezvani/claude-skills) | 230+ skills по категориям: дизайн, маркетинг, бизнес, копирайт, кибербез, Dev — установка из шаблона в терминале | [![Stars](https://img.shields.io/github/stars/alirezarezvani/claude-skills?style=flat)](https://github.com/alirezarezvani/claude-skills) |
-| [designer-skills (87)](https://github.com/Owl-Listener/designer-skills) | 87 узкоспециализированных дизайн-скиллов для Claude Code от практикующих дизайнеров: типографика, верстка, композиция, цветовые палитры, дизайн-ресёрч, сайты / приложения / баннеры / соцсети. Дополняет более общие каталоги — берём конкретно когда нужна дизайн-плоскость в Claude Code workflow (eclipse-ai-hub Copywriter / Image Studio, Romark лендинг, Shotforge, маркетплейс-карточки в Star CRM) | [![Stars](https://img.shields.io/github/stars/Owl-Listener/designer-skills?style=flat)](https://github.com/Owl-Listener/designer-skills) |
+| [designer-skills (87)](https://github.com/Owl-Listener/designer-skills) | 87 узкоспециализированных дизайн-скиллов для Claude Code от практикующих дизайнеров: типографика, верстка, композиция, цветовые палитры, дизайн-ресёрч, сайты / приложения / баннеры / соцсети. Дополняет более общие каталоги — берём конкретно когда нужна дизайн-плоскость в Claude Code workflow (eclipse-ai-hub Copywriter / Image Studio, Romark лендинг, Shotforge, маркетплейс-карточки в Eclipse CRM) | [![Stars](https://img.shields.io/github/stars/Owl-Listener/designer-skills?style=flat)](https://github.com/Owl-Listener/designer-skills) |
 | [ui-ux-pro-max](https://github.com/nextlevelbuilder/ui-ux-pro-max-skill) · [ui-skills.com](https://ui-skills.com/) | UI/дизайн-скиллы для Claude Code. Конкретный installable: **ui-ux-pro-max** (67 UI-стилей, 161 палитра, 99 UX-правил; free, `/plugin marketplace add nextlevelbuilder/ui-ux-pro-max-skill`). `ui-skills.com` — сторонний агрегатор UI-скиллов (вайб-кодинг, accessibility, анимации, перф; **провенанс не верифицирован** — вет перед install). **Сильно пересекается** с `designer-skills (87)` и `Anthropic Skills` (выше) — ставить точечно нужное, прогоняя через [SkillSpector](#claude-code--security--skill-governance). **Фит:** eclipse-ai-hub, EclipseForgeLanding, web библиотеки, лендинги | [![Stars](https://img.shields.io/github/stars/nextlevelbuilder/ui-ux-pro-max-skill?style=flat)](https://github.com/nextlevelbuilder/ui-ux-pro-max-skill) |
 | [Impeccable (pbakaus)](https://github.com/pbakaus/impeccable) · [impeccable.style](https://impeccable.style/) | **Дизайн-язык для AI-харнессов** (Paul Bakaus, free OSS): 20 команд — `/polish` `/audit` `/animate` `/typeset` `/critique` и др.; грузит 7 reference-файлов (типографика, цвет, **движение**, пространство, интеракции, адаптив, UX-копирайт) и сохраняет контекст проекта в `.impeccable.md`. Даёт агенту дизайн-словарь → меньше «AI-выглядящих» UI. **Фит:** eclipse-ai-hub, web библиотеки, лендинги. Дополняет `designer-skills`/`ui-ux-pro-max` (см. выше) | [![Stars](https://img.shields.io/github/stars/pbakaus/impeccable?style=flat)](https://github.com/pbakaus/impeccable) |
 | [Emil Kowalski — Web Motion](https://animations.dev/) · [design-motion-principles](https://github.com/kylezantos/design-motion-principles) | **Движение, чтобы UI ощущался живым** (подход Emil Kowalski): ease-out по умолчанию, кастомные cubic-bezier/spring, анимировать только `transform`/`opacity` (GPU, без layout-thrash), микроинтеракции 150–250 мс (<300 мс), `prefers-reduced-motion`, прерываемые жесты. Курс «Animations on the Web» + skill `design-motion-principles` (43 правила / 7 категорий, дистилляция Emil Kowalski/Krehel/Tompkins). **Фит:** моушн-проход по нашим фронтендам (у меня уже есть `animation-principles`/`motion-system`/`micro-interaction-spec`) | [![Stars](https://img.shields.io/github/stars/kylezantos/design-motion-principles?style=flat)](https://github.com/kylezantos/design-motion-principles) |
@@ -374,7 +374,7 @@ ai-setup reverse owner/repo --stdout
 
 | Skill | Что делает | Куда полезно нам |
 |---|---|---|
-| [Marketing Skills (coreyhaines31)](https://github.com/coreyhaines31/marketingskills) | Набор примерно из 40 marketing-skills: аудитория, боли, возражения, email-цепочки, SEO, конверсия, лид-магниты. Сильная идея — базовый product-context skill, на который опираются остальные | EclipseForgeLanding, kwork-офферы, Eclipse AI Hub Copywriter, StarMarket/Star CRM marketing flows |
+| [Marketing Skills (coreyhaines31)](https://github.com/coreyhaines31/marketingskills) | Набор примерно из 40 marketing-skills: аудитория, боли, возражения, email-цепочки, SEO, конверсия, лид-магниты. Сильная идея — базовый product-context skill, на который опираются остальные | EclipseForgeLanding, kwork-офферы, Eclipse AI Hub Copywriter, Eclipse Market/Eclipse CRM marketing flows |
 | [Stop Slop Skill](https://github.com/hardikpandya/stop-slop) | Редакторский skill против нейро-шаблонного текста: проверяет прямоту, ритм, плотность, клише и переписывает без “AI-воды” | README, лендинги, автоответы, Telegram-посты, case copy |
 | [Taste Skill](https://www.tasteskill.dev/) / [GitHub](https://github.com/Leonxlnx/taste-skill) | `design-taste-frontend` — anti-slop frontend skill: читает brief, выводит дизайн-направление, подбирает реальную дизайн-систему, усиливает типографику, motion, spacing и делает pre-flight перед сдачей. Install: `npx skills add https://github.com/Leonxlnx/taste-skill --skill "design-taste-frontend"` | EclipseForgeLanding, landing/home Eclipse Chat, Eclipse DnD Forge, portfolio/project pages. Не основной инструмент для тяжёлых dashboards/admin/tables — там брать продуктовые паттерны Carbon/Fluent/Atlassian/Polaris |
 | [Remotion Video Skill](https://github.com/wshuyi/remotion-video-skill) | Генерация анимированных видео через Remotion: текст, переходы, motion-сцены, шаблоны под серийный контент | Eclipse Media, Shotforge, промо Eclipse Forge, обучающие ролики Educator-AI |
@@ -654,7 +654,7 @@ ai-setup reverse owner/repo --stdout
 | [AB Download Manager](https://abdownloadmanager.com/) | Multi-platform | Менеджер загрузок: одновременные потоки, планировщик, авто-сортировка по папкам, Android | — |
 | [hackingtool](https://github.com/Z4nzu/hackingtool) | Python | 185 инструментов пентеста — OSINT, веб-аудит, Wi-Fi, реверс. **Только для своих систем, в обучающих целях** | [![Stars](https://img.shields.io/github/stars/Z4nzu/hackingtool?style=flat)](https://github.com/Z4nzu/hackingtool) |
 | [GTweak](https://github.com/Greedeks/GTweak) | C# / WPF | Windows-комбайн: debloat (OneDrive / Edge / Copilot / Recall / UWP-апы), блокировка телеметрии (MS / NVIDIA / Intel), отключение служб, темы. **С оговоркой:** содержит HWID/KMS-активацию (нарушение Microsoft EULA) и опции выключения Defender/SmartScreen/UAC (ослабление защиты) — **эти модули не используем**, только debloat / privacy. Альтернативы без активаторов — Win11Debloat / privacy.sexy | [![Stars](https://img.shields.io/github/stars/Greedeks/GTweak?style=flat)](https://github.com/Greedeks/GTweak) |
-| [CloakBrowser](https://github.com/CloakHQ/CloakBrowser) | Python / Chromium | Антидетект-браузер на пропатченном Chromium: реалистичный TLS, прохождение reCAPTCHA v3 (~0.9), Cloudflare Turnstile, drop-in под Playwright. **С оговоркой:** инструмент по дизайну обходит антибот-защиту чужих сайтов, что нарушает их ToS (Cloudflare / Google) и в ряде юрисдикций сближается с CFAA-составами. Допустимые сценарии: тестирование собственных сайтов; автоматизация **собственных авторизованных** аккаунтов на маркетплейсах (Star CRM use-case: валидный токен селлера + сайт с антибот-слоем). **Не для** скрапинга чужих защищённых данных, mass-registration, обхода ATS / CAPTCHA на платформах без собственной авторизации | [![Stars](https://img.shields.io/github/stars/CloakHQ/CloakBrowser?style=flat)](https://github.com/CloakHQ/CloakBrowser) |
+| [CloakBrowser](https://github.com/CloakHQ/CloakBrowser) | Python / Chromium | Антидетект-браузер на пропатченном Chromium: реалистичный TLS, прохождение reCAPTCHA v3 (~0.9), Cloudflare Turnstile, drop-in под Playwright. **С оговоркой:** инструмент по дизайну обходит антибот-защиту чужих сайтов, что нарушает их ToS (Cloudflare / Google) и в ряде юрисдикций сближается с CFAA-составами. Допустимые сценарии: тестирование собственных сайтов; автоматизация **собственных авторизованных** аккаунтов на маркетплейсах (Eclipse CRM use-case: валидный токен селлера + сайт с антибот-слоем). **Не для** скрапинга чужих защищённых данных, mass-registration, обхода ATS / CAPTCHA на платформах без собственной авторизации | [![Stars](https://img.shields.io/github/stars/CloakHQ/CloakBrowser?style=flat)](https://github.com/CloakHQ/CloakBrowser) |
 | [TorBot](https://github.com/DedSecInside/TorBot) | Python | OSINT-бот для onion-сегмента — карта переходов, проверка живости, JSON-экспорт. **Только для легальных pentest-сценариев** | [![Stars](https://img.shields.io/github/stars/DedSecInside/TorBot?style=flat)](https://github.com/DedSecInside/TorBot) |
 | [awesome-free-apps](https://github.com/Axorax/awesome-free-apps) | Каталог | Бесплатный софт по категориям (видео, фото, музыка, игры, утилиты) для всех ОС | [![Stars](https://img.shields.io/github/stars/Axorax/awesome-free-apps?style=flat)](https://github.com/Axorax/awesome-free-apps) |
 | [Witr](https://github.com/pranshuparmar/witr) | Cross-platform | Process inspector / killer — показывает источник каждого процесса (зачем запущен, сколько освободит после kill), флагает подозрительное (удалённые файлы, но процесс жив), массовое завершение. Win / macOS / Linux / FreeBSD. **Не путать с anti-malware** — это диагностический инструмент, не сканер угроз | [![Stars](https://img.shields.io/github/stars/pranshuparmar/witr?style=flat)](https://github.com/pranshuparmar/witr) |
@@ -662,7 +662,7 @@ ai-setup reverse owner/repo --stdout
 
 **CloakBrowser — integration points в наших проектах** (только в допустимых сценариях из дисклеймера):
 - **Eclipse Claw** — antibot-обход как опциональный backend поверх Playwright-пути; полезно когда целевые сайты для собственной валидной автоматизации добавили Turnstile.
-- **Star CRM AutoReply** — продакшн-кейс: валидные WB / Ozon токены продавца, но маркетплейсы катят антибот-слой даже на авторизованные сессии. Собственный токен + собственный аккаунт + оплаченные API-операции = legit-зона.
+- **Eclipse CRM AutoReply** — продакшн-кейс: валидные WB / Ozon токены продавца, но маркетплейсы катят антибот-слой даже на авторизованные сессии. Собственный токен + собственный аккаунт + оплаченные API-операции = legit-зона.
 - **Eclipse-webclaw / Lead-Sniper** — web-scraping с явным ToS-claim'ом со своей стороны (договорной парсинг, открытые источники).
 
 ---
@@ -749,7 +749,7 @@ Frontend: React 19 · TypeScript · Vite · Tailwind CSS 4 · Zustand
 
 | Ресурс | Стек | Описание | Звёзды |
 |--------|------|----------|--------|
-| [SecretScanner](https://github.com/deepfence/SecretScanner) | Go / Deepfence | Поиск секретов (API keys, токены, пароли, приватные ключи) в Docker-образах и файловых системах. Большая БД сигнатур. **Defensive usage:** сканируем СВОИ репозитории / образы перед публикацией, чтобы не утекли ключи (CI-gate в Eclipse AI Hub, Hopson Sentinel, Star CRM build). Маркетинговая подача в Telegram-каналах «тащим чужие данные» некорректна — инструмент задумывался Deepfence как часть defensive supply-chain pipeline. **Не использовать** против чужих образов / систем без авторизации | [![Stars](https://img.shields.io/github/stars/deepfence/SecretScanner?style=flat)](https://github.com/deepfence/SecretScanner) |
+| [SecretScanner](https://github.com/deepfence/SecretScanner) | Go / Deepfence | Поиск секретов (API keys, токены, пароли, приватные ключи) в Docker-образах и файловых системах. Большая БД сигнатур. **Defensive usage:** сканируем СВОИ репозитории / образы перед публикацией, чтобы не утекли ключи (CI-gate в Eclipse AI Hub, Hopson Sentinel, Eclipse CRM build). Маркетинговая подача в Telegram-каналах «тащим чужие данные» некорректна — инструмент задумывался Deepfence как часть defensive supply-chain pipeline. **Не использовать** против чужих образов / систем без авторизации | [![Stars](https://img.shields.io/github/stars/deepfence/SecretScanner?style=flat)](https://github.com/deepfence/SecretScanner) |
 
 #### Anti-malware / процессы
 
@@ -1104,13 +1104,13 @@ Frontend: React 19 · TypeScript · Vite · Tailwind CSS 4 · Zustand
 
 | Tool | Project(s) | Integration pattern |
 |---|---|---|
-| **Claude-BugHunter** | Eclipse Hopson Sentinel · Eclipse AI Hub Security module · Star CRM build pipeline | Install as Claude Code skill collection → `/bug-hunt` команды на code review этапе |
+| **Claude-BugHunter** | Eclipse Hopson Sentinel · Eclipse AI Hub Security module · Eclipse CRM build pipeline | Install as Claude Code skill collection → `/bug-hunt` команды на code review этапе |
 | **Anthropic Cybersec Skills / AI Code Shield** | Eclipse Hopson Sentinel · Eclipse AI Hub Security module · Eclipse Chat release flow | `npx skills add mukul975/Anthropic-Cybersecurity-Skills` → defensive audit текущего репозитория перед deploy; critical/high блокируют публикацию |
-| **knowledge-work-plugins (Anthropic)** | Eclipse AI Hub (7 modules — exactly target audience) · Star CRM (sales/marketing roles) | Install plugins в Eclipse AI Hub как extension modules (legal → contract review, finance → invoice analysis, presentations → Allweone alternative) |
+| **knowledge-work-plugins (Anthropic)** | Eclipse AI Hub (7 modules — exactly target audience) · Eclipse CRM (sales/marketing roles) | Install plugins в Eclipse AI Hub как extension modules (legal → contract review, finance → invoice analysis, presentations → Allweone alternative) |
 | **AI Engineer Coach (Microsoft)** | oh-my-claudecode (analytics layer) · personal Claude Code workflow | VS Code/Cursor plugin install → пассивно собирает session logs → отчёт по prompt quality + token waste |
 | **SkillOpt (Microsoft)** | oh-my-claudecode skill files · Eclipse AI Hub skill catalogs | Self-optimization: запустить на existing skills (`/loop`, `/ultrareview`, `/init`) → измерить лифт |
 | **Crawl4AI / Firecrawl** | Eclipse-webclaw · Lead-Sniper-CAT-Analytics · business-data-platform-mvp · Eclipse AI Hub RAG | Замена на Crawl4AI для LLM-ready output где сейчас raw HTML; Firecrawl для agent-pipelines |
-| **Crawlee + CloakBrowser** | Star CRM AutoReply (marketplace antibot) · Eclipse-webclaw (защищённые targets) | Headless browser pool с anti-detection — для маркетплейсов с Turnstile |
+| **Crawlee + CloakBrowser** | Eclipse CRM AutoReply (marketplace antibot) · Eclipse-webclaw (защищённые targets) | Headless browser pool с anti-detection — для маркетплейсов с Turnstile |
 | **ByteDance Video Upscaler** | Eclipse Media (post-upload upscale option) · Shotforge (image-to-video pipeline) · StreamForge-AI | Replicate API integration: user opt-in upscale 4K, оплата pay-per-second через прокси |
 | **LongCat-Video-Avatar 1.5** | AI-Face-Fusion-Pro · Eclipse Chat (animated avatars для voice channels?) · Eclipse DnD Forge (NPC видео-портреты) · Educator-AI (видео-лекторы) | HF Space → API endpoint → backend job queue |
 | **Removerized** | Eclipse Chat (user avatar upload preprocessing) · Shotforge (product photo pipeline) · Text2Image (output cleanup) | Embed как client-side preprocessor в upload flow |
@@ -1118,7 +1118,7 @@ Frontend: React 19 · TypeScript · Vite · Tailwind CSS 4 · Zustand
 | **Frigate** | Eclipse Hopson Sentinel (if surveillance ever in scope) — пока только reference | Reference, not active install — Hopson Sentinel другая ниша (coding agent), а не NVR |
 | **Bypass paywalls** | Личное использование Pavel | Не в продукты |
 | **FreeDomain** | Prototypes, test deployments, demo subdomains | Регистрировать перед каждым новым prototype-launch (избегаем production reliance) |
-| **Anti-AI-Text 6 prompts** | Eclipse AI Hub Copywriter · Star CRM AutoReply · Eclipse Chat AI bot personality | Add as preprocessing step → user text → Lyra Optimizer → Anti-AI-text chain → output |
+| **Anti-AI-Text 6 prompts** | Eclipse AI Hub Copywriter · Eclipse CRM AutoReply · Eclipse Chat AI bot personality | Add as preprocessing step → user text → Lyra Optimizer → Anti-AI-text chain → output |
 | **Google AI Studio Apps** | Smart-Fitness-Booking-Agent prototype · Educator-AI MVP · любой mobile-first concept | Rapid prototyping only — production остаётся Tauri/Capacitor |
 | **100-free-OSS-repos** | Reference библиотека | Периодически listать на новые tools |
 
@@ -1191,7 +1191,7 @@ Frontend: React 19 · TypeScript · Vite · Tailwind CSS 4 · Zustand
 
 | Ресурс | Описание |
 |---|---|
-| [Reve 2.0](https://app.reve.com/) | Layout-based генератор: представляет картинку как **код/слои** (у каждого элемента позиция+размер+описание) → каждый элемент addressable и редактируется отдельно. #2 на Text-to-Image Arena (03.06, 1280 — обошёл Nano Banana, уступил GPT Image 2), 4K/16MP под печать, ~$0.0067/img. **Закрытый SaaS** (не локально). Differentiator vs Nano Banana — точное редактирование композиции и текста. Кандидат в [Shotforge](#-наши-проекты) / [Text2Image](#-наши-проекты) / Eclipse AI Hub Image Studio / карточки Star CRM (где важна правка отдельных зон) |
+| [Reve 2.0](https://app.reve.com/) | Layout-based генератор: представляет картинку как **код/слои** (у каждого элемента позиция+размер+описание) → каждый элемент addressable и редактируется отдельно. #2 на Text-to-Image Arena (03.06, 1280 — обошёл Nano Banana, уступил GPT Image 2), 4K/16MP под печать, ~$0.0067/img. **Закрытый SaaS** (не локально). Differentiator vs Nano Banana — точное редактирование композиции и текста. Кандидат в [Shotforge](#-наши-проекты) / [Text2Image](#-наши-проекты) / Eclipse AI Hub Image Studio / карточки Eclipse CRM (где важна правка отдельных зон) |
 
 ### Media-промпты и enhancers
 
@@ -1248,7 +1248,7 @@ Frontend: React 19 · TypeScript · Vite · Tailwind CSS 4 · Zustand
 
 | Tool | Project(s) | Integration pattern |
 |---|---|---|
-| **Security Guidance (Anthropic)** | Все Claude Code workflow · Star CRM build · Eclipse AI Hub Security · Hopson Sentinel | `/plugin install` → pre-tool hook авто-ловит vuln-паттерны при Write/Edit. Ставим первым |
+| **Security Guidance (Anthropic)** | Все Claude Code workflow · Eclipse CRM build · Eclipse AI Hub Security · Hopson Sentinel | `/plugin install` → pre-tool hook авто-ловит vuln-паттерны при Write/Edit. Ставим первым |
 | **NVIDIA/skills + SkillSpector** | Eclipse AI Hub Security · Hopson Sentinel · любой skill-install | SkillSpector как gate перед подключением community-скиллов (754-кибербез, 1700+ openclaw); skills как trusted-источник |
 | **ECC + AgentShield** | oh-my-claudecode (сравнить/cherry-pick) · CI-аудит `.claude/` | AgentShield в CI на репозитории с `.claude/`; из ECC брать скиллы точечно, не весь конфиг (конфликт с OMC) |
 | **Claude Code мега-стек (8)** | oh-my-claudecode · все репо | Router → не-Anthropic бэкенд; Action → CI/PR; Squad → параллельные агенты; Templates → bootstrap. Не ставить всё разом |
@@ -1257,7 +1257,7 @@ Frontend: React 19 · TypeScript · Vite · Tailwind CSS 4 · Zustand
 | **Hermes Agent** | Eclipse Hopson Sentinel (reference) | Та же ниша (локальный оператор + память + голос) — изучить GEPA self-improve loop и desktop-shell поверх ядра |
 | **AirLLM** | Hopson Sentinel · Eclipse AI Hub local (нишево) | Только batch-inference больших моделей на слабом GPU; не для realtime |
 | **GPT-SoVITS / MisoTTS** | Hopson Sentinel (TTS/STT/PTT) · Eclipse Chat voice · Educator-AI · DnD Forge (NPC-голоса) | GPT-SoVITS (RVC-Boss upstream) для RU-озвучек на свой хост; MisoTTS — EN-эмоции на радар |
-| **Reve 2.0** | Shotforge · Text2Image · Eclipse AI Hub Image Studio · Star CRM карточки | API opt-in где нужна правка отдельных зон/текста (layout-edit), pay-per-image через прокси |
+| **Reve 2.0** | Shotforge · Text2Image · Eclipse AI Hub Image Studio · Eclipse CRM карточки | API opt-in где нужна правка отдельных зон/текста (layout-edit), pay-per-image через прокси |
 | **awesome-video-prompts** | Shotforge (img→video) · StreamForge-AI · маркетинг | Каталог пресетов; cherry-pick под сцену |
 | **Gemini Voyager** | Личный Gemini-workflow · reference UX для Eclipse AI Hub | Расширение для удобства; вотермарк/Drive-sync — на свой риск |
 | **browserytools / LocalSend Web** | Office-утилиты · reference для self-hosted utility-набора · разовые передачи файлов | browserytools — образец клиент-сайд тулз; LocalSend Web — без установки |
@@ -1279,7 +1279,7 @@ Frontend: React 19 · TypeScript · Vite · Tailwind CSS 4 · Zustand
 |---|---|
 | **SFF / «Пиратский Steam»** ([Midrags/SFF](https://github.com/Midrags/SFF)) | 🚨 **Высокий риск.** Взлом Denuvo, обход лицензий, «взлом мультиплеера» = пиратство (нарушение авторских прав) + классический вектор малвари в подобных репо. Запускать **только** в одноразовой VM, **никогда** на машине с боевыми ключами/доступами Eclipse. Несовместимо с легальным продуктовым контуром — исключительно личное использование на свой риск |
 | **KuKuTool** ([dy.kukutool.com](https://dy.kukutool.com/ru)) | ⚠️ **Grey.** Закрытый веб-сервис: качает чужой контент + **снимает вотермарки** (нарушение прав авторов) + грузит ваши URL на свой сервер (приватность). Для легальной задачи «скачать своё» приоритетен наш self-hosted [Eclipse Media](#-наши-проекты) (yt-dlp) |
-| **Epicure** ([epicure.kaikaku.ai](https://epicure.kaikaku.ai/)) | Reference. Рецепт по фото холодильника (4M рецептов / 1790 ингредиентов). Вне scope продуктов, но архитектурно любопытно: vision→structured data — тот же паттерн, что анализ товарных фото в Star CRM / Shotforge |
+| **Epicure** ([epicure.kaikaku.ai](https://epicure.kaikaku.ai/)) | Reference. Рецепт по фото холодильника (4M рецептов / 1790 ингредиентов). Вне scope продуктов, но архитектурно любопытно: vision→structured data — тот же паттерн, что анализ товарных фото в Eclipse CRM / Shotforge |
 | **Kaspersky «AI vs AI» стрим** ([lp.kaspersky.com](https://lp.kaspersky.com/ru/ai-vs-ai)) | Reference-событие (02.06, прошло). Темы — LLM в кибератаках, ИИ для SOC-команд, исследование Kaspersky × К2 — релевантны Hopson Sentinel как доклад/материал, не инструмент |
 | **Opus 4.8 jailbreak** ([новость](https://claude.com/)) | Red-team **reference** (не инструмент): Opus 4.7 сломал 4.8 атакой «продолжи обрывки глав учебника» → выдача запрещённого контента. Тест-кейс устойчивости к textbook-continuation jailbreak для Eclipse AI Hub Security / Hopson Sentinel |
 | **«Вайб-кодинг» подборка** ([YouTube](https://youtu.be/QkyTCTH2kWY)) | Reference. Motion-graphics starter (Remotion-style: 195 анимационных паттернов, kinetic typography + dashboard, 5 Claude-промптов для `.tsx`) через гейтед-док. Полезно для UI-роликов; верифицируемый легит-аналог уже листан — [transitions.dev](#media--content) |
@@ -1586,14 +1586,14 @@ Frontend: React 19 · TypeScript · Vite · Tailwind CSS 4 · Zustand
 
 | Ресурс | Описание | Stars |
 |---|---|---|
-| [AI Stupid Level](https://aistupidlevel.info/) | **«Тупометр» нейросетей в реальном времени** + smart-router. Отслеживает качество официальных моделей по категориям (reasoning, coding, agentic, цена) и **наглядно показывает просадки** — напр. модель «отупела» на 32% сегодня. Бесплатно, без регистрации. **Зачем нам:** подбор модели под агентов и фолбэк-цепочки — видно, кто сейчас топ, а кто деградировал. Прямо ложится на наш `AI_PROVIDER=auto` (StarCRM) и выбор модели для AI-советника FinFlow / модулей Hub | — |
+| [AI Stupid Level](https://aistupidlevel.info/) | **«Тупометр» нейросетей в реальном времени** + smart-router. Отслеживает качество официальных моделей по категориям (reasoning, coding, agentic, цена) и **наглядно показывает просадки** — напр. модель «отупела» на 32% сегодня. Бесплатно, без регистрации. **Зачем нам:** подбор модели под агентов и фолбэк-цепочки — видно, кто сейчас топ, а кто деградировал. Прямо ложится на наш `AI_PROVIDER=auto` (Eclipse CRM) и выбор модели для AI-советника FinFlow / модулей Hub | — |
 
 ### OCR и парсинг страниц (для парсеров и RAG)
 
 | Ресурс | Описание | Stars |
 |---|---|---|
-| [Baidu Unlimited-OCR](https://github.com/baidu/Unlimited-OCR) | **OCR целого документа за один проход** (на базе DeepSeek-OCR), multi-page/PDF, контекст 32K, анти-галлюцинация (no-repeat n-gram). MIT, 11k★, есть paper + HF Space. **Зачем нам:** распознавание чеков/счетов/документов — будущая фича FinFlow (скан чека → авто-операция), парсинг документов в StarCRM | [![Stars](https://img.shields.io/github/stars/baidu/Unlimited-OCR?style=flat)](https://github.com/baidu/Unlimited-OCR) |
-| [PixelRAG (StarTrail-org)](https://github.com/StarTrail-org/PixelRAG) | **RAG по СКРИНШОТАМ страниц**, а не по HTML — сохраняет таблицы/вёрстку/элементы, которые ломают обычные парсеры. CLI `pixelshot` + плагин Claude Code **pixelbrowse** (даёт Claude визуальное чтение страниц), VL-модель Qwen3-VL-Embedding. Apache-2.0, 5.5k★. **Зачем нам:** парсинг карточек WB/Ozon/ЯМ в StarMarket и card-audit StarCRM, когда HTML/анти-бот ломает текстовый парсинг (вспомни таймауты WB-баскетов). **POC-рецепт (скриншот→поля):** [guides/marketplace-screenshot-parsing.md](guides/marketplace-screenshot-parsing.md) | [![Stars](https://img.shields.io/github/stars/StarTrail-org/PixelRAG?style=flat)](https://github.com/StarTrail-org/PixelRAG) |
+| [Baidu Unlimited-OCR](https://github.com/baidu/Unlimited-OCR) | **OCR целого документа за один проход** (на базе DeepSeek-OCR), multi-page/PDF, контекст 32K, анти-галлюцинация (no-repeat n-gram). MIT, 11k★, есть paper + HF Space. **Зачем нам:** распознавание чеков/счетов/документов — будущая фича FinFlow (скан чека → авто-операция), парсинг документов в Eclipse CRM | [![Stars](https://img.shields.io/github/stars/baidu/Unlimited-OCR?style=flat)](https://github.com/baidu/Unlimited-OCR) |
+| [PixelRAG (StarTrail-org)](https://github.com/StarTrail-org/PixelRAG) | **RAG по СКРИНШОТАМ страниц**, а не по HTML — сохраняет таблицы/вёрстку/элементы, которые ломают обычные парсеры. CLI `pixelshot` + плагин Claude Code **pixelbrowse** (даёт Claude визуальное чтение страниц), VL-модель Qwen3-VL-Embedding. Apache-2.0, 5.5k★. **Зачем нам:** парсинг карточек WB/Ozon/ЯМ в Eclipse Market и card-audit Eclipse CRM, когда HTML/анти-бот ломает текстовый парсинг (вспомни таймауты WB-баскетов). **POC-рецепт (скриншот→поля):** [guides/marketplace-screenshot-parsing.md](guides/marketplace-screenshot-parsing.md) | [![Stars](https://img.shields.io/github/stars/StarTrail-org/PixelRAG?style=flat)](https://github.com/StarTrail-org/PixelRAG) |
 
 ### Агенты, скиллы, dev-инструменты
 
@@ -1635,9 +1635,9 @@ Frontend: React 19 · TypeScript · Vite · Tailwind CSS 4 · Zustand
 
 | Tool | Project(s) | Integration pattern |
 |---|---|---|
-| **AI Stupid Level** | StarCRM · FinFlow · Hub | Выбор модели для `AI_PROVIDER=auto` и AI-советника; мониторить деградацию провайдеров, переставлять порядок фолбэка |
-| **Baidu Unlimited-OCR** | FinFlow · StarCRM | Скан чека/документа → текст → авто-операция (FinFlow attachments, будущее); парсинг документов CRM |
-| **PixelRAG** | StarMarket · StarCRM | Скриншот-парсинг карточек WB/Ozon/ЯМ, когда HTML/анти-бот ломает текстовый парсер; card-audit |
+| **AI Stupid Level** | Eclipse CRM · FinFlow · Hub | Выбор модели для `AI_PROVIDER=auto` и AI-советника; мониторить деградацию провайдеров, переставлять порядок фолбэка |
+| **Baidu Unlimited-OCR** | FinFlow · Eclipse CRM | Скан чека/документа → текст → авто-операция (FinFlow attachments, будущее); парсинг документов CRM |
+| **PixelRAG** | Eclipse Market · Eclipse CRM | Скриншот-парсинг карточек WB/Ozon/ЯМ, когда HTML/анти-бот ломает текстовый парсер; card-audit |
 | **agent-skills (tech-leads-club)** | Все репо (dev) · Security | Verified-скиллы вместо случайных SKILL.md (анти-малварь); единый набор на все проекты |
 | **Cua** | EC · FinFlow (QA) · автоматизация | Computer-use для SDET-прогонов в реальном app + скриншот-проверки → [гайд](guides/cua-device-qa.md) |
 | **ARGithub / alphaXiv** | Все репо (онбординг) | Быстрый разбор чужих репо перед форком/интеграцией |
@@ -1671,7 +1671,7 @@ Frontend: React 19 · TypeScript · Vite · Tailwind CSS 4 · Zustand
 
 | Ресурс | Описание | Stars |
 |---|---|---|
-| [MinerU (opendatalab)](https://github.com/opendatalab/mineru) | **Документ → Markdown/JSON одним проходом.** PDF / DOCX / PPTX / XLSX / изображения → чистый LLM-ready текст: формулы в LaTeX, таблицы в HTML, многоколоночная вёрстка, сканы. **109 языков** OCR, локально (Win/Lin/macOS) / Docker / онлайн mineru.net; VLM-бэкенд требует GPU. Кастомная лицензия на базе Apache-2.0, ~71k★, активен (v3.4.0). **Зачем нам:** сильнее «голого» текст-парсинга для **FinFlow** (PDF-счета/чеки → операции, рядом с уже встроенным Gemini-vision OCR чека) и **StarCRM** (разбор документов/счетов). Дополняет/альтернатива [Baidu Unlimited-OCR](#ocr-и-парсинг-страниц-для-парсеров-и-rag) — Baidu заточен под целый документ за проход, MinerU даёт богаче структуру (формулы/таблицы). ⚠️ Для прода на 1 ГБ VPS тяжёл (GPU) — гонять батчем/офлайн, не в реквест | [![Stars](https://img.shields.io/github/stars/opendatalab/mineru?style=flat)](https://github.com/opendatalab/mineru) |
+| [MinerU (opendatalab)](https://github.com/opendatalab/mineru) | **Документ → Markdown/JSON одним проходом.** PDF / DOCX / PPTX / XLSX / изображения → чистый LLM-ready текст: формулы в LaTeX, таблицы в HTML, многоколоночная вёрстка, сканы. **109 языков** OCR, локально (Win/Lin/macOS) / Docker / онлайн mineru.net; VLM-бэкенд требует GPU. Кастомная лицензия на базе Apache-2.0, ~71k★, активен (v3.4.0). **Зачем нам:** сильнее «голого» текст-парсинга для **FinFlow** (PDF-счета/чеки → операции, рядом с уже встроенным Gemini-vision OCR чека) и **Eclipse CRM** (разбор документов/счетов). Дополняет/альтернатива [Baidu Unlimited-OCR](#ocr-и-парсинг-страниц-для-парсеров-и-rag) — Baidu заточен под целый документ за проход, MinerU даёт богаче структуру (формулы/таблицы). ⚠️ Для прода на 1 ГБ VPS тяжёл (GPU) — гонять батчем/офлайн, не в реквест | [![Stars](https://img.shields.io/github/stars/opendatalab/mineru?style=flat)](https://github.com/opendatalab/mineru) |
 
 ### Обучение / dev-инструменты
 
@@ -1695,17 +1695,17 @@ Frontend: React 19 · TypeScript · Vite · Tailwind CSS 4 · Zustand
 
 | Ресурс | Описание |
 |---|---|
-| [Видео-трансформеры: ViViT / TimeSFormer / VideoMAE](https://habr.com/ru/articles/827474/) (разбор Habr) | Классификация видео тремя предобученными моделями HuggingFace (Kinetics-400): **ViViT** (`google/vivit`, 3D-патчи, точнее всех 90.55%, дорого — CPU 5.85с), **TimeSFormer** (`facebook/timesformer`, раздельное spatial+temporal внимание, длинные видео — 1.25с), **VideoMAE** (`MCG-NJU/videomae`, masked autoencoder self-supervised, **самый быстрый** — CPU 0.77с / GPU 0.17с). Transfer learning: feature-extractor + лёгкий классификатор (triplet loss, кэш эмбеддингов) дешевле полного дообучения. **Зачем нам:** авто-модерация/тегирование видео-обзоров **StarMarket** («товар vs мусор», NSFW, категория) перед публикацией — VideoMAE-эмбеддинги + свой классификатор. ⚠️ GPU для масштаба/обучения (на CPU VideoMAE ~0.77с/видео ОК для async-очереди MVP). **POC-рецепт:** [guides/starmarket-video-moderation.md](guides/starmarket-video-moderation.md) |
+| [Видео-трансформеры: ViViT / TimeSFormer / VideoMAE](https://habr.com/ru/articles/827474/) (разбор Habr) | Классификация видео тремя предобученными моделями HuggingFace (Kinetics-400): **ViViT** (`google/vivit`, 3D-патчи, точнее всех 90.55%, дорого — CPU 5.85с), **TimeSFormer** (`facebook/timesformer`, раздельное spatial+temporal внимание, длинные видео — 1.25с), **VideoMAE** (`MCG-NJU/videomae`, masked autoencoder self-supervised, **самый быстрый** — CPU 0.77с / GPU 0.17с). Transfer learning: feature-extractor + лёгкий классификатор (triplet loss, кэш эмбеддингов) дешевле полного дообучения. **Зачем нам:** авто-модерация/тегирование видео-обзоров **Eclipse Market** («товар vs мусор», NSFW, категория) перед публикацией — VideoMAE-эмбеддинги + свой классификатор. ⚠️ GPU для масштаба/обучения (на CPU VideoMAE ~0.77с/видео ОК для async-очереди MVP). **POC-рецепт:** [guides/starmarket-video-moderation.md](guides/starmarket-video-moderation.md) |
 
 ### Mapping → наши проекты
 
 | Tool | Project(s) | Integration pattern |
 |---|---|---|
-| **MinerU** | FinFlow · StarCRM | PDF/документ → Markdown/JSON (формулы/таблицы) → операции/разбор; офлайн-батч (GPU), не в реквест |
+| **MinerU** | FinFlow · Eclipse CRM | PDF/документ → Markdown/JSON (формулы/таблицы) → операции/разбор; офлайн-батч (GPU), не в реквест |
 | **Learn Git Branching** | Команда (онбординг) · Educator-AI · Eclipse Chat (training) | Тренажёр git-флоу; референс интерактивной обучающей механики |
 | **Seed-Audio 1.0** | Shotforge · Eclipse Media · Hopson Sentinel (TTS) | Озвучка/диалоги через fal.ai (платно); ⚠️ consent-гейт на клонирование голоса |
 | **Aliens Eye** | Reference / awareness (НЕ интеграция) | Self-audit цифрового следа; масс-пробив чужих — doxxing/152-ФЗ, не делаем |
-| **Видео-трансформеры (VideoMAE и др.)** | StarMarket (видео-модерация) · Reference | Async-очередь: VideoMAE-эмбеддинги + лёгкий классификатор перед публикацией; GPU для масштаба → [POC](guides/starmarket-video-moderation.md) |
+| **Видео-трансформеры (VideoMAE и др.)** | Eclipse Market (видео-модерация) · Reference | Async-очередь: VideoMAE-эмбеддинги + лёгкий классификатор перед публикацией; GPU для масштаба → [POC](guides/starmarket-video-moderation.md) |
 
 ---
 
@@ -1894,14 +1894,14 @@ Frontend: React 19 · TypeScript · Vite · Tailwind CSS 4 · Zustand
 | Ресурс | Описание |
 |---|---|
 | [Claude Code Prompt Library](https://code.claude.com/docs/en/prompt-library) | Официальная библиотека Anthropic с copy-paste prompts для Claude Code, tags by task/role, explanation “why this works”. **Зачем нам:** **oh-my-claudecode**, **Hopson Sentinel**, **eclipse-library/prompts**, onboarding команды. Ценность не в копировании промптов, а в паттернах: outcome-first, verification, reference files, measurable targets |
-| [Editor Stylist Humanizer](prompts/editor-stylist-humanizer.md) | Новый более строгий prompt-asset для редактуры: убрать канцелярит, AI-ритм, симметричные абзацы, “не просто X, а Y”, сохранить голос автора. **Зачем нам:** **Eclipse AI Hub Copywriter**, **Star CRM AutoReply**, Telegram/LinkedIn тексты, landing copy. **Оговорка:** не использовать для академического обхода AI-detectors |
+| [Editor Stylist Humanizer](prompts/editor-stylist-humanizer.md) | Новый более строгий prompt-asset для редактуры: убрать канцелярит, AI-ритм, симметричные абзацы, “не просто X, а Y”, сохранить голос автора. **Зачем нам:** **Eclipse AI Hub Copywriter**, **Eclipse CRM AutoReply**, Telegram/LinkedIn тексты, landing copy. **Оговорка:** не использовать для академического обхода AI-detectors |
 | [Google AI Studio API Keys](https://aistudio.google.com/api-keys) | ♻️ **Дубль/напоминание:** уже есть в блоке бесплатных API. Полезно держать как baseline provider для pet/POC проектов: **Eclipse AI Hub**, **Shotforge**, **Text2Image**, **Educator-AI**, агенты. Проверять актуальные квоты/модели в AI Studio |
 
 ### Operational tables / business validation
 
 | Ресурс | Описание |
 |---|---|
-| [MWS Tables](https://mws.ru/dev-tools/mws-tables/) | Платформа рабочих таблиц/процессов: совместная работа, базы, задачи, аналитика, шаблоны. Канал заявляет “Большие таблицы” до 1M строк / 200 столбцов / 1000 пользователей; на публичной странице виден общий product positioning, точные лимиты надо проверять в документации/тарифах. **Зачем нам:** сильный reference для **Eclipse Chat Tables/Databases**, **Business Data Platform**, **Star CRM**, **FinFlow**, client portals |
+| [MWS Tables](https://mws.ru/dev-tools/mws-tables/) | Платформа рабочих таблиц/процессов: совместная работа, базы, задачи, аналитика, шаблоны. Канал заявляет “Большие таблицы” до 1M строк / 200 столбцов / 1000 пользователей; на публичной странице виден общий product positioning, точные лимиты надо проверять в документации/тарифах. **Зачем нам:** сильный reference для **Eclipse Chat Tables/Databases**, **Business Data Platform**, **Eclipse CRM**, **FinFlow**, client portals |
 | [Draper Idea Validation](https://draper.chat/use-cases/idea-validation) | AI-чат для проверки бизнес-идей. **Зачем нам:** reference для **Eclipse AI Hub** / **Eclipse Forge sales intake**: idea → risks → questions → next experiment. Не интеграция, а шаблон discovery-flow |
 | **AI career survival playbook** | Не сервис, а заметка: автоматизировать рутину, предлагать AI-улучшения руководству, держаться ближе к бизнес-процессам, проверять AI outputs вручную. **Зачем нам:** контент для **Educator-AI** и внутреннего “AI adoption” гайда |
 
@@ -1931,8 +1931,8 @@ Frontend: React 19 · TypeScript · Vite · Tailwind CSS 4 · Zustand
 | **Fish Audio** | Hopson Sentinel · Eclipse Chat · DnD Forge · Educator-AI · Eclipse Media | TTS/voiceover/provider spike; consent gate for cloning |
 | **Audio Transcriber / Tactiq** | Eclipse Chat · Eclipse Media · Educator-AI · InterviewForge | Calls/video/audio → transcript → summary/action items/export |
 | **Claude Prompt Library** | oh-my-claudecode · Hopson Sentinel · all repos | Prompt patterns for coding tasks, verification and onboarding |
-| **Editor Stylist Humanizer** | Eclipse AI Hub · Star CRM · content workflows | Final rewriter step after fact-checking; not academic bypass |
-| **MWS Tables** | Eclipse Chat · Business Data Platform · Star CRM · FinFlow | Operational tables/databases reference: permissions, filters, analytics, collaboration |
+| **Editor Stylist Humanizer** | Eclipse AI Hub · Eclipse CRM · content workflows | Final rewriter step after fact-checking; not academic bypass |
+| **MWS Tables** | Eclipse Chat · Business Data Platform · Eclipse CRM · FinFlow | Operational tables/databases reference: permissions, filters, analytics, collaboration |
 | **Obscura** | Eclipse-webclaw · business-data-platform · Lead-Sniper · QA agents | Lightweight browser automation; only authorized/legal scraping |
 | **pxpipe** | oh-my-claudecode · Hopson Sentinel R&D | Cost experiment only; no exact strings/secrets/code-critical contexts |
 | **NtWarden** | Hopson Sentinel · workstation security | Security doctor reference; lab/VM only |

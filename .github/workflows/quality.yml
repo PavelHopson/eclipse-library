@@ -44,7 +44,7 @@ jobs:
           node --test scripts/catalog-progressive.test.mjs
       - name: Validate Eclipse Forge projects
         run: node scripts/validate-projects.mjs
-      - name: Validate Star technology registry
+      - name: Validate Eclipse technology registry
         run: node scripts/validate-star-technology-registry.mjs
       - name: Validate published link health
         run: node scripts/validate-link-health.mjs

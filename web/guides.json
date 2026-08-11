@@ -75,6 +75,13 @@
       "lessons": 0
     },
     {
+      "name": "star-technology-registry",
+      "title": "Eclipse Technology Registry: реестр решений для Eclipse Market, Eclipse CRM и Eclipse AI",
+      "description": "Практический контракт между Eclipse Library, админкой Eclipse CRM и сервисами Eclipse AI.",
+      "modules": 0,
+      "lessons": 0
+    },
+    {
       "name": "kimi-github-implementation-2026-07-31",
       "title": "GitHub onboarding and Kimi K3 implementation status",
       "description": "Что реально сделано по июльским рекомендациям Eclipse Library, где проходит граница production и почему три reference-находки не превращены в зависимости.",
@@ -152,13 +159,6 @@
       "lessons": 0
     },
     {
-      "name": "star-technology-registry",
-      "title": "Star Technology Registry: реестр решений для StarMarket, StarCRM и StarAI",
-      "description": "Практический контракт между Eclipse Library, админкой StarCRM и сервисами StarAI.",
-      "modules": 0,
-      "lessons": 0
-    },
-    {
       "name": "token-saving-agent-stack",
       "title": "Token-saving agent stack для Codex / Claude",
       "description": "Рабочий стандарт Eclipse Forge: экономим токены не “магией”, а дисциплиной контекста.",
@@ -188,7 +188,7 @@
     },
     {
       "name": "starmarket-video-moderation",
-      "title": "🎬 Авто-модерация видео-обзоров StarMarket (видео-классификаторы) — POC",
+      "title": "🎬 Авто-модерация видео-обзоров Eclipse Market (видео-классификаторы) — POC",
       "description": "POC-рецепт: прогонять загруженные продавцами видео-обзоры товара через видео-классификатор ПЕРЕД публикацией — категория контента, «товар в кадре vs мусор», грубый NSFW/непотреб-фильтр.",
       "modules": 0,
       "lessons": 0

@@ -140,4 +140,4 @@ if (errors.length) {
   process.exit(1);
 }
 
-console.log(`Validated ${registry.entries.length} Star technology decisions across ${registry.products.length} products.`);
+console.log(`Validated ${registry.entries.length} Eclipse technology decisions across ${registry.products.length} products.`);

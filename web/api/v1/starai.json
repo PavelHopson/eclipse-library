@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "consumer": "StarAI",
-  "catalogVersion": "cd2ca6da0b6c8576aa119c53e6614ebeefebcd6ea6b01c9973e30732fa9ceb82",
+  "consumer": "Eclipse AI",
+  "catalogVersion": "5e3e0f1388c09fd2c9125de97ba0ae95a68d0aa58ac69be842b8eec3b52c2523",
   "generatedAt": null,
   "policy": {
     "greyResourcesExcluded": true,
@@ -5138,7 +5138,7 @@
       "category": "Скиллы для Claude",
       "subcategory": "Скиллы для Claude",
       "addedAt": null,
-      "description": "Marketing Skills (coreyhaines31) — Набор примерно из 40 marketing-skills: аудитория, боли, возражения, email-цепочки, SEO, конверсия, лид-магниты. Сильная идея — базовый product-context skill, на который опираются остальные · EclipseForgeLanding, kwork-офферы, Eclipse AI Hub Copywriter, StarMarket/Star CRM marketing flows. Карточка помогает понять назначение ресурса и начать с небольшой безопасной проверки; условия использования ещё нужно сверить с официальным источником.",
+      "description": "Marketing Skills (coreyhaines31) — Набор примерно из 40 marketing-skills: аудитория, боли, возражения, email-цепочки, SEO, конверсия, лид-магниты. Сильная идея — базовый product-context skill, на который опираются остальные · EclipseForgeLanding, kwork-офферы, Eclipse AI Hub Copywriter, Eclipse Market/Eclipse CRM marketing flows. Карточка помогает понять назначение ресурса и начать с небольшой безопасной проверки; условия использования ещё нужно сверить с официальным источником.",
       "useCases": [
         "Разобраться, подходит ли Marketing Skills (coreyhaines31) для вашей задачи",
         "Проверить возможности на небольшом тестовом сценарии до интеграции"
@@ -19557,7 +19557,7 @@
       "category": "Подборка Eclipse",
       "subcategory": "OCR и парсинг страниц (для парсеров и RAG)",
       "addedAt": "2026-06-23",
-      "description": "Baidu Unlimited-OCR — OCR целого документа за один проход (на базе DeepSeek-OCR), multi-page/PDF, контекст 32K, анти-галлюцинация (no-repeat n-gram). MIT, 11k★, есть paper + HF Space. Зачем нам: распознавание чеков/счетов/документов — будущая фича FinFlow (скан чека → авто-операция), парсинг документов в StarCRM. Карточка помогает понять назначение ресурса и начать с небольшой безопасной проверки; условия использования ещё нужно сверить с официальным источником.",
+      "description": "Baidu Unlimited-OCR — OCR целого документа за один проход (на базе DeepSeek-OCR), multi-page/PDF, контекст 32K, анти-галлюцинация (no-repeat n-gram). MIT, 11k★, есть paper + HF Space. Зачем нам: распознавание чеков/счетов/документов — будущая фича FinFlow (скан чека → авто-операция), парсинг документов в Eclipse CRM. Карточка помогает понять назначение ресурса и начать с небольшой безопасной проверки; условия использования ещё нужно сверить с официальным источником.",
       "useCases": [
         "Разобраться, подходит ли Baidu Unlimited-OCR для вашей задачи",
         "Проверить возможности на небольшом тестовом сценарии до интеграции"
@@ -19615,7 +19615,7 @@
       "category": "Подборка Eclipse",
       "subcategory": "OCR и парсинг страниц (для парсеров и RAG)",
       "addedAt": "2026-06-23",
-      "description": "PixelRAG (StarTrail-org) — RAG по СКРИНШОТАМ страниц, а не по HTML — сохраняет таблицы/вёрстку/элементы, которые ломают обычные парсеры. CLI pixelshot + плагин Claude Code pixelbrowse (даёт Claude визуальное чтение страниц), VL-модель Qwen3-VL-Embedding. Apache-2.0, 5.5k★. Зачем нам: парсинг карточек WB/Ozon/ЯМ в StarMarket и card-audit StarCRM, когда HTML/анти-бот ломает…. Карточка помогает понять назначение ресурса и начать с небольшой безопасной проверки; условия использования ещё нужно сверить с официальным источником.",
+      "description": "PixelRAG (StarTrail-org) — RAG по СКРИНШОТАМ страниц, а не по HTML — сохраняет таблицы/вёрстку/элементы, которые ломают обычные парсеры. CLI pixelshot + плагин Claude Code pixelbrowse (даёт Claude визуальное чтение страниц), VL-модель Qwen3-VL-Embedding. Apache-2.0, 5.5k★. Зачем нам: парсинг карточек WB/Ozon/ЯМ в Eclipse Market и card-audit Eclipse CRM, когда HTML/анти-бот ломает…. Карточка помогает понять назначение ресурса и начать с небольшой безопасной проверки; условия использования ещё нужно сверить с официальным источником.",
       "useCases": [
         "Разобраться, подходит ли PixelRAG (StarTrail-org) для вашей задачи",
         "Проверить возможности на небольшом тестовом сценарии до интеграции"

@@ -15,10 +15,10 @@
   283 ещё требуют отдельного review.
 - Agent policy: 516 записей доступны автоматическим consumers, 73 исключены fail closed;
   все 66 grey-ресурсов скрыты от recommendations, direct install запрещён для всех записей.
-- `web/api/v1/` — versioned static exports для full catalog, agents, StarCRM и StarAI;
+- `web/api/v1/` — versioned static exports для full catalog, agents, Eclipse CRM и Eclipse AI;
   consumers больше не должны читать README.
 - `web/star-technology-registry.json` и `web/registry.html` — отдельный read-only decision
-  registry для StarMarket, StarCRM и StarAI: 26 решений с lifecycle, owner, risk, benchmark,
+  registry для Eclipse Market, Eclipse CRM и Eclipse AI: 26 решений с lifecycle, owner, risk, benchmark,
   evidence, fallback и следующим шагом; runtime health намеренно остаётся отдельным snapshot.
 - `web/link-health.json` — безопасный публичный snapshot weekly-аудита: доступность ссылки
   показывается отдельно от редакторского доверия и не считается security endorsement.
@@ -27,7 +27,7 @@
   [#31469392091](https://github.com/PavelHopson/eclipse-library/actions/runs/31469392091)
   и deploy [#31469392070](https://github.com/PavelHopson/eclipse-library/actions/runs/31469392070)
   от 11.08.2026 успешно завершены. Independent production smoke подтвердил `app.js?v=39`,
-  `registry.js?v=1`, `registry.css?v=1`, 589 материалов, 516 agent-safe записей и 26 решений Star.
+  `registry.js?v=1`, `registry.css?v=1`, 589 материалов, 516 agent-safe записей и 26 решений Eclipse.
   Production Edge QA на 1440×900 и 390×844 подтвердил deep link, CSP, hidden product scrollbar,
   отсутствие horizontal overflow, scroll jump, console и network errors.
 
@@ -132,7 +132,7 @@
       Trust Passport в Inspector и скрытый scrollbar без отключения wheel, touch или keyboard scroll.
       Direct Edge visual QA пройден на 1434×934 и 390×844: Inspector прокручивается без видимой
       полосы, mobile sheet возвращает фокус, страница не прыгает вверх и horizontal overflow отсутствует.
-- [x] Stage 17 — Star Technology Registry: отдельный operational workspace с 26 решениями
+- [x] Stage 17 — Eclipse Technology Registry: отдельный operational workspace с 26 решениями
       для трёх независимых продуктов, product/search/lifecycle filters, evidence, risk, benchmark,
       approval policy и stable deep links. Неподтверждённый Ollama benchmark не считается production;
       external sources остаются reference/manual-only, grey sources fail closed, direct install запрещён.
@@ -231,7 +231,8 @@
 
 ### 2026-08-11
 
-- Stage 17 завершён: подготовлена отдельная Star Technology Registry surface с 26 решениями,
+- Публичные названия продуктовых контуров унифицированы с брендом Eclipse Forge: Eclipse Market (5 решений), Eclipse CRM (11) и Eclipse AI (10). Обновлены Registry, карточки, guides, consumer labels и документация; стабильные machine IDs, deep links и API paths сохранены для обратной совместимости.
+- Stage 17 завершён: подготовлена отдельная Eclipse Technology Registry surface с 26 решениями,
   read-only governance contract, lifecycle/runtime boundary, владельцами, evidence, рисками,
   benchmark и следующими шагами. Добавлены stable entry links, CSP, safe URL/HTML rendering,
   loading/empty/error/retry, responsive filters и production smoke для HTML/CSS/JS/JSON.

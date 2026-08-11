@@ -1,4 +1,4 @@
-# Design QA: Star Technology Registry
+# Design QA: Eclipse Technology Registry
 
 ## Evidence
 

@@ -2,7 +2,7 @@
 
 Кураторская библиотека AI-инструментов, сервисов, моделей, skills, MCP, промптов, курсов и security-материалов для экосистемы Eclipse Forge.
 
-[Открыть библиотеку](https://library.eclipse-forge.ru/) · [Star Technology Registry](https://library.eclipse-forge.ru/registry.html) · [Каталог проектов](https://library.eclipse-forge.ru/#projects) · [Курсы и гайды](https://library.eclipse-forge.ru/#browse/courses)
+[Открыть библиотеку](https://library.eclipse-forge.ru/) · [Eclipse Technology Registry](https://library.eclipse-forge.ru/registry.html) · [Каталог проектов](https://library.eclipse-forge.ru/#projects) · [Курсы и гайды](https://library.eclipse-forge.ru/#browse/courses)
 
 ## Текущее состояние
 
@@ -26,8 +26,8 @@ README больше не является базой данных и не раз
 | [`web/catalog-details.json`](web/catalog-details.json) | Исторический набор ручных editorial reviews; его содержимое уже мигрировано в canonical records. |
 | [`web/github-metadata.json`](web/github-metadata.json) | Official GitHub state и license evidence для repository URL. |
 | [`web/guides.json`](web/guides.json) | Manifest учебных материалов. |
-| [`web/star-technology-registry.json`](web/star-technology-registry.json) | Read-only decision registry для StarMarket, StarCRM и StarAI; lifecycle хранится отдельно от runtime health. |
-| [`web/registry.html`](web/registry.html) | Поиск, product filters, evidence, risks, approval policy и stable deep links для решений Star. |
+| [`web/star-technology-registry.json`](web/star-technology-registry.json) | Read-only decision registry для Eclipse Market, Eclipse CRM и Eclipse AI; lifecycle хранится отдельно от runtime health. |
+| [`web/registry.html`](web/registry.html) | Поиск, product filters, evidence, risks, approval policy и stable deep links для решений Eclipse. |
 | [`web/catalog-card.js`](web/catalog-card.js), [`web/catalog-editorial.js`](web/catalog-editorial.js), [`web/catalog-progressive.js`](web/catalog-progressive.js) | UI-модули карточки, редакционной ленты и progressive DOM; первая страница ограничена 36 карточками. |
 | [`web/catalog-inspector.js`](web/catalog-inspector.js), [`web/navigator.css`](web/navigator.css) | Безопасный evidence-first быстрый обзор и отдельный responsive visual layer Knowledge Navigator. |
 | [`web/catalog-search.js`](web/catalog-search.js) | Детерминированный RU/EN search planner: синонимы, короткий stopword-list и tolerance к одной опечатке без отправки запросов во внешний сервис. |
@@ -40,8 +40,8 @@ Production endpoints:
 
 - [Full catalog](https://library.eclipse-forge.ru/api/v1/catalog.json) — все записи для human-facing interfaces.
 - [Agent-safe catalog](https://library.eclipse-forge.ru/api/v1/agents.json) — без grey и других fail-closed exclusions.
-- [StarCRM export](https://library.eclipse-forge.ru/api/v1/starcrm.json) — стабильный consumer contract без чтения README.
-- [StarAI export](https://library.eclipse-forge.ru/api/v1/starai.json) — стабильный consumer contract без чтения README.
+- [Eclipse CRM export](https://library.eclipse-forge.ru/api/v1/starcrm.json) — стабильный consumer contract без чтения README.
+- [Eclipse AI export](https://library.eclipse-forge.ru/api/v1/starai.json) — стабильный consumer contract без чтения README.
 - [Manifest](https://library.eclipse-forge.ru/api/v1/manifest.json) — версия каталога, счётчики и ссылки на endpoints.
 
 Static exports предназначены для server-side или controlled consumers. Для browser-to-browser cross-origin чтения нужно отдельно подтвердить CORS configuration на production proxy.
@@ -115,7 +115,7 @@ Quality workflow проверяет:
 - [Agent Reach security review](guides/agent-reach-security-review-2026-07-31.md)
 - [Azgaar DnD map workflow](guides/azgaar-dnd-map-workflow.md)
 - [MCP runtime audit](guides/mcp-runtime-audit.md)
-- [Star Technology Registry](guides/star-technology-registry.md)
+- [Eclipse Technology Registry](guides/star-technology-registry.md)
 
 ## License
 

@@ -39,7 +39,7 @@
 - **Fish Audio** - озвучка уроков.
 - **AI career playbook** - модуль по внедрению AI в профессию.
 
-## Business Data Platform / Star CRM / FinFlow
+## Business Data Platform / Eclipse CRM / FinFlow
 
 - **MWS Tables** - reference для больших операционных таблиц.
 - **Obscura** - lightweight browser automation только на авторизованных источниках.

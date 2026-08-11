@@ -1,6 +1,6 @@
-# Star Technology Registry: реестр решений для StarMarket, StarCRM и StarAI
+# Eclipse Technology Registry: реестр решений для Eclipse Market, Eclipse CRM и Eclipse AI
 
-> Практический контракт между Eclipse Library, админкой StarCRM и сервисами StarAI. Реестр отвечает на вопрос «что разрешено внедрять и почему», но не подменяет runtime-мониторинг.
+> Практический контракт между Eclipse Library, админкой Eclipse CRM и сервисами Eclipse AI. Реестр отвечает на вопрос «что разрешено внедрять и почему», но не подменяет runtime-мониторинг.
 
 ## 1. Что уже опубликовано
 
@@ -29,10 +29,10 @@
 | Данные | Источник | Что показывать при ошибке |
 |---|---|---|
 | Решение, риск, лицензия, lifecycle | Eclipse Library | Последний проверенный snapshot и его дату |
-| Доступность модели и worker | StarAI health API | «Нет связи», а не `0` |
-| Очередь, latency, VRAM, ошибки | StarAI metrics | Последнее измерение и признак устаревания |
-| Пилоты и одобрения | StarCRM database | Ошибку запроса и повтор, без optimistic success |
-| Выполненные действия | StarCRM audit log | Неизменяемую историю, даже если агент недоступен |
+| Доступность модели и worker | Eclipse AI health API | «Нет связи», а не `0` |
+| Очередь, latency, VRAM, ошибки | Eclipse AI metrics | Последнее измерение и признак устаревания |
+| Пилоты и одобрения | Eclipse CRM database | Ошибку запроса и повтор, без optimistic success |
+| Выполненные действия | Eclipse CRM audit log | Неизменяемую историю, даже если агент недоступен |
 
 Нельзя вычислять `production` по одному успешному health check. `Production` означает, что artifact, prompt contract, benchmark и fallback одобрены. Health показывает, доступен ли этот release сейчас.
 
@@ -48,7 +48,7 @@
 
 Переход стадии является административным действием. Агент может подготовить предложение, benchmark и diff, но не может сам одобрить собственную технологию.
 
-## 4. StarMarket
+## 4. Eclipse Market
 
 ### Импорт WB, Ozon и Яндекс Маркета
 
@@ -70,7 +70,7 @@ Benchmark должен считать precision/recall по каждому пр�
 
 ### Изображения
 
-ComfyUI работает за StarAI worker. В приложение нельзя отдавать прямой ComfyUI API.
+ComfyUI работает за Eclipse AI worker. В приложение нельзя отдавать прямой ComfyUI API.
 
 Закрепляются:
 
@@ -89,7 +89,7 @@ VideoMAE используется только как первый feature-extra
 
 HyperFrames подходит для повторяемых шаблонных роликов. Текст, safe zones, длительность и assets валидируются до render.
 
-## 5. StarCRM: AI Radar
+## 5. Eclipse CRM: AI Radar
 
 Первый read-only контракт:
 
@@ -185,7 +185,7 @@ proposed -> queued -> running -> waiting_approval -> running -> completed
 
 ### Ячейки, бюджеты и коннекторы
 
-Каждая сессия исполняется в отдельной ячейке StarAI с ограничениями workspace, сети, credentials и ресурсов. Обычная директория не считается sandbox. Для ячейки задаются TTL, egress allowlist, encrypted secret mounts, CPU/RAM/GPU limits и retention evidence.
+Каждая сессия исполняется в отдельной ячейке Eclipse AI с ограничениями workspace, сети, credentials и ресурсов. Обычная директория не считается sandbox. Для ячейки задаются TTL, egress allowlist, encrypted secret mounts, CPU/RAM/GPU limits и retention evidence.
 
 Бюджет задаётся до старта и включает токены, wall time, GPU seconds, стоимость внешнего fallback и число действий. Достижение hard limit останавливает новые tool calls и возвращает незавершённый результат администратору. Автоматическое увеличение бюджета запрещено.
 
@@ -193,14 +193,14 @@ proposed -> queued -> running -> waiting_approval -> running -> completed
 
 Approval содержит immutable action digest, diff, ресурсы, риск, ожидаемый результат, preconditions и rollback. Token одноразовый; изменение preconditions или timeout означает deny.
 
-## 7. StarAI
+## 7. Eclipse AI
 
 Рекомендуемый контур:
 
 ```mermaid
 flowchart LR
-  SM["StarMarket"] --> Q["Task queue"]
-  CRM["StarCRM AI Radar"] --> R["Technology registry"]
+  SM["Eclipse Market"] --> Q["Task queue"]
+  CRM["Eclipse CRM AI Radar"] --> R["Technology registry"]
   CRM --> Q
   R --> G["Approval gateway"]
   Q --> G
@@ -257,7 +257,7 @@ Teamly.to полезен как продуктовый reference: coordinator с
 - approval по таймауту;
 - неявные credits без привязки к реальной стоимости задачи.
 
-Причина: политика конфиденциальности указывает передачу данных нескольким AI-провайдерам и размещение production-инфраструктуры в США: [Privacy Policy](https://teamly.to/privacy), [Subprocessors](https://teamly.to/subprocessors). Условия перекладывают ответственность за действия агентов на пользователя и описывают предварительные разрешения: [Terms of Service](https://teamly.to/terms). Для Star контура эти идеи реализуются локально; Teamly.to не получает production-данные, cookies, OAuth tokens или клиентские материалы.
+Причина: политика конфиденциальности указывает передачу данных нескольким AI-провайдерам и размещение production-инфраструктуры в США: [Privacy Policy](https://teamly.to/privacy), [Subprocessors](https://teamly.to/subprocessors). Условия перекладывают ответственность за действия агентов на пользователя и описывают предварительные разрешения: [Terms of Service](https://teamly.to/terms). Для контура Eclipse эти идеи реализуются локально; Teamly.to не получает production-данные, cookies, OAuth tokens или клиентские материалы.
 
 ## 9. Agent Reach
 
