@@ -17,6 +17,10 @@ export function validateBaseUrl(value) {
   return url;
 }
 
+export function normalizeTextPayload(value) {
+  return String(value).replace(/\r\n?/g, '\n');
+}
+
 export function extractVersionedAsset(html, filename) {
   const escaped = filename.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
   const match = html.match(new RegExp(`(?:src|href)=["'](${escaped}\\?v=\\d+)["']`));
@@ -86,25 +90,25 @@ async function fetchText(url) {
     signal: AbortSignal.timeout(15_000),
   });
   if (!response.ok) throw new Error(`${url} returned HTTP ${response.status}.`);
-  return response.text();
+  return response.text().then(normalizeTextPayload);
 }
 
 export async function smokeProduction(baseValue, deploySha = '') {
   const base = validateBaseUrl(baseValue);
   const cacheKey = encodeURIComponent(deploySha || Date.now().toString());
   const [localIndex, localApp, localRuntime, localCatalog, localMetadata, localProjects, localMcpAudit, localGuides, localAgentExport, localRegistryPage, localRegistryScript, localRegistryStyle, localRegistry] = await Promise.all([
-    readFile(new URL('web/index.html', repoRoot), 'utf8'),
-    readFile(new URL('web/app.js', repoRoot), 'utf8'),
-    readFile(new URL('web/catalog-runtime.js', repoRoot), 'utf8'),
+    readFile(new URL('web/index.html', repoRoot), 'utf8').then(normalizeTextPayload),
+    readFile(new URL('web/app.js', repoRoot), 'utf8').then(normalizeTextPayload),
+    readFile(new URL('web/catalog-runtime.js', repoRoot), 'utf8').then(normalizeTextPayload),
     readFile(new URL('web/catalog-index.json', repoRoot), 'utf8').then(JSON.parse),
     readFile(new URL('web/github-metadata.json', repoRoot), 'utf8').then(JSON.parse),
     readFile(new URL('web/projects.json', repoRoot), 'utf8').then(JSON.parse),
     readFile(new URL('web/mcp-audit.json', repoRoot), 'utf8').then(JSON.parse),
     readFile(new URL('web/guides.json', repoRoot), 'utf8').then(JSON.parse),
     readFile(new URL('web/api/v1/agents.json', repoRoot), 'utf8').then(JSON.parse),
-    readFile(new URL('web/registry.html', repoRoot), 'utf8'),
-    readFile(new URL('web/registry.js', repoRoot), 'utf8'),
-    readFile(new URL('web/registry.css', repoRoot), 'utf8'),
+    readFile(new URL('web/registry.html', repoRoot), 'utf8').then(normalizeTextPayload),
+    readFile(new URL('web/registry.js', repoRoot), 'utf8').then(normalizeTextPayload),
+    readFile(new URL('web/registry.css', repoRoot), 'utf8').then(normalizeTextPayload),
     readFile(new URL('web/star-technology-registry.json', repoRoot), 'utf8').then(JSON.parse),
   ]);
   const liveIndex = await fetchText(new URL(`?deploy=${cacheKey}`, base));

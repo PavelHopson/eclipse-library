@@ -5,6 +5,7 @@ import {
   assertMobileGuideTocGuard,
   assertTopicRouteResetOrder,
   extractVersionedAsset,
+  normalizeTextPayload,
   validateBaseUrl,
 } from './smoke-production.mjs';
 
@@ -19,6 +20,10 @@ test('extracts only an explicitly versioned local asset', () => {
   assert.equal(extractVersionedAsset('<script src="app.js?v=24"></script>', 'app.js'), 'app.js?v=24');
   assert.throws(() => extractVersionedAsset('<script src="https://evil.example/app.js?v=24"></script>', 'app.js'), /not found/);
   assert.throws(() => extractVersionedAsset('<script src="app.js"></script>', 'app.js'), /not found/);
+});
+
+test('normalizes Windows and legacy Mac line endings before exact asset comparison', () => {
+  assert.equal(normalizeTextPayload('one\r\ntwo\rthree\n'), 'one\ntwo\nthree\n');
 });
 
 test('keeps mobile scrollspy horizontal and reserves scrollIntoView for desktop', () => {
