@@ -1,18 +1,18 @@
 {
   "schemaVersion": 2,
-  "sourceHash": "cca6de949a7ce0454ebcd23230643b8ebb7f154d66132253cb7056d11aadd5e9",
+  "sourceHash": "0f022f427b205ac49032c3350571c1a1a0aaaf2a1498f2baac89246bea3b3915",
   "policy": {
     "directInstallForbidden": true
   },
   "totals": {
-    "all": 596,
-    "verified": 157,
-    "inferred": 439,
-    "licenseReviewRequired": 283,
-    "agentSafe": 523,
-    "agentExcluded": 73,
-    "grey": 66,
-    "withAddedAt": 313
+    "all": 610,
+    "verified": 173,
+    "inferred": 437,
+    "licenseReviewRequired": 281,
+    "agentSafe": 535,
+    "agentExcluded": 75,
+    "grey": 68,
+    "withAddedAt": 327
   },
   "items": [
     {
@@ -35123,39 +35123,62 @@
       "id": "caveman-github-com",
       "url": "https://github.com/JuliusBrussee/caveman",
       "title": "caveman",
-      "type": "agent",
-      "category": "Подборка Eclipse",
-      "subcategory": "Agent / dev productivity",
-      "simpleDescription": "caveman — Уже есть в библиотеке как cost-control для AI-агентов. В этом батче фиксируем: полезен не как “магия 75%”, а как reminder о compression modes для дорогих agent loops. В production включать только там, где стиль ответа не важен и не теряется точность. Карточка помогает понять назначение ресурса и начать с небольшой безопасной проверки; условия использования ещё нужно сверить с официальным источником.",
+      "type": "skill",
+      "category": "AI & Claude Code",
+      "subcategory": "Token control и краткие internal loops",
+      "simpleDescription": "caveman — набор skills и runtime-компонентов для компактной работы AI-агентов. Рекламное «экономит 65%» не является гарантией: в Eclipse Forge его применяют только к внутренним summaries и bounded loops, где качество проверяется benchmark. Финальный пользовательский текст и точные отчёты остаются в полном режиме.",
       "useCases": [
-        "Разобраться, подходит ли caveman для вашей задачи",
-        "Проверить возможности на небольшом тестовом сценарии до интеграции"
+        "Сжимать внутренние planning summaries без потери decisions и evidence",
+        "Сравнить token cost, correctness и manual corrections на одном фиксированном task",
+        "Использовать skill layer внутри команды; BSL runtime-компоненты — только для разрешённого first-party self-host",
+        "Отключать compact mode для UI copy, клиентских отчётов и юридически значимого текста"
       ],
       "platforms": [
-        "Web"
+        "Claude Code",
+        "Codex",
+        "CLI",
+        "Self-host"
       ],
-      "license": "Нужно проверить в официальном источнике",
-      "pricing": "Исходный код доступен публично; hosting, модели и внешние API могут оплачиваться отдельно",
+      "license": "MIT",
+      "licenseEvidence": [
+        {
+          "kind": "license",
+          "label": "Official split licensing guide",
+          "url": "https://github.com/JuliusBrussee/caveman/blob/master/LICENSING.md"
+        },
+        {
+          "kind": "source",
+          "label": "Official repository",
+          "url": "https://github.com/JuliusBrussee/caveman"
+        }
+      ],
+      "pricing": "MIT skill layer бесплатен; BSL runtime has use restrictions and commercial licensing for some service models. LLM/API/compute оплачиваются отдельно.",
       "access": {
-        "cost": "free",
-        "signup": "unknown",
-        "runtime": "cloud"
+        "cost": "freemium",
+        "signup": "optional",
+        "runtime": "hybrid"
       },
       "trust": "community",
-      "trustReason": "Запись структурирована автоматически из опубликованного описания. Официальный источник, лицензия и условия ещё не прошли отдельную редакторскую проверку.",
-      "projects": [],
-      "decision": "reference",
+      "trustReason": "Repository, architecture and split licensing guide checked 12.08.2026. Token-saving percentages remain workload-dependent marketing claims and require local measurement.",
+      "projects": [
+        "Hopson Sentinel",
+        "oh-my-claudecode",
+        "Eclipse AI Hub"
+      ],
+      "decision": "now",
       "riskLevel": "medium",
       "risks": [
-        "Лицензия, цена, permissions и обработка данных могут отличаться от краткого описания."
+        "BSL runtime cannot be copied into a third-party managed/embedded commercial service without checking commercial license terms.",
+        "Over-compression can remove uncertainty, evidence, constraints or user-facing nuance.",
+        "Skill, MCP and runtime scripts require source review and pinning before execution."
       ],
-      "verifiedAt": null,
+      "verifiedAt": "2026-08-12",
       "quickStart": [
-        "Откройте официальный источник и проверьте владельца, лицензию и дату обновления.",
-        "Не передавайте secrets или рабочие данные; начните с пустого тестового проекта.",
-        "Сравните результат с текущим способом работы и только потом решайте об интеграции."
+        "Начать с MIT skill instructions, не подключая BSL runtime/MCP автоматически.",
+        "Провести fixed-task benchmark: tokens, correctness, omitted constraints и manual corrections.",
+        "Оставить compact mode только там, где экономия подтверждена и output не уходит пользователю."
       ],
-      "reviewStatus": "inferred",
+      "reviewStatus": "verified",
       "source": {
         "file": "catalog/resources.json",
         "key": "caveman-github-com",
@@ -35167,19 +35190,30 @@
         }
       },
       "addedAt": "2026-07-02",
+      "guide": "creator-ops-stack",
       "catalogOrder": 1836,
       "licenseInfo": {
-        "label": "Нужно проверить в официальном источнике",
-        "original": "Нужно проверить в официальном источнике",
-        "spdx": null,
-        "kind": "unknown",
-        "status": "unverified",
-        "requiresReview": true,
+        "label": "MIT",
+        "original": "Split license: skills/packages MIT; engine, browse, proxy, MCP, shrink, memory core/shared platform BSL-1.1. BSL permits internal first-party self-host, but third-party hosted/managed/embedded use needs a commercial license until conversion.",
+        "spdx": "MIT",
+        "kind": "open-source",
+        "status": "source-declared",
+        "requiresReview": false,
         "evidence": [
           {
             "kind": "license",
             "label": "Other license",
             "url": "https://api.github.com/repos/juliusbrussee/caveman/license"
+          },
+          {
+            "kind": "license",
+            "label": "Official split licensing guide",
+            "url": "https://github.com/JuliusBrussee/caveman/blob/master/LICENSING.md"
+          },
+          {
+            "kind": "source",
+            "label": "Official repository",
+            "url": "https://github.com/JuliusBrussee/caveman"
           }
         ]
       },
@@ -35193,6 +35227,11 @@
           "kind": "license",
           "label": "Other license",
           "url": "https://api.github.com/repos/juliusbrussee/caveman/license"
+        },
+        {
+          "kind": "license",
+          "label": "Official split licensing guide",
+          "url": "https://github.com/JuliusBrussee/caveman/blob/master/LICENSING.md"
         }
       ],
       "agentEligibility": {
@@ -36007,42 +36046,60 @@
       "id": "editor-stylist-humanizer-github-com",
       "url": "https://github.com/PavelHopson/eclipse-library/blob/master/prompts/editor-stylist-humanizer.md",
       "title": "Editor Stylist Humanizer",
-      "type": "grey",
-      "category": "Подборка Eclipse",
-      "subcategory": "Prompting / coding / content",
-      "simpleDescription": "Editor Stylist Humanizer — Новый более строгий prompt-asset для редактуры: убрать канцелярит, AI-ритм, симметричные абзацы, “не просто X, а Y”, сохранить голос автора. Зачем нам: Eclipse AI Hub Copywriter, Eclipse CRM AutoReply, Telegram/LinkedIn тексты, landing copy. Оговорка: не использовать для академического обхода AI-detectors. Карточка помогает понять назначение ресурса и начать с небольшой безопасной проверки; условия использования ещё нужно сверить с официальным источником.",
+      "type": "prompt",
+      "category": "Промпты",
+      "subcategory": "Evidence-preserving редактура",
+      "simpleDescription": "Editor Stylist Humanizer — owned prompt-workflow Eclipse Forge для понятной редактуры без шаблонного AI-ритма. Пять похожих промптов со скриншотов объединены в режимы одного редактора: сначала он блокирует факты, цифры, даты, ссылки и цитаты, затем меняет только подачу и показывает diff смысловых правок.",
       "useCases": [
-        "Разобраться, подходит ли Editor Stylist Humanizer для вашей задачи",
-        "Проверить возможности на небольшом тестовом сценарии до интеграции"
+        "Редактировать release notes, Library articles и Landing copy, сохраняя evidence",
+        "Выбирать режим «живой автор», «профессиональный редактор» или «убрать AI-паттерны» без дубликатов",
+        "Использовать voice samples бренда вместо усреднённого «экспертного» тона",
+        "Требовать claimsChanged и ручное подтверждение перед публикацией"
       ],
       "platforms": [
-        "Web"
+        "Eclipse AI Hub",
+        "Eclipse Chat",
+        "Markdown",
+        "Any LLM"
       ],
-      "license": "Нужно проверить в официальном источнике",
-      "pricing": "Исходный код доступен публично; hosting, модели и внешние API могут оплачиваться отдельно",
+      "license": "Редакционный prompt Eclipse Forge; third-party text, citations and brand materials retain their original rights.",
+      "licenseEvidence": [
+        {
+          "kind": "source",
+          "label": "Canonical Eclipse Forge prompt",
+          "url": "https://github.com/PavelHopson/eclipse-library/blob/master/prompts/editor-stylist-humanizer.md"
+        }
+      ],
+      "pricing": "Prompt бесплатен; inference выбранной модели оплачивается по её условиям.",
       "access": {
         "cost": "free",
-        "signup": "unknown",
-        "runtime": "cloud"
+        "signup": "optional",
+        "runtime": "hybrid"
       },
-      "trust": "caution",
-      "trustReason": "Запись структурирована автоматически из опубликованного описания. Официальный источник, лицензия и условия ещё не прошли отдельную редакторскую проверку.",
+      "trust": "official",
+      "trustReason": "Owned prompt reviewed 12.08.2026 and strengthened with locked facts, voice samples, semantic diff and human approval. It does not promise detector bypass.",
       "projects": [
         "Eclipse AI Hub",
-        "Eclipse Forge Landing"
+        "Eclipse Forge Landing",
+        "Eclipse Library",
+        "Eclipse Chat",
+        "Eclipse Media",
+        "Shotforge"
       ],
-      "decision": "reference",
-      "riskLevel": "high",
+      "decision": "now",
+      "riskLevel": "medium",
       "risks": [
-        "Есть признаки повышенного security, privacy или legal риска; не запускайте без ручного аудита и sandbox."
+        "Модель может изменить факт или авторскую позицию, если locked facts и diff не проверены.",
+        "Нельзя загружать confidential drafts в cloud model без разрешённого data policy.",
+        "Не использовать для impersonation, academic deception или обхода AI detectors."
       ],
-      "verifiedAt": null,
+      "verifiedAt": "2026-08-12",
       "quickStart": [
-        "Откройте официальный источник и проверьте владельца, лицензию и дату обновления.",
-        "Не передавайте secrets или рабочие данные; начните с пустого тестового проекта.",
-        "Сравните результат с текущим способом работы и только потом решайте об интеграции."
+        "Вставить исходник, locked facts и два коротких voice samples автора.",
+        "Выбрать один режим редактуры и потребовать claimsChanged плюс semantic diff.",
+        "Проверить числа, даты, ссылки, цитаты и смысл до ручного принятия."
       ],
-      "reviewStatus": "inferred",
+      "reviewStatus": "verified",
       "source": {
         "file": "catalog/resources.json",
         "key": "editor-stylist-humanizer-github-com",
@@ -36054,18 +36111,19 @@
         }
       },
       "addedAt": "2026-07-05",
+      "guide": "creator-ops-stack",
       "catalogOrder": 1897,
       "licenseInfo": {
-        "label": "Нужно проверить в официальном источнике",
-        "original": "Нужно проверить в официальном источнике",
+        "label": "Редакционный prompt Eclipse Forge; third-party text, citations and brand materials retain their original rights.",
+        "original": "Редакционный prompt Eclipse Forge; third-party text, citations and brand materials retain their original rights.",
         "spdx": null,
-        "kind": "unknown",
-        "status": "unverified",
-        "requiresReview": true,
+        "kind": "custom",
+        "status": "editor-reviewed",
+        "requiresReview": false,
         "evidence": [
           {
-            "kind": "official-source",
-            "label": "Официальный источник; точные условия ещё нужно сверить",
+            "kind": "source",
+            "label": "Canonical Eclipse Forge prompt",
             "url": "https://github.com/PavelHopson/eclipse-library/blob/master/prompts/editor-stylist-humanizer.md"
           }
         ]
@@ -36078,11 +36136,8 @@
         }
       ],
       "agentEligibility": {
-        "eligible": false,
-        "reasons": [
-          "grey-resource",
-          "unverified-high-risk"
-        ],
+        "eligible": true,
+        "reasons": [],
         "installAllowed": false
       }
     },
@@ -43897,7 +43952,9 @@
         "Собрать lead magnet и conversion path от Library или product demo до целевого обращения",
         "Скопировать семь готовых промптов для strategy, calendar, audit, ideas, metrics, funnel и Claim Auditor",
         "Запустить собственный Growth Command Room в Eclipse Chat с execution-ролями Eclipse AI Hub",
-        "Собрать Content Command Center: база хуков, доказательная аналитика, наблюдение за конкурентами, календарь, тренды и approval queue"
+        "Собрать Content Command Center: база хуков, доказательная аналитика, наблюдение за конкурентами, календарь, тренды и approval queue",
+        "Провести evidence-first reach experiment на 5–10 выпусках с одной изменяемой переменной",
+        "Проверить faceless или anonymous channel как оригинальный формат без impersonation, выдуманного RPM и копирования чужих материалов"
       ],
       "platforms": [
         "Web",
@@ -44119,7 +44176,7 @@
         "Ads exports содержат коммерческие и пользовательские данные",
         "Community prompts и installer требуют static review до подключения"
       ],
-      "verifiedAt": "2026-08-02",
+      "verifiedAt": "2026-08-12",
       "quickStart": [
         "Проверить repository локально и не запускать remote installer через pipe",
         "Начать с sanitized fixture или read-only export без production credentials",
@@ -44138,6 +44195,7 @@
         }
       },
       "addedAt": "2026-08-02",
+      "guide": "august-2026-operational-agent-stack",
       "catalogOrder": 2417,
       "licenseInfo": {
         "label": "MIT",
@@ -51268,6 +51326,1752 @@
       "agentEligibility": {
         "eligible": true,
         "reasons": [],
+        "installAllowed": false
+      }
+    },
+    {
+      "id": "blader-humanizer",
+      "url": "https://github.com/blader/humanizer",
+      "title": "Humanizer by blader",
+      "type": "skill",
+      "category": "AI & Claude Code",
+      "subcategory": "Редактура и сохранение авторского голоса",
+      "simpleDescription": "Humanizer — community skill для редакторской проверки текста: он ищет шаблонный AI-ритм, лишние обобщения, повторяющиеся конструкции и помогает вернуть естественный голос. Это не детектор истины и не средство обхода проверок: факты, цифры, цитаты и смысл нужно блокировать от самовольного изменения.",
+      "useCases": [
+        "Взять voice calibration и audit loop как reference для Editor Stylist в Eclipse AI Hub",
+        "Редактировать release notes, статьи Eclipse Library и тексты Landing без потери фактов",
+        "Добавить режимы «живой автор», «профессиональный редактор» и «убрать AI-паттерны» в один проверяемый workflow",
+        "Показывать пользователю список смысловых изменений до принятия финального текста"
+      ],
+      "platforms": [
+        "Claude Code",
+        "Codex",
+        "Markdown",
+        "Local"
+      ],
+      "license": "MIT",
+      "licenseEvidence": [
+        {
+          "kind": "license",
+          "label": "Official MIT license",
+          "url": "https://github.com/blader/humanizer/blob/main/LICENSE"
+        },
+        {
+          "kind": "source",
+          "label": "Official repository",
+          "url": "https://github.com/blader/humanizer"
+        }
+      ],
+      "pricing": "Skill бесплатен; стоимость выбранной AI-модели оплачивается отдельно.",
+      "access": {
+        "cost": "free",
+        "signup": "none",
+        "runtime": "local"
+      },
+      "trust": "community",
+      "trustReason": "Публичный repository, MIT license и основной SKILL.md проверены 12.08.2026. Обещания «неопределимого AI-текста» не принимаются: ценность ограничена редактурой и контролем голоса.",
+      "projects": [
+        "Eclipse AI Hub",
+        "Eclipse Library",
+        "Eclipse Forge Landing",
+        "Eclipse Chat",
+        "Eclipse Media"
+      ],
+      "decision": "reference",
+      "riskLevel": "medium",
+      "risks": [
+        "Автоматическая перезапись может незаметно изменить факт, цитату, дату, цифру или юридически значимую формулировку.",
+        "Skill и его scripts являются supply-chain input; Eclipse Library не устанавливает их автоматически.",
+        "Нельзя использовать для академического обмана, impersonation или обещаний обхода AI-detectors."
+      ],
+      "verifiedAt": "2026-08-12",
+      "quickStart": [
+        "Не устанавливать из каталога: сначала прочитать SKILL.md и scripts на pinned commit.",
+        "Для рабочего текста использовать owned Editor Stylist с locked facts, voice sample и обязательным diff.",
+        "Принять результат только после ручной проверки смысла, ссылок, чисел и цитат."
+      ],
+      "reviewStatus": "verified",
+      "addedAt": "2026-08-12",
+      "source": {
+        "file": "catalog/resources.json",
+        "key": "blader-humanizer",
+        "legacy": {
+          "file": "user-images",
+          "line": 2493,
+          "category": "AI & Claude Code",
+          "subcategory": "Редактура и сохранение авторского голоса"
+        }
+      },
+      "catalogOrder": 2493,
+      "guide": "creator-ops-stack",
+      "licenseInfo": {
+        "label": "MIT",
+        "original": "MIT",
+        "spdx": "MIT",
+        "kind": "open-source",
+        "status": "source-declared",
+        "requiresReview": false,
+        "evidence": [
+          {
+            "kind": "license",
+            "label": "MIT license",
+            "url": "https://api.github.com/repos/blader/humanizer/license"
+          },
+          {
+            "kind": "license",
+            "label": "Official MIT license",
+            "url": "https://github.com/blader/humanizer/blob/main/LICENSE"
+          },
+          {
+            "kind": "source",
+            "label": "Official repository",
+            "url": "https://github.com/blader/humanizer"
+          }
+        ]
+      },
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://github.com/blader/humanizer"
+        },
+        {
+          "kind": "license",
+          "label": "MIT license",
+          "url": "https://api.github.com/repos/blader/humanizer/license"
+        },
+        {
+          "kind": "license",
+          "label": "Official MIT license",
+          "url": "https://github.com/blader/humanizer/blob/main/LICENSE"
+        }
+      ],
+      "agentEligibility": {
+        "eligible": true,
+        "reasons": [],
+        "installAllowed": false
+      }
+    },
+    {
+      "id": "social-media-skills-pack",
+      "url": "https://github.com/social-media-skills/skills",
+      "title": "Social Media Skills",
+      "type": "grey",
+      "category": "Маркетинг и контент",
+      "subcategory": "Большой набор skills для контент-операций",
+      "simpleDescription": "Social Media Skills — открытый набор из 106 skills для исследования, сценариев, каруселей и других контент-задач. Это не готовая безопасная SMM-команда: каждая папка может содержать инструкции, scripts и tool calls, поэтому массово подключать набор агентам нельзя.",
+      "useCases": [
+        "Изучить декомпозицию контент-задач для собственного Eclipse Growth OS",
+        "Отобрать отдельные patterns для Researcher, Strategist, Writer, Editor и Claim Auditor",
+        "Сравнить форматы hooks, carousels и repurposing с реальными метриками Eclipse Forge",
+        "Создать внутренний allowlist только после поштучного review конкретного skill"
+      ],
+      "platforms": [
+        "Claude Code",
+        "Codex",
+        "Cursor",
+        "Local"
+      ],
+      "license": "MIT",
+      "licenseEvidence": [
+        {
+          "kind": "license",
+          "label": "Official MIT license",
+          "url": "https://github.com/social-media-skills/skills/blob/main/LICENSE"
+        },
+        {
+          "kind": "source",
+          "label": "Official repository",
+          "url": "https://github.com/social-media-skills/skills"
+        },
+        {
+          "kind": "security",
+          "label": "Official security policy",
+          "url": "https://github.com/social-media-skills/skills/blob/main/SECURITY.md"
+        }
+      ],
+      "pricing": "Repository бесплатен; модели, публикационные сервисы, аналитика и media APIs могут быть платными.",
+      "access": {
+        "cost": "free",
+        "signup": "none",
+        "runtime": "local"
+      },
+      "trust": "caution",
+      "trustReason": "Repository, MIT license, количество skills и SECURITY.md проверены 12.08.2026. Авторы сами требуют относиться к skills как к коду и проверять exfiltration, prompt injection и unsafe actions.",
+      "projects": [
+        "Eclipse Growth OS",
+        "Eclipse AI Hub",
+        "Eclipse Chat",
+        "Eclipse Media",
+        "Eclipse Forge Landing"
+      ],
+      "decision": "reference",
+      "riskLevel": "high",
+      "risks": [
+        "Массовый skill-pack расширяет supply-chain и prompt-injection surface.",
+        "Автопубликация, scraping и outreach могут нарушить Terms платформ, copyright и согласие пользователей.",
+        "Шаблонные growth-claims без собственной аналитики создают спам и репутационный риск."
+      ],
+      "verifiedAt": "2026-08-12",
+      "quickStart": [
+        "Не запускать npx/install-команды и не импортировать весь repository в рабочий agent profile.",
+        "Выбрать один read-only skill, проверить source, scripts, permissions и output на публичных данных.",
+        "Перенести только доказавший ценность pattern в owned Growth OS с human approval."
+      ],
+      "reviewStatus": "verified",
+      "addedAt": "2026-08-12",
+      "source": {
+        "file": "catalog/resources.json",
+        "key": "social-media-skills-pack",
+        "legacy": {
+          "file": "user-images",
+          "line": 2494,
+          "category": "Маркетинг и контент",
+          "subcategory": "Большой набор skills для контент-операций"
+        }
+      },
+      "catalogOrder": 2494,
+      "guide": "creator-ops-stack",
+      "licenseInfo": {
+        "label": "MIT",
+        "original": "MIT для repository; лицензии внешних материалов и платформ проверяются отдельно.",
+        "spdx": "MIT",
+        "kind": "open-source",
+        "status": "source-declared",
+        "requiresReview": false,
+        "evidence": [
+          {
+            "kind": "license",
+            "label": "MIT license",
+            "url": "https://api.github.com/repos/social-media-skills/skills/license"
+          },
+          {
+            "kind": "license",
+            "label": "Official MIT license",
+            "url": "https://github.com/social-media-skills/skills/blob/main/LICENSE"
+          },
+          {
+            "kind": "source",
+            "label": "Official repository",
+            "url": "https://github.com/social-media-skills/skills"
+          },
+          {
+            "kind": "security",
+            "label": "Official security policy",
+            "url": "https://github.com/social-media-skills/skills/blob/main/SECURITY.md"
+          }
+        ]
+      },
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://github.com/social-media-skills/skills"
+        },
+        {
+          "kind": "license",
+          "label": "MIT license",
+          "url": "https://api.github.com/repos/social-media-skills/skills/license"
+        },
+        {
+          "kind": "license",
+          "label": "Official MIT license",
+          "url": "https://github.com/social-media-skills/skills/blob/main/LICENSE"
+        },
+        {
+          "kind": "security",
+          "label": "Official security policy",
+          "url": "https://github.com/social-media-skills/skills/blob/main/SECURITY.md"
+        }
+      ],
+      "agentEligibility": {
+        "eligible": false,
+        "reasons": [
+          "grey-resource"
+        ],
+        "installAllowed": false
+      }
+    },
+    {
+      "id": "agricidaniel-claude-seo",
+      "url": "https://github.com/AgriciDaniel/claude-seo",
+      "title": "Claude SEO",
+      "type": "skill",
+      "category": "Маркетинг и контент",
+      "subcategory": "Evidence-first SEO и AI-search аудит",
+      "simpleDescription": "Claude SEO — MIT-набор из 25 SEO skills и 18 subagents для technical SEO, Schema, content, local/e-commerce и AI-search проверок. В Eclipse Forge он полезен как read-only audit toolkit: выводы должны ссылаться на crawl, Search Console или другой источник, а исправления проходят обычный review.",
+      "useCases": [
+        "Проверять technical SEO и structured data Eclipse Forge Landing",
+        "Находить broken metadata, sitemap и internal-link проблемы Eclipse Library",
+        "Собирать evidence-first content briefs для AI Hub и Growth OS",
+        "Сравнивать до и после по indexation, impressions, CTR и conversion, а не по красивому отчёту"
+      ],
+      "platforms": [
+        "Claude Code",
+        "Codex",
+        "CLI",
+        "Web"
+      ],
+      "license": "MIT",
+      "licenseEvidence": [
+        {
+          "kind": "license",
+          "label": "Official MIT license",
+          "url": "https://github.com/AgriciDaniel/claude-seo/blob/main/LICENSE"
+        },
+        {
+          "kind": "source",
+          "label": "Official repository",
+          "url": "https://github.com/AgriciDaniel/claude-seo"
+        }
+      ],
+      "pricing": "Skills бесплатны; DataForSEO, Firecrawl, модели и другие внешние providers могут быть платными.",
+      "access": {
+        "cost": "freemium",
+        "signup": "optional",
+        "runtime": "hybrid"
+      },
+      "trust": "community",
+      "trustReason": "Repository, MIT license, skills, agents и optional provider integrations проверены 12.08.2026. Ни один SEO score не считается business result без Search Console и conversion evidence.",
+      "projects": [
+        "Eclipse Library",
+        "Eclipse Forge Landing",
+        "Eclipse AI Hub",
+        "Eclipse Growth OS"
+      ],
+      "decision": "now",
+      "riskLevel": "medium",
+      "risks": [
+        "Install scripts, hooks, dependencies и provider connectors требуют pinning и review.",
+        "Crawler может затронуть лишние URL, формы или rate limits; нужен allowlist и bounded concurrency.",
+        "Search Console, analytics и API credentials нельзя передавать в prompts или commit."
+      ],
+      "verifiedAt": "2026-08-12",
+      "quickStart": [
+        "Начать с read-only audit публичных URL без provider keys и write-actions.",
+        "Зафиксировать evidence URL, наблюдение, confidence и предлагаемое изменение.",
+        "Применять изменения отдельным PR и измерять Search Console и conversion после deploy."
+      ],
+      "reviewStatus": "verified",
+      "addedAt": "2026-08-12",
+      "source": {
+        "file": "catalog/resources.json",
+        "key": "agricidaniel-claude-seo",
+        "legacy": {
+          "file": "user-images",
+          "line": 2495,
+          "category": "Маркетинг и контент",
+          "subcategory": "Evidence-first SEO и AI-search аудит"
+        }
+      },
+      "catalogOrder": 2495,
+      "guide": "creator-ops-stack",
+      "licenseInfo": {
+        "label": "MIT",
+        "original": "MIT",
+        "spdx": "MIT",
+        "kind": "open-source",
+        "status": "source-declared",
+        "requiresReview": false,
+        "evidence": [
+          {
+            "kind": "license",
+            "label": "MIT license",
+            "url": "https://api.github.com/repos/agricidaniel/claude-seo/license"
+          },
+          {
+            "kind": "license",
+            "label": "Official MIT license",
+            "url": "https://github.com/AgriciDaniel/claude-seo/blob/main/LICENSE"
+          },
+          {
+            "kind": "source",
+            "label": "Official repository",
+            "url": "https://github.com/AgriciDaniel/claude-seo"
+          }
+        ]
+      },
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://github.com/AgriciDaniel/claude-seo"
+        },
+        {
+          "kind": "license",
+          "label": "MIT license",
+          "url": "https://api.github.com/repos/agricidaniel/claude-seo/license"
+        },
+        {
+          "kind": "license",
+          "label": "Official MIT license",
+          "url": "https://github.com/AgriciDaniel/claude-seo/blob/main/LICENSE"
+        }
+      ],
+      "agentEligibility": {
+        "eligible": true,
+        "reasons": [],
+        "installAllowed": false
+      }
+    },
+    {
+      "id": "focusee-screen-recorder",
+      "url": "https://focusee.imobie.com/",
+      "title": "FocuSee",
+      "type": "media",
+      "category": "Медиа",
+      "subcategory": "Запись экрана и автоматический zoom",
+      "simpleDescription": "FocuSee — proprietary recorder для Windows и macOS, который автоматически добавляет zoom, cursor effects, layout и часть audio/video обработки. Он ускоряет продуктовые demos, но free trial ограничен одним экспортом, AI-функции могут отправлять выбранные media третьим провайдерам, а облачный share использует отдельное хранилище.",
+      "useCases": [
+        "Быстро записывать walkthrough релизов Eclipse Chat и Eclipse Library",
+        "Собирать исходники product demo для Eclipse Media и Shotforge",
+        "Сравнить авто-zoom с owned post-processing workflow",
+        "Подготовить безопасный публичный demo без ручного монтажа каждого движения курсора"
+      ],
+      "platforms": [
+        "Windows",
+        "macOS",
+        "Desktop",
+        "Cloud sharing"
+      ],
+      "license": "Proprietary iMobie EULA; subscription и one-time планы, AI credits имеют отдельные условия.",
+      "licenseEvidence": [
+        {
+          "kind": "terms",
+          "label": "Official EULA",
+          "url": "https://www.imobie.com/company/end-user-license-agreement.htm"
+        },
+        {
+          "kind": "privacy",
+          "label": "Official privacy policy",
+          "url": "https://www.imobie.com/company/privacy.htm"
+        },
+        {
+          "kind": "pricing",
+          "label": "Official pricing",
+          "url": "https://focusee.imobie.com/pricing.htm"
+        }
+      ],
+      "pricing": "Free trial позволяет один export; subscription, perpetual license, cloud storage и AI credits проверяются на checkout перед оплатой.",
+      "access": {
+        "cost": "freemium",
+        "signup": "optional",
+        "runtime": "hybrid"
+      },
+      "trust": "official",
+      "trustReason": "Product, pricing, local-save defaults, cloud share и AI-data processing проверены по официальным страницам 12.08.2026. Результат auto-edit и privacy зависят от включённых функций.",
+      "projects": [
+        "Eclipse Media",
+        "Shotforge",
+        "Eclipse Chat",
+        "Eclipse Forge Landing",
+        "Eclipse Library"
+      ],
+      "decision": "reference",
+      "riskLevel": "high",
+      "risks": [
+        "Screen recording может захватить API keys, уведомления, персональные данные и закрытые интерфейсы.",
+        "AI-функции временно обрабатывают загруженные audio/video/images у внешних providers.",
+        "Проприетарная лицензия, credits и cloud sharing создают lock-in и расходы."
+      ],
+      "verifiedAt": "2026-08-12",
+      "quickStart": [
+        "Для пилота использовать только публичный demo account и отключить уведомления, password managers и секретные окна.",
+        "Хранить запись локально; не включать AI/cloud share для клиентских или unreleased данных.",
+        "Сравнить один ролик с ShareX плюс owned Shotforge/HyperFrames по времени, качеству и стоимости."
+      ],
+      "reviewStatus": "verified",
+      "addedAt": "2026-08-12",
+      "source": {
+        "file": "catalog/resources.json",
+        "key": "focusee-screen-recorder",
+        "legacy": {
+          "file": "user-images",
+          "line": 2496,
+          "category": "Медиа",
+          "subcategory": "Запись экрана и автоматический zoom"
+        }
+      },
+      "catalogOrder": 2496,
+      "guide": "creator-ops-stack",
+      "licenseInfo": {
+        "label": "Proprietary iMobie EULA; subscription и one-time планы, AI credits имеют отдельные условия.",
+        "original": "Proprietary iMobie EULA; subscription и one-time планы, AI credits имеют отдельные условия.",
+        "spdx": null,
+        "kind": "custom",
+        "status": "editor-reviewed",
+        "requiresReview": false,
+        "evidence": [
+          {
+            "kind": "terms",
+            "label": "Official EULA",
+            "url": "https://www.imobie.com/company/end-user-license-agreement.htm"
+          },
+          {
+            "kind": "privacy",
+            "label": "Official privacy policy",
+            "url": "https://www.imobie.com/company/privacy.htm"
+          },
+          {
+            "kind": "pricing",
+            "label": "Official pricing",
+            "url": "https://focusee.imobie.com/pricing.htm"
+          }
+        ]
+      },
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://focusee.imobie.com/"
+        },
+        {
+          "kind": "terms",
+          "label": "Official EULA",
+          "url": "https://www.imobie.com/company/end-user-license-agreement.htm"
+        },
+        {
+          "kind": "privacy",
+          "label": "Official privacy policy",
+          "url": "https://www.imobie.com/company/privacy.htm"
+        },
+        {
+          "kind": "pricing",
+          "label": "Official pricing",
+          "url": "https://focusee.imobie.com/pricing.htm"
+        }
+      ],
+      "agentEligibility": {
+        "eligible": true,
+        "reasons": [],
+        "installAllowed": false
+      }
+    },
+    {
+      "id": "sharex-screen-capture",
+      "url": "https://github.com/ShareX/ShareX",
+      "title": "ShareX",
+      "type": "tool",
+      "category": "Медиа",
+      "subcategory": "Локальный capture и annotation toolkit",
+      "simpleDescription": "ShareX — зрелый GPL-3.0 инструмент для Windows: screenshots, screen recording, GIF, scrolling capture, OCR, annotations и automation workflows. Основные функции бесплатны и open source, но upload destinations могут отправить файл во внешний сервис — для Eclipse Forge безопасный default должен быть «сохранить локально».",
+      "useCases": [
+        "Снимать screenshots и GIF для changelog, bug reports и документации Eclipse Library",
+        "Готовить локальные demo assets для Eclipse Media и Shotforge",
+        "Автоматически скрывать или вырезать чувствительные области перед публикацией",
+        "Стандартизировать имена, папки и аннотации production evidence"
+      ],
+      "platforms": [
+        "Windows",
+        "Desktop",
+        "Local"
+      ],
+      "license": "GPL-3.0",
+      "licenseEvidence": [
+        {
+          "kind": "license",
+          "label": "Official GPL-3.0 license",
+          "url": "https://github.com/ShareX/ShareX/blob/develop/LICENSE.txt"
+        },
+        {
+          "kind": "source",
+          "label": "Official ShareX site",
+          "url": "https://getsharex.com/"
+        }
+      ],
+      "pricing": "Полностью бесплатный open-source инструмент; внешние upload destinations могут иметь собственные тарифы.",
+      "access": {
+        "cost": "free",
+        "signup": "none",
+        "runtime": "local"
+      },
+      "trust": "official",
+      "trustReason": "Официальные repository, сайт, GPL-3.0 license и documented capture/upload capabilities проверены 12.08.2026.",
+      "projects": [
+        "Eclipse Library",
+        "Eclipse Media",
+        "Shotforge",
+        "Eclipse Forge Landing",
+        "Hopson Sentinel"
+      ],
+      "decision": "now",
+      "riskLevel": "medium",
+      "risks": [
+        "Upload workflow может случайно отправить screenshot или file на внешний host.",
+        "Capture может записать secrets, личные сообщения, уведомления или биометрические данные.",
+        "Custom actions и destinations исполняют внешние команды или используют tokens."
+      ],
+      "verifiedAt": "2026-08-12",
+      "quickStart": [
+        "Установить только с официального release channel; checksum/signature сверять при наличии.",
+        "Отключить automatic upload и начать с локальной папки без cloud destinations.",
+        "Перед публикацией вручную проверить каждый кадр на secrets, PII и права на контент."
+      ],
+      "reviewStatus": "verified",
+      "addedAt": "2026-08-12",
+      "source": {
+        "file": "catalog/resources.json",
+        "key": "sharex-screen-capture",
+        "legacy": {
+          "file": "user-images",
+          "line": 2497,
+          "category": "Медиа",
+          "subcategory": "Локальный capture и annotation toolkit"
+        }
+      },
+      "catalogOrder": 2497,
+      "guide": "creator-ops-stack",
+      "licenseInfo": {
+        "label": "GPL-3.0",
+        "original": "GPL-3.0",
+        "spdx": "GPL-3.0",
+        "kind": "open-source",
+        "status": "source-declared",
+        "requiresReview": false,
+        "evidence": [
+          {
+            "kind": "license",
+            "label": "GPL-3.0 license",
+            "url": "https://api.github.com/repos/sharex/sharex/license"
+          },
+          {
+            "kind": "license",
+            "label": "Official GPL-3.0 license",
+            "url": "https://github.com/ShareX/ShareX/blob/develop/LICENSE.txt"
+          },
+          {
+            "kind": "source",
+            "label": "Official ShareX site",
+            "url": "https://getsharex.com/"
+          }
+        ]
+      },
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://github.com/ShareX/ShareX"
+        },
+        {
+          "kind": "license",
+          "label": "GPL-3.0 license",
+          "url": "https://api.github.com/repos/sharex/sharex/license"
+        },
+        {
+          "kind": "license",
+          "label": "Official GPL-3.0 license",
+          "url": "https://github.com/ShareX/ShareX/blob/develop/LICENSE.txt"
+        },
+        {
+          "kind": "source",
+          "label": "Official ShareX site",
+          "url": "https://getsharex.com/"
+        }
+      ],
+      "agentEligibility": {
+        "eligible": true,
+        "reasons": [],
+        "installAllowed": false
+      }
+    },
+    {
+      "id": "flow-launcher-windows",
+      "url": "https://github.com/Flow-Launcher/Flow.Launcher",
+      "title": "Flow Launcher",
+      "type": "tool",
+      "category": "Инструменты",
+      "subcategory": "Windows launcher и command palette",
+      "simpleDescription": "Flow Launcher — MIT command palette для Windows: ищет приложения и файлы, запускает команды и расширяется plugins. Для Eclipse Forge это ускоритель локальной работы, а не продуктовая dependency; community plugins нужно считать исполняемым кодом и подключать только из проверенного источника.",
+      "useCases": [
+        "Запускать часто используемые Eclipse repositories, terminals и local dashboards одной командой",
+        "Собрать локальные shortcuts для build, test и docs без изменения продуктового кода",
+        "Взять command-palette UX как reference для Hopson Sentinel",
+        "Снизить время на поиск приложений и рабочих папок в Windows"
+      ],
+      "platforms": [
+        "Windows",
+        "Desktop",
+        "Local"
+      ],
+      "license": "MIT",
+      "licenseEvidence": [
+        {
+          "kind": "license",
+          "label": "Official MIT license",
+          "url": "https://github.com/Flow-Launcher/Flow.Launcher/blob/dev/LICENSE"
+        },
+        {
+          "kind": "source",
+          "label": "Official Flow Launcher site",
+          "url": "https://flowlauncher.com/"
+        }
+      ],
+      "pricing": "Бесплатный open-source инструмент; сторонние plugins и services могут иметь отдельные условия.",
+      "access": {
+        "cost": "free",
+        "signup": "none",
+        "runtime": "local"
+      },
+      "trust": "community",
+      "trustReason": "Official repository, MIT license, releases и plugin model проверены 12.08.2026. Авторы рекомендуют доверять только официальным download channels.",
+      "projects": [
+        "Hopson Sentinel",
+        "oh-my-claudecode",
+        "Eclipse AI Hub"
+      ],
+      "decision": "reference",
+      "riskLevel": "medium",
+      "risks": [
+        "Plugins получают возможность исполнять локальный код и могут стать supply-chain vector.",
+        "Search history и commands могут содержать чувствительные имена файлов или arguments.",
+        "Launcher не должен хранить production tokens или обходить approval gates."
+      ],
+      "verifiedAt": "2026-08-12",
+      "quickStart": [
+        "Использовать официальный release и сначала работать без community plugins.",
+        "Добавлять только локальные non-secret shortcuts; не вставлять credentials в command arguments.",
+        "Перед установкой plugin проверить owner, source, release history, permissions и dependencies."
+      ],
+      "reviewStatus": "verified",
+      "addedAt": "2026-08-12",
+      "source": {
+        "file": "catalog/resources.json",
+        "key": "flow-launcher-windows",
+        "legacy": {
+          "file": "user-images",
+          "line": 2498,
+          "category": "Инструменты",
+          "subcategory": "Windows launcher и command palette"
+        }
+      },
+      "catalogOrder": 2498,
+      "guide": "creator-ops-stack",
+      "licenseInfo": {
+        "label": "MIT",
+        "original": "MIT",
+        "spdx": "MIT",
+        "kind": "open-source",
+        "status": "source-declared",
+        "requiresReview": false,
+        "evidence": [
+          {
+            "kind": "license",
+            "label": "MIT license",
+            "url": "https://api.github.com/repos/flow-launcher/flow.launcher/license"
+          },
+          {
+            "kind": "license",
+            "label": "Official MIT license",
+            "url": "https://github.com/Flow-Launcher/Flow.Launcher/blob/dev/LICENSE"
+          },
+          {
+            "kind": "source",
+            "label": "Official Flow Launcher site",
+            "url": "https://flowlauncher.com/"
+          }
+        ]
+      },
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://github.com/Flow-Launcher/Flow.Launcher"
+        },
+        {
+          "kind": "license",
+          "label": "MIT license",
+          "url": "https://api.github.com/repos/flow-launcher/flow.launcher/license"
+        },
+        {
+          "kind": "license",
+          "label": "Official MIT license",
+          "url": "https://github.com/Flow-Launcher/Flow.Launcher/blob/dev/LICENSE"
+        },
+        {
+          "kind": "source",
+          "label": "Official Flow Launcher site",
+          "url": "https://flowlauncher.com/"
+        }
+      ],
+      "agentEligibility": {
+        "eligible": true,
+        "reasons": [],
+        "installAllowed": false
+      }
+    },
+    {
+      "id": "quicklook-windows",
+      "url": "https://github.com/QL-Win/QuickLook",
+      "title": "QuickLook for Windows",
+      "type": "tool",
+      "category": "Инструменты",
+      "subcategory": "Быстрый preview файлов",
+      "simpleDescription": "QuickLook — GPL-3.0 previewer для Windows: выделите файл и нажмите Space, чтобы посмотреть содержимое без запуска тяжёлого приложения. Полезен для быстрой проверки images, video, documents и assets; дополнительные formats зависят от plugins и требуют отдельного review.",
+      "useCases": [
+        "Быстро просматривать assets Eclipse Media и Shotforge перед добавлением в проект",
+        "Проверять screenshots и documents для Library без запуска нескольких приложений",
+        "Сократить ошибки выбора похожих файлов при работе с release media",
+        "Взять one-key preview как UX reference для локального asset browser"
+      ],
+      "platforms": [
+        "Windows",
+        "Desktop",
+        "Local"
+      ],
+      "license": "GPL-3.0",
+      "licenseEvidence": [
+        {
+          "kind": "license",
+          "label": "Official GPL-3.0 license",
+          "url": "https://github.com/QL-Win/QuickLook/blob/master/LICENSE"
+        },
+        {
+          "kind": "source",
+          "label": "Official repository",
+          "url": "https://github.com/QL-Win/QuickLook"
+        }
+      ],
+      "pricing": "Бесплатный open-source инструмент; коммерческое sublicensing обсуждается отдельно с правообладателем.",
+      "access": {
+        "cost": "free",
+        "signup": "none",
+        "runtime": "local"
+      },
+      "trust": "official",
+      "trustReason": "Official repository, GPL-3.0 license, releases и plugin model проверены 12.08.2026.",
+      "projects": [
+        "Eclipse Media",
+        "Shotforge",
+        "Eclipse Library"
+      ],
+      "decision": "now",
+      "riskLevel": "medium",
+      "risks": [
+        "Previewing hostile files может затронуть parser/codec vulnerabilities.",
+        "Plugins расширяют trusted code base и могут иметь отдельные licenses.",
+        "Confidential media остаётся видимым на экране и может попасть в screenshots/stream."
+      ],
+      "verifiedAt": "2026-08-12",
+      "quickStart": [
+        "Скачать официальный signed release или Microsoft Store build.",
+        "Начать без third-party plugins и не preview непроверенные документы на production workstation.",
+        "Обновлять через официальный channel и закрывать preview перед записью экрана."
+      ],
+      "reviewStatus": "verified",
+      "addedAt": "2026-08-12",
+      "source": {
+        "file": "catalog/resources.json",
+        "key": "quicklook-windows",
+        "legacy": {
+          "file": "user-images",
+          "line": 2499,
+          "category": "Инструменты",
+          "subcategory": "Быстрый preview файлов"
+        }
+      },
+      "catalogOrder": 2499,
+      "guide": "creator-ops-stack",
+      "licenseInfo": {
+        "label": "GPL-3.0",
+        "original": "GPL-3.0; commercial sublicensing available separately.",
+        "spdx": "GPL-3.0",
+        "kind": "open-source",
+        "status": "source-declared",
+        "requiresReview": false,
+        "evidence": [
+          {
+            "kind": "license",
+            "label": "GPL-3.0 license",
+            "url": "https://api.github.com/repos/ql-win/quicklook/license"
+          },
+          {
+            "kind": "license",
+            "label": "Official GPL-3.0 license",
+            "url": "https://github.com/QL-Win/QuickLook/blob/master/LICENSE"
+          },
+          {
+            "kind": "source",
+            "label": "Official repository",
+            "url": "https://github.com/QL-Win/QuickLook"
+          }
+        ]
+      },
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://github.com/QL-Win/QuickLook"
+        },
+        {
+          "kind": "license",
+          "label": "GPL-3.0 license",
+          "url": "https://api.github.com/repos/ql-win/quicklook/license"
+        },
+        {
+          "kind": "license",
+          "label": "Official GPL-3.0 license",
+          "url": "https://github.com/QL-Win/QuickLook/blob/master/LICENSE"
+        }
+      ],
+      "agentEligibility": {
+        "eligible": true,
+        "reasons": [],
+        "installAllowed": false
+      }
+    },
+    {
+      "id": "voidtools-everything",
+      "url": "https://www.voidtools.com/",
+      "title": "Everything by voidtools",
+      "type": "tool",
+      "category": "Инструменты",
+      "subcategory": "Локальный поиск файлов Windows",
+      "simpleDescription": "Everything — быстрый Windows-поиск по именам файлов и папок. Он хранит локальный индекс имён в Everything.db; это freeware, а не подтверждённый open-source repository. ETP/FTP/HTTP servers и search/run history выключаются, если локальный агент не должен раскрывать структуру диска.",
+      "useCases": [
+        "Находить assets, exports и repository files на большой Windows-машине",
+        "Ускорить локальный scout workflow Hopson Sentinel без загрузки имён файлов в cloud",
+        "Искать дубликаты media и документов перед добавлением в Library",
+        "Использовать CLI только с ограниченным read-only scope и redaction"
+      ],
+      "platforms": [
+        "Windows",
+        "Desktop",
+        "CLI",
+        "Local"
+      ],
+      "license": "Freeware under voidtools Software License; публичный исходный repository не подтверждён.",
+      "licenseEvidence": [
+        {
+          "kind": "license",
+          "label": "Official Everything license",
+          "url": "https://www.voidtools.com/License.txt"
+        },
+        {
+          "kind": "privacy",
+          "label": "Official privacy policy",
+          "url": "https://www.voidtools.com/en-uk/privacy/"
+        }
+      ],
+      "pricing": "Бесплатно по official software license; коммерческое redistribution нужно сверять с текстом license.",
+      "access": {
+        "cost": "free",
+        "signup": "none",
+        "runtime": "local"
+      },
+      "trust": "official",
+      "trustReason": "Official site, license, privacy statement и index/history/server behavior проверены 12.08.2026. Скриншотное впечатление об open source исправлено: официальный public source repository не найден.",
+      "projects": [
+        "Hopson Sentinel",
+        "Eclipse Media",
+        "Shotforge",
+        "Eclipse Library"
+      ],
+      "decision": "now",
+      "riskLevel": "medium",
+      "risks": [
+        "Everything.db, search history и run history раскрывают имена чувствительных файлов.",
+        "ETP/FTP/HTTP server может открыть file index или файлы сети при неверной настройке.",
+        "Content search не индексируется и может быть дорогим; scope нужно ограничивать."
+      ],
+      "verifiedAt": "2026-08-12",
+      "quickStart": [
+        "Использовать официальный installer; для минимального network surface рассмотреть Lite build.",
+        "Отключить ETP/FTP/HTTP servers, search history и run history, если они не нужны.",
+        "Не передавать полный индекс cloud-agent; отдавать только результаты bounded локального запроса."
+      ],
+      "reviewStatus": "verified",
+      "addedAt": "2026-08-12",
+      "source": {
+        "file": "catalog/resources.json",
+        "key": "voidtools-everything",
+        "legacy": {
+          "file": "user-images",
+          "line": 2500,
+          "category": "Инструменты",
+          "subcategory": "Локальный поиск файлов Windows"
+        }
+      },
+      "catalogOrder": 2500,
+      "guide": "creator-ops-stack",
+      "licenseInfo": {
+        "label": "Freeware under voidtools Software License; публичный исходный repository не подтверждён.",
+        "original": "Freeware under voidtools Software License; публичный исходный repository не подтверждён.",
+        "spdx": null,
+        "kind": "custom",
+        "status": "editor-reviewed",
+        "requiresReview": false,
+        "evidence": [
+          {
+            "kind": "license",
+            "label": "Official Everything license",
+            "url": "https://www.voidtools.com/License.txt"
+          },
+          {
+            "kind": "privacy",
+            "label": "Official privacy policy",
+            "url": "https://www.voidtools.com/en-uk/privacy/"
+          }
+        ]
+      },
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://www.voidtools.com/"
+        },
+        {
+          "kind": "license",
+          "label": "Official Everything license",
+          "url": "https://www.voidtools.com/License.txt"
+        },
+        {
+          "kind": "privacy",
+          "label": "Official privacy policy",
+          "url": "https://www.voidtools.com/en-uk/privacy/"
+        }
+      ],
+      "agentEligibility": {
+        "eligible": true,
+        "reasons": [],
+        "installAllowed": false
+      }
+    },
+    {
+      "id": "tweakcn-theme-editor",
+      "url": "https://github.com/jnsahaj/tweakcn",
+      "title": "TweakCN",
+      "type": "tool",
+      "category": "UI / Design",
+      "subcategory": "Visual theme editor для shadcn/ui",
+      "simpleDescription": "TweakCN — Apache-2.0 visual editor для Tailwind CSS и shadcn/ui themes: настраивает colors, typography и radii с live preview и экспортирует CSS. Это хороший ускоритель design tokens, но экспорт всё равно проходит contrast, responsive, reduced-motion и regression review.",
+      "useCases": [
+        "Прототипировать design-token варианты для Eclipse Chat и Eclipse AI Hub",
+        "Собрать спокойную premium palette для Eclipse Forge Landing",
+        "Сравнивать темы на реальных loading, empty, error и dense dashboard states",
+        "Экспортировать только token diff, а не заменять существующий design system целиком"
+      ],
+      "platforms": [
+        "Web",
+        "React",
+        "Tailwind CSS",
+        "shadcn/ui"
+      ],
+      "license": "Apache-2.0",
+      "licenseEvidence": [
+        {
+          "kind": "license",
+          "label": "Official Apache-2.0 license",
+          "url": "https://github.com/jnsahaj/tweakcn/blob/main/LICENSE"
+        },
+        {
+          "kind": "source",
+          "label": "Official repository",
+          "url": "https://github.com/jnsahaj/tweakcn"
+        }
+      ],
+      "pricing": "Open-source editor бесплатен; hosting и сторонние assets могут иметь отдельные условия.",
+      "access": {
+        "cost": "free",
+        "signup": "none",
+        "runtime": "cloud"
+      },
+      "trust": "community",
+      "trustReason": "Repository, Apache-2.0 license, live theme editing и export workflow проверены 12.08.2026.",
+      "projects": [
+        "Eclipse Chat",
+        "Eclipse AI Hub",
+        "Eclipse Forge Landing",
+        "Eclipse Library"
+      ],
+      "decision": "now",
+      "riskLevel": "medium",
+      "risks": [
+        "Сгенерированная palette может не пройти WCAG contrast и high-contrast режим.",
+        "Копирование полного theme CSS может затереть существующие semantic tokens.",
+        "Визуальный wow-effect не должен ухудшать плотные рабочие интерфейсы."
+      ],
+      "verifiedAt": "2026-08-12",
+      "quickStart": [
+        "Собрать один isolated theme prototype без production data.",
+        "Экспортировать и review только token diff; не выполнять неизвестные install commands.",
+        "Проверить contrast, keyboard focus, light/dark, reduced motion, desktop и mobile."
+      ],
+      "reviewStatus": "verified",
+      "addedAt": "2026-08-12",
+      "source": {
+        "file": "catalog/resources.json",
+        "key": "tweakcn-theme-editor",
+        "legacy": {
+          "file": "user-images",
+          "line": 2501,
+          "category": "UI / Design",
+          "subcategory": "Visual theme editor для shadcn/ui"
+        }
+      },
+      "catalogOrder": 2501,
+      "guide": "creator-ops-stack",
+      "licenseInfo": {
+        "label": "Apache-2.0",
+        "original": "Apache-2.0",
+        "spdx": "Apache-2.0",
+        "kind": "open-source",
+        "status": "source-declared",
+        "requiresReview": false,
+        "evidence": [
+          {
+            "kind": "license",
+            "label": "Apache-2.0 license",
+            "url": "https://api.github.com/repos/jnsahaj/tweakcn/license"
+          },
+          {
+            "kind": "license",
+            "label": "Official Apache-2.0 license",
+            "url": "https://github.com/jnsahaj/tweakcn/blob/main/LICENSE"
+          },
+          {
+            "kind": "source",
+            "label": "Official repository",
+            "url": "https://github.com/jnsahaj/tweakcn"
+          }
+        ]
+      },
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://github.com/jnsahaj/tweakcn"
+        },
+        {
+          "kind": "license",
+          "label": "Apache-2.0 license",
+          "url": "https://api.github.com/repos/jnsahaj/tweakcn/license"
+        },
+        {
+          "kind": "license",
+          "label": "Official Apache-2.0 license",
+          "url": "https://github.com/jnsahaj/tweakcn/blob/main/LICENSE"
+        }
+      ],
+      "agentEligibility": {
+        "eligible": true,
+        "reasons": [],
+        "installAllowed": false
+      }
+    },
+    {
+      "id": "unlumen-ui",
+      "url": "https://ui.unlumen.com/",
+      "title": "Unlumen UI",
+      "type": "grey",
+      "category": "UI / Design",
+      "subcategory": "Animated React component gallery",
+      "simpleDescription": "Unlumen UI — галерея animated React-компонентов с бесплатной и Pro-частью. На 12.08.2026 официальный GitHub link ведёт на недоступный repository, а premium code регулируется коммерческой license и запретом на redistribution. Поэтому это только visual reference, не источник кода для автоматического импорта.",
+      "useCases": [
+        "Изучить compact docks, text reveals и motion states для prototype",
+        "Собрать reference board для Eclipse Forge Landing и Eclipse Media",
+        "Проверить, какие microinteractions действительно помогают следующему действию",
+        "Реализовать нужный effect самостоятельно в рамках design system"
+      ],
+      "platforms": [
+        "Web",
+        "React",
+        "Tailwind CSS",
+        "shadcn/ui"
+      ],
+      "license": "Mixed: public examples plus paid commercial terms; redistribution/resale of premium components prohibited. Linked public repository unavailable at review time.",
+      "licenseEvidence": [
+        {
+          "kind": "source",
+          "label": "Official Unlumen UI site",
+          "url": "https://ui.unlumen.com/"
+        },
+        {
+          "kind": "terms",
+          "label": "Official pricing and premium license summary",
+          "url": "https://ui.unlumen.com/pricing"
+        }
+      ],
+      "pricing": "Есть free content; Pro one-time и annual plans отображаются на официальной pricing page и требуют повторной проверки перед оплатой.",
+      "access": {
+        "cost": "freemium",
+        "signup": "optional",
+        "runtime": "cloud"
+      },
+      "trust": "caution",
+      "trustReason": "Product pages and pricing checked 12.08.2026, but official GitHub destination returned 404. Exact source history and free-code license cannot be independently confirmed.",
+      "projects": [
+        "Eclipse Forge Landing",
+        "Eclipse Media",
+        "Eclipse Chat"
+      ],
+      "decision": "reference",
+      "riskLevel": "high",
+      "risks": [
+        "Unavailable source repository prevents normal provenance and supply-chain review.",
+        "Premium license forbids redistribution/resale; copying Pro blocks into public templates is unsafe.",
+        "Animation may harm performance, accessibility and task clarity."
+      ],
+      "verifiedAt": "2026-08-12",
+      "quickStart": [
+        "Не устанавливать CLI/MCP и не копировать premium source.",
+        "Сохранить только ссылку и product-level motion pattern as reference.",
+        "Если нужен эффект, реализовать минимальную owned version и проверить reduced motion, focus и mobile FPS."
+      ],
+      "reviewStatus": "verified",
+      "addedAt": "2026-08-12",
+      "source": {
+        "file": "catalog/resources.json",
+        "key": "unlumen-ui",
+        "legacy": {
+          "file": "user-images",
+          "line": 2502,
+          "category": "UI / Design",
+          "subcategory": "Animated React component gallery"
+        }
+      },
+      "catalogOrder": 2502,
+      "guide": "creator-ops-stack",
+      "licenseInfo": {
+        "label": "Mixed: public examples plus paid commercial terms; redistribution/resale of premium components prohibited. Linked public repository unavailable at review time.",
+        "original": "Mixed: public examples plus paid commercial terms; redistribution/resale of premium components prohibited. Linked public repository unavailable at review time.",
+        "spdx": null,
+        "kind": "service-terms",
+        "status": "editor-reviewed",
+        "requiresReview": false,
+        "evidence": [
+          {
+            "kind": "source",
+            "label": "Official Unlumen UI site",
+            "url": "https://ui.unlumen.com/"
+          },
+          {
+            "kind": "terms",
+            "label": "Official pricing and premium license summary",
+            "url": "https://ui.unlumen.com/pricing"
+          }
+        ]
+      },
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://ui.unlumen.com/"
+        },
+        {
+          "kind": "terms",
+          "label": "Official pricing and premium license summary",
+          "url": "https://ui.unlumen.com/pricing"
+        }
+      ],
+      "agentEligibility": {
+        "eligible": false,
+        "reasons": [
+          "grey-resource"
+        ],
+        "installAllowed": false
+      }
+    },
+    {
+      "id": "magic-ui-components",
+      "url": "https://github.com/magicuidesign/magicui",
+      "title": "Magic UI",
+      "type": "tool",
+      "category": "UI / Design",
+      "subcategory": "Animated React components",
+      "simpleDescription": "Magic UI — MIT-набор animated React/Next.js/Tailwind components и effects в copy-paste стиле. Подходит для точечных marketing moments — hero, release highlight, demo — но не для тотальной анимации каталога или operational dashboards.",
+      "useCases": [
+        "Добавить один контролируемый wow-moment в Eclipse Forge Landing",
+        "Прототипировать release highlights для Eclipse Library",
+        "Собрать анимированные product cards или background для Eclipse Media",
+        "Взять component pattern и адаптировать к существующим Eclipse tokens"
+      ],
+      "platforms": [
+        "React",
+        "Next.js",
+        "Tailwind CSS",
+        "Framer Motion"
+      ],
+      "license": "MIT",
+      "licenseEvidence": [
+        {
+          "kind": "license",
+          "label": "Official MIT license",
+          "url": "https://github.com/magicuidesign/magicui/blob/main/LICENSE"
+        },
+        {
+          "kind": "source",
+          "label": "Official repository",
+          "url": "https://github.com/magicuidesign/magicui"
+        }
+      ],
+      "pricing": "Core components open source; templates and related commercial offers may have separate terms.",
+      "access": {
+        "cost": "freemium",
+        "signup": "none",
+        "runtime": "local"
+      },
+      "trust": "community",
+      "trustReason": "Official repository, MIT license and documented React/Tailwind component model checked 12.08.2026.",
+      "projects": [
+        "Eclipse Forge Landing",
+        "Eclipse Library",
+        "Eclipse Media",
+        "Eclipse Chat"
+      ],
+      "decision": "reference",
+      "riskLevel": "medium",
+      "risks": [
+        "Copy-paste component can introduce hidden dependencies, bundle weight and style conflicts.",
+        "Continuous effects can worsen motion sensitivity and mobile battery/FPS.",
+        "Marketing animation can distract from the primary CTA."
+      ],
+      "verifiedAt": "2026-08-12",
+      "quickStart": [
+        "Copy only one component from pinned source and inspect dependencies/license.",
+        "Map colors, spacing, radius and typography to Eclipse design tokens.",
+        "Add reduced-motion fallback and test Lighthouse, keyboard and mobile before merge."
+      ],
+      "reviewStatus": "verified",
+      "addedAt": "2026-08-12",
+      "source": {
+        "file": "catalog/resources.json",
+        "key": "magic-ui-components",
+        "legacy": {
+          "file": "user-images",
+          "line": 2503,
+          "category": "UI / Design",
+          "subcategory": "Animated React components"
+        }
+      },
+      "catalogOrder": 2503,
+      "guide": "creator-ops-stack",
+      "licenseInfo": {
+        "label": "MIT",
+        "original": "MIT",
+        "spdx": "MIT",
+        "kind": "open-source",
+        "status": "source-declared",
+        "requiresReview": false,
+        "evidence": [
+          {
+            "kind": "license",
+            "label": "MIT license",
+            "url": "https://api.github.com/repos/magicuidesign/magicui/license"
+          },
+          {
+            "kind": "license",
+            "label": "Official MIT license",
+            "url": "https://github.com/magicuidesign/magicui/blob/main/LICENSE"
+          },
+          {
+            "kind": "source",
+            "label": "Official repository",
+            "url": "https://github.com/magicuidesign/magicui"
+          }
+        ]
+      },
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://github.com/magicuidesign/magicui"
+        },
+        {
+          "kind": "license",
+          "label": "MIT license",
+          "url": "https://api.github.com/repos/magicuidesign/magicui/license"
+        },
+        {
+          "kind": "license",
+          "label": "Official MIT license",
+          "url": "https://github.com/magicuidesign/magicui/blob/main/LICENSE"
+        }
+      ],
+      "agentEligibility": {
+        "eligible": true,
+        "reasons": [],
+        "installAllowed": false
+      }
+    },
+    {
+      "id": "smoothui-components",
+      "url": "https://github.com/educlopez/smoothui",
+      "title": "SmoothUI",
+      "type": "tool",
+      "category": "UI / Design",
+      "subcategory": "Accessible motion components",
+      "simpleDescription": "SmoothUI — MIT-набор React/Tailwind/Motion components с shadcn registry, CLI и MCP. Полезен как source of patterns для accessible transitions, upload states и navigation; автоматический installer или MCP нельзя подключать из каталога без review и pinning.",
+      "useCases": [
+        "Изучить reduced-motion-aware patterns для Eclipse Chat и AI Hub",
+        "Адаптировать progress, upload и transition states в Eclipse Media",
+        "Собрать небольшие microinteractions для Landing без переписывания design system",
+        "Сравнить accessibility claims с keyboard и screen-reader tests"
+      ],
+      "platforms": [
+        "React",
+        "Tailwind CSS",
+        "Motion",
+        "shadcn registry",
+        "MCP"
+      ],
+      "license": "MIT",
+      "licenseEvidence": [
+        {
+          "kind": "license",
+          "label": "Official MIT license",
+          "url": "https://github.com/educlopez/smoothui/blob/main/LICENSE"
+        },
+        {
+          "kind": "source",
+          "label": "Official repository",
+          "url": "https://github.com/educlopez/smoothui"
+        }
+      ],
+      "pricing": "Open-source components free; external dependencies and services retain their own terms.",
+      "access": {
+        "cost": "free",
+        "signup": "none",
+        "runtime": "local"
+      },
+      "trust": "community",
+      "trustReason": "Repository, MIT license, registry/CLI/MCP surface and component documentation checked 12.08.2026.",
+      "projects": [
+        "Eclipse Chat",
+        "Eclipse AI Hub",
+        "Eclipse Media",
+        "Eclipse Forge Landing"
+      ],
+      "decision": "reference",
+      "riskLevel": "medium",
+      "risks": [
+        "CLI and MCP extend the supply-chain/tool-call surface and can modify the project.",
+        "Component dependency versions may conflict with current React/Tailwind stack.",
+        "Accessibility statements still need independent keyboard, screen-reader and reduced-motion QA."
+      ],
+      "verifiedAt": "2026-08-12",
+      "quickStart": [
+        "Не подключать MCP и не запускать one-line installer из карточки.",
+        "Review one pinned component and copy the minimum source into an isolated prototype.",
+        "Verify bundle, focus, screen-reader labels, reduced motion and responsive behavior."
+      ],
+      "reviewStatus": "verified",
+      "addedAt": "2026-08-12",
+      "source": {
+        "file": "catalog/resources.json",
+        "key": "smoothui-components",
+        "legacy": {
+          "file": "user-images",
+          "line": 2504,
+          "category": "UI / Design",
+          "subcategory": "Accessible motion components"
+        }
+      },
+      "catalogOrder": 2504,
+      "guide": "creator-ops-stack",
+      "licenseInfo": {
+        "label": "MIT",
+        "original": "MIT",
+        "spdx": "MIT",
+        "kind": "open-source",
+        "status": "source-declared",
+        "requiresReview": false,
+        "evidence": [
+          {
+            "kind": "license",
+            "label": "MIT license",
+            "url": "https://api.github.com/repos/educlopez/smoothui/license"
+          },
+          {
+            "kind": "license",
+            "label": "Official MIT license",
+            "url": "https://github.com/educlopez/smoothui/blob/main/LICENSE"
+          },
+          {
+            "kind": "source",
+            "label": "Official repository",
+            "url": "https://github.com/educlopez/smoothui"
+          }
+        ]
+      },
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://github.com/educlopez/smoothui"
+        },
+        {
+          "kind": "license",
+          "label": "MIT license",
+          "url": "https://api.github.com/repos/educlopez/smoothui/license"
+        },
+        {
+          "kind": "license",
+          "label": "Official MIT license",
+          "url": "https://github.com/educlopez/smoothui/blob/main/LICENSE"
+        }
+      ],
+      "agentEligibility": {
+        "eligible": true,
+        "reasons": [],
+        "installAllowed": false
+      }
+    },
+    {
+      "id": "neobrutalism-ui",
+      "url": "https://github.com/neobrutalism/neobrutalism",
+      "title": "NeoBrutalism (formerly RetroUI)",
+      "type": "tool",
+      "category": "UI / Design",
+      "subcategory": "Bold shadcn/ui component style",
+      "simpleDescription": "NeoBrutalism — MIT component set, ранее известный как RetroUI: thick borders, hard shadows и сильные color accents для React/shadcn. Стиль хорошо работает для campaign pages и creative experiments, но плохо подходит для спокойных dense dashboards, где важнее скорость чтения.",
+      "useCases": [
+        "Собрать отдельный campaign landing или event page Eclipse Forge",
+        "Прототипировать bold visual for DnD Forge promotions",
+        "Использовать отдельные alert/CTA patterns без смешивания со всем продуктом",
+        "Сравнить visual memorability с readability и conversion"
+      ],
+      "platforms": [
+        "React",
+        "Tailwind CSS",
+        "shadcn/ui",
+        "Web"
+      ],
+      "license": "MIT",
+      "licenseEvidence": [
+        {
+          "kind": "license",
+          "label": "Official MIT license",
+          "url": "https://github.com/neobrutalism/neobrutalism/blob/main/LICENSE"
+        },
+        {
+          "kind": "source",
+          "label": "Official product site",
+          "url": "https://neobrutalism.com/"
+        }
+      ],
+      "pricing": "Open-source components free; Pro collection paid under separate terms.",
+      "access": {
+        "cost": "freemium",
+        "signup": "optional",
+        "runtime": "local"
+      },
+      "trust": "community",
+      "trustReason": "RetroUI redirect, current repository name, MIT license and free/Pro split checked 12.08.2026.",
+      "projects": [
+        "Eclipse Forge Landing",
+        "Eclipse DnD Forge",
+        "Eclipse Media"
+      ],
+      "decision": "reference",
+      "riskLevel": "medium",
+      "risks": [
+        "Paid blocks cannot be redistributed as part of templates without matching license.",
+        "Aggressive borders, shadows and colors reduce scanability in operational UI.",
+        "Copy-paste code still requires dependency, accessibility and responsive review."
+      ],
+      "verifiedAt": "2026-08-12",
+      "quickStart": [
+        "Использовать open-source component only and record its source/license.",
+        "Limit experiment to one isolated marketing route, not core Chat/AI Hub dashboards.",
+        "Measure CTA conversion and task completion; revert if style harms comprehension."
+      ],
+      "reviewStatus": "verified",
+      "addedAt": "2026-08-12",
+      "source": {
+        "file": "catalog/resources.json",
+        "key": "neobrutalism-ui",
+        "legacy": {
+          "file": "user-images",
+          "line": 2505,
+          "category": "UI / Design",
+          "subcategory": "Bold shadcn/ui component style"
+        }
+      },
+      "catalogOrder": 2505,
+      "guide": "creator-ops-stack",
+      "licenseInfo": {
+        "label": "MIT",
+        "original": "MIT for open-source repository; Pro blocks have separate commercial terms.",
+        "spdx": "MIT",
+        "kind": "open-source",
+        "status": "source-declared",
+        "requiresReview": false,
+        "evidence": [
+          {
+            "kind": "license",
+            "label": "MIT license",
+            "url": "https://api.github.com/repos/neobrutalism/neobrutalism/license"
+          },
+          {
+            "kind": "license",
+            "label": "Official MIT license",
+            "url": "https://github.com/neobrutalism/neobrutalism/blob/main/LICENSE"
+          },
+          {
+            "kind": "source",
+            "label": "Official product site",
+            "url": "https://neobrutalism.com/"
+          }
+        ]
+      },
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://github.com/neobrutalism/neobrutalism"
+        },
+        {
+          "kind": "license",
+          "label": "MIT license",
+          "url": "https://api.github.com/repos/neobrutalism/neobrutalism/license"
+        },
+        {
+          "kind": "license",
+          "label": "Official MIT license",
+          "url": "https://github.com/neobrutalism/neobrutalism/blob/main/LICENSE"
+        },
+        {
+          "kind": "source",
+          "label": "Official product site",
+          "url": "https://neobrutalism.com/"
+        }
+      ],
+      "agentEligibility": {
+        "eligible": true,
+        "reasons": [],
+        "installAllowed": false
+      }
+    },
+    {
+      "id": "manus-cloud-agent",
+      "url": "https://manus.im/",
+      "title": "Manus",
+      "type": "grey",
+      "category": "AI & Claude Code",
+      "subcategory": "Proprietary cloud agent",
+      "simpleDescription": "Manus — proprietary cloud agent, который планирует и выполняет многошаговые задачи в удалённой среде. Free plan указывает 300 daily refresh credits для Lite-задач, но pricing, ownership и account transition меняются; для Eclipse Forge это архитектурный reference, а не место для private repositories или автономных публикаций.",
+      "useCases": [
+        "Сравнить delegation, task state и artifacts UX с Eclipse AI Hub и Chat",
+        "Взять pattern cloud workspace, progress и resumable tasks для owned Growth OS",
+        "Провести benchmark только на публичной задаче без secrets",
+        "Изучить credit/budget feedback для agent runs"
+      ],
+      "platforms": [
+        "Web",
+        "Cloud",
+        "Mobile"
+      ],
+      "license": "Proprietary service Terms; outputs, integrations and provider terms require case-by-case review.",
+      "licenseEvidence": [
+        {
+          "kind": "pricing",
+          "label": "Official pricing",
+          "url": "https://www.manus.im/pricing"
+        },
+        {
+          "kind": "privacy",
+          "label": "Official privacy policy",
+          "url": "https://manus.im/privacy"
+        },
+        {
+          "kind": "source",
+          "label": "Official pricing help",
+          "url": "https://help.manus.im/en/articles/11711111-what-is-the-current-membership-pricing-for-manus"
+        }
+      ],
+      "pricing": "Free plan advertises 300 daily refresh credits for Lite/simple tasks; paid plans, rollover and account conditions must be rechecked before use.",
+      "access": {
+        "cost": "freemium",
+        "signup": "required",
+        "runtime": "cloud"
+      },
+      "trust": "caution",
+      "trustReason": "Official pricing/help/privacy sources checked 12.08.2026. Current homepage indicates an operational/ownership transition, so long-term account, data and service conditions are not stable enough for production dependency.",
+      "projects": [
+        "Eclipse AI Hub",
+        "Eclipse Chat",
+        "Eclipse Growth OS",
+        "Hopson Sentinel"
+      ],
+      "decision": "reference",
+      "riskLevel": "high",
+      "risks": [
+        "Cloud agent can receive files, prompts and connected-service context; private source and customer data must stay out.",
+        "Autonomous actions can publish, message or mutate external state without adequate approval.",
+        "Credits, ownership/account transition, retention and subprocessors can change."
+      ],
+      "verifiedAt": "2026-08-12",
+      "quickStart": [
+        "Не подключать GitHub, mail, ads, payments или production services.",
+        "Если нужен benchmark, использовать публичный synthetic brief и disposable account.",
+        "Перенести только proven UX patterns в owned Eclipse orchestration with audit and approval gates."
+      ],
+      "reviewStatus": "verified",
+      "addedAt": "2026-08-12",
+      "source": {
+        "file": "catalog/resources.json",
+        "key": "manus-cloud-agent",
+        "legacy": {
+          "file": "user-images",
+          "line": 2506,
+          "category": "AI & Claude Code",
+          "subcategory": "Proprietary cloud agent"
+        }
+      },
+      "catalogOrder": 2506,
+      "guide": "creator-ops-stack",
+      "licenseInfo": {
+        "label": "Proprietary service Terms; outputs, integrations and provider terms require case-by-case review.",
+        "original": "Proprietary service Terms; outputs, integrations and provider terms require case-by-case review.",
+        "spdx": null,
+        "kind": "service-terms",
+        "status": "editor-reviewed",
+        "requiresReview": false,
+        "evidence": [
+          {
+            "kind": "pricing",
+            "label": "Official pricing",
+            "url": "https://www.manus.im/pricing"
+          },
+          {
+            "kind": "privacy",
+            "label": "Official privacy policy",
+            "url": "https://manus.im/privacy"
+          },
+          {
+            "kind": "source",
+            "label": "Official pricing help",
+            "url": "https://help.manus.im/en/articles/11711111-what-is-the-current-membership-pricing-for-manus"
+          }
+        ]
+      },
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://manus.im/"
+        },
+        {
+          "kind": "pricing",
+          "label": "Official pricing",
+          "url": "https://www.manus.im/pricing"
+        },
+        {
+          "kind": "privacy",
+          "label": "Official privacy policy",
+          "url": "https://manus.im/privacy"
+        },
+        {
+          "kind": "source",
+          "label": "Official pricing help",
+          "url": "https://help.manus.im/en/articles/11711111-what-is-the-current-membership-pricing-for-manus"
+        }
+      ],
+      "agentEligibility": {
+        "eligible": false,
+        "reasons": [
+          "grey-resource"
+        ],
         "installAllowed": false
       }
     }

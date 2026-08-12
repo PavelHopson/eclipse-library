@@ -457,6 +457,11 @@ effort S/M/L | KPI | risk | approval | next step.
 - [ ] Owner вручную подтвердил публикацию.
 - [ ] Через 72 часа зафиксированы metrics и следующий decision.
 
+Новая подборка prompts, desktop tools и UI references разобрана отдельно в
+[Creator Ops Stack](creator-ops-stack.md). Там зафиксированы безопасный «инженер охвата»,
+faceless-channel prompt, ShareX/QuickLook/Everything workflow и adoption gate для TweakCN,
+Magic UI, SmoothUI и NeoBrutalism.
+
 ## Источники Teamly.to
 
 - [Официальное описание и актуальная цена](https://teamly.to/)

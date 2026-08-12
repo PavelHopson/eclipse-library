@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "totals": {
-    "guides": 31
+    "guides": 32
   },
   "guides": [
     {
@@ -64,6 +64,13 @@
       "name": "claude-design-skills-map",
       "title": "Claude Design Skills: карта применения для Eclipse Forge",
       "description": "Источник: Novitckii · 42 Claude design skills.",
+      "modules": 0,
+      "lessons": 0
+    },
+    {
+      "name": "creator-ops-stack",
+      "title": "Creator Ops Stack: контент, desktop-инструменты и UI без магических обещаний",
+      "description": "Проверено 12.08.2026. Этот гайд превращает подборки со скриншотов в безопасные решения для Eclipse Forge. Каталог не устанавливает приложения, skills, CLI или MCP и не…",
       "modules": 0,
       "lessons": 0
     },

@@ -4,17 +4,17 @@
 
 ## Текущее состояние
 
-- `catalog/resources.json` — канонический structured catalog из 596 уникальных записей;
+- `catalog/resources.json` — канонический structured catalog из 610 уникальных записей;
   `README.md` сокращён до документации и больше не является runtime-источником данных.
 - `web/app.js` — command-first поиск, фильтры, detail view и guide viewer; structured adapter,
   карточки, editorial feed, progressive DOM и evidence-first Inspector вынесены в модули. При старте
-  в DOM создаются только первые 36 карточек вместо всех 596; mobile Inspector открывается как sheet.
-- `web/catalog-index.json` — production schema v2: 157 записей редакторски проверены,
-  439 честно помечены `inferred`, 313 имеют отдельный `addedAt`, даты удалены из category.
-- License layer: у 313 записей лицензия или условия нормализованы с evidence URL,
-  283 ещё требуют отдельного review.
-- Agent policy: 523 записи доступны автоматическим consumers, 73 исключены fail closed;
-  все 66 grey-ресурсов скрыты от recommendations, direct install запрещён для всех записей.
+  в DOM создаются только первые 36 карточек вместо всех 610; mobile Inspector открывается как sheet.
+- `web/catalog-index.json` — production schema v2: 173 записи редакторски проверены,
+  437 честно помечены `inferred`, 327 имеют отдельный `addedAt`, даты удалены из category.
+- License layer: у 329 записей лицензия или условия нормализованы с evidence URL,
+  281 ещё требуют отдельного review.
+- Agent policy: 535 записей доступны автоматическим consumers, 75 исключены fail closed;
+  все 68 grey-ресурсов скрыты от recommendations, direct install запрещён для всех записей.
 - `web/api/v1/` — versioned static exports для full catalog, agents, Eclipse CRM и Eclipse AI;
   consumers больше не должны читать README.
 - `web/star-technology-registry.json` и `web/registry.html` — отдельный read-only decision
@@ -61,6 +61,16 @@
 - [ ] Eclipse Chat / AI Hub / Library: расширить owned Growth OS до Content Command Center P1/L —
       Hook Vault, normalized channel analytics, public-only Competitor Tracker, Planner, Content Plan
       и Trends; source/rights/provenance обязательны, публикация и account access только после approval.
+- [ ] Eclipse AI Hub / Growth OS: встроить Editor Stylist v2 P1/S — три понятных режима,
+      locked facts, voice samples, `claimsChanged`, semantic diff и human approval; без detector bypass.
+- [ ] Eclipse Library / Landing: провести read-only Claude SEO audit P1/M публичных URL с evidence,
+      затем применять исправления отдельными PR и измерять Search Console/conversion.
+- [ ] Eclipse Media / Shotforge: проверить Desktop Creator Kit P2/S — ShareX local-only,
+      QuickLook без plugins, Everything без servers/history и один FocuSee public-demo benchmark;
+      recordings с secrets, client data и automatic cloud upload запрещены.
+- [ ] Eclipse Chat / AI Hub / Landing: провести UI pattern pilot P2/M с TweakCN и одним
+      Magic UI/SmoothUI component — semantic tokens, WCAG, reduced motion, mobile и performance gate;
+      Unlumen/NeoBrutalism остаются только reference.
 - [ ] Hopson Sentinel / AI Hub Security: провести Strix benchmark P1/M только в disposable vulnerable
       lab — pinned source/images, egress и target allowlist, isolated LLM key, ручная проверка findings;
       remote install script, production targets и automatic fixes запрещены.
@@ -240,6 +250,19 @@
 
 ### 2026-08-12
 
+- Разобрана новая подборка из 25 изображений: вместо пяти дубликатов «humanizer»-промптов
+  Editor Stylist обновлён до evidence-preserving workflow с тремя режимами, locked facts,
+  semantic diff и approval. Instagram/faceless claims превращены в 5–10-выпускный эксперимент
+  с baseline, одной переменной, rights review и keep/change/stop, без обещаний охвата, RPM и дохода.
+- Добавлены 14 verified-карточек: Humanizer, Social Media Skills, Claude SEO, FocuSee, ShareX,
+  Flow Launcher, QuickLook, Everything, TweakCN, Unlumen UI, Magic UI, SmoothUI, NeoBrutalism
+  и Manus. Caveman и Claude Ads перепроверены; каталог вырос до 610 материалов, 535 agent-safe.
+- Зафиксированы лицензии и границы: Caveman имеет MIT/BSL split, Everything является freeware,
+  Unlumen source link недоступен, FocuSee/Manus proprietary, Social Media Skills и installers
+  считаются supply-chain input. Social Media Skills, Unlumen и Manus исключены из agent-safe
+  рекомендаций; direct install, OAuth, автопубликация и cloud upload остаются запрещены.
+- Добавлен Creator Ops Stack: проектная матрица Eclipse Forge, Desktop Creator Kit,
+  UI adoption gate, security/rights gate и два copy-ready Growth prompts с доказательным output.
 - Разобраны 28 изображений и два Instagram-поста как отдельные claims, products и workflows. Добавлены
   verified-карточки Microsoft Playwright CLI, Mottor AI, Oakley Meta Vanguard, SkillUI, Strix,
   MassGen и File Search Skill; Anthropic Skills, Superpowers, Eclipse Growth OS и website prompt pack
