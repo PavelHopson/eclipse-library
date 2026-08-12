@@ -26,11 +26,11 @@
 - `web/link-health.json` — безопасный публичный snapshot weekly-аудита: доступность ссылки
   показывается отдельно от редакторского доверия и не считается security endorsement.
 - Deploy: GitHub Actions → VPS/Caddy из ветки `master`.
-- Production синхронизирован с catalog commit `6a48a91`: quality
-  [#31614690259](https://github.com/PavelHopson/eclipse-library/actions/runs/31614690259)
-  и deploy [#31614690085](https://github.com/PavelHopson/eclipse-library/actions/runs/31614690085)
-  от 12.08.2026 успешно завершены. Independent production smoke подтвердил `app.js?v=39`,
-  `registry.js?v=1`, `registry.css?v=1`, 617 материалов, 541 agent-safe запись, 323 repositories,
+- Production синхронизирован с editorial review commit `a0a69e9`: quality
+  [#31621023989](https://github.com/PavelHopson/eclipse-library/actions/runs/31621023989)
+  и deploy [#31621024001](https://github.com/PavelHopson/eclipse-library/actions/runs/31621024001)
+  от 12.08.2026 успешно завершены. Independent production smoke подтвердил `app.js?v=40`,
+  `catalog-review.js?v=1`, `review.css?v=1`, 617 материалов, 541 agent-safe запись, 323 repositories,
   33 guides и 26 решений Eclipse.
   Production Edge QA на 1440×900 и 390×844 подтвердил Human Review search, TabiToken deep link
   и fail-closed решение, отсутствие horizontal overflow, scroll jump, console и network errors.
@@ -279,6 +279,7 @@
   сохранение literal HTML как данных. Local Edge QA на 1440×900 и 390×844 подтвердил persistence
   после reload, XSS payload как текст, clipboard fallback, focus return, 0 horizontal overflow,
   скрытый scrollbar, отсутствие console/network errors и разблокировку body после закрытия.
+- Commit `a0a69e9` опубликован в `origin/master`; quality [#31621023989](https://github.com/PavelHopson/eclipse-library/actions/runs/31621023989) и deploy [#31621024001](https://github.com/PavelHopson/eclipse-library/actions/runs/31621024001) завершены успешно. Independent smoke подтвердил live `app.js?v=40`, `catalog-review.js?v=1` и `review.css?v=1`.
 
 - Проверена подборка из 21 сообщения: первые 11 тем сопоставлены с уже существующими карточками
   и не продублированы. Добавлены восемь verified-записей — Roamers, TabiToken, Human Review,
