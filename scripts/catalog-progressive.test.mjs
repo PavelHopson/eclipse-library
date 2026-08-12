@@ -84,6 +84,11 @@ test('review packet stays local, fail closed and requires every gate', () => {
   assert.equal(packet.catalogMutationAllowed, false);
   assert.equal(packet.review.ready, true);
   assert.equal(packet.review.note, draft.note);
+  assert.equal(packet.schemaVersion, 'eclipse-library.review-packet.v2');
+  assert.equal(packet.preview.autoApply, false);
+  assert.equal(packet.preview.autoMerge, false);
+  assert.equal(packet.preview.autoDeploy, false);
+  assert.match(packet.preview.command, /--base <full-commit-sha>/);
   assert.deepEqual([...packet.resource.evidenceUrls], ['https://example.com/docs']);
   assert.match(packet.nextGate, /full git diff/);
   assert.equal(review.safeHttpUrl('file:///etc/passwd'), '');
@@ -106,6 +111,9 @@ test('app wires lazy descriptors and modules before the main bundle', () => {
   const inspectorScript = html.indexOf('catalog-inspector.js');
   const reviewScript = html.indexOf('catalog-review.js');
   const searchScript = html.indexOf('catalog-search.js');
+  assert.match(html, /catalog-review\.js\?v=2/);
+  assert.match(html, /review\.css\?v=2/);
+  assert.match(reviewSource, /dataset\.reviewDownload/);
   const appScript = html.indexOf('app.js');
   assert.ok(cardScript > 0 && editorialScript > cardScript && progressiveScript > editorialScript && inspectorScript > progressiveScript && reviewScript > inspectorScript && searchScript > reviewScript && appScript > searchScript);
   const navigatorCss = fs.readFileSync(path.join(root, 'web', 'navigator.css'), 'utf8');
@@ -114,4 +122,20 @@ test('app wires lazy descriptors and modules before the main bundle', () => {
   assert.match(navigatorCss, /data-catalog-layout="compact"/);
   assert.match(app, /ensureInspectorSelection\(visibleCards\)/);
   assert.doesNotMatch(fs.readFileSync(path.join(root, 'web', 'catalog-card.js'), 'utf8'), /shields\.io/);
+});
+test('adopts the versioned Eclipse Forge product visual profile locally', () => {
+  const html = fs.readFileSync(path.join(root, 'web', 'index.html'), 'utf8');
+  const css = fs.readFileSync(path.join(root, 'web', 'styles.css'), 'utf8');
+  const tokens = JSON.parse(fs.readFileSync(path.join(root, 'web', 'assets', 'eclipse-forge.tokens.json'), 'utf8'));
+
+  assert.equal(tokens.schemaVersion, 'eclipse-forge.visual-system.v1');
+  assert.ok(tokens.intensityProfiles.includes('product'));
+  assert.match(html, /styles\.css\?v=24/);
+  assert.match(html, /assets\/fonts\/inter-cyrillic\.woff2/);
+  assert.doesNotMatch(html + css, /fonts\.googleapis\.com|fonts\.gstatic\.com/);
+  assert.match(css, /--bg: #05070a;/);
+  assert.match(css, /--gold: #d4af37;/);
+  assert.match(css, /--display: 'Outfit'/);
+  assert.match(css, /@keyframes forgeOrbitPresence/);
+  assert.match(css, /@media \(prefers-reduced-motion: reduce\)/);
 });

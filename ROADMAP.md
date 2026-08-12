@@ -7,8 +7,9 @@
 - `catalog/resources.json` — канонический structured catalog из 617 уникальных записей;
   `README.md` сокращён до документации и больше не является runtime-источником данных.
 - `web/catalog-review.js` и `web/review.css` — собственный локальный editorial review-flow:
-  четыре evidence gates, явный итог, bounded draft, clipboard fallback и copy-ready JSON packet;
-  он не меняет catalog data, не повышает `verified` и не разрешает merge/deploy.
+  четыре evidence gates, явный итог, bounded draft, clipboard fallback и downloadable v2 JSON packet.
+  `scripts/review-preview.mjs` создаёт detached worktree на полном SHA, semantic summary и полный diff;
+  apply к текущей ветке, commit, merge и deploy отсутствуют по контракту.
 - `web/app.js` — command-first поиск, фильтры, detail view и guide viewer; structured adapter,
   карточки, editorial feed, progressive DOM и evidence-first Inspector вынесены в модули. При старте
   в DOM создаются только первые 36 карточек вместо всех 617; mobile Inspector открывается как sheet.
@@ -67,10 +68,11 @@
       и Trends; source/rights/provenance обязательны, публикация и account access только после approval.
 - [ ] Eclipse AI Hub / Growth OS: встроить Editor Stylist v2 P1/S — три понятных режима,
       locked facts, voice samples, `claimsChanged`, semantic diff и human approval; без detector bypass.
-- [ ] Landing / Library / Chat / AI Hub: продолжить Human Review pilot P1/M — собственный Library slice уже реализован:
-      локальный пакет проверки уже fail-closed и не меняет каталог. Осталось связать disposable
-      worktree preview, pinned commit, semantic summary и полный `git diff`; перенос правок только
-      после отдельного approve/reject, visual feedback не заменяет tests, responsive QA и code review.
+- [x] Eclipse Library: завершить owned Human Review pilot P1/M — v2 packet, обязательный полный
+      commit SHA, editorial path allowlist, detached worktree, semantic summary, полный diff,
+      SHA-256 evidence и write-once approve/reject через CLI готовы; auto-apply/merge/deploy отсутствуют.
+- [ ] Landing / Chat / AI Hub: адаптировать Library review protocol P1/L к собственным schemas и
+      disposable previews; не переносить решение вслепую и не расширять path allowlist без threat model.
 - [ ] Eclipse AI Hub / Sentinel / oh-my-claudecode: провести Rejudge benchmark P1/M на synthetic
       fixtures с известными дефектами — только read-only reviewers, provider allowlist, budget/timeout,
       redacted logs и сравнение с одним сильным reviewer; `--unsafe`, `--full` и auto-fix запрещены.
@@ -265,9 +267,25 @@
       self-check, EN/RU copy и без обязательного API key.
 
 ## Changelog
+### 2026-08-12 — Eclipse Forge visual-system pilot
+
+- Applied the `product` profile of `eclipse-forge.visual-system.v1` to Library semantic tokens,
+  typography, eclipse hero and motion while preserving the dense catalog interaction model.
+- Added a local versioned token snapshot and self-hosted Outfit/Inter assets with OFL licenses;
+  the Library does not make runtime font or design-system requests to another origin.
+- Kept all ambient motion behind `prefers-reduced-motion` and avoided new animation dependencies.
 
 ### 2026-08-12
 
+- Завершён owned Human Review pilot для Library: browser review теперь скачивает v2 JSON packet,
+  а `scripts/review-preview.mjs` принимает только полный pinned SHA и недоверенный unified diff,
+  создаёт detached disposable worktree, `semantic-summary.md`, `full.diff` и SHA-256 manifest.
+- Preview fail closed: обязательны четыре evidence gates и итог `approve`; допускается изменение
+  ровно одной существующей карточки и только editorial allowlist. Binary/new/deleted/mode/rename,
+  path traversal, checkout filters, catalog metadata и другие records блокируются до `git apply`.
+- Отдельная команда `decide` записывает approve/reject; approve требует quality/security/responsive
+  и `--confirm-no-auto-merge`. В decision всегда `mergeAllowed: false` и `deployAllowed: false`;
+  cleanup разрешён только после решения и удаляет worktree, сохраняя evidence в `.artifacts/`.
 - Реализован owned editorial review-flow без установки community Human Review CLI: кнопка доступна
   из Inspector и полного анализа, четыре обязательных evidence gates и выбранный итог блокируют
   экспорт до завершения проверки. Copy-ready packet явно содержит `authority: local-review-only`,

@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "totals": {
-    "guides": 33
+    "guides": 34
   },
   "guides": [
     {
@@ -92,6 +92,13 @@
       "name": "star-technology-registry",
       "title": "Eclipse Technology Registry: реестр решений для Eclipse Market, Eclipse CRM и Eclipse AI",
       "description": "Практический контракт между Eclipse Library, админкой Eclipse CRM и сервисами Eclipse AI.",
+      "modules": 0,
+      "lessons": 0
+    },
+    {
+      "name": "editorial-review-preview",
+      "title": "Editorial Review Preview",
+      "description": "Локальный fail-closed preview для изменения одной существующей карточки: pinned commit, semantic summary, полный diff и отдельное write-once решение без auto-merge.",
       "modules": 0,
       "lessons": 0
     },

@@ -1,5 +1,10 @@
 # Eclipse Library
 
+Визуальный слой использует локальный snapshot `eclipse-forge.visual-system.v1` из
+`web/assets/eclipse-forge.tokens.json` в профиле `product`: канонические deep-black,
+warm-gold и signal-blue tokens, self-hosted Outfit/Inter и reduced-motion-safe motion.
+Runtime-зависимости от главного лендинга нет.
+
 Кураторская библиотека AI-инструментов, сервисов, моделей, skills, MCP, промптов, курсов и security-материалов для экосистемы Eclipse Forge.
 
 [Открыть библиотеку](https://library.eclipse-forge.ru/) · [Eclipse Technology Registry](https://library.eclipse-forge.ru/registry.html) · [Каталог проектов](https://library.eclipse-forge.ru/#projects) · [Курсы и гайды](https://library.eclipse-forge.ru/#browse/courses)
@@ -72,10 +77,11 @@ Static exports предназначены для server-side или controlled c
 
 1. Открыть «Полный анализ» или Inspector и нажать «Проверить карточку».
 2. Подтвердить источник, условия, риски и практическую пользу, затем выбрать итог.
-3. Добавить короткую заметку и скопировать structured review packet.
-4. Перед реальным изменением показать semantic summary и полный `git diff`, запустить проверки и отдельно запросить merge approval.
+3. Добавить короткую заметку и скопировать packet или скачать его как JSON.
+4. Для proposal запустить [локальный disposable preview](guides/editorial-review-preview.md) на полном SHA базового commit.
+5. Прочитать semantic summary и полный `git diff`, запустить quality/security/responsive checks и отдельно записать approve/reject.
 
-Draft хранится только в `localStorage` текущего браузера, ограничен 40 карточками и 1600 символами на заметку. Очистка browser data удаляет draft. Если Clipboard API недоступен, интерфейс показывает выделенный JSON для ручного копирования.
+Draft хранится только в `localStorage` текущего браузера, ограничен 40 карточками и 1600 символами на заметку. Очистка browser data удаляет draft. Если Clipboard API недоступен, интерфейс показывает выделенный JSON для ручного копирования. Preview CLI принимает только завершённый v2 packet с итогом `approve`, меняет ровно одну уже существующую карточку и никогда не выполняет auto-apply, merge или deploy.
 
 ## Как добавить или обновить ресурс
 
@@ -115,11 +121,13 @@ Quality workflow проверяет:
 - запрет grey resources в agent exports;
 - запрет direct install;
 - link-health, GitHub metadata, MCP audit и projects schemas;
-- JavaScript syntax, progressive DOM budget в 36 карточек, mobile scroll guards и production smoke contract.
+- JavaScript syntax, progressive DOM budget в 36 карточек, mobile scroll guards и production smoke contract;
+- review packet/patch policy и end-to-end detached worktree lifecycle без mutation/merge/deploy.
 
 ## Документация
 
 - [ROADMAP](ROADMAP.md)
+- [Editorial Review Preview](guides/editorial-review-preview.md)
 - [Eclipse Growth OS](guides/eclipse-growth-os.md)
 - [Creator Ops Stack](guides/creator-ops-stack.md)
 - [Discovery, review и provenance radar](guides/august-2026-discovery-review-security-radar.md)

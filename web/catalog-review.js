@@ -79,7 +79,7 @@
       ? resource.evidence.map((item) => safeHttpUrl(item?.url)).filter(Boolean).slice(0, 12)
       : [];
     return Object.freeze({
-      schemaVersion: 'eclipse-library.review-packet.v1',
+      schemaVersion: 'eclipse-library.review-packet.v2',
       authority: 'local-review-only',
       catalogMutationAllowed: false,
       createdAt: Number.isFinite(Date.parse(createdAt)) ? new Date(createdAt).toISOString() : new Date().toISOString(),
@@ -104,6 +104,15 @@
         checks: Object.fromEntries(CHECKS.map(({ id, label }) => [id, { label, passed: draft.checks[id] === true }])),
         note: draft.note,
         ready: isReady(draft),
+      },
+      preview: {
+        command: 'node scripts/review-preview.mjs prepare --packet <review-packet.json> --patch <proposal.diff> --base <full-commit-sha>',
+        allowedCatalogPath: 'catalog/resources.json',
+        requiresFullCommitSha: true,
+        patchRequired: true,
+        autoApply: false,
+        autoMerge: false,
+        autoDeploy: false,
       },
       nextGate: isReady(draft)
         ? 'Show the semantic summary and full git diff, run quality/security/responsive checks, then request a separate human merge approval.'
@@ -168,12 +177,14 @@
       const progress = completion();
       const progressText = root.querySelector('[data-review-progress]');
       const copyButton = root.querySelector('[data-review-copy]');
+      const downloadButton = root.querySelector('[data-review-download]');
       const counter = root.querySelector('[data-review-note-count]');
       const status = root.querySelector('[data-review-status]');
       if (progressText) progressText.textContent = progress.ready
         ? 'Пакет готов к копированию'
         : `${progress.passed} из ${progress.total} проверок · ${draft.outcome ? 'итог выбран' : 'выберите итог'}`;
       if (copyButton) copyButton.disabled = !progress.ready;
+      if (downloadButton) downloadButton.disabled = !progress.ready;
       if (counter) counter.textContent = `${draft.note.length} / ${NOTE_LIMIT}`;
       if (status) status.textContent = message || (storageAvailable
         ? 'Черновик сохранён только в этом браузере.'
@@ -284,7 +295,12 @@
       const copy = node('button', 'review-copy', 'Скопировать review-пакет');
       copy.type = 'button';
       copy.dataset.reviewCopy = 'true';
-      footer.append(meta, copy);
+      const download = node('button', 'review-download', 'Скачать JSON');
+      download.type = 'button';
+      download.dataset.reviewDownload = 'true';
+      const actions = node('div', 'review-footer-actions');
+      actions.append(download, copy);
+      footer.append(meta, actions);
 
       body.append(intro, snapshot, checklist, outcome, noteLabel, gate, fallback, footer);
       root.append(header, body);
@@ -337,6 +353,22 @@
       }
     }
 
+    function downloadPacket() {
+      if (!isReady(draft)) return;
+      const packet = JSON.stringify(createReviewPacket(resource, draft), null, 2);
+      const blobUrl = URL.createObjectURL(new Blob([`${packet}\n`], { type: 'application/json' }));
+      const link = node('a');
+      link.href = blobUrl;
+      const filenameId = (safeText(resource.id, 80) || 'resource').replace(/[^a-z0-9._-]+/gi, '-');
+      link.download = `eclipse-library-review-${filenameId}.json`;
+      document.body.appendChild(link);
+      link.click();
+      link.remove();
+      URL.revokeObjectURL(blobUrl);
+      updateState('JSON скачан. Для preview нужен отдельный unified diff и полный SHA базового commit.');
+      notify('Review-пакет скачан. Каталог не изменён.');
+    }
+
     root.addEventListener('input', (event) => {
       const note = event.target.closest('[data-review-note]');
       if (!note || !draft) return;
@@ -370,6 +402,7 @@
         return;
       }
       if (event.target.closest('[data-review-copy]')) copyPacket();
+      if (event.target.closest('[data-review-download]')) downloadPacket();
     });
 
     root.addEventListener('keydown', (event) => {

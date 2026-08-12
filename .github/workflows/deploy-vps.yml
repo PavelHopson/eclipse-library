@@ -44,6 +44,8 @@ jobs:
           node scripts/validate-star-technology-registry.mjs
           node --check web/catalog-review.js
           node --check web/registry.js
+          node --check scripts/review-preview-policy.mjs
+          node --check scripts/review-preview.mjs
 
       - name: Build static payload
         run: |
