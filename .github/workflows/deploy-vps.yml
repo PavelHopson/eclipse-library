@@ -42,6 +42,7 @@ jobs:
           node scripts/build-catalog-exports.mjs --check
           node scripts/build-guides-manifest.mjs --check
           node scripts/validate-star-technology-registry.mjs
+          node --check web/catalog-review.js
           node --check web/registry.js
 
       - name: Build static payload

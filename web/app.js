@@ -21,8 +21,9 @@
   const editorialRuntime = window.EclipseCatalogEditorial;
   const progressiveRuntime = window.EclipseCatalogProgressive;
   const inspectorRuntime = window.EclipseCatalogInspector;
+  const reviewRuntime = window.EclipseCatalogReview;
   const searchRuntime = window.EclipseCatalogSearch;
-  if (!cardRuntime || !editorialRuntime || !progressiveRuntime || !inspectorRuntime || !searchRuntime) throw new Error('catalog UI modules are required before app.js');
+  if (!cardRuntime || !editorialRuntime || !progressiveRuntime || !inspectorRuntime || !reviewRuntime || !searchRuntime) throw new Error('catalog UI modules are required before app.js');
   const { canonicalUrl, githubRepoKey, groupsFromItems } = runtime;
   const DECISIONS = {
     now: 'Внедрить сейчас',
@@ -209,6 +210,16 @@
     return button;
   }
 
+  function reviewButton(resource, wide = false) {
+    const button = el('button', `review-button${wide ? ' review-button-wide' : ''}`);
+    button.type = 'button';
+    button.dataset.reviewId = resource.id;
+    button.dataset.reviewTitle = resource.title;
+    button.innerHTML = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h14v16H5zM8 8h8M8 12h5M8 16h3"/></svg><span>Проверить карточку</span>';
+    button.setAttribute('aria-label', `Проверить карточку: ${resource.title}`);
+    return button;
+  }
+
   function updateFavoritesUI() {
     document.querySelectorAll('[data-favorite-key]').forEach((button) => {
       const saved = favorites.has(button.dataset.favoriteKey);
@@ -331,6 +342,11 @@
     clearTimeout(feedbackTimer);
     feedbackTimer = setTimeout(() => { toast.hidden = true; }, 2600);
   }
+  const reviewController = reviewRuntime.createController({
+    root: $('#reviewView'),
+    decisions: DECISIONS,
+    notify: showFeedback,
+  });
   const plain = (s) => (s || '')
     .replace(/!\[[^\]]*\]\([^)]+\)/g, '')
     .replace(/\[([^\]]+)\]\([^)]+\)/g, '$1')
@@ -482,7 +498,7 @@
     return {
       types: TYPES, trust: TRUST, linkHealth: LINK_HEALTH, decisions: DECISIONS,
       risks: RISK, runtime: RUNTIME, cost: COST, signup: SIGNUP,
-      favoriteButton, compareButton,
+      favoriteButton, compareButton, reviewButton,
     };
   }
 
@@ -1500,6 +1516,7 @@
       guideLink.href = `#guide/${encodeURIComponent(r.guide)}`;
       actionSlot.appendChild(guideLink);
     }
+    actionSlot.appendChild(reviewButton(r, true));
     actionSlot.appendChild(favoriteButton(r, true));
     actionSlot.appendChild(compareButton(r, true));
     renderRelatedItems(entry);
@@ -1698,6 +1715,7 @@
       $('#advancedFilters summary').focus();
       return;
     }
+    if (reviewController.isOpen()) return;
     if (e.key === 'Tab' && !$('#compareView').hidden) {
       const focusable = [...$('#compareView').querySelectorAll('a[href], button:not([disabled])')].filter((node) => !node.hidden);
       if (focusable.length) {
@@ -1792,6 +1810,16 @@
       if (card) {
         inspectorReturnFocus = inspect;
         setInspectorSelection(card, { openMobile: true });
+      }
+      return;
+    }
+    const review = event.target.closest('[data-review-id]');
+    if (review) {
+      const card = cards.find((item) => item.resource.id === review.dataset.reviewId);
+      if (card) {
+        const focusTarget = $('#catalogInspector').classList.contains('is-open') ? inspectorReturnFocus : review;
+        closeInspectorSheet({ restoreFocus: false });
+        reviewController.open(card.resource, focusTarget);
       }
       return;
     }

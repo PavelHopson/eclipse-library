@@ -96,10 +96,12 @@ async function fetchText(url) {
 export async function smokeProduction(baseValue, deploySha = '') {
   const base = validateBaseUrl(baseValue);
   const cacheKey = encodeURIComponent(deploySha || Date.now().toString());
-  const [localIndex, localApp, localRuntime, localCatalog, localMetadata, localProjects, localMcpAudit, localGuides, localAgentExport, localRegistryPage, localRegistryScript, localRegistryStyle, localRegistry] = await Promise.all([
+  const [localIndex, localApp, localRuntime, localReview, localReviewStyle, localCatalog, localMetadata, localProjects, localMcpAudit, localGuides, localAgentExport, localRegistryPage, localRegistryScript, localRegistryStyle, localRegistry] = await Promise.all([
     readFile(new URL('web/index.html', repoRoot), 'utf8').then(normalizeTextPayload),
     readFile(new URL('web/app.js', repoRoot), 'utf8').then(normalizeTextPayload),
     readFile(new URL('web/catalog-runtime.js', repoRoot), 'utf8').then(normalizeTextPayload),
+    readFile(new URL('web/catalog-review.js', repoRoot), 'utf8').then(normalizeTextPayload),
+    readFile(new URL('web/review.css', repoRoot), 'utf8').then(normalizeTextPayload),
     readFile(new URL('web/catalog-index.json', repoRoot), 'utf8').then(JSON.parse),
     readFile(new URL('web/github-metadata.json', repoRoot), 'utf8').then(JSON.parse),
     readFile(new URL('web/projects.json', repoRoot), 'utf8').then(JSON.parse),
@@ -126,6 +128,16 @@ export async function smokeProduction(baseValue, deploySha = '') {
   const runtimeUrl = new URL(liveRuntimeAsset, base);
   runtimeUrl.searchParams.set('deploy', cacheKey);
   assert.equal(await fetchText(runtimeUrl), localRuntime, 'Production catalog-runtime.js does not match the deployed commit.');
+  const localReviewAsset = extractVersionedAsset(localIndex, 'catalog-review.js');
+  assert.equal(extractVersionedAsset(liveIndex, 'catalog-review.js'), localReviewAsset, 'Production index references an unexpected review runtime version.');
+  const reviewUrl = new URL(localReviewAsset, base);
+  reviewUrl.searchParams.set('deploy', cacheKey);
+  assert.equal(await fetchText(reviewUrl), localReview, 'Production catalog-review.js does not match the deployed commit.');
+  const localReviewStyleAsset = extractVersionedAsset(localIndex, 'review.css');
+  assert.equal(extractVersionedAsset(liveIndex, 'review.css'), localReviewStyleAsset, 'Production index references an unexpected review style version.');
+  const reviewStyleUrl = new URL(localReviewStyleAsset, base);
+  reviewStyleUrl.searchParams.set('deploy', cacheKey);
+  assert.equal(await fetchText(reviewStyleUrl), localReviewStyle, 'Production review.css does not match the deployed commit.');
   assert.doesNotMatch(liveIndex, /fonts\.googleapis\.com|fonts\.gstatic\.com/, 'Production must not depend on Google Fonts.');
   assertMobileScrollGuard(localApp);
   assertMobileScrollGuard(liveApp);

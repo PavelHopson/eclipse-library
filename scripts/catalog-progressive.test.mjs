@@ -13,6 +13,10 @@ const inspectorSource = fs.readFileSync(path.join(root, 'web', 'catalog-inspecto
 const inspectorContext = { window: {}, URL, encodeURIComponent };
 vm.runInNewContext(inspectorSource, inspectorContext, { filename: 'catalog-inspector.js' });
 const inspector = inspectorContext.window.EclipseCatalogInspector;
+const reviewSource = fs.readFileSync(path.join(root, 'web', 'catalog-review.js'), 'utf8');
+const reviewContext = { window: {}, URL };
+vm.runInNewContext(reviewSource, reviewContext, { filename: 'catalog-review.js' });
+const review = reviewContext.window.EclipseCatalogReview;
 
 test('initial catalog page stays inside the 36-card DOM budget', () => {
   const items = Array.from({ length: 560 }, (_, index) => ({ index }));
@@ -62,6 +66,32 @@ test('inspector exposes evidence-first data and blocks unsafe source URLs', () =
   assert.equal(inspector.createInspectorModel({ ...resource, linkHealth: { status: 'blocked' } }).sourceHref, '');
 });
 
+test('review packet stays local, fail closed and requires every gate', () => {
+  const resource = {
+    id: 'safe-tool', title: 'Safe Tool', url: 'https://example.com/tool', reviewStatus: 'inferred',
+    decision: 'roadmap', riskLevel: 'medium', licenseInfo: { label: 'MIT', requiresReview: false },
+    evidence: [{ url: 'https://example.com/docs' }, { url: 'javascript:alert(1)' }],
+  };
+  const draft = review.emptyDraft(resource.id);
+  draft.outcome = 'approve';
+  assert.equal(review.isReady(draft), false);
+  review.CHECKS.forEach(({ id }) => { draft.checks[id] = true; });
+  draft.note = '<img src=x onerror=alert(1)>\nKeep evidence intact.';
+  assert.equal(review.isReady(draft), true);
+
+  const packet = review.createReviewPacket(resource, draft, '2026-08-12T10:00:00.000Z');
+  assert.equal(packet.authority, 'local-review-only');
+  assert.equal(packet.catalogMutationAllowed, false);
+  assert.equal(packet.review.ready, true);
+  assert.equal(packet.review.note, draft.note);
+  assert.deepEqual([...packet.resource.evidenceUrls], ['https://example.com/docs']);
+  assert.match(packet.nextGate, /full git diff/);
+  assert.equal(review.safeHttpUrl('file:///etc/passwd'), '');
+  const blockedPacket = review.createReviewPacket({ ...resource, linkHealth: { status: 'blocked' } }, draft);
+  assert.equal(blockedPacket.resource.url, '');
+  assert.equal(blockedPacket.resource.sourceBlocked, true);
+});
+
 test('app wires lazy descriptors and modules before the main bundle', () => {
   const app = fs.readFileSync(path.join(root, 'web', 'app.js'), 'utf8');
   const html = fs.readFileSync(path.join(root, 'web', 'index.html'), 'utf8');
@@ -74,9 +104,10 @@ test('app wires lazy descriptors and modules before the main bundle', () => {
   const editorialScript = html.indexOf('catalog-editorial.js');
   const progressiveScript = html.indexOf('catalog-progressive.js');
   const inspectorScript = html.indexOf('catalog-inspector.js');
+  const reviewScript = html.indexOf('catalog-review.js');
   const searchScript = html.indexOf('catalog-search.js');
   const appScript = html.indexOf('app.js');
-  assert.ok(cardScript > 0 && editorialScript > cardScript && progressiveScript > editorialScript && inspectorScript > progressiveScript && searchScript > inspectorScript && appScript > searchScript);
+  assert.ok(cardScript > 0 && editorialScript > cardScript && progressiveScript > editorialScript && inspectorScript > progressiveScript && reviewScript > inspectorScript && searchScript > reviewScript && appScript > searchScript);
   const navigatorCss = fs.readFileSync(path.join(root, 'web', 'navigator.css'), 'utf8');
   assert.match(navigatorCss, /\.catalog-inspector::-webkit-scrollbar \{[^}]*display: none;[^}]*\}/);
   assert.match(navigatorCss, /scrollbar-width: none;/);

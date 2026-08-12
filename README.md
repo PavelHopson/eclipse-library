@@ -30,6 +30,7 @@ README больше не является базой данных и не раз
 | [`web/registry.html`](web/registry.html) | Поиск, product filters, evidence, risks, approval policy и stable deep links для решений Eclipse. |
 | [`web/catalog-card.js`](web/catalog-card.js), [`web/catalog-editorial.js`](web/catalog-editorial.js), [`web/catalog-progressive.js`](web/catalog-progressive.js) | UI-модули карточки, редакционной ленты и progressive DOM; первая страница ограничена 36 карточками. |
 | [`web/catalog-inspector.js`](web/catalog-inspector.js), [`web/navigator.css`](web/navigator.css) | Безопасный evidence-first быстрый обзор и отдельный responsive visual layer Knowledge Navigator. |
+| [`web/catalog-review.js`](web/catalog-review.js), [`web/review.css`](web/review.css) | Локальный editorial review: четыре обязательные проверки, явный итог, ограниченный draft и copy-ready JSON packet без изменения каталога. |
 | [`web/catalog-search.js`](web/catalog-search.js) | Детерминированный RU/EN search planner: синонимы, короткий stopword-list и tolerance к одной опечатке без отправки запросов во внешний сервис. |
 | [`web/api/v1/`](web/api/v1/) | Static JSON exports для внешних consumers и AI-агентов. |
 | [`lists/catalog-legacy-2026-08-03.md`](lists/catalog-legacy-2026-08-03.md) | Read-only архив старого Markdown-каталога; application его не читает. |
@@ -52,6 +53,7 @@ Static exports предназначены для server-side или controlled c
 - В agent exports у всех записей `actions.installFromCatalog` равно `false`.
 - Grey resources остаются доступными для ручного исследования, но не рекомендуются агентами автоматически.
 - External mutations, публикации, платежи и работа с production accounts требуют отдельного human approval.
+- Кнопка «Проверить карточку» создаёт только локальный review-пакет: он не повышает `reviewStatus`, не меняет JSON и не является разрешением на merge или deploy.
 - Наличие ссылки или GitHub license metadata не является security endorsement.
 
 ## Поля записи
@@ -65,6 +67,15 @@ Static exports предназначены для server-side или controlled c
 - trust, risk, limitations, решение Eclipse и применимость к проектам;
 - `agentEligibility` с причинами исключения и fail-closed install policy;
 - ссылку на canonical source record.
+
+## Как проверить карточку локально
+
+1. Открыть «Полный анализ» или Inspector и нажать «Проверить карточку».
+2. Подтвердить источник, условия, риски и практическую пользу, затем выбрать итог.
+3. Добавить короткую заметку и скопировать structured review packet.
+4. Перед реальным изменением показать semantic summary и полный `git diff`, запустить проверки и отдельно запросить merge approval.
+
+Draft хранится только в `localStorage` текущего браузера, ограничен 40 карточками и 1600 символами на заметку. Очистка browser data удаляет draft. Если Clipboard API недоступен, интерфейс показывает выделенный JSON для ручного копирования.
 
 ## Как добавить или обновить ресурс
 

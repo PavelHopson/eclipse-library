@@ -6,6 +6,9 @@
 
 - `catalog/resources.json` — канонический structured catalog из 617 уникальных записей;
   `README.md` сокращён до документации и больше не является runtime-источником данных.
+- `web/catalog-review.js` и `web/review.css` — собственный локальный editorial review-flow:
+  четыре evidence gates, явный итог, bounded draft, clipboard fallback и copy-ready JSON packet;
+  он не меняет catalog data, не повышает `verified` и не разрешает merge/deploy.
 - `web/app.js` — command-first поиск, фильтры, detail view и guide viewer; structured adapter,
   карточки, editorial feed, progressive DOM и evidence-first Inspector вынесены в модули. При старте
   в DOM создаются только первые 36 карточек вместо всех 617; mobile Inspector открывается как sheet.
@@ -64,9 +67,10 @@
       и Trends; source/rights/provenance обязательны, публикация и account access только после approval.
 - [ ] Eclipse AI Hub / Growth OS: встроить Editor Stylist v2 P1/S — три понятных режима,
       locked facts, voice samples, `claimsChanged`, semantic diff и human approval; без detector bypass.
-- [ ] Landing / Library / Chat / AI Hub: провести Human Review pilot P1/M в disposable worktree —
-      bounded review root без secrets, pinned commit, semantic summary, полный `git diff` и явный
-      approve/reject; visual feedback не заменяет tests, responsive QA и code review.
+- [ ] Landing / Library / Chat / AI Hub: продолжить Human Review pilot P1/M — собственный Library slice уже реализован:
+      локальный пакет проверки уже fail-closed и не меняет каталог. Осталось связать disposable
+      worktree preview, pinned commit, semantic summary и полный `git diff`; перенос правок только
+      после отдельного approve/reject, visual feedback не заменяет tests, responsive QA и code review.
 - [ ] Eclipse AI Hub / Sentinel / oh-my-claudecode: провести Rejudge benchmark P1/M на synthetic
       fixtures с известными дефектами — только read-only reviewers, provider allowlist, budget/timeout,
       redacted logs и сравнение с одним сильным reviewer; `--unsafe`, `--full` и auto-fix запрещены.
@@ -263,6 +267,18 @@
 ## Changelog
 
 ### 2026-08-12
+
+- Реализован owned editorial review-flow без установки community Human Review CLI: кнопка доступна
+  из Inspector и полного анализа, четыре обязательных evidence gates и выбранный итог блокируют
+  экспорт до завершения проверки. Copy-ready packet явно содержит `authority: local-review-only`,
+  `catalogMutationAllowed: false` и следующий gate с semantic summary, полным diff и отдельным approval.
+- Review draft хранится только в текущем browser `localStorage`, ограничен 40 карточками и 1600
+  символами заметки. Любая заметка выводится через `textContent`/`value`; URL допускают только HTTP(S)
+  без credentials. Clipboard failure показывает read-only выделенный JSON, очистка требует подтверждения.
+- CI/deploy проверяют syntax нового модуля, regression test фиксирует fail-closed gates, unsafe URL и
+  сохранение literal HTML как данных. Local Edge QA на 1440×900 и 390×844 подтвердил persistence
+  после reload, XSS payload как текст, clipboard fallback, focus return, 0 horizontal overflow,
+  скрытый scrollbar, отсутствие console/network errors и разблокировку body после закрытия.
 
 - Проверена подборка из 21 сообщения: первые 11 тем сопоставлены с уже существующими карточками
   и не продублированы. Добавлены восемь verified-записей — Roamers, TabiToken, Human Review,

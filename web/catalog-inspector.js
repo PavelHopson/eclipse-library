@@ -162,7 +162,7 @@
     root.appendChild(actions);
 
     const localActions = node('div', 'inspector-local-actions');
-    localActions.append(context.favoriteButton(resource, true), context.compareButton(resource, true));
+    localActions.append(context.reviewButton(resource, true), context.favoriteButton(resource, true), context.compareButton(resource, true));
     root.appendChild(localActions);
     return model;
   }

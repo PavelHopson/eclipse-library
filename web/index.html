@@ -16,6 +16,7 @@
   <link rel="preload" href="assets/fonts/manrope-latin.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="stylesheet" href="styles.css?v=23" />
   <link rel="stylesheet" href="navigator.css?v=3" />
+  <link rel="stylesheet" href="review.css?v=1" />
 </head>
 <body>
   <a class="skip" href="#results">Перейти к каталогу</a>
@@ -310,6 +311,8 @@
     <article id="itemBody" class="item-body"></article>
   </section>
 
+  <section id="reviewView" class="review-overlay" hidden role="dialog" aria-modal="true" aria-label="Локальная проверка карточки"></section>
+
   <button id="toTop" class="to-top" type="button" hidden aria-label="Наверх">↑</button>
 
   <footer class="footer">
@@ -320,8 +323,9 @@
   <script src="catalog-card.js?v=2"></script>
   <script src="catalog-editorial.js?v=1"></script>
   <script src="catalog-progressive.js?v=1"></script>
-  <script src="catalog-inspector.js?v=2"></script>
+  <script src="catalog-inspector.js?v=3"></script>
+  <script src="catalog-review.js?v=1"></script>
   <script src="catalog-search.js?v=1"></script>
-  <script src="app.js?v=39"></script>
+  <script src="app.js?v=40"></script>
 </body>
 </html>

@@ -31,6 +31,7 @@ jobs:
           node --check web/catalog-card.js
           node --check web/catalog-editorial.js
           node --check web/catalog-progressive.js
+          node --check web/catalog-review.js
           node --check web/app.js
           node --check web/registry.js
       - name: Validate structured catalog
