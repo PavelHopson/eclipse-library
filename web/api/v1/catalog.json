@@ -1,18 +1,18 @@
 {
   "schemaVersion": 2,
-  "sourceHash": "5e3e0f1388c09fd2c9125de97ba0ae95a68d0aa58ac69be842b8eec3b52c2523",
+  "sourceHash": "cca6de949a7ce0454ebcd23230643b8ebb7f154d66132253cb7056d11aadd5e9",
   "policy": {
     "directInstallForbidden": true
   },
   "totals": {
-    "all": 589,
-    "verified": 147,
-    "inferred": 442,
+    "all": 596,
+    "verified": 157,
+    "inferred": 439,
     "licenseReviewRequired": 283,
-    "agentSafe": 516,
+    "agentSafe": 523,
     "agentExcluded": 73,
     "grey": 66,
-    "withAddedAt": 306
+    "withAddedAt": 313
   },
   "items": [
     {
@@ -4429,36 +4429,58 @@
       "type": "prompt",
       "category": "AI & Claude Code",
       "subcategory": "Промпт-коллекции",
-      "simpleDescription": "⚡ Vibe Coding — мастер-промпты для сайтов — Два мастер-промпта: прямая генерация кода сайта (Next.js 14/15 + TS + Tailwind + shadcn/ui, Schema.org SEO, Error Boundaries) и AI-агент «WebCraft», который ведёт клиента по брифу и выдаёт готовый код. Вычищено + курор-фиксы (депрекейт source.unsplash.com → picsum.photos, обобщены имена моделей). Фит: быстрый каркас лендингов Eclipse Forge. Карточка помогает понять назначение ресурса и начать с небольшой безопасной проверки; условия использования ещё нужно сверить с официальным источником.",
+      "simpleDescription": "Редакционный prompt pack Eclipse Forge для сайтов: business brief, SaaS-структура, двенадцать осмысленных visual directions, production gates и мастер-промпты для coding agents. Он помогает выбрать дизайн по задаче продукта, а не копировать glassmorphism, Apple-style или neon только потому, что они выглядят эффектно.",
       "useCases": [
-        "Разобраться, подходит ли ⚡ Vibe Coding — мастер-промпты для сайтов для вашей задачи",
-        "Проверить возможности на небольшом тестовом сценарии до интеграции"
+        "Собрать SaaS landing, который последовательно объясняет ценность, доказательства, работу продукта и следующий шаг",
+        "Выбрать одну из 12 visual directions по аудитории, brand constraints и conversion task",
+        "Передать coding agent проверяемый brief с loading, empty, error, responsive, accessibility и security states",
+        "Использовать для Eclipse Forge Landing и отдельных product pages без копирования чужих макетов и assets"
       ],
       "platforms": [
-        "Web"
+        "Markdown",
+        "Claude Code",
+        "Codex",
+        "ChatGPT",
+        "Gemini"
       ],
-      "license": "Нужно проверить в официальном источнике",
-      "pricing": "Исходный код доступен публично; hosting, модели и внешние API могут оплачиваться отдельно",
+      "license": "Авторский редакционный prompt pack Eclipse Forge; референсные изображения не включены и сохраняют права их владельцев.",
+      "licenseEvidence": [
+        {
+          "kind": "source",
+          "label": "Canonical Eclipse Library prompt pack",
+          "url": "https://github.com/PavelHopson/eclipse-library/blob/master/prompts/vibe-coding-website-prompts.md"
+        }
+      ],
+      "pricing": "Prompt pack бесплатный; выбранные AI providers, fonts, media, hosting и analytics могут оплачиваться отдельно.",
       "access": {
         "cost": "free",
-        "signup": "unknown",
-        "runtime": "cloud"
+        "signup": "none",
+        "runtime": "hybrid"
       },
-      "trust": "community",
-      "trustReason": "Запись структурирована автоматически из опубликованного описания. Официальный источник, лицензия и условия ещё не прошли отдельную редакторскую проверку.",
-      "projects": [],
-      "decision": "reference",
+      "trust": "official",
+      "trustReason": "Материал подготовлен и проверен редакцией Eclipse Library. Двенадцать стилей из изображения переработаны в constraints-driven briefs; картинки и рекламные обещания не копируются и не считаются evidence.",
+      "projects": [
+        "Eclipse Forge Landing",
+        "Eclipse Library",
+        "Eclipse Chat",
+        "Eclipse AI Hub",
+        "Eclipse DnD Forge",
+        "Educator-AI"
+      ],
+      "decision": "now",
       "riskLevel": "medium",
       "risks": [
-        "Лицензия, цена, permissions и обработка данных могут отличаться от краткого описания."
+        "Стиль без product brief создаёт красивый, но непонятный интерфейс и снижает conversion.",
+        "AI может скопировать узнаваемую композицию, trademark, текст или изображение из reference; нужны originality и rights review.",
+        "Сгенерированный код не является production-ready без mobile, accessibility, performance, security и claim audit."
       ],
-      "verifiedAt": null,
+      "verifiedAt": "2026-08-12",
       "quickStart": [
-        "Откройте официальный источник и проверьте владельца, лицензию и дату обновления.",
-        "Не передавайте secrets или рабочие данные; начните с пустого тестового проекта.",
-        "Сравните результат с текущим способом работы и только потом решайте об интеграции."
+        "Заполнить audience, problem, promised outcome, evidence, primary CTA и ограничения бренда.",
+        "Выбрать одну visual direction и объяснить, почему она помогает задаче; не смешивать все стили сразу.",
+        "Собрать wireframe, затем код; пройти checklist AI Landing Sprint и human approval до deploy."
       ],
-      "reviewStatus": "inferred",
+      "reviewStatus": "verified",
       "source": {
         "file": "catalog/resources.json",
         "key": "vibe-coding-мастер-промпты-для-сайтов-github-com",
@@ -4472,16 +4494,16 @@
       "addedAt": null,
       "catalogOrder": 238,
       "licenseInfo": {
-        "label": "Нужно проверить в официальном источнике",
-        "original": "Нужно проверить в официальном источнике",
+        "label": "Авторский редакционный prompt pack Eclipse Forge; референсные изображения не включены и сохраняют права их владельцев.",
+        "original": "Авторский редакционный prompt pack Eclipse Forge; референсные изображения не включены и сохраняют права их владельцев.",
         "spdx": null,
-        "kind": "unknown",
-        "status": "unverified",
-        "requiresReview": true,
+        "kind": "custom",
+        "status": "editor-reviewed",
+        "requiresReview": false,
         "evidence": [
           {
-            "kind": "official-source",
-            "label": "Официальный источник; точные условия ещё нужно сверить",
+            "kind": "source",
+            "label": "Canonical Eclipse Library prompt pack",
             "url": "https://github.com/PavelHopson/eclipse-library/blob/master/prompts/vibe-coding-website-prompts.md"
           }
         ]
@@ -6931,37 +6953,68 @@
       "title": "Anthropic Skills",
       "type": "skill",
       "category": "AI & Claude Code",
-      "subcategory": "Оркестрация и агенты",
-      "simpleDescription": "Anthropic Skills — Официальный репозиторий скиллов от Anthropic — каноничные паттерны. Карточка помогает понять назначение ресурса и начать с небольшой безопасной проверки; условия использования ещё нужно сверить с официальным источником.",
+      "subcategory": "Официальные skills и рабочие процессы",
+      "simpleDescription": "Anthropic Skills — официальный репозиторий примеров skills для Claude. В нём есть frontend-design, algorithmic-art, canvas-design, theme-factory, web-artifacts-builder и skill-creator, а также document skills с отдельными условиями. Это не «прошивка, которая навсегда делает Claude лучше», а проверяемые инструкции, scripts и assets, которые агент подключает для конкретной задачи.",
       "useCases": [
-        "Разобраться, подходит ли Anthropic Skills для вашей задачи",
-        "Проверить возможности на небольшом тестовом сценарии до интеграции"
+        "Задать осмысленное визуальное направление до генерации frontend и избежать одинакового AI-дизайна",
+        "Создавать posters, covers, infographics и другие design deliverables по заданной системе",
+        "Собирать интерактивные web artifacts и повторяемые workflows с тестами и evaluation criteria",
+        "Использовать skill-creator как reference для внутренних Eclipse skills с versioning, review и regression tests"
       ],
       "platforms": [
-        "Web"
+        "Claude Code",
+        "Claude Desktop",
+        "GitHub",
+        "Local files"
       ],
-      "license": "Нужно проверить в официальном источнике",
-      "pricing": "Исходный код доступен публично; hosting, модели и внешние API могут оплачиваться отдельно",
+      "license": "Большинство example skills имеют Apache-2.0 в собственных каталогах; document skills используют source-available terms и separate license. Лицензию нужно проверять для каждого выбранного skill отдельно.",
+      "licenseEvidence": [
+        {
+          "kind": "license",
+          "label": "Official repository license guidance",
+          "url": "https://github.com/anthropics/skills#license"
+        },
+        {
+          "kind": "license",
+          "label": "frontend-design Apache-2.0 license",
+          "url": "https://github.com/anthropics/skills/blob/main/skills/frontend-design/LICENSE.txt"
+        },
+        {
+          "kind": "source",
+          "label": "Official plugin installation guidance",
+          "url": "https://github.com/anthropics/skills#using-these-skills"
+        }
+      ],
+      "pricing": "Репозиторий доступен бесплатно; использование Claude, внешних моделей, browser tools и compute оплачивается по условиям выбранной среды.",
       "access": {
         "cost": "free",
-        "signup": "unknown",
-        "runtime": "cloud"
+        "signup": "optional",
+        "runtime": "hybrid"
       },
-      "trust": "community",
-      "trustReason": "Запись структурирована автоматически из опубликованного описания. Официальный источник, лицензия и условия ещё не прошли отдельную редакторскую проверку.",
-      "projects": [],
-      "decision": "reference",
+      "trust": "official",
+      "trustReason": "Владелец источника — Anthropic. Структура репозитория, отдельные LICENSE.txt и актуальный plugin flow проверены 12.08.2026. Ускорение в 3–4 раза и гарантированное agency-level качество из карусели официально не подтверждены.",
+      "projects": [
+        "Eclipse Forge Landing",
+        "Eclipse Library",
+        "Eclipse AI Hub",
+        "Eclipse Media",
+        "Shotforge",
+        "oh-my-claudecode"
+      ],
+      "decision": "now",
       "riskLevel": "medium",
       "risks": [
-        "Лицензия, цена, permissions и обработка данных могут отличаться от краткого описания."
+        "Skill является исполняемой инструкцией для агента: до подключения нужно читать SKILL.md, scripts, hooks и разрешения как untrusted supply-chain input.",
+        "Лицензии смешанные: нельзя автоматически переносить условия одного каталога на весь repository.",
+        "Сгенерированный UI, код и дизайн всё равно требуют accessibility, mobile, security, rights и product review; skill не является доказательством качества."
       ],
-      "verifiedAt": null,
+      "verifiedAt": "2026-08-12",
       "quickStart": [
-        "Откройте официальный источник и проверьте владельца, лицензию и дату обновления.",
-        "Не передавайте secrets или рабочие данные; начните с пустого тестового проекта.",
-        "Сравните результат с текущим способом работы и только потом решайте об интеграции."
+        "Выбрать один skill под конкретный deliverable и проверить его собственный LICENSE.txt, SKILL.md, scripts и assets.",
+        "Запустить на пустом test project без secrets и production accounts; разрешить только необходимые read/write paths.",
+        "Проверить output обычными gates проекта. Каталог не выполняет установку и не рекомендует устаревшую команду /install-github-skill из изображения."
       ],
-      "reviewStatus": "inferred",
+      "reviewStatus": "verified",
       "source": {
         "file": "catalog/resources.json",
         "key": "anthropic-skills-github-com",
@@ -6975,17 +7028,27 @@
       "addedAt": null,
       "catalogOrder": 305,
       "licenseInfo": {
-        "label": "Нужно проверить в официальном источнике",
-        "original": "Нужно проверить в официальном источнике",
+        "label": "Большинство example skills имеют Apache-2.0 в собственных каталогах; document skills используют source-available terms и separate license. Лицензию нужно проверять для каждого выбранного skill отдельно.",
+        "original": "Большинство example skills имеют Apache-2.0 в собственных каталогах; document skills используют source-available terms и separate license. Лицензию нужно проверять для каждого выбранного skill отдельно.",
         "spdx": null,
-        "kind": "unknown",
-        "status": "unverified",
-        "requiresReview": true,
+        "kind": "custom",
+        "status": "editor-reviewed",
+        "requiresReview": false,
         "evidence": [
           {
-            "kind": "official-source",
-            "label": "Официальный источник; точные условия ещё нужно сверить",
-            "url": "https://github.com/anthropics/skills"
+            "kind": "license",
+            "label": "Official repository license guidance",
+            "url": "https://github.com/anthropics/skills#license"
+          },
+          {
+            "kind": "license",
+            "label": "frontend-design Apache-2.0 license",
+            "url": "https://github.com/anthropics/skills/blob/main/skills/frontend-design/LICENSE.txt"
+          },
+          {
+            "kind": "source",
+            "label": "Official plugin installation guidance",
+            "url": "https://github.com/anthropics/skills#using-these-skills"
           }
         ]
       },
@@ -6994,6 +7057,21 @@
           "kind": "official-source",
           "label": "Официальный источник",
           "url": "https://github.com/anthropics/skills"
+        },
+        {
+          "kind": "license",
+          "label": "Official repository license guidance",
+          "url": "https://github.com/anthropics/skills#license"
+        },
+        {
+          "kind": "license",
+          "label": "frontend-design Apache-2.0 license",
+          "url": "https://github.com/anthropics/skills/blob/main/skills/frontend-design/LICENSE.txt"
+        },
+        {
+          "kind": "source",
+          "label": "Official plugin installation guidance",
+          "url": "https://github.com/anthropics/skills#using-these-skills"
         }
       ],
       "agentEligibility": {
@@ -7088,39 +7166,64 @@
       "id": "superpowers-github-com",
       "url": "https://github.com/obra/superpowers",
       "title": "Superpowers",
-      "type": "prompt",
+      "type": "skill",
       "category": "AI & Claude Code",
-      "subcategory": "Оркестрация и агенты",
-      "simpleDescription": "Superpowers — Фреймворк навыков и методология разработки для Claude Code / Codex / Cursor: brainstorm → plan → implement, TDD, YAGNI, DRY. Полезен, когда задача расползается и агенту нужна дисциплина, а не ещё один “магический” промпт. Карточка помогает понять назначение ресурса и начать с небольшой безопасной проверки; условия использования ещё нужно сверить с официальным источником.",
+      "subcategory": "Инженерный workflow для coding agents",
+      "simpleDescription": "Superpowers — MIT-licensed набор skills и plugin workflow от Jesse Vincent для дисциплинированной разработки с coding agents. Он раскладывает работу на brainstorming, план, implementation, tests, debugging и review. Это не автономная гарантия результата: агент всё равно нуждается в понятном scope, проверках и разрешениях.",
       "useCases": [
-        "Разобраться, подходит ли Superpowers для вашей задачи",
-        "Проверить возможности на небольшом тестовом сценарии до интеграции"
+        "Применять systematic debugging: определить границу компонента, добавить targeted logging, изолировать root cause и проверить fix",
+        "Вести задачу через согласованный plan, небольшие изменения, TDD и code review",
+        "Использовать отдельные worktrees или subagents для независимых частей без смешивания изменений",
+        "Сделать повторяемый engineering workflow для Hopson Sentinel и oh-my-claudecode"
       ],
       "platforms": [
-        "Web"
+        "Claude Code",
+        "Codex",
+        "OpenCode",
+        "GitHub"
       ],
       "license": "MIT",
-      "pricing": "Исходный код доступен публично; hosting, модели и внешние API могут оплачиваться отдельно",
+      "licenseEvidence": [
+        {
+          "kind": "license",
+          "label": "Official MIT license",
+          "url": "https://github.com/obra/superpowers/blob/main/LICENSE"
+        },
+        {
+          "kind": "source",
+          "label": "Official README and installation paths",
+          "url": "https://github.com/obra/superpowers#installation"
+        }
+      ],
+      "pricing": "Исходный код бесплатный; модель, CI и sandbox compute оплачиваются отдельно по выбранной среде.",
       "access": {
         "cost": "free",
-        "signup": "unknown",
-        "runtime": "cloud"
+        "signup": "none",
+        "runtime": "local"
       },
       "trust": "community",
-      "trustReason": "Запись структурирована автоматически из опубликованного описания. Официальный источник, лицензия и условия ещё не прошли отдельную редакторскую проверку.",
-      "projects": [],
-      "decision": "reference",
+      "trustReason": "Официальный upstream repository, MIT license, plugin manifests и инструкции проверены 12.08.2026. Заявления карусели про автономную работу часами и сокращение времени исправления бага до 15–30 минут рассматриваются как маркетинговые примеры, а не гарантированные benchmark results.",
+      "projects": [
+        "Hopson Sentinel",
+        "oh-my-claudecode",
+        "Eclipse AI Hub",
+        "Eclipse Chat",
+        "Educator-AI"
+      ],
+      "decision": "now",
       "riskLevel": "medium",
       "risks": [
-        "Лицензия, цена, permissions и обработка данных могут отличаться от краткого описания."
+        "Skills, hooks и agent delegation расширяют поверхность действий; нужно проверить repository, pin версии и ограничить filesystem/network permissions.",
+        "Следование процессу не заменяет проверку требований, security review и human ownership результата.",
+        "Параллельные agents и worktrees увеличивают стоимость и риск конфликтов, если задача плохо декомпозирована."
       ],
-      "verifiedAt": null,
+      "verifiedAt": "2026-08-12",
       "quickStart": [
-        "Откройте официальный источник и проверьте владельца, лицензию и дату обновления.",
-        "Не передавайте secrets или рабочие данные; начните с пустого тестового проекта.",
-        "Сравните результат с текущим способом работы и только потом решайте об интеграции."
+        "Прочитать plugin manifest, skills и hooks; выбрать только нужный workflow и pin проверенный commit или release.",
+        "Проверить на synthetic repository без secrets с малым token budget и запретом внешних mutations.",
+        "Сравнить defect rate, ручные исправления, время и стоимость с текущим процессом; каталог ничего не устанавливает автоматически."
       ],
-      "reviewStatus": "inferred",
+      "reviewStatus": "verified",
       "source": {
         "file": "catalog/resources.json",
         "key": "superpowers-github-com",
@@ -7135,7 +7238,7 @@
       "catalogOrder": 307,
       "licenseInfo": {
         "label": "MIT",
-        "original": "Нужно проверить в официальном источнике",
+        "original": "MIT",
         "spdx": "MIT",
         "kind": "open-source",
         "status": "source-declared",
@@ -7145,6 +7248,16 @@
             "kind": "license",
             "label": "MIT license",
             "url": "https://api.github.com/repos/obra/superpowers/license"
+          },
+          {
+            "kind": "license",
+            "label": "Official MIT license",
+            "url": "https://github.com/obra/superpowers/blob/main/LICENSE"
+          },
+          {
+            "kind": "source",
+            "label": "Official README and installation paths",
+            "url": "https://github.com/obra/superpowers#installation"
           }
         ]
       },
@@ -7158,6 +7271,16 @@
           "kind": "license",
           "label": "MIT license",
           "url": "https://api.github.com/repos/obra/superpowers/license"
+        },
+        {
+          "kind": "license",
+          "label": "Official MIT license",
+          "url": "https://github.com/obra/superpowers/blob/main/LICENSE"
+        },
+        {
+          "kind": "source",
+          "label": "Official README and installation paths",
+          "url": "https://github.com/obra/superpowers#installation"
         }
       ],
       "agentEligibility": {
@@ -35011,7 +35134,7 @@
       "platforms": [
         "Web"
       ],
-      "license": "MIT",
+      "license": "Нужно проверить в официальном источнике",
       "pricing": "Исходный код доступен публично; hosting, модели и внешние API могут оплачиваться отдельно",
       "access": {
         "cost": "free",
@@ -35046,16 +35169,16 @@
       "addedAt": "2026-07-02",
       "catalogOrder": 1836,
       "licenseInfo": {
-        "label": "MIT",
+        "label": "Нужно проверить в официальном источнике",
         "original": "Нужно проверить в официальном источнике",
-        "spdx": "MIT",
-        "kind": "open-source",
-        "status": "source-declared",
-        "requiresReview": false,
+        "spdx": null,
+        "kind": "unknown",
+        "status": "unverified",
+        "requiresReview": true,
         "evidence": [
           {
             "kind": "license",
-            "label": "MIT license",
+            "label": "Other license",
             "url": "https://api.github.com/repos/juliusbrussee/caveman/license"
           }
         ]
@@ -35068,7 +35191,7 @@
         },
         {
           "kind": "license",
-          "label": "MIT license",
+          "label": "Other license",
           "url": "https://api.github.com/repos/juliusbrussee/caveman/license"
         }
       ],
@@ -43773,7 +43896,8 @@
         "Проверять каждый claim по official source, live, commit, test или benchmark до публикации",
         "Собрать lead magnet и conversion path от Library или product demo до целевого обращения",
         "Скопировать семь готовых промптов для strategy, calendar, audit, ideas, metrics, funnel и Claim Auditor",
-        "Запустить собственный Growth Command Room в Eclipse Chat с execution-ролями Eclipse AI Hub"
+        "Запустить собственный Growth Command Room в Eclipse Chat с execution-ролями Eclipse AI Hub",
+        "Собрать Content Command Center: база хуков, доказательная аналитика, наблюдение за конкурентами, календарь, тренды и approval queue"
       ],
       "platforms": [
         "Web",
@@ -43790,7 +43914,7 @@
         "runtime": "cloud"
       },
       "trust": "official",
-      "trustReason": "Материал подготовлен и проверен редакцией Eclipse Library для собственной экосистемы. Рекламные claims со скриншотов исключены; Teamly сохранён только как проверенный архитектурный reference, а рабочий контур проектируется как owned Eclipse service.",
+      "trustReason": "Материал подготовлен и повторно проверен редакцией Eclipse Library 12.08.2026. Рекламные claims со скриншотов исключены; авто-парсинг, Zernio MCP и автономная публикация не приняты за подтверждённые или безопасные возможности. Teamly сохранён только как архитектурный reference, а рабочий контур проектируется как owned Eclipse service.",
       "projects": [
         "Eclipse Forge Landing",
         "Eclipse Library",
@@ -43806,9 +43930,10 @@
         "LLM может придумать аналитику, customer insight или product claim, если не приложены данные и первичные источники",
         "Автоматическая публикация способна выпустить ошибочный, чувствительный или юридически рискованный материал",
         "Vanity metrics могут замаскировать отсутствие product usage и qualified leads",
-        "Cloud AI и marketing SaaS не должны получать secrets, client data или user-level analytics без отдельной правовой и privacy проверки"
+        "Cloud AI и marketing SaaS не должны получать secrets, client data или user-level analytics без отдельной правовой и privacy проверки",
+        "Сбор публикаций конкурентов должен соблюдать Terms, robots, rate limits и авторские права; приватные сессии и обход ограничений запрещены"
       ],
-      "verifiedAt": "2026-08-03",
+      "verifiedAt": "2026-08-12",
       "quickStart": [
         "Открыть guide и зафиксировать один audience segment, одну проблему, один product outcome и baseline",
         "Выбрать реальный release или case с live, commit, test, screenshot или official source",
@@ -50229,6 +50354,915 @@
           "kind": "source",
           "label": "Official Kuaishou Q1 2026 disclosure",
           "url": "https://ir.kuaishou.com/static-files/51eda7e7-a9e8-43c1-b688-43f131104d98"
+        }
+      ],
+      "agentEligibility": {
+        "eligible": true,
+        "reasons": [],
+        "installAllowed": false
+      }
+    },
+    {
+      "id": "microsoft-playwright-cli",
+      "url": "https://github.com/microsoft/playwright-cli",
+      "title": "Microsoft Playwright CLI",
+      "type": "tool",
+      "category": "Разработка и тестирование",
+      "subcategory": "Browser automation для coding agents",
+      "simpleDescription": "Playwright CLI — официальный Apache-2.0 инструмент Microsoft для управления браузером из терминала и coding agents. Он сохраняет browser sessions, выдаёт accessibility snapshots и позволяет агенту тестировать интерфейс короткими командами. Для routine QA он обычно экономнее по контексту, чем постоянно передавать весь browser tool schema через MCP.",
+      "useCases": [
+        "Проверять desktop и mobile сценарии Eclipse Library, Landing, Chat и DnD Forge",
+        "Снимать snapshots, screenshots и traces для воспроизводимого UI review",
+        "Запускать bounded smoke flows по собственным staging URL без production аккаунтов",
+        "Сравнить CLI и Playwright MCP по token cost, стабильности и покрытию"
+      ],
+      "platforms": [
+        "CLI",
+        "Windows",
+        "macOS",
+        "Linux",
+        "Coding agents"
+      ],
+      "license": "Apache-2.0",
+      "licenseEvidence": [
+        {
+          "kind": "license",
+          "label": "Official Apache-2.0 license",
+          "url": "https://github.com/microsoft/playwright-cli/blob/main/LICENSE"
+        },
+        {
+          "kind": "source",
+          "label": "Official agent and CLI documentation",
+          "url": "https://github.com/microsoft/playwright-cli#readme"
+        }
+      ],
+      "pricing": "Бесплатный open-source CLI; CI runners, browsers и hosting оплачиваются отдельно.",
+      "access": {
+        "cost": "free",
+        "signup": "none",
+        "runtime": "local"
+      },
+      "trust": "official",
+      "trustReason": "Официальный repository Microsoft, Apache-2.0 и актуальная документация проверены 12.08.2026. Отдельная карточка нужна: Playwright CLI не является дублем Playwright core или Playwright MCP и оптимизирован под coding-agent workflow.",
+      "projects": [
+        "Eclipse Library",
+        "Eclipse Forge Landing",
+        "Eclipse Chat",
+        "Eclipse DnD Forge",
+        "Educator-AI",
+        "oh-my-claudecode"
+      ],
+      "decision": "now",
+      "riskLevel": "medium",
+      "risks": [
+        "Persistent browser profiles могут содержать cookies и токены; для агента нужен отдельный disposable profile без личных аккаунтов.",
+        "Содержимое сайта является untrusted input и может содержать prompt injection; browser executor не должен получать secrets или широкий workspace access.",
+        "Submit, публикация, покупка, удаление и изменение аккаунта требуют отдельного human approval."
+      ],
+      "verifiedAt": "2026-08-12",
+      "quickStart": [
+        "Pin проверенную версию и изучить package/repository до установки; каталог не выполняет install.",
+        "Запустить на owned staging URL в отдельном profile с domain allowlist и без production credentials.",
+        "Зафиксировать desktop/mobile smoke, trace, console и network errors; mutations оставить выключенными."
+      ],
+      "reviewStatus": "verified",
+      "addedAt": "2026-08-12",
+      "guide": "ai-landing-sprint",
+      "source": {
+        "file": "catalog/resources.json",
+        "key": "microsoft-playwright-cli",
+        "legacy": {
+          "file": "user-images",
+          "line": 2486,
+          "category": "Разработка и тестирование",
+          "subcategory": "Browser automation для coding agents"
+        }
+      },
+      "catalogOrder": 2486,
+      "licenseInfo": {
+        "label": "Apache-2.0",
+        "original": "Apache-2.0",
+        "spdx": "Apache-2.0",
+        "kind": "open-source",
+        "status": "source-declared",
+        "requiresReview": false,
+        "evidence": [
+          {
+            "kind": "license",
+            "label": "Apache-2.0 license",
+            "url": "https://api.github.com/repos/microsoft/playwright-cli/license"
+          },
+          {
+            "kind": "license",
+            "label": "Official Apache-2.0 license",
+            "url": "https://github.com/microsoft/playwright-cli/blob/main/LICENSE"
+          },
+          {
+            "kind": "source",
+            "label": "Official agent and CLI documentation",
+            "url": "https://github.com/microsoft/playwright-cli#readme"
+          }
+        ]
+      },
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://github.com/microsoft/playwright-cli"
+        },
+        {
+          "kind": "license",
+          "label": "Apache-2.0 license",
+          "url": "https://api.github.com/repos/microsoft/playwright-cli/license"
+        },
+        {
+          "kind": "license",
+          "label": "Official Apache-2.0 license",
+          "url": "https://github.com/microsoft/playwright-cli/blob/main/LICENSE"
+        },
+        {
+          "kind": "source",
+          "label": "Official agent and CLI documentation",
+          "url": "https://github.com/microsoft/playwright-cli#readme"
+        }
+      ],
+      "agentEligibility": {
+        "eligible": true,
+        "reasons": [],
+        "installAllowed": false
+      }
+    },
+    {
+      "id": "mottor-ai-lpmotor",
+      "url": "https://lpmotor.ru/",
+      "title": "Mottor AI (LPmotor)",
+      "type": "tool",
+      "category": "Web, Design & UI",
+      "subcategory": "AI-конструктор сайтов и SaaS-лендингов",
+      "simpleDescription": "Mottor AI — proprietary cloud-конструктор LPmotor с AI-помощником для структуры, текста и первого draft сайта. Платформа также объединяет landing pages, магазины, квизы, формы, CRM, аналитику и A/B tests. Она полезна как reference быстрого onboarding и SaaS information architecture, но не заменяет собственный production stack Eclipse Forge.",
+      "useCases": [
+        "Проверить, насколько быстро нетехнический пользователь получает первый понятный landing draft",
+        "Взять как reference структуру SaaS-лендинга: hero, proof, benefits, workflow, evidence, FAQ и CTA",
+        "Сравнить AI-generated copy с редакционным brief и Claim Auditor Eclipse",
+        "Использовать product ideas для AI Landing Sprint без копирования proprietary UI или кода"
+      ],
+      "platforms": [
+        "Web",
+        "Cloud",
+        "Mobile web"
+      ],
+      "license": "Proprietary cloud service under LPmotor terms; generated content, integrations and publication conditions must be checked in the current agreement.",
+      "licenseEvidence": [
+        {
+          "kind": "terms",
+          "label": "Official LPmotor agreement",
+          "url": "https://lpmotor.ru/LLC/agreement"
+        },
+        {
+          "kind": "terms",
+          "label": "Official Mottor AI generator conditions",
+          "url": "https://lpmotor.ru/LLC/ai-usage"
+        },
+        {
+          "kind": "pricing",
+          "label": "Official pricing",
+          "url": "https://lpmotor.ru/price"
+        },
+        {
+          "kind": "privacy",
+          "label": "Official personal-data regulation",
+          "url": "https://lpmotor.ru/LLC/personal-data/regulation"
+        },
+        {
+          "kind": "privacy",
+          "label": "Official personal-data transfer consent",
+          "url": "https://lpmotor.ru/personal-data/transfer-personal-data-agreement"
+        }
+      ],
+      "pricing": "Есть бесплатный старт/демо; публикация, домены, CRM и расширенные возможности зависят от актуального платного тарифа.",
+      "access": {
+        "cost": "freemium",
+        "signup": "required",
+        "runtime": "cloud"
+      },
+      "trust": "official",
+      "trustReason": "Существование AI assistant, site builder, CRM, analytics, A/B tests и тарифов проверено на официальном LPmotor/Mottor 12.08.2026. Рекламное изображение подтверждает общую landing structure, но не доказывает conversion uplift.",
+      "projects": [
+        "Eclipse Forge Landing",
+        "Eclipse Library",
+        "Eclipse AI Hub"
+      ],
+      "decision": "reference",
+      "riskLevel": "medium",
+      "risks": [
+        "Cloud service обрабатывает введённый контент, лиды и integration data; официальный consent перечисляет передачу данных сторонним CRM, messaging, hosting и payment services, поэтому клиентские данные нельзя использовать в benchmark.",
+        "AI-generated структура и тексты могут содержать выдуманные преимущества, отзывы и цифры.",
+        "Vendor lock-in и тарифные ограничения делают сервис неподходящей основой для owned Eclipse Landing."
+      ],
+      "verifiedAt": "2026-08-12",
+      "quickStart": [
+        "Собрать один disposable draft на публичных данных без реальных лидов, домена и production integrations.",
+        "Сравнить время до первого результата, mobile, accessibility, SEO, copy quality и export/exit path.",
+        "Перенести только общие UX-выводы; code, templates, testimonials и assets не копировать."
+      ],
+      "reviewStatus": "verified",
+      "addedAt": "2026-08-12",
+      "guide": "ai-landing-sprint",
+      "source": {
+        "file": "catalog/resources.json",
+        "key": "mottor-ai-lpmotor",
+        "legacy": {
+          "file": "user-images",
+          "line": 2487,
+          "category": "Web, Design & UI",
+          "subcategory": "AI-конструктор сайтов и SaaS-лендингов"
+        }
+      },
+      "catalogOrder": 2487,
+      "licenseInfo": {
+        "label": "Proprietary cloud service under LPmotor terms; generated content, integrations and publication conditions must be checked in the current agreement.",
+        "original": "Proprietary cloud service under LPmotor terms; generated content, integrations and publication conditions must be checked in the current agreement.",
+        "spdx": null,
+        "kind": "service-terms",
+        "status": "editor-reviewed",
+        "requiresReview": false,
+        "evidence": [
+          {
+            "kind": "terms",
+            "label": "Official LPmotor agreement",
+            "url": "https://lpmotor.ru/LLC/agreement"
+          },
+          {
+            "kind": "terms",
+            "label": "Official Mottor AI generator conditions",
+            "url": "https://lpmotor.ru/LLC/ai-usage"
+          },
+          {
+            "kind": "pricing",
+            "label": "Official pricing",
+            "url": "https://lpmotor.ru/price"
+          },
+          {
+            "kind": "privacy",
+            "label": "Official personal-data regulation",
+            "url": "https://lpmotor.ru/LLC/personal-data/regulation"
+          },
+          {
+            "kind": "privacy",
+            "label": "Official personal-data transfer consent",
+            "url": "https://lpmotor.ru/personal-data/transfer-personal-data-agreement"
+          }
+        ]
+      },
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://lpmotor.ru/"
+        },
+        {
+          "kind": "terms",
+          "label": "Official LPmotor agreement",
+          "url": "https://lpmotor.ru/LLC/agreement"
+        },
+        {
+          "kind": "terms",
+          "label": "Official Mottor AI generator conditions",
+          "url": "https://lpmotor.ru/LLC/ai-usage"
+        },
+        {
+          "kind": "pricing",
+          "label": "Official pricing",
+          "url": "https://lpmotor.ru/price"
+        },
+        {
+          "kind": "privacy",
+          "label": "Official personal-data regulation",
+          "url": "https://lpmotor.ru/LLC/personal-data/regulation"
+        },
+        {
+          "kind": "privacy",
+          "label": "Official personal-data transfer consent",
+          "url": "https://lpmotor.ru/personal-data/transfer-personal-data-agreement"
+        }
+      ],
+      "agentEligibility": {
+        "eligible": true,
+        "reasons": [],
+        "installAllowed": false
+      }
+    },
+    {
+      "id": "oakley-meta-vanguard",
+      "url": "https://about.fb.com/news/2025/09/oakley-meta-vanguard-performance-ai-glasses-sports/",
+      "title": "Oakley Meta Vanguard",
+      "type": "tool",
+      "category": "AI-устройства",
+      "subcategory": "Performance AI glasses и wearable assistant",
+      "simpleDescription": "Oakley Meta Vanguard — спортивные smart glasses Oakley и Meta с камерой, микрофонами, open-ear audio, Meta AI и интеграциями Garmin/Strava. Официальные материалы не подтверждают ChatGPT: фраза «Oakley Vanguard + ChatGPT» на изображении вводит в заблуждение. Ценность для Eclipse — изучить hands-free voice, camera и workout UX, а не переносить устройство в production прямо сейчас.",
+      "useCases": [
+        "Исследовать hands-free voice flow и короткие ответы для Hopson Sentinel",
+        "Проверить capture-to-summary сценарий для Eclipse Media без скрытой записи людей",
+        "Взять как reference glance-free notifications, interruption и audio feedback для Eclipse Chat",
+        "Спроектировать DnD companion или field assistant сначала на обычном телефоне без vendor hardware lock-in"
+      ],
+      "platforms": [
+        "Wearable",
+        "iOS",
+        "Android",
+        "Meta AI cloud",
+        "Garmin",
+        "Strava"
+      ],
+      "license": "Proprietary Oakley/Meta hardware, firmware and cloud service terms; no open-source license for the product.",
+      "licenseEvidence": [
+        {
+          "kind": "source",
+          "label": "Official Meta launch and specifications",
+          "url": "https://about.fb.com/news/2025/09/oakley-meta-vanguard-performance-ai-glasses-sports/"
+        },
+        {
+          "kind": "source",
+          "label": "Official Meta AI glasses description",
+          "url": "https://about.fb.com/news/2026/05/ray-ban-meta-ai-glasses-launch-in-japan/"
+        },
+        {
+          "kind": "privacy",
+          "label": "Official Oakley privacy policy",
+          "url": "https://www.oakley.com/en-us/legal/privacy-policy"
+        },
+        {
+          "kind": "source",
+          "label": "Official Oakley Meta privacy and feature FAQ",
+          "url": "https://www.oakley.com/en-us/oakley-meta-faq"
+        }
+      ],
+      "pricing": "Paid hardware; launch price was $499. Regional availability, warranty, subscriptions and cloud features must be checked before purchase.",
+      "access": {
+        "cost": "paid",
+        "signup": "required",
+        "runtime": "hybrid"
+      },
+      "trust": "official",
+      "trustReason": "Identity, Meta AI, 12 MP camera, 3K video, IP67, battery claims and Garmin/Strava integration are supported by official Meta sources checked 12.08.2026. ChatGPT integration was not found in official materials.",
+      "projects": [
+        "Hopson Sentinel",
+        "Eclipse Chat",
+        "Eclipse Media",
+        "Eclipse DnD Forge"
+      ],
+      "decision": "roadmap",
+      "riskLevel": "high",
+      "risks": [
+        "Always-available camera and microphones create bystander consent, biometric, workplace and jurisdiction risks.",
+        "Voice, media and fitness context may be processed by Meta and connected services; retention and deletion need a separate privacy review.",
+        "Proprietary hardware, regional availability and account dependency create vendor lock-in; no production integration without documented APIs and DPA."
+      ],
+      "verifiedAt": "2026-08-12",
+      "quickStart": [
+        "Do not buy for integration yet: document one measurable hands-free scenario and reproduce it first with a phone/headset prototype.",
+        "Define explicit recording indicator, consent, retention, delete and offline fallback before any wearable test.",
+        "If value is proven, run an isolated P2/L benchmark on synthetic/public data and compare Meta dependency with an owned mobile client."
+      ],
+      "reviewStatus": "verified",
+      "addedAt": "2026-08-12",
+      "source": {
+        "file": "catalog/resources.json",
+        "key": "oakley-meta-vanguard",
+        "legacy": {
+          "file": "user-images",
+          "line": 2488,
+          "category": "AI-устройства",
+          "subcategory": "Performance AI glasses и wearable assistant"
+        }
+      },
+      "catalogOrder": 2488,
+      "licenseInfo": {
+        "label": "Proprietary Oakley/Meta hardware, firmware and cloud service terms; no open-source license for the product.",
+        "original": "Proprietary Oakley/Meta hardware, firmware and cloud service terms; no open-source license for the product.",
+        "spdx": null,
+        "kind": "service-terms",
+        "status": "editor-reviewed",
+        "requiresReview": false,
+        "evidence": [
+          {
+            "kind": "source",
+            "label": "Official Meta launch and specifications",
+            "url": "https://about.fb.com/news/2025/09/oakley-meta-vanguard-performance-ai-glasses-sports/"
+          },
+          {
+            "kind": "source",
+            "label": "Official Meta AI glasses description",
+            "url": "https://about.fb.com/news/2026/05/ray-ban-meta-ai-glasses-launch-in-japan/"
+          },
+          {
+            "kind": "privacy",
+            "label": "Official Oakley privacy policy",
+            "url": "https://www.oakley.com/en-us/legal/privacy-policy"
+          },
+          {
+            "kind": "source",
+            "label": "Official Oakley Meta privacy and feature FAQ",
+            "url": "https://www.oakley.com/en-us/oakley-meta-faq"
+          }
+        ]
+      },
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://about.fb.com/news/2025/09/oakley-meta-vanguard-performance-ai-glasses-sports/"
+        },
+        {
+          "kind": "source",
+          "label": "Official Meta AI glasses description",
+          "url": "https://about.fb.com/news/2026/05/ray-ban-meta-ai-glasses-launch-in-japan/"
+        },
+        {
+          "kind": "privacy",
+          "label": "Official Oakley privacy policy",
+          "url": "https://www.oakley.com/en-us/legal/privacy-policy"
+        },
+        {
+          "kind": "source",
+          "label": "Official Oakley Meta privacy and feature FAQ",
+          "url": "https://www.oakley.com/en-us/oakley-meta-faq"
+        }
+      ],
+      "agentEligibility": {
+        "eligible": true,
+        "reasons": [],
+        "installAllowed": false
+      }
+    },
+    {
+      "id": "skillui-skill-manager",
+      "url": "https://skillui.com/en",
+      "title": "SkillUI",
+      "type": "skill",
+      "category": "AI & Claude Code",
+      "subcategory": "Desktop discovery и управление skills",
+      "simpleDescription": "SkillUI — desktop GUI для поиска и управления коллекциями agent skills на Windows, macOS и Linux. Сильная идея — сделать skills понятными через категории, compatibility и документацию. Но надпись Open Source на сайте пока недостаточна: публичный source repository и точная OSI license независимо не подтверждены.",
+      "useCases": [
+        "Взять search, categories и compatibility matrix как UX reference для Eclipse Library",
+        "Спроектировать internal Skill Registry для Sentinel, AI Hub и oh-my-claudecode",
+        "Показывать provenance, version, license, permissions, risk и verification до подключения skill",
+        "Сравнить desktop management flow с текущим file-based каталогом без импорта чужих skills"
+      ],
+      "platforms": [
+        "Windows",
+        "macOS",
+        "Linux",
+        "Desktop"
+      ],
+      "license": "Нужно проверить: официальный сайт называет SkillUI open source, но публичный repository и точная license не подтверждены.",
+      "licenseEvidence": [
+        {
+          "kind": "source",
+          "label": "Official SkillUI product page",
+          "url": "https://skillui.com/en"
+        }
+      ],
+      "pricing": "Сайт предлагает бесплатную загрузку; платные функции и будущие условия нужно сверять перед использованием.",
+      "access": {
+        "cost": "free",
+        "signup": "optional",
+        "runtime": "local"
+      },
+      "trust": "caution",
+      "trustReason": "Существование desktop product и заявленные platforms подтверждены официальным сайтом 12.08.2026. Количество skills на языковых версиях различается, а source/license evidence отсутствует, поэтому маркетинговые числа и open-source claim не считаются проверенными.",
+      "projects": [
+        "Eclipse Library",
+        "Hopson Sentinel",
+        "Eclipse AI Hub",
+        "oh-my-claudecode"
+      ],
+      "decision": "reference",
+      "riskLevel": "high",
+      "risks": [
+        "Каталог third-party skills является supply-chain surface: SKILL.md, scripts, hooks и tool descriptions могут содержать prompt injection или exfiltration instructions.",
+        "Desktop manager может читать local skill directories и конфигурации; permissions, telemetry, update channel и binary signatures не подтверждены.",
+        "Нельзя показывать кнопку Install как знак доверия; Eclipse Library сохраняет direct install forbidden."
+      ],
+      "verifiedAt": "2026-08-12",
+      "quickStart": [
+        "Не устанавливать binary на основную машину до появления source, license, signatures и privacy/telemetry documentation.",
+        "Использовать только screenshots и публичный flow как reference для read-only Skill Registry.",
+        "Для каждой будущей skill-card требовать immutable source, owner, version, license, permissions, audit date и rollback."
+      ],
+      "reviewStatus": "verified",
+      "addedAt": "2026-08-12",
+      "source": {
+        "file": "catalog/resources.json",
+        "key": "skillui-skill-manager",
+        "legacy": {
+          "file": "user-images",
+          "line": 2489,
+          "category": "AI & Claude Code",
+          "subcategory": "Desktop discovery и управление skills"
+        }
+      },
+      "catalogOrder": 2489,
+      "licenseInfo": {
+        "label": "Нужно проверить: официальный сайт называет SkillUI open source, но публичный repository и точная license не подтверждены.",
+        "original": "Нужно проверить: официальный сайт называет SkillUI open source, но публичный repository и точная license не подтверждены.",
+        "spdx": null,
+        "kind": "unknown",
+        "status": "unverified",
+        "requiresReview": true,
+        "evidence": [
+          {
+            "kind": "source",
+            "label": "Official SkillUI product page",
+            "url": "https://skillui.com/en"
+          }
+        ]
+      },
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://skillui.com/en"
+        }
+      ],
+      "agentEligibility": {
+        "eligible": true,
+        "reasons": [],
+        "installAllowed": false
+      }
+    },
+    {
+      "id": "usestrix-strix",
+      "url": "https://github.com/usestrix/strix",
+      "title": "Strix",
+      "type": "tool",
+      "category": "Security & Privacy",
+      "subcategory": "AI-assisted penetration testing",
+      "simpleDescription": "Strix — Apache-2.0 платформа для AI-assisted security testing с несколькими agents, динамической проверкой findings, proof-of-concept и предложениями исправлений. На карусели название написано как Stryx; официальный продукт называется Strix. Это dual-use инструмент: применять можно только к собственным или явно разрешённым targets.",
+      "useCases": [
+        "Провести controlled benchmark AI pentest для AI Hub Security на намеренно уязвимом lab",
+        "Добавить в Hopson Sentinel evidence format: finding, reproduction, affected surface, severity и remediation",
+        "Проверять staging-приложение после обычных SAST/DAST, а не заменять ими базовый security pipeline",
+        "Исследовать human approval перед активными probes и автоматическим fix"
+      ],
+      "platforms": [
+        "Docker",
+        "CLI",
+        "Self-host",
+        "Cloud LLM providers"
+      ],
+      "license": "Apache-2.0",
+      "licenseEvidence": [
+        {
+          "kind": "license",
+          "label": "Official Apache-2.0 license",
+          "url": "https://github.com/usestrix/strix/blob/main/LICENSE"
+        },
+        {
+          "kind": "source",
+          "label": "Official Strix documentation",
+          "url": "https://docs.strix.ai/"
+        }
+      ],
+      "pricing": "Open-source code is free; LLM APIs, Docker compute, hosted services and security operations may cost extra.",
+      "access": {
+        "cost": "freemium",
+        "signup": "optional",
+        "runtime": "hybrid"
+      },
+      "trust": "community",
+      "trustReason": "Repository, Apache-2.0 license, documentation and active product site were checked 12.08.2026. Marketing claims about autonomous exploitation are not treated as a quality or authorization guarantee.",
+      "projects": [
+        "Eclipse AI Hub",
+        "Hopson Sentinel",
+        "oh-my-claudecode"
+      ],
+      "decision": "roadmap",
+      "riskLevel": "high",
+      "risks": [
+        "Active security agents can damage data, trigger defenses or cross authorization boundaries; only owned lab/staging targets with written scope are allowed.",
+        "Official quick install uses a remote shell pipeline; do not execute it blindly. Inspect and pin source, images and dependencies first.",
+        "LLM providers may receive target data, code and findings; use synthetic lab data, isolated keys and no production secrets."
+      ],
+      "verifiedAt": "2026-08-12",
+      "quickStart": [
+        "Create a disposable vulnerable lab with explicit target allowlist, egress controls, snapshots and stop switch.",
+        "Clone and inspect a pinned release/commit, Dockerfiles, scripts, skills and dependency locks; do not pipe remote install scripts to shell.",
+        "Run a P1/M comparison against standard scanners, manually validate every finding and never enable automatic production fixes."
+      ],
+      "reviewStatus": "verified",
+      "addedAt": "2026-08-12",
+      "source": {
+        "file": "catalog/resources.json",
+        "key": "usestrix-strix",
+        "legacy": {
+          "file": "user-images",
+          "line": 2490,
+          "category": "Security & Privacy",
+          "subcategory": "AI-assisted penetration testing"
+        }
+      },
+      "catalogOrder": 2490,
+      "licenseInfo": {
+        "label": "Apache-2.0",
+        "original": "Apache-2.0",
+        "spdx": "Apache-2.0",
+        "kind": "open-source",
+        "status": "source-declared",
+        "requiresReview": false,
+        "evidence": [
+          {
+            "kind": "license",
+            "label": "Apache-2.0 license",
+            "url": "https://api.github.com/repos/usestrix/strix/license"
+          },
+          {
+            "kind": "license",
+            "label": "Official Apache-2.0 license",
+            "url": "https://github.com/usestrix/strix/blob/main/LICENSE"
+          },
+          {
+            "kind": "source",
+            "label": "Official Strix documentation",
+            "url": "https://docs.strix.ai/"
+          }
+        ]
+      },
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://github.com/usestrix/strix"
+        },
+        {
+          "kind": "license",
+          "label": "Apache-2.0 license",
+          "url": "https://api.github.com/repos/usestrix/strix/license"
+        },
+        {
+          "kind": "license",
+          "label": "Official Apache-2.0 license",
+          "url": "https://github.com/usestrix/strix/blob/main/LICENSE"
+        },
+        {
+          "kind": "source",
+          "label": "Official Strix documentation",
+          "url": "https://docs.strix.ai/"
+        }
+      ],
+      "agentEligibility": {
+        "eligible": true,
+        "reasons": [],
+        "installAllowed": false
+      }
+    },
+    {
+      "id": "massgen-multi-agent-system",
+      "url": "https://github.com/massgen/MassGen",
+      "title": "MassGen",
+      "type": "agent",
+      "category": "AI & Claude Code",
+      "subcategory": "Multi-agent orchestration и consensus",
+      "simpleDescription": "MassGen — Apache-2.0 framework для параллельной работы нескольких AI agents с обменом промежуточными результатами, consensus, TUI/web interface и разными model providers. Полезен как архитектурный reference для Eclipse AI Hub и Sentinel, но сам по себе не гарантирует более точный ответ: несколько agents могут одинаково ошибаться и быстро расходовать budget.",
+      "useCases": [
+        "Сравнить роли Researcher, Builder, Skeptic и Reviewer на одном synthetic task",
+        "Изучить consensus и dissent log для multi-agent research room в Eclipse AI Hub",
+        "Проверить permission engine, filesystem isolation, budget и audit patterns для Hopson Sentinel",
+        "Сделать bounded benchmark против одного сильного agent по качеству, latency и стоимости"
+      ],
+      "platforms": [
+        "Python",
+        "CLI",
+        "Web",
+        "Self-host",
+        "Cloud model providers"
+      ],
+      "license": "Apache-2.0",
+      "licenseEvidence": [
+        {
+          "kind": "license",
+          "label": "Official Apache-2.0 license",
+          "url": "https://github.com/massgen/MassGen/blob/main/LICENSE"
+        },
+        {
+          "kind": "source",
+          "label": "Official MassGen README",
+          "url": "https://github.com/massgen/MassGen#readme"
+        }
+      ],
+      "pricing": "Framework is free; model calls, web search, sandboxes and compute are paid according to selected providers.",
+      "access": {
+        "cost": "freemium",
+        "signup": "optional",
+        "runtime": "hybrid"
+      },
+      "trust": "community",
+      "trustReason": "Repository, Apache-2.0 license, providers and orchestration features were checked 12.08.2026. The screenshot's separate File Search claim is not attributed to MassGen as a whole; it is recorded in its own card.",
+      "projects": [
+        "Eclipse AI Hub",
+        "Hopson Sentinel",
+        "oh-my-claudecode",
+        "Eclipse Chat"
+      ],
+      "decision": "reference",
+      "riskLevel": "medium",
+      "risks": [
+        "Parallel agents multiply token cost, latency and tool-call surface; consensus can amplify shared hallucinations.",
+        "Model API keys, web content and workspace files cross several trust boundaries; least privilege, egress control and redaction are required.",
+        "Provider-specific retention and Terms differ; production routing needs a separate DPA and budget review."
+      ],
+      "verifiedAt": "2026-08-12",
+      "quickStart": [
+        "Do not connect production tools: pin a release and run one synthetic repository task with read-only filesystem permissions.",
+        "Compare single-agent and multi-agent outputs on correctness, disagreement, latency, tokens and manual corrections.",
+        "Adopt only proven patterns such as dissent, budgets, audit log and stop control into owned Eclipse orchestration."
+      ],
+      "reviewStatus": "verified",
+      "addedAt": "2026-08-12",
+      "source": {
+        "file": "catalog/resources.json",
+        "key": "massgen-multi-agent-system",
+        "legacy": {
+          "file": "user-images",
+          "line": 2491,
+          "category": "AI & Claude Code",
+          "subcategory": "Multi-agent orchestration и consensus"
+        }
+      },
+      "catalogOrder": 2491,
+      "licenseInfo": {
+        "label": "Apache-2.0",
+        "original": "Apache-2.0",
+        "spdx": "Apache-2.0",
+        "kind": "open-source",
+        "status": "source-declared",
+        "requiresReview": false,
+        "evidence": [
+          {
+            "kind": "license",
+            "label": "Other license",
+            "url": "https://api.github.com/repos/massgen/massgen/license"
+          },
+          {
+            "kind": "license",
+            "label": "Official Apache-2.0 license",
+            "url": "https://github.com/massgen/MassGen/blob/main/LICENSE"
+          },
+          {
+            "kind": "source",
+            "label": "Official MassGen README",
+            "url": "https://github.com/massgen/MassGen#readme"
+          }
+        ]
+      },
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://github.com/massgen/MassGen"
+        },
+        {
+          "kind": "license",
+          "label": "Other license",
+          "url": "https://api.github.com/repos/massgen/massgen/license"
+        },
+        {
+          "kind": "license",
+          "label": "Official Apache-2.0 license",
+          "url": "https://github.com/massgen/MassGen/blob/main/LICENSE"
+        },
+        {
+          "kind": "source",
+          "label": "Official MassGen README",
+          "url": "https://github.com/massgen/MassGen#readme"
+        }
+      ],
+      "agentEligibility": {
+        "eligible": true,
+        "reasons": [],
+        "installAllowed": false
+      }
+    },
+    {
+      "id": "netresearch-file-search-skill",
+      "url": "https://github.com/netresearch/file-search-skill",
+      "title": "File Search Skill",
+      "type": "skill",
+      "category": "AI & Claude Code",
+      "subcategory": "Поиск по коду и большим репозиториям",
+      "simpleDescription": "File Search Skill — набор инструкций для coding agents, который выбирает подходящий локальный инструмент поиска: ripgrep для текста, ast-grep для структуры кода, Semgrep для patterns, fd/rga/tokei для файлов и статистики. Он полезен как search-routing reference; реальное ускорение зависит от размера repository и качества запроса.",
+      "useCases": [
+        "Быстро находить definitions, usages и repeated patterns в больших Eclipse repositories",
+        "Использовать ast-grep или Semgrep, когда простой текстовый поиск даёт ложные совпадения",
+        "Стандартизировать read-only scout phase в oh-my-claudecode и Hopson Sentinel",
+        "Обучать Educator-AI разнице между text search и structural code search"
+      ],
+      "platforms": [
+        "Claude Code",
+        "Codex",
+        "CLI",
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "license": "Code and package metadata are MIT; skill/documentation content has a separate license CC-BY-SA-4.0. Verify the license of each bundled or invoked search tool separately.",
+      "licenseEvidence": [
+        {
+          "kind": "license",
+          "label": "Official repository license explanation",
+          "url": "https://github.com/netresearch/file-search-skill#license"
+        },
+        {
+          "kind": "source",
+          "label": "Official search tool matrix",
+          "url": "https://github.com/netresearch/file-search-skill#readme"
+        }
+      ],
+      "pricing": "Skill content is free; invoked tools are generally open source but retain separate licenses and installation methods.",
+      "access": {
+        "cost": "free",
+        "signup": "none",
+        "runtime": "local"
+      },
+      "trust": "community",
+      "trustReason": "Public repository, declared split license and tool matrix were checked 12.08.2026. The image attributes the idea to MassGen, but the independently verifiable repository for this exact skill is netresearch/file-search-skill.",
+      "projects": [
+        "Hopson Sentinel",
+        "oh-my-claudecode",
+        "Educator-AI",
+        "Eclipse AI Hub"
+      ],
+      "decision": "now",
+      "riskLevel": "medium",
+      "risks": [
+        "Third-party skill instructions and package lifecycle scripts are supply-chain input; inspect them and avoid automatic install from the catalog.",
+        "Search output can expose secrets or generated/vendor directories to a cloud model; apply path exclusions and local redaction.",
+        "Structural tools have different syntax and language coverage; a wrong matcher can silently miss usages."
+      ],
+      "verifiedAt": "2026-08-12",
+      "quickStart": [
+        "Use the methodology first with already installed rg; add ast-grep or Semgrep only after source/license/version review.",
+        "Limit search to the intended repository and exclude secrets, build output, dependencies and user data.",
+        "Before a code change, verify results with a second query and project tests; search completeness is not assumed."
+      ],
+      "reviewStatus": "verified",
+      "addedAt": "2026-08-12",
+      "source": {
+        "file": "catalog/resources.json",
+        "key": "netresearch-file-search-skill",
+        "legacy": {
+          "file": "user-images",
+          "line": 2492,
+          "category": "AI & Claude Code",
+          "subcategory": "Поиск по коду и большим репозиториям"
+        }
+      },
+      "catalogOrder": 2492,
+      "licenseInfo": {
+        "label": "Code and package metadata are MIT; skill/documentation content has a separate license CC-BY-SA-4.0. Verify the license of each bundled or invoked search tool separately.",
+        "original": "Code and package metadata are MIT; skill/documentation content has a separate license CC-BY-SA-4.0. Verify the license of each bundled or invoked search tool separately.",
+        "spdx": null,
+        "kind": "custom",
+        "status": "editor-reviewed",
+        "requiresReview": false,
+        "evidence": [
+          {
+            "kind": "license",
+            "label": "Other license",
+            "url": "https://api.github.com/repos/netresearch/file-search-skill/license"
+          },
+          {
+            "kind": "license",
+            "label": "Official repository license explanation",
+            "url": "https://github.com/netresearch/file-search-skill#license"
+          },
+          {
+            "kind": "source",
+            "label": "Official search tool matrix",
+            "url": "https://github.com/netresearch/file-search-skill#readme"
+          }
+        ]
+      },
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://github.com/netresearch/file-search-skill"
+        },
+        {
+          "kind": "license",
+          "label": "Other license",
+          "url": "https://api.github.com/repos/netresearch/file-search-skill/license"
+        },
+        {
+          "kind": "license",
+          "label": "Official repository license explanation",
+          "url": "https://github.com/netresearch/file-search-skill#license"
+        },
+        {
+          "kind": "source",
+          "label": "Official search tool matrix",
+          "url": "https://github.com/netresearch/file-search-skill#readme"
         }
       ],
       "agentEligibility": {

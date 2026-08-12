@@ -83,6 +83,27 @@
 | Hopson Sentinel | Read-only проверка ссылок, доступности, позиций и аномалий |
 | Kwork и коммерческие предложения | Конечная точка для квалифицированного запроса, а не CTA для каждого поста |
 
+## Content Command Center: шесть понятных экранов
+
+Карусель предлагает «собрать контент-дашборд одним промптом», но красивой оболочки недостаточно.
+Полезный owned-модуль должен хранить источники, права, измерения и решения редактора. В первом MVP
+нет входа в личные аккаунты, скрытого парсинга, автопубликации или standing authorization для MCP.
+
+| Экран | Что видит пользователь | Обязательные данные | Безопасный default |
+|---|---|---|---|
+| База хуков | Сохранённая идея и понятный reusable pattern | source URL, author, date, transcript/excerpt, pattern, rights status | Только public/owned source; кнопка «В черновик», не «Скопировать и опубликовать» |
+| Аналитика | Что реально сработало за 7/30/90 дней | channel, impressions, saves, clicks, product visits, leads, median и sample size | Импорт агрегатов без user-level data; разные каналы не складываются в одну выдуманную метрику |
+| Конкуренты | Публичные материалы выбранных авторов | owner, allowed source, fetch date, format, hook, observable result | Ручной allowlist, robots/Terms/rate limits; никаких cookies и обхода ограничений |
+| Планировщик | Один draft, канал, дата и следующий review | owner, audience, evidence, format, CTA, status, approval | Создаёт задачу и preview; не публикует и не подключает аккаунт |
+| Контент-план | Очередь от идеи до измеренного результата | `Finding -> Brief -> Draft -> Claims review -> Approved -> Published -> Measured` | Переход в Published возможен только после human approval |
+| Тренды | Свежие темы с объяснением, почему они важны | official/RSS source, publishedAt, freshness, claim risk, Eclipse fit | Untrusted feed, dedupe и ручной editorial decision; trend не равен рекомендации |
+
+Минимальная запись контента содержит `id`, `source`, `author`, `capturedAt`, `rightsStatus`,
+`audience`, `product`, `claimEvidence[]`, `channel`, `owner`, `status`, `approval`, `publishedUrl`
+и `outcome`. Если evidence, права или owner неизвестны, карточка остаётся draft и не получает CTA
+публикации. Упомянутый в изображении Zernio MCP не подтверждён как нужный и безопасный publish path;
+любое MCP-подключение потребует отдельного audit tool descriptions, scopes, auth, data flow и rollback.
+
 ## Пять направлений контента
 
 1. **Production cases.** Что было сломано или не готово, какое решение принято, чем подтверждён результат.

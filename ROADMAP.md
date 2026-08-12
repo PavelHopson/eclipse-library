@@ -1,19 +1,19 @@
 # Eclipse Library Roadmap
 
-Последнее обновление: **11.08.2026**
+Последнее обновление: **12.08.2026**
 
 ## Текущее состояние
 
-- `catalog/resources.json` — канонический structured catalog из 589 уникальных записей;
+- `catalog/resources.json` — канонический structured catalog из 596 уникальных записей;
   `README.md` сокращён до документации и больше не является runtime-источником данных.
 - `web/app.js` — command-first поиск, фильтры, detail view и guide viewer; structured adapter,
   карточки, editorial feed, progressive DOM и evidence-first Inspector вынесены в модули. При старте
-  в DOM создаются только первые 36 карточек вместо всех 589; mobile Inspector открывается как sheet.
-- `web/catalog-index.json` — production schema v2: 147 записей редакторски проверены,
-  442 честно помечены `inferred`, 306 имеют отдельный `addedAt`, даты удалены из category.
-- License layer: у 306 записей лицензия или условия нормализованы с evidence URL,
+  в DOM создаются только первые 36 карточек вместо всех 596; mobile Inspector открывается как sheet.
+- `web/catalog-index.json` — production schema v2: 157 записей редакторски проверены,
+  439 честно помечены `inferred`, 313 имеют отдельный `addedAt`, даты удалены из category.
+- License layer: у 313 записей лицензия или условия нормализованы с evidence URL,
   283 ещё требуют отдельного review.
-- Agent policy: 516 записей доступны автоматическим consumers, 73 исключены fail closed;
+- Agent policy: 523 записи доступны автоматическим consumers, 73 исключены fail closed;
   все 66 grey-ресурсов скрыты от recommendations, direct install запрещён для всех записей.
 - `web/api/v1/` — versioned static exports для full catalog, agents, Eclipse CRM и Eclipse AI;
   consumers больше не должны читать README.
@@ -58,6 +58,12 @@
 - [ ] Eclipse Chat / AI Hub: собрать owned Growth OS MVP без зависимости от Teamly — один bounded
       workflow `Finding -> Brief -> Draft -> Claims review -> Approved artifact`, observable run log,
       stop/pause, budget, provenance и deny-by-default approval; без connectors и публикации.
+- [ ] Eclipse Chat / AI Hub / Library: расширить owned Growth OS до Content Command Center P1/L —
+      Hook Vault, normalized channel analytics, public-only Competitor Tracker, Planner, Content Plan
+      и Trends; source/rights/provenance обязательны, публикация и account access только после approval.
+- [ ] Hopson Sentinel / AI Hub Security: провести Strix benchmark P1/M только в disposable vulnerable
+      lab — pinned source/images, egress и target allowlist, isolated LLM key, ручная проверка findings;
+      remote install script, production targets и automatic fixes запрещены.
 - [ ] Eclipse AI Hub / Educator-AI: внедрить AnyDoc как изолированный document-intake P1/M —
       pinned Rust dependency, magic-byte/type/size/page/time limits, no-network parser, zip-bomb и
       malformed-file fixtures, запрет macros/embedded execution и гарантированное удаление temp files.
@@ -194,6 +200,9 @@
 
 ### P2
 
+- [ ] Hopson Sentinel / Eclipse Chat / Media: проверить wearable assistant flow P2/L без покупки
+      Oakley Meta Vanguard — phone/headset prototype, explicit recording indicator, consent, retention,
+      delete и offline fallback; Meta/fitness integration только после API, Terms, privacy и DPA review.
 - [x] Стабильные deep links на каждую запись.
 - [x] Freshness review — UI различает недавно проверенные карточки и
       записи без даты, а weekly snapshot показывает `ok` / `restricted` / `unavailable` /
@@ -228,6 +237,23 @@
       self-check, EN/RU copy и без обязательного API key.
 
 ## Changelog
+
+### 2026-08-12
+
+- Разобраны 28 изображений и два Instagram-поста как отдельные claims, products и workflows. Добавлены
+  verified-карточки Microsoft Playwright CLI, Mottor AI, Oakley Meta Vanguard, SkillUI, Strix,
+  MassGen и File Search Skill; Anthropic Skills, Superpowers, Eclipse Growth OS и website prompt pack
+  обогащены вместо дублей. Каталог вырос до 596 материалов.
+- Исправлены claims: Oakley Meta Vanguard использует Meta AI, а не подтверждённый ChatGPT; Stryx
+  идентифицирован как Strix; File Search отделён от MassGen; ускорение skills, гарантированная
+  автономность и conversion от шаблонов не приняты без benchmark evidence. Устаревшая команда
+  `/install-github-skill` не рекомендована, direct install остаётся запрещён.
+- Growth OS получил evidence-first Content Command Center с шестью экранами и безопасными defaults.
+  AI Landing Sprint дополнен полной SaaS-структурой, reference Mottor и browser QA через Playwright CLI;
+  prompt pack — двенадцатью constraints-driven visual directions без копирования чужих assets.
+- Security review зафиксировал tool-poisoning, prompt-injection, browser-profile, remote-shell,
+  biometric/privacy и dual-use boundaries. Strix отправлен только в authorized lab roadmap, SkillUI
+  оставлен reference до source/license evidence, Oakley — P2 research без покупки и production data.
 
 ### 2026-08-11
 

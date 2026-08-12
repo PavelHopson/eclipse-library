@@ -192,6 +192,46 @@ LLM API.
 
 ## Часть III — Инструкции по использованию
 
+### Двенадцать visual directions без копирования чужого дизайна
+
+Картинка со «стилями сайтов» полезна как vocabulary, но не как двенадцать готовых решений.
+Выберите одно направление после business brief и объясните, какую задачу пользователя оно улучшает.
+
+| Направление | Когда подходит | Обязательное ограничение |
+|---|---|---|
+| Minimal | Архитектура, portfolio, экспертная услуга | Сильная типографика и доказательства; whitespace не скрывает смысл |
+| Luxury | Премиальный физический продукт | Реальные качественные assets и права; не подменять ценность золотым цветом |
+| Glass | Небольшой tech hero или visual demo | Контраст AA, минимум blur и слоёв; не использовать для плотных таблиц |
+| Dark performance | Fitness, gaming, media | Читаемый текст, спокойная иерархия, отдельный light/reduced-motion review |
+| Brutalist | Культурный или экспериментальный проект | Raw style не ломает navigation, focus, forms и mobile |
+| 3D interactive | Creative demo с сильным объектом | Progressive enhancement, loading state, performance budget и static fallback |
+| Calm product | AI/SaaS с широкой аудиторией | Не копировать Apple; своя brand voice, tokens, illustrations и interaction |
+| Corporate | B2B consulting и regulated product | Конкретные cases, owners, security/legal facts вместо stock-фотографий |
+| SaaS workspace | CRM, analytics, operational tool | Показывать один понятный workflow и реальные состояния, а не фальшивые charts |
+| Editorial | Library, research, media, storytelling | Удобная длина строки, content hierarchy, search и stable deep links |
+| Commerce | Каталог и покупка | Цена, наличие, доставка, возврат, доверие и checkout важнее hero-анимации |
+| Futuristic | AI research или launch campaign | Neon/3D только как акцент; продукт и CTA понятны без эффектов |
+
+Copy-ready brief для coding agent:
+
+```text
+Спроектируй [ТИП ПРОДУКТА] для [АУДИТОРИЯ].
+Главная задача пользователя: [ЗАДАЧА]. Primary CTA: [ДЕЙСТВИЕ И РЕЗУЛЬТАТ].
+Выбранное направление: [ОДНО ИЗ 12]. Оно подходит, потому что [ПРИЧИНА].
+
+Сначала выдай:
+1. порядок блоков и смысл каждого;
+2. evidence, необходимый для claims;
+3. design tokens и component states;
+4. mobile и keyboard flow;
+5. performance budget и reduced-motion fallback.
+
+Не копируй конкретные сайты, логотипы, иллюстрации, тексты или trademark style.
+Не придумывай отзывы, клиентов, цифры, цены и гарантии.
+Реализуй loading, empty, error, success, disabled, focus и no-access states.
+Перед публикацией потребуй content, rights, accessibility, security и human approval.
+```
+
 **Сценарий А — сам делаешь сайт (Часть I)**
 
 1. Открой Claude / ChatGPT / Cursor.

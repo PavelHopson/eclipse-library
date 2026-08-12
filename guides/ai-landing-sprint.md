@@ -34,6 +34,23 @@ AI Landing Sprint помогает за короткую сессию собра
 
 Минимальный landing flow: понятный hero, проблема, решение, доказательства, следующий шаг и контакты. Сначала проверяем порядок блоков и смысл, затем стиль. `Taste Skill / design-taste-frontend` можно использовать как проверенный reference для иерархии и anti-slop review, но инструкции следует читать перед применением и привязывать к проверенной revision.
 
+Для SaaS, CRM, AI-инструмента или B2B-платформы используйте более полный порядок:
+
+1. Компактная навигация и один основной CTA.
+2. Hero: кто пользователь, какой результат получает и чем это подтверждается.
+3. Social proof только с реальными партнёрами, клиентами, цифрами или live evidence.
+4. Три-пять преимуществ через пользовательский outcome, а не список технологий.
+5. Как работает продукт: три понятных шага или короткий interactive demo.
+6. Основные сценарии, screenshots и ограничения продукта.
+7. Проверяемые кейсы или отзывы с источником и контекстом.
+8. FAQ, который снимает реальные возражения: цена, данные, интеграция, поддержка и exit path.
+9. Финальный CTA с конкретным результатом и footer с legal/contact information.
+
+Mottor AI умеет быстро собирать cloud draft и полезен как onboarding/reference benchmark, но не
+является основанием копировать proprietary templates или переносить туда client data. Для Eclipse
+Forge сначала собираем owned wireframe и evidence register, а внешний конструктор можно сравнить
+только на public/synthetic content без домена, лидов и production integrations.
+
 ### 4. Подготовить визуальные draft-материалы
 
 Krea, Nano Banana Pro и Kling 3.0 — необязательные cloud providers, а не фундамент продукта.
@@ -99,6 +116,8 @@ Krea, Nano Banana Pro и Kling 3.0 — необязательные cloud provid
 - Nano Banana Pro — controlled image generation/edit benchmark.
 - Kling AI 3.0 — reference для video UX и native-audio pipeline; benchmark допустим только после письменного legal gate и на безопасных fixtures.
 - Taste Skill — иерархия, anti-slop review и базовые правила интерфейса.
+- Mottor AI — reference для быстрого brief-to-draft onboarding и SaaS information architecture, не production dependency.
+- Playwright CLI — основной кандидат для bounded desktop/mobile browser QA coding agents; отдельные disposable profiles обязательны.
 
 ### Не использовать
 
@@ -114,5 +133,7 @@ Krea, Nano Banana Pro и Kling 3.0 — необязательные cloud provid
 - [Krea pricing](https://www.krea.ai/pricing), [Krea API](https://www.krea.ai/features/api), [Terms](https://www.krea.ai/terms), [Privacy](https://www.krea.ai/privacy) и [Trust Center](https://trust.krea.ai/?format=html)
 - [Google Gemini 3 Pro Image](https://ai.google.dev/gemini-api/docs/models/gemini-3-pro-image), [pricing](https://ai.google.dev/gemini-api/docs/pricing) и [image generation](https://ai.google.dev/gemini-api/docs/image-generation)
 - [Kling AI 3.0](https://kling.ai/), [VIDEO 3.0 guide](https://kling.ai/quickstart/klingai-video-3-model-user-guide), [Terms](https://kling.ai/docs/user-policy), [Privacy](https://kling.ai/docs/privacy-policy) и [Kuaishou release](https://ir.kuaishou.com/node/11216/pdf)
+- [Mottor AI / LPmotor](https://lpmotor.ru/), [pricing](https://lpmotor.ru/price) и [agreement](https://lpmotor.ru/LLC/agreement)
+- [Microsoft Playwright CLI](https://github.com/microsoft/playwright-cli)
 
-Проверено редакцией Eclipse Library: **10.08.2026**. Цены, rollout моделей, Terms и региональная доступность меняются — их нужно повторно проверить перед оплатой и production-интеграцией.
+Проверено редакцией Eclipse Library: **12.08.2026**. Цены, rollout моделей, Terms и региональная доступность меняются — их нужно повторно проверить перед оплатой и production-интеграцией.
