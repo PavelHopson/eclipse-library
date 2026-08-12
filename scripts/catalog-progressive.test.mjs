@@ -130,7 +130,7 @@ test('adopts the versioned Eclipse Forge product visual profile locally', () => 
 
   assert.equal(tokens.schemaVersion, 'eclipse-forge.visual-system.v1');
   assert.ok(tokens.intensityProfiles.includes('product'));
-  assert.match(html, /styles\.css\?v=24/);
+  assert.match(html, /styles\.css\?v=25/);
   assert.match(html, /assets\/fonts\/inter-cyrillic\.woff2/);
   assert.doesNotMatch(html + css, /fonts\.googleapis\.com|fonts\.gstatic\.com/);
   assert.match(css, /--bg: #05070a;/);
@@ -138,4 +138,11 @@ test('adopts the versioned Eclipse Forge product visual profile locally', () => 
   assert.match(css, /--display: 'Outfit'/);
   assert.match(css, /@keyframes forgeOrbitPresence/);
   assert.match(css, /@media \(prefers-reduced-motion: reduce\)/);
+  assert.match(css, /\.forge-cursor-light--gold/);
+  assert.match(css, /\(hover: hover\) and \(pointer: fine\) and \(min-width: 1024px\)/);
+  assert.match(html, /cursor-light\.js\?v=1/);
+  const cursor = fs.readFileSync(path.join(root, 'web', 'cursor-light.js'), 'utf8');
+  assert.match(cursor, /requestAnimationFrame/);
+  assert.match(cursor, /prefers-reduced-motion: reduce/);
+  assert.match(cursor, /pointermove/);
 });

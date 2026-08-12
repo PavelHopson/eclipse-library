@@ -4,6 +4,8 @@
 `web/assets/eclipse-forge.tokens.json` в профиле `product`: канонические deep-black,
 warm-gold и signal-blue tokens, self-hosted Outfit/Inter и reduced-motion-safe motion.
 Runtime-зависимости от главного лендинга нет.
+На desktop с точным указателем Library повторяет фирменный cursor light лендинга; обычный
+курсор остаётся системным, а на touch и при `prefers-reduced-motion` эффект отключён.
 
 Кураторская библиотека AI-инструментов, сервисов, моделей, skills, MCP, промптов, курсов и security-материалов для экосистемы Eclipse Forge.
 

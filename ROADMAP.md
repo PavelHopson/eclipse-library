@@ -267,6 +267,12 @@
       self-check, EN/RU copy и без обязательного API key.
 
 ## Changelog
+### 2026-08-12 — Landing cursor light parity
+
+- Added the same three-layer desktop cursor light used by Eclipse Forge Landing without replacing the native pointer.
+- The effect is disabled on touch, coarse pointers, narrow viewports and `prefers-reduced-motion`; all layers are non-interactive and do not alter catalog scrolling.
+- Bumped the Library style asset to `styles.css?v=25` and loaded the isolated `cursor-light.js?v=1` module before the catalog runtime.
+
 ### 2026-08-12 — Eclipse Forge visual-system pilot
 
 - Applied the `product` profile of `eclipse-forge.visual-system.v1` to Library semantic tokens,
