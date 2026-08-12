@@ -7,6 +7,9 @@ const SPDX_ALIASES = new Map([
   ['mpl-2.0', 'MPL-2.0'],
   ['bsd-3-clause', 'BSD-3-Clause'],
   ['cc by 4.0', 'CC-BY-4.0'],
+  ['cc-by-4.0', 'CC-BY-4.0'],
+  ['cc0 1.0', 'CC0-1.0'],
+  ['cc0-1.0', 'CC0-1.0'],
 ]);
 
 const UNKNOWN_LICENSE = /нужно проверить|не указана|не раскрыт|unknown|needs? verification/i;

@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "consumer": "Eclipse AI",
-  "catalogVersion": "0f022f427b205ac49032c3350571c1a1a0aaaf2a1498f2baac89246bea3b3915",
+  "catalogVersion": "b369ce8b43a4988d4fe5e57b09ac5862fd4b5381b8576d24ff9cb37b5d3e434c",
   "generatedAt": null,
   "policy": {
     "greyResourcesExcluded": true,
@@ -9,7 +9,7 @@
     "externalMutationsRequireHumanApproval": true
   },
   "totals": {
-    "items": 535
+    "items": 541
   },
   "items": [
     {
@@ -1228,59 +1228,6 @@
           "kind": "license",
           "label": "MIT license",
           "url": "https://api.github.com/repos/upstash/context7/license"
-        }
-      ],
-      "actions": {
-        "openOfficialSource": true,
-        "installFromCatalog": false,
-        "mutateExternalSystems": false
-      }
-    },
-    {
-      "id": "free-llm-api-resources-github-com",
-      "title": "free-llm-api-resources",
-      "url": "https://github.com/cheahjs/free-llm-api-resources",
-      "type": "model",
-      "category": "AI & Claude Code",
-      "subcategory": "MCP: внешние данные и действия",
-      "addedAt": null,
-      "description": "free-llm-api-resources — 26 провайдеров бесплатных LLM API — OpenRouter, Google AI Studio, NVIDIA NIM, Mistral, Groq, Cohere и др. Лимиты и условия. Карточка помогает понять назначение ресурса и начать с небольшой безопасной проверки; условия использования ещё нужно сверить с официальным источником.",
-      "useCases": [
-        "Разобраться, подходит ли free-llm-api-resources для вашей задачи",
-        "Проверить возможности на небольшом тестовом сценарии до интеграции"
-      ],
-      "platforms": [
-        "API"
-      ],
-      "license": {
-        "label": "Нужно проверить в официальном источнике",
-        "original": "Нужно проверить в официальном источнике",
-        "spdx": null,
-        "kind": "unknown",
-        "status": "unverified",
-        "requiresReview": true,
-        "evidence": [
-          {
-            "kind": "official-source",
-            "label": "Официальный источник; точные условия ещё нужно сверить",
-            "url": "https://github.com/cheahjs/free-llm-api-resources"
-          }
-        ]
-      },
-      "access": {
-        "cost": "free",
-        "signup": "unknown",
-        "runtime": "cloud"
-      },
-      "trust": "community",
-      "decision": "reference",
-      "riskLevel": "medium",
-      "projects": [],
-      "evidence": [
-        {
-          "kind": "official-source",
-          "label": "Официальный источник",
-          "url": "https://github.com/cheahjs/free-llm-api-resources"
         }
       ],
       "actions": {
@@ -7991,59 +7938,6 @@
       }
     },
     {
-      "id": "medusa-docs-docs-medusajs-com",
-      "title": "Medusa docs",
-      "url": "https://docs.medusajs.com",
-      "type": "shop",
-      "category": "Разработка интернет-магазинов",
-      "subcategory": "Обучение / гайды (бесплатно)",
-      "addedAt": null,
-      "description": "Medusa docs — Официальный гайд «магазин с нуля», шаг за шагом — начинать отсюда. Карточка помогает понять назначение ресурса и начать с небольшой безопасной проверки; условия использования ещё нужно сверить с официальным источником.",
-      "useCases": [
-        "Разобраться, подходит ли Medusa docs для вашей задачи",
-        "Проверить возможности на небольшом тестовом сценарии до интеграции"
-      ],
-      "platforms": [
-        "Web"
-      ],
-      "license": {
-        "label": "Нужно проверить в официальном источнике",
-        "original": "Нужно проверить в официальном источнике",
-        "spdx": null,
-        "kind": "unknown",
-        "status": "unverified",
-        "requiresReview": true,
-        "evidence": [
-          {
-            "kind": "official-source",
-            "label": "Официальный источник; точные условия ещё нужно сверить",
-            "url": "https://docs.medusajs.com"
-          }
-        ]
-      },
-      "access": {
-        "cost": "free",
-        "signup": "unknown",
-        "runtime": "cloud"
-      },
-      "trust": "unknown",
-      "decision": "reference",
-      "riskLevel": "medium",
-      "projects": [],
-      "evidence": [
-        {
-          "kind": "official-source",
-          "label": "Официальный источник",
-          "url": "https://docs.medusajs.com"
-        }
-      ],
-      "actions": {
-        "openOfficialSource": true,
-        "installFromCatalog": false,
-        "mutateExternalSystems": false
-      }
-    },
-    {
       "id": "ytsage",
       "title": "YTSage",
       "url": "https://github.com/oop7/YTSage",
@@ -8114,6 +8008,59 @@
           "kind": "license",
           "label": "YTSage MIT license",
           "url": "https://github.com/oop7/YTSage/blob/main/LICENSE"
+        }
+      ],
+      "actions": {
+        "openOfficialSource": true,
+        "installFromCatalog": false,
+        "mutateExternalSystems": false
+      }
+    },
+    {
+      "id": "medusa-docs-docs-medusajs-com",
+      "title": "Medusa docs",
+      "url": "https://docs.medusajs.com",
+      "type": "shop",
+      "category": "Разработка интернет-магазинов",
+      "subcategory": "Обучение / гайды (бесплатно)",
+      "addedAt": null,
+      "description": "Medusa docs — Официальный гайд «магазин с нуля», шаг за шагом — начинать отсюда. Карточка помогает понять назначение ресурса и начать с небольшой безопасной проверки; условия использования ещё нужно сверить с официальным источником.",
+      "useCases": [
+        "Разобраться, подходит ли Medusa docs для вашей задачи",
+        "Проверить возможности на небольшом тестовом сценарии до интеграции"
+      ],
+      "platforms": [
+        "Web"
+      ],
+      "license": {
+        "label": "Нужно проверить в официальном источнике",
+        "original": "Нужно проверить в официальном источнике",
+        "spdx": null,
+        "kind": "unknown",
+        "status": "unverified",
+        "requiresReview": true,
+        "evidence": [
+          {
+            "kind": "official-source",
+            "label": "Официальный источник; точные условия ещё нужно сверить",
+            "url": "https://docs.medusajs.com"
+          }
+        ]
+      },
+      "access": {
+        "cost": "free",
+        "signup": "unknown",
+        "runtime": "cloud"
+      },
+      "trust": "unknown",
+      "decision": "reference",
+      "riskLevel": "medium",
+      "projects": [],
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://docs.medusajs.com"
         }
       ],
       "actions": {
@@ -32284,6 +32231,610 @@
           "kind": "source",
           "label": "Official product site",
           "url": "https://neobrutalism.com/"
+        }
+      ],
+      "actions": {
+        "openOfficialSource": true,
+        "installFromCatalog": false,
+        "mutateExternalSystems": false
+      }
+    },
+    {
+      "id": "roamers-github-discovery",
+      "title": "Roamers",
+      "url": "https://roamers.dev/",
+      "type": "tool",
+      "category": "Разработка и исследования",
+      "subcategory": "Персональная лента GitHub-проектов",
+      "addedAt": "2026-08-11",
+      "description": "Roamers показывает публичные GitHub-репозитории как бесконечную полноэкранную ленту. Без входа проекты сортируются по текущему росту интереса; после GitHub OAuth сервис использует ваши публичные stars для персонализации. Это удобный discovery-интерфейс, но не редакторская проверка качества, лицензии или безопасности найденного кода.",
+      "useCases": [
+        "Взять swipe/dislike/save UX как reference для режима discovery в Eclipse Library",
+        "Находить кандидатов для ручного исследования без автоматического добавления в каталог",
+        "Сравнить персональные рекомендации с task-first поиском Eclipse Library",
+        "Использовать только как вход в редакторский pipeline official source → license → security → decision"
+      ],
+      "platforms": [
+        "Web",
+        "GitHub OAuth",
+        "Cloud"
+      ],
+      "license": {
+        "label": "Proprietary web service; публичная лицензия на исходный код не найдена",
+        "original": "Proprietary web service; публичная лицензия на исходный код не найдена",
+        "spdx": null,
+        "kind": "custom",
+        "status": "editor-reviewed",
+        "requiresReview": false,
+        "evidence": [
+          {
+            "kind": "source",
+            "label": "Official about page",
+            "url": "https://roamers.dev/about"
+          },
+          {
+            "kind": "privacy",
+            "label": "Official privacy page",
+            "url": "https://roamers.dev/privacy"
+          }
+        ]
+      },
+      "access": {
+        "cost": "free",
+        "signup": "optional",
+        "runtime": "cloud"
+      },
+      "trust": "community",
+      "decision": "reference",
+      "riskLevel": "medium",
+      "projects": [
+        "Eclipse Library",
+        "Hopson Sentinel",
+        "oh-my-claudecode"
+      ],
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://roamers.dev/"
+        },
+        {
+          "kind": "source",
+          "label": "Official about page",
+          "url": "https://roamers.dev/about"
+        },
+        {
+          "kind": "privacy",
+          "label": "Official privacy page",
+          "url": "https://roamers.dev/privacy"
+        }
+      ],
+      "actions": {
+        "openOfficialSource": true,
+        "installFromCatalog": false,
+        "mutateExternalSystems": false
+      }
+    },
+    {
+      "id": "human-review",
+      "title": "Human Review",
+      "url": "https://github.com/petergyang/human-review",
+      "type": "skill",
+      "category": "AI & Claude Code",
+      "subcategory": "Визуальная проверка HTML и Markdown человеком",
+      "addedAt": "2026-08-11",
+      "description": "Human Review — локальный MIT-инструмент и Agent Skill для визуального review HTML, Markdown и страниц на localhost. Пользователь прямо в браузере правит текст и структуру, оставляет привязанные комментарии и одним пакетом возвращает feedback агенту. Это удобный human-in-the-loop слой, но HTML-изменения могут сохраняться автоматически и tool всё равно нужно предварительно проверить и закрепить по версии.",
+      "useCases": [
+        "Добавить визуальный review step для Eclipse Forge Landing и Eclipse Library перед merge",
+        "Собирать пакет комментариев к интерфейсам Eclipse Chat и AI Hub вместо длинной переписки",
+        "Проверять Markdown-гайды и product copy с точными anchored comments",
+        "Взять UX edit → comment → send → refresh как reference для собственного Review Room"
+      ],
+      "platforms": [
+        "Local",
+        "Browser",
+        "HTML",
+        "Markdown",
+        "Claude Code",
+        "Codex"
+      ],
+      "license": {
+        "label": "MIT",
+        "original": "MIT",
+        "spdx": "MIT",
+        "kind": "open-source",
+        "status": "source-declared",
+        "requiresReview": false,
+        "evidence": [
+          {
+            "kind": "license",
+            "label": "MIT license",
+            "url": "https://api.github.com/repos/petergyang/human-review/license"
+          },
+          {
+            "kind": "license",
+            "label": "Official MIT license",
+            "url": "https://github.com/petergyang/human-review/blob/main/LICENSE"
+          },
+          {
+            "kind": "source",
+            "label": "Official repository and usage documentation",
+            "url": "https://github.com/petergyang/human-review"
+          }
+        ]
+      },
+      "access": {
+        "cost": "free",
+        "signup": "none",
+        "runtime": "local"
+      },
+      "trust": "community",
+      "decision": "roadmap",
+      "riskLevel": "medium",
+      "projects": [
+        "Eclipse Forge Landing",
+        "Eclipse Library",
+        "Eclipse Chat",
+        "Eclipse AI Hub",
+        "Eclipse Media"
+      ],
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://github.com/petergyang/human-review"
+        },
+        {
+          "kind": "license",
+          "label": "MIT license",
+          "url": "https://api.github.com/repos/petergyang/human-review/license"
+        },
+        {
+          "kind": "license",
+          "label": "Official MIT license",
+          "url": "https://github.com/petergyang/human-review/blob/main/LICENSE"
+        }
+      ],
+      "actions": {
+        "openOfficialSource": true,
+        "installFromCatalog": false,
+        "mutateExternalSystems": false
+      }
+    },
+    {
+      "id": "vectras-vm-android",
+      "title": "Vectras VM",
+      "url": "https://github.com/xoureldeen/Vectras-VM-Android",
+      "type": "tool",
+      "category": "Разработка и тестирование",
+      "subcategory": "QEMU-виртуализация на Android",
+      "addedAt": "2026-08-11",
+      "description": "Vectras VM — Android-приложение на базе QEMU для запуска гостевых операционных систем и настройки виртуальных машин. Проект поддерживает x86/x64 emulation, VNC-дисплей, snapshots, storage и advanced virtual devices, но производительность зависит от телефона, часть возможностей экспериментальна, а законный образ гостевой ОС пользователь должен предоставить сам.",
+      "useCases": [
+        "Оставить как mobile QA/sandbox reference для Hopson Sentinel и Eclipse Chat",
+        "Проверять очень лёгкие offline fixtures на запасном Android-устройстве без production credentials",
+        "Изучить UX создания VM, snapshots и resource limits для собственных disposable sandboxes",
+        "Не использовать как основную CI или security isolation платформу"
+      ],
+      "platforms": [
+        "Android",
+        "QEMU",
+        "VNC",
+        "Local"
+      ],
+      "license": {
+        "label": "GPL-2.0",
+        "original": "GPL-2.0",
+        "spdx": "GPL-2.0",
+        "kind": "open-source",
+        "status": "source-declared",
+        "requiresReview": false,
+        "evidence": [
+          {
+            "kind": "license",
+            "label": "GPL-2.0 license",
+            "url": "https://api.github.com/repos/xoureldeen/vectras-vm-android/license"
+          },
+          {
+            "kind": "license",
+            "label": "Official GPL-2.0 license",
+            "url": "https://github.com/xoureldeen/Vectras-VM-Android/blob/master/LICENSE"
+          },
+          {
+            "kind": "source",
+            "label": "Official repository",
+            "url": "https://github.com/xoureldeen/Vectras-VM-Android"
+          }
+        ]
+      },
+      "access": {
+        "cost": "free",
+        "signup": "none",
+        "runtime": "local"
+      },
+      "trust": "community",
+      "decision": "reference",
+      "riskLevel": "high",
+      "projects": [
+        "Hopson Sentinel",
+        "Eclipse Chat",
+        "Eclipse AI Hub"
+      ],
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://github.com/xoureldeen/Vectras-VM-Android"
+        },
+        {
+          "kind": "license",
+          "label": "GPL-2.0 license",
+          "url": "https://api.github.com/repos/xoureldeen/vectras-vm-android/license"
+        },
+        {
+          "kind": "license",
+          "label": "Official GPL-2.0 license",
+          "url": "https://github.com/xoureldeen/Vectras-VM-Android/blob/master/LICENSE"
+        }
+      ],
+      "actions": {
+        "openOfficialSource": true,
+        "installFromCatalog": false,
+        "mutateExternalSystems": false
+      }
+    },
+    {
+      "id": "rejudge",
+      "title": "Rejudge",
+      "url": "https://github.com/syabro/rejudge",
+      "type": "agent",
+      "category": "AI & Claude Code",
+      "subcategory": "Независимое multi-model code review",
+      "addedAt": "2026-08-11",
+      "description": "Rejudge запускает несколько model reviewers в изолированных сессиях, после чего отдельный judge сопоставляет отчёты и задаёт уточняющие вопросы. По умолчанию reviewers получают read-only tools, а judge не читает workspace. Это полезная архитектура второго мнения, но согласие моделей не доказывает правильность и один run вызывает несколько платных model sessions.",
+      "useCases": [
+        "Провести benchmark на известных Eclipse bug-fix fixtures для oh-my-claudecode и Hopson Sentinel",
+        "Сравнить single-review и multi-review по precision, recall, cost, latency и false positives",
+        "Взять independent panel → disagreement → judge UX для Eclipse AI Hub Code Review",
+        "Использовать только для bounded diff без secrets и без unsafe/full режима"
+      ],
+      "platforms": [
+        "Node.js",
+        "CLI",
+        "Agent Skill",
+        "Pi",
+        "Cloud model APIs",
+        "Ollama"
+      ],
+      "license": {
+        "label": "MIT",
+        "original": "MIT",
+        "spdx": "MIT",
+        "kind": "open-source",
+        "status": "source-declared",
+        "requiresReview": false,
+        "evidence": [
+          {
+            "kind": "license",
+            "label": "MIT license",
+            "url": "https://api.github.com/repos/syabro/rejudge/license"
+          },
+          {
+            "kind": "license",
+            "label": "Official MIT license",
+            "url": "https://github.com/syabro/rejudge/blob/main/LICENSE"
+          },
+          {
+            "kind": "source",
+            "label": "Official repository and security notes",
+            "url": "https://github.com/syabro/rejudge"
+          }
+        ]
+      },
+      "access": {
+        "cost": "freemium",
+        "signup": "optional",
+        "runtime": "hybrid"
+      },
+      "trust": "community",
+      "decision": "roadmap",
+      "riskLevel": "high",
+      "projects": [
+        "oh-my-claudecode",
+        "Hopson Sentinel",
+        "Eclipse AI Hub"
+      ],
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://github.com/syabro/rejudge"
+        },
+        {
+          "kind": "license",
+          "label": "MIT license",
+          "url": "https://api.github.com/repos/syabro/rejudge/license"
+        },
+        {
+          "kind": "license",
+          "label": "Official MIT license",
+          "url": "https://github.com/syabro/rejudge/blob/main/LICENSE"
+        }
+      ],
+      "actions": {
+        "openOfficialSource": true,
+        "installFromCatalog": false,
+        "mutateExternalSystems": false
+      }
+    },
+    {
+      "id": "awesome-mac",
+      "title": "Awesome Mac",
+      "url": "https://github.com/jaywcjlove/awesome-mac",
+      "type": "tool",
+      "category": "Разработка и productivity",
+      "subcategory": "Кураторский каталог macOS-приложений",
+      "addedAt": "2026-08-11",
+      "description": "Awesome Mac — большой community-каталог приложений для macOS, разбитый по назначению и помечающий open-source/freeware варианты. Лицензия списка не распространяется на перечисленные программы: перед установкой каждого приложения всё равно нужно проверять официальный сайт, подпись, стоимость, telemetry, updater и собственную лицензию.",
+      "useCases": [
+        "Использовать как discovery source для developer workstation Hopson Sentinel",
+        "Находить macOS alternatives для локального capture, preview и productivity workflow",
+        "Взять taxonomy и явные OSS/freeware badges как reference для Eclipse Library",
+        "Отбирать только отдельные приложения через обычный editorial/security pipeline"
+      ],
+      "platforms": [
+        "macOS",
+        "GitHub",
+        "Web"
+      ],
+      "license": {
+        "label": "CC0-1.0 для LICENSE списка; README badge всё ещё ссылается на CC BY 4.0, а каждое перечисленное приложение имеет собственные условия",
+        "original": "CC0-1.0 для LICENSE списка; README badge всё ещё ссылается на CC BY 4.0, а каждое перечисленное приложение имеет собственные условия",
+        "spdx": null,
+        "kind": "custom",
+        "status": "editor-reviewed",
+        "requiresReview": false,
+        "evidence": [
+          {
+            "kind": "license",
+            "label": "CC0-1.0 license",
+            "url": "https://api.github.com/repos/jaywcjlove/awesome-mac/license"
+          },
+          {
+            "kind": "license",
+            "label": "Canonical repository LICENSE (CC0-1.0)",
+            "url": "https://github.com/jaywcjlove/awesome-mac/blob/master/LICENSE"
+          },
+          {
+            "kind": "source",
+            "label": "Official curated list",
+            "url": "https://github.com/jaywcjlove/awesome-mac"
+          }
+        ]
+      },
+      "access": {
+        "cost": "free",
+        "signup": "none",
+        "runtime": "cloud"
+      },
+      "trust": "community",
+      "decision": "reference",
+      "riskLevel": "medium",
+      "projects": [
+        "Eclipse Library",
+        "Hopson Sentinel",
+        "Eclipse Media",
+        "Shotforge"
+      ],
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://github.com/jaywcjlove/awesome-mac"
+        },
+        {
+          "kind": "license",
+          "label": "CC0-1.0 license",
+          "url": "https://api.github.com/repos/jaywcjlove/awesome-mac/license"
+        },
+        {
+          "kind": "license",
+          "label": "Canonical repository LICENSE (CC0-1.0)",
+          "url": "https://github.com/jaywcjlove/awesome-mac/blob/master/LICENSE"
+        }
+      ],
+      "actions": {
+        "openOfficialSource": true,
+        "installFromCatalog": false,
+        "mutateExternalSystems": false
+      }
+    },
+    {
+      "id": "soup-cli",
+      "title": "Soup CLI",
+      "url": "https://github.com/MakazhanAlpamys/Soup",
+      "type": "tool",
+      "category": "AI-модели",
+      "subcategory": "Локальный fine-tuning и evaluation pipeline",
+      "addedAt": "2026-08-11",
+      "description": "Soup CLI — активно развивающийся Apache-2.0 инструментарий для подготовки данных, fine-tuning, evaluation, merge/export и локального serving моделей через один YAML/CLI workflow. Он поддерживает LoRA/QLoRA, множество training tasks и GGUF export, но обещание «любая модель без инфраструктуры» преувеличено: нужны совместимые weights, datasets, CUDA/MLX stack, VRAM и отдельная проверка результата.",
+      "useCases": [
+        "Провести isolated fine-tuning benchmark для Eclipse AI Hub на небольшой разрешённой Qwen/Gemma модели",
+        "Добавить Hardware Doctor и plan-only UX в Eclipse Model Registry без немедленного запуска training",
+        "Исследовать eval-gated training и model-card/provenance artifacts для Hopson Sentinel",
+        "Готовить domain adapter для Educator-AI только на очищенном лицензированном dataset"
+      ],
+      "platforms": [
+        "Python",
+        "Local",
+        "Linux",
+        "macOS",
+        "Windows",
+        "CUDA",
+        "Apple Silicon",
+        "Hugging Face",
+        "Ollama"
+      ],
+      "license": {
+        "label": "Apache-2.0 для Soup code; base models, datasets, adapters, generated artifacts and optional integrations retain separate licenses and terms",
+        "original": "Apache-2.0 для Soup code; base models, datasets, adapters, generated artifacts and optional integrations retain separate licenses and terms",
+        "spdx": null,
+        "kind": "custom",
+        "status": "editor-reviewed",
+        "requiresReview": false,
+        "evidence": [
+          {
+            "kind": "license",
+            "label": "Apache-2.0 license",
+            "url": "https://api.github.com/repos/makazhanalpamys/soup/license"
+          },
+          {
+            "kind": "license",
+            "label": "Official Apache-2.0 license",
+            "url": "https://github.com/MakazhanAlpamys/Soup/blob/main/LICENSE"
+          },
+          {
+            "kind": "security",
+            "label": "Official security policy",
+            "url": "https://github.com/MakazhanAlpamys/Soup/blob/main/SECURITY.md"
+          },
+          {
+            "kind": "source",
+            "label": "Official repository",
+            "url": "https://github.com/MakazhanAlpamys/Soup"
+          },
+          {
+            "kind": "package",
+            "label": "Official PyPI package",
+            "url": "https://pypi.org/project/soup-cli/"
+          }
+        ]
+      },
+      "access": {
+        "cost": "free",
+        "signup": "optional",
+        "runtime": "local"
+      },
+      "trust": "community",
+      "decision": "roadmap",
+      "riskLevel": "high",
+      "projects": [
+        "Eclipse AI Hub",
+        "Hopson Sentinel",
+        "Educator-AI",
+        "Text2Image"
+      ],
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://github.com/MakazhanAlpamys/Soup"
+        },
+        {
+          "kind": "license",
+          "label": "Apache-2.0 license",
+          "url": "https://api.github.com/repos/makazhanalpamys/soup/license"
+        },
+        {
+          "kind": "license",
+          "label": "Official Apache-2.0 license",
+          "url": "https://github.com/MakazhanAlpamys/Soup/blob/main/LICENSE"
+        },
+        {
+          "kind": "security",
+          "label": "Official security policy",
+          "url": "https://github.com/MakazhanAlpamys/Soup/blob/main/SECURITY.md"
+        },
+        {
+          "kind": "package",
+          "label": "Official PyPI package",
+          "url": "https://pypi.org/project/soup-cli/"
+        }
+      ],
+      "actions": {
+        "openOfficialSource": true,
+        "installFromCatalog": false,
+        "mutateExternalSystems": false
+      }
+    },
+    {
+      "id": "c2pa-content-credentials",
+      "title": "C2PA Content Credentials",
+      "url": "https://spec.c2pa.org/specifications/specifications/2.4/index.html",
+      "type": "privacy",
+      "category": "Security и privacy",
+      "subcategory": "Проверяемое происхождение media",
+      "addedAt": "2026-08-11",
+      "description": "C2PA Content Credentials — открытый стандарт криптографически связанного provenance для изображений, видео, аудио и документов. Он может записывать источник, изменения и участие AI, но не является универсальным скрытым detector для любого текста или кода, не доказывает правдивость содержимого и не обещает полную историю всех редакций.",
+      "useCases": [
+        "Добавить provenance manifest verification для экспортов Eclipse Media и Shotforge",
+        "Показывать source/model/edit history как trust signal в Eclipse Library и Text2Image",
+        "Сохранять Content Credentials при допустимых преобразованиях вместо удаления metadata",
+        "Обучать пользователей отличать проверяемое provenance от AI-detection и фактической проверки"
+      ],
+      "platforms": [
+        "Open standard",
+        "Images",
+        "Video",
+        "Audio",
+        "Documents",
+        "Web"
+      ],
+      "license": {
+        "label": "CC-BY-4.0",
+        "original": "C2PA specification documents — CC-BY-4.0; implementations and media assets have their own licenses",
+        "spdx": "CC-BY-4.0",
+        "kind": "open-source",
+        "status": "editor-reviewed",
+        "requiresReview": false,
+        "evidence": [
+          {
+            "kind": "license",
+            "label": "Official specification and CC BY 4.0 notice",
+            "url": "https://spec.c2pa.org/specifications/specifications/2.4/index.html"
+          },
+          {
+            "kind": "source",
+            "label": "Official explainer",
+            "url": "https://spec.c2pa.org/specifications/specifications/2.2/explainer/Explainer.html"
+          },
+          {
+            "kind": "security",
+            "label": "Official security considerations",
+            "url": "https://spec.c2pa.org/specifications/specifications/2.0/security/Security_Considerations.html"
+          }
+        ]
+      },
+      "access": {
+        "cost": "free",
+        "signup": "none",
+        "runtime": "hybrid"
+      },
+      "trust": "official",
+      "decision": "roadmap",
+      "riskLevel": "medium",
+      "projects": [
+        "Eclipse Media",
+        "Shotforge",
+        "Text2Image",
+        "Eclipse Library",
+        "Eclipse AI Hub"
+      ],
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://spec.c2pa.org/specifications/specifications/2.4/index.html"
+        },
+        {
+          "kind": "source",
+          "label": "Official explainer",
+          "url": "https://spec.c2pa.org/specifications/specifications/2.2/explainer/Explainer.html"
+        },
+        {
+          "kind": "security",
+          "label": "Official security considerations",
+          "url": "https://spec.c2pa.org/specifications/specifications/2.0/security/Security_Considerations.html"
         }
       ],
       "actions": {

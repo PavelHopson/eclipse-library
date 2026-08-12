@@ -6,14 +6,14 @@
 
 ## Текущее состояние
 
-- 610 уникальных записей доступны пользователям.
-- 173 карточки прошли ручную редакторскую проверку.
-- 437 карточек честно помечены как `inferred` и ожидают углублённого review.
-- У 329 записей лицензия или условия уже нормализованы и подкреплены evidence.
+- 617 уникальных записей доступны пользователям.
+- 181 карточка прошла ручную редакторскую проверку.
+- 436 карточек честно помечены как `inferred` и ожидают углублённого review.
+- У 336 записей лицензия или условия уже нормализованы и подкреплены evidence.
 - 281 лицензия или набор условий всё ещё требуют отдельной проверки.
-- 68 grey-ресурсов видны человеку как reference, но исключены из agent recommendations.
-- Всего 75 записей исключены из agent exports по risk, editorial, transport или repository policy; 535 доступны agent consumers.
-- 327 записей получили отдельное поле `addedAt`; неизвестные даты не выдумываются.
+- 69 grey-ресурсов видны человеку как reference, но исключены из agent recommendations.
+- Всего 76 записей исключены из agent exports по risk, editorial, transport или repository policy; 541 доступна для agent consumers.
+- 335 записей получили отдельное поле `addedAt`; неизвестные даты не выдумываются.
 
 ## Как устроены данные
 
@@ -111,6 +111,7 @@ Quality workflow проверяет:
 - [ROADMAP](ROADMAP.md)
 - [Eclipse Growth OS](guides/eclipse-growth-os.md)
 - [Creator Ops Stack](guides/creator-ops-stack.md)
+- [Discovery, review и provenance radar](guides/august-2026-discovery-review-security-radar.md)
 - [AI Landing Sprint](guides/ai-landing-sprint.md)
 - [Operational agent stack](guides/august-2026-operational-agent-stack.md)
 - [Agent Reach security review](guides/agent-reach-security-review-2026-07-31.md)

@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "totals": {
-    "guides": 32
+    "guides": 33
   },
   "guides": [
     {
@@ -71,6 +71,13 @@
       "name": "creator-ops-stack",
       "title": "Creator Ops Stack: контент, desktop-инструменты и UI без магических обещаний",
       "description": "Проверено 12.08.2026. Этот гайд превращает подборки со скриншотов в безопасные решения для Eclipse Forge. Каталог не устанавливает приложения, skills, CLI или MCP и не…",
+      "modules": 0,
+      "lessons": 0
+    },
+    {
+      "name": "august-2026-discovery-review-security-radar",
+      "title": "Discovery, review и provenance: безопасный разбор августовской подборки",
+      "description": "Проверено 12.08.2026 по официальным сайтам, GitHub-репозиториям, лицензиям и документации.",
       "modules": 0,
       "lessons": 0
     },

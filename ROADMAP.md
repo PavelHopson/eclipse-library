@@ -4,17 +4,17 @@
 
 ## Текущее состояние
 
-- `catalog/resources.json` — канонический structured catalog из 610 уникальных записей;
+- `catalog/resources.json` — канонический structured catalog из 617 уникальных записей;
   `README.md` сокращён до документации и больше не является runtime-источником данных.
 - `web/app.js` — command-first поиск, фильтры, detail view и guide viewer; structured adapter,
   карточки, editorial feed, progressive DOM и evidence-first Inspector вынесены в модули. При старте
-  в DOM создаются только первые 36 карточек вместо всех 610; mobile Inspector открывается как sheet.
-- `web/catalog-index.json` — production schema v2: 173 записи редакторски проверены,
-  437 честно помечены `inferred`, 327 имеют отдельный `addedAt`, даты удалены из category.
-- License layer: у 329 записей лицензия или условия нормализованы с evidence URL,
-  281 ещё требуют отдельного review.
-- Agent policy: 535 записей доступны автоматическим consumers, 75 исключены fail closed;
-  все 68 grey-ресурсов скрыты от recommendations, direct install запрещён для всех записей.
+  в DOM создаются только первые 36 карточек вместо всех 617; mobile Inspector открывается как sheet.
+- `web/catalog-index.json` — production schema v2: 181 запись редакторски проверена,
+  436 честно помечены `inferred`, 335 имеют отдельный `addedAt`, даты удалены из category.
+- License layer: у 336 записей лицензия или условия нормализованы с evidence URL,
+  281 ещё требует отдельного review.
+- Agent policy: 541 запись доступна автоматическим consumers, 76 исключены fail closed;
+  все 69 grey-ресурсов скрыты от recommendations, direct install запрещён для всех записей.
 - `web/api/v1/` — versioned static exports для full catalog, agents, Eclipse CRM и Eclipse AI;
   consumers больше не должны читать README.
 - `web/star-technology-registry.json` и `web/registry.html` — отдельный read-only decision
@@ -64,6 +64,15 @@
       и Trends; source/rights/provenance обязательны, публикация и account access только после approval.
 - [ ] Eclipse AI Hub / Growth OS: встроить Editor Stylist v2 P1/S — три понятных режима,
       locked facts, voice samples, `claimsChanged`, semantic diff и human approval; без detector bypass.
+- [ ] Landing / Library / Chat / AI Hub: провести Human Review pilot P1/M в disposable worktree —
+      bounded review root без secrets, pinned commit, semantic summary, полный `git diff` и явный
+      approve/reject; visual feedback не заменяет tests, responsive QA и code review.
+- [ ] Eclipse AI Hub / Sentinel / oh-my-claudecode: провести Rejudge benchmark P1/M на synthetic
+      fixtures с известными дефектами — только read-only reviewers, provider allowlist, budget/timeout,
+      redacted logs и сравнение с одним сильным reviewer; `--unsafe`, `--full` и auto-fix запрещены.
+- [ ] Eclipse Media / Shotforge / Text2Image: добавить C2PA verification-only Provenance Passport
+      P1/M со статусами valid/invalid/missing/unsupported, локальной проверкой и сохранением report;
+      signing, key custody, rotation и revocation вынести в отдельный security project.
 - [ ] Eclipse Library / Landing: провести read-only Claude SEO audit P1/M публичных URL с evidence,
       затем применять исправления отдельными PR и измерять Search Console/conversion.
 - [ ] Eclipse Media / Shotforge: проверить Desktop Creator Kit P2/S — ShareX local-only,
@@ -211,6 +220,10 @@
 
 ### P2
 
+- [ ] Eclipse AI Hub Model Registry: проверить Soup CLI в isolated GPU lab P2/L на одном public
+      dataset и небольшой open model — pinned dependencies, network deny-by-default, license gate,
+      holdout evaluation, resource budget и provenance; не запускать training на основной машине.
+
 - [ ] Hopson Sentinel / Eclipse Chat / Media: проверить wearable assistant flow P2/L без покупки
       Oakley Meta Vanguard — phone/headset prototype, explicit recording indicator, consent, retention,
       delete и offline fallback; Meta/fitness integration только после API, Terms, privacy и DPA review.
@@ -251,6 +264,28 @@
 
 ### 2026-08-12
 
+- Проверена подборка из 21 сообщения: первые 11 тем сопоставлены с уже существующими карточками
+  и не продублированы. Добавлены восемь verified-записей — Roamers, TabiToken, Human Review,
+  Vectras VM, Rejudge, Awesome Mac, Soup CLI и C2PA Content Credentials; каталог вырос до 617
+  материалов, 541 agent-safe записей, 323 GitHub repositories и 33 guides.
+- Старая inferred-карточка `cheahjs/free-llm-api-resources` удалена после подтверждённых
+  GitHub API/HTTPS `404`; её назначение уже покрывает verified-карточка freeLLM на `freellm.sh`.
+- Human Review, Rejudge, C2PA и Soup направлены в bounded roadmap с конкретными benchmark,
+  approval и isolation gates. Roamers, Vectras и Awesome Mac оставлены reference; TabiToken
+  помечен high-risk/no-use и исключён из agent recommendations до проверки owner, Terms,
+  Privacy/DPA, routing, retention и model provenance.
+- Не приняты рекламный Selectel VDS, курс без идентифицируемой ссылки, советы по поиску чужих
+  API-ключей, универсальный C2PA-watermark для текста Claude и способы обхода provenance.
+  Добавлен defensive secret-response и verification-only provenance workflow; direct install
+  внешних CLI/APK/skills по-прежнему запрещён.
+
+- Полный SSRF-safe network audit после очистки проверил 645 canonical URL: 598 ok,
+  31 restricted, 1 temporary unavailable, 15 network unknown, 0 broken, 0 unsafe и 0 redirect
+  duplicates; `web/link-health.json` обновлён отдельным availability snapshot.
+- Local Edge QA на 1440×900 и 390×844 подтвердил поиск Human Review, detail TabiToken,
+  решение «Не использовать», high-risk badge, отсутствие horizontal overflow, console/network errors
+  и mobile scroll jump (`900 -> 900`). Устаревший числовой placeholder поиска заменён на
+  стабильную task-first формулировку.
 - Разобрана новая подборка из 25 изображений: вместо пяти дубликатов «humanizer»-промптов
   Editor Stylist обновлён до evidence-preserving workflow с тремя режимами, locked facts,
   semantic diff и approval. Instagram/faceless claims превращены в 5–10-выпускный эксперимент

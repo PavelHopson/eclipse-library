@@ -45,3 +45,16 @@ test('preserves mixed code and model license terms instead of collapsing to repo
   assert.equal(result.status, 'editor-reviewed');
   assert.equal(result.requiresReview, false);
 });
+test('normalizes Creative Commons catalog licenses', () => {
+  const cc0 = normalizeLicense(
+    { license: 'CC0 1.0 for the list; every linked application has its own license', reviewStatus: 'verified', url: 'https://github.com/example/list' },
+    null,
+  );
+  const attribution = normalizeLicense(
+    { license: 'CC-BY-4.0', reviewStatus: 'verified', url: 'https://example.com/spec' },
+    null,
+  );
+  assert.equal(cc0.spdx, 'CC0-1.0');
+  assert.equal(cc0.kind, 'open-source');
+  assert.equal(attribution.spdx, 'CC-BY-4.0');
+});
