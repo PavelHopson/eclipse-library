@@ -23,14 +23,14 @@
 - `web/link-health.json` — безопасный публичный snapshot weekly-аудита: доступность ссылки
   показывается отдельно от редакторского доверия и не считается security endorsement.
 - Deploy: GitHub Actions → VPS/Caddy из ветки `master`.
-- Production синхронизирован с commit `89a34d0`: quality
-  [#31583141657](https://github.com/PavelHopson/eclipse-library/actions/runs/31583141657)
-  и deploy [#31583141588](https://github.com/PavelHopson/eclipse-library/actions/runs/31583141588)
+- Production синхронизирован с catalog commit `6a48a91`: quality
+  [#31614690259](https://github.com/PavelHopson/eclipse-library/actions/runs/31614690259)
+  и deploy [#31614690085](https://github.com/PavelHopson/eclipse-library/actions/runs/31614690085)
   от 12.08.2026 успешно завершены. Independent production smoke подтвердил `app.js?v=39`,
-  `registry.js?v=1`, `registry.css?v=1`, 610 материалов, 535 agent-safe записей, 319 repositories,
-  32 guides и 26 решений Eclipse.
-  Production Edge QA на 1440×900 и 390×844 подтвердил deep link, CSP, hidden product scrollbar,
-  отсутствие horizontal overflow, scroll jump, console и network errors.
+  `registry.js?v=1`, `registry.css?v=1`, 617 материалов, 541 agent-safe запись, 323 repositories,
+  33 guides и 26 решений Eclipse.
+  Production Edge QA на 1440×900 и 390×844 подтвердил Human Review search, TabiToken deep link
+  и fail-closed решение, отсутствие horizontal overflow, scroll jump, console и network errors.
 
 ## Приоритеты
 
