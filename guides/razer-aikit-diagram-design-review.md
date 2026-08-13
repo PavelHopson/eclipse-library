@@ -98,11 +98,23 @@ Diagram Design используем как проверяемый input и refer
   accessibility findings и размер output.
 - Успех: ноль выдуманных связей, ноль remote requests, все labels читаемы, diff одобрен человеком.
 
-После успешного pilot тот же контракт применяется:
+### Первый controlled rollout
 
-- **Eclipse Chat / AI Hub:** sequence, approval flow, Growth OS run lifecycle;
+- [Eclipse AI Hub provider boundary](../web/diagrams/ai-hub-provider-boundary.html) показывает
+  capability + hardware profile → Model Registry → readiness gate → interactive route, batch route
+  или no safe match. Registry ничего не запускает; provider execution, BYOK и gateway auth остаются отдельными boundaries.
+- [Hopson Sentinel capability boundary](../web/diagrams/sentinel-capability-boundary.html) показывает
+  intent → tool proposal → capability gate → bounded executor, human approval или deny. Диаграмма не
+  меняет permission engine и не даёт input/content управлять policy.
+- Обе схемы используют только factual state из собственных README, contracts, roadmap и security
+  документации проектов. TypeScript/Rust/provider implementation details объединены в fidelity ledger.
+
+После первого rollout тот же контракт применяется:
+
+- **Eclipse Chat:** sequence, approval flow, Growth OS run lifecycle;
 - **Eclipse DnD Forge:** campaign/data flow и безопасные GM/player boundaries, но не замена Azgaar maps;
-- **Hopson Sentinel:** trust boundaries, capability/permission diagrams и incident timelines;
+- **Hopson Sentinel:** отдельные browser/voice trust boundaries и incident timelines поверх уже
+  опубликованного базового capability gate;
 - **Eclipse Media / Shotforge / Text2Image:** generation pipeline, provenance и export workflow;
 - **Landing / Library / Educator-AI:** architecture visuals, explainers, roadmap и учебные схемы.
 

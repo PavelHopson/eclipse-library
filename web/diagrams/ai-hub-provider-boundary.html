@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="dark">
+  <title>Eclipse AI Hub: граница выбора модели</title>
+  <style>
+    @font-face { font-family: "Inter"; font-style: normal; font-weight: 300 700; font-display: swap; src: url("../assets/fonts/inter-cyrillic.woff2") format("woff2"); unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116; }
+    @font-face { font-family: "Inter"; font-style: normal; font-weight: 300 700; font-display: swap; src: url("../assets/fonts/inter-latin.woff2") format("woff2"); }
+    @font-face { font-family: "Outfit"; font-style: normal; font-weight: 200 900; font-display: swap; src: url("../assets/fonts/outfit-latin.woff2") format("woff2"); }
+    :root { --bg: #080b10; --panel: #0d131c; --panel-2: #111925; --line: #1f2b3b; --text: #f2f5f9; --secondary: #bdc7d4; --muted: #7e8a99; --gold: #d4af37; --signal: #6ba3ff; --safe: #65c9a4; --danger: #e08a75; --radius: 20px; --display: "Outfit", "Inter", sans-serif; --body: "Inter", sans-serif; }
+    * { box-sizing: border-box; }
+    html { background: var(--bg); }
+    html { overflow-x: clip; }
+    body { min-width: 320px; margin: 0; color: var(--text); background: radial-gradient(circle at 78% 9%, rgba(107,163,255,.09), transparent 27%), radial-gradient(circle at 13% 72%, rgba(212,175,55,.06), transparent 24%), var(--bg); font-family: var(--body); }
+    main { width: min(calc(100% - 32px), 1360px); margin: 0 auto; padding: clamp(32px, 6vw, 72px) 0; }
+    header { display: grid; grid-template-columns: minmax(0, 1.3fr) minmax(260px, .7fr); gap: 40px; align-items: end; margin-bottom: 30px; }
+    .eyebrow { margin: 0 0 10px; color: var(--gold); font: 700 11px/1.4 var(--display); letter-spacing: .16em; text-transform: uppercase; }
+    h1 { max-width: 19ch; margin: 0; font: 650 clamp(34px, 5vw, 66px)/.99 var(--display); letter-spacing: -.045em; }
+    .intro { max-width: 52ch; margin: 0; color: var(--secondary); font-size: 15px; line-height: 1.65; }
+    .metrics { display: grid; grid-template-columns: repeat(4, 1fr); margin: 0 0 18px; border-block: 1px solid var(--line); }
+    .metric { min-width: 0; padding: 16px 18px; border-right: 1px solid var(--line); }
+    .metric:last-child { border-right: 0; }
+    .metric strong { display: block; color: var(--text); font: 650 22px/1 var(--display); }
+    .metric span { display: block; margin-top: 6px; color: var(--muted); font-size: 11px; }
+    .diagram-shell { overflow: hidden; border: 1px solid var(--line); border-radius: var(--radius); background: rgba(12,17,23,.94); box-shadow: 0 28px 80px rgba(0,0,0,.24); }
+    svg { display: block; width: 100%; height: auto; }
+    .diagram-mobile { display: none; }
+    .caption { display: grid; grid-template-columns: 1fr auto; gap: 24px; align-items: center; margin-top: 16px; color: var(--muted); font-size: 12px; line-height: 1.55; }
+    .caption p { margin: 0; }
+    .legend { display: flex; gap: 16px; align-items: center; white-space: nowrap; }
+    .legend span { display: inline-flex; gap: 7px; align-items: center; }
+    .legend i { width: 22px; height: 2px; background: var(--signal); }
+    .legend .safe i { background: var(--safe); }
+    .legend .blocked i { background: var(--danger); }
+    @media (max-width: 760px) {
+      main { width: min(calc(100% - 24px), 520px); padding-block: 28px 44px; }
+      header { grid-template-columns: 1fr; gap: 18px; margin-bottom: 22px; }
+      h1 { max-width: 100%; font-size: clamp(34px, 10vw, 44px); overflow-wrap: anywhere; }
+      .metrics { grid-template-columns: repeat(2, 1fr); }
+      .metric:nth-child(2) { border-right: 0; }
+      .metric:nth-child(-n+2) { border-bottom: 1px solid var(--line); }
+      .diagram-desktop { display: none; }
+      .diagram-mobile { display: block; }
+      .caption { grid-template-columns: 1fr; gap: 12px; }
+      .legend { flex-wrap: wrap; white-space: normal; }
+    }
+    @media (prefers-reduced-motion: reduce) { *, *::before, *::after { scroll-behavior: auto !important; } }
+    @media print { body { background: #080b10; print-color-adjust: exact; -webkit-print-color-adjust: exact; } main { width: 100%; padding: 0; } }
+  </style>
+</head>
+<body>
+  <main>
+    <header>
+      <div>
+        <p class="eyebrow">Eclipse AI Hub</p>
+        <h1>Как каталог рекомендует маршрут модели</h1>
+      </div>
+      <p class="intro">Model Registry фильтрует capability и privacy, показывает runtime, license и cost, а Hardware Doctor сравнивает RAM, VRAM и disk. Результат - рекомендация interactive, batch или безопасный отказ.</p>
+    </header>
+
+    <section class="metrics" aria-label="Ключевые ограничения выбора модели">
+      <div class="metric"><strong>3</strong><span>runtime class</span></div>
+      <div class="metric"><strong>4</strong><span>capability</span></div>
+      <div class="metric"><strong>3</strong><span>hardware input</span></div>
+      <div class="metric"><strong>1</strong><span>recommended route</span></div>
+    </section>
+
+    <div class="diagram-shell">
+      <svg class="diagram-desktop" viewBox="0 0 1280 720" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="ai-hub-provider-title ai-hub-provider-desc">
+        <title id="ai-hub-provider-title">Граница выбора модели Eclipse AI Hub</title>
+        <desc id="ai-hub-provider-desc">Запрос capability и hardware profile проходят Model Registry и readiness gate. Подходящая запись рекомендует interactive или batch route. Непроверенная license и несовместимый hardware дают безопасный отказ. Выбор не запускает модель.</desc>
+        <defs>
+          <linearGradient id="ai-hub-panel" x1="0" x2="1"><stop stop-color="#101823"/><stop offset="1" stop-color="#0c121a"/></linearGradient>
+          <marker id="ai-hub-arrow" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto"><path d="M0 0L10 4L0 8Z" fill="#6ba3ff"/></marker>
+          <marker id="ai-hub-safe" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto"><path d="M0 0L10 4L0 8Z" fill="#65c9a4"/></marker>
+          <marker id="ai-hub-blocked" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto"><path d="M0 0L10 4L0 8Z" fill="#e08a75"/></marker>
+        </defs>
+        <rect width="1280" height="720" fill="#090d13"/>
+        <path d="M286 305H352" stroke="#6ba3ff" stroke-width="3" marker-end="url(#ai-hub-arrow)"/>
+        <path d="M626 305H692" stroke="#6ba3ff" stroke-width="3" marker-end="url(#ai-hub-arrow)"/>
+        <path d="M950 258H990V164H1018" fill="none" stroke="#65c9a4" stroke-width="3" marker-end="url(#ai-hub-safe)"/>
+        <path d="M950 305H1018" stroke="#6ba3ff" stroke-width="3" marker-end="url(#ai-hub-arrow)"/>
+        <path d="M821 416V530H1018" fill="none" stroke="#e08a75" stroke-width="2" stroke-dasharray="8 7" marker-end="url(#ai-hub-blocked)"/>
+        <g>
+          <rect x="54" y="210" width="232" height="190" rx="18" fill="url(#ai-hub-panel)" stroke="#d4af37"/>
+          <text x="80" y="246" fill="#d4af37" font-family="Inter, sans-serif" font-size="11" font-weight="700" letter-spacing="1.2">USER TASK</text>
+          <text x="80" y="294" fill="#f2f5f9" font-family="Outfit, Inter, sans-serif" font-size="25" font-weight="650">Нужен результат</text>
+          <text x="80" y="331" fill="#bdc7d4" font-family="Inter, sans-serif" font-size="12">Capability и private-only filter</text>
+          <text x="80" y="357" fill="#bdc7d4" font-family="Inter, sans-serif" font-size="12">RAM, VRAM и disk profile</text>
+        </g>
+        <g>
+          <rect x="352" y="170" width="274" height="270" rx="18" fill="url(#ai-hub-panel)" stroke="#6ba3ff"/>
+          <text x="380" y="208" fill="#6ba3ff" font-family="Inter, sans-serif" font-size="11" font-weight="700" letter-spacing="1.2">MODEL REGISTRY</text>
+          <text x="380" y="257" fill="#f2f5f9" font-family="Outfit, Inter, sans-serif" font-size="27" font-weight="650">Собирает кандидатов</text>
+          <text x="380" y="303" fill="#bdc7d4" font-family="Inter, sans-serif" font-size="12">Capability и runtime</text>
+          <text x="380" y="331" fill="#bdc7d4" font-family="Inter, sans-serif" font-size="12">Local, self-hosted или cloud</text>
+          <text x="380" y="359" fill="#bdc7d4" font-family="Inter, sans-serif" font-size="12">Privacy, cost и license</text>
+          <text x="380" y="401" fill="#7e8a99" font-family="Inter, sans-serif" font-size="11">Каталог ничего не скачивает сам</text>
+        </g>
+        <g>
+          <rect x="692" y="170" width="258" height="270" rx="18" fill="url(#ai-hub-panel)" stroke="#6ba3ff"/>
+          <text x="720" y="208" fill="#6ba3ff" font-family="Inter, sans-serif" font-size="11" font-weight="700" letter-spacing="1.2">READINESS GATE</text>
+          <text x="720" y="257" fill="#f2f5f9" font-family="Outfit, Inter, sans-serif" font-size="27" font-weight="650">Проверяет запуск</text>
+          <text x="720" y="303" fill="#bdc7d4" font-family="Inter, sans-serif" font-size="12">RAM, VRAM и disk</text>
+          <text x="720" y="331" fill="#bdc7d4" font-family="Inter, sans-serif" font-size="12">License должна быть проверена</text>
+          <text x="720" y="359" fill="#bdc7d4" font-family="Inter, sans-serif" font-size="12">missing исключается</text>
+          <text x="720" y="401" fill="#7e8a99" font-family="Inter, sans-serif" font-size="11">ready, limited или missing</text>
+        </g>
+        <g>
+          <rect x="1018" y="92" width="214" height="144" rx="18" fill="#0d1918" stroke="#65c9a4"/>
+          <text x="1044" y="128" fill="#65c9a4" font-family="Inter, sans-serif" font-size="11" font-weight="700" letter-spacing="1.2">INTERACTIVE ROUTE</text>
+          <text x="1044" y="174" fill="#f2f5f9" font-family="Outfit, Inter, sans-serif" font-size="24" font-weight="650">Ollama или cloud</text>
+          <text x="1044" y="203" fill="#bdc7d4" font-family="Inter, sans-serif" font-size="12">Route для диалога или image UI</text>
+        </g>
+        <g>
+          <rect x="1018" y="262" width="214" height="144" rx="18" fill="url(#ai-hub-panel)" stroke="#6ba3ff"/>
+          <text x="1044" y="298" fill="#6ba3ff" font-family="Inter, sans-serif" font-size="11" font-weight="700" letter-spacing="1.2">BATCH ROUTE</text>
+          <text x="1044" y="338" fill="#f2f5f9" font-family="Outfit, Inter, sans-serif" font-size="21" font-weight="650">Media worker</text>
+          <text x="1044" y="366" fill="#f2f5f9" font-family="Outfit, Inter, sans-serif" font-size="21" font-weight="650">или renderer</text>
+          <text x="1044" y="398" fill="#bdc7d4" font-family="Inter, sans-serif" font-size="12">Self-hosted или local queue</text>
+        </g>
+        <g>
+          <rect x="1018" y="476" width="214" height="116" rx="18" fill="#171316" stroke="#e08a75"/>
+          <text x="1044" y="512" fill="#e08a75" font-family="Inter, sans-serif" font-size="11" font-weight="700" letter-spacing="1.2">NO SAFE MATCH</text>
+          <text x="1044" y="552" fill="#f2f5f9" font-family="Outfit, Inter, sans-serif" font-size="22" font-weight="650">Нет рекомендации</text>
+          <text x="1044" y="577" fill="#bdc7d4" font-family="Inter, sans-serif" font-size="11">Registry ничего не запускает</text>
+        </g>
+        <text x="54" y="656" fill="#7e8a99" font-family="Inter, sans-serif" font-size="12">Fidelity ledger: сохранены Model Registry, Hardware Doctor, runtime classes и interactive/batch routes.</text>
+        <text x="1232" y="656" text-anchor="end" fill="#d4af37" font-family="Inter, sans-serif" font-size="12" font-weight="700">SELECTION DOES NOT EXECUTE</text>
+      </svg>
+
+      <svg class="diagram-mobile" viewBox="0 0 390 1150" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="ai-hub-provider-mobile-title ai-hub-provider-mobile-desc">
+        <title id="ai-hub-provider-mobile-title">Мобильная схема выбора модели Eclipse AI Hub</title>
+        <desc id="ai-hub-provider-mobile-desc">Capability и hardware profile проходят Model Registry и readiness gate. Результат - interactive route, batch route или отсутствие рекомендации. Выбор не запускает модель.</desc>
+        <defs>
+          <marker id="ai-hub-mobile-arrow" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto"><path d="M0 0L10 4L0 8Z" fill="#6ba3ff"/></marker>
+        </defs>
+        <rect width="390" height="1150" fill="#090d13"/>
+        <path d="M195 178V218" stroke="#6ba3ff" stroke-width="3" marker-end="url(#ai-hub-mobile-arrow)"/>
+        <path d="M195 404V444" stroke="#6ba3ff" stroke-width="3" marker-end="url(#ai-hub-mobile-arrow)"/>
+        <text x="195" y="664" text-anchor="middle" fill="#7e8a99" font-family="Inter, sans-serif" font-size="10" font-weight="700" letter-spacing="1.1">THREE POLICY OUTCOMES</text>
+        <g>
+          <rect x="24" y="34" width="342" height="144" rx="16" fill="#0f1620" stroke="#d4af37"/>
+          <text x="48" y="66" fill="#d4af37" font-family="Inter, sans-serif" font-size="10" font-weight="700" letter-spacing="1.2">USER TASK</text>
+          <text x="48" y="108" fill="#f2f5f9" font-family="Outfit, Inter, sans-serif" font-size="25" font-weight="650">Нужен AI-результат</text>
+          <text x="48" y="139" fill="#bdc7d4" font-family="Inter, sans-serif" font-size="12">Capability, privacy и hardware profile</text>
+        </g>
+        <g>
+          <rect x="24" y="218" width="342" height="186" rx="16" fill="#0f1620" stroke="#6ba3ff"/>
+          <text x="48" y="250" fill="#6ba3ff" font-family="Inter, sans-serif" font-size="10" font-weight="700" letter-spacing="1.2">MODEL REGISTRY</text>
+          <text x="48" y="292" fill="#f2f5f9" font-family="Outfit, Inter, sans-serif" font-size="25" font-weight="650">Подбирает кандидатов</text>
+          <text x="48" y="328" fill="#bdc7d4" font-family="Inter, sans-serif" font-size="12">Capability, runtime, privacy и cost</text>
+          <text x="48" y="356" fill="#7e8a99" font-family="Inter, sans-serif" font-size="11">Никаких автоматических downloads</text>
+        </g>
+        <g>
+          <rect x="24" y="444" width="342" height="188" rx="16" fill="#0f1620" stroke="#6ba3ff"/>
+          <text x="48" y="476" fill="#6ba3ff" font-family="Inter, sans-serif" font-size="10" font-weight="700" letter-spacing="1.2">READINESS GATE</text>
+          <text x="48" y="518" fill="#f2f5f9" font-family="Outfit, Inter, sans-serif" font-size="25" font-weight="650">Можно ли запускать</text>
+          <text x="48" y="554" fill="#bdc7d4" font-family="Inter, sans-serif" font-size="12">Hardware, endpoint, license</text>
+          <text x="48" y="582" fill="#bdc7d4" font-family="Inter, sans-serif" font-size="12">Privacy и cost до выполнения</text>
+        </g>
+        <g>
+          <rect x="24" y="684" width="342" height="128" rx="16" fill="#0d1918" stroke="#65c9a4"/>
+          <text x="48" y="716" fill="#65c9a4" font-family="Inter, sans-serif" font-size="10" font-weight="700" letter-spacing="1.2">INTERACTIVE ROUTE</text>
+          <text x="48" y="758" fill="#f2f5f9" font-family="Outfit, Inter, sans-serif" font-size="24" font-weight="650">Ollama или cloud</text>
+          <text x="48" y="786" fill="#bdc7d4" font-family="Inter, sans-serif" font-size="12">Route для диалога или image UI</text>
+        </g>
+        <g>
+          <rect x="24" y="832" width="342" height="128" rx="16" fill="#0f1620" stroke="#6ba3ff"/>
+          <text x="48" y="864" fill="#6ba3ff" font-family="Inter, sans-serif" font-size="10" font-weight="700" letter-spacing="1.2">BATCH ROUTE</text>
+          <text x="48" y="906" fill="#f2f5f9" font-family="Outfit, Inter, sans-serif" font-size="24" font-weight="650">Media worker или renderer</text>
+          <text x="48" y="934" fill="#bdc7d4" font-family="Inter, sans-serif" font-size="12">Self-hosted или local queue</text>
+        </g>
+        <g>
+          <rect x="24" y="980" width="342" height="128" rx="16" fill="#171316" stroke="#e08a75"/>
+          <text x="48" y="1012" fill="#e08a75" font-family="Inter, sans-serif" font-size="10" font-weight="700" letter-spacing="1.2">NO SAFE MATCH</text>
+          <text x="48" y="1054" fill="#f2f5f9" font-family="Outfit, Inter, sans-serif" font-size="24" font-weight="650">Нет рекомендации</text>
+          <text x="48" y="1082" fill="#bdc7d4" font-family="Inter, sans-serif" font-size="12">Registry ничего не запускает</text>
+        </g>
+      </svg>
+    </div>
+
+    <footer class="caption">
+      <p>Fidelity ledger: показана текущая deterministic recommendation policy. Provider execution, BYOK storage и gateway auth остаются отдельными boundaries.</p>
+      <div class="legend" aria-label="Легенда"><span class="safe"><i></i>interactive</span><span><i></i>batch</span><span class="blocked"><i></i>no match</span></div>
+    </footer>
+  </main>
+</body>
+</html>

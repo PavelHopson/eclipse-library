@@ -135,6 +135,8 @@ Quality workflow проверяет:
 - [Discovery, review и provenance radar](guides/august-2026-discovery-review-security-radar.md)
 - [Razer AIKit и Diagram Design: проверка и план внедрения](guides/razer-aikit-diagram-design-review.md)
 - [Eclipse Diagram Contract: первый static data-flow pilot](web/diagrams/catalog-data-flow.html)
+- [Eclipse AI Hub: model provider boundary](web/diagrams/ai-hub-provider-boundary.html)
+- [Hopson Sentinel: capability и approval boundary](web/diagrams/sentinel-capability-boundary.html)
 - [AI Landing Sprint](guides/ai-landing-sprint.md)
 - [Operational agent stack](guides/august-2026-operational-agent-stack.md)
 - [Agent Reach security review](guides/agent-reach-security-review-2026-07-31.md)

@@ -236,8 +236,11 @@
 - [x] Eclipse Library: провести первый Diagram Design pilot на публичной architecture fixture по
       Eclipse Diagram Contract v1 — добавлены responsive static HTML/SVG, local tokens/fonts, fidelity
       ledger, a11y/reduced-motion и automated no-script/no-remote-runtime gate.
+- [x] Eclipse AI Hub / Hopson Sentinel: опубликовать первую controlled rollout wave Diagram Contract
+      с model-provider readiness boundary и capability/approval boundary; диаграммы документируют
+      существующие policy, не добавляют runtime permissions, provider integration или execution.
 - [ ] Eclipse Forge docs/products: распространить Diagram Contract P1/M на остальные проекты после
-      human visual review первого pilot; внешний skill использовать только с pinned commit и bounded diff.
+      human visual review AI Hub/Sentinel wave; внешний skill использовать только с pinned commit и bounded diff.
 - [ ] Hopson Sentinel / Eclipse Chat / Media: проверить wearable assistant flow P2/L без покупки
       Oakley Meta Vanguard — phone/headset prototype, explicit recording indicator, consent, retention,
       delete и offline fallback; Meta/fitness integration только после API, Terms, privacy и DPA review.
@@ -291,6 +294,9 @@
   запускались; direct install из каталога остаётся запрещён.
 - Полный SSRF-safe network audit проверил 647 canonical URL: 601 ok, 30 restricted, 1 temporary unavailable, 15 network unknown, 0 broken, 0 unsafe и 0 redirect duplicates; обе новые canonical GitHub-ссылки отвечают HTTP 200.
 - Local Edge/Playwright QA первого Diagram Contract pilot на 1440×900 и 390×844 подтвердил читаемый responsive layout без horizontal clipping; после проверки удалён неоднозначный mobile connector между независимыми policy outputs.
+- Первая controlled rollout wave Diagram Contract добавила две factual static diagrams: AI Hub
+  model-provider readiness boundary и Hopson Sentinel capability/approval boundary. Визуалы используют
+  локальные шрифты/tokens, не содержат runtime JavaScript или remote assets и не меняют права систем. Local Edge QA на 1440×900 и 390×844 нашёл и устранил переполнение batch label; финальные screenshots подтверждают отдельные desktop/mobile композиции.
 
 ### 2026-08-12 — Landing cursor light parity
 

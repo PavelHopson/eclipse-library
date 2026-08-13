@@ -1,0 +1,201 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="dark">
+  <title>Hopson Sentinel: граница capabilities</title>
+  <style>
+    @font-face { font-family: "Inter"; font-style: normal; font-weight: 300 700; font-display: swap; src: url("../assets/fonts/inter-cyrillic.woff2") format("woff2"); unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116; }
+    @font-face { font-family: "Inter"; font-style: normal; font-weight: 300 700; font-display: swap; src: url("../assets/fonts/inter-latin.woff2") format("woff2"); }
+    @font-face { font-family: "Outfit"; font-style: normal; font-weight: 200 900; font-display: swap; src: url("../assets/fonts/outfit-latin.woff2") format("woff2"); }
+    :root { --bg: #080b10; --panel: #0d131c; --line: #1f2b3b; --text: #f2f5f9; --secondary: #bdc7d4; --muted: #7e8a99; --gold: #d4af37; --signal: #6ba3ff; --safe: #65c9a4; --danger: #e08a75; --radius: 20px; --display: "Outfit", "Inter", sans-serif; --body: "Inter", sans-serif; }
+    * { box-sizing: border-box; }
+    html { background: var(--bg); }
+    html { overflow-x: clip; }
+    body { min-width: 320px; margin: 0; color: var(--text); background: radial-gradient(circle at 18% 12%, rgba(212,175,55,.07), transparent 24%), radial-gradient(circle at 82% 68%, rgba(107,163,255,.08), transparent 27%), var(--bg); font-family: var(--body); }
+    main { width: min(calc(100% - 32px), 1360px); margin: 0 auto; padding: clamp(32px, 6vw, 72px) 0; }
+    header { display: grid; grid-template-columns: minmax(0, 1.28fr) minmax(260px, .72fr); gap: 40px; align-items: end; margin-bottom: 30px; }
+    .eyebrow { margin: 0 0 10px; color: var(--gold); font: 700 11px/1.4 var(--display); letter-spacing: .16em; text-transform: uppercase; }
+    h1 { max-width: 19ch; margin: 0; font: 650 clamp(34px, 5vw, 66px)/.99 var(--display); letter-spacing: -.045em; }
+    .intro { max-width: 52ch; margin: 0; color: var(--secondary); font-size: 15px; line-height: 1.65; }
+    .metrics { display: grid; grid-template-columns: repeat(4, 1fr); margin: 0 0 18px; border-block: 1px solid var(--line); }
+    .metric { min-width: 0; padding: 16px 18px; border-right: 1px solid var(--line); }
+    .metric:last-child { border-right: 0; }
+    .metric strong { display: block; color: var(--text); font: 650 22px/1 var(--display); }
+    .metric span { display: block; margin-top: 6px; color: var(--muted); font-size: 11px; }
+    .diagram-shell { overflow: hidden; border: 1px solid var(--line); border-radius: var(--radius); background: rgba(12,17,23,.94); box-shadow: 0 28px 80px rgba(0,0,0,.24); }
+    svg { display: block; width: 100%; height: auto; }
+    .diagram-mobile { display: none; }
+    .caption { display: grid; grid-template-columns: 1fr auto; gap: 24px; align-items: center; margin-top: 16px; color: var(--muted); font-size: 12px; line-height: 1.55; }
+    .caption p { margin: 0; }
+    .legend { display: flex; gap: 16px; align-items: center; white-space: nowrap; }
+    .legend span { display: inline-flex; gap: 7px; align-items: center; }
+    .legend i { width: 22px; height: 2px; background: var(--signal); }
+    .legend .safe i { background: var(--safe); }
+    .legend .blocked i { background: var(--danger); }
+    @media (max-width: 760px) {
+      main { width: min(calc(100% - 24px), 520px); padding-block: 28px 44px; }
+      header { grid-template-columns: 1fr; gap: 18px; margin-bottom: 22px; }
+      h1 { max-width: 100%; font-size: clamp(34px, 10vw, 44px); overflow-wrap: anywhere; }
+      .metrics { grid-template-columns: repeat(2, 1fr); }
+      .metric:nth-child(2) { border-right: 0; }
+      .metric:nth-child(-n+2) { border-bottom: 1px solid var(--line); }
+      .diagram-desktop { display: none; }
+      .diagram-mobile { display: block; }
+      .caption { grid-template-columns: 1fr; gap: 12px; }
+      .legend { flex-wrap: wrap; white-space: normal; }
+    }
+    @media (prefers-reduced-motion: reduce) { *, *::before, *::after { scroll-behavior: auto !important; } }
+    @media print { body { background: #080b10; print-color-adjust: exact; -webkit-print-color-adjust: exact; } main { width: 100%; padding: 0; } }
+  </style>
+</head>
+<body>
+  <main>
+    <header>
+      <div>
+        <p class="eyebrow">Hopson Sentinel</p>
+        <h1>Как tool request становится контролируемым действием</h1>
+      </div>
+      <p class="intro">Model предлагает tool request, но не меняет permissions. Capability gate проверяет mode, exact target и rules. Разрешённый scope получает executor, рискованный ждёт решения человека, запрещённый останавливается.</p>
+    </header>
+
+    <section class="metrics" aria-label="Ключевые границы Sentinel">
+      <div class="metric"><strong>3</strong><span>policy outcome</span></div>
+      <div class="metric"><strong>2</strong><span>runtime family</span></div>
+      <div class="metric"><strong>1</strong><span>human approval gate</span></div>
+      <div class="metric"><strong>0</strong><span>silent destructive rewrites</span></div>
+    </section>
+
+    <div class="diagram-shell">
+      <svg class="diagram-desktop" viewBox="0 0 1280 740" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="sentinel-capability-title sentinel-capability-desc">
+        <title id="sentinel-capability-title">Capability и approval boundary Hopson Sentinel</title>
+        <desc id="sentinel-capability-desc">Пользовательское намерение превращается в tool proposal и проходит capability gate. Разрешённый scope получает executor. Restricted request требует понятного human approval. Запрещённое действие не получает executor. Результат и permission decision возвращаются в session.</desc>
+        <defs>
+          <linearGradient id="sentinel-panel" x1="0" x2="1"><stop stop-color="#101823"/><stop offset="1" stop-color="#0c121a"/></linearGradient>
+          <marker id="sentinel-arrow" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto"><path d="M0 0L10 4L0 8Z" fill="#6ba3ff"/></marker>
+          <marker id="sentinel-safe" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto"><path d="M0 0L10 4L0 8Z" fill="#65c9a4"/></marker>
+          <marker id="sentinel-blocked" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto"><path d="M0 0L10 4L0 8Z" fill="#e08a75"/></marker>
+        </defs>
+        <rect width="1280" height="740" fill="#090d13"/>
+        <path d="M264 310H326" stroke="#6ba3ff" stroke-width="3" marker-end="url(#sentinel-arrow)"/>
+        <path d="M594 310H656" stroke="#6ba3ff" stroke-width="3" marker-end="url(#sentinel-arrow)"/>
+        <path d="M914 235H976V138H1008" fill="none" stroke="#65c9a4" stroke-width="3" marker-end="url(#sentinel-safe)"/>
+        <path d="M914 310H1008" stroke="#6ba3ff" stroke-width="3" marker-end="url(#sentinel-arrow)"/>
+        <path d="M914 382H976V510H1008" fill="none" stroke="#e08a75" stroke-width="2" stroke-dasharray="8 7" marker-end="url(#sentinel-blocked)"/>
+        <path d="M1114 406V452" stroke="#6ba3ff" stroke-width="3" marker-end="url(#sentinel-arrow)"/>
+        <g>
+          <rect x="48" y="220" width="216" height="180" rx="18" fill="url(#sentinel-panel)" stroke="#d4af37"/>
+          <text x="74" y="256" fill="#d4af37" font-family="Inter, sans-serif" font-size="11" font-weight="700" letter-spacing="1.2">USER INTENT</text>
+          <text x="74" y="304" fill="#f2f5f9" font-family="Outfit, Inter, sans-serif" font-size="25" font-weight="650">Задача</text>
+          <text x="74" y="340" fill="#bdc7d4" font-family="Inter, sans-serif" font-size="12">Voice, CLI или bridge</text>
+          <text x="74" y="366" fill="#7e8a99" font-family="Inter, sans-serif" font-size="11">Input остаётся untrusted data</text>
+        </g>
+        <g>
+          <rect x="326" y="184" width="268" height="252" rx="18" fill="url(#sentinel-panel)" stroke="#6ba3ff"/>
+          <text x="354" y="222" fill="#6ba3ff" font-family="Inter, sans-serif" font-size="11" font-weight="700" letter-spacing="1.2">TOOL PROPOSAL</text>
+          <text x="354" y="260" fill="#f2f5f9" font-family="Outfit, Inter, sans-serif" font-size="25" font-weight="650">Model предлагает</text>
+          <text x="354" y="292" fill="#f2f5f9" font-family="Outfit, Inter, sans-serif" font-size="25" font-weight="650">действие</text>
+          <text x="354" y="316" fill="#bdc7d4" font-family="Inter, sans-serif" font-size="12">Tool и exact scope</text>
+          <text x="354" y="344" fill="#bdc7d4" font-family="Inter, sans-serif" font-size="12">Path, command или URL</text>
+          <text x="354" y="386" fill="#7e8a99" font-family="Inter, sans-serif" font-size="11">Proposal не меняет policy</text>
+        </g>
+        <g>
+          <rect x="656" y="156" width="258" height="308" rx="18" fill="url(#sentinel-panel)" stroke="#6ba3ff"/>
+          <text x="684" y="194" fill="#6ba3ff" font-family="Inter, sans-serif" font-size="11" font-weight="700" letter-spacing="1.2">CAPABILITY GATE</text>
+          <text x="684" y="242" fill="#f2f5f9" font-family="Outfit, Inter, sans-serif" font-size="27" font-weight="650">Проверяет policy</text>
+          <text x="684" y="288" fill="#bdc7d4" font-family="Inter, sans-serif" font-size="12">Current permission mode</text>
+          <text x="684" y="316" fill="#bdc7d4" font-family="Inter, sans-serif" font-size="12">Allow, ask и deny rules</text>
+          <text x="684" y="344" fill="#bdc7d4" font-family="Inter, sans-serif" font-size="12">Exact target и command risk</text>
+          <text x="684" y="386" fill="#7e8a99" font-family="Inter, sans-serif" font-size="11">deny имеет приоритет</text>
+          <text x="684" y="414" fill="#7e8a99" font-family="Inter, sans-serif" font-size="11">tool metadata не доверяется</text>
+        </g>
+        <g>
+          <rect x="1008" y="74" width="224" height="128" rx="18" fill="#0d1918" stroke="#65c9a4"/>
+          <text x="1034" y="110" fill="#65c9a4" font-family="Inter, sans-serif" font-size="11" font-weight="700" letter-spacing="1.2">ALLOW</text>
+          <text x="1034" y="154" fill="#f2f5f9" font-family="Outfit, Inter, sans-serif" font-size="23" font-weight="650">Bounded executor</text>
+          <text x="1034" y="180" fill="#bdc7d4" font-family="Inter, sans-serif" font-size="11">Только разрешённый scope</text>
+        </g>
+        <g>
+          <rect x="1008" y="238" width="224" height="168" rx="18" fill="url(#sentinel-panel)" stroke="#6ba3ff"/>
+          <text x="1034" y="274" fill="#6ba3ff" font-family="Inter, sans-serif" font-size="11" font-weight="700" letter-spacing="1.2">ASK</text>
+          <text x="1034" y="318" fill="#f2f5f9" font-family="Outfit, Inter, sans-serif" font-size="23" font-weight="650">Human approval</text>
+          <text x="1034" y="350" fill="#bdc7d4" font-family="Inter, sans-serif" font-size="11">Tool, target и effect</text>
+          <text x="1034" y="376" fill="#bdc7d4" font-family="Inter, sans-serif" font-size="11">Approve или deny</text>
+        </g>
+        <g>
+          <rect x="1008" y="452" width="224" height="128" rx="18" fill="#171316" stroke="#e08a75"/>
+          <text x="1034" y="488" fill="#e08a75" font-family="Inter, sans-serif" font-size="11" font-weight="700" letter-spacing="1.2">DENY</text>
+          <text x="1034" y="532" fill="#f2f5f9" font-family="Outfit, Inter, sans-serif" font-size="23" font-weight="650">Нет tool call</text>
+          <text x="1034" y="558" fill="#bdc7d4" font-family="Inter, sans-serif" font-size="11">Reason остаётся в session</text>
+        </g>
+        <g>
+          <rect x="326" y="530" width="588" height="94" rx="18" fill="#0c121a" stroke="#1f2b3b"/>
+          <text x="354" y="565" fill="#d4af37" font-family="Inter, sans-serif" font-size="11" font-weight="700" letter-spacing="1.2">RESULT AND AUDIT</text>
+          <text x="354" y="598" fill="#bdc7d4" font-family="Inter, sans-serif" font-size="12">TypeScript или Rust runtime возвращает result, permission decision и безопасную ошибку в session.</text>
+        </g>
+        <path d="M1008 138H946V577H914" fill="none" stroke="#65c9a4" stroke-width="2" marker-end="url(#sentinel-safe)"/>
+        <path d="M1008 322H946V577H914" fill="none" stroke="#6ba3ff" stroke-width="2" marker-end="url(#sentinel-arrow)"/>
+        <text x="48" y="682" fill="#7e8a99" font-family="Inter, sans-serif" font-size="12">Fidelity ledger: объединены TypeScript и Rust execution details. BrowserRead остаётся отдельным isolated read-only worker.</text>
+        <text x="1232" y="682" text-anchor="end" fill="#d4af37" font-family="Inter, sans-serif" font-size="12" font-weight="700">POLICY CHANGES BY CONTENT: FORBIDDEN</text>
+      </svg>
+
+      <svg class="diagram-mobile" viewBox="0 0 390 1220" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="sentinel-capability-mobile-title sentinel-capability-mobile-desc">
+        <title id="sentinel-capability-mobile-title">Мобильная схема capability boundary Hopson Sentinel</title>
+        <desc id="sentinel-capability-mobile-desc">Намерение превращается в tool proposal и проходит capability gate. Разрешённый scope получает executor. Restricted scope ждёт human approval. Denied scope не вызывает tool.</desc>
+        <defs>
+          <marker id="sentinel-mobile-arrow" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto"><path d="M0 0L10 4L0 8Z" fill="#6ba3ff"/></marker>
+        </defs>
+        <rect width="390" height="1220" fill="#090d13"/>
+        <path d="M195 174V214" stroke="#6ba3ff" stroke-width="3" marker-end="url(#sentinel-mobile-arrow)"/>
+        <path d="M195 400V440" stroke="#6ba3ff" stroke-width="3" marker-end="url(#sentinel-mobile-arrow)"/>
+        <text x="195" y="665" text-anchor="middle" fill="#7e8a99" font-family="Inter, sans-serif" font-size="10" font-weight="700" letter-spacing="1.1">THREE POLICY OUTCOMES</text>
+        <g>
+          <rect x="24" y="32" width="342" height="142" rx="16" fill="#0f1620" stroke="#d4af37"/>
+          <text x="48" y="64" fill="#d4af37" font-family="Inter, sans-serif" font-size="10" font-weight="700" letter-spacing="1.2">USER INTENT</text>
+          <text x="48" y="106" fill="#f2f5f9" font-family="Outfit, Inter, sans-serif" font-size="25" font-weight="650">Voice, CLI или bridge</text>
+          <text x="48" y="136" fill="#bdc7d4" font-family="Inter, sans-serif" font-size="12">Input остаётся untrusted data</text>
+        </g>
+        <g>
+          <rect x="24" y="214" width="342" height="186" rx="16" fill="#0f1620" stroke="#6ba3ff"/>
+          <text x="48" y="246" fill="#6ba3ff" font-family="Inter, sans-serif" font-size="10" font-weight="700" letter-spacing="1.2">TOOL PROPOSAL</text>
+          <text x="48" y="288" fill="#f2f5f9" font-family="Outfit, Inter, sans-serif" font-size="25" font-weight="650">Model предлагает действие</text>
+          <text x="48" y="324" fill="#bdc7d4" font-family="Inter, sans-serif" font-size="12">Tool, exact target и expected effect</text>
+          <text x="48" y="354" fill="#7e8a99" font-family="Inter, sans-serif" font-size="11">Proposal не меняет permissions</text>
+        </g>
+        <g>
+          <rect x="24" y="440" width="342" height="194" rx="16" fill="#0f1620" stroke="#6ba3ff"/>
+          <text x="48" y="472" fill="#6ba3ff" font-family="Inter, sans-serif" font-size="10" font-weight="700" letter-spacing="1.2">CAPABILITY GATE</text>
+          <text x="48" y="514" fill="#f2f5f9" font-family="Outfit, Inter, sans-serif" font-size="25" font-weight="650">Проверяет policy</text>
+          <text x="48" y="550" fill="#bdc7d4" font-family="Inter, sans-serif" font-size="12">Mode, tool, scope и deny rules</text>
+          <text x="48" y="580" fill="#7e8a99" font-family="Inter, sans-serif" font-size="11">Tool metadata не считается доверенным</text>
+        </g>
+        <g>
+          <rect x="24" y="686" width="342" height="128" rx="16" fill="#0d1918" stroke="#65c9a4"/>
+          <text x="48" y="718" fill="#65c9a4" font-family="Inter, sans-serif" font-size="10" font-weight="700" letter-spacing="1.2">ALLOW</text>
+          <text x="48" y="760" fill="#f2f5f9" font-family="Outfit, Inter, sans-serif" font-size="24" font-weight="650">Bounded executor</text>
+          <text x="48" y="788" fill="#bdc7d4" font-family="Inter, sans-serif" font-size="12">Только разрешённый scope</text>
+        </g>
+        <g>
+          <rect x="24" y="834" width="342" height="142" rx="16" fill="#0f1620" stroke="#6ba3ff"/>
+          <text x="48" y="866" fill="#6ba3ff" font-family="Inter, sans-serif" font-size="10" font-weight="700" letter-spacing="1.2">ASK</text>
+          <text x="48" y="908" fill="#f2f5f9" font-family="Outfit, Inter, sans-serif" font-size="24" font-weight="650">Human approval</text>
+          <text x="48" y="936" fill="#bdc7d4" font-family="Inter, sans-serif" font-size="12">Показать tool, target и effect</text>
+        </g>
+        <g>
+          <rect x="24" y="996" width="342" height="128" rx="16" fill="#171316" stroke="#e08a75"/>
+          <text x="48" y="1028" fill="#e08a75" font-family="Inter, sans-serif" font-size="10" font-weight="700" letter-spacing="1.2">DENY</text>
+          <text x="48" y="1070" fill="#f2f5f9" font-family="Outfit, Inter, sans-serif" font-size="24" font-weight="650">Нет tool call</text>
+          <text x="48" y="1098" fill="#bdc7d4" font-family="Inter, sans-serif" font-size="12">Причина возвращается в session</text>
+        </g>
+        <text x="195" y="1170" text-anchor="middle" fill="#d4af37" font-family="Inter, sans-serif" font-size="11" font-weight="700">RESULT + PERMISSION DECISION + SAFE ERROR</text>
+      </svg>
+    </div>
+
+    <footer class="caption">
+      <p>Fidelity ledger: TypeScript и Rust execution сведены в bounded executor. BrowserRead, voice и MCP используют дополнительные capability-specific gates.</p>
+      <div class="legend" aria-label="Легенда"><span class="safe"><i></i>allow</span><span><i></i>ask</span><span class="blocked"><i></i>deny</span></div>
+    </footer>
+  </main>
+</body>
+</html>
