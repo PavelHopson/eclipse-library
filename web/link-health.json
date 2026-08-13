@@ -1,15 +1,15 @@
 {
   "schemaVersion": 1,
-  "checkedAt": "2026-08-13T10:56:04.365Z",
+  "checkedAt": "2026-08-13T15:48:05.157Z",
   "totals": {
-    "extracted": 652,
-    "unique": 647,
-    "checked": 647,
-    "ok": 601,
+    "extracted": 653,
+    "unique": 648,
+    "checked": 648,
+    "ok": 599,
     "restricted": 30,
     "broken": 0,
     "unavailable": 1,
-    "unknown": 15,
+    "unknown": 18,
     "blocked": 0,
     "skipped": 0
   },
@@ -1696,13 +1696,13 @@
     },
     {
       "url": "https://build.nvidia.com/models",
-      "status": "ok",
-      "httpStatus": 200
+      "status": "unknown",
+      "httpStatus": null
     },
     {
       "url": "https://www.nvidia.com/en-us/training/",
-      "status": "ok",
-      "httpStatus": 200
+      "status": "unknown",
+      "httpStatus": null
     },
     {
       "url": "https://github.com/NVIDIA/SkillSpector",
@@ -2591,8 +2591,8 @@
     },
     {
       "url": "https://whatismy-ipaddress.com/learn-more-security.html#term-privacy",
-      "status": "ok",
-      "httpStatus": 200
+      "status": "unknown",
+      "httpStatus": null
     },
     {
       "url": "https://github.com/QuentinFuxa/WhisperLiveKit",
@@ -3106,6 +3106,11 @@
     },
     {
       "url": "https://github.com/cathrynlavery/diagram-design",
+      "status": "ok",
+      "httpStatus": 200
+    },
+    {
+      "url": "https://github.com/github/spec-kit",
       "status": "ok",
       "httpStatus": 200
     },

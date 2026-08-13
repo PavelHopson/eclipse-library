@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "consumer": "Eclipse AI",
-  "catalogVersion": "54ac71c895eb31fdfa20bd1d2499ec75ae75217561edd94960dca95968d9f088",
+  "catalogVersion": "7fb671f3a34ef45ef2c10c9586671ed353db440b66fb49e2c3970fc59141c90b",
   "generatedAt": null,
   "policy": {
     "greyResourcesExcluded": true,
@@ -9,7 +9,7 @@
     "externalMutationsRequireHumanApproval": true
   },
   "totals": {
-    "items": 543
+    "items": 544
   },
   "items": [
     {
@@ -33068,6 +33068,124 @@
           "kind": "ci",
           "label": "Official cross-platform CI checks",
           "url": "https://github.com/cathrynlavery/diagram-design/blob/main/.github/workflows/ci.yml"
+        }
+      ],
+      "actions": {
+        "openOfficialSource": true,
+        "installFromCatalog": false,
+        "mutateExternalSystems": false
+      }
+    },
+    {
+      "id": "github-spec-kit",
+      "title": "GitHub Spec Kit",
+      "url": "https://github.com/github/spec-kit",
+      "type": "tool",
+      "category": "AI & Claude Code",
+      "subcategory": "Spec-driven development",
+      "addedAt": "2026-08-13",
+      "description": "GitHub Spec Kit is the official MIT toolkit for spec-driven work with AI agents. It turns an idea into constitution, specification, clarification, technical plan, tasks and implementation. It does not guarantee error-free code: generated specs remain drafts, while tests, security review and human approval stay mandatory.",
+      "useCases": [
+        "Define user outcome, non-goals and acceptance criteria before changing Eclipse products",
+        "Record trust boundaries, licenses, privacy, rollback and production gates in a reviewable plan",
+        "Split agent work into atomic changes with typecheck, tests, build and visual QA",
+        "Keep a living specification and decisions next to code instead of an unstructured prompt"
+      ],
+      "platforms": [
+        "Python CLI",
+        "Windows",
+        "macOS",
+        "Linux",
+        "GitHub Copilot",
+        "Claude Code",
+        "Codex",
+        "Gemini CLI",
+        "35 agent integrations"
+      ],
+      "license": {
+        "label": "MIT",
+        "original": "MIT",
+        "spdx": "MIT",
+        "kind": "open-source",
+        "status": "source-declared",
+        "requiresReview": false,
+        "evidence": [
+          {
+            "kind": "license",
+            "label": "MIT license",
+            "url": "https://api.github.com/repos/github/spec-kit/license"
+          },
+          {
+            "kind": "license",
+            "label": "Official MIT license",
+            "url": "https://github.com/github/spec-kit/blob/main/LICENSE"
+          },
+          {
+            "kind": "docs",
+            "label": "Official Spec Kit documentation",
+            "url": "https://github.github.io/spec-kit/"
+          },
+          {
+            "kind": "release",
+            "label": "Official v0.16.2 release",
+            "url": "https://github.com/github/spec-kit/releases/tag/v0.16.2"
+          },
+          {
+            "kind": "security",
+            "label": "Official security policy",
+            "url": "https://github.com/github/spec-kit/blob/main/SECURITY.md"
+          }
+        ]
+      },
+      "access": {
+        "cost": "free",
+        "signup": "none",
+        "runtime": "local"
+      },
+      "trust": "official",
+      "decision": "now",
+      "riskLevel": "medium",
+      "projects": [
+        "Eclipse Chat",
+        "Eclipse AI Hub",
+        "Eclipse DnD Forge",
+        "Hopson Sentinel",
+        "Eclipse Media",
+        "Shotforge",
+        "Text2Image",
+        "Educator-AI",
+        "oh-my-claudecode"
+      ],
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://github.com/github/spec-kit"
+        },
+        {
+          "kind": "license",
+          "label": "MIT license",
+          "url": "https://api.github.com/repos/github/spec-kit/license"
+        },
+        {
+          "kind": "license",
+          "label": "Official MIT license",
+          "url": "https://github.com/github/spec-kit/blob/main/LICENSE"
+        },
+        {
+          "kind": "docs",
+          "label": "Official Spec Kit documentation",
+          "url": "https://github.github.io/spec-kit/"
+        },
+        {
+          "kind": "release",
+          "label": "Official v0.16.2 release",
+          "url": "https://github.com/github/spec-kit/releases/tag/v0.16.2"
+        },
+        {
+          "kind": "security",
+          "label": "Official security policy",
+          "url": "https://github.com/github/spec-kit/blob/main/SECURITY.md"
         }
       ],
       "actions": {

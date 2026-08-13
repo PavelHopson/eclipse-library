@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "totals": {
-    "guides": 35
+    "guides": 36
   },
   "guides": [
     {
@@ -99,6 +99,13 @@
       "name": "editorial-review-preview",
       "title": "Editorial Review Preview",
       "description": "Локальный fail-closed preview для изменения одной существующей карточки: pinned commit, semantic summary, полный diff и отдельное write-once решение без auto-merge.",
+      "modules": 0,
+      "lessons": 0
+    },
+    {
+      "name": "github-spec-kit-eclipse-gate",
+      "title": "GitHub Spec Kit: Eclipse Spec Gate",
+      "description": "",
       "modules": 0,
       "lessons": 0
     },

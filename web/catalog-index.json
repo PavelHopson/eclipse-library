@@ -1,20 +1,20 @@
 {
   "schemaVersion": 2,
-  "sourceHash": "54ac71c895eb31fdfa20bd1d2499ec75ae75217561edd94960dca95968d9f088",
+  "sourceHash": "7fb671f3a34ef45ef2c10c9586671ed353db440b66fb49e2c3970fc59141c90b",
   "policy": {
     "canonicalSource": "catalog/resources.json",
     "directInstallForbidden": true,
     "greyResourcesExcludedFromAgentRecommendations": true
   },
   "totals": {
-    "all": 619,
-    "verified": 183,
+    "all": 620,
+    "verified": 184,
     "inferred": 436,
     "licenseReviewRequired": 281,
-    "agentSafe": 543,
+    "agentSafe": 544,
     "agentExcluded": 76,
     "grey": 69,
-    "withAddedAt": 337
+    "withAddedAt": 338
   },
   "items": [
     {
@@ -54320,6 +54320,174 @@
           "kind": "ci",
           "label": "Official cross-platform CI checks",
           "url": "https://github.com/cathrynlavery/diagram-design/blob/main/.github/workflows/ci.yml"
+        }
+      ],
+      "agentEligibility": {
+        "eligible": true,
+        "reasons": [],
+        "installAllowed": false
+      }
+    },
+    {
+      "id": "github-spec-kit",
+      "url": "https://github.com/github/spec-kit",
+      "title": "GitHub Spec Kit",
+      "type": "tool",
+      "category": "AI & Claude Code",
+      "subcategory": "Spec-driven development",
+      "simpleDescription": "GitHub Spec Kit is the official MIT toolkit for spec-driven work with AI agents. It turns an idea into constitution, specification, clarification, technical plan, tasks and implementation. It does not guarantee error-free code: generated specs remain drafts, while tests, security review and human approval stay mandatory.",
+      "useCases": [
+        "Define user outcome, non-goals and acceptance criteria before changing Eclipse products",
+        "Record trust boundaries, licenses, privacy, rollback and production gates in a reviewable plan",
+        "Split agent work into atomic changes with typecheck, tests, build and visual QA",
+        "Keep a living specification and decisions next to code instead of an unstructured prompt"
+      ],
+      "platforms": [
+        "Python CLI",
+        "Windows",
+        "macOS",
+        "Linux",
+        "GitHub Copilot",
+        "Claude Code",
+        "Codex",
+        "Gemini CLI",
+        "35 agent integrations"
+      ],
+      "license": "MIT",
+      "licenseEvidence": [
+        {
+          "kind": "license",
+          "label": "Official MIT license",
+          "url": "https://github.com/github/spec-kit/blob/main/LICENSE"
+        },
+        {
+          "kind": "docs",
+          "label": "Official Spec Kit documentation",
+          "url": "https://github.github.io/spec-kit/"
+        },
+        {
+          "kind": "release",
+          "label": "Official v0.16.2 release",
+          "url": "https://github.com/github/spec-kit/releases/tag/v0.16.2"
+        },
+        {
+          "kind": "security",
+          "label": "Official security policy",
+          "url": "https://github.com/github/spec-kit/blob/main/SECURITY.md"
+        }
+      ],
+      "pricing": "Open source and free; AI model/provider and CI usage may still cost money.",
+      "access": {
+        "cost": "free",
+        "signup": "none",
+        "runtime": "local"
+      },
+      "trust": "official",
+      "trustReason": "Canonical GitHub-owned repository, MIT license, official docs/security policy and v0.16.2 release verified 2026-08-13. API snapshot: 126,991 stars, 11,352 forks, active and not archived. The CLI and third-party extensions were not executed.",
+      "projects": [
+        "Eclipse Chat",
+        "Eclipse AI Hub",
+        "Eclipse DnD Forge",
+        "Hopson Sentinel",
+        "Eclipse Media",
+        "Shotforge",
+        "Text2Image",
+        "Educator-AI",
+        "oh-my-claudecode"
+      ],
+      "decision": "now",
+      "riskLevel": "medium",
+      "risks": [
+        "CLI and templates create repository instructions and command files that affect agent behavior; moving main and unreviewed extensions are supply-chain boundaries.",
+        "A generated specification can contain false claims, missed edge cases or conflicting requirements and create false confidence.",
+        "The workflow adds documents and process; without ownership and drift checks the spec can diverge from production code.",
+        "Do not put secrets, production dumps or private customer data into model context."
+      ],
+      "verifiedAt": "2026-08-13",
+      "quickStart": [
+        "Do not install from the catalog. Pin a reviewed release or commit and run the pilot in a bounded disposable worktree.",
+        "Build the constitution from AGENTS, CLAUDE and UX/security baselines, then complete specify and clarify before plan/tasks.",
+        "Before implement, manually approve plan, non-goals, data boundaries, rollback and quality gates. Keep commit, push and deploy separate."
+      ],
+      "reviewStatus": "verified",
+      "addedAt": "2026-08-13",
+      "source": {
+        "file": "catalog/resources.json",
+        "key": "github-spec-kit",
+        "legacy": {
+          "file": "user-news",
+          "line": 2517,
+          "category": "AI & Claude Code",
+          "subcategory": "Spec-driven development"
+        }
+      },
+      "catalogOrder": 2517,
+      "guide": "github-spec-kit-eclipse-gate",
+      "licenseInfo": {
+        "label": "MIT",
+        "original": "MIT",
+        "spdx": "MIT",
+        "kind": "open-source",
+        "status": "source-declared",
+        "requiresReview": false,
+        "evidence": [
+          {
+            "kind": "license",
+            "label": "MIT license",
+            "url": "https://api.github.com/repos/github/spec-kit/license"
+          },
+          {
+            "kind": "license",
+            "label": "Official MIT license",
+            "url": "https://github.com/github/spec-kit/blob/main/LICENSE"
+          },
+          {
+            "kind": "docs",
+            "label": "Official Spec Kit documentation",
+            "url": "https://github.github.io/spec-kit/"
+          },
+          {
+            "kind": "release",
+            "label": "Official v0.16.2 release",
+            "url": "https://github.com/github/spec-kit/releases/tag/v0.16.2"
+          },
+          {
+            "kind": "security",
+            "label": "Official security policy",
+            "url": "https://github.com/github/spec-kit/blob/main/SECURITY.md"
+          }
+        ]
+      },
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://github.com/github/spec-kit"
+        },
+        {
+          "kind": "license",
+          "label": "MIT license",
+          "url": "https://api.github.com/repos/github/spec-kit/license"
+        },
+        {
+          "kind": "license",
+          "label": "Official MIT license",
+          "url": "https://github.com/github/spec-kit/blob/main/LICENSE"
+        },
+        {
+          "kind": "docs",
+          "label": "Official Spec Kit documentation",
+          "url": "https://github.github.io/spec-kit/"
+        },
+        {
+          "kind": "release",
+          "label": "Official v0.16.2 release",
+          "url": "https://github.com/github/spec-kit/releases/tag/v0.16.2"
+        },
+        {
+          "kind": "security",
+          "label": "Official security policy",
+          "url": "https://github.com/github/spec-kit/blob/main/SECURITY.md"
         }
       ],
       "agentEligibility": {

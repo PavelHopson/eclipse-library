@@ -134,6 +134,7 @@ Quality workflow проверяет:
 - [Creator Ops Stack](guides/creator-ops-stack.md)
 - [Discovery, review и provenance radar](guides/august-2026-discovery-review-security-radar.md)
 - [Razer AIKit и Diagram Design: проверка и план внедрения](guides/razer-aikit-diagram-design-review.md)
+- [GitHub Spec Kit: Eclipse Spec Gate](guides/github-spec-kit-eclipse-gate.md)
 - [Eclipse Diagram Contract: первый static data-flow pilot](web/diagrams/catalog-data-flow.html)
 - [Eclipse AI Hub: model provider boundary](web/diagrams/ai-hub-provider-boundary.html)
 - [Hopson Sentinel: capability и approval boundary](web/diagrams/sentinel-capability-boundary.html)

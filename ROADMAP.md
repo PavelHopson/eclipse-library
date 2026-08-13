@@ -286,6 +286,14 @@
 ## Changelog
 ### 2026-08-13
 
+### 2026-08-13 ? GitHub Spec Kit and Eclipse Spec Gate
+
+- Verified the canonical GitHub Spec Kit repository, MIT license, security policy and release v0.16.2.
+- Added one non-duplicate verified card, bringing the canonical catalog to 620 resources and the agent-safe export to 544.
+- Corrected stale news metrics to 126,991 stars and 11,352 forks at review time; the claim that an unclear prompt cannot break a project is not treated as fact.
+- Published the repository-owned Eclipse Spec Gate and used the first pilot for versioned DnD map and Text2Image to Eclipse Media contracts.
+- Full SSRF-safe network audit: 647 checked, 0 broken, 0 unsafe blocked; the canonical Spec Kit URL returned HTTP 200.
+
 - Product workflow rollout Diagram Contract добавил две factual static diagrams: безопасный Azgaar
   Minimal JSON import в Eclipse DnD Forge и versioned Shotforge storyboard handoff в Eclipse Media
   с честно отдельным Text2Image asset path. Схемы фиксируют 8 MB / 24 или 60 locations и
