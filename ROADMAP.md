@@ -10,7 +10,7 @@
   exact 5-scene/15-second contract и ручными render/publish boundaries. Обе схемы static-only,
   используют локальные шрифты и отдельные desktop/mobile SVG без выдуманной автоматизации.
 
-- `catalog/resources.json` — канонический structured catalog из 619 уникальных записей;
+- `catalog/resources.json` — канонический structured catalog из 620 уникальных записей;
   `README.md` сокращён до документации и больше не является runtime-источником данных.
 - `web/catalog-review.js` и `web/review.css` — собственный локальный editorial review-flow:
   четыре evidence gates, явный итог, bounded draft, clipboard fallback и downloadable v2 JSON packet.
@@ -18,12 +18,12 @@
   apply к текущей ветке, commit, merge и deploy отсутствуют по контракту.
 - `web/app.js` — command-first поиск, фильтры, detail view и guide viewer; structured adapter,
   карточки, editorial feed, progressive DOM и evidence-first Inspector вынесены в модули. При старте
-  в DOM создаются только первые 36 карточек вместо всех 619; mobile Inspector открывается как sheet.
-- `web/catalog-index.json` — production schema v2: 183 записи редакторски проверены,
-  436 честно помечены `inferred`, 337 имеют отдельный `addedAt`, даты удалены из category.
-- License layer: у 338 записей лицензия или условия нормализованы с evidence URL,
+  в DOM создаются только первые 36 карточек вместо всех 620; mobile Inspector открывается как sheet.
+- `web/catalog-index.json` — production schema v2: 184 записи редакторски проверены,
+  436 честно помечены `inferred`, 338 имеют отдельный `addedAt`, даты удалены из category.
+- License layer: у 339 записей лицензия или условия нормализованы с evidence URL,
   281 ещё требует отдельного review.
-- Agent policy: 543 записи доступны автоматическим consumers, 76 исключены fail closed;
+- Agent policy: 544 записи доступны автоматическим consumers, 76 исключены fail closed;
   все 69 grey-ресурсов скрыты от recommendations, direct install запрещён для всех записей.
 - `web/api/v1/` — versioned static exports для full catalog, agents, Eclipse CRM и Eclipse AI;
   consumers больше не должны читать README.
@@ -286,7 +286,7 @@
 ## Changelog
 ### 2026-08-13
 
-### 2026-08-13 ? GitHub Spec Kit and Eclipse Spec Gate
+#### GitHub Spec Kit and Eclipse Spec Gate
 
 - Verified the canonical GitHub Spec Kit repository, MIT license, security policy and release v0.16.2.
 - Added one non-duplicate verified card, bringing the canonical catalog to 620 resources and the agent-safe export to 544.
