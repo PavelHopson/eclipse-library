@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "totals": {
-    "guides": 34
+    "guides": 35
   },
   "guides": [
     {
@@ -176,6 +176,13 @@
       "name": "qa-temporary-email",
       "title": "QA temporary email checklist",
       "description": "",
+      "modules": 0,
+      "lessons": 0
+    },
+    {
+      "name": "razer-aikit-diagram-design-review",
+      "title": "Razer AIKit и Diagram Design: проверка и план внедрения",
+      "description": "Проверено 13.08.2026 по canonical GitHub repositories, лицензиям, release/plugin metadata, документации, Compose и CI.",
       "modules": 0,
       "lessons": 0
     },

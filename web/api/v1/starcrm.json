@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "consumer": "Eclipse CRM",
-  "catalogVersion": "b369ce8b43a4988d4fe5e57b09ac5862fd4b5381b8576d24ff9cb37b5d3e434c",
+  "catalogVersion": "54ac71c895eb31fdfa20bd1d2499ec75ae75217561edd94960dca95968d9f088",
   "generatedAt": null,
   "policy": {
     "greyResourcesExcluded": true,
@@ -9,7 +9,7 @@
     "externalMutationsRequireHumanApproval": true
   },
   "totals": {
-    "items": 541
+    "items": 543
   },
   "items": [
     {
@@ -32835,6 +32835,239 @@
           "kind": "security",
           "label": "Official security considerations",
           "url": "https://spec.c2pa.org/specifications/specifications/2.0/security/Security_Considerations.html"
+        }
+      ],
+      "actions": {
+        "openOfficialSource": true,
+        "installFromCatalog": false,
+        "mutateExternalSystems": false
+      }
+    },
+    {
+      "id": "razer-aikit",
+      "title": "Razer AIKit",
+      "url": "https://github.com/razerofficial/aikit",
+      "type": "tool",
+      "category": "AI-модели",
+      "subcategory": "Локальная NVIDIA AI-лаборатория",
+      "addedAt": "2026-08-13",
+      "description": "Razer AIKit — официальный Apache-2.0 preview-набор для локального inference, LoRA fine-tuning и распределённой работы на NVIDIA GPU. Внутри есть CLI, vLLM, LlamaFactory, Ray, JupyterLab, Open WebUI и примеры text/image/audio/video workflows. Это не универсальная замена Ollama или LM Studio: Windows требует WSL2, поддерживаются только NVIDIA GPU с Compute Capability 7.0+, а готовый Compose предназначен для доверенной локальной лаборатории, не для открытого production.",
+      "useCases": [
+        "Сравнить AIKit с текущими локальными providers в Eclipse AI Hub Model Registry по throughput, latency, VRAM, cold start и устойчивости",
+        "Проверить multi-GPU inference и bounded LoRA experiment для Hopson Sentinel на public model и dataset",
+        "Использовать image/audio/video notebooks только как reference для очереди тяжёлых jobs Eclipse Media и Text2Image",
+        "Добавить Hardware Doctor и совместимость NVIDIA/WSL2 в plan-only UX до любой загрузки model weights"
+      ],
+      "platforms": [
+        "Local",
+        "Docker",
+        "Linux",
+        "Windows 11 через WSL2",
+        "NVIDIA GPU",
+        "Python CLI",
+        "JupyterLab",
+        "Open WebUI",
+        "Hugging Face"
+      ],
+      "license": {
+        "label": "Apache-2.0 для кода AIKit; model weights, datasets, generated artifacts, container images и bundled third-party components сохраняют собственные лицензии и условия",
+        "original": "Apache-2.0 для кода AIKit; model weights, datasets, generated artifacts, container images и bundled third-party components сохраняют собственные лицензии и условия",
+        "spdx": null,
+        "kind": "custom",
+        "status": "editor-reviewed",
+        "requiresReview": false,
+        "evidence": [
+          {
+            "kind": "license",
+            "label": "Apache-2.0 license",
+            "url": "https://api.github.com/repos/razerofficial/aikit/license"
+          },
+          {
+            "kind": "license",
+            "label": "Official Apache-2.0 license",
+            "url": "https://github.com/razerofficial/aikit/blob/main/LICENSE"
+          },
+          {
+            "kind": "release",
+            "label": "Official v0.6.0 preview release",
+            "url": "https://github.com/razerofficial/aikit/releases/tag/v0.6.0"
+          },
+          {
+            "kind": "security",
+            "label": "Official security policy",
+            "url": "https://github.com/razerofficial/aikit/blob/main/SECURITY.md"
+          },
+          {
+            "kind": "source",
+            "label": "Official Docker Compose configuration",
+            "url": "https://github.com/razerofficial/aikit/blob/main/docker_compose/docker-compose.yaml"
+          }
+        ]
+      },
+      "access": {
+        "cost": "free",
+        "signup": "optional",
+        "runtime": "local"
+      },
+      "trust": "official",
+      "decision": "roadmap",
+      "riskLevel": "high",
+      "projects": [
+        "Eclipse AI Hub",
+        "Hopson Sentinel",
+        "Eclipse Media",
+        "Text2Image",
+        "Educator-AI"
+      ],
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://github.com/razerofficial/aikit"
+        },
+        {
+          "kind": "license",
+          "label": "Apache-2.0 license",
+          "url": "https://api.github.com/repos/razerofficial/aikit/license"
+        },
+        {
+          "kind": "license",
+          "label": "Official Apache-2.0 license",
+          "url": "https://github.com/razerofficial/aikit/blob/main/LICENSE"
+        },
+        {
+          "kind": "release",
+          "label": "Official v0.6.0 preview release",
+          "url": "https://github.com/razerofficial/aikit/releases/tag/v0.6.0"
+        },
+        {
+          "kind": "security",
+          "label": "Official security policy",
+          "url": "https://github.com/razerofficial/aikit/blob/main/SECURITY.md"
+        },
+        {
+          "kind": "source",
+          "label": "Official Docker Compose configuration",
+          "url": "https://github.com/razerofficial/aikit/blob/main/docker_compose/docker-compose.yaml"
+        }
+      ],
+      "actions": {
+        "openOfficialSource": true,
+        "installFromCatalog": false,
+        "mutateExternalSystems": false
+      }
+    },
+    {
+      "id": "diagram-design-skill",
+      "title": "Diagram Design",
+      "url": "https://github.com/cathrynlavery/diagram-design",
+      "type": "skill",
+      "category": "AI & Claude Code",
+      "subcategory": "Брендированные технические и продуктовые диаграммы",
+      "addedAt": "2026-08-13",
+      "description": "Diagram Design — MIT skill/plugin для Claude Code, Codex и Pi, который создаёт 27 типов редакционных диаграмм: architecture, flowchart, sequence, state, ER, timeline, charts и другие. Результат сначала строится как standalone HTML с inline SVG, а затем может экспортироваться в SVG или PNG. Есть brand onboarding, импорт draw.io/Mermaid, accessibility checks и optional reduced-motion-safe animation. Формулировка «для любой задачи» рекламная: качество зависит от точности исходных данных и human review.",
+      "useCases": [
+        "Создавать архитектурные и data-flow схемы для документации Eclipse Library, AI Hub, Chat и Hopson Sentinel",
+        "Готовить sequence/state диаграммы OAuth, approval gates и agent runs до реализации сложных workflows",
+        "Строить понятные roadmap, funnel и comparison visuals для Eclipse Forge Landing и product decks",
+        "Экспортировать проверенные static SVG/PNG для Eclipse Media, Shotforge и обучающих материалов Educator-AI"
+      ],
+      "platforms": [
+        "Agent Skill",
+        "Codex plugin",
+        "Claude Code plugin",
+        "Pi",
+        "HTML",
+        "SVG",
+        "PNG",
+        "draw.io",
+        "Mermaid"
+      ],
+      "license": {
+        "label": "MIT",
+        "original": "MIT; bundled icon assets and other third-party components retain the licenses listed in THIRD_PARTY_LICENSES.md",
+        "spdx": "MIT",
+        "kind": "open-source",
+        "status": "source-declared",
+        "requiresReview": false,
+        "evidence": [
+          {
+            "kind": "license",
+            "label": "MIT license",
+            "url": "https://api.github.com/repos/cathrynlavery/diagram-design/license"
+          },
+          {
+            "kind": "license",
+            "label": "Official MIT license",
+            "url": "https://github.com/cathrynlavery/diagram-design/blob/main/LICENSE"
+          },
+          {
+            "kind": "source",
+            "label": "Official skill instructions",
+            "url": "https://github.com/cathrynlavery/diagram-design/blob/main/skills/diagram-design/SKILL.md"
+          },
+          {
+            "kind": "security",
+            "label": "Official security policy",
+            "url": "https://github.com/cathrynlavery/diagram-design/blob/main/SECURITY.md"
+          },
+          {
+            "kind": "ci",
+            "label": "Official cross-platform CI checks",
+            "url": "https://github.com/cathrynlavery/diagram-design/blob/main/.github/workflows/ci.yml"
+          }
+        ]
+      },
+      "access": {
+        "cost": "free",
+        "signup": "none",
+        "runtime": "local"
+      },
+      "trust": "community",
+      "decision": "now",
+      "riskLevel": "medium",
+      "projects": [
+        "Eclipse Library",
+        "Eclipse Forge Landing",
+        "Eclipse Chat",
+        "Eclipse AI Hub",
+        "Eclipse DnD Forge",
+        "Hopson Sentinel",
+        "Eclipse Media",
+        "Shotforge",
+        "Text2Image",
+        "Educator-AI"
+      ],
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://github.com/cathrynlavery/diagram-design"
+        },
+        {
+          "kind": "license",
+          "label": "MIT license",
+          "url": "https://api.github.com/repos/cathrynlavery/diagram-design/license"
+        },
+        {
+          "kind": "license",
+          "label": "Official MIT license",
+          "url": "https://github.com/cathrynlavery/diagram-design/blob/main/LICENSE"
+        },
+        {
+          "kind": "source",
+          "label": "Official skill instructions",
+          "url": "https://github.com/cathrynlavery/diagram-design/blob/main/skills/diagram-design/SKILL.md"
+        },
+        {
+          "kind": "security",
+          "label": "Official security policy",
+          "url": "https://github.com/cathrynlavery/diagram-design/blob/main/SECURITY.md"
+        },
+        {
+          "kind": "ci",
+          "label": "Official cross-platform CI checks",
+          "url": "https://github.com/cathrynlavery/diagram-design/blob/main/.github/workflows/ci.yml"
         }
       ],
       "actions": {

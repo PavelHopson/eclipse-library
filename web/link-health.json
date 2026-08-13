@@ -1,12 +1,12 @@
 {
   "schemaVersion": 1,
-  "checkedAt": "2026-08-12T15:50:20.315Z",
+  "checkedAt": "2026-08-13T10:56:04.365Z",
   "totals": {
-    "extracted": 650,
-    "unique": 645,
-    "checked": 645,
-    "ok": 598,
-    "restricted": 31,
+    "extracted": 652,
+    "unique": 647,
+    "checked": 647,
+    "ok": 601,
+    "restricted": 30,
     "broken": 0,
     "unavailable": 1,
     "unknown": 15,
@@ -2846,8 +2846,8 @@
     },
     {
       "url": "https://x.ai/news/grok-imagine-quality-mode",
-      "status": "restricted",
-      "httpStatus": 403
+      "status": "ok",
+      "httpStatus": 200
     },
     {
       "url": "https://github.com/IceWhaleTech/CasaOS",
@@ -3096,6 +3096,16 @@
     },
     {
       "url": "https://spec.c2pa.org/specifications/specifications/2.4/index.html",
+      "status": "ok",
+      "httpStatus": 200
+    },
+    {
+      "url": "https://github.com/razerofficial/aikit",
+      "status": "ok",
+      "httpStatus": 200
+    },
+    {
+      "url": "https://github.com/cathrynlavery/diagram-design",
       "status": "ok",
       "httpStatus": 200
     },

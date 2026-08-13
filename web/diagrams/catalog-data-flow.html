@@ -1,0 +1,213 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="dark">
+  <title>Eclipse Library: поток проверенных данных</title>
+  <style>
+    @font-face { font-family: "Inter"; font-style: normal; font-weight: 300 700; font-display: swap; src: url("../assets/fonts/inter-cyrillic.woff2") format("woff2"); unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116; }
+    @font-face { font-family: "Inter"; font-style: normal; font-weight: 300 700; font-display: swap; src: url("../assets/fonts/inter-latin.woff2") format("woff2"); }
+    @font-face { font-family: "Outfit"; font-style: normal; font-weight: 200 900; font-display: swap; src: url("../assets/fonts/outfit-latin.woff2") format("woff2"); }
+    :root {
+      color-scheme: dark;
+      --background: #05070a;
+      --surface: #0c1117;
+      --text: #f2f5f9;
+      --secondary: #c4ced8;
+      --muted: #94a3b8;
+      --line: #1c2536;
+      --signal: #6ba3ff;
+      --gold: #d4af37;
+      --danger: #e08a75;
+      --radius: 16px;
+      --sans: "Inter", system-ui, sans-serif;
+      --display: "Outfit", "Inter", system-ui, sans-serif;
+    }
+    * { box-sizing: border-box; }
+    html { background: var(--background); }
+    body {
+      min-width: 0;
+      min-height: 100dvh;
+      margin: 0;
+      color: var(--text);
+      background:
+        radial-gradient(circle at 78% 8%, rgba(107, 163, 255, .12), transparent 34rem),
+        radial-gradient(circle at 20% 24%, rgba(212, 175, 55, .08), transparent 28rem),
+        var(--background);
+      font-family: var(--sans);
+    }
+    main { width: min(100% - 32px, 1360px); margin: 0 auto; padding: clamp(32px, 6vw, 72px) 0; }
+    header { display: grid; grid-template-columns: minmax(0, 1.35fr) minmax(260px, .65fr); gap: 40px; align-items: end; margin-bottom: 30px; }
+    .eyebrow { margin: 0 0 10px; color: var(--gold); font: 700 11px/1.4 var(--display); letter-spacing: .16em; text-transform: uppercase; }
+    h1 { max-width: 18ch; margin: 0; font: 650 clamp(34px, 5vw, 68px)/.98 var(--display); letter-spacing: -.045em; }
+    .intro { max-width: 50ch; margin: 0; color: var(--secondary); font-size: 15px; line-height: 1.65; }
+    .metrics { display: grid; grid-template-columns: repeat(4, 1fr); margin: 0 0 18px; border-block: 1px solid var(--line); }
+    .metric { min-width: 0; padding: 16px 18px; border-right: 1px solid var(--line); }
+    .metric:last-child { border-right: 0; }
+    .metric strong { display: block; color: var(--text); font: 650 22px/1 var(--display); }
+    .metric span { display: block; margin-top: 6px; color: var(--muted); font-size: 11px; }
+    .diagram-shell { overflow: hidden; border: 1px solid var(--line); border-radius: var(--radius); background: rgba(12, 17, 23, .92); box-shadow: 0 28px 80px rgba(0, 0, 0, .24); }
+    svg { display: block; width: 100%; height: auto; }
+    .diagram-mobile { display: none; }
+    .caption { display: grid; grid-template-columns: 1fr auto; gap: 24px; align-items: center; margin-top: 16px; color: var(--muted); font-size: 12px; line-height: 1.55; }
+    .caption p { margin: 0; }
+    .legend { display: flex; gap: 16px; align-items: center; white-space: nowrap; }
+    .legend span { display: inline-flex; gap: 7px; align-items: center; }
+    .legend i { width: 22px; height: 2px; background: var(--signal); }
+    .legend .blocked i { background: var(--danger); }
+    @media (max-width: 760px) {
+      main { width: min(100% - 24px, 520px); padding-block: 28px 44px; }
+      header { grid-template-columns: 1fr; gap: 18px; margin-bottom: 22px; }
+      h1 { max-width: 100%; font-size: clamp(34px, 10vw, 44px); overflow-wrap: break-word; }
+      .metrics { grid-template-columns: repeat(2, 1fr); }
+      .metric:nth-child(2) { border-right: 0; }
+      .metric:nth-child(-n+2) { border-bottom: 1px solid var(--line); }
+      .diagram-desktop { display: none; }
+      .diagram-mobile { display: block; }
+      .caption { grid-template-columns: 1fr; gap: 12px; }
+      .legend { white-space: normal; }
+    }
+    @media (prefers-reduced-motion: reduce) { *, *::before, *::after { scroll-behavior: auto !important; } }
+    @media print { body { background: #05070a; print-color-adjust: exact; -webkit-print-color-adjust: exact; } main { width: 100%; padding: 0; } }
+  </style>
+</head>
+<body>
+  <main>
+    <header>
+      <div>
+        <p class="eyebrow">Eclipse Diagram Contract v1</p>
+        <h1>Как данные становятся безопасными рекомендациями</h1>
+      </div>
+      <p class="intro">Одна запись проходит нормализацию, evidence и редакторскую policy. Полный каталог остаётся доступным людям, а agent export автоматически исключает неподходящие материалы.</p>
+    </header>
+
+    <section class="metrics" aria-label="Состояние каталога на 13 августа 2026 года">
+      <div class="metric"><strong>619</strong><span>материалов</span></div>
+      <div class="metric"><strong>183</strong><span>verified</span></div>
+      <div class="metric"><strong>543</strong><span>agent-safe</span></div>
+      <div class="metric"><strong>76</strong><span>исключено</span></div>
+    </section>
+
+    <div class="diagram-shell">
+      <svg class="diagram-desktop" viewBox="0 0 1280 720" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="catalog-flow-desktop-title catalog-flow-desktop-desc">
+        <title id="catalog-flow-desktop-title">Поток данных Eclipse Library от источника до потребителя</title>
+        <desc id="catalog-flow-desktop-desc">Каноническая запись проходит нормализацию и policy. Полный каталог получают люди, agent-safe export получают автоматические consumers, а исключённые записи остаются только для ручного исследования.</desc>
+        <defs>
+          <linearGradient id="catalog-flow-panel" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#0f1620"/><stop offset="1" stop-color="#090d13"/></linearGradient>
+          <marker id="catalog-flow-arrow" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto"><path d="M0 0L10 4L0 8Z" fill="#6ba3ff"/></marker>
+          <marker id="catalog-flow-blocked" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto"><path d="M0 0L10 4L0 8Z" fill="#e08a75"/></marker>
+        </defs>
+        <rect width="1280" height="720" fill="#090d13"/>
+        <path d="M0 104H1280M0 612H1280" stroke="#1c2536"/>
+        <text x="56" y="62" fill="#94a3b8" font-family="Inter, sans-serif" font-size="12" font-weight="600" letter-spacing="2">CANONICAL SOURCE</text>
+        <text x="388" y="62" fill="#94a3b8" font-family="Inter, sans-serif" font-size="12" font-weight="600" letter-spacing="2">EVIDENCE AND POLICY</text>
+        <text x="754" y="62" fill="#94a3b8" font-family="Inter, sans-serif" font-size="12" font-weight="600" letter-spacing="2">VERSIONED EXPORTS</text>
+        <text x="1040" y="62" fill="#94a3b8" font-family="Inter, sans-serif" font-size="12" font-weight="600" letter-spacing="2">CONSUMERS</text>
+        <path d="M300 290H380" stroke="#6ba3ff" stroke-width="3" marker-end="url(#catalog-flow-arrow)"/>
+        <path d="M650 290H728" stroke="#6ba3ff" stroke-width="3" marker-end="url(#catalog-flow-arrow)"/>
+        <path d="M980 214H1034" stroke="#6ba3ff" stroke-width="3" marker-end="url(#catalog-flow-arrow)"/>
+        <path d="M980 376H1034" stroke="#6ba3ff" stroke-width="3" marker-end="url(#catalog-flow-arrow)"/>
+        <path d="M515 416V502H728" fill="none" stroke="#e08a75" stroke-width="2" stroke-dasharray="8 7" marker-end="url(#catalog-flow-blocked)"/>
+
+        <g>
+          <rect x="56" y="190" width="244" height="200" rx="16" fill="url(#catalog-flow-panel)" stroke="#d4af37"/>
+          <text x="82" y="224" fill="#d4af37" font-family="Inter, sans-serif" font-size="11" font-weight="700" letter-spacing="1.4">SOURCE OF TRUTH</text>
+          <text x="82" y="268" fill="#f2f5f9" font-family="Outfit, Inter, sans-serif" font-size="25" font-weight="650">resources.json</text>
+          <text x="82" y="301" fill="#c4ced8" font-family="Inter, sans-serif" font-size="13">619 structured records</text>
+          <path d="M82 326H274" stroke="#1c2536"/>
+          <text x="82" y="354" fill="#94a3b8" font-family="Inter, sans-serif" font-size="12">URL • license • risk • projects</text>
+        </g>
+        <g>
+          <rect x="380" y="150" width="270" height="266" rx="16" fill="url(#catalog-flow-panel)" stroke="#6ba3ff"/>
+          <text x="406" y="186" fill="#6ba3ff" font-family="Inter, sans-serif" font-size="11" font-weight="700" letter-spacing="1.4">DETERMINISTIC BUILD</text>
+          <text x="406" y="230" fill="#f2f5f9" font-family="Outfit, Inter, sans-serif" font-size="25" font-weight="650">Normalize and gate</text>
+          <g fill="#111820" stroke="#1c2536"><rect x="406" y="258" width="218" height="40" rx="10"/><rect x="406" y="308" width="218" height="40" rx="10"/><rect x="406" y="358" width="218" height="40" rx="10"/></g>
+          <text x="422" y="283" fill="#c4ced8" font-family="Inter, sans-serif" font-size="12">1  License and evidence</text>
+          <text x="422" y="333" fill="#c4ced8" font-family="Inter, sans-serif" font-size="12">2  Trust and risk</text>
+          <text x="422" y="383" fill="#c4ced8" font-family="Inter, sans-serif" font-size="12">3  Agent eligibility</text>
+        </g>
+        <g>
+          <rect x="728" y="140" width="252" height="148" rx="16" fill="#0f1620" stroke="#6ba3ff"/>
+          <text x="754" y="176" fill="#6ba3ff" font-family="Inter, sans-serif" font-size="11" font-weight="700" letter-spacing="1.4">HUMAN FACING</text>
+          <text x="754" y="219" fill="#f2f5f9" font-family="Outfit, Inter, sans-serif" font-size="24" font-weight="650">Full catalog</text>
+          <text x="754" y="250" fill="#c4ced8" font-family="Inter, sans-serif" font-size="12">619 records • risks visible</text>
+        </g>
+        <g>
+          <rect x="728" y="306" width="252" height="148" rx="16" fill="#0f1620" stroke="#6ba3ff"/>
+          <text x="754" y="342" fill="#6ba3ff" font-family="Inter, sans-serif" font-size="11" font-weight="700" letter-spacing="1.4">AUTOMATION</text>
+          <text x="754" y="385" fill="#f2f5f9" font-family="Outfit, Inter, sans-serif" font-size="24" font-weight="650">Agent-safe API</text>
+          <text x="754" y="416" fill="#c4ced8" font-family="Inter, sans-serif" font-size="12">543 records • install blocked</text>
+        </g>
+        <g>
+          <rect x="728" y="502" width="252" height="76" rx="16" fill="#151216" stroke="#e08a75"/>
+          <text x="754" y="534" fill="#e08a75" font-family="Inter, sans-serif" font-size="11" font-weight="700" letter-spacing="1.2">OUTPUT 3 · FAIL CLOSED</text>
+          <text x="754" y="558" fill="#c4ced8" font-family="Inter, sans-serif" font-size="12">76 excluded • 69 grey</text>
+        </g>
+        <g>
+          <rect x="1034" y="140" width="190" height="148" rx="16" fill="url(#catalog-flow-panel)" stroke="#1c2536"/>
+          <text x="1060" y="176" fill="#d4af37" font-family="Inter, sans-serif" font-size="11" font-weight="700" letter-spacing="1.2">PEOPLE</text>
+          <text x="1060" y="219" fill="#f2f5f9" font-family="Outfit, Inter, sans-serif" font-size="23" font-weight="650">Library UI</text>
+          <text x="1060" y="250" fill="#94a3b8" font-family="Inter, sans-serif" font-size="12">Search • Inspector • guides</text>
+        </g>
+        <g>
+          <rect x="1034" y="306" width="190" height="148" rx="16" fill="url(#catalog-flow-panel)" stroke="#1c2536"/>
+          <text x="1060" y="342" fill="#d4af37" font-family="Inter, sans-serif" font-size="11" font-weight="700" letter-spacing="1.2">SYSTEMS</text>
+          <text x="1060" y="385" fill="#f2f5f9" font-family="Outfit, Inter, sans-serif" font-size="23" font-weight="650">Eclipse apps</text>
+          <text x="1060" y="416" fill="#94a3b8" font-family="Inter, sans-serif" font-size="12">AI Hub • agents • CRM</text>
+        </g>
+        <text x="56" y="660" fill="#94a3b8" font-family="Inter, sans-serif" font-size="12">Source fidelity: схема показывает build contract и счётчики 13.08.2026.</text>
+        <text x="1224" y="660" text-anchor="end" fill="#d4af37" font-family="Inter, sans-serif" font-size="12" font-weight="700">DIRECT INSTALL: FORBIDDEN</text>
+      </svg>
+
+      <svg class="diagram-mobile" viewBox="0 0 390 1030" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="catalog-flow-mobile-title catalog-flow-mobile-desc">
+        <title id="catalog-flow-mobile-title">Мобильная схема потока данных Eclipse Library</title>
+        <desc id="catalog-flow-mobile-desc">Каноническая запись проходит нормализацию и разделяется на полный каталог для людей, безопасный API для агентов и исключённые записи для ручного исследования.</desc>
+        <defs>
+          <marker id="catalog-flow-mobile-arrow" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto"><path d="M0 0L10 4L0 8Z" fill="#6ba3ff"/></marker>
+          <marker id="catalog-flow-mobile-blocked" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto"><path d="M0 0L10 4L0 8Z" fill="#e08a75"/></marker>
+        </defs>
+        <rect width="390" height="1030" fill="#090d13"/>
+                <path d="M195 190V236" stroke="#6ba3ff" stroke-width="3" marker-end="url(#catalog-flow-mobile-arrow)"/>
+        <text x="195" y="434" text-anchor="middle" fill="#94a3b8" font-family="Inter, sans-serif" font-size="10" font-weight="700" letter-spacing="1.2">THREE POLICY OUTPUTS</text>
+        <g>
+          <rect x="24" y="38" width="342" height="152" rx="16" fill="#0f1620" stroke="#d4af37"/>
+          <text x="48" y="70" fill="#d4af37" font-family="Inter, sans-serif" font-size="10" font-weight="700" letter-spacing="1.2">SOURCE OF TRUTH</text>
+          <text x="48" y="112" fill="#f2f5f9" font-family="Outfit, Inter, sans-serif" font-size="25" font-weight="650">resources.json</text>
+          <text x="48" y="143" fill="#c4ced8" font-family="Inter, sans-serif" font-size="12">619 records with license, risk and projects</text>
+        </g>
+        <g>
+          <rect x="24" y="236" width="342" height="170" rx="16" fill="#0f1620" stroke="#6ba3ff"/>
+          <text x="48" y="268" fill="#6ba3ff" font-family="Inter, sans-serif" font-size="10" font-weight="700" letter-spacing="1.2">EVIDENCE AND POLICY</text>
+          <text x="48" y="310" fill="#f2f5f9" font-family="Outfit, Inter, sans-serif" font-size="25" font-weight="650">Normalize and gate</text>
+          <text x="48" y="344" fill="#c4ced8" font-family="Inter, sans-serif" font-size="12">License • evidence • trust • risk</text>
+          <text x="48" y="372" fill="#c4ced8" font-family="Inter, sans-serif" font-size="12">Agent eligibility • install forbidden</text>
+        </g>
+        <g>
+          <rect x="24" y="450" width="342" height="156" rx="16" fill="#0f1620" stroke="#6ba3ff"/>
+          <text x="48" y="482" fill="#6ba3ff" font-family="Inter, sans-serif" font-size="10" font-weight="700" letter-spacing="1.2">OUTPUT 1 · FULL CATALOG</text>
+          <text x="48" y="524" fill="#f2f5f9" font-family="Outfit, Inter, sans-serif" font-size="25" font-weight="650">People see 619</text>
+          <text x="48" y="557" fill="#c4ced8" font-family="Inter, sans-serif" font-size="12">Search, Inspector, evidence and guides</text>
+        </g>
+        <g>
+          <rect x="24" y="650" width="342" height="156" rx="16" fill="#0f1620" stroke="#6ba3ff"/>
+          <text x="48" y="682" fill="#6ba3ff" font-family="Inter, sans-serif" font-size="10" font-weight="700" letter-spacing="1.2">OUTPUT 2 · AGENT-SAFE API</text>
+          <text x="48" y="724" fill="#f2f5f9" font-family="Outfit, Inter, sans-serif" font-size="25" font-weight="650">Systems receive 543</text>
+          <text x="48" y="757" fill="#c4ced8" font-family="Inter, sans-serif" font-size="12">AI Hub, agents and controlled consumers</text>
+        </g>
+        <g>
+          <rect x="24" y="850" width="342" height="132" rx="16" fill="#151216" stroke="#e08a75"/>
+          <text x="48" y="882" fill="#e08a75" font-family="Inter, sans-serif" font-size="10" font-weight="700" letter-spacing="1.2">OUTPUT 3 · FAIL CLOSED</text>
+          <text x="48" y="924" fill="#f2f5f9" font-family="Outfit, Inter, sans-serif" font-size="24" font-weight="650">76 excluded</text>
+          <text x="48" y="955" fill="#c4ced8" font-family="Inter, sans-serif" font-size="12">69 grey remain for manual research</text>
+        </g>
+      </svg>
+    </div>
+
+    <footer class="caption">
+      <p>Fidelity ledger: сохранены canonical source, policy split, human и agent consumers. Детали отдельных validators объединены в один gate.</p>
+      <div class="legend" aria-label="Легенда"><span><i></i>разрешённый поток</span><span class="blocked"><i></i>исключение</span></div>
+    </footer>
+  </main>
+</body>
+</html>

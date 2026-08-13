@@ -1,10 +1,10 @@
 # Eclipse Library Roadmap
 
-Последнее обновление: **12.08.2026**
+Последнее обновление: **13.08.2026**
 
 ## Текущее состояние
 
-- `catalog/resources.json` — канонический structured catalog из 617 уникальных записей;
+- `catalog/resources.json` — канонический structured catalog из 619 уникальных записей;
   `README.md` сокращён до документации и больше не является runtime-источником данных.
 - `web/catalog-review.js` и `web/review.css` — собственный локальный editorial review-flow:
   четыре evidence gates, явный итог, bounded draft, clipboard fallback и downloadable v2 JSON packet.
@@ -12,12 +12,12 @@
   apply к текущей ветке, commit, merge и deploy отсутствуют по контракту.
 - `web/app.js` — command-first поиск, фильтры, detail view и guide viewer; structured adapter,
   карточки, editorial feed, progressive DOM и evidence-first Inspector вынесены в модули. При старте
-  в DOM создаются только первые 36 карточек вместо всех 617; mobile Inspector открывается как sheet.
-- `web/catalog-index.json` — production schema v2: 181 запись редакторски проверена,
-  436 честно помечены `inferred`, 335 имеют отдельный `addedAt`, даты удалены из category.
-- License layer: у 336 записей лицензия или условия нормализованы с evidence URL,
+  в DOM создаются только первые 36 карточек вместо всех 619; mobile Inspector открывается как sheet.
+- `web/catalog-index.json` — production schema v2: 183 записи редакторски проверены,
+  436 честно помечены `inferred`, 337 имеют отдельный `addedAt`, даты удалены из category.
+- License layer: у 338 записей лицензия или условия нормализованы с evidence URL,
   281 ещё требует отдельного review.
-- Agent policy: 541 запись доступна автоматическим consumers, 76 исключены fail closed;
+- Agent policy: 543 записи доступны автоматическим consumers, 76 исключены fail closed;
   все 69 grey-ресурсов скрыты от recommendations, direct install запрещён для всех записей.
 - `web/api/v1/` — versioned static exports для full catalog, agents, Eclipse CRM и Eclipse AI;
   consumers больше не должны читать README.
@@ -230,6 +230,14 @@
       dataset и небольшой open model — pinned dependencies, network deny-by-default, license gate,
       holdout evaluation, resource budget и provenance; не запускать training на основной машине.
 
+- [ ] Eclipse AI Hub / Sentinel: проверить Razer AIKit v0.6.0 в hardened isolated NVIDIA GPU lab
+      P2/L: pinned image digests, auth/network isolation, public model/dataset и benchmark против
+      текущего baseline; официальный Compose нельзя выставлять в сеть без переработки defaults.
+- [x] Eclipse Library: провести первый Diagram Design pilot на публичной architecture fixture по
+      Eclipse Diagram Contract v1 — добавлены responsive static HTML/SVG, local tokens/fonts, fidelity
+      ledger, a11y/reduced-motion и automated no-script/no-remote-runtime gate.
+- [ ] Eclipse Forge docs/products: распространить Diagram Contract P1/M на остальные проекты после
+      human visual review первого pilot; внешний skill использовать только с pinned commit и bounded diff.
 - [ ] Hopson Sentinel / Eclipse Chat / Media: проверить wearable assistant flow P2/L без покупки
       Oakley Meta Vanguard — phone/headset prototype, explicit recording indicator, consent, retention,
       delete и offline fallback; Meta/fitness integration только после API, Terms, privacy и DPA review.
@@ -267,6 +275,23 @@
       self-check, EN/RU copy и без обязательного API key.
 
 ## Changelog
+### 2026-08-13
+
+- Проверены по canonical source и добавлены Razer AIKit и Diagram Design без дубликатов; каталог
+  вырос до 619 материалов. Рекламное «убийца Ollama/LM Studio» и «диаграммы по любой задаче»
+  не приняты как подтверждённые claims.
+- Razer AIKit направлен в P2/L isolated GPU benchmark: preview v0.6.0, NVIDIA Compute Capability
+  7.0+, Windows через WSL2. Официальный Compose помечен high-risk для сетевого запуска из-за host
+  network/IPC, unauthenticated Jupyter/Open WebUI, admin/admin anonymous Grafana и moving image tags.
+- Diagram Design прошёл первый Library pilot и направлен на controlled rollout P1/M. Зафиксирован owned Eclipse Diagram Contract v1:
+  pinned source, bounded brief, factual fidelity ledger, local brand tokens/fonts, static-first
+  HTML/SVG, accessibility/reduced-motion и no remote runtime. Первый responsive data-flow pilot
+  опубликован как static artifact; CI блокирует scripts, remote assets, forms, iframe и inline handlers.
+- Внешние Docker images, models, notebooks, plugins и skill scripts не устанавливались и не
+  запускались; direct install из каталога остаётся запрещён.
+- Полный SSRF-safe network audit проверил 647 canonical URL: 601 ok, 30 restricted, 1 temporary unavailable, 15 network unknown, 0 broken, 0 unsafe и 0 redirect duplicates; обе новые canonical GitHub-ссылки отвечают HTTP 200.
+- Local Edge/Playwright QA первого Diagram Contract pilot на 1440×900 и 390×844 подтвердил читаемый responsive layout без horizontal clipping; после проверки удалён неоднозначный mobile connector между независимыми policy outputs.
+
 ### 2026-08-12 — Landing cursor light parity
 
 - Added the same three-layer desktop cursor light used by Eclipse Forge Landing without replacing the native pointer.

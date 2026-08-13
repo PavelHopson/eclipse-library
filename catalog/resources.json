@@ -30866,6 +30866,188 @@
                      },
           "catalogOrder":  2514,
           "guide":  "august-2026-discovery-review-security-radar"
+      },
+      {
+          "id": "razer-aikit",
+          "url": "https://github.com/razerofficial/aikit",
+          "title": "Razer AIKit",
+          "type": "tool",
+          "category": "AI-модели",
+          "subcategory": "Локальная NVIDIA AI-лаборатория",
+          "simpleDescription": "Razer AIKit — официальный Apache-2.0 preview-набор для локального inference, LoRA fine-tuning и распределённой работы на NVIDIA GPU. Внутри есть CLI, vLLM, LlamaFactory, Ray, JupyterLab, Open WebUI и примеры text/image/audio/video workflows. Это не универсальная замена Ollama или LM Studio: Windows требует WSL2, поддерживаются только NVIDIA GPU с Compute Capability 7.0+, а готовый Compose предназначен для доверенной локальной лаборатории, не для открытого production.",
+          "useCases": [
+              "Сравнить AIKit с текущими локальными providers в Eclipse AI Hub Model Registry по throughput, latency, VRAM, cold start и устойчивости",
+              "Проверить multi-GPU inference и bounded LoRA experiment для Hopson Sentinel на public model и dataset",
+              "Использовать image/audio/video notebooks только как reference для очереди тяжёлых jobs Eclipse Media и Text2Image",
+              "Добавить Hardware Doctor и совместимость NVIDIA/WSL2 в plan-only UX до любой загрузки model weights"
+          ],
+          "platforms": [
+              "Local",
+              "Docker",
+              "Linux",
+              "Windows 11 через WSL2",
+              "NVIDIA GPU",
+              "Python CLI",
+              "JupyterLab",
+              "Open WebUI",
+              "Hugging Face"
+          ],
+          "license": "Apache-2.0 для кода AIKit; model weights, datasets, generated artifacts, container images и bundled third-party components сохраняют собственные лицензии и условия",
+          "licenseEvidence": [
+              {
+                  "kind": "license",
+                  "label": "Official Apache-2.0 license",
+                  "url": "https://github.com/razerofficial/aikit/blob/main/LICENSE"
+              },
+              {
+                  "kind": "release",
+                  "label": "Official v0.6.0 preview release",
+                  "url": "https://github.com/razerofficial/aikit/releases/tag/v0.6.0"
+              },
+              {
+                  "kind": "security",
+                  "label": "Official security policy",
+                  "url": "https://github.com/razerofficial/aikit/blob/main/SECURITY.md"
+              },
+              {
+                  "kind": "source",
+                  "label": "Official Docker Compose configuration",
+                  "url": "https://github.com/razerofficial/aikit/blob/main/docker_compose/docker-compose.yaml"
+              }
+          ],
+          "pricing": "Код бесплатен; нужны совместимая NVIDIA GPU, disk, electricity и время. Cloud GPU, private model access и некоторые Hugging Face assets могут стоить денег или требовать аккаунт/token.",
+          "access": {
+              "cost": "free",
+              "signup": "optional",
+              "runtime": "local"
+          },
+          "trust": "official",
+          "trustReason": "Официальный repository Razer, Apache-2.0 license, v0.6.0 preview release, README, GPU compatibility, known issues, Compose и security policy проверены 13.08.2026. AIKit и его container images не устанавливались и не запускались; заявления о превосходстве над Ollama/LM Studio независимым Eclipse benchmark не подтверждены.",
+          "projects": [
+              "Eclipse AI Hub",
+              "Hopson Sentinel",
+              "Eclipse Media",
+              "Text2Image",
+              "Educator-AI"
+          ],
+          "decision": "roadmap",
+          "riskLevel": "high",
+          "risks": [
+              "Официальный Compose использует host networking, JupyterLab без token/password, Open WebUI без auth и Grafana с admin/admin плюс anonymous Admin; такой stack нельзя публиковать в сеть.",
+              "Образы razerofficial/aikit:latest, open-webui:main, Prometheus/Grafana latest и unsigned main commit не закреплены digest; это supply-chain и воспроизводимость risk.",
+              "Container получает Hugging Face token, host IPC, все GPU и bind-mounted model cache; compromise может раскрыть token, модели, prompts и соседние данные cache.",
+              "Apache-2.0 AIKit не разрешает автоматически commercial use любой загруженной модели или dataset; license/provenance gate нужен для каждого artifact.",
+              "Preview status, WSL2 networking workaround и NVIDIA-only hardware делают production support и portability пока неопределёнными."
+          ],
+          "verifiedAt": "2026-08-13",
+          "quickStart": [
+              "Не запускать README Compose на основной машине или VPS; создать disposable GPU host/VLAN без workspace, production secrets и inbound internet.",
+              "Закрепить AIKit v0.6.0, source SHA и image digests; заменить host network, включить auth, loopback/allowlist и read-only mounts.",
+              "Провести один public-model benchmark против текущего baseline и продолжать только при измеримом выигрыше по качеству, скорости или multi-GPU utilization."
+          ],
+          "reviewStatus": "verified",
+          "addedAt": "2026-08-13",
+          "source": {
+              "file": "user-news",
+              "line": 2515,
+              "category": "AI-модели",
+              "subcategory": "Локальная NVIDIA AI-лаборатория"
+          },
+          "catalogOrder": 2515,
+          "guide": "razer-aikit-diagram-design-review"
+      },
+      {
+          "id": "diagram-design-skill",
+          "url": "https://github.com/cathrynlavery/diagram-design",
+          "title": "Diagram Design",
+          "type": "skill",
+          "category": "AI & Claude Code",
+          "subcategory": "Брендированные технические и продуктовые диаграммы",
+          "simpleDescription": "Diagram Design — MIT skill/plugin для Claude Code, Codex и Pi, который создаёт 27 типов редакционных диаграмм: architecture, flowchart, sequence, state, ER, timeline, charts и другие. Результат сначала строится как standalone HTML с inline SVG, а затем может экспортироваться в SVG или PNG. Есть brand onboarding, импорт draw.io/Mermaid, accessibility checks и optional reduced-motion-safe animation. Формулировка «для любой задачи» рекламная: качество зависит от точности исходных данных и human review.",
+          "useCases": [
+              "Создавать архитектурные и data-flow схемы для документации Eclipse Library, AI Hub, Chat и Hopson Sentinel",
+              "Готовить sequence/state диаграммы OAuth, approval gates и agent runs до реализации сложных workflows",
+              "Строить понятные roadmap, funnel и comparison visuals для Eclipse Forge Landing и product decks",
+              "Экспортировать проверенные static SVG/PNG для Eclipse Media, Shotforge и обучающих материалов Educator-AI"
+          ],
+          "platforms": [
+              "Agent Skill",
+              "Codex plugin",
+              "Claude Code plugin",
+              "Pi",
+              "HTML",
+              "SVG",
+              "PNG",
+              "draw.io",
+              "Mermaid"
+          ],
+          "license": "MIT; bundled icon assets and other third-party components retain the licenses listed in THIRD_PARTY_LICENSES.md",
+          "licenseEvidence": [
+              {
+                  "kind": "license",
+                  "label": "Official MIT license",
+                  "url": "https://github.com/cathrynlavery/diagram-design/blob/main/LICENSE"
+              },
+              {
+                  "kind": "source",
+                  "label": "Official skill instructions",
+                  "url": "https://github.com/cathrynlavery/diagram-design/blob/main/skills/diagram-design/SKILL.md"
+              },
+              {
+                  "kind": "security",
+                  "label": "Official security policy",
+                  "url": "https://github.com/cathrynlavery/diagram-design/blob/main/SECURITY.md"
+              },
+              {
+                  "kind": "ci",
+                  "label": "Official cross-platform CI checks",
+                  "url": "https://github.com/cathrynlavery/diagram-design/blob/main/.github/workflows/ci.yml"
+              }
+          ],
+          "pricing": "Open-source skill бесплатен; генерация использует уже подключённого AI-агента. PNG export может требовать локальный Playwright/Chromium, а model usage оплачивается по условиям выбранного provider.",
+          "access": {
+              "cost": "free",
+              "signup": "none",
+              "runtime": "local"
+          },
+          "trust": "community",
+          "trustReason": "Canonical repository, MIT license, plugin metadata v2.3.2, skill contract, static templates, import/export boundaries, security policy and CI across Linux/Windows/macOS checked 13.08.2026. Репозиторий не публикует GitHub Releases, latest main commit unsigned; plugin не устанавливался и generated HTML не исполнялся.",
+          "projects": [
+              "Eclipse Library",
+              "Eclipse Forge Landing",
+              "Eclipse Chat",
+              "Eclipse AI Hub",
+              "Eclipse DnD Forge",
+              "Hopson Sentinel",
+              "Eclipse Media",
+              "Shotforge",
+              "Text2Image",
+              "Educator-AI"
+          ],
+          "decision": "now",
+          "riskLevel": "medium",
+          "risks": [
+              "Codex/Claude marketplace install tracks a moving Git repository without signed GitHub Releases; auto-update can change instructions and write behavior between sessions.",
+              "Plugin declares Read/Write, а brand onboarding может читать local design files или отправлять запросы к указанному сайту; scope и diff должны быть ограничены.",
+              "Default HTML templates загружают Google Fonts, motion variant содержит inline JavaScript, а PNG export использует Playwright; для Eclipse нужны self-hosted fonts, static-first output и отдельный HTML safety gate.",
+              "Диаграмма может красиво визуализировать выдуманную архитектуру, цифры или связи; source fidelity ledger и фактическая проверка обязательны."
+          ],
+          "verifiedAt": "2026-08-13",
+          "quickStart": [
+              "Не устанавливать из каталога: закрепить проверенный commit, сохранить MIT/third-party notices и запускать только в bounded worktree.",
+              "Для первого pilot использовать одну публичную architecture fixture, Eclipse tokens и static HTML/SVG без remote scripts, forms, iframe, fetch и event handlers.",
+              "Перед публикацией проверить source fidelity, text/contrast, keyboard/a11y, reduced motion, self-hosted fonts, desktop/mobile render и полный git diff."
+          ],
+          "reviewStatus": "verified",
+          "addedAt": "2026-08-13",
+          "source": {
+              "file": "user-news",
+              "line": 2516,
+              "category": "AI & Claude Code",
+              "subcategory": "Брендированные технические и продуктовые диаграммы"
+          },
+          "catalogOrder": 2516,
+          "guide": "razer-aikit-diagram-design-review"
       }
   ]
 }
