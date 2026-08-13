@@ -109,6 +109,19 @@ Diagram Design используем как проверяемый input и refer
 - Обе схемы используют только factual state из собственных README, contracts, roadmap и security
   документации проектов. TypeScript/Rust/provider implementation details объединены в fidelity ledger.
 
+### Product workflow rollout
+
+- [Eclipse DnD Forge Azgaar import boundary](../web/diagrams/dnd-azgaar-import-boundary.html)
+  показывает текущий внешний handoff без iframe: campaign brief → Minimal JSON до 8 МБ → локальная
+  проверка `pack.burgs`, очистка и dedupe → preview → явный import. Будущий Campaign Map Asset v1,
+  регионы, дороги и связи не выданы за готовый функционал.
+- [Eclipse media storyboard handoff](../web/diagrams/media-storyboard-handoff.html) показывает
+  versioned `eclipse.release-storyboard.v1` из Shotforge → локальную fail-closed проверку 64 KB,
+  пяти сцен и 15 секунд в Eclipse Media → ручной перенос текста, verify, render, review и publish.
+  Text2Image честно показан отдельным источником скачиваемого PNG, а не уже подключённым asset pipeline.
+- Обе схемы имеют отдельные desktop/mobile SVG, self-hosted fonts, reduced-motion/print fallback и
+  не содержат runtime JavaScript, remote assets, forms, iframe или navigation.
+
 После первого rollout тот же контракт применяется:
 
 - **Eclipse Chat:** sequence, approval flow, Growth OS run lifecycle;

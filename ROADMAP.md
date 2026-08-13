@@ -4,6 +4,12 @@
 
 ## Текущее состояние
 
+- Diagram Contract расширен на product workflows: Eclipse DnD Forge получил схему безопасного
+  Azgaar Minimal JSON import с 8 MB gate, `pack.burgs`, очисткой, dedupe, preview и explicit confirm;
+  Shotforge / Eclipse Media / Text2Image получили схему versioned storyboard handoff с 64 KB gate,
+  exact 5-scene/15-second contract и ручными render/publish boundaries. Обе схемы static-only,
+  используют локальные шрифты и отдельные desktop/mobile SVG без выдуманной автоматизации.
+
 - `catalog/resources.json` — канонический structured catalog из 619 уникальных записей;
   `README.md` сокращён до документации и больше не является runtime-источником данных.
 - `web/catalog-review.js` и `web/review.css` — собственный локальный editorial review-flow:
@@ -279,6 +285,14 @@
 
 ## Changelog
 ### 2026-08-13
+
+- Product workflow rollout Diagram Contract добавил две factual static diagrams: безопасный Azgaar
+  Minimal JSON import в Eclipse DnD Forge и versioned Shotforge storyboard handoff в Eclipse Media
+  с честно отдельным Text2Image asset path. Схемы фиксируют 8 MB / 24 или 60 locations и
+  64 KB / 5 scenes / 15 seconds / 3 formats, preview, fail-closed и human approval boundaries.
+- Local Edge QA на 1440×900 и 390×844 подтвердила по одному responsive SVG без overflow,
+  console/page/network errors; manual screenshot review подтвердил читаемую desktop DnD и mobile media
+  композицию. Static security contract и полный quality pipeline прошли без findings.
 
 - Проверены по canonical source и добавлены Razer AIKit и Diagram Design без дубликатов; каталог
   вырос до 619 материалов. Рекламное «убийца Ollama/LM Studio» и «диаграммы по любой задаче»

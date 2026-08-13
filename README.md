@@ -137,6 +137,8 @@ Quality workflow проверяет:
 - [Eclipse Diagram Contract: первый static data-flow pilot](web/diagrams/catalog-data-flow.html)
 - [Eclipse AI Hub: model provider boundary](web/diagrams/ai-hub-provider-boundary.html)
 - [Hopson Sentinel: capability и approval boundary](web/diagrams/sentinel-capability-boundary.html)
+- [Eclipse DnD Forge: безопасный Azgaar import](web/diagrams/dnd-azgaar-import-boundary.html)
+- [Shotforge, Eclipse Media и Text2Image: storyboard handoff](web/diagrams/media-storyboard-handoff.html)
 - [AI Landing Sprint](guides/ai-landing-sprint.md)
 - [Operational agent stack](guides/august-2026-operational-agent-stack.md)
 - [Agent Reach security review](guides/agent-reach-security-review-2026-07-31.md)
