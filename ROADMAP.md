@@ -6,7 +6,8 @@
 
 - Owned Growth OS MVP завершён без Teamly: Eclipse AI Hub исполняет пять bounded ролей и выдаёт
   `growth.run.v1`, Eclipse Chat даёт tenant-scoped Command Room с budget, cancel, provenance и
-  approval. В AI Hub готовы три локальных экрана Content Command Center: Hook Vault, Channel Analytics и public-only Competitor Tracker.
+  approval. В AI Hub готовы четыре локальных экрана Content Command Center: Hook Vault, Channel Analytics,
+  public-only Competitor Tracker и evidence-backed Content Planner.
 
 - Diagram Contract расширен на product workflows: Eclipse DnD Forge получил схему безопасного
   Azgaar Minimal JSON import с 8 MB gate, `pack.burgs`, очисткой, dedupe, preview и explicit confirm;
@@ -76,7 +77,8 @@
 - [ ] Eclipse Chat / AI Hub / Library: расширить owned Growth OS до Content Command Center P1/L —
       Hook Vault, normalized channel analytics, public-only Competitor Tracker, Planner, Content Plan
       и Trends; source/rights/provenance обязательны, публикация и account access только после approval.
-      Hook Vault, normalized analytics и public-only Competitor Tracker готовы; planner, plan и trends остаются в работе.
+      Hook Vault, normalized analytics, public-only Competitor Tracker и Planner готовы;
+      Content Plan и Trends остаются в работе.
 - [ ] Eclipse AI Hub / Growth OS: встроить Editor Stylist v2 P1/S — три понятных режима,
       locked facts, voice samples, `claimsChanged`, semantic diff и human approval; без detector bypass.
 - [x] Eclipse Library: завершить owned Human Review pilot P1/M — v2 packet, обязательный полный
@@ -293,14 +295,17 @@
 
 - Owned Growth OS MVP отмечен завершённым по фактическому состоянию AI Hub и Chat: bounded roles,
   run log, budget/cancel, provenance и human approval работают без Teamly, connectors и публикации.
-- Content Command Center получил три shipped screen. Hook Vault хранит source-backed паттерны и
+- Content Command Center получил четыре shipped screen. Hook Vault хранит source-backed паттерны и
   переносит их в brief без fetch, AI call или publication action. Channel Analytics хранит до
   24 агрегированных периодов / 64 КБ под `growth.channel-snapshot.v1`, требует HTTPS evidence,
   проверяет воронку и сравнивает только один продукт, канал и окно 7/30/90 дней. Public-only
   Competitor Tracker хранит до 30 ручных observations / 64 КБ под
   `growth.competitor-observation.v1`, требует нормализованный HTTPS source, дедуплицирует URL и
   переносит только pattern/provenance/Eclipse hypothesis с reference-only boundary. OAuth,
-  scraping, account access, автоматического сбора и user-level data нет; остаются три экрана.
+  scraping, account access, автоматического сбора и user-level data нет. Content Planner добавляет
+  `growth.planner-item.v1`: до 30 локальных draft/review-задач с HTTPS evidence, owner, audience,
+  KPI, effort, CTA и датой review; scheduler, approval и publish authority отсутствуют. Остаются
+  Content Plan и Trends.
 
 ### 2026-08-13
 
