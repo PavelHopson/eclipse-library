@@ -114,6 +114,7 @@
   --display: 'Outfit', var(--font);
   --mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
   --ease: cubic-bezier(.16,1,.3,1);
+  --ease-presence: cubic-bezier(.2,.8,.2,1);
   --ease-spring: cubic-bezier(.34,1.4,.64,1);
 }
 
@@ -159,11 +160,14 @@ kbd { font-family: var(--mono); font-size: 10.5px; color: var(--muted); border: 
 .topbar-inner { max-width: var(--maxw); margin: 0 auto; display: flex; align-items: center; gap: 20px; padding: 13px 26px; }
 .brand { display: flex; align-items: center; gap: 12px; color: var(--text); flex-shrink: 0; }
 .brand:hover { color: var(--text); }
-.brand-mark { position: relative; width: 42px; height: 42px; display: grid; place-items: center; background: radial-gradient(circle at 50% 50%, rgba(107,163,255,.08), transparent 58%), linear-gradient(145deg, rgba(255,255,255,.045), rgba(255,255,255,.014)); border: 1px solid var(--line); border-radius: 14px; box-shadow: 0 0 28px -10px rgba(107,163,255,.65), 0 0 0 1px rgba(255,255,255,.03) inset; overflow: hidden; }
-.brand-mark::before { content: ""; position: absolute; width: 26px; height: 26px; border-radius: 50%; border: 1px solid rgba(255,255,255,.74); box-shadow: 0 0 18px rgba(255,255,255,.32), inset -8px 0 0 rgba(0,0,0,.74); }
-.brand-mark::after { content: ""; position: absolute; width: 42px; height: 1px; background: linear-gradient(90deg, transparent, rgba(216,181,81,.9), rgba(255,255,255,.88), transparent); transform: rotate(-12deg); opacity: .86; }
-.brand-orb { position: absolute; width: 18px; height: 18px; border-radius: 50%; background: #050508; box-shadow: 0 0 20px rgba(216,181,81,.22); }
-.brand-spark { position: absolute; right: 8px; top: 10px; width: 3px; height: 3px; border-radius: 50%; background: var(--gold); box-shadow: 0 0 12px var(--gold); }
+.brand-mark { position: relative; width: 42px; height: 42px; display: grid; place-items: center; background: linear-gradient(145deg, rgba(255,255,255,.05), rgba(107,163,255,.025)); border: 1px solid var(--line); border-radius: 14px; box-shadow: 0 0 28px -14px rgba(107,163,255,.62), 0 0 0 1px rgba(255,255,255,.035) inset; overflow: hidden; transition: border-color .2s var(--ease), box-shadow .24s var(--ease), transform .24s var(--ease-spring); }
+.brand-mark::before { content: ""; position: absolute; inset: 0; pointer-events: none; background: radial-gradient(circle at 74% 22%, rgba(212,175,55,.12), transparent 26%), radial-gradient(circle at 42% 52%, rgba(107,163,255,.09), transparent 62%); }
+.brand-mark::after { content: ""; position: absolute; top: -12px; bottom: -12px; left: -55%; width: 34%; pointer-events: none; background: linear-gradient(90deg, transparent, rgba(242,245,249,.28), transparent); opacity: 0; transform: skewX(-18deg); }
+.brand-mark img { position: relative; z-index: 1; display: block; width: 32px; height: 32px; filter: drop-shadow(0 0 7px rgba(107,163,255,.16)); transition: transform .24s var(--ease-spring), filter .24s var(--ease); }
+.brand:hover .brand-mark, .brand:focus-visible .brand-mark { border-color: var(--blue-line); box-shadow: 0 0 32px -12px rgba(107,163,255,.72), 0 0 0 1px rgba(212,175,55,.08) inset; transform: translateY(-1px); }
+.brand:hover .brand-mark img, .brand:focus-visible .brand-mark img { filter: drop-shadow(0 0 9px rgba(107,163,255,.26)); transform: scale(1.045); }
+.brand:hover .brand-mark::after, .brand:focus-visible .brand-mark::after { animation: brandEclipseSweep .68s var(--ease-presence); }
+@keyframes brandEclipseSweep { 0% { left: -55%; opacity: 0; } 20% { opacity: .78; } 100% { left: 125%; opacity: 0; } }
 .brand-text { display: flex; flex-direction: column; line-height: 1.18; }
 .brand-text strong { font-family: var(--display); font-size: 15px; font-weight: 700; letter-spacing: -.2px; }
 .brand-text small { color: var(--muted-2); font-size: 11px; letter-spacing: .2px; }

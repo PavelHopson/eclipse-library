@@ -46,6 +46,7 @@ jobs:
           node --test scripts/catalog-policy.test.mjs
           node --test scripts/catalog-progressive.test.mjs
           node --test scripts/diagram-contract.test.mjs
+          node --test scripts/brand-assets.test.mjs
           node --test scripts/review-preview.test.mjs
       - name: Validate Eclipse Forge projects
         run: node scripts/validate-projects.mjs

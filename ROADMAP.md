@@ -293,6 +293,12 @@
 ## Changelog
 ### 2026-08-14
 
+- Eclipse Library получила собственный production-знак: затмение переходит в раскрытую книгу,
+  синяя закладка фиксирует продуктовую принадлежность, а точечный warm-gold highlight сохраняет
+  связь с Eclipse Forge без возврата к фиолетовой палитре.
+- Primary, monochrome и favicon SVG встроены в каталог и Technology Registry; wordmark остаётся
+  живым Outfit-текстом. Hover/focus даёт один короткий световой проход, а reduced-motion
+  отключает декоративную динамику. CI блокирует возврат emoji favicon, внешние SVG-ссылки и scripts.
 - Owned Growth OS MVP отмечен завершённым по фактическому состоянию AI Hub и Chat: bounded roles,
   run log, budget/cancel, provenance и human approval работают без Teamly, connectors и публикации.
 - Content Command Center получил четыре shipped screen. Hook Vault хранит source-backed паттерны и

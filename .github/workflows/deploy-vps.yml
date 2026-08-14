@@ -43,6 +43,7 @@ jobs:
           node scripts/build-guides-manifest.mjs --check
           node scripts/validate-star-technology-registry.mjs
           node --test scripts/diagram-contract.test.mjs
+          node --test scripts/brand-assets.test.mjs
           node --check web/catalog-review.js
           node --check web/registry.js
           node --check scripts/review-preview-policy.mjs

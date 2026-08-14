@@ -6,6 +6,8 @@ warm-gold и signal-blue tokens, self-hosted Outfit/Inter и reduced-motion-safe
 Runtime-зависимости от главного лендинга нет.
 На desktop с точным указателем Library повторяет фирменный cursor light лендинга; обычный
 курсор остаётся системным, а на touch и при `prefers-reduced-motion` эффект отключён.
+Новый production-знак объединяет затмение и раскрытую книгу; SVG, favicon, monochrome fallback
+и правила использования хранятся в [`web/assets/brand/`](web/assets/brand/README.md).
 
 Кураторская библиотека AI-инструментов, сервисов, моделей, skills, MCP, промптов, курсов и security-материалов для экосистемы Eclipse Forge.
 
