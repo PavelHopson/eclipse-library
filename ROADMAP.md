@@ -1,8 +1,12 @@
 # Eclipse Library Roadmap
 
-Последнее обновление: **13.08.2026**
+Последнее обновление: **14.08.2026**
 
 ## Текущее состояние
+
+- Owned Growth OS MVP завершён без Teamly: Eclipse AI Hub исполняет пять bounded ролей и выдаёт
+  `growth.run.v1`, Eclipse Chat даёт tenant-scoped Command Room с budget, cancel, provenance и
+  approval. Первый экран Content Command Center — локальный Hook Vault — также готов в AI Hub.
 
 - Diagram Contract расширен на product workflows: Eclipse DnD Forge получил схему безопасного
   Azgaar Minimal JSON import с 8 MB gate, `pack.burgs`, очисткой, dedupe, preview и explicit confirm;
@@ -66,12 +70,13 @@
 - [x] Проверить Teamly.to как отдельный proprietary SaaS и отказаться от платного pilot:
       No Plan оказался configuration-only, checkout и integrations не начинаются; Cells, роли,
       activity stream и approval gates остаются только архитектурным reference.
-- [ ] Eclipse Chat / AI Hub: собрать owned Growth OS MVP без зависимости от Teamly — один bounded
+- [x] Eclipse Chat / AI Hub: собрать owned Growth OS MVP без зависимости от Teamly — один bounded
       workflow `Finding -> Brief -> Draft -> Claims review -> Approved artifact`, observable run log,
       stop/pause, budget, provenance и deny-by-default approval; без connectors и публикации.
 - [ ] Eclipse Chat / AI Hub / Library: расширить owned Growth OS до Content Command Center P1/L —
       Hook Vault, normalized channel analytics, public-only Competitor Tracker, Planner, Content Plan
       и Trends; source/rights/provenance обязательны, публикация и account access только после approval.
+      Первый slice Hook Vault готов; analytics, competitors, planner, plan и trends остаются в работе.
 - [ ] Eclipse AI Hub / Growth OS: встроить Editor Stylist v2 P1/S — три понятных режима,
       locked facts, voice samples, `claimsChanged`, semantic diff и human approval; без detector bypass.
 - [x] Eclipse Library: завершить owned Human Review pilot P1/M — v2 packet, обязательный полный
@@ -284,6 +289,14 @@
       self-check, EN/RU copy и без обязательного API key.
 
 ## Changelog
+### 2026-08-14
+
+- Owned Growth OS MVP отмечен завершённым по фактическому состоянию AI Hub и Chat: bounded roles,
+  run log, budget/cancel, provenance и human approval работают без Teamly, connectors и публикации.
+- Content Command Center получил первый shipped screen — browser-local Hook Vault с лимитами
+  30 записей/64 КБ, обязательными HTTPS source, author, date и rights status. «В brief» не делает
+  fetch, AI call или publication action; остальные пять экранов остаются в roadmap.
+
 ### 2026-08-13
 
 #### GitHub Spec Kit and Eclipse Spec Gate

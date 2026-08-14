@@ -89,9 +89,13 @@
 Полезный owned-модуль должен хранить источники, права, измерения и решения редактора. В первом MVP
 нет входа в личные аккаунты, скрытого парсинга, автопубликации или standing authorization для MCP.
 
+Первый shipped slice уже работает в Eclipse AI Hub: Hook Vault хранит до 30 коротких паттернов
+локально в браузере. Перенос «В brief» добавляет provenance и ограничения, но не делает fetch,
+AI-запрос или публикацию. Остальные пять экранов остаются отдельными этапами.
+
 | Экран | Что видит пользователь | Обязательные данные | Безопасный default |
 |---|---|---|---|
-| База хуков | Сохранённая идея и понятный reusable pattern | source URL, author, date, transcript/excerpt, pattern, rights status | Только public/owned source; кнопка «В черновик», не «Скопировать и опубликовать» |
+| База хуков | Сохранённая идея и понятный reusable pattern | source URL, author, date, pattern, rights status, editorial note | Unknown rights остаётся reference; кнопка «В brief», не «Скопировать и опубликовать» |
 | Аналитика | Что реально сработало за 7/30/90 дней | channel, impressions, saves, clicks, product visits, leads, median и sample size | Импорт агрегатов без user-level data; разные каналы не складываются в одну выдуманную метрику |
 | Конкуренты | Публичные материалы выбранных авторов | owner, allowed source, fetch date, format, hook, observable result | Ручной allowlist, robots/Terms/rate limits; никаких cookies и обхода ограничений |
 | Планировщик | Один draft, канал, дата и следующий review | owner, audience, evidence, format, CTA, status, approval | Создаёт задачу и preview; не публикует и не подключает аккаунт |
