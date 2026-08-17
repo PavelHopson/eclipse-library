@@ -1,6 +1,6 @@
 # Eclipse Library Roadmap
 
-Последнее обновление: **14.08.2026**
+Последнее обновление: **17.08.2026**
 
 ## Текущее состояние
 
@@ -15,7 +15,7 @@
   exact 5-scene/15-second contract и ручными render/publish boundaries. Обе схемы static-only,
   используют локальные шрифты и отдельные desktop/mobile SVG без выдуманной автоматизации.
 
-- `catalog/resources.json` — канонический structured catalog из 620 уникальных записей;
+- `catalog/resources.json` — канонический structured catalog из 629 уникальных записей;
   `README.md` сокращён до документации и больше не является runtime-источником данных.
 - `web/catalog-review.js` и `web/review.css` — собственный локальный editorial review-flow:
   четыре evidence gates, явный итог, bounded draft, clipboard fallback и downloadable v2 JSON packet.
@@ -23,12 +23,12 @@
   apply к текущей ветке, commit, merge и deploy отсутствуют по контракту.
 - `web/app.js` — command-first поиск, фильтры, detail view и guide viewer; structured adapter,
   карточки, editorial feed, progressive DOM и evidence-first Inspector вынесены в модули. При старте
-  в DOM создаются только первые 36 карточек вместо всех 620; mobile Inspector открывается как sheet.
-- `web/catalog-index.json` — production schema v2: 184 записи редакторски проверены,
-  436 честно помечены `inferred`, 338 имеют отдельный `addedAt`, даты удалены из category.
-- License layer: у 339 записей лицензия или условия нормализованы с evidence URL,
-  281 ещё требует отдельного review.
-- Agent policy: 544 записи доступны автоматическим consumers, 76 исключены fail closed;
+  в DOM создаются только первые 36 карточек вместо всех 629; mobile Inspector открывается как sheet.
+- `web/catalog-index.json` — production schema v2: 195 записей редакторски проверены,
+  434 честно помечены `inferred`, 348 имеют отдельный `addedAt`, даты удалены из category.
+- License layer: у 350 записей лицензия или условия нормализованы с evidence URL,
+  279 ещё требуют отдельного review.
+- Agent policy: 553 записи доступны автоматическим consumers, 76 исключены fail closed;
   все 69 grey-ресурсов скрыты от recommendations, direct install запрещён для всех записей.
 - `web/api/v1/` — versioned static exports для full catalog, agents, Eclipse CRM и Eclipse AI;
   consumers больше не должны читать README.
@@ -56,8 +56,21 @@
       `StrictHostKeyChecking=yes`, bounded retry и post-deploy smoke по точной версии assets/data.
 - [x] Добавить scheduled link checker с redirect resolution, retry и честным разделением
       `broken` / `unavailable` / `unknown` / rate-limited сайтов.
+- [x] Внедрить Chat → Work → Codex operating model: versioned `eclipse.handoff.v1`, явные
+      permissions/stop conditions, session tree и еженедельный read-only evidence audit без write,
+      install, commit, push, deploy или внешних действий.
 
 ### P1
+
+- [ ] Eclipse AI Hub / Sentinel / oh-my-claudecode: провести benchmark GPT-5.6 Sol/Terra/Luna
+      на 20–30 реальных fixtures с quality, latency, token cost, budget cap и fallback; DeepSeek Harness
+      исследовать отдельно в pinned disposable sandbox без community plugins и production credentials.
+- [ ] Eclipse Media / Shotforge: провести MiniMax Music 3 benchmark только на оригинальных или
+      public-domain lyrics; сохранить revision, rights provenance и AI disclosure, проверить custom
+      license, GPU budget и запрет voice impersonation до продуктовой интеграции.
+- [ ] Educator-AI: адаптировать Google AI for App Building в локальный beginner path с обязательным
+      Eclipse production-readiness checklist; не обещать бесплатный сертификат или русскую локализацию
+      без проверки текущего Coursera checkout.
 
 - [x] Перевести Library с README parsing на canonical `catalog/resources.json`, добавить schema v2,
       normalized license evidence, `addedAt`, agent-safe exports, fail-closed install policy,
@@ -291,6 +304,33 @@
       self-check, EN/RU copy и без обязательного API key.
 
 ## Changelog
+### 2026-08-17
+
+- Проверена новая пачка без установки или запуска стороннего кода. В canonical catalog добавлены
+  девять недублирующихся записей: ChatGPT Work + Codex operating model, Google AI for App Building,
+  Learn Harness Engineering, MiniMax Music 3, Google CodeWiki, Cube YouTube Downloader, DeepSeek
+  Harness, Anthropic system prompts и first-party Repository Architecture Map Prompt. Две старые
+  карточки OpenAI повышены из inferred до verified. Каталог вырос до 629 записей: 195 verified,
+  434 inferred, 553 agent-safe; 279 лицензий/условий ещё требуют review.
+- Исправлены рекламные преувеличения: MiniMax Music 3 создаёт до 5 минут и использует custom
+  community license; CodeWiki сейчас предназначен для public repositories; youtube-dl-wpf не имеет
+  готовой parallel queue; published Anthropic prompts не описывают Claude API; DeepSeek Harness
+  остаётся developer preview, а 6,571 topic plugins не считаются безопасными автоматически.
+- История про AI-борца и 167-минутный курс без URL исключены из подтверждённого каталога. Revenue,
+  followers и automation claims не имеют evidence; концептуальная цепочка курса сохранена только как
+  editorial reference до получения оригинальной ссылки.
+- Добавлены `eclipse.handoff.v1` schema/example/validator, Chat → Work → Codex guide, evidence-based
+  architecture prompt, radar и durable registry восьми закреплённых Codex tasks. Создана automation
+  `eclipse-library-weekly-evidence-audit`: понедельник 09:00, GPT-5.6 Luna, строго read-only.
+- Supply-chain pass запрещает direct install, curl-to-shell, moving plugins и запуск DeepSeek/MiniMax/
+  yt-dlp на основной машине. Для pilots обязательны pinned revision, hashes/lockfile review, sandbox,
+  no secrets, default-deny egress и ручные approval gates.
+- Full SSRF-safe network audit проверил 657 уникальных URL: 603 `ok`, 30 `restricted`,
+  2 `unavailable`, 22 `unknown`, 0 `broken`, 0 unsafe/blocked и 0 redirect duplicates.
+  Новые MiniMax, CodeWiki, youtube-dl-wpf, DeepSeek, Anthropic и OpenAI endpoints ответили;
+  Coursera и Learn Harness Engineering остаются `unknown` из-за сетевого fetch failure, а не
+  подтверждённой поломки.
+
 ### 2026-08-14
 
 - Eclipse Library получила собственный production-знак: затмение переходит в раскрытую книгу,

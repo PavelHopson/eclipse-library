@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "consumer": "Eclipse CRM",
-  "catalogVersion": "7fb671f3a34ef45ef2c10c9586671ed353db440b66fb49e2c3970fc59141c90b",
+  "catalogVersion": "09d7bb2c83a7fb5131679f3d7c3917988214d7847b39a3f6fa409f99455cd37b",
   "generatedAt": null,
   "policy": {
     "greyResourcesExcluded": true,
@@ -9,7 +9,7 @@
     "externalMutationsRequireHumanApproval": true
   },
   "totals": {
-    "items": 544
+    "items": 553
   },
   "items": [
     {
@@ -3788,50 +3788,69 @@
       "id": "openai-codex-use-cases-developers-openai-com",
       "title": "OpenAI Codex Use-Cases",
       "url": "https://developers.openai.com/codex/use-cases",
-      "type": "prompt",
+      "type": "learn",
       "category": "AI & Claude Code",
       "subcategory": "AI Coding Agents",
-      "addedAt": null,
-      "description": "OpenAI Codex Use-Cases — Официальный сборник 50+ воркфлоу для Codex — от разбора почты до автоматизации браузера. По каждому: кому подходит, готовый стартовый промпт, инструкция повторения. Reference-материал для проектирования собственных агентных пайплайнов (oh-my-claudecode, Hopson Sentinel). Карточка помогает понять назначение ресурса и начать с небольшой безопасной проверки; условия использования ещё нужно сверить с официальным источником.",
+      "addedAt": "2026-06-10",
+      "description": "Официальный каталог сценариев Codex для разработки, анализа данных, knowledge work, QA и повторяемых automation. Он помогает выбрать проверяемый рабочий процесс и стартовый запрос, но не даёт Codex дополнительных прав: запись, публикация, deploy и внешние действия по-прежнему требуют явных границ и проверки результата.",
       "useCases": [
-        "Разобраться, подходит ли OpenAI Codex Use-Cases для вашей задачи",
-        "Проверить возможности на небольшом тестовом сценарии до интеграции"
+        "Выбрать безопасный стартовый workflow для новой Codex-задачи",
+        "Превратить повторяемую проверку в read-only automation с отчётом",
+        "Спроектировать handoff из ChatGPT Work в репозиторий и Codex",
+        "Сравнить собственные Eclipse-процессы с официальными примерами"
       ],
       "platforms": [
-        "Web"
+        "Web",
+        "ChatGPT",
+        "Codex app",
+        "Codex CLI"
       ],
       "license": {
-        "label": "Нужно проверить в официальном источнике",
-        "original": "Нужно проверить в официальном источнике",
+        "label": "OpenAI documentation terms; examples are not a blanket software license",
+        "original": "OpenAI documentation terms; examples are not a blanket software license",
         "spdx": null,
-        "kind": "unknown",
-        "status": "unverified",
-        "requiresReview": true,
+        "kind": "service-terms",
+        "status": "editor-reviewed",
+        "requiresReview": false,
         "evidence": [
           {
-            "kind": "official-source",
-            "label": "Официальный источник; точные условия ещё нужно сверить",
+            "kind": "docs",
+            "label": "Official Codex use cases",
             "url": "https://developers.openai.com/codex/use-cases"
+          },
+          {
+            "kind": "terms",
+            "label": "OpenAI Terms of Use",
+            "url": "https://openai.com/policies/terms-of-use/"
           }
         ]
       },
       "access": {
-        "cost": "unknown",
-        "signup": "unknown",
+        "cost": "freemium",
+        "signup": "optional",
         "runtime": "cloud"
       },
-      "trust": "unknown",
-      "decision": "reference",
-      "riskLevel": "medium",
+      "trust": "official",
+      "decision": "now",
+      "riskLevel": "low",
       "projects": [
+        "Eclipse Library",
+        "Eclipse Chat",
+        "Eclipse AI Hub",
         "Hopson Sentinel",
-        "oh-my-claudecode"
+        "oh-my-claudecode",
+        "Educator-AI"
       ],
       "evidence": [
         {
           "kind": "official-source",
           "label": "Официальный источник",
           "url": "https://developers.openai.com/codex/use-cases"
+        },
+        {
+          "kind": "terms",
+          "label": "OpenAI Terms of Use",
+          "url": "https://openai.com/policies/terms-of-use/"
         }
       ],
       "actions": {
@@ -22721,51 +22740,68 @@
       "id": "openai-model-guidance-gpt-5-6-developers-openai-com",
       "title": "OpenAI Model guidance / GPT-5.6",
       "url": "https://developers.openai.com/api/docs/guides/latest-model",
-      "type": "prompt",
+      "type": "learn",
       "category": "Подборка Eclipse",
       "subcategory": "Token-saving / agent safety",
       "addedAt": "2026-07-09",
-      "description": "OpenAI Model guidance / GPT-5.6 — Официальный guide OpenAI по GPT-5.6: gpt-5.6-sol для flagship, terra для баланс цены/качества, luna для high-volume; leaner prompts, prompt caching, persisted reasoning, Programmatic Tool Calling, intentional reasoning.effort. Зачем нам: Eclipse AI Hub, Eclipse Chat agents, Hopson Sentinel, Codex migration playbook. Смысл: меньше повторяющихся…. Карточка помогает понять назначение ресурса и начать с небольшой безопасной проверки; условия использования ещё нужно сверить с официальным источником.",
+      "description": "Официальный guide OpenAI по выбору GPT-5.6 Sol, Terra и Luna, reasoning effort, Responses API, prompt caching, persisted reasoning и Programmatic Tool Calling. Для Eclipse это не совет «везде поставить самую сильную модель», а основа измеримого router: качество, latency и стоимость проверяются на своих evals.",
       "useCases": [
-        "Разобраться, подходит ли OpenAI Model guidance / GPT-5.6 для вашей задачи",
-        "Проверить возможности на небольшом тестовом сценарии до интеграции"
+        "Маршрутизировать сложные coding и research задачи на Sol, обычную работу на Terra, массовые операции на Luna",
+        "Сократить повторный контекст через caching и persisted reasoning",
+        "Подобрать reasoning effort по сложности вместо постоянного максимума",
+        "Построить regression evals для AI Hub, Chat и Sentinel до смены модели"
       ],
       "platforms": [
-        "Web"
+        "OpenAI API",
+        "Responses API",
+        "Codex",
+        "Web documentation"
       ],
       "license": {
-        "label": "Нужно проверить в официальном источнике",
-        "original": "Нужно проверить в официальном источнике",
+        "label": "OpenAI service and documentation terms; model weights are not open source",
+        "original": "OpenAI service and documentation terms; model weights are not open source",
         "spdx": null,
-        "kind": "unknown",
-        "status": "unverified",
-        "requiresReview": true,
+        "kind": "service-terms",
+        "status": "editor-reviewed",
+        "requiresReview": false,
         "evidence": [
           {
-            "kind": "official-source",
-            "label": "Официальный источник; точные условия ещё нужно сверить",
+            "kind": "docs",
+            "label": "Official latest model guide",
             "url": "https://developers.openai.com/api/docs/guides/latest-model"
+          },
+          {
+            "kind": "terms",
+            "label": "OpenAI Services Agreement",
+            "url": "https://openai.com/policies/services-agreement/"
           }
         ]
       },
       "access": {
-        "cost": "unknown",
-        "signup": "unknown",
+        "cost": "paid",
+        "signup": "required",
         "runtime": "cloud"
       },
-      "trust": "unknown",
-      "decision": "reference",
+      "trust": "official",
+      "decision": "roadmap",
       "riskLevel": "medium",
       "projects": [
         "Eclipse Chat",
         "Eclipse AI Hub",
-        "Hopson Sentinel"
+        "Hopson Sentinel",
+        "oh-my-claudecode",
+        "Eclipse Library"
       ],
       "evidence": [
         {
           "kind": "official-source",
           "label": "Официальный источник",
           "url": "https://developers.openai.com/api/docs/guides/latest-model"
+        },
+        {
+          "kind": "terms",
+          "label": "OpenAI Services Agreement",
+          "url": "https://openai.com/policies/services-agreement/"
         }
       ],
       "actions": {
@@ -25433,7 +25469,7 @@
         "evidence": [
           {
             "kind": "license",
-            "label": "Apache-2.0 license",
+            "label": "Other license",
             "url": "https://api.github.com/repos/yashab-cyber/opendroid/license"
           }
         ]
@@ -25457,7 +25493,7 @@
         },
         {
           "kind": "license",
-          "label": "Apache-2.0 license",
+          "label": "Other license",
           "url": "https://api.github.com/repos/yashab-cyber/opendroid/license"
         }
       ],
@@ -33186,6 +33222,718 @@
           "kind": "security",
           "label": "Official security policy",
           "url": "https://github.com/github/spec-kit/blob/main/SECURITY.md"
+        }
+      ],
+      "actions": {
+        "openOfficialSource": true,
+        "installFromCatalog": false,
+        "mutateExternalSystems": false
+      }
+    },
+    {
+      "id": "chatgpt-work-codex-operating-model",
+      "title": "ChatGPT Work + Codex operating model",
+      "url": "https://developers.openai.com/",
+      "type": "learn",
+      "category": "AI & Claude Code",
+      "subcategory": "Chat → Work → Codex workflow",
+      "addedAt": "2026-08-17",
+      "description": "Официальная модель работы OpenAI разделяет три понятных режима: Chat помогает исследовать и принять решение, ChatGPT Work превращает контекст в проверяемый документ или таблицу, Codex работает с кодовой базой, тестами и diff. Для Eclipse это единый handoff вместо повторного пересказа задачи между чатами.",
+      "useCases": [
+        "Передавать проверенное исследование из Chat в Work без потери источников и неизвестных",
+        "Передавать approved plan из Work в Codex через versioned handoff JSON",
+        "Разделять read-only анализ, локальные изменения, commit, push и deploy на разные gates",
+        "Организовать долгие задачи и повторяемые проверки с явным stop condition"
+      ],
+      "platforms": [
+        "ChatGPT",
+        "ChatGPT Work",
+        "Codex app",
+        "Codex CLI",
+        "OpenAI API"
+      ],
+      "license": {
+        "label": "OpenAI product and documentation terms",
+        "original": "OpenAI product and documentation terms",
+        "spdx": null,
+        "kind": "service-terms",
+        "status": "editor-reviewed",
+        "requiresReview": false,
+        "evidence": [
+          {
+            "kind": "docs",
+            "label": "Official OpenAI developer home and product workflow",
+            "url": "https://developers.openai.com/"
+          },
+          {
+            "kind": "docs",
+            "label": "Official Codex use cases",
+            "url": "https://developers.openai.com/codex/use-cases"
+          },
+          {
+            "kind": "docs",
+            "label": "Official latest model guide",
+            "url": "https://developers.openai.com/api/docs/guides/latest-model"
+          }
+        ]
+      },
+      "access": {
+        "cost": "freemium",
+        "signup": "required",
+        "runtime": "cloud"
+      },
+      "trust": "official",
+      "decision": "now",
+      "riskLevel": "medium",
+      "projects": [
+        "Eclipse Library",
+        "Eclipse Chat",
+        "Eclipse AI Hub",
+        "Eclipse DnD Forge",
+        "Hopson Sentinel",
+        "Eclipse Media",
+        "Shotforge",
+        "Text2Image",
+        "Educator-AI",
+        "oh-my-claudecode"
+      ],
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://developers.openai.com/"
+        },
+        {
+          "kind": "docs",
+          "label": "Official Codex use cases",
+          "url": "https://developers.openai.com/codex/use-cases"
+        },
+        {
+          "kind": "docs",
+          "label": "Official latest model guide",
+          "url": "https://developers.openai.com/api/docs/guides/latest-model"
+        }
+      ],
+      "actions": {
+        "openOfficialSource": true,
+        "installFromCatalog": false,
+        "mutateExternalSystems": false
+      }
+    },
+    {
+      "id": "google-ai-for-app-building-coursera",
+      "title": "Google AI for App Building",
+      "url": "https://www.coursera.org/learn/google-ai-for-app-building",
+      "type": "learn",
+      "category": "Обучение IT (бесплатно)",
+      "subcategory": "Vibe coding / app building",
+      "addedAt": "2026-08-17",
+      "description": "Короткий beginner-курс Google на Coursera: сначала объясняет vibe coding, затем помогает собрать prompt и создать приложение в Google AI Studio с файлами и отладкой. Это вводный практикум, а не замена архитектуре, тестам, security review и production readiness.",
+      "useCases": [
+        "Дать новичку Educator-AI двухчасовой маршрут от идеи до работающего прототипа",
+        "Показать разницу между prompt, prototype и production feature",
+        "Использовать практику с файлами и debugging как вводный урок перед Spec Kit",
+        "Проверить onboarding Google AI Studio на несекретном учебном проекте"
+      ],
+      "platforms": [
+        "Coursera",
+        "Web",
+        "Google AI Studio"
+      ],
+      "license": {
+        "label": "Coursera and Google course terms; course materials are not an open-source code license",
+        "original": "Coursera and Google course terms; course materials are not an open-source code license",
+        "spdx": null,
+        "kind": "service-terms",
+        "status": "editor-reviewed",
+        "requiresReview": false,
+        "evidence": [
+          {
+            "kind": "course",
+            "label": "Official Coursera course page by Google",
+            "url": "https://www.coursera.org/learn/google-ai-for-app-building"
+          },
+          {
+            "kind": "terms",
+            "label": "Coursera Terms of Use",
+            "url": "https://www.coursera.org/about/terms"
+          }
+        ]
+      },
+      "access": {
+        "cost": "freemium",
+        "signup": "required",
+        "runtime": "cloud"
+      },
+      "trust": "official",
+      "decision": "now",
+      "riskLevel": "low",
+      "projects": [
+        "Educator-AI",
+        "Eclipse AI Hub",
+        "Eclipse Forge Landing",
+        "Eclipse Library"
+      ],
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://www.coursera.org/learn/google-ai-for-app-building"
+        },
+        {
+          "kind": "terms",
+          "label": "Coursera Terms of Use",
+          "url": "https://www.coursera.org/about/terms"
+        }
+      ],
+      "actions": {
+        "openOfficialSource": true,
+        "installFromCatalog": false,
+        "mutateExternalSystems": false
+      }
+    },
+    {
+      "id": "learn-harness-engineering-walkinglabs",
+      "title": "Learn Harness Engineering",
+      "url": "https://walkinglabs.github.io/learn-harness-engineering/en/",
+      "type": "learn",
+      "category": "AI & Claude Code",
+      "subcategory": "Agent harness engineering",
+      "addedAt": "2026-08-17",
+      "description": "Открытый практический курс Walking Labs о том, как окружить coding agent устойчивой оснасткой: AGENTS/CLAUDE rules, feature list, progress log, session handoff, validation и recovery. Полезен как процессный reference, но готовые install scripts и templates нужно проверять и фиксировать по commit.",
+      "useCases": [
+        "Стандартизировать state, progress и handoff между Codex-сессиями",
+        "Не давать агенту объявлять задачу готовой без acceptance evidence",
+        "Создать одинаковые ограничения и recovery loop для Eclipse-репозиториев",
+        "Обучать разработчиков отличать prompt engineering от harness engineering"
+      ],
+      "platforms": [
+        "Web course",
+        "GitHub",
+        "Codex",
+        "Claude Code",
+        "Local templates"
+      ],
+      "license": {
+        "label": "MIT",
+        "original": "MIT",
+        "spdx": "MIT",
+        "kind": "open-source",
+        "status": "editor-reviewed",
+        "requiresReview": false,
+        "evidence": [
+          {
+            "kind": "license",
+            "label": "Official MIT license",
+            "url": "https://github.com/walkinglabs/learn-harness-engineering/blob/main/LICENSE"
+          },
+          {
+            "kind": "repository",
+            "label": "Canonical repository",
+            "url": "https://github.com/walkinglabs/learn-harness-engineering"
+          },
+          {
+            "kind": "docs",
+            "label": "Official course",
+            "url": "https://walkinglabs.github.io/learn-harness-engineering/en/"
+          }
+        ]
+      },
+      "access": {
+        "cost": "free",
+        "signup": "none",
+        "runtime": "hybrid"
+      },
+      "trust": "verified",
+      "decision": "now",
+      "riskLevel": "medium",
+      "projects": [
+        "Eclipse Library",
+        "Eclipse Chat",
+        "Eclipse AI Hub",
+        "Eclipse DnD Forge",
+        "Hopson Sentinel",
+        "Eclipse Media",
+        "Shotforge",
+        "Text2Image",
+        "Educator-AI",
+        "oh-my-claudecode"
+      ],
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://walkinglabs.github.io/learn-harness-engineering/en/"
+        },
+        {
+          "kind": "license",
+          "label": "Official MIT license",
+          "url": "https://github.com/walkinglabs/learn-harness-engineering/blob/main/LICENSE"
+        },
+        {
+          "kind": "repository",
+          "label": "Canonical repository",
+          "url": "https://github.com/walkinglabs/learn-harness-engineering"
+        }
+      ],
+      "actions": {
+        "openOfficialSource": true,
+        "installFromCatalog": false,
+        "mutateExternalSystems": false
+      }
+    },
+    {
+      "id": "minimax-music3-huggingface",
+      "title": "MiniMax Music 3",
+      "url": "https://huggingface.co/MiniMaxAI/MiniMax-Music3",
+      "type": "model",
+      "category": "AI-модели",
+      "subcategory": "Music generation / open weights",
+      "addedAt": "2026-08-17",
+      "description": "Официальная open-weight модель MiniMax для генерации стерео-музыки по lyrics и подробному описанию вокала, настроения и аранжировки. Реальный предел из model card — до 5 минут, не 10. Локальный запуск требует CUDA и значительной VRAM; лицензия community с условиями, а не обычная open-source.",
+      "useCases": [
+        "Провести изолированный benchmark музыкальных черновиков для Eclipse Media",
+        "Создавать оригинальные demo-tracks и background music для Shotforge",
+        "Сравнить structured music prompts в Eclipse AI Hub",
+        "Проверить очередь тяжёлой local generation и Hardware Doctor"
+      ],
+      "platforms": [
+        "Hugging Face",
+        "Linux",
+        "CUDA",
+        "SGLang-Omni",
+        "Diffusers",
+        "ComfyUI"
+      ],
+      "license": {
+        "label": "MiniMax-Music3 Community License (custom; attribution, revenue and hosted-service conditions)",
+        "original": "MiniMax-Music3 Community License (custom; attribution, revenue and hosted-service conditions)",
+        "spdx": null,
+        "kind": "custom",
+        "status": "editor-reviewed",
+        "requiresReview": false,
+        "evidence": [
+          {
+            "kind": "license",
+            "label": "Official MiniMax-Music3 Community License",
+            "url": "https://huggingface.co/MiniMaxAI/MiniMax-Music3/blob/main/LICENSE"
+          },
+          {
+            "kind": "model-card",
+            "label": "Official model card",
+            "url": "https://huggingface.co/MiniMaxAI/MiniMax-Music3"
+          },
+          {
+            "kind": "repository",
+            "label": "Official implementation repository",
+            "url": "https://github.com/MiniMax-AI/MiniMax-Music3"
+          }
+        ]
+      },
+      "access": {
+        "cost": "free",
+        "signup": "optional",
+        "runtime": "local"
+      },
+      "trust": "official",
+      "decision": "roadmap",
+      "riskLevel": "high",
+      "projects": [
+        "Eclipse Media",
+        "Shotforge",
+        "Eclipse AI Hub",
+        "Eclipse Library"
+      ],
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://huggingface.co/MiniMaxAI/MiniMax-Music3"
+        },
+        {
+          "kind": "license",
+          "label": "Official MiniMax-Music3 Community License",
+          "url": "https://huggingface.co/MiniMaxAI/MiniMax-Music3/blob/main/LICENSE"
+        },
+        {
+          "kind": "repository",
+          "label": "Official implementation repository",
+          "url": "https://github.com/MiniMax-AI/MiniMax-Music3"
+        }
+      ],
+      "actions": {
+        "openOfficialSource": true,
+        "installFromCatalog": false,
+        "mutateExternalSystems": false
+      }
+    },
+    {
+      "id": "google-codewiki",
+      "title": "Google CodeWiki",
+      "url": "https://codewiki.google/",
+      "type": "tool",
+      "category": "AI & Claude Code",
+      "subcategory": "Repository documentation",
+      "addedAt": "2026-08-17",
+      "description": "Google CodeWiki превращает публичный GitHub-репозиторий в автоматически обновляемую wiki с архитектурными разделами, диаграммами, ссылками на код и chat по проекту. Это ускоряет знакомство с кодом, но generated documentation остаётся вторичным представлением и не заменяет README, ADR, tests и code review.",
+      "useCases": [
+        "Быстро объяснять публичные Eclipse Forge репозитории новым разработчикам",
+        "Сравнивать автоматически найденную архитектуру с repository-owned документацией",
+        "Получать стартовую карту зависимостей и request flows для Educator-AI",
+        "Проверять качество собственного architecture export"
+      ],
+      "platforms": [
+        "Web",
+        "Public GitHub repositories",
+        "Google service"
+      ],
+      "license": {
+        "label": "Google service terms; generated wiki is not an open-source dependency",
+        "original": "Google service terms; generated wiki is not an open-source dependency",
+        "spdx": null,
+        "kind": "service-terms",
+        "status": "editor-reviewed",
+        "requiresReview": false,
+        "evidence": [
+          {
+            "kind": "docs",
+            "label": "Official Google Developers announcement",
+            "url": "https://developers.googleblog.com/introducing-code-wiki-accelerating-your-code-understanding/"
+          },
+          {
+            "kind": "service",
+            "label": "Official CodeWiki service",
+            "url": "https://codewiki.google/"
+          }
+        ]
+      },
+      "access": {
+        "cost": "unknown",
+        "signup": "required",
+        "runtime": "cloud"
+      },
+      "trust": "official",
+      "decision": "now",
+      "riskLevel": "medium",
+      "projects": [
+        "Eclipse Library",
+        "Eclipse Forge Landing",
+        "Eclipse AI Hub",
+        "Educator-AI",
+        "oh-my-claudecode"
+      ],
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://codewiki.google/"
+        },
+        {
+          "kind": "docs",
+          "label": "Official Google Developers announcement",
+          "url": "https://developers.googleblog.com/introducing-code-wiki-accelerating-your-code-understanding/"
+        }
+      ],
+      "actions": {
+        "openOfficialSource": true,
+        "installFromCatalog": false,
+        "mutateExternalSystems": false
+      }
+    },
+    {
+      "id": "cube-youtube-downloader-youtube-dl-wpf",
+      "title": "Cube YouTube Downloader (youtube-dl-wpf)",
+      "url": "https://github.com/database64128/youtube-dl-wpf",
+      "type": "media",
+      "category": "Media",
+      "subcategory": "Legal media intake reference",
+      "addedAt": "2026-08-17",
+      "description": "Windows WPF-интерфейс для yt-dlp или youtube-dl: выбирает format, metadata, thumbnails, subtitles, playlists и output path. Он не содержит сам downloader и не подтверждает обещание о готовой параллельной очереди. Применим только к собственному, public-domain или явно разрешённому контенту.",
+      "useCases": [
+        "Изучить UX выбора format и metadata для Eclipse Media Intake",
+        "Собирать учебные материалы, когда правообладатель и платформа явно разрешают download",
+        "Спроектировать legal-first очередь импорта с rights attestation",
+        "Сравнить WPF desktop workflow с будущим Eclipse Media client"
+      ],
+      "platforms": [
+        "Windows",
+        "WPF",
+        ".NET",
+        "yt-dlp",
+        "FFmpeg"
+      ],
+      "license": {
+        "label": "GPL-3.0",
+        "original": "GPL-3.0",
+        "spdx": "GPL-3.0",
+        "kind": "open-source",
+        "status": "editor-reviewed",
+        "requiresReview": false,
+        "evidence": [
+          {
+            "kind": "license",
+            "label": "Official GPL-3.0 license",
+            "url": "https://github.com/database64128/youtube-dl-wpf/blob/master/LICENSE"
+          },
+          {
+            "kind": "repository",
+            "label": "Canonical repository",
+            "url": "https://github.com/database64128/youtube-dl-wpf"
+          }
+        ]
+      },
+      "access": {
+        "cost": "free",
+        "signup": "none",
+        "runtime": "local"
+      },
+      "trust": "verified",
+      "decision": "reference",
+      "riskLevel": "high",
+      "projects": [
+        "Eclipse Media",
+        "Shotforge",
+        "Educator-AI",
+        "Eclipse Library"
+      ],
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://github.com/database64128/youtube-dl-wpf"
+        },
+        {
+          "kind": "license",
+          "label": "Official GPL-3.0 license",
+          "url": "https://github.com/database64128/youtube-dl-wpf/blob/master/LICENSE"
+        }
+      ],
+      "actions": {
+        "openOfficialSource": true,
+        "installFromCatalog": false,
+        "mutateExternalSystems": false
+      }
+    },
+    {
+      "id": "deepseek-harness",
+      "title": "DeepSeek Harness",
+      "url": "https://github.com/deepseek-ai/deepseek-harness",
+      "type": "agent",
+      "category": "AI & Claude Code",
+      "subcategory": "Composable agent runtime",
+      "addedAt": "2026-08-17",
+      "description": "Официальный MIT developer-preview runtime DeepSeek, где model, session, skills, sandbox и UI подключаются как plugins поверх Cordis. Архитектура полезна для изучения composable agents, но совместимость ещё может ломаться, а тысячи community plugins нельзя считать доверенными или взаимозаменяемыми.",
+      "useCases": [
+        "Сравнить plugin architecture с Hopson Sentinel и oh-my-claudecode",
+        "Проверить изоляцию model, session, tool и UI contracts в AI Hub",
+        "Изучить web runtime в disposable environment без production credentials",
+        "Построить внутренний allowlisted registry вместо автоматической установки community plugins"
+      ],
+      "platforms": [
+        "Node.js",
+        "pnpm",
+        "Web UI",
+        "Local self-host",
+        "Plugin ecosystem"
+      ],
+      "license": {
+        "label": "MIT",
+        "original": "MIT",
+        "spdx": "MIT",
+        "kind": "open-source",
+        "status": "editor-reviewed",
+        "requiresReview": false,
+        "evidence": [
+          {
+            "kind": "license",
+            "label": "Official MIT license",
+            "url": "https://github.com/deepseek-ai/deepseek-harness/blob/master/LICENSE"
+          },
+          {
+            "kind": "repository",
+            "label": "Official DeepSeek repository",
+            "url": "https://github.com/deepseek-ai/deepseek-harness"
+          },
+          {
+            "kind": "docs",
+            "label": "Official Harness page",
+            "url": "https://deepseek.com/harness/en/"
+          }
+        ]
+      },
+      "access": {
+        "cost": "free",
+        "signup": "none",
+        "runtime": "self-host"
+      },
+      "trust": "official",
+      "decision": "roadmap",
+      "riskLevel": "high",
+      "projects": [
+        "Hopson Sentinel",
+        "oh-my-claudecode",
+        "Eclipse AI Hub",
+        "Eclipse Chat",
+        "Eclipse Library"
+      ],
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://github.com/deepseek-ai/deepseek-harness"
+        },
+        {
+          "kind": "license",
+          "label": "Official MIT license",
+          "url": "https://github.com/deepseek-ai/deepseek-harness/blob/master/LICENSE"
+        },
+        {
+          "kind": "docs",
+          "label": "Official Harness page",
+          "url": "https://deepseek.com/harness/en/"
+        }
+      ],
+      "actions": {
+        "openOfficialSource": true,
+        "installFromCatalog": false,
+        "mutateExternalSystems": false
+      }
+    },
+    {
+      "id": "anthropic-published-system-prompts",
+      "title": "Anthropic published system prompts",
+      "url": "https://platform.claude.com/docs/en/release-notes/system-prompts",
+      "type": "prompt",
+      "category": "Промпты",
+      "subcategory": "Prompt governance / official history",
+      "addedAt": "2026-08-17",
+      "description": "Официальный журнал Anthropic с опубликованными core system prompts для перечисленных версий Claude.ai и mobile apps. Это полезный источник для изучения эволюции instruction design и transparency, но опубликованные тексты не описывают Claude API и не дают права копировать продукт или обходить ограничения.",
+      "useCases": [
+        "Сравнивать evolution правил tool use, safety и user communication",
+        "Проектировать versioned system prompts и changelog в Eclipse AI Hub",
+        "Добавить prompt provenance и regression evals в Hopson Sentinel",
+        "Объяснять Educator-AI разницу между product system prompt и API behavior"
+      ],
+      "platforms": [
+        "Web documentation",
+        "Claude.ai reference",
+        "Prompt governance"
+      ],
+      "license": {
+        "label": "Anthropic documentation and service terms; not an open-source prompt license",
+        "original": "Anthropic documentation and service terms; not an open-source prompt license",
+        "spdx": null,
+        "kind": "service-terms",
+        "status": "editor-reviewed",
+        "requiresReview": false,
+        "evidence": [
+          {
+            "kind": "docs",
+            "label": "Official Anthropic system prompt release notes",
+            "url": "https://platform.claude.com/docs/en/release-notes/system-prompts"
+          },
+          {
+            "kind": "terms",
+            "label": "Anthropic Consumer Terms",
+            "url": "https://www.anthropic.com/legal/consumer-terms"
+          }
+        ]
+      },
+      "access": {
+        "cost": "free",
+        "signup": "none",
+        "runtime": "cloud"
+      },
+      "trust": "official",
+      "decision": "reference",
+      "riskLevel": "low",
+      "projects": [
+        "Eclipse AI Hub",
+        "Hopson Sentinel",
+        "oh-my-claudecode",
+        "Educator-AI",
+        "Eclipse Library"
+      ],
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://platform.claude.com/docs/en/release-notes/system-prompts"
+        },
+        {
+          "kind": "terms",
+          "label": "Anthropic Consumer Terms",
+          "url": "https://www.anthropic.com/legal/consumer-terms"
+        }
+      ],
+      "actions": {
+        "openOfficialSource": true,
+        "installFromCatalog": false,
+        "mutateExternalSystems": false
+      }
+    },
+    {
+      "id": "eclipse-repository-architecture-map-prompt",
+      "title": "Eclipse Repository Architecture Map Prompt",
+      "url": "https://library.eclipse-forge.ru/guides/repository-architecture-map.md",
+      "type": "prompt",
+      "category": "Промпты",
+      "subcategory": "Evidence-based repository maps",
+      "addedAt": "2026-08-17",
+      "description": "Безопасная редакция prompt для создания self-contained HTML architecture map и machine-readable JSON. В отличие от вирусного шаблона она требует file/line evidence, unknowns, schema version, sanitization, no-network HTML и явные ограничения на secrets, vendor/generated files и размер репозитория.",
+      "useCases": [
+        "Создавать архитектурную карту публичного или разрешённого Eclipse repository",
+        "Передавать nodes, edges and flows другому агенту без пересказа",
+        "Подсвечивать пользовательские и data flows в интерактивном HTML",
+        "Выявлять неизвестные связи вместо выдумывания недостающей архитектуры"
+      ],
+      "platforms": [
+        "Codex",
+        "Claude Code",
+        "Any repository-aware coding agent",
+        "HTML",
+        "JSON"
+      ],
+      "license": {
+        "label": "Eclipse Forge first-party editorial prompt; repository terms apply",
+        "original": "Eclipse Forge first-party editorial prompt; repository terms apply",
+        "spdx": null,
+        "kind": "service-terms",
+        "status": "editor-reviewed",
+        "requiresReview": false,
+        "evidence": [
+          {
+            "kind": "docs",
+            "label": "Canonical Eclipse Library guide",
+            "url": "https://library.eclipse-forge.ru/guides/repository-architecture-map.md"
+          }
+        ]
+      },
+      "access": {
+        "cost": "free",
+        "signup": "none",
+        "runtime": "local"
+      },
+      "trust": "official",
+      "decision": "now",
+      "riskLevel": "medium",
+      "projects": [
+        "Eclipse Library",
+        "Eclipse Chat",
+        "Eclipse AI Hub",
+        "Eclipse DnD Forge",
+        "Hopson Sentinel",
+        "Eclipse Media",
+        "Shotforge",
+        "Text2Image",
+        "Educator-AI",
+        "oh-my-claudecode"
+      ],
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://library.eclipse-forge.ru/guides/repository-architecture-map.md"
         }
       ],
       "actions": {

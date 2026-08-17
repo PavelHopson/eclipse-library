@@ -1,0 +1,251 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://library.eclipse-forge.ru/contracts/eclipse-handoff-v1.schema.json",
+  "title": "Eclipse handoff v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schemaVersion",
+    "handoffId",
+    "createdAt",
+    "from",
+    "to",
+    "objective",
+    "scope",
+    "facts",
+    "unknowns",
+    "constraints",
+    "acceptanceCriteria",
+    "permissions",
+    "risk",
+    "stopConditions",
+    "deliverables"
+  ],
+  "properties": {
+    "schemaVersion": {
+      "const": "eclipse.handoff.v1"
+    },
+    "handoffId": {
+      "type": "string",
+      "pattern": "^[a-z0-9][a-z0-9.-]{5,80}$"
+    },
+    "createdAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "from": {
+      "type": "string",
+      "enum": [
+        "chat",
+        "work",
+        "codex",
+        "library",
+        "product-task"
+      ]
+    },
+    "to": {
+      "type": "string",
+      "enum": [
+        "work",
+        "codex",
+        "library",
+        "product-task"
+      ]
+    },
+    "objective": {
+      "type": "string",
+      "minLength": 20
+    },
+    "scope": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "repositories",
+        "allowedPaths",
+        "excludedPaths"
+      ],
+      "properties": {
+        "repositories": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "allowedPaths": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "excludedPaths": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      }
+    },
+    "facts": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "claim",
+          "confidence",
+          "evidenceUrls"
+        ],
+        "properties": {
+          "claim": {
+            "type": "string",
+            "minLength": 10
+          },
+          "confidence": {
+            "type": "string",
+            "enum": [
+              "verified",
+              "inferred",
+              "unknown"
+            ]
+          },
+          "evidenceUrls": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "format": "uri"
+            }
+          }
+        }
+      }
+    },
+    "unknowns": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 5
+      }
+    },
+    "constraints": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string",
+        "minLength": 5
+      }
+    },
+    "acceptanceCriteria": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "requirement",
+          "evidence"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^AC-[0-9]{2,3}$"
+          },
+          "requirement": {
+            "type": "string",
+            "minLength": 10
+          },
+          "evidence": {
+            "type": "string",
+            "minLength": 5
+          }
+        }
+      }
+    },
+    "permissions": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "read",
+        "write",
+        "commit",
+        "push",
+        "deploy",
+        "externalActions"
+      ],
+      "properties": {
+        "read": {
+          "const": true
+        },
+        "write": {
+          "type": "boolean"
+        },
+        "commit": {
+          "type": "boolean"
+        },
+        "push": {
+          "type": "boolean"
+        },
+        "deploy": {
+          "type": "boolean"
+        },
+        "externalActions": {
+          "type": "boolean"
+        }
+      }
+    },
+    "risk": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "level",
+        "notes"
+      ],
+      "properties": {
+        "level": {
+          "type": "string",
+          "enum": [
+            "low",
+            "medium",
+            "high"
+          ]
+        },
+        "notes": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 5
+          }
+        }
+      }
+    },
+    "stopConditions": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string",
+        "minLength": 5
+      }
+    },
+    "deliverables": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string",
+        "minLength": 3
+      }
+    },
+    "modelRoute": {
+      "type": "string",
+      "enum": [
+        "sol",
+        "terra",
+        "luna",
+        "manual"
+      ]
+    }
+  }
+}

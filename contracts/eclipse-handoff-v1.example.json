@@ -1,0 +1,75 @@
+{
+  "schemaVersion": "eclipse.handoff.v1",
+  "handoffId": "library.2026-08-17.news-radar",
+  "createdAt": "2026-08-17T16:00:00+02:00",
+  "from": "work",
+  "to": "codex",
+  "objective": "Add the verified August 2026 findings to Eclipse Library without installing or executing third-party code.",
+  "scope": {
+    "repositories": [
+      "E:\\projects\\eclipse-library"
+    ],
+    "allowedPaths": [
+      "catalog/**",
+      "guides/**",
+      "contracts/**",
+      "ROADMAP.md"
+    ],
+    "excludedPaths": [
+      "web/vendor/**",
+      ".git/**"
+    ]
+  },
+  "facts": [
+    {
+      "claim": "DeepSeek Harness is an official MIT developer preview.",
+      "confidence": "verified",
+      "evidenceUrls": [
+        "https://github.com/deepseek-ai/deepseek-harness"
+      ]
+    }
+  ],
+  "unknowns": [
+    "The source URL for the 167-minute agent graph course is missing."
+  ],
+  "constraints": [
+    "Do not install or execute third-party repositories.",
+    "Do not publish unverified revenue claims as facts."
+  ],
+  "acceptanceCriteria": [
+    {
+      "id": "AC-01",
+      "requirement": "Catalog contains no duplicate canonical URLs.",
+      "evidence": "node scripts/validate-catalog.mjs"
+    },
+    {
+      "id": "AC-02",
+      "requirement": "Derived search and export files are rebuilt.",
+      "evidence": "git diff and build commands"
+    }
+  ],
+  "permissions": {
+    "read": true,
+    "write": true,
+    "commit": true,
+    "push": true,
+    "deploy": false,
+    "externalActions": false
+  },
+  "risk": {
+    "level": "medium",
+    "notes": [
+      "Catalog entries can influence later agent recommendations."
+    ]
+  },
+  "stopConditions": [
+    "Stop if the working tree contains unrelated user changes.",
+    "Stop before deploy or any third-party code execution."
+  ],
+  "deliverables": [
+    "Verified catalog records",
+    "Editorial guides",
+    "Validation output"
+  ],
+  "modelRoute": "terra"
+}

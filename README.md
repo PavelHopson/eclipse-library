@@ -15,14 +15,14 @@ Runtime-зависимости от главного лендинга нет.
 
 ## Текущее состояние
 
-- 619 уникальных записей доступны пользователям.
-- 183 карточки прошли ручную редакторскую проверку.
-- 436 карточек честно помечены как `inferred` и ожидают углублённого review.
-- У 338 записей лицензия или условия уже нормализованы и подкреплены evidence.
-- 281 лицензия или набор условий всё ещё требуют отдельной проверки.
+- 629 уникальных записей доступны пользователям.
+- 195 карточек прошли ручную редакторскую проверку.
+- 434 карточки честно помечены как `inferred` и ожидают углублённого review.
+- У 350 записей лицензия или условия уже нормализованы и подкреплены evidence.
+- 279 лицензий или наборов условий всё ещё требуют отдельной проверки.
 - 69 grey-ресурсов видны человеку как reference, но исключены из agent recommendations.
-- Всего 76 записей исключены из agent exports по risk, editorial, transport или repository policy; 543 доступны для agent consumers.
-- 337 записей получили отдельное поле `addedAt`; неизвестные даты не выдумываются.
+- Всего 76 записей исключены из agent exports по risk, editorial, transport или repository policy; 553 доступны для agent consumers.
+- 348 записей получили отдельное поле `addedAt`; неизвестные даты не выдумываются.
 
 ## Как устроены данные
 
@@ -136,7 +136,7 @@ Quality workflow проверяет:
 - [Creator Ops Stack](guides/creator-ops-stack.md)
 - [Discovery, review и provenance radar](guides/august-2026-discovery-review-security-radar.md)
 - [Razer AIKit и Diagram Design: проверка и план внедрения](guides/razer-aikit-diagram-design-review.md)
-- [GitHub Spec Kit: Eclipse Spec Gate](guides/github-spec-kit-eclipse-gate.md)
+- [GitHub Spec Kit: Eclipse Spec Gate](guides/github-spec-kit-eclipse-gate.md)\n- [ChatGPT Work + Codex operating model](guides/chatgpt-work-codex-operating-model.md)\n- [August 2026 harness, media and code radar](guides/august-2026-harness-media-code-radar.md)\n- [Eclipse Repository Architecture Map Prompt](guides/repository-architecture-map.md)\n- [Eclipse Forge Codex session tree](guides/eclipse-session-tree.md)
 - [Eclipse Diagram Contract: первый static data-flow pilot](web/diagrams/catalog-data-flow.html)
 - [Eclipse AI Hub: model provider boundary](web/diagrams/ai-hub-provider-boundary.html)
 - [Hopson Sentinel: capability и approval boundary](web/diagrams/sentinel-capability-boundary.html)
