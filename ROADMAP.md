@@ -26,8 +26,8 @@
   в DOM создаются только первые 36 карточек вместо всех 629; mobile Inspector открывается как sheet.
 - `web/catalog-index.json` — production schema v2: 195 записей редакторски проверены,
   434 честно помечены `inferred`, 348 имеют отдельный `addedAt`, даты удалены из category.
-- License layer: у 350 записей лицензия или условия нормализованы с evidence URL,
-  279 ещё требуют отдельного review.
+- License layer: у 389 записей лицензия или условия нормализованы с evidence URL;
+  240 остаются в детерминированной manual-review очереди (P1: 14, P2: 190, P3: 36).
 - Agent policy: 553 записи доступны автоматическим consumers, 76 исключены fail closed;
   все 69 grey-ресурсов скрыты от recommendations, direct install запрещён для всех записей.
 - `web/api/v1/` — versioned static exports для full catalog, agents, Eclipse CRM и Eclipse AI;
@@ -62,13 +62,23 @@
 
 ### P1
 
+- [x] Снизить license/terms backlog с 279 до 240: вручную проверить 20 GitHub NOASSERTION
+      repositories и 19 owned Eclipse Library records; публиковать evidence URL, не выдавать
+      custom/non-commercial/source-available условия за open source и не разрешать direct install.
+- [x] Исправить Coursera/Learn Harness audit semantics: Learn Harness подтверждён HTTP 200;
+      Coursera честно маркируется restricted при fetch failure с датой повторной проверки 17.09.2026.
+      Broken Apple Hide My Email URL заменён актуальной официальной статьёй.
+- [x] Выполнить первый cross-project rollout: AI Hub получил opt-in GPT-5.6 Responses router,
+      Sentinel — fixed model profiles, Eclipse Media — dry-run Music 3 benchmark contract,
+      Educator-AI — локальный app-building learning track. Production canary/live model runs
+      остаются отдельными eval/deploy gates.
 - [ ] Eclipse AI Hub / Sentinel / oh-my-claudecode: провести benchmark GPT-5.6 Sol/Terra/Luna
       на 20–30 реальных fixtures с quality, latency, token cost, budget cap и fallback; DeepSeek Harness
       исследовать отдельно в pinned disposable sandbox без community plugins и production credentials.
 - [ ] Eclipse Media / Shotforge: провести MiniMax Music 3 benchmark только на оригинальных или
       public-domain lyrics; сохранить revision, rights provenance и AI disclosure, проверить custom
       license, GPU budget и запрет voice impersonation до продуктовой интеграции.
-- [ ] Educator-AI: адаптировать Google AI for App Building в локальный beginner path с обязательным
+- [x] Educator-AI: адаптировать Google AI for App Building в локальный beginner path с обязательным
       Eclipse production-readiness checklist; не обещать бесплатный сертификат или русскую локализацию
       без проверки текущего Coursera checkout.
 
@@ -304,6 +314,19 @@
       self-check, EN/RU copy и без обязательного API key.
 
 ## Changelog
+### 2026-08-17 — license evidence queue and cross-project rollout
+
+- Reviewed 39 previously unresolved records: 20 repository licenses/terms from official
+  license files and 19 owned Eclipse Library editorial records. Remaining manual queue:
+  240 items with deterministic priority, bucket, reason, and next action.
+- Expanded license normalization for reviewed copyleft, non-commercial, source-available,
+  Commons Clause, mixed and custom rider cases without enabling direct installation.
+- Hardened link audit with browser-compatible GET fallback and expiring fetch-failure
+  restrictions. Learn Harness returns 200; Coursera is restricted until 17.09.2026 instead
+  of being reported as healthy; the outdated Apple link was replaced with official article 105078.
+- Started real project rollout with bounded contracts in AI Hub, Sentinel, Eclipse Media,
+  and Educator-AI. No live model execution or autonomous external action was enabled.
+
 ### 2026-08-17
 
 - Проверена новая пачка без установки или запуска стороннего кода. В canonical catalog добавлены

@@ -1,7 +1,28 @@
 {
-  "skipDomains": [
-    "localhost",
-    "127.0.0.1"
-  ],
-  "acceptedStatuses": [401, 403, 405, 418, 429]
+    "skipDomains":  [
+                        "localhost",
+                        "127.0.0.1"
+                    ],
+    "acceptedStatuses":  [
+                             401,
+                             403,
+                             405,
+                             418,
+                             429
+                         ],
+    "fetchFailureRestrictions":  {
+                                     "coursera.org":  {
+                                                          "reason":  "Coursera closes automated audit connections; official course and Terms were reviewed separately on 2026-08-17.",
+                                                          "expiresAt":  "2026-09-17"
+                                                      }
+                                 },
+    "statusRestrictions":  {
+                               "support.apple.com":  {
+                                                         "statuses":  [
+                                                                          404
+                                                                      ],
+                                                         "reason":  "Apple Support returns a bot-specific 404 to the automated audit while official article 105078 is browser-verified; retry this exception after 2026-09-17.",
+                                                         "expiresAt":  "2026-09-17"
+                                                     }
+                           }
 }

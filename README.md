@@ -32,6 +32,7 @@ README больше не является базой данных и не раз
 |---|---|
 | [`catalog/resources.json`](catalog/resources.json) | Канонические structured records. Новые записи и редакторские правки вносятся сюда. |
 | [`web/catalog-index.json`](web/catalog-index.json) | Production index schema v2: normalized license, evidence, `addedAt`, agent policy и счётчики. |
+| [web/license-review-queue.json](web/license-review-queue.json) | Deterministic evidence queue для оставшихся ручных проверок: bucket, P1–P3, причина и следующий шаг без автоматического approval. |
 | [`web/catalog-details.json`](web/catalog-details.json) | Исторический набор ручных editorial reviews; его содержимое уже мигрировано в canonical records. |
 | [`web/github-metadata.json`](web/github-metadata.json) | Official GitHub state и license evidence для repository URL. |
 | [`web/guides.json`](web/guides.json) | Manifest учебных материалов. |

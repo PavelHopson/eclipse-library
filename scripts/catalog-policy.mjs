@@ -2,10 +2,18 @@ const SPDX_ALIASES = new Map([
   ['apache 2.0', 'Apache-2.0'],
   ['apache-2.0', 'Apache-2.0'],
   ['mit', 'MIT'],
+  ['agpl-3.0-only', 'AGPL-3.0-only'],
   ['agpl-3.0', 'AGPL-3.0'],
+  ['gpl-3.0-or-later', 'GPL-3.0-or-later'],
+  ['gpl-3.0-only', 'GPL-3.0-only'],
   ['gpl-3.0', 'GPL-3.0'],
+  ['lgpl-3.0-or-later', 'LGPL-3.0-or-later'],
   ['mpl-2.0', 'MPL-2.0'],
+  ['eupl-1.2', 'EUPL-1.2'],
+  ['elastic-2.0', 'Elastic-2.0'],
   ['bsd-3-clause', 'BSD-3-Clause'],
+  ['cc-by-nc-sa-4.0', 'CC-BY-NC-SA-4.0'],
+  ['cc-by-nc-4.0', 'CC-BY-NC-4.0'],
   ['cc by 4.0', 'CC-BY-4.0'],
   ['cc-by-4.0', 'CC-BY-4.0'],
   ['cc0 1.0', 'CC0-1.0'],
@@ -14,7 +22,9 @@ const SPDX_ALIASES = new Map([
 
 const UNKNOWN_LICENSE = /нужно проверить|не указана|не раскрыт|unknown|needs? verification/i;
 const SERVICE_LICENSE = /условия (?:сайта|сервиса)|terms|saas|проприетарн|commercial/i;
-const SOURCE_AVAILABLE = /source.available|open source license|business source/i;
+const SOURCE_AVAILABLE = /source.available|functional source|open source license|business source/i;
+const NON_COMMERCIAL_LICENSES = new Set(['CC-BY-NC-4.0', 'CC-BY-NC-SA-4.0']);
+const SOURCE_AVAILABLE_LICENSES = new Set(['Elastic-2.0']);
 
 export function dateFromCategory(value) {
   const text = String(value || '');
@@ -55,13 +65,17 @@ export function normalizeLicense(item, repository) {
   const repoLicense = repository?.licenseInfo || null;
   const repoSpdx = repoLicense?.spdxId && repoLicense.spdxId !== 'NOASSERTION' ? repoLicense.spdxId : null;
   const declaredSpdx = spdxValuesFromText(original);
-  const mixedTerms = declaredSpdx.length > 1 || (declaredSpdx.length > 0 && /OpenMDW|model weights|каждой.*модел|separate.*license/i.test(original));
+  const mixedTerms = declaredSpdx.length > 1 || (declaredSpdx.length > 0 && /OpenMDW|model weights|каждой.*модел|separate.*license|Commons Clause|additional rider|except.*directory|dual.license|commercial license/i.test(original));
   const spdx = mixedTerms ? null : declaredSpdx[0] || repoSpdx || null;
   const unknown = !original || UNKNOWN_LICENSE.test(original);
   const kind = mixedTerms
     ? 'custom'
     : spdx
-      ? 'open-source'
+      ? NON_COMMERCIAL_LICENSES.has(spdx)
+        ? 'custom'
+        : SOURCE_AVAILABLE_LICENSES.has(spdx)
+          ? 'source-available'
+          : 'open-source'
       : SOURCE_AVAILABLE.test(original)
         ? 'source-available'
         : SERVICE_LICENSE.test(original)

@@ -39,6 +39,7 @@ jobs:
       - name: Validate structured catalog
         run: |
           node scripts/build-catalog-index.mjs --check
+          node scripts/build-license-review-queue.mjs --check
           node scripts/build-catalog-exports.mjs --check
           node scripts/build-guides-manifest.mjs --check
           node scripts/validate-catalog-index.mjs

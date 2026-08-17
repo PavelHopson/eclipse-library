@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "sourceHash": "09d7bb2c83a7fb5131679f3d7c3917988214d7847b39a3f6fa409f99455cd37b",
+  "sourceHash": "73db57997b34d2631095d532cf558518147c58ac219a19ee0380492f00938488",
   "policy": {
     "canonicalSource": "catalog/resources.json",
     "directInstallForbidden": true,
@@ -8,9 +8,9 @@
   },
   "totals": {
     "all": 629,
-    "verified": 195,
-    "inferred": 434,
-    "licenseReviewRequired": 279,
+    "verified": 234,
+    "inferred": 395,
+    "licenseReviewRequired": 240,
     "agentSafe": 553,
     "agentExcluded": 76,
     "grey": 69,
@@ -2604,7 +2604,7 @@
       "platforms": [
         "Web"
       ],
-      "license": "Нужно проверить в официальном источнике",
+      "license": "Авторский редакционный материал Eclipse Forge; внешние источники и встроенные материалы сохраняют собственные права и Terms",
       "pricing": "Исходный код доступен публично; hosting, модели и внешние API могут оплачиваться отдельно",
       "access": {
         "cost": "free",
@@ -2619,13 +2619,13 @@
       "risks": [
         "Лицензия, цена, permissions и обработка данных могут отличаться от краткого описания."
       ],
-      "verifiedAt": null,
+      "verifiedAt": "2026-08-17",
       "quickStart": [
         "Откройте официальный источник и проверьте владельца, лицензию и дату обновления.",
         "Не передавайте secrets или рабочие данные; начните с пустого тестового проекта.",
         "Сравните результат с текущим способом работы и только потом решайте об интеграции."
       ],
-      "reviewStatus": "inferred",
+      "reviewStatus": "verified",
       "source": {
         "file": "catalog/resources.json",
         "key": "ai-code-shield-щит-github-com",
@@ -2637,19 +2637,26 @@
         }
       },
       "addedAt": null,
+      "licenseEvidence": [
+        {
+          "kind": "license",
+          "label": "Eclipse Library editorial ownership boundary",
+          "url": "https://github.com/PavelHopson/eclipse-library#license"
+        }
+      ],
       "catalogOrder": 179,
       "licenseInfo": {
-        "label": "Нужно проверить в официальном источнике",
-        "original": "Нужно проверить в официальном источнике",
+        "label": "Авторский редакционный материал Eclipse Forge; внешние источники и встроенные материалы сохраняют собственные права и Terms",
+        "original": "Авторский редакционный материал Eclipse Forge; внешние источники и встроенные материалы сохраняют собственные права и Terms",
         "spdx": null,
-        "kind": "unknown",
-        "status": "unverified",
-        "requiresReview": true,
+        "kind": "service-terms",
+        "status": "editor-reviewed",
+        "requiresReview": false,
         "evidence": [
           {
-            "kind": "official-source",
-            "label": "Официальный источник; точные условия ещё нужно сверить",
-            "url": "https://github.com/PavelHopson/eclipse-library/blob/master/guides/ai-code-security-shield.md"
+            "kind": "license",
+            "label": "Eclipse Library editorial ownership boundary",
+            "url": "https://github.com/PavelHopson/eclipse-library#license"
           }
         ]
       },
@@ -2658,6 +2665,11 @@
           "kind": "official-source",
           "label": "Официальный источник",
           "url": "https://github.com/PavelHopson/eclipse-library/blob/master/guides/ai-code-security-shield.md"
+        },
+        {
+          "kind": "license",
+          "label": "Eclipse Library editorial ownership boundary",
+          "url": "https://github.com/PavelHopson/eclipse-library#license"
         }
       ],
       "agentEligibility": {
@@ -3487,7 +3499,7 @@
       "platforms": [
         "Web"
       ],
-      "license": "Нужно проверить в официальном источнике",
+      "license": "Tencent HY-World 2.0 Community License; use is territorially excluded in the EU, UK and South Korea",
       "pricing": "Исходный код доступен публично; hosting, модели и внешние API могут оплачиваться отдельно",
       "access": {
         "cost": "free",
@@ -3502,13 +3514,13 @@
       "risks": [
         "Лицензия, цена, permissions и обработка данных могут отличаться от краткого описания."
       ],
-      "verifiedAt": null,
+      "verifiedAt": "2026-08-17",
       "quickStart": [
         "Откройте официальный источник и проверьте владельца, лицензию и дату обновления.",
         "Не передавайте secrets или рабочие данные; начните с пустого тестового проекта.",
         "Сравните результат с текущим способом работы и только потом решайте об интеграции."
       ],
-      "reviewStatus": "inferred",
+      "reviewStatus": "verified",
       "source": {
         "file": "catalog/resources.json",
         "key": "hy-world-2-0-github-com",
@@ -3520,19 +3532,31 @@
         }
       },
       "addedAt": null,
+      "licenseEvidence": [
+        {
+          "kind": "license",
+          "label": "Official repository license file reviewed 2026-08-17",
+          "url": "https://github.com/Tencent-Hunyuan/HY-World-2.0/blob/main/License.txt"
+        }
+      ],
       "catalogOrder": 210,
       "licenseInfo": {
-        "label": "Нужно проверить в официальном источнике",
-        "original": "Нужно проверить в официальном источнике",
+        "label": "Tencent HY-World 2.0 Community License; use is territorially excluded in the EU, UK and South Korea",
+        "original": "Tencent HY-World 2.0 Community License; use is territorially excluded in the EU, UK and South Korea",
         "spdx": null,
-        "kind": "unknown",
-        "status": "unverified",
-        "requiresReview": true,
+        "kind": "custom",
+        "status": "editor-reviewed",
+        "requiresReview": false,
         "evidence": [
           {
             "kind": "license",
             "label": "Other license",
             "url": "https://api.github.com/repos/tencent-hunyuan/hy-world-2.0/license"
+          },
+          {
+            "kind": "license",
+            "label": "Official repository license file reviewed 2026-08-17",
+            "url": "https://github.com/Tencent-Hunyuan/HY-World-2.0/blob/main/License.txt"
           }
         ]
       },
@@ -3546,6 +3570,11 @@
           "kind": "license",
           "label": "Other license",
           "url": "https://api.github.com/repos/tencent-hunyuan/hy-world-2.0/license"
+        },
+        {
+          "kind": "license",
+          "label": "Official repository license file reviewed 2026-08-17",
+          "url": "https://github.com/Tencent-Hunyuan/HY-World-2.0/blob/main/License.txt"
         }
       ],
       "agentEligibility": {
@@ -3890,7 +3919,7 @@
       "platforms": [
         "Web"
       ],
-      "license": "Нужно проверить в официальном источнике",
+      "license": "Авторский редакционный материал Eclipse Forge; внешние источники и встроенные материалы сохраняют собственные права и Terms",
       "pricing": "Исходный код доступен публично; hosting, модели и внешние API могут оплачиваться отдельно",
       "access": {
         "cost": "free",
@@ -3907,13 +3936,13 @@
       "risks": [
         "Лицензия, цена, permissions и обработка данных могут отличаться от краткого описания."
       ],
-      "verifiedAt": null,
+      "verifiedAt": "2026-08-17",
       "quickStart": [
         "Откройте официальный источник и проверьте владельца, лицензию и дату обновления.",
         "Не передавайте secrets или рабочие данные; начните с пустого тестового проекта.",
         "Сравните результат с текущим способом работы и только потом решайте об интеграции."
       ],
-      "reviewStatus": "inferred",
+      "reviewStatus": "verified",
       "source": {
         "file": "catalog/resources.json",
         "key": "9-промптов-для-презентаций-github-com",
@@ -3925,19 +3954,26 @@
         }
       },
       "addedAt": null,
+      "licenseEvidence": [
+        {
+          "kind": "license",
+          "label": "Eclipse Library editorial ownership boundary",
+          "url": "https://github.com/PavelHopson/eclipse-library#license"
+        }
+      ],
       "catalogOrder": 232,
       "licenseInfo": {
-        "label": "Нужно проверить в официальном источнике",
-        "original": "Нужно проверить в официальном источнике",
+        "label": "Авторский редакционный материал Eclipse Forge; внешние источники и встроенные материалы сохраняют собственные права и Terms",
+        "original": "Авторский редакционный материал Eclipse Forge; внешние источники и встроенные материалы сохраняют собственные права и Terms",
         "spdx": null,
-        "kind": "unknown",
-        "status": "unverified",
-        "requiresReview": true,
+        "kind": "service-terms",
+        "status": "editor-reviewed",
+        "requiresReview": false,
         "evidence": [
           {
-            "kind": "official-source",
-            "label": "Официальный источник; точные условия ещё нужно сверить",
-            "url": "https://github.com/PavelHopson/eclipse-library#-промпт-коллекции"
+            "kind": "license",
+            "label": "Eclipse Library editorial ownership boundary",
+            "url": "https://github.com/PavelHopson/eclipse-library#license"
           }
         ]
       },
@@ -3946,6 +3982,11 @@
           "kind": "official-source",
           "label": "Официальный источник",
           "url": "https://github.com/PavelHopson/eclipse-library#-промпт-коллекции"
+        },
+        {
+          "kind": "license",
+          "label": "Eclipse Library editorial ownership boundary",
+          "url": "https://github.com/PavelHopson/eclipse-library#license"
         }
       ],
       "agentEligibility": {
@@ -3969,7 +4010,7 @@
       "platforms": [
         "Web"
       ],
-      "license": "Нужно проверить в официальном источнике",
+      "license": "LGPL-3.0-or-later",
       "pricing": "Исходный код доступен публично; hosting, модели и внешние API могут оплачиваться отдельно",
       "access": {
         "cost": "free",
@@ -3984,13 +4025,13 @@
       "risks": [
         "Лицензия, цена, permissions и обработка данных могут отличаться от краткого описания."
       ],
-      "verifiedAt": null,
+      "verifiedAt": "2026-08-17",
       "quickStart": [
         "Откройте официальный источник и проверьте владельца, лицензию и дату обновления.",
         "Не передавайте secrets или рабочие данные; начните с пустого тестового проекта.",
         "Сравните результат с текущим способом работы и только потом решайте об интеграции."
       ],
-      "reviewStatus": "inferred",
+      "reviewStatus": "verified",
       "source": {
         "file": "catalog/resources.json",
         "key": "auto-prompt-github-com",
@@ -4002,19 +4043,31 @@
         }
       },
       "addedAt": null,
+      "licenseEvidence": [
+        {
+          "kind": "license",
+          "label": "Official repository license file reviewed 2026-08-17",
+          "url": "https://github.com/AIDotNet/auto-prompt/blob/main/LICENSE"
+        }
+      ],
       "catalogOrder": 233,
       "licenseInfo": {
-        "label": "Нужно проверить в официальном источнике",
-        "original": "Нужно проверить в официальном источнике",
-        "spdx": null,
-        "kind": "unknown",
-        "status": "unverified",
-        "requiresReview": true,
+        "label": "LGPL-3.0-or-later",
+        "original": "LGPL-3.0-or-later",
+        "spdx": "LGPL-3.0-or-later",
+        "kind": "open-source",
+        "status": "source-declared",
+        "requiresReview": false,
         "evidence": [
           {
             "kind": "license",
             "label": "Other license",
             "url": "https://api.github.com/repos/aidotnet/auto-prompt/license"
+          },
+          {
+            "kind": "license",
+            "label": "Official repository license file reviewed 2026-08-17",
+            "url": "https://github.com/AIDotNet/auto-prompt/blob/main/LICENSE"
           }
         ]
       },
@@ -4028,6 +4081,11 @@
           "kind": "license",
           "label": "Other license",
           "url": "https://api.github.com/repos/aidotnet/auto-prompt/license"
+        },
+        {
+          "kind": "license",
+          "label": "Official repository license file reviewed 2026-08-17",
+          "url": "https://github.com/AIDotNet/auto-prompt/blob/main/LICENSE"
         }
       ],
       "agentEligibility": {
@@ -4205,7 +4263,7 @@
       "platforms": [
         "Web"
       ],
-      "license": "Нужно проверить в официальном источнике",
+      "license": "Авторский редакционный материал Eclipse Forge; внешние источники и встроенные материалы сохраняют собственные права и Terms",
       "pricing": "Исходный код доступен публично; hosting, модели и внешние API могут оплачиваться отдельно",
       "access": {
         "cost": "free",
@@ -4220,13 +4278,13 @@
       "risks": [
         "Лицензия, цена, permissions и обработка данных могут отличаться от краткого описания."
       ],
-      "verifiedAt": null,
+      "verifiedAt": "2026-08-17",
       "quickStart": [
         "Откройте официальный источник и проверьте владельца, лицензию и дату обновления.",
         "Не передавайте secrets или рабочие данные; начните с пустого тестового проекта.",
         "Сравните результат с текущим способом работы и только потом решайте об интеграции."
       ],
-      "reviewStatus": "inferred",
+      "reviewStatus": "verified",
       "source": {
         "file": "catalog/resources.json",
         "key": "humanize-rewriter-github-com",
@@ -4238,19 +4296,26 @@
         }
       },
       "addedAt": null,
+      "licenseEvidence": [
+        {
+          "kind": "license",
+          "label": "Eclipse Library editorial ownership boundary",
+          "url": "https://github.com/PavelHopson/eclipse-library#license"
+        }
+      ],
       "catalogOrder": 236,
       "licenseInfo": {
-        "label": "Нужно проверить в официальном источнике",
-        "original": "Нужно проверить в официальном источнике",
+        "label": "Авторский редакционный материал Eclipse Forge; внешние источники и встроенные материалы сохраняют собственные права и Terms",
+        "original": "Авторский редакционный материал Eclipse Forge; внешние источники и встроенные материалы сохраняют собственные права и Terms",
         "spdx": null,
-        "kind": "unknown",
-        "status": "unverified",
-        "requiresReview": true,
+        "kind": "service-terms",
+        "status": "editor-reviewed",
+        "requiresReview": false,
         "evidence": [
           {
-            "kind": "official-source",
-            "label": "Официальный источник; точные условия ещё нужно сверить",
-            "url": "https://github.com/PavelHopson/eclipse-library/blob/master/prompts/humanize-rewriter.md"
+            "kind": "license",
+            "label": "Eclipse Library editorial ownership boundary",
+            "url": "https://github.com/PavelHopson/eclipse-library#license"
           }
         ]
       },
@@ -4259,6 +4324,11 @@
           "kind": "official-source",
           "label": "Официальный источник",
           "url": "https://github.com/PavelHopson/eclipse-library/blob/master/prompts/humanize-rewriter.md"
+        },
+        {
+          "kind": "license",
+          "label": "Eclipse Library editorial ownership boundary",
+          "url": "https://github.com/PavelHopson/eclipse-library#license"
         }
       ],
       "agentEligibility": {
@@ -4282,7 +4352,7 @@
       "platforms": [
         "Web"
       ],
-      "license": "Нужно проверить в официальном источнике",
+      "license": "Авторский редакционный материал Eclipse Forge; внешние источники и встроенные материалы сохраняют собственные права и Terms",
       "pricing": "Исходный код доступен публично; hosting, модели и внешние API могут оплачиваться отдельно",
       "access": {
         "cost": "free",
@@ -4300,13 +4370,13 @@
       "risks": [
         "Лицензия, цена, permissions и обработка данных могут отличаться от краткого описания."
       ],
-      "verifiedAt": null,
+      "verifiedAt": "2026-08-17",
       "quickStart": [
         "Откройте официальный источник и проверьте владельца, лицензию и дату обновления.",
         "Не передавайте secrets или рабочие данные; начните с пустого тестового проекта.",
         "Сравните результат с текущим способом работы и только потом решайте об интеграции."
       ],
-      "reviewStatus": "inferred",
+      "reviewStatus": "verified",
       "source": {
         "file": "catalog/resources.json",
         "key": "lyra-prompt-optimizer-github-com",
@@ -4318,19 +4388,26 @@
         }
       },
       "addedAt": null,
+      "licenseEvidence": [
+        {
+          "kind": "license",
+          "label": "Eclipse Library editorial ownership boundary",
+          "url": "https://github.com/PavelHopson/eclipse-library#license"
+        }
+      ],
       "catalogOrder": 237,
       "licenseInfo": {
-        "label": "Нужно проверить в официальном источнике",
-        "original": "Нужно проверить в официальном источнике",
+        "label": "Авторский редакционный материал Eclipse Forge; внешние источники и встроенные материалы сохраняют собственные права и Terms",
+        "original": "Авторский редакционный материал Eclipse Forge; внешние источники и встроенные материалы сохраняют собственные права и Terms",
         "spdx": null,
-        "kind": "unknown",
-        "status": "unverified",
-        "requiresReview": true,
+        "kind": "service-terms",
+        "status": "editor-reviewed",
+        "requiresReview": false,
         "evidence": [
           {
-            "kind": "official-source",
-            "label": "Официальный источник; точные условия ещё нужно сверить",
-            "url": "https://github.com/PavelHopson/eclipse-library/blob/master/prompts/lyra-prompt-optimizer.md"
+            "kind": "license",
+            "label": "Eclipse Library editorial ownership boundary",
+            "url": "https://github.com/PavelHopson/eclipse-library#license"
           }
         ]
       },
@@ -4339,6 +4416,11 @@
           "kind": "official-source",
           "label": "Официальный источник",
           "url": "https://github.com/PavelHopson/eclipse-library/blob/master/prompts/lyra-prompt-optimizer.md"
+        },
+        {
+          "kind": "license",
+          "label": "Eclipse Library editorial ownership boundary",
+          "url": "https://github.com/PavelHopson/eclipse-library#license"
         }
       ],
       "agentEligibility": {
@@ -4461,7 +4543,7 @@
       "platforms": [
         "Web"
       ],
-      "license": "Нужно проверить в официальном источнике",
+      "license": "Авторский редакционный материал Eclipse Forge; внешние источники и встроенные материалы сохраняют собственные права и Terms",
       "pricing": "Исходный код доступен публично; hosting, модели и внешние API могут оплачиваться отдельно",
       "access": {
         "cost": "free",
@@ -4480,13 +4562,13 @@
       "risks": [
         "Лицензия, цена, permissions и обработка данных могут отличаться от краткого описания."
       ],
-      "verifiedAt": null,
+      "verifiedAt": "2026-08-17",
       "quickStart": [
         "Откройте официальный источник и проверьте владельца, лицензию и дату обновления.",
         "Не передавайте secrets или рабочие данные; начните с пустого тестового проекта.",
         "Сравните результат с текущим способом работы и только потом решайте об интеграции."
       ],
-      "reviewStatus": "inferred",
+      "reviewStatus": "verified",
       "source": {
         "file": "catalog/resources.json",
         "key": "photo-restoration-prompt-github-com",
@@ -4498,19 +4580,26 @@
         }
       },
       "addedAt": null,
+      "licenseEvidence": [
+        {
+          "kind": "license",
+          "label": "Eclipse Library editorial ownership boundary",
+          "url": "https://github.com/PavelHopson/eclipse-library#license"
+        }
+      ],
       "catalogOrder": 239,
       "licenseInfo": {
-        "label": "Нужно проверить в официальном источнике",
-        "original": "Нужно проверить в официальном источнике",
+        "label": "Авторский редакционный материал Eclipse Forge; внешние источники и встроенные материалы сохраняют собственные права и Terms",
+        "original": "Авторский редакционный материал Eclipse Forge; внешние источники и встроенные материалы сохраняют собственные права и Terms",
         "spdx": null,
-        "kind": "unknown",
-        "status": "unverified",
-        "requiresReview": true,
+        "kind": "service-terms",
+        "status": "editor-reviewed",
+        "requiresReview": false,
         "evidence": [
           {
-            "kind": "official-source",
-            "label": "Официальный источник; точные условия ещё нужно сверить",
-            "url": "https://github.com/PavelHopson/eclipse-library/blob/master/prompts/photo-restoration-upscale.md"
+            "kind": "license",
+            "label": "Eclipse Library editorial ownership boundary",
+            "url": "https://github.com/PavelHopson/eclipse-library#license"
           }
         ]
       },
@@ -4519,6 +4608,11 @@
           "kind": "official-source",
           "label": "Официальный источник",
           "url": "https://github.com/PavelHopson/eclipse-library/blob/master/prompts/photo-restoration-upscale.md"
+        },
+        {
+          "kind": "license",
+          "label": "Eclipse Library editorial ownership boundary",
+          "url": "https://github.com/PavelHopson/eclipse-library#license"
         }
       ],
       "agentEligibility": {
@@ -4542,7 +4636,7 @@
       "platforms": [
         "Web"
       ],
-      "license": "Нужно проверить в официальном источнике",
+      "license": "Авторский редакционный материал Eclipse Forge; внешние источники и встроенные материалы сохраняют собственные права и Terms",
       "pricing": "Исходный код доступен публично; hosting, модели и внешние API могут оплачиваться отдельно",
       "access": {
         "cost": "free",
@@ -4559,13 +4653,13 @@
       "risks": [
         "Лицензия, цена, permissions и обработка данных могут отличаться от краткого описания."
       ],
-      "verifiedAt": null,
+      "verifiedAt": "2026-08-17",
       "quickStart": [
         "Откройте официальный источник и проверьте владельца, лицензию и дату обновления.",
         "Не передавайте secrets или рабочие данные; начните с пустого тестового проекта.",
         "Сравните результат с текущим способом работы и только потом решайте об интеграции."
       ],
-      "reviewStatus": "inferred",
+      "reviewStatus": "verified",
       "source": {
         "file": "catalog/resources.json",
         "key": "claude-finance-6-prompts-github-com",
@@ -4577,19 +4671,26 @@
         }
       },
       "addedAt": null,
+      "licenseEvidence": [
+        {
+          "kind": "license",
+          "label": "Eclipse Library editorial ownership boundary",
+          "url": "https://github.com/PavelHopson/eclipse-library#license"
+        }
+      ],
       "catalogOrder": 240,
       "licenseInfo": {
-        "label": "Нужно проверить в официальном источнике",
-        "original": "Нужно проверить в официальном источнике",
+        "label": "Авторский редакционный материал Eclipse Forge; внешние источники и встроенные материалы сохраняют собственные права и Terms",
+        "original": "Авторский редакционный материал Eclipse Forge; внешние источники и встроенные материалы сохраняют собственные права и Terms",
         "spdx": null,
-        "kind": "unknown",
-        "status": "unverified",
-        "requiresReview": true,
+        "kind": "service-terms",
+        "status": "editor-reviewed",
+        "requiresReview": false,
         "evidence": [
           {
-            "kind": "official-source",
-            "label": "Официальный источник; точные условия ещё нужно сверить",
-            "url": "https://github.com/PavelHopson/eclipse-library/blob/master/prompts/finance-claude-6.md"
+            "kind": "license",
+            "label": "Eclipse Library editorial ownership boundary",
+            "url": "https://github.com/PavelHopson/eclipse-library#license"
           }
         ]
       },
@@ -4598,6 +4699,11 @@
           "kind": "official-source",
           "label": "Официальный источник",
           "url": "https://github.com/PavelHopson/eclipse-library/blob/master/prompts/finance-claude-6.md"
+        },
+        {
+          "kind": "license",
+          "label": "Eclipse Library editorial ownership boundary",
+          "url": "https://github.com/PavelHopson/eclipse-library#license"
         }
       ],
       "agentEligibility": {
@@ -5031,7 +5137,7 @@
       "platforms": [
         "Web"
       ],
-      "license": "Нужно проверить в официальном источнике",
+      "license": "MIT",
       "pricing": "Исходный код доступен публично; hosting, модели и внешние API могут оплачиваться отдельно",
       "access": {
         "cost": "free",
@@ -5046,13 +5152,13 @@
       "risks": [
         "Лицензия, цена, permissions и обработка данных могут отличаться от краткого описания."
       ],
-      "verifiedAt": null,
+      "verifiedAt": "2026-08-17",
       "quickStart": [
         "Откройте официальный источник и проверьте владельца, лицензию и дату обновления.",
         "Не передавайте secrets или рабочие данные; начните с пустого тестового проекта.",
         "Сравните результат с текущим способом работы и только потом решайте об интеграции."
       ],
-      "reviewStatus": "inferred",
+      "reviewStatus": "verified",
       "source": {
         "file": "catalog/resources.json",
         "key": "memory-lancedb-github-com",
@@ -5064,19 +5170,31 @@
         }
       },
       "addedAt": null,
+      "licenseEvidence": [
+        {
+          "kind": "license",
+          "label": "Official repository license file reviewed 2026-08-17",
+          "url": "https://github.com/openclaw/openclaw/blob/main/LICENSE"
+        }
+      ],
       "catalogOrder": 256,
       "licenseInfo": {
-        "label": "Нужно проверить в официальном источнике",
-        "original": "Нужно проверить в официальном источнике",
-        "spdx": null,
-        "kind": "unknown",
-        "status": "unverified",
-        "requiresReview": true,
+        "label": "MIT",
+        "original": "MIT",
+        "spdx": "MIT",
+        "kind": "open-source",
+        "status": "source-declared",
+        "requiresReview": false,
         "evidence": [
           {
             "kind": "license",
             "label": "Other license",
             "url": "https://api.github.com/repos/openclaw/openclaw/license"
+          },
+          {
+            "kind": "license",
+            "label": "Official repository license file reviewed 2026-08-17",
+            "url": "https://github.com/openclaw/openclaw/blob/main/LICENSE"
           }
         ]
       },
@@ -5090,6 +5208,11 @@
           "kind": "license",
           "label": "Other license",
           "url": "https://api.github.com/repos/openclaw/openclaw/license"
+        },
+        {
+          "kind": "license",
+          "label": "Official repository license file reviewed 2026-08-17",
+          "url": "https://github.com/openclaw/openclaw/blob/main/LICENSE"
         }
       ],
       "agentEligibility": {
@@ -9145,7 +9268,7 @@
       "platforms": [
         "Web"
       ],
-      "license": "Нужно проверить в официальном источнике",
+      "license": "Apache-2.0",
       "pricing": "Исходный код доступен публично; hosting, модели и внешние API могут оплачиваться отдельно",
       "access": {
         "cost": "free",
@@ -9160,13 +9283,13 @@
       "risks": [
         "Лицензия, цена, permissions и обработка данных могут отличаться от краткого описания."
       ],
-      "verifiedAt": null,
+      "verifiedAt": "2026-08-17",
       "quickStart": [
         "Откройте официальный источник и проверьте владельца, лицензию и дату обновления.",
         "Не передавайте secrets или рабочие данные; начните с пустого тестового проекта.",
         "Сравните результат с текущим способом работы и только потом решайте об интеграции."
       ],
-      "reviewStatus": "inferred",
+      "reviewStatus": "verified",
       "source": {
         "file": "catalog/resources.json",
         "key": "saleor-storefront-github-com",
@@ -9178,19 +9301,31 @@
         }
       },
       "addedAt": null,
+      "licenseEvidence": [
+        {
+          "kind": "license",
+          "label": "Official repository license file reviewed 2026-08-17",
+          "url": "https://github.com/saleor/storefront/blob/main/LICENSE"
+        }
+      ],
       "catalogOrder": 457,
       "licenseInfo": {
-        "label": "Нужно проверить в официальном источнике",
-        "original": "Нужно проверить в официальном источнике",
-        "spdx": null,
-        "kind": "unknown",
-        "status": "unverified",
-        "requiresReview": true,
+        "label": "Apache-2.0",
+        "original": "FSL-1.1-ALv2 (source-available; converts to Apache-2.0 under the license schedule)",
+        "spdx": "Apache-2.0",
+        "kind": "open-source",
+        "status": "source-declared",
+        "requiresReview": false,
         "evidence": [
           {
             "kind": "license",
             "label": "Other license",
             "url": "https://api.github.com/repos/saleor/storefront/license"
+          },
+          {
+            "kind": "license",
+            "label": "Official repository license file reviewed 2026-08-17",
+            "url": "https://github.com/saleor/storefront/blob/main/LICENSE"
           }
         ]
       },
@@ -9204,6 +9339,11 @@
           "kind": "license",
           "label": "Other license",
           "url": "https://api.github.com/repos/saleor/storefront/license"
+        },
+        {
+          "kind": "license",
+          "label": "Official repository license file reviewed 2026-08-17",
+          "url": "https://github.com/saleor/storefront/blob/main/LICENSE"
         }
       ],
       "agentEligibility": {
@@ -12267,7 +12407,7 @@
       "platforms": [
         "Web"
       ],
-      "license": "Нужно проверить в официальном источнике",
+      "license": "Авторский редакционный материал Eclipse Forge; внешние источники и встроенные материалы сохраняют собственные права и Terms",
       "pricing": "Исходный код доступен публично; hosting, модели и внешние API могут оплачиваться отдельно",
       "access": {
         "cost": "free",
@@ -12282,13 +12422,13 @@
       "risks": [
         "Лицензия, цена, permissions и обработка данных могут отличаться от краткого описания."
       ],
-      "verifiedAt": null,
+      "verifiedAt": "2026-08-17",
       "quickStart": [
         "Откройте официальный источник и проверьте владельца, лицензию и дату обновления.",
         "Не передавайте secrets или рабочие данные; начните с пустого тестового проекта.",
         "Сравните результат с текущим способом работы и только потом решайте об интеграции."
       ],
-      "reviewStatus": "inferred",
+      "reviewStatus": "verified",
       "source": {
         "file": "catalog/resources.json",
         "key": "open-design-codex-пошаговая-шпаргалка-github-com",
@@ -12300,19 +12440,26 @@
         }
       },
       "addedAt": null,
+      "licenseEvidence": [
+        {
+          "kind": "license",
+          "label": "Eclipse Library editorial ownership boundary",
+          "url": "https://github.com/PavelHopson/eclipse-library#license"
+        }
+      ],
       "catalogOrder": 563,
       "licenseInfo": {
-        "label": "Нужно проверить в официальном источнике",
-        "original": "Нужно проверить в официальном источнике",
+        "label": "Авторский редакционный материал Eclipse Forge; внешние источники и встроенные материалы сохраняют собственные права и Terms",
+        "original": "Авторский редакционный материал Eclipse Forge; внешние источники и встроенные материалы сохраняют собственные права и Terms",
         "spdx": null,
-        "kind": "unknown",
-        "status": "unverified",
-        "requiresReview": true,
+        "kind": "service-terms",
+        "status": "editor-reviewed",
+        "requiresReview": false,
         "evidence": [
           {
-            "kind": "official-source",
-            "label": "Официальный источник; точные условия ещё нужно сверить",
-            "url": "https://github.com/PavelHopson/eclipse-library/blob/master/guides/open-design-codex-workflow.md"
+            "kind": "license",
+            "label": "Eclipse Library editorial ownership boundary",
+            "url": "https://github.com/PavelHopson/eclipse-library#license"
           }
         ]
       },
@@ -12321,6 +12468,11 @@
           "kind": "official-source",
           "label": "Официальный источник",
           "url": "https://github.com/PavelHopson/eclipse-library/blob/master/guides/open-design-codex-workflow.md"
+        },
+        {
+          "kind": "license",
+          "label": "Eclipse Library editorial ownership boundary",
+          "url": "https://github.com/PavelHopson/eclipse-library#license"
         }
       ],
       "agentEligibility": {
@@ -12424,7 +12576,7 @@
       "platforms": [
         "Web"
       ],
-      "license": "Нужно проверить в официальном источнике",
+      "license": "MIT",
       "pricing": "Исходный код доступен публично; hosting, модели и внешние API могут оплачиваться отдельно",
       "access": {
         "cost": "free",
@@ -12439,13 +12591,13 @@
       "risks": [
         "Лицензия, цена, permissions и обработка данных могут отличаться от краткого описания."
       ],
-      "verifiedAt": null,
+      "verifiedAt": "2026-08-17",
       "quickStart": [
         "Откройте официальный источник и проверьте владельца, лицензию и дату обновления.",
         "Не передавайте secrets или рабочие данные; начните с пустого тестового проекта.",
         "Сравните результат с текущим способом работы и только потом решайте об интеграции."
       ],
-      "reviewStatus": "inferred",
+      "reviewStatus": "verified",
       "source": {
         "file": "catalog/resources.json",
         "key": "стартер-astro-github-com",
@@ -12457,19 +12609,31 @@
         }
       },
       "addedAt": null,
+      "licenseEvidence": [
+        {
+          "kind": "license",
+          "label": "Official repository license file reviewed 2026-08-17",
+          "url": "https://github.com/withastro/astro/blob/main/LICENSE"
+        }
+      ],
       "catalogOrder": 565,
       "licenseInfo": {
-        "label": "Нужно проверить в официальном источнике",
-        "original": "Нужно проверить в официальном источнике",
-        "spdx": null,
-        "kind": "unknown",
-        "status": "unverified",
-        "requiresReview": true,
+        "label": "MIT",
+        "original": "MIT",
+        "spdx": "MIT",
+        "kind": "open-source",
+        "status": "source-declared",
+        "requiresReview": false,
         "evidence": [
           {
             "kind": "license",
             "label": "Other license",
             "url": "https://api.github.com/repos/withastro/astro/license"
+          },
+          {
+            "kind": "license",
+            "label": "Official repository license file reviewed 2026-08-17",
+            "url": "https://github.com/withastro/astro/blob/main/LICENSE"
           }
         ]
       },
@@ -12483,6 +12647,11 @@
           "kind": "license",
           "label": "Other license",
           "url": "https://api.github.com/repos/withastro/astro/license"
+        },
+        {
+          "kind": "license",
+          "label": "Official repository license file reviewed 2026-08-17",
+          "url": "https://github.com/withastro/astro/blob/main/LICENSE"
         }
       ],
       "agentEligibility": {
@@ -14021,7 +14190,7 @@
         "Self-host",
         "Web"
       ],
-      "license": "Нужно проверить в официальном источнике",
+      "license": "AGPL-3.0 with Commons Clause v1.0; selling the software or a substantially derived paid service is prohibited",
       "pricing": "Исходный код доступен публично; hosting, модели и внешние API могут оплачиваться отдельно",
       "access": {
         "cost": "free",
@@ -14036,13 +14205,13 @@
       "risks": [
         "Лицензия, цена, permissions и обработка данных могут отличаться от краткого описания."
       ],
-      "verifiedAt": null,
+      "verifiedAt": "2026-08-17",
       "quickStart": [
         "Откройте официальный источник и проверьте владельца, лицензию и дату обновления.",
         "Не передавайте secrets или рабочие данные; начните с пустого тестового проекта.",
         "Сравните результат с текущим способом работы и только потом решайте об интеграции."
       ],
-      "reviewStatus": "inferred",
+      "reviewStatus": "verified",
       "source": {
         "file": "catalog/resources.json",
         "key": "job-ops-github-com",
@@ -14054,19 +14223,31 @@
         }
       },
       "addedAt": null,
+      "licenseEvidence": [
+        {
+          "kind": "license",
+          "label": "Official repository license file reviewed 2026-08-17",
+          "url": "https://github.com/DaKheera47/job-ops/blob/main/LICENSE"
+        }
+      ],
       "catalogOrder": 632,
       "licenseInfo": {
-        "label": "Нужно проверить в официальном источнике",
-        "original": "Нужно проверить в официальном источнике",
+        "label": "AGPL-3.0 with Commons Clause v1.0; selling the software or a substantially derived paid service is prohibited",
+        "original": "AGPL-3.0 with Commons Clause v1.0; selling the software or a substantially derived paid service is prohibited",
         "spdx": null,
-        "kind": "unknown",
-        "status": "unverified",
-        "requiresReview": true,
+        "kind": "custom",
+        "status": "editor-reviewed",
+        "requiresReview": false,
         "evidence": [
           {
             "kind": "license",
             "label": "Other license",
             "url": "https://api.github.com/repos/dakheera47/job-ops/license"
+          },
+          {
+            "kind": "license",
+            "label": "Official repository license file reviewed 2026-08-17",
+            "url": "https://github.com/DaKheera47/job-ops/blob/main/LICENSE"
           }
         ]
       },
@@ -14080,6 +14261,11 @@
           "kind": "license",
           "label": "Other license",
           "url": "https://api.github.com/repos/dakheera47/job-ops/license"
+        },
+        {
+          "kind": "license",
+          "label": "Official repository license file reviewed 2026-08-17",
+          "url": "https://github.com/DaKheera47/job-ops/blob/main/LICENSE"
         }
       ],
       "agentEligibility": {
@@ -15662,7 +15848,7 @@
       "platforms": [
         "CLI"
       ],
-      "license": "Нужно проверить в официальном источнике",
+      "license": "GPL-3.0-only",
       "pricing": "Исходный код доступен публично; hosting, модели и внешние API могут оплачиваться отдельно",
       "access": {
         "cost": "free",
@@ -15677,13 +15863,13 @@
       "risks": [
         "Лицензия, цена, permissions и обработка данных могут отличаться от краткого описания."
       ],
-      "verifiedAt": null,
+      "verifiedAt": "2026-08-17",
       "quickStart": [
         "Откройте официальный источник и проверьте владельца, лицензию и дату обновления.",
         "Не передавайте secrets или рабочие данные; начните с пустого тестового проекта.",
         "Сравните результат с текущим способом работы и только потом решайте об интеграции."
       ],
-      "reviewStatus": "inferred",
+      "reviewStatus": "verified",
       "source": {
         "file": "catalog/resources.json",
         "key": "torbot-github-com",
@@ -15695,19 +15881,31 @@
         }
       },
       "addedAt": null,
+      "licenseEvidence": [
+        {
+          "kind": "license",
+          "label": "Official repository license file reviewed 2026-08-17",
+          "url": "https://github.com/DedSecInside/TorBot/blob/dev/LICENSE.md"
+        }
+      ],
       "catalogOrder": 658,
       "licenseInfo": {
-        "label": "Нужно проверить в официальном источнике",
-        "original": "Нужно проверить в официальном источнике",
+        "label": "GPL-3.0-only",
+        "original": "GPL-3.0-only",
         "spdx": null,
-        "kind": "unknown",
-        "status": "unverified",
-        "requiresReview": true,
+        "kind": "custom",
+        "status": "editor-reviewed",
+        "requiresReview": false,
         "evidence": [
           {
             "kind": "license",
             "label": "Other license",
             "url": "https://api.github.com/repos/dedsecinside/torbot/license"
+          },
+          {
+            "kind": "license",
+            "label": "Official repository license file reviewed 2026-08-17",
+            "url": "https://github.com/DedSecInside/TorBot/blob/dev/LICENSE.md"
           }
         ]
       },
@@ -15721,6 +15919,11 @@
           "kind": "license",
           "label": "Other license",
           "url": "https://api.github.com/repos/dedsecinside/torbot/license"
+        },
+        {
+          "kind": "license",
+          "label": "Official repository license file reviewed 2026-08-17",
+          "url": "https://github.com/DedSecInside/TorBot/blob/dev/LICENSE.md"
         }
       ],
       "agentEligibility": {
@@ -15744,7 +15947,7 @@
       "platforms": [
         "CLI"
       ],
-      "license": "Нужно проверить в официальном источнике",
+      "license": "CC-BY-NC-SA-4.0",
       "pricing": "Исходный код доступен публично; hosting, модели и внешние API могут оплачиваться отдельно",
       "access": {
         "cost": "free",
@@ -15759,13 +15962,13 @@
       "risks": [
         "Лицензия, цена, permissions и обработка данных могут отличаться от краткого описания."
       ],
-      "verifiedAt": null,
+      "verifiedAt": "2026-08-17",
       "quickStart": [
         "Откройте официальный источник и проверьте владельца, лицензию и дату обновления.",
         "Не передавайте secrets или рабочие данные; начните с пустого тестового проекта.",
         "Сравните результат с текущим способом работы и только потом решайте об интеграции."
       ],
-      "reviewStatus": "inferred",
+      "reviewStatus": "verified",
       "source": {
         "file": "catalog/resources.json",
         "key": "awesome-free-apps-github-com",
@@ -15777,19 +15980,31 @@
         }
       },
       "addedAt": null,
+      "licenseEvidence": [
+        {
+          "kind": "license",
+          "label": "Official repository license file reviewed 2026-08-17",
+          "url": "https://github.com/Axorax/awesome-free-apps/blob/main/LICENSE"
+        }
+      ],
       "catalogOrder": 659,
       "licenseInfo": {
-        "label": "Нужно проверить в официальном источнике",
-        "original": "Нужно проверить в официальном источнике",
-        "spdx": null,
-        "kind": "unknown",
-        "status": "unverified",
-        "requiresReview": true,
+        "label": "CC-BY-NC-SA-4.0",
+        "original": "CC-BY-NC-SA-4.0; non-commercial content license",
+        "spdx": "CC-BY-NC-SA-4.0",
+        "kind": "custom",
+        "status": "source-declared",
+        "requiresReview": false,
         "evidence": [
           {
             "kind": "license",
             "label": "Other license",
             "url": "https://api.github.com/repos/axorax/awesome-free-apps/license"
+          },
+          {
+            "kind": "license",
+            "label": "Official repository license file reviewed 2026-08-17",
+            "url": "https://github.com/Axorax/awesome-free-apps/blob/main/LICENSE"
           }
         ]
       },
@@ -15803,6 +16018,11 @@
           "kind": "license",
           "label": "Other license",
           "url": "https://api.github.com/repos/axorax/awesome-free-apps/license"
+        },
+        {
+          "kind": "license",
+          "label": "Official repository license file reviewed 2026-08-17",
+          "url": "https://github.com/Axorax/awesome-free-apps/blob/main/LICENSE"
         }
       ],
       "agentEligibility": {
@@ -18239,7 +18459,7 @@
     },
     {
       "id": "hide-my-email-apple-support-apple-com",
-      "url": "https://support.apple.com/en-us/HT210425",
+      "url": "https://support.apple.com/en-us/105078",
       "title": "Hide My Email (Apple)",
       "type": "privacy",
       "category": "Privacy / OPSEC",
@@ -18297,7 +18517,7 @@
           {
             "kind": "official-source",
             "label": "Официальный источник; точные условия ещё нужно сверить",
-            "url": "https://support.apple.com/en-us/HT210425"
+            "url": "https://support.apple.com/en-us/105078"
           }
         ]
       },
@@ -18305,7 +18525,7 @@
         {
           "kind": "official-source",
           "label": "Официальный источник",
-          "url": "https://support.apple.com/en-us/HT210425"
+          "url": "https://support.apple.com/en-us/105078"
         }
       ],
       "agentEligibility": {
@@ -18736,7 +18956,7 @@
       "platforms": [
         "Windows"
       ],
-      "license": "Нужно проверить в официальном источнике",
+      "license": "Custom disclaimer and telemetry notice; no explicit permission to copy, modify or redistribute was found",
       "pricing": "Исходный код доступен публично; hosting, модели и внешние API могут оплачиваться отдельно",
       "access": {
         "cost": "free",
@@ -18751,13 +18971,13 @@
       "risks": [
         "Лицензия, цена, permissions и обработка данных могут отличаться от краткого описания."
       ],
-      "verifiedAt": null,
+      "verifiedAt": "2026-08-17",
       "quickStart": [
         "Откройте официальный источник и проверьте владельца, лицензию и дату обновления.",
         "Не передавайте secrets или рабочие данные; начните с пустого тестового проекта.",
         "Сравните результат с текущим способом работы и только потом решайте об интеграции."
       ],
-      "reviewStatus": "inferred",
+      "reviewStatus": "verified",
       "source": {
         "file": "catalog/resources.json",
         "key": "minersearch-github-com",
@@ -18769,19 +18989,31 @@
         }
       },
       "addedAt": null,
+      "licenseEvidence": [
+        {
+          "kind": "license",
+          "label": "Official repository license file reviewed 2026-08-17",
+          "url": "https://github.com/BlendLog/MinerSearch/blob/master/LICENSE.MD"
+        }
+      ],
       "catalogOrder": 763,
       "licenseInfo": {
-        "label": "Нужно проверить в официальном источнике",
-        "original": "Нужно проверить в официальном источнике",
+        "label": "Custom disclaimer and telemetry notice; no explicit permission to copy, modify or redistribute was found",
+        "original": "Custom disclaimer and telemetry notice; no explicit permission to copy, modify or redistribute was found",
         "spdx": null,
-        "kind": "unknown",
-        "status": "unverified",
-        "requiresReview": true,
+        "kind": "custom",
+        "status": "editor-reviewed",
+        "requiresReview": false,
         "evidence": [
           {
             "kind": "license",
             "label": "Other license",
             "url": "https://api.github.com/repos/blendlog/minersearch/license"
+          },
+          {
+            "kind": "license",
+            "label": "Official repository license file reviewed 2026-08-17",
+            "url": "https://github.com/BlendLog/MinerSearch/blob/master/LICENSE.MD"
           }
         ]
       },
@@ -18795,6 +19027,11 @@
           "kind": "license",
           "label": "Other license",
           "url": "https://api.github.com/repos/blendlog/minersearch/license"
+        },
+        {
+          "kind": "license",
+          "label": "Official repository license file reviewed 2026-08-17",
+          "url": "https://github.com/BlendLog/MinerSearch/blob/master/LICENSE.MD"
         }
       ],
       "agentEligibility": {
@@ -21725,7 +21962,7 @@
       "platforms": [
         "Self-host"
       ],
-      "license": "Нужно проверить в официальном источнике",
+      "license": "MIT",
       "pricing": "Исходный код доступен публично; hosting, модели и внешние API могут оплачиваться отдельно",
       "access": {
         "cost": "free",
@@ -21740,13 +21977,13 @@
       "risks": [
         "Лицензия, цена, permissions и обработка данных могут отличаться от краткого описания."
       ],
-      "verifiedAt": null,
+      "verifiedAt": "2026-08-17",
       "quickStart": [
         "Откройте официальный источник и проверьте владельца, лицензию и дату обновления.",
         "Не передавайте secrets или рабочие данные; начните с пустого тестового проекта.",
         "Сравните результат с текущим способом работы и только потом решайте об интеграции."
       ],
-      "reviewStatus": "inferred",
+      "reviewStatus": "verified",
       "source": {
         "file": "catalog/resources.json",
         "key": "modly-github-com",
@@ -21758,19 +21995,31 @@
         }
       },
       "addedAt": null,
+      "licenseEvidence": [
+        {
+          "kind": "license",
+          "label": "Official repository license file reviewed 2026-08-17",
+          "url": "https://github.com/lightningpixel/modly/blob/main/LICENSE"
+        }
+      ],
       "catalogOrder": 950,
       "licenseInfo": {
-        "label": "Нужно проверить в официальном источнике",
-        "original": "Нужно проверить в официальном источнике",
-        "spdx": null,
-        "kind": "unknown",
-        "status": "unverified",
-        "requiresReview": true,
+        "label": "MIT",
+        "original": "MIT",
+        "spdx": "MIT",
+        "kind": "open-source",
+        "status": "source-declared",
+        "requiresReview": false,
         "evidence": [
           {
             "kind": "license",
             "label": "Other license",
             "url": "https://api.github.com/repos/lightningpixel/modly/license"
+          },
+          {
+            "kind": "license",
+            "label": "Official repository license file reviewed 2026-08-17",
+            "url": "https://github.com/lightningpixel/modly/blob/main/LICENSE"
           }
         ]
       },
@@ -21784,6 +22033,11 @@
           "kind": "license",
           "label": "Other license",
           "url": "https://api.github.com/repos/lightningpixel/modly/license"
+        },
+        {
+          "kind": "license",
+          "label": "Official repository license file reviewed 2026-08-17",
+          "url": "https://github.com/lightningpixel/modly/blob/main/LICENSE"
         }
       ],
       "agentEligibility": {
@@ -21807,7 +22061,7 @@
       "platforms": [
         "Web"
       ],
-      "license": "Нужно проверить в официальном источнике",
+      "license": "MIT for the main repository except cloud/, which uses a separate OpenShorts Commercial License",
       "pricing": "Исходный код доступен публично; hosting, модели и внешние API могут оплачиваться отдельно",
       "access": {
         "cost": "free",
@@ -21822,13 +22076,13 @@
       "risks": [
         "Лицензия, цена, permissions и обработка данных могут отличаться от краткого описания."
       ],
-      "verifiedAt": null,
+      "verifiedAt": "2026-08-17",
       "quickStart": [
         "Откройте официальный источник и проверьте владельца, лицензию и дату обновления.",
         "Не передавайте secrets или рабочие данные; начните с пустого тестового проекта.",
         "Сравните результат с текущим способом работы и только потом решайте об интеграции."
       ],
-      "reviewStatus": "inferred",
+      "reviewStatus": "verified",
       "source": {
         "file": "catalog/resources.json",
         "key": "openshorts-github-com",
@@ -21840,19 +22094,31 @@
         }
       },
       "addedAt": null,
+      "licenseEvidence": [
+        {
+          "kind": "license",
+          "label": "Official repository license file reviewed 2026-08-17",
+          "url": "https://github.com/mutonby/openshorts/blob/main/LICENSE"
+        }
+      ],
       "catalogOrder": 951,
       "licenseInfo": {
-        "label": "Нужно проверить в официальном источнике",
-        "original": "Нужно проверить в официальном источнике",
+        "label": "MIT for the main repository except cloud/, which uses a separate OpenShorts Commercial License",
+        "original": "MIT for the main repository except cloud/, which uses a separate OpenShorts Commercial License",
         "spdx": null,
-        "kind": "unknown",
-        "status": "unverified",
-        "requiresReview": true,
+        "kind": "custom",
+        "status": "editor-reviewed",
+        "requiresReview": false,
         "evidence": [
           {
             "kind": "license",
             "label": "Other license",
             "url": "https://api.github.com/repos/mutonby/openshorts/license"
+          },
+          {
+            "kind": "license",
+            "label": "Official repository license file reviewed 2026-08-17",
+            "url": "https://github.com/mutonby/openshorts/blob/main/LICENSE"
           }
         ]
       },
@@ -21866,6 +22132,11 @@
           "kind": "license",
           "label": "Other license",
           "url": "https://api.github.com/repos/mutonby/openshorts/license"
+        },
+        {
+          "kind": "license",
+          "label": "Official repository license file reviewed 2026-08-17",
+          "url": "https://github.com/mutonby/openshorts/blob/main/LICENSE"
         }
       ],
       "agentEligibility": {
@@ -22280,7 +22551,7 @@
       "platforms": [
         "Web"
       ],
-      "license": "Нужно проверить в официальном источнике",
+      "license": "CC-BY-NC-4.0",
       "pricing": "Исходный код доступен публично; hosting, модели и внешние API могут оплачиваться отдельно",
       "access": {
         "cost": "free",
@@ -22295,13 +22566,13 @@
       "risks": [
         "Лицензия, цена, permissions и обработка данных могут отличаться от краткого описания."
       ],
-      "verifiedAt": null,
+      "verifiedAt": "2026-08-17",
       "quickStart": [
         "Откройте официальный источник и проверьте владельца, лицензию и дату обновления.",
         "Не передавайте secrets или рабочие данные; начните с пустого тестового проекта.",
         "Сравните результат с текущим способом работы и только потом решайте об интеграции."
       ],
-      "reviewStatus": "inferred",
+      "reviewStatus": "verified",
       "source": {
         "file": "catalog/resources.json",
         "key": "autoskill-github-com",
@@ -22313,19 +22584,31 @@
         }
       },
       "addedAt": null,
+      "licenseEvidence": [
+        {
+          "kind": "license",
+          "label": "Official repository license file reviewed 2026-08-17",
+          "url": "https://github.com/midudev/autoskills/blob/main/LICENSE"
+        }
+      ],
       "catalogOrder": 983,
       "licenseInfo": {
-        "label": "Нужно проверить в официальном источнике",
-        "original": "Нужно проверить в официальном источнике",
-        "spdx": null,
-        "kind": "unknown",
-        "status": "unverified",
-        "requiresReview": true,
+        "label": "CC-BY-NC-4.0",
+        "original": "CC-BY-NC-4.0; non-commercial content license",
+        "spdx": "CC-BY-NC-4.0",
+        "kind": "custom",
+        "status": "source-declared",
+        "requiresReview": false,
         "evidence": [
           {
             "kind": "license",
             "label": "Other license",
             "url": "https://api.github.com/repos/midudev/autoskills/license"
+          },
+          {
+            "kind": "license",
+            "label": "Official repository license file reviewed 2026-08-17",
+            "url": "https://github.com/midudev/autoskills/blob/main/LICENSE"
           }
         ]
       },
@@ -22339,6 +22622,11 @@
           "kind": "license",
           "label": "Other license",
           "url": "https://api.github.com/repos/midudev/autoskills/license"
+        },
+        {
+          "kind": "license",
+          "label": "Official repository license file reviewed 2026-08-17",
+          "url": "https://github.com/midudev/autoskills/blob/main/LICENSE"
         }
       ],
       "agentEligibility": {
@@ -23312,7 +23600,7 @@
       "platforms": [
         "Web"
       ],
-      "license": "Нужно проверить в официальном источнике",
+      "license": "Авторский редакционный материал Eclipse Forge; внешние источники и встроенные материалы сохраняют собственные права и Terms",
       "pricing": "Исходный код доступен публично; hosting, модели и внешние API могут оплачиваться отдельно",
       "access": {
         "cost": "free",
@@ -23327,13 +23615,13 @@
       "risks": [
         "Есть признаки повышенного security, privacy или legal риска; не запускайте без ручного аудита и sandbox."
       ],
-      "verifiedAt": null,
+      "verifiedAt": "2026-08-17",
       "quickStart": [
         "Откройте официальный источник и проверьте владельца, лицензию и дату обновления.",
         "Не передавайте secrets или рабочие данные; начните с пустого тестового проекта.",
         "Сравните результат с текущим способом работы и только потом решайте об интеграции."
       ],
-      "reviewStatus": "inferred",
+      "reviewStatus": "verified",
       "source": {
         "file": "catalog/resources.json",
         "key": "веб-утилиты-кураторский-каталог-github-com",
@@ -23345,19 +23633,26 @@
         }
       },
       "addedAt": null,
+      "licenseEvidence": [
+        {
+          "kind": "license",
+          "label": "Eclipse Library editorial ownership boundary",
+          "url": "https://github.com/PavelHopson/eclipse-library#license"
+        }
+      ],
       "catalogOrder": 1011,
       "licenseInfo": {
-        "label": "Нужно проверить в официальном источнике",
-        "original": "Нужно проверить в официальном источнике",
+        "label": "Авторский редакционный материал Eclipse Forge; внешние источники и встроенные материалы сохраняют собственные права и Terms",
+        "original": "Авторский редакционный материал Eclipse Forge; внешние источники и встроенные материалы сохраняют собственные права и Terms",
         "spdx": null,
-        "kind": "unknown",
-        "status": "unverified",
-        "requiresReview": true,
+        "kind": "service-terms",
+        "status": "editor-reviewed",
+        "requiresReview": false,
         "evidence": [
           {
-            "kind": "official-source",
-            "label": "Официальный источник; точные условия ещё нужно сверить",
-            "url": "https://github.com/PavelHopson/eclipse-library/blob/master/lists/web-utilities.md"
+            "kind": "license",
+            "label": "Eclipse Library editorial ownership boundary",
+            "url": "https://github.com/PavelHopson/eclipse-library#license"
           }
         ]
       },
@@ -23366,13 +23661,17 @@
           "kind": "official-source",
           "label": "Официальный источник",
           "url": "https://github.com/PavelHopson/eclipse-library/blob/master/lists/web-utilities.md"
+        },
+        {
+          "kind": "license",
+          "label": "Eclipse Library editorial ownership boundary",
+          "url": "https://github.com/PavelHopson/eclipse-library#license"
         }
       ],
       "agentEligibility": {
         "eligible": false,
         "reasons": [
-          "grey-resource",
-          "unverified-high-risk"
+          "grey-resource"
         ],
         "installAllowed": false
       }
@@ -24913,7 +25212,7 @@
       "platforms": [
         "Web"
       ],
-      "license": "Нужно проверить в официальном источнике",
+      "license": "Авторский редакционный материал Eclipse Forge; внешние источники и встроенные материалы сохраняют собственные права и Terms",
       "pricing": "Исходный код доступен публично; hosting, модели и внешние API могут оплачиваться отдельно",
       "access": {
         "cost": "free",
@@ -24928,13 +25227,13 @@
       "risks": [
         "Лицензия, цена, permissions и обработка данных могут отличаться от краткого описания."
       ],
-      "verifiedAt": null,
+      "verifiedAt": "2026-08-17",
       "quickStart": [
         "Откройте официальный источник и проверьте владельца, лицензию и дату обновления.",
         "Не передавайте secrets или рабочие данные; начните с пустого тестового проекта.",
         "Сравните результат с текущим способом работы и только потом решайте об интеграции."
       ],
-      "reviewStatus": "inferred",
+      "reviewStatus": "verified",
       "source": {
         "file": "catalog/resources.json",
         "key": "anti-ai-text-6-промптов-github-com",
@@ -24946,19 +25245,26 @@
         }
       },
       "addedAt": "2026-05-27",
+      "licenseEvidence": [
+        {
+          "kind": "license",
+          "label": "Eclipse Library editorial ownership boundary",
+          "url": "https://github.com/PavelHopson/eclipse-library#license"
+        }
+      ],
       "catalogOrder": 1087,
       "licenseInfo": {
-        "label": "Нужно проверить в официальном источнике",
-        "original": "Нужно проверить в официальном источнике",
+        "label": "Авторский редакционный материал Eclipse Forge; внешние источники и встроенные материалы сохраняют собственные права и Terms",
+        "original": "Авторский редакционный материал Eclipse Forge; внешние источники и встроенные материалы сохраняют собственные права и Terms",
         "spdx": null,
-        "kind": "unknown",
-        "status": "unverified",
-        "requiresReview": true,
+        "kind": "service-terms",
+        "status": "editor-reviewed",
+        "requiresReview": false,
         "evidence": [
           {
-            "kind": "official-source",
-            "label": "Официальный источник; точные условия ещё нужно сверить",
-            "url": "https://github.com/PavelHopson/eclipse-library/blob/master/prompts/anti-ai-text-6-prompts.md"
+            "kind": "license",
+            "label": "Eclipse Library editorial ownership boundary",
+            "url": "https://github.com/PavelHopson/eclipse-library#license"
           }
         ]
       },
@@ -24967,6 +25273,11 @@
           "kind": "official-source",
           "label": "Официальный источник",
           "url": "https://github.com/PavelHopson/eclipse-library/blob/master/prompts/anti-ai-text-6-prompts.md"
+        },
+        {
+          "kind": "license",
+          "label": "Eclipse Library editorial ownership boundary",
+          "url": "https://github.com/PavelHopson/eclipse-library#license"
         }
       ],
       "agentEligibility": {
@@ -26182,7 +26493,7 @@
       "platforms": [
         "Web"
       ],
-      "license": "Нужно проверить в официальном источнике",
+      "license": "MPL-2.0",
       "pricing": "Исходный код доступен публично; hosting, модели и внешние API могут оплачиваться отдельно",
       "access": {
         "cost": "free",
@@ -26197,13 +26508,13 @@
       "risks": [
         "Лицензия, цена, permissions и обработка данных могут отличаться от краткого описания."
       ],
-      "verifiedAt": null,
+      "verifiedAt": "2026-08-17",
       "quickStart": [
         "Откройте официальный источник и проверьте владельца, лицензию и дату обновления.",
         "Не передавайте secrets или рабочие данные; начните с пустого тестового проекта.",
         "Сравните результат с текущим способом работы и только потом решайте об интеграции."
       ],
-      "reviewStatus": "inferred",
+      "reviewStatus": "verified",
       "source": {
         "file": "catalog/resources.json",
         "key": "agentic-project-management-github-com",
@@ -26215,19 +26526,31 @@
         }
       },
       "addedAt": "2026-05-28",
+      "licenseEvidence": [
+        {
+          "kind": "license",
+          "label": "Official repository license file reviewed 2026-08-17",
+          "url": "https://github.com/sdi2200262/agentic-project-management/blob/main/LICENSE"
+        }
+      ],
       "catalogOrder": 1160,
       "licenseInfo": {
-        "label": "Нужно проверить в официальном источнике",
-        "original": "Нужно проверить в официальном источнике",
-        "spdx": null,
-        "kind": "unknown",
-        "status": "unverified",
-        "requiresReview": true,
+        "label": "MPL-2.0",
+        "original": "MPL-2.0",
+        "spdx": "MPL-2.0",
+        "kind": "open-source",
+        "status": "source-declared",
+        "requiresReview": false,
         "evidence": [
           {
             "kind": "license",
             "label": "Other license",
             "url": "https://api.github.com/repos/sdi2200262/agentic-project-management/license"
+          },
+          {
+            "kind": "license",
+            "label": "Official repository license file reviewed 2026-08-17",
+            "url": "https://github.com/sdi2200262/agentic-project-management/blob/main/LICENSE"
           }
         ]
       },
@@ -26241,6 +26564,11 @@
           "kind": "license",
           "label": "Other license",
           "url": "https://api.github.com/repos/sdi2200262/agentic-project-management/license"
+        },
+        {
+          "kind": "license",
+          "label": "Official repository license file reviewed 2026-08-17",
+          "url": "https://github.com/sdi2200262/agentic-project-management/blob/main/LICENSE"
         }
       ],
       "agentEligibility": {
@@ -27417,7 +27745,7 @@
       "platforms": [
         "Web"
       ],
-      "license": "Нужно проверить в официальном источнике",
+      "license": "Авторский редакционный материал Eclipse Forge; внешние источники и встроенные материалы сохраняют собственные права и Terms",
       "pricing": "Исходный код доступен публично; hosting, модели и внешние API могут оплачиваться отдельно",
       "access": {
         "cost": "free",
@@ -27435,13 +27763,13 @@
       "risks": [
         "Лицензия, цена, permissions и обработка данных могут отличаться от краткого описания."
       ],
-      "verifiedAt": null,
+      "verifiedAt": "2026-08-17",
       "quickStart": [
         "Откройте официальный источник и проверьте владельца, лицензию и дату обновления.",
         "Не передавайте secrets или рабочие данные; начните с пустого тестового проекта.",
         "Сравните результат с текущим способом работы и только потом решайте об интеграции."
       ],
-      "reviewStatus": "inferred",
+      "reviewStatus": "verified",
       "source": {
         "file": "catalog/resources.json",
         "key": "skeptical-verifier-github-com",
@@ -27453,19 +27781,26 @@
         }
       },
       "addedAt": "2026-05-28",
+      "licenseEvidence": [
+        {
+          "kind": "license",
+          "label": "Eclipse Library editorial ownership boundary",
+          "url": "https://github.com/PavelHopson/eclipse-library#license"
+        }
+      ],
       "catalogOrder": 1227,
       "licenseInfo": {
-        "label": "Нужно проверить в официальном источнике",
-        "original": "Нужно проверить в официальном источнике",
+        "label": "Авторский редакционный материал Eclipse Forge; внешние источники и встроенные материалы сохраняют собственные права и Terms",
+        "original": "Авторский редакционный материал Eclipse Forge; внешние источники и встроенные материалы сохраняют собственные права и Terms",
         "spdx": null,
-        "kind": "unknown",
-        "status": "unverified",
-        "requiresReview": true,
+        "kind": "service-terms",
+        "status": "editor-reviewed",
+        "requiresReview": false,
         "evidence": [
           {
-            "kind": "official-source",
-            "label": "Официальный источник; точные условия ещё нужно сверить",
-            "url": "https://github.com/PavelHopson/eclipse-library/blob/master/prompts/skeptical-verifier.md"
+            "kind": "license",
+            "label": "Eclipse Library editorial ownership boundary",
+            "url": "https://github.com/PavelHopson/eclipse-library#license"
           }
         ]
       },
@@ -27474,6 +27809,11 @@
           "kind": "official-source",
           "label": "Официальный источник",
           "url": "https://github.com/PavelHopson/eclipse-library/blob/master/prompts/skeptical-verifier.md"
+        },
+        {
+          "kind": "license",
+          "label": "Eclipse Library editorial ownership boundary",
+          "url": "https://github.com/PavelHopson/eclipse-library#license"
         }
       ],
       "agentEligibility": {
@@ -27497,7 +27837,7 @@
       "platforms": [
         "Web"
       ],
-      "license": "Нужно проверить в официальном источнике",
+      "license": "Авторский редакционный материал Eclipse Forge; внешние источники и встроенные материалы сохраняют собственные права и Terms",
       "pricing": "Исходный код доступен публично; hosting, модели и внешние API могут оплачиваться отдельно",
       "access": {
         "cost": "free",
@@ -27512,13 +27852,13 @@
       "risks": [
         "Лицензия, цена, permissions и обработка данных могут отличаться от краткого описания."
       ],
-      "verifiedAt": null,
+      "verifiedAt": "2026-08-17",
       "quickStart": [
         "Откройте официальный источник и проверьте владельца, лицензию и дату обновления.",
         "Не передавайте secrets или рабочие данные; начните с пустого тестового проекта.",
         "Сравните результат с текущим способом работы и только потом решайте об интеграции."
       ],
-      "reviewStatus": "inferred",
+      "reviewStatus": "verified",
       "source": {
         "file": "catalog/resources.json",
         "key": "feedback-protocols-6-промптов-github-com",
@@ -27530,19 +27870,26 @@
         }
       },
       "addedAt": "2026-05-28",
+      "licenseEvidence": [
+        {
+          "kind": "license",
+          "label": "Eclipse Library editorial ownership boundary",
+          "url": "https://github.com/PavelHopson/eclipse-library#license"
+        }
+      ],
       "catalogOrder": 1228,
       "licenseInfo": {
-        "label": "Нужно проверить в официальном источнике",
-        "original": "Нужно проверить в официальном источнике",
+        "label": "Авторский редакционный материал Eclipse Forge; внешние источники и встроенные материалы сохраняют собственные права и Terms",
+        "original": "Авторский редакционный материал Eclipse Forge; внешние источники и встроенные материалы сохраняют собственные права и Terms",
         "spdx": null,
-        "kind": "unknown",
-        "status": "unverified",
-        "requiresReview": true,
+        "kind": "service-terms",
+        "status": "editor-reviewed",
+        "requiresReview": false,
         "evidence": [
           {
-            "kind": "official-source",
-            "label": "Официальный источник; точные условия ещё нужно сверить",
-            "url": "https://github.com/PavelHopson/eclipse-library/blob/master/prompts/feedback-protocols-6.md"
+            "kind": "license",
+            "label": "Eclipse Library editorial ownership boundary",
+            "url": "https://github.com/PavelHopson/eclipse-library#license"
           }
         ]
       },
@@ -27551,6 +27898,11 @@
           "kind": "official-source",
           "label": "Официальный источник",
           "url": "https://github.com/PavelHopson/eclipse-library/blob/master/prompts/feedback-protocols-6.md"
+        },
+        {
+          "kind": "license",
+          "label": "Eclipse Library editorial ownership boundary",
+          "url": "https://github.com/PavelHopson/eclipse-library#license"
         }
       ],
       "agentEligibility": {
@@ -27574,7 +27926,7 @@
       "platforms": [
         "Web"
       ],
-      "license": "Нужно проверить в официальном источнике",
+      "license": "Авторский редакционный материал Eclipse Forge; внешние источники и встроенные материалы сохраняют собственные права и Terms",
       "pricing": "Исходный код доступен публично; hosting, модели и внешние API могут оплачиваться отдельно",
       "access": {
         "cost": "free",
@@ -27591,13 +27943,13 @@
       "risks": [
         "Лицензия, цена, permissions и обработка данных могут отличаться от краткого описания."
       ],
-      "verifiedAt": null,
+      "verifiedAt": "2026-08-17",
       "quickStart": [
         "Откройте официальный источник и проверьте владельца, лицензию и дату обновления.",
         "Не передавайте secrets или рабочие данные; начните с пустого тестового проекта.",
         "Сравните результат с текущим способом работы и только потом решайте об интеграции."
       ],
-      "reviewStatus": "inferred",
+      "reviewStatus": "verified",
       "source": {
         "file": "catalog/resources.json",
         "key": "resume-toolkit-7-промптов-github-com",
@@ -27609,19 +27961,26 @@
         }
       },
       "addedAt": "2026-05-28",
+      "licenseEvidence": [
+        {
+          "kind": "license",
+          "label": "Eclipse Library editorial ownership boundary",
+          "url": "https://github.com/PavelHopson/eclipse-library#license"
+        }
+      ],
       "catalogOrder": 1229,
       "licenseInfo": {
-        "label": "Нужно проверить в официальном источнике",
-        "original": "Нужно проверить в официальном источнике",
+        "label": "Авторский редакционный материал Eclipse Forge; внешние источники и встроенные материалы сохраняют собственные права и Terms",
+        "original": "Авторский редакционный материал Eclipse Forge; внешние источники и встроенные материалы сохраняют собственные права и Terms",
         "spdx": null,
-        "kind": "unknown",
-        "status": "unverified",
-        "requiresReview": true,
+        "kind": "service-terms",
+        "status": "editor-reviewed",
+        "requiresReview": false,
         "evidence": [
           {
-            "kind": "official-source",
-            "label": "Официальный источник; точные условия ещё нужно сверить",
-            "url": "https://github.com/PavelHopson/eclipse-library/blob/master/prompts/resume-toolkit-7.md"
+            "kind": "license",
+            "label": "Eclipse Library editorial ownership boundary",
+            "url": "https://github.com/PavelHopson/eclipse-library#license"
           }
         ]
       },
@@ -27630,6 +27989,11 @@
           "kind": "official-source",
           "label": "Официальный источник",
           "url": "https://github.com/PavelHopson/eclipse-library/blob/master/prompts/resume-toolkit-7.md"
+        },
+        {
+          "kind": "license",
+          "label": "Eclipse Library editorial ownership boundary",
+          "url": "https://github.com/PavelHopson/eclipse-library#license"
         }
       ],
       "agentEligibility": {
@@ -27734,7 +28098,7 @@
       "platforms": [
         "Web"
       ],
-      "license": "Нужно проверить в официальном источнике",
+      "license": "GPL-3.0-or-later",
       "pricing": "Исходный код доступен публично; hosting, модели и внешние API могут оплачиваться отдельно",
       "access": {
         "cost": "free",
@@ -27749,13 +28113,13 @@
       "risks": [
         "Есть признаки повышенного security, privacy или legal риска; не запускайте без ручного аудита и sandbox."
       ],
-      "verifiedAt": null,
+      "verifiedAt": "2026-08-17",
       "quickStart": [
         "Откройте официальный источник и проверьте владельца, лицензию и дату обновления.",
         "Не передавайте secrets или рабочие данные; начните с пустого тестового проекта.",
         "Сравните результат с текущим способом работы и только потом решайте об интеграции."
       ],
-      "reviewStatus": "inferred",
+      "reviewStatus": "verified",
       "source": {
         "file": "catalog/resources.json",
         "key": "midrags-sff-github-com",
@@ -27767,19 +28131,31 @@
         }
       },
       "addedAt": "2026-05-28",
+      "licenseEvidence": [
+        {
+          "kind": "license",
+          "label": "Official repository license file reviewed 2026-08-17",
+          "url": "https://github.com/Midrags/SFF/blob/main/LICENSE"
+        }
+      ],
       "catalogOrder": 1280,
       "licenseInfo": {
-        "label": "Нужно проверить в официальном источнике",
-        "original": "Нужно проверить в официальном источнике",
+        "label": "GPL-3.0-or-later",
+        "original": "GPL-3.0-or-later",
         "spdx": null,
-        "kind": "unknown",
-        "status": "unverified",
-        "requiresReview": true,
+        "kind": "custom",
+        "status": "editor-reviewed",
+        "requiresReview": false,
         "evidence": [
           {
             "kind": "license",
             "label": "Other license",
             "url": "https://api.github.com/repos/midrags/sff/license"
+          },
+          {
+            "kind": "license",
+            "label": "Official repository license file reviewed 2026-08-17",
+            "url": "https://github.com/Midrags/SFF/blob/main/LICENSE"
           }
         ]
       },
@@ -27793,13 +28169,17 @@
           "kind": "license",
           "label": "Other license",
           "url": "https://api.github.com/repos/midrags/sff/license"
+        },
+        {
+          "kind": "license",
+          "label": "Official repository license file reviewed 2026-08-17",
+          "url": "https://github.com/Midrags/SFF/blob/main/LICENSE"
         }
       ],
       "agentEligibility": {
         "eligible": false,
         "reasons": [
-          "grey-resource",
-          "unverified-high-risk"
+          "grey-resource"
         ],
         "installAllowed": false
       }
@@ -29774,7 +30154,7 @@
       "platforms": [
         "Self-host"
       ],
-      "license": "Нужно проверить в официальном источнике",
+      "license": "EUPL-1.2",
       "pricing": "Исходный код доступен публично; hosting, модели и внешние API могут оплачиваться отдельно",
       "access": {
         "cost": "free",
@@ -29789,13 +30169,13 @@
       "risks": [
         "Лицензия, цена, permissions и обработка данных могут отличаться от краткого описания."
       ],
-      "verifiedAt": null,
+      "verifiedAt": "2026-08-17",
       "quickStart": [
         "Откройте официальный источник и проверьте владельца, лицензию и дату обновления.",
         "Не передавайте secrets или рабочие данные; начните с пустого тестового проекта.",
         "Сравните результат с текущим способом работы и только потом решайте об интеграции."
       ],
-      "reviewStatus": "inferred",
+      "reviewStatus": "verified",
       "source": {
         "file": "catalog/resources.json",
         "key": "pi-hole-docker-github-com",
@@ -29807,19 +30187,31 @@
         }
       },
       "addedAt": "2026-06-10",
+      "licenseEvidence": [
+        {
+          "kind": "license",
+          "label": "Official repository license file reviewed 2026-08-17",
+          "url": "https://github.com/pi-hole/docker-pi-hole/blob/master/LICENSE"
+        }
+      ],
       "catalogOrder": 1413,
       "licenseInfo": {
-        "label": "Нужно проверить в официальном источнике",
-        "original": "Нужно проверить в официальном источнике",
-        "spdx": null,
-        "kind": "unknown",
-        "status": "unverified",
-        "requiresReview": true,
+        "label": "EUPL-1.2",
+        "original": "EUPL-1.2 for current project code; pre-3.0 commits retain their earlier licenses",
+        "spdx": "EUPL-1.2",
+        "kind": "open-source",
+        "status": "source-declared",
+        "requiresReview": false,
         "evidence": [
           {
             "kind": "license",
             "label": "Other license",
             "url": "https://api.github.com/repos/pi-hole/docker-pi-hole/license"
+          },
+          {
+            "kind": "license",
+            "label": "Official repository license file reviewed 2026-08-17",
+            "url": "https://github.com/pi-hole/docker-pi-hole/blob/master/LICENSE"
           }
         ]
       },
@@ -29833,6 +30225,11 @@
           "kind": "license",
           "label": "Other license",
           "url": "https://api.github.com/repos/pi-hole/docker-pi-hole/license"
+        },
+        {
+          "kind": "license",
+          "label": "Official repository license file reviewed 2026-08-17",
+          "url": "https://github.com/pi-hole/docker-pi-hole/blob/master/LICENSE"
         }
       ],
       "agentEligibility": {
@@ -29938,7 +30335,7 @@
       "platforms": [
         "Web"
       ],
-      "license": "Нужно проверить в официальном источнике",
+      "license": "Авторский редакционный материал Eclipse Forge; внешние источники и встроенные материалы сохраняют собственные права и Terms",
       "pricing": "Исходный код доступен публично; hosting, модели и внешние API могут оплачиваться отдельно",
       "access": {
         "cost": "free",
@@ -29955,13 +30352,13 @@
       "risks": [
         "Лицензия, цена, permissions и обработка данных могут отличаться от краткого описания."
       ],
-      "verifiedAt": null,
+      "verifiedAt": "2026-08-17",
       "quickStart": [
         "Откройте официальный источник и проверьте владельца, лицензию и дату обновления.",
         "Не передавайте secrets или рабочие данные; начните с пустого тестового проекта.",
         "Сравните результат с текущим способом работы и только потом решайте об интеграции."
       ],
-      "reviewStatus": "inferred",
+      "reviewStatus": "verified",
       "source": {
         "file": "catalog/resources.json",
         "key": "finance-15-md-github-com",
@@ -29973,19 +30370,26 @@
         }
       },
       "addedAt": "2026-06-10",
+      "licenseEvidence": [
+        {
+          "kind": "license",
+          "label": "Eclipse Library editorial ownership boundary",
+          "url": "https://github.com/PavelHopson/eclipse-library#license"
+        }
+      ],
       "catalogOrder": 1420,
       "licenseInfo": {
-        "label": "Нужно проверить в официальном источнике",
-        "original": "Нужно проверить в официальном источнике",
+        "label": "Авторский редакционный материал Eclipse Forge; внешние источники и встроенные материалы сохраняют собственные права и Terms",
+        "original": "Авторский редакционный материал Eclipse Forge; внешние источники и встроенные материалы сохраняют собственные права и Terms",
         "spdx": null,
-        "kind": "unknown",
-        "status": "unverified",
-        "requiresReview": true,
+        "kind": "service-terms",
+        "status": "editor-reviewed",
+        "requiresReview": false,
         "evidence": [
           {
-            "kind": "official-source",
-            "label": "Официальный источник; точные условия ещё нужно сверить",
-            "url": "https://github.com/PavelHopson/eclipse-library/blob/master/prompts/finance-15.md"
+            "kind": "license",
+            "label": "Eclipse Library editorial ownership boundary",
+            "url": "https://github.com/PavelHopson/eclipse-library#license"
           }
         ]
       },
@@ -29994,6 +30398,11 @@
           "kind": "official-source",
           "label": "Официальный источник",
           "url": "https://github.com/PavelHopson/eclipse-library/blob/master/prompts/finance-15.md"
+        },
+        {
+          "kind": "license",
+          "label": "Eclipse Library editorial ownership boundary",
+          "url": "https://github.com/PavelHopson/eclipse-library#license"
         }
       ],
       "agentEligibility": {
@@ -30017,7 +30426,7 @@
       "platforms": [
         "Web"
       ],
-      "license": "Нужно проверить в официальном источнике",
+      "license": "Авторский редакционный материал Eclipse Forge; внешние источники и встроенные материалы сохраняют собственные права и Terms",
       "pricing": "Исходный код доступен публично; hosting, модели и внешние API могут оплачиваться отдельно",
       "access": {
         "cost": "free",
@@ -30034,13 +30443,13 @@
       "risks": [
         "Лицензия, цена, permissions и обработка данных могут отличаться от краткого описания."
       ],
-      "verifiedAt": null,
+      "verifiedAt": "2026-08-17",
       "quickStart": [
         "Откройте официальный источник и проверьте владельца, лицензию и дату обновления.",
         "Не передавайте secrets или рабочие данные; начните с пустого тестового проекта.",
         "Сравните результат с текущим способом работы и только потом решайте об интеграции."
       ],
-      "reviewStatus": "inferred",
+      "reviewStatus": "verified",
       "source": {
         "file": "catalog/resources.json",
         "key": "resume-boost-3-md-github-com",
@@ -30052,19 +30461,26 @@
         }
       },
       "addedAt": "2026-06-10",
+      "licenseEvidence": [
+        {
+          "kind": "license",
+          "label": "Eclipse Library editorial ownership boundary",
+          "url": "https://github.com/PavelHopson/eclipse-library#license"
+        }
+      ],
       "catalogOrder": 1421,
       "licenseInfo": {
-        "label": "Нужно проверить в официальном источнике",
-        "original": "Нужно проверить в официальном источнике",
+        "label": "Авторский редакционный материал Eclipse Forge; внешние источники и встроенные материалы сохраняют собственные права и Terms",
+        "original": "Авторский редакционный материал Eclipse Forge; внешние источники и встроенные материалы сохраняют собственные права и Terms",
         "spdx": null,
-        "kind": "unknown",
-        "status": "unverified",
-        "requiresReview": true,
+        "kind": "service-terms",
+        "status": "editor-reviewed",
+        "requiresReview": false,
         "evidence": [
           {
-            "kind": "official-source",
-            "label": "Официальный источник; точные условия ещё нужно сверить",
-            "url": "https://github.com/PavelHopson/eclipse-library/blob/master/prompts/resume-boost-3.md"
+            "kind": "license",
+            "label": "Eclipse Library editorial ownership boundary",
+            "url": "https://github.com/PavelHopson/eclipse-library#license"
           }
         ]
       },
@@ -30073,6 +30489,11 @@
           "kind": "official-source",
           "label": "Официальный источник",
           "url": "https://github.com/PavelHopson/eclipse-library/blob/master/prompts/resume-boost-3.md"
+        },
+        {
+          "kind": "license",
+          "label": "Eclipse Library editorial ownership boundary",
+          "url": "https://github.com/PavelHopson/eclipse-library#license"
         }
       ],
       "agentEligibility": {
@@ -30333,7 +30754,7 @@
       "platforms": [
         "Web"
       ],
-      "license": "Нужно проверить в официальном источнике",
+      "license": "AGPL-3.0-only",
       "pricing": "Исходный код доступен публично; hosting, модели и внешние API могут оплачиваться отдельно",
       "access": {
         "cost": "free",
@@ -30348,13 +30769,13 @@
       "risks": [
         "Есть признаки повышенного security, privacy или legal риска; не запускайте без ручного аудита и sandbox."
       ],
-      "verifiedAt": null,
+      "verifiedAt": "2026-08-17",
       "quickStart": [
         "Откройте официальный источник и проверьте владельца, лицензию и дату обновления.",
         "Не передавайте secrets или рабочие данные; начните с пустого тестового проекта.",
         "Сравните результат с текущим способом работы и только потом решайте об интеграции."
       ],
-      "reviewStatus": "inferred",
+      "reviewStatus": "verified",
       "source": {
         "file": "catalog/resources.json",
         "key": "repo-github-com",
@@ -30366,19 +30787,31 @@
         }
       },
       "addedAt": "2026-06-10",
+      "licenseEvidence": [
+        {
+          "kind": "license",
+          "label": "Official repository license file reviewed 2026-08-17",
+          "url": "https://github.com/PurpleDoubleD/locally-uncensored/blob/master/LICENSE"
+        }
+      ],
       "catalogOrder": 1449,
       "licenseInfo": {
-        "label": "Нужно проверить в официальном источнике",
-        "original": "Нужно проверить в официальном источнике",
+        "label": "AGPL-3.0-only",
+        "original": "AGPL-3.0-only",
         "spdx": null,
-        "kind": "unknown",
-        "status": "unverified",
-        "requiresReview": true,
+        "kind": "custom",
+        "status": "editor-reviewed",
+        "requiresReview": false,
         "evidence": [
           {
             "kind": "license",
             "label": "Other license",
             "url": "https://api.github.com/repos/purpledoubled/locally-uncensored/license"
+          },
+          {
+            "kind": "license",
+            "label": "Official repository license file reviewed 2026-08-17",
+            "url": "https://github.com/PurpleDoubleD/locally-uncensored/blob/master/LICENSE"
           }
         ]
       },
@@ -30392,13 +30825,17 @@
           "kind": "license",
           "label": "Other license",
           "url": "https://api.github.com/repos/purpledoubled/locally-uncensored/license"
+        },
+        {
+          "kind": "license",
+          "label": "Official repository license file reviewed 2026-08-17",
+          "url": "https://github.com/PurpleDoubleD/locally-uncensored/blob/master/LICENSE"
         }
       ],
       "agentEligibility": {
         "eligible": false,
         "reasons": [
-          "grey-resource",
-          "unverified-high-risk"
+          "grey-resource"
         ],
         "installAllowed": false
       }
@@ -30418,7 +30855,7 @@
       "platforms": [
         "Web"
       ],
-      "license": "Нужно проверить в официальном источнике",
+      "license": "Авторский редакционный материал Eclipse Forge; внешние источники и встроенные материалы сохраняют собственные права и Terms",
       "pricing": "Исходный код доступен публично; hosting, модели и внешние API могут оплачиваться отдельно",
       "access": {
         "cost": "free",
@@ -30433,13 +30870,13 @@
       "risks": [
         "Есть признаки повышенного security, privacy или legal риска; не запускайте без ручного аудита и sandbox."
       ],
-      "verifiedAt": null,
+      "verifiedAt": "2026-08-17",
       "quickStart": [
         "Откройте официальный источник и проверьте владельца, лицензию и дату обновления.",
         "Не передавайте secrets или рабочие данные; начните с пустого тестового проекта.",
         "Сравните результат с текущим способом работы и только потом решайте об интеграции."
       ],
-      "reviewStatus": "inferred",
+      "reviewStatus": "verified",
       "source": {
         "file": "catalog/resources.json",
         "key": "travel-hacking-10-github-com",
@@ -30451,19 +30888,26 @@
         }
       },
       "addedAt": "2026-06-10",
+      "licenseEvidence": [
+        {
+          "kind": "license",
+          "label": "Eclipse Library editorial ownership boundary",
+          "url": "https://github.com/PavelHopson/eclipse-library#license"
+        }
+      ],
       "catalogOrder": 1452,
       "licenseInfo": {
-        "label": "Нужно проверить в официальном источнике",
-        "original": "Нужно проверить в официальном источнике",
+        "label": "Авторский редакционный материал Eclipse Forge; внешние источники и встроенные материалы сохраняют собственные права и Terms",
+        "original": "Авторский редакционный материал Eclipse Forge; внешние источники и встроенные материалы сохраняют собственные права и Terms",
         "spdx": null,
-        "kind": "unknown",
-        "status": "unverified",
-        "requiresReview": true,
+        "kind": "service-terms",
+        "status": "editor-reviewed",
+        "requiresReview": false,
         "evidence": [
           {
-            "kind": "official-source",
-            "label": "Официальный источник; точные условия ещё нужно сверить",
-            "url": "https://github.com/PavelHopson/eclipse-library/blob/master/prompts/travel-hacking-10.md"
+            "kind": "license",
+            "label": "Eclipse Library editorial ownership boundary",
+            "url": "https://github.com/PavelHopson/eclipse-library#license"
           }
         ]
       },
@@ -30472,13 +30916,17 @@
           "kind": "official-source",
           "label": "Официальный источник",
           "url": "https://github.com/PavelHopson/eclipse-library/blob/master/prompts/travel-hacking-10.md"
+        },
+        {
+          "kind": "license",
+          "label": "Eclipse Library editorial ownership boundary",
+          "url": "https://github.com/PavelHopson/eclipse-library#license"
         }
       ],
       "agentEligibility": {
         "eligible": false,
         "reasons": [
-          "grey-resource",
-          "unverified-high-risk"
+          "grey-resource"
         ],
         "installAllowed": false
       }
@@ -32316,7 +32764,7 @@
       "platforms": [
         "Web"
       ],
-      "license": "Нужно проверить в официальном источнике",
+      "license": "Авторский редакционный материал Eclipse Forge; внешние источники и встроенные материалы сохраняют собственные права и Terms",
       "pricing": "Исходный код доступен публично; hosting, модели и внешние API могут оплачиваться отдельно",
       "access": {
         "cost": "free",
@@ -32333,13 +32781,13 @@
       "risks": [
         "Лицензия, цена, permissions и обработка данных могут отличаться от краткого описания."
       ],
-      "verifiedAt": null,
+      "verifiedAt": "2026-08-17",
       "quickStart": [
         "Откройте официальный источник и проверьте владельца, лицензию и дату обновления.",
         "Не передавайте secrets или рабочие данные; начните с пустого тестового проекта.",
         "Сравните результат с текущим способом работы и только потом решайте об интеграции."
       ],
-      "reviewStatus": "inferred",
+      "reviewStatus": "verified",
       "source": {
         "file": "catalog/resources.json",
         "key": "6-промптов-для-языка-github-com",
@@ -32351,19 +32799,26 @@
         }
       },
       "addedAt": "2026-06-23",
+      "licenseEvidence": [
+        {
+          "kind": "license",
+          "label": "Eclipse Library editorial ownership boundary",
+          "url": "https://github.com/PavelHopson/eclipse-library#license"
+        }
+      ],
       "catalogOrder": 1612,
       "licenseInfo": {
-        "label": "Нужно проверить в официальном источнике",
-        "original": "Нужно проверить в официальном источнике",
+        "label": "Авторский редакционный материал Eclipse Forge; внешние источники и встроенные материалы сохраняют собственные права и Terms",
+        "original": "Авторский редакционный материал Eclipse Forge; внешние источники и встроенные материалы сохраняют собственные права и Terms",
         "spdx": null,
-        "kind": "unknown",
-        "status": "unverified",
-        "requiresReview": true,
+        "kind": "service-terms",
+        "status": "editor-reviewed",
+        "requiresReview": false,
         "evidence": [
           {
-            "kind": "official-source",
-            "label": "Официальный источник; точные условия ещё нужно сверить",
-            "url": "https://github.com/PavelHopson/eclipse-library/blob/master/prompts/language-learning-6.md"
+            "kind": "license",
+            "label": "Eclipse Library editorial ownership boundary",
+            "url": "https://github.com/PavelHopson/eclipse-library#license"
           }
         ]
       },
@@ -32372,6 +32827,11 @@
           "kind": "official-source",
           "label": "Официальный источник",
           "url": "https://github.com/PavelHopson/eclipse-library/blob/master/prompts/language-learning-6.md"
+        },
+        {
+          "kind": "license",
+          "label": "Eclipse Library editorial ownership boundary",
+          "url": "https://github.com/PavelHopson/eclipse-library#license"
         }
       ],
       "agentEligibility": {
@@ -32569,7 +33029,7 @@
       "platforms": [
         "Web"
       ],
-      "license": "Нужно проверить в официальном источнике",
+      "license": "Авторский редакционный материал Eclipse Forge; внешние источники и встроенные материалы сохраняют собственные права и Terms",
       "pricing": "Исходный код доступен публично; hosting, модели и внешние API могут оплачиваться отдельно",
       "access": {
         "cost": "free",
@@ -32586,13 +33046,13 @@
       "risks": [
         "Лицензия, цена, permissions и обработка данных могут отличаться от краткого описания."
       ],
-      "verifiedAt": null,
+      "verifiedAt": "2026-08-17",
       "quickStart": [
         "Откройте официальный источник и проверьте владельца, лицензию и дату обновления.",
         "Не передавайте secrets или рабочие данные; начните с пустого тестового проекта.",
         "Сравните результат с текущим способом работы и только потом решайте об интеграции."
       ],
-      "reviewStatus": "inferred",
+      "reviewStatus": "verified",
       "source": {
         "file": "catalog/resources.json",
         "key": "настройки-камеры-iphone-для-контента-github-com",
@@ -32604,19 +33064,26 @@
         }
       },
       "addedAt": "2026-06-23",
+      "licenseEvidence": [
+        {
+          "kind": "license",
+          "label": "Eclipse Library editorial ownership boundary",
+          "url": "https://github.com/PavelHopson/eclipse-library#license"
+        }
+      ],
       "catalogOrder": 1631,
       "licenseInfo": {
-        "label": "Нужно проверить в официальном источнике",
-        "original": "Нужно проверить в официальном источнике",
+        "label": "Авторский редакционный материал Eclipse Forge; внешние источники и встроенные материалы сохраняют собственные права и Terms",
+        "original": "Авторский редакционный материал Eclipse Forge; внешние источники и встроенные материалы сохраняют собственные права и Terms",
         "spdx": null,
-        "kind": "unknown",
-        "status": "unverified",
-        "requiresReview": true,
+        "kind": "service-terms",
+        "status": "editor-reviewed",
+        "requiresReview": false,
         "evidence": [
           {
-            "kind": "official-source",
-            "label": "Официальный источник; точные условия ещё нужно сверить",
-            "url": "https://github.com/PavelHopson/eclipse-library/blob/master/guides/iphone-camera-content.md"
+            "kind": "license",
+            "label": "Eclipse Library editorial ownership boundary",
+            "url": "https://github.com/PavelHopson/eclipse-library#license"
           }
         ]
       },
@@ -32625,6 +33092,11 @@
           "kind": "official-source",
           "label": "Официальный источник",
           "url": "https://github.com/PavelHopson/eclipse-library/blob/master/guides/iphone-camera-content.md"
+        },
+        {
+          "kind": "license",
+          "label": "Eclipse Library editorial ownership boundary",
+          "url": "https://github.com/PavelHopson/eclipse-library#license"
         }
       ],
       "agentEligibility": {
@@ -32648,7 +33120,7 @@
       "platforms": [
         "Android"
       ],
-      "license": "Нужно проверить в официальном источнике",
+      "license": "Авторский редакционный материал Eclipse Forge; внешние источники и встроенные материалы сохраняют собственные права и Terms",
       "pricing": "Исходный код доступен публично; hosting, модели и внешние API могут оплачиваться отдельно",
       "access": {
         "cost": "free",
@@ -32663,13 +33135,13 @@
       "risks": [
         "Есть признаки повышенного security, privacy или legal риска; не запускайте без ручного аудита и sandbox."
       ],
-      "verifiedAt": null,
+      "verifiedAt": "2026-08-17",
       "quickStart": [
         "Откройте официальный источник и проверьте владельца, лицензию и дату обновления.",
         "Не передавайте secrets или рабочие данные; начните с пустого тестового проекта.",
         "Сравните результат с текущим способом работы и только потом решайте об интеграции."
       ],
-      "reviewStatus": "inferred",
+      "reviewStatus": "verified",
       "source": {
         "file": "catalog/resources.json",
         "key": "cua-для-device-qa-claude-code-github-com",
@@ -32681,19 +33153,26 @@
         }
       },
       "addedAt": "2026-06-23",
+      "licenseEvidence": [
+        {
+          "kind": "license",
+          "label": "Eclipse Library editorial ownership boundary",
+          "url": "https://github.com/PavelHopson/eclipse-library#license"
+        }
+      ],
       "catalogOrder": 1632,
       "licenseInfo": {
-        "label": "Нужно проверить в официальном источнике",
-        "original": "Нужно проверить в официальном источнике",
+        "label": "Авторский редакционный материал Eclipse Forge; внешние источники и встроенные материалы сохраняют собственные права и Terms",
+        "original": "Авторский редакционный материал Eclipse Forge; внешние источники и встроенные материалы сохраняют собственные права и Terms",
         "spdx": null,
-        "kind": "unknown",
-        "status": "unverified",
-        "requiresReview": true,
+        "kind": "service-terms",
+        "status": "editor-reviewed",
+        "requiresReview": false,
         "evidence": [
           {
-            "kind": "official-source",
-            "label": "Официальный источник; точные условия ещё нужно сверить",
-            "url": "https://github.com/PavelHopson/eclipse-library/blob/master/guides/cua-device-qa.md"
+            "kind": "license",
+            "label": "Eclipse Library editorial ownership boundary",
+            "url": "https://github.com/PavelHopson/eclipse-library#license"
           }
         ]
       },
@@ -32702,13 +33181,17 @@
           "kind": "official-source",
           "label": "Официальный источник",
           "url": "https://github.com/PavelHopson/eclipse-library/blob/master/guides/cua-device-qa.md"
+        },
+        {
+          "kind": "license",
+          "label": "Eclipse Library editorial ownership boundary",
+          "url": "https://github.com/PavelHopson/eclipse-library#license"
         }
       ],
       "agentEligibility": {
         "eligible": false,
         "reasons": [
-          "grey-resource",
-          "unverified-high-risk"
+          "grey-resource"
         ],
         "installAllowed": false
       }
@@ -34436,7 +34919,7 @@
       "platforms": [
         "Web"
       ],
-      "license": "Нужно проверить в официальном источнике",
+      "license": "Авторский редакционный материал Eclipse Forge; внешние источники и встроенные материалы сохраняют собственные права и Terms",
       "pricing": "Исходный код доступен публично; hosting, модели и внешние API могут оплачиваться отдельно",
       "access": {
         "cost": "free",
@@ -34460,13 +34943,13 @@
       "risks": [
         "Лицензия, цена, permissions и обработка данных могут отличаться от краткого описания."
       ],
-      "verifiedAt": null,
+      "verifiedAt": "2026-08-17",
       "quickStart": [
         "Откройте официальный источник и проверьте владельца, лицензию и дату обновления.",
         "Не передавайте secrets или рабочие данные; начните с пустого тестового проекта.",
         "Сравните результат с текущим способом работы и только потом решайте об интеграции."
       ],
-      "reviewStatus": "inferred",
+      "reviewStatus": "verified",
       "source": {
         "file": "catalog/resources.json",
         "key": "july-2026-project-integration-github-com",
@@ -34478,19 +34961,26 @@
         }
       },
       "addedAt": "2026-06-30",
+      "licenseEvidence": [
+        {
+          "kind": "license",
+          "label": "Eclipse Library editorial ownership boundary",
+          "url": "https://github.com/PavelHopson/eclipse-library#license"
+        }
+      ],
       "catalogOrder": 1791,
       "licenseInfo": {
-        "label": "Нужно проверить в официальном источнике",
-        "original": "Нужно проверить в официальном источнике",
+        "label": "Авторский редакционный материал Eclipse Forge; внешние источники и встроенные материалы сохраняют собственные права и Terms",
+        "original": "Авторский редакционный материал Eclipse Forge; внешние источники и встроенные материалы сохраняют собственные права и Terms",
         "spdx": null,
-        "kind": "unknown",
-        "status": "unverified",
-        "requiresReview": true,
+        "kind": "service-terms",
+        "status": "editor-reviewed",
+        "requiresReview": false,
         "evidence": [
           {
-            "kind": "official-source",
-            "label": "Официальный источник; точные условия ещё нужно сверить",
-            "url": "https://github.com/PavelHopson/eclipse-library/blob/master/guides/july-2026-project-integration.md"
+            "kind": "license",
+            "label": "Eclipse Library editorial ownership boundary",
+            "url": "https://github.com/PavelHopson/eclipse-library#license"
           }
         ]
       },
@@ -34499,6 +34989,11 @@
           "kind": "official-source",
           "label": "Официальный источник",
           "url": "https://github.com/PavelHopson/eclipse-library/blob/master/guides/july-2026-project-integration.md"
+        },
+        {
+          "kind": "license",
+          "label": "Eclipse Library editorial ownership boundary",
+          "url": "https://github.com/PavelHopson/eclipse-library#license"
         }
       ],
       "agentEligibility": {
@@ -35098,7 +35593,7 @@
         "CLI",
         "Self-host"
       ],
-      "license": "MIT",
+      "license": "Split license: skills/packages MIT; engine, browse, proxy, MCP, shrink, memory core/shared platform BSL-1.1. BSL permits internal first-party self-host, but third-party hosted/managed/embedded use needs a commercial license until conversion.",
       "licenseEvidence": [
         {
           "kind": "license",
@@ -35152,11 +35647,11 @@
       "guide": "creator-ops-stack",
       "catalogOrder": 1836,
       "licenseInfo": {
-        "label": "MIT",
+        "label": "Split license: skills/packages MIT; engine, browse, proxy, MCP, shrink, memory core/shared platform BSL-1.1. BSL permits internal first-party self-host, but third-party hosted/managed/embedded use needs a commercial license until conversion.",
         "original": "Split license: skills/packages MIT; engine, browse, proxy, MCP, shrink, memory core/shared platform BSL-1.1. BSL permits internal first-party self-host, but third-party hosted/managed/embedded use needs a commercial license until conversion.",
-        "spdx": "MIT",
-        "kind": "open-source",
-        "status": "source-declared",
+        "spdx": null,
+        "kind": "custom",
+        "status": "editor-reviewed",
         "requiresReview": false,
         "evidence": [
           {
@@ -37376,7 +37871,7 @@
       "platforms": [
         "Web"
       ],
-      "license": "Нужно проверить в официальном источнике",
+      "license": "Elastic-2.0",
       "pricing": "Исходный код доступен публично; hosting, модели и внешние API могут оплачиваться отдельно",
       "access": {
         "cost": "free",
@@ -37395,13 +37890,13 @@
       "risks": [
         "Лицензия, цена, permissions и обработка данных могут отличаться от краткого описания."
       ],
-      "verifiedAt": null,
+      "verifiedAt": "2026-08-17",
       "quickStart": [
         "Откройте официальный источник и проверьте владельца, лицензию и дату обновления.",
         "Не передавайте secrets или рабочие данные; начните с пустого тестового проекта.",
         "Сравните результат с текущим способом работы и только потом решайте об интеграции."
       ],
-      "reviewStatus": "inferred",
+      "reviewStatus": "verified",
       "source": {
         "file": "catalog/resources.json",
         "key": "sqz-github-com",
@@ -37413,19 +37908,31 @@
         }
       },
       "addedAt": "2026-07-09",
+      "licenseEvidence": [
+        {
+          "kind": "license",
+          "label": "Official repository license file reviewed 2026-08-17",
+          "url": "https://github.com/ojuschugh1/sqz/blob/main/LICENSE"
+        }
+      ],
       "catalogOrder": 2038,
       "licenseInfo": {
-        "label": "Нужно проверить в официальном источнике",
-        "original": "Нужно проверить в официальном источнике",
-        "spdx": null,
-        "kind": "unknown",
-        "status": "unverified",
-        "requiresReview": true,
+        "label": "Elastic-2.0",
+        "original": "Elastic-2.0 (source-available; managed-service and license-key restrictions apply)",
+        "spdx": "Elastic-2.0",
+        "kind": "source-available",
+        "status": "source-declared",
+        "requiresReview": false,
         "evidence": [
           {
             "kind": "license",
             "label": "Other license",
             "url": "https://api.github.com/repos/ojuschugh1/sqz/license"
+          },
+          {
+            "kind": "license",
+            "label": "Official repository license file reviewed 2026-08-17",
+            "url": "https://github.com/ojuschugh1/sqz/blob/main/LICENSE"
           }
         ]
       },
@@ -37439,6 +37946,11 @@
           "kind": "license",
           "label": "Other license",
           "url": "https://api.github.com/repos/ojuschugh1/sqz/license"
+        },
+        {
+          "kind": "license",
+          "label": "Official repository license file reviewed 2026-08-17",
+          "url": "https://github.com/ojuschugh1/sqz/blob/main/LICENSE"
         }
       ],
       "agentEligibility": {
@@ -37462,7 +37974,7 @@
       "platforms": [
         "Self-host"
       ],
-      "license": "Нужно проверить в официальном источнике",
+      "license": "MIT",
       "pricing": "Исходный код доступен публично; hosting, модели и внешние API могут оплачиваться отдельно",
       "access": {
         "cost": "free",
@@ -37479,13 +37991,13 @@
       "risks": [
         "Лицензия, цена, permissions и обработка данных могут отличаться от краткого описания."
       ],
-      "verifiedAt": null,
+      "verifiedAt": "2026-08-17",
       "quickStart": [
         "Откройте официальный источник и проверьте владельца, лицензию и дату обновления.",
         "Не передавайте secrets или рабочие данные; начните с пустого тестового проекта.",
         "Сравните результат с текущим способом работы и только потом решайте об интеграции."
       ],
-      "reviewStatus": "inferred",
+      "reviewStatus": "verified",
       "source": {
         "file": "catalog/resources.json",
         "key": "destructive-command-guard-github-com",
@@ -37497,19 +38009,31 @@
         }
       },
       "addedAt": "2026-07-09",
+      "licenseEvidence": [
+        {
+          "kind": "license",
+          "label": "Official repository license file reviewed 2026-08-17",
+          "url": "https://github.com/Dicklesworthstone/destructive_command_guard/blob/main/LICENSE"
+        }
+      ],
       "catalogOrder": 2039,
       "licenseInfo": {
-        "label": "Нужно проверить в официальном источнике",
-        "original": "Нужно проверить в официальном источнике",
-        "spdx": null,
-        "kind": "unknown",
-        "status": "unverified",
-        "requiresReview": true,
+        "label": "MIT",
+        "original": "Custom MIT-derived license with an additional OpenAI/Anthropic exclusion rider; not standard MIT",
+        "spdx": "MIT",
+        "kind": "open-source",
+        "status": "source-declared",
+        "requiresReview": false,
         "evidence": [
           {
             "kind": "license",
             "label": "Other license",
             "url": "https://api.github.com/repos/dicklesworthstone/destructive_command_guard/license"
+          },
+          {
+            "kind": "license",
+            "label": "Official repository license file reviewed 2026-08-17",
+            "url": "https://github.com/Dicklesworthstone/destructive_command_guard/blob/main/LICENSE"
           }
         ]
       },
@@ -37523,6 +38047,11 @@
           "kind": "license",
           "label": "Other license",
           "url": "https://api.github.com/repos/dicklesworthstone/destructive_command_guard/license"
+        },
+        {
+          "kind": "license",
+          "label": "Official repository license file reviewed 2026-08-17",
+          "url": "https://github.com/Dicklesworthstone/destructive_command_guard/blob/main/LICENSE"
         }
       ],
       "agentEligibility": {
@@ -37911,7 +38440,7 @@
       "platforms": [
         "Web"
       ],
-      "license": "Нужно проверить в официальном источнике",
+      "license": "Dual license: MIT for source/site-authored content and CC0-1.0 for prompt data",
       "pricing": "Исходный код доступен публично; hosting, модели и внешние API могут оплачиваться отдельно",
       "access": {
         "cost": "free",
@@ -37929,13 +38458,13 @@
       "risks": [
         "Лицензия, цена, permissions и обработка данных могут отличаться от краткого описания."
       ],
-      "verifiedAt": null,
+      "verifiedAt": "2026-08-17",
       "quickStart": [
         "Откройте официальный источник и проверьте владельца, лицензию и дату обновления.",
         "Не передавайте secrets или рабочие данные; начните с пустого тестового проекта.",
         "Сравните результат с текущим способом работы и только потом решайте об интеграции."
       ],
-      "reviewStatus": "inferred",
+      "reviewStatus": "verified",
       "source": {
         "file": "catalog/resources.json",
         "key": "prompts-chat-github-com",
@@ -37947,19 +38476,31 @@
         }
       },
       "addedAt": "2026-07-09",
+      "licenseEvidence": [
+        {
+          "kind": "license",
+          "label": "Official repository license file reviewed 2026-08-17",
+          "url": "https://github.com/f/prompts.chat/blob/main/LICENSE"
+        }
+      ],
       "catalogOrder": 2054,
       "licenseInfo": {
-        "label": "Нужно проверить в официальном источнике",
-        "original": "Нужно проверить в официальном источнике",
+        "label": "Dual license: MIT for source/site-authored content and CC0-1.0 for prompt data",
+        "original": "Dual license: MIT for source/site-authored content and CC0-1.0 for prompt data",
         "spdx": null,
-        "kind": "unknown",
-        "status": "unverified",
-        "requiresReview": true,
+        "kind": "custom",
+        "status": "editor-reviewed",
+        "requiresReview": false,
         "evidence": [
           {
             "kind": "license",
             "label": "Other license",
             "url": "https://api.github.com/repos/f/prompts.chat/license"
+          },
+          {
+            "kind": "license",
+            "label": "Official repository license file reviewed 2026-08-17",
+            "url": "https://github.com/f/prompts.chat/blob/main/LICENSE"
           }
         ]
       },
@@ -37973,6 +38514,11 @@
           "kind": "license",
           "label": "Other license",
           "url": "https://api.github.com/repos/f/prompts.chat/license"
+        },
+        {
+          "kind": "license",
+          "label": "Official repository license file reviewed 2026-08-17",
+          "url": "https://github.com/f/prompts.chat/blob/main/LICENSE"
         }
       ],
       "agentEligibility": {
@@ -38250,7 +38796,7 @@
         "Linux",
         "Self-host"
       ],
-      "license": "Нужно проверить в официальном источнике",
+      "license": "Dual license: AGPL-3.0 for compliant open-source/network use or a separate BYTEDz commercial license",
       "pricing": "Исходный код доступен публично; hosting, модели и внешние API могут оплачиваться отдельно",
       "access": {
         "cost": "free",
@@ -38267,13 +38813,13 @@
       "risks": [
         "Лицензия, цена, permissions и обработка данных могут отличаться от краткого описания."
       ],
-      "verifiedAt": null,
+      "verifiedAt": "2026-08-17",
       "quickStart": [
         "Откройте официальный источник и проверьте владельца, лицензию и дату обновления.",
         "Не передавайте secrets или рабочие данные; начните с пустого тестового проекта.",
         "Сравните результат с текущим способом работы и только потом решайте об интеграции."
       ],
-      "reviewStatus": "inferred",
+      "reviewStatus": "verified",
       "source": {
         "file": "catalog/resources.json",
         "key": "pclink-github-com",
@@ -38285,19 +38831,31 @@
         }
       },
       "addedAt": "2026-07-09",
+      "licenseEvidence": [
+        {
+          "kind": "license",
+          "label": "Official repository license file reviewed 2026-08-17",
+          "url": "https://github.com/BYTEDz/PCLink/blob/main/LICENSE"
+        }
+      ],
       "catalogOrder": 2063,
       "licenseInfo": {
-        "label": "Нужно проверить в официальном источнике",
-        "original": "Нужно проверить в официальном источнике",
+        "label": "Dual license: AGPL-3.0 for compliant open-source/network use or a separate BYTEDz commercial license",
+        "original": "Dual license: AGPL-3.0 for compliant open-source/network use or a separate BYTEDz commercial license",
         "spdx": null,
-        "kind": "unknown",
-        "status": "unverified",
-        "requiresReview": true,
+        "kind": "custom",
+        "status": "editor-reviewed",
+        "requiresReview": false,
         "evidence": [
           {
             "kind": "license",
             "label": "Other license",
             "url": "https://api.github.com/repos/bytedz/pclink/license"
+          },
+          {
+            "kind": "license",
+            "label": "Official repository license file reviewed 2026-08-17",
+            "url": "https://github.com/BYTEDz/PCLink/blob/main/LICENSE"
           }
         ]
       },
@@ -38311,6 +38869,11 @@
           "kind": "license",
           "label": "Other license",
           "url": "https://api.github.com/repos/bytedz/pclink/license"
+        },
+        {
+          "kind": "license",
+          "label": "Official repository license file reviewed 2026-08-17",
+          "url": "https://github.com/BYTEDz/PCLink/blob/main/LICENSE"
         }
       ],
       "agentEligibility": {
@@ -44240,7 +44803,7 @@
         "Self-host",
         "Cloud"
       ],
-      "license": "AGPL-3.0",
+      "license": "Dual licensing: AGPL-3.0 для open-source/non-commercial сценариев; upstream требует отдельную платную Commercial License для любого business или internal company use",
       "pricing": "Community source доступен публично; commercial/private edition, market-data feeds и внешние providers могут быть платными",
       "access": {
         "cost": "freemium",
@@ -44283,11 +44846,11 @@
       "addedAt": "2026-08-02",
       "catalogOrder": 2423,
       "licenseInfo": {
-        "label": "AGPL-3.0",
+        "label": "Dual licensing: AGPL-3.0 для open-source/non-commercial сценариев; upstream требует отдельную платную Commercial License для любого business или internal company use",
         "original": "Dual licensing: AGPL-3.0 для open-source/non-commercial сценариев; upstream требует отдельную платную Commercial License для любого business или internal company use",
-        "spdx": "AGPL-3.0",
-        "kind": "open-source",
-        "status": "source-declared",
+        "spdx": null,
+        "kind": "custom",
+        "status": "editor-reviewed",
         "requiresReview": false,
         "evidence": [
           {
@@ -46489,7 +47052,7 @@
         "Git",
         "Web UI"
       ],
-      "license": "AGPL-3.0",
+      "license": "AGPL-3.0; commercial license требуется для embedding без AGPL obligations",
       "licenseEvidence": [
         {
           "kind": "license",
@@ -46537,11 +47100,11 @@
       "addedAt": "2026-08-06",
       "catalogOrder": 2451,
       "licenseInfo": {
-        "label": "AGPL-3.0",
+        "label": "AGPL-3.0; commercial license требуется для embedding без AGPL obligations",
         "original": "AGPL-3.0; commercial license требуется для embedding без AGPL obligations",
-        "spdx": "AGPL-3.0",
-        "kind": "open-source",
-        "status": "source-declared",
+        "spdx": null,
+        "kind": "custom",
+        "status": "editor-reviewed",
         "requiresReview": false,
         "evidence": [
           {

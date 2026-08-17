@@ -58,3 +58,35 @@ test('normalizes Creative Commons catalog licenses', () => {
   assert.equal(cc0.kind, 'open-source');
   assert.equal(attribution.spdx, 'CC-BY-4.0');
 });
+
+
+test('keeps non-commercial and rider licenses out of the open-source bucket', () => {
+  const nonCommercial = normalizeLicense(
+    { license: 'CC-BY-NC-4.0; non-commercial content license', reviewStatus: 'verified', url: 'https://example.com/license' },
+    null,
+  );
+  const rider = normalizeLicense(
+    { license: 'MIT with an additional rider restricting named parties', reviewStatus: 'verified', url: 'https://example.com/license' },
+    { licenseInfo: { name: 'Other', spdxId: 'NOASSERTION', url: 'https://api.github.com/repos/example/project/license' } },
+  );
+  assert.equal(nonCommercial.spdx, 'CC-BY-NC-4.0');
+  assert.equal(nonCommercial.kind, 'custom');
+  assert.equal(nonCommercial.requiresReview, false);
+  assert.equal(rider.spdx, null);
+  assert.equal(rider.kind, 'custom');
+});
+
+test('normalizes reviewed copyleft and source-available licenses', () => {
+  const lgpl = normalizeLicense(
+    { license: 'LGPL-3.0-or-later', reviewStatus: 'verified', url: 'https://example.com/license' },
+    null,
+  );
+  const elastic = normalizeLicense(
+    { license: 'Elastic-2.0', reviewStatus: 'verified', url: 'https://example.com/license' },
+    null,
+  );
+  assert.equal(lgpl.spdx, 'LGPL-3.0-or-later');
+  assert.equal(lgpl.kind, 'open-source');
+  assert.equal(elastic.spdx, 'Elastic-2.0');
+  assert.equal(elastic.kind, 'source-available');
+});

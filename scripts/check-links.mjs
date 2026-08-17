@@ -107,6 +107,24 @@ function assertAddressSafetyRules() {
 
 assertAddressSafetyRules();
 
+function activeRestriction(collection, value) {
+  const hostname = new URL(value).hostname.toLowerCase().replace(/^www\./, '');
+  const restriction = collection?.[hostname];
+  if (!restriction) return null;
+  const expiresAt = Date.parse(restriction.expiresAt + 'T23:59:59Z');
+  if (!restriction.reason || !Number.isFinite(expiresAt) || expiresAt < Date.now()) return null;
+  return restriction;
+}
+
+function fetchFailureRestriction(value) {
+  return activeRestriction(allowlist.fetchFailureRestrictions, value);
+}
+
+function responseStatusRestriction(value, status) {
+  const restriction = activeRestriction(allowlist.statusRestrictions, value);
+  return restriction?.statuses?.includes(status) ? restriction : null;
+}
+
 async function assertPublicDestination(value) {
   const url = new URL(value);
   const hostname = url.hostname.toLowerCase().replace(/^\[|\]$/g, '');
@@ -141,22 +159,42 @@ async function requestWithTimeout(initialUrl, options, timeoutMs) {
   throw new Error('too many redirects');
 }
 
+function auditHeaders(url) {
+  const hostname = new URL(url).hostname.toLowerCase();
+  return {
+    'user-agent': 'Mozilla/5.0 EclipseLibraryLinkAudit/1.1',
+    accept: 'text/html,application/xhtml+xml,application/json;q=0.9,*/*;q=0.8',
+    ...(hostname.endsWith('apple.com')
+      ? {}
+      : { 'accept-language': hostname.endsWith('coursera.org') ? 'en-US,en;q=0.8' : 'en-US,en;q=0.7,ru;q=0.5' }),
+  };
+}
+
+async function auditRequest(url, method, timeoutMs) {
+  return requestWithTimeout(url, {
+    method,
+    headers: auditHeaders(url),
+  }, timeoutMs);
+}
+
 async function checkUrl(resource, timeoutMs = 8000) {
   const startedAt = Date.now();
   try {
     const hostname = new URL(resource.url).hostname.replace(/^www\./, '').toLowerCase();
     if (allowlist.skipDomains.includes(hostname)) return { ...resource, status: 'skipped', finalUrl: resource.url, httpStatus: null, durationMs: 0 };
-    let { response, finalUrl } = await requestWithTimeout(resource.url, {
-      method: 'HEAD',
-      headers: { 'user-agent': 'Eclipse-Library-Link-Audit/1.0' },
-    }, timeoutMs);
-    if (response.status >= 400 && !allowlist.acceptedStatuses.includes(response.status)) {
-      ({ response, finalUrl } = await requestWithTimeout(resource.url, {
-        method: 'GET',
-        headers: { 'user-agent': 'Eclipse-Library-Link-Audit/1.0' },
-      }, timeoutMs));
+    let response;
+    let finalUrl;
+    try {
+      ({ response, finalUrl } = await auditRequest(resource.url, 'HEAD', timeoutMs));
+    } catch {
+      ({ response, finalUrl } = await auditRequest(resource.url, 'GET', timeoutMs));
     }
-    const restricted = allowlist.acceptedStatuses.includes(response.status);
+    if (response.status === 405 || (response.status >= 400 && !allowlist.acceptedStatuses.includes(response.status))) {
+      await response.body?.cancel();
+      ({ response, finalUrl } = await auditRequest(resource.url, 'GET', timeoutMs));
+    }
+    const statusRestriction = response.ok ? null : responseStatusRestriction(resource.url, response.status);
+    const restricted = allowlist.acceptedStatuses.includes(response.status) || Boolean(statusRestriction);
     const status = response.ok
       ? 'ok'
       : restricted
@@ -164,21 +202,29 @@ async function checkUrl(resource, timeoutMs = 8000) {
         : response.status >= 500
           ? 'unavailable'
           : 'broken';
-    return {
+    const result = {
       ...resource,
       status,
       finalUrl,
       httpStatus: response.status,
       durationMs: Date.now() - startedAt,
+      ...(statusRestriction
+        ? { restrictionReason: statusRestriction.reason, restrictionExpiresAt: statusRestriction.expiresAt }
+        : {}),
     };
+    await response.body?.cancel();
+    return result;
   } catch (error) {
+    const blocked = /^blocked /.test(String(error?.message || ''));
+    const restriction = blocked ? null : fetchFailureRestriction(resource.url);
     return {
       ...resource,
-      status: /^blocked /.test(String(error?.message || '')) ? 'blocked' : 'unknown',
+      status: blocked ? 'blocked' : restriction ? 'restricted' : 'unknown',
       finalUrl: resource.url,
       httpStatus: null,
       durationMs: Date.now() - startedAt,
       error: error?.name === 'AbortError' ? 'timeout' : String(error?.message || error),
+      ...(restriction ? { restrictionReason: restriction.reason, restrictionExpiresAt: restriction.expiresAt } : {}),
     };
   }
 }
