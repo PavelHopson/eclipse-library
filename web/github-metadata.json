@@ -1,9 +1,9 @@
 {
   "schemaVersion": 1,
-  "checkedAt": "2026-08-17T04:59:50.477Z",
+  "checkedAt": "2026-08-18T15:55:00.000Z",
   "totals": {
-    "repositories": 326,
-    "active": 323,
+    "repositories": 331,
+    "active": 328,
     "archived": 3,
     "disabled": 0,
     "unknown": 0
@@ -1198,6 +1198,18 @@
       "licenseInfo": null
     },
     {
+      "key": "firecrawl/pdf-inspector",
+      "state": "active",
+      "url": "https://github.com/firecrawl/pdf-inspector",
+      "pushedAt": "2026-08-18T14:38:19Z",
+      "updatedAt": "2026-08-18T15:44:47Z",
+      "licenseInfo": {
+        "name": "MIT License",
+        "spdxId": "MIT",
+        "url": "https://api.github.com/repos/firecrawl/pdf-inspector/license"
+      }
+    },
+    {
       "key": "flow-launcher/flow.launcher",
       "state": "active",
       "url": "https://github.com/Flow-Launcher/Flow.Launcher",
@@ -1532,6 +1544,14 @@
         "spdxId": "MIT",
         "url": "https://api.github.com/repos/inulute/unlim-cloud/license"
       }
+    },
+    {
+      "key": "itcaat/after-enter",
+      "state": "active",
+      "url": "https://github.com/itcaat/after-enter",
+      "pushedAt": "2026-08-02T07:53:14Z",
+      "updatedAt": "2026-08-10T18:17:36Z",
+      "licenseInfo": null
     },
     {
       "key": "itsowen/cyberscraper-2077",
@@ -2135,6 +2155,18 @@
         "name": "MIT License",
         "spdxId": "MIT",
         "url": "https://api.github.com/repos/moonshotai/kimi-code/license"
+      }
+    },
+    {
+      "key": "morpheapp/morphe-manager",
+      "state": "active",
+      "url": "https://github.com/MorpheApp/morphe-manager",
+      "pushedAt": "2026-08-18T15:53:41Z",
+      "updatedAt": "2026-08-18T15:52:45Z",
+      "licenseInfo": {
+        "name": "GNU General Public License v3.0",
+        "spdxId": "GPL-3.0",
+        "url": "https://api.github.com/repos/morpheapp/morphe-manager/license"
       }
     },
     {
@@ -3450,6 +3482,18 @@
       }
     },
     {
+      "key": "thejoefin/text-grab",
+      "state": "active",
+      "url": "https://github.com/TheJoeFin/Text-Grab",
+      "pushedAt": "2026-08-12T01:12:39Z",
+      "updatedAt": "2026-08-18T03:31:40Z",
+      "licenseInfo": {
+        "name": "MIT License",
+        "spdxId": "MIT",
+        "url": "https://api.github.com/repos/thejoefin/text-grab/license"
+      }
+    },
+    {
       "key": "thisal-d/pytube-downloader",
       "state": "active",
       "url": "https://github.com/thisal-d/pytube-downloader",
@@ -3563,6 +3607,18 @@
         "name": "Apache License 2.0",
         "spdxId": "Apache-2.0",
         "url": "https://api.github.com/repos/usestrix/strix/license"
+      }
+    },
+    {
+      "key": "valleyofdoom/pc-tuning",
+      "state": "active",
+      "url": "https://github.com/valleyofdoom/PC-Tuning",
+      "pushedAt": "2026-08-16T22:20:09Z",
+      "updatedAt": "2026-08-18T15:16:38Z",
+      "licenseInfo": {
+        "name": "GNU General Public License v3.0",
+        "spdxId": "GPL-3.0",
+        "url": "https://api.github.com/repos/valleyofdoom/pc-tuning/license"
       }
     },
     {

@@ -1,20 +1,20 @@
 {
   "schemaVersion": 2,
-  "sourceHash": "73db57997b34d2631095d532cf558518147c58ac219a19ee0380492f00938488",
+  "sourceHash": "a9522b1aeecc8a6dae8f385fa6122f7b79a6950e63d59c10636f3e45b7050a0c",
   "policy": {
     "canonicalSource": "catalog/resources.json",
     "directInstallForbidden": true,
     "greyResourcesExcludedFromAgentRecommendations": true
   },
   "totals": {
-    "all": 629,
-    "verified": 234,
-    "inferred": 395,
-    "licenseReviewRequired": 240,
-    "agentSafe": 553,
-    "agentExcluded": 76,
-    "grey": 69,
-    "withAddedAt": 348
+    "all": 637,
+    "verified": 254,
+    "inferred": 383,
+    "licenseReviewRequired": 226,
+    "agentSafe": 560,
+    "agentExcluded": 77,
+    "grey": 70,
+    "withAddedAt": 356
   },
   "items": [
     {
@@ -14093,6 +14093,161 @@
       }
     },
     {
+      "id": "firecrawl-pdf-inspector",
+      "url": "https://github.com/firecrawl/pdf-inspector",
+      "title": "Firecrawl PDF Inspector",
+      "type": "oss",
+      "category": "AI и агенты",
+      "subcategory": "Document ingestion / PDF routing",
+      "simpleDescription": "Firecrawl PDF Inspector быстро определяет, содержит ли PDF нормальный текст или требует OCR, а затем извлекает структуру в Markdown. Это полезный первый этап document pipeline, но не волшебный парсер: сложная вёрстка, повреждённые шрифты и вредоносные файлы всё равно требуют ограничений и fallback.",
+      "useCases": [
+        "Маршрутизировать текстовые и сканированные PDF по разным ingestion pipelines",
+        "Извлекать таблицы, заголовки и порядок чтения перед RAG-индексацией",
+        "Снизить число документов, которые без необходимости отправляются в дорогой OCR"
+      ],
+      "platforms": [
+        "Rust",
+        "Node.js",
+        "Python",
+        "WebAssembly",
+        "CLI",
+        "Self-host"
+      ],
+      "license": "MIT",
+      "licenseEvidence": [
+        {
+          "kind": "license",
+          "label": "Official MIT license",
+          "url": "https://github.com/firecrawl/pdf-inspector/blob/main/LICENSE"
+        },
+        {
+          "kind": "security",
+          "label": "Official security policy",
+          "url": "https://github.com/firecrawl/pdf-inspector/blob/main/SECURITY.md"
+        }
+      ],
+      "pricing": "Open source; local compute, OCR runtimes, storage and any hosted fallback are paid separately",
+      "access": {
+        "cost": "free",
+        "signup": "none",
+        "runtime": "self-host"
+      },
+      "trust": "official",
+      "trustReason": "Official Firecrawl repository, MIT license, documented benchmark configuration and security policy were checked on 18.08.2026. The advertised speed is hardware- and corpus-specific, not a universal SLA.",
+      "projects": [
+        "Eclipse AI Hub",
+        "Educator-AI",
+        "Eclipse Library",
+        "Eclipse Webclaw",
+        "Hopson Sentinel"
+      ],
+      "decision": "now",
+      "riskLevel": "high",
+      "risks": [
+        "Crafted or very large PDFs can consume CPU, memory and disk or exploit native parser dependencies",
+        "Extraction can silently damage reading order, tables, digits, CJK text or custom-font content",
+        "Optional OCR adds PDFium, ONNX Runtime and model supply-chain dependencies"
+      ],
+      "verifiedAt": "2026-08-18",
+      "quickStart": [
+        "Benchmark a pinned version on a frozen Eclipse document corpus before choosing it as the default parser",
+        "Run parsing in an isolated worker with file-size, page-count, time, memory and decompression limits",
+        "Keep provenance and confidence per page, and route low-confidence output to OCR or manual review"
+      ],
+      "reviewStatus": "verified",
+      "source": {
+        "file": "catalog/resources.json",
+        "key": "firecrawl-pdf-inspector",
+        "legacy": {
+          "file": "User intake 2026-08-18",
+          "line": null,
+          "category": "August 2026 verified radar",
+          "subcategory": "PDF parsing"
+        }
+      },
+      "description": "Rust-first PDF classifier and structure-aware text extractor from Firecrawl. It exposes Rust, Node.js, Python, WebAssembly and CLI interfaces, can identify text, scanned, image and mixed documents, and can route only selected pages to optional OCR. Its published benchmark is reproducible but must be read as a controlled comparison on one corpus and machine.",
+      "features": [
+        "PDF type classification with confidence",
+        "Position-aware Markdown and table extraction",
+        "Selective per-page OCR routing",
+        "Native and browser bindings"
+      ],
+      "audience": [
+        "RAG and document-ingestion teams",
+        "Research products processing public PDFs",
+        "Developers building local-first document tools"
+      ],
+      "limitations": [
+        "No parser can preserve every layout perfectly",
+        "Benchmark results do not establish a production SLA",
+        "Untrusted documents require a sandbox even when processing is local"
+      ],
+      "relatedTechnologies": [
+        "PDF",
+        "Markdown",
+        "OCR",
+        "Rust",
+        "WebAssembly",
+        "RAG",
+        "Document provenance"
+      ],
+      "guide": "august-2026-research-privacy-tools-radar",
+      "addedAt": "2026-08-18",
+      "catalogOrder": 630,
+      "licenseInfo": {
+        "label": "MIT",
+        "original": "MIT; optional OCR runtimes, model files and downstream document services retain their own licenses and security boundaries",
+        "spdx": "MIT",
+        "kind": "open-source",
+        "status": "source-declared",
+        "requiresReview": false,
+        "evidence": [
+          {
+            "kind": "license",
+            "label": "MIT license",
+            "url": "https://api.github.com/repos/firecrawl/pdf-inspector/license"
+          },
+          {
+            "kind": "license",
+            "label": "Official MIT license",
+            "url": "https://github.com/firecrawl/pdf-inspector/blob/main/LICENSE"
+          },
+          {
+            "kind": "security",
+            "label": "Official security policy",
+            "url": "https://github.com/firecrawl/pdf-inspector/blob/main/SECURITY.md"
+          }
+        ]
+      },
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://github.com/firecrawl/pdf-inspector"
+        },
+        {
+          "kind": "license",
+          "label": "MIT license",
+          "url": "https://api.github.com/repos/firecrawl/pdf-inspector/license"
+        },
+        {
+          "kind": "license",
+          "label": "Official MIT license",
+          "url": "https://github.com/firecrawl/pdf-inspector/blob/main/LICENSE"
+        },
+        {
+          "kind": "security",
+          "label": "Official security policy",
+          "url": "https://github.com/firecrawl/pdf-inspector/blob/main/SECURITY.md"
+        }
+      ],
+      "agentEligibility": {
+        "eligible": true,
+        "reasons": [],
+        "installAllowed": false
+      }
+    },
+    {
       "id": "geo-seo-claude-github-com",
       "url": "https://github.com/zubair-trabzada/geo-seo-claude",
       "title": "geo-seo-claude",
@@ -14166,6 +14321,154 @@
           "kind": "license",
           "label": "MIT license",
           "url": "https://api.github.com/repos/zubair-trabzada/geo-seo-claude/license"
+        }
+      ],
+      "agentEligibility": {
+        "eligible": true,
+        "reasons": [],
+        "installAllowed": false
+      }
+    },
+    {
+      "id": "qwen3-8-max-cloud",
+      "url": "https://qwen.ai/blog?id=qwen3.8",
+      "title": "Qwen3.8-Max",
+      "type": "model",
+      "category": "AI-модели",
+      "subcategory": "Cloud coding and long-horizon agents",
+      "simpleDescription": "Qwen3.8-Max — облачная флагманская модель Qwen для coding, research и длинных agent workflows. Публичные цифры параметров и benchmark принадлежат производителю; обещание автономной работы десять дней не является гарантией надёжности, поэтому модель нужно сравнить на наших задачах и с ограниченным бюджетом.",
+      "useCases": [
+        "Сравнить качество сложных coding и repository tasks в Eclipse AI Hub",
+        "Проверить long-horizon planning на безопасных read-only задачах Sentinel",
+        "Использовать как дополнительного reviewer в agent council без автоматического merge"
+      ],
+      "platforms": [
+        "Qwen Cloud",
+        "API",
+        "Qwen Chat"
+      ],
+      "license": "Proprietary Qwen Cloud service governed by Qwen Cloud Terms of Use, Customer Agreement, model availability and regional plan conditions",
+      "licenseEvidence": [
+        {
+          "kind": "official-source",
+          "label": "Official Qwen3.8 release page",
+          "url": "https://qwen.ai/blog?id=qwen3.8"
+        },
+        {
+          "kind": "terms",
+          "label": "Qwen Cloud Terms of Use",
+          "url": "https://www.qwencloud.com/legal/terms-of-service"
+        },
+        {
+          "kind": "privacy",
+          "label": "Qwen Cloud Privacy Policy",
+          "url": "https://www.qwencloud.com/legal/privacy"
+        }
+      ],
+      "pricing": "Cloud pricing and regional availability are mutable; verify the exact model ID, endpoint, retention and current plan before each benchmark",
+      "access": {
+        "cost": "paid",
+        "signup": "required",
+        "runtime": "cloud"
+      },
+      "trust": "official",
+      "trustReason": "The official Qwen release and Cloud legal pages confirm the product family and service boundary. Vendor benchmarks were not treated as independent proof, and the ten-day autonomy claim was not accepted as an SLA.",
+      "projects": [
+        "Eclipse AI Hub",
+        "Hopson Sentinel",
+        "oh-my-claudecode"
+      ],
+      "decision": "roadmap",
+      "riskLevel": "high",
+      "risks": [
+        "Source code, prompts and files leave the Eclipse environment when sent to the cloud API",
+        "Long-running agents can amplify cost, incorrect actions and context poisoning",
+        "Preview, regional and final model IDs can differ in behavior, retention and availability"
+      ],
+      "verifiedAt": "2026-08-18",
+      "quickStart": [
+        "Add only to the AI Hub benchmark registry with an explicit model ID and maximum spend",
+        "Use synthetic or public fixtures first; do not send production secrets or customer data",
+        "Compare success rate, retries, latency, total tokens and cost against the current router"
+      ],
+      "reviewStatus": "verified",
+      "source": {
+        "file": "catalog/resources.json",
+        "key": "qwen3-8-max-cloud",
+        "legacy": {
+          "file": "User intake 2026-08-18",
+          "line": null,
+          "category": "August 2026 verified radar",
+          "subcategory": "Cloud models"
+        }
+      },
+      "description": "Cloud Qwen model family positioned by its vendor for coding, professional work, research and long-horizon agent tasks. It belongs in a controlled provider benchmark, not as an automatic default based on vendor rankings.",
+      "features": [
+        "Long-context cloud inference",
+        "Coding and tool-use scenarios",
+        "Thinking controls",
+        "Qwen-compatible API ecosystem"
+      ],
+      "audience": [
+        "AI Hub provider evaluators",
+        "Agent-runtime engineers",
+        "Teams comparing cloud coding models"
+      ],
+      "limitations": [
+        "Not open weights",
+        "Vendor benchmarks need independent reproduction",
+        "Availability, pricing and data terms vary by endpoint and plan"
+      ],
+      "relatedTechnologies": [
+        "Qwen Cloud",
+        "OpenAI-compatible API",
+        "Agent harness",
+        "Model routing",
+        "Evaluation"
+      ],
+      "guide": "august-2026-research-privacy-tools-radar",
+      "addedAt": "2026-08-18",
+      "catalogOrder": 631,
+      "licenseInfo": {
+        "label": "Proprietary Qwen Cloud service governed by Qwen Cloud Terms of Use, Customer Agreement, model availability and regional plan conditions",
+        "original": "Proprietary Qwen Cloud service governed by Qwen Cloud Terms of Use, Customer Agreement, model availability and regional plan conditions",
+        "spdx": null,
+        "kind": "service-terms",
+        "status": "editor-reviewed",
+        "requiresReview": false,
+        "evidence": [
+          {
+            "kind": "official-source",
+            "label": "Official Qwen3.8 release page",
+            "url": "https://qwen.ai/blog?id=qwen3.8"
+          },
+          {
+            "kind": "terms",
+            "label": "Qwen Cloud Terms of Use",
+            "url": "https://www.qwencloud.com/legal/terms-of-service"
+          },
+          {
+            "kind": "privacy",
+            "label": "Qwen Cloud Privacy Policy",
+            "url": "https://www.qwencloud.com/legal/privacy"
+          }
+        ]
+      },
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://qwen.ai/blog?id=qwen3.8"
+        },
+        {
+          "kind": "terms",
+          "label": "Qwen Cloud Terms of Use",
+          "url": "https://www.qwencloud.com/legal/terms-of-service"
+        },
+        {
+          "kind": "privacy",
+          "label": "Qwen Cloud Privacy Policy",
+          "url": "https://www.qwencloud.com/legal/privacy"
         }
       ],
       "agentEligibility": {
@@ -14275,6 +14578,144 @@
       }
     },
     {
+      "id": "qwen3-8-27b",
+      "url": "https://huggingface.co/Qwen/Qwen3.8-27B",
+      "title": "Qwen3.8-27B",
+      "type": "model",
+      "category": "AI-модели",
+      "subcategory": "Open-weight multimodal models",
+      "simpleDescription": "Qwen3.8-27B — официальная open-weight vision-language модель на 27B параметров для текста, изображений, видео и agent tasks. Нативный контекст заявлен до 262 144 токенов, а расширение до 1M требует отдельной настройки. Локальный запуск реален, но скорость и память сильно зависят от precision, quantization и inference engine.",
+      "useCases": [
+        "Сравнить локальную модель для coding, document understanding и agent workflows",
+        "Проверить vision-language задачи Eclipse Media и Text2Image без отправки данных в облако",
+        "Добавить Hardware Doctor профиль с реальными требованиями для разных quantization"
+      ],
+      "platforms": [
+        "Hugging Face",
+        "vLLM",
+        "SGLang",
+        "Transformers",
+        "Self-host"
+      ],
+      "license": "Apache-2.0",
+      "licenseEvidence": [
+        {
+          "kind": "license",
+          "label": "Official Apache-2.0 model card",
+          "url": "https://huggingface.co/Qwen/Qwen3.8-27B"
+        },
+        {
+          "kind": "license",
+          "label": "Official repository license metadata",
+          "url": "https://huggingface.co/Qwen/Qwen3.8-27B/blob/main/LICENSE"
+        }
+      ],
+      "pricing": "Weights are available without a model fee; GPU, storage, inference operations and any hosted endpoint are separate costs",
+      "access": {
+        "cost": "free",
+        "signup": "optional",
+        "runtime": "self-host"
+      },
+      "trust": "official",
+      "trustReason": "Official Qwen organization model card and Apache-2.0 metadata were checked on 18.08.2026. Vendor benchmark tables are recorded as vendor claims until reproduced on Eclipse tasks.",
+      "projects": [
+        "Eclipse AI Hub",
+        "Hopson Sentinel",
+        "Eclipse Media",
+        "Text2Image",
+        "Educator-AI"
+      ],
+      "decision": "roadmap",
+      "riskLevel": "medium",
+      "risks": [
+        "A 27B multimodal model may not fit or perform well on consumer hardware without quantization and offload",
+        "Extending context with static YaRN can reduce quality on shorter inputs",
+        "Model-generated code and actions still require sandboxing, tests and human approval"
+      ],
+      "verifiedAt": "2026-08-18",
+      "quickStart": [
+        "Add a registry entry without downloading weights on production machines",
+        "Benchmark approved quantizations on an isolated GPU worker with fixed prompts and datasets",
+        "Publish measured VRAM, throughput, quality and energy cost in Hardware Doctor before recommending local use"
+      ],
+      "reviewStatus": "verified",
+      "source": {
+        "file": "catalog/resources.json",
+        "key": "qwen3-8-27b",
+        "legacy": {
+          "file": "User intake 2026-08-18",
+          "line": null,
+          "category": "August 2026 verified radar",
+          "subcategory": "Open models"
+        }
+      },
+      "description": "Dense 27B vision-language member of the Qwen3.8 family with thinking controls, image and video inputs, and long-context support. It is a serious local benchmark candidate, but a six-year-old GPU is not a universal one-click target: quantization and workload determine feasibility.",
+      "features": [
+        "27B dense vision-language model",
+        "262k native context",
+        "Configurable reasoning effort",
+        "Text, image and video understanding"
+      ],
+      "audience": [
+        "Local model evaluators",
+        "Multimodal application teams",
+        "Agent-runtime developers"
+      ],
+      "limitations": [
+        "Hardware requirements are workload-specific",
+        "1M context is an extension rather than the native default",
+        "Published benchmarks are primarily vendor-reported"
+      ],
+      "relatedTechnologies": [
+        "Qwen",
+        "Transformers",
+        "vLLM",
+        "SGLang",
+        "YaRN",
+        "Vision-language models"
+      ],
+      "guide": "august-2026-research-privacy-tools-radar",
+      "addedAt": "2026-08-18",
+      "catalogOrder": 632,
+      "licenseInfo": {
+        "label": "Apache-2.0",
+        "original": "Apache-2.0 for the official Qwen3.8-27B model repository and weights; inference frameworks, datasets and generated-content obligations remain separate",
+        "spdx": "Apache-2.0",
+        "kind": "open-source",
+        "status": "editor-reviewed",
+        "requiresReview": false,
+        "evidence": [
+          {
+            "kind": "license",
+            "label": "Official Apache-2.0 model card",
+            "url": "https://huggingface.co/Qwen/Qwen3.8-27B"
+          },
+          {
+            "kind": "license",
+            "label": "Official repository license metadata",
+            "url": "https://huggingface.co/Qwen/Qwen3.8-27B/blob/main/LICENSE"
+          }
+        ]
+      },
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://huggingface.co/Qwen/Qwen3.8-27B"
+        },
+        {
+          "kind": "license",
+          "label": "Official repository license metadata",
+          "url": "https://huggingface.co/Qwen/Qwen3.8-27B/blob/main/LICENSE"
+        }
+      ],
+      "agentEligibility": {
+        "eligible": true,
+        "reasons": [],
+        "installAllowed": false
+      }
+    },
+    {
       "id": "higgsfield-virality-predictor-higgsfield-ai",
       "url": "https://higgsfield.ai/apps/virality-predictor",
       "title": "Higgsfield Virality Predictor",
@@ -14343,6 +14784,715 @@
           "kind": "official-source",
           "label": "Официальный источник",
           "url": "https://higgsfield.ai/apps/virality-predictor"
+        }
+      ],
+      "agentEligibility": {
+        "eligible": true,
+        "reasons": [],
+        "installAllowed": false
+      }
+    },
+    {
+      "id": "porthole-steam-port-sharing",
+      "url": "https://store.steampowered.com/app/4963920/Porthole__Local_Port_Sharing/",
+      "title": "Porthole — Local Port Sharing",
+      "type": "tool",
+      "category": "Инфраструктура",
+      "subcategory": "Selective game-server port sharing",
+      "simpleDescription": "Porthole передаёт выбранный локальный TCP- или UDP-порт друзьям через Steam P2P/relay, чтобы совместно играть без настройки роутера. Это не VPN и не полноценная LAN: доступ открывается только к указанному сервису. Удобно для тестовых игровых серверов, но опасно для админок, баз данных и других чувствительных портов.",
+      "useCases": [
+        "Провести закрытый playtest локального DnD/game companion сервера с доверенными участниками",
+        "Подключить друзей к LAN-only игре без публичного IP и port forwarding",
+        "Изучить UX per-port approval для собственного secure sharing flow"
+      ],
+      "platforms": [
+        "Steam",
+        "Windows",
+        "Linux",
+        "SteamOS"
+      ],
+      "license": "Proprietary Steam-distributed utility governed by the Steam Subscriber Agreement and SeStudio product terms; no source-code reuse grant was found",
+      "licenseEvidence": [
+        {
+          "kind": "official-source",
+          "label": "Official Steam product page",
+          "url": "https://store.steampowered.com/app/4963920/Porthole__Local_Port_Sharing/"
+        },
+        {
+          "kind": "terms",
+          "label": "Steam Subscriber Agreement",
+          "url": "https://store.steampowered.com/subscriber_agreement/"
+        }
+      ],
+      "pricing": "Free to play according to the current Steam listing; Steam account and client are required",
+      "access": {
+        "cost": "free",
+        "signup": "required",
+        "runtime": "cloud"
+      },
+      "trust": "official",
+      "trustReason": "Steam App 4963920 confirms the publisher, release date, supported platforms and selective-port design. Security and latency statements are vendor claims and the product had limited independent history at review time.",
+      "projects": [
+        "Eclipse DnD Forge"
+      ],
+      "decision": "reference",
+      "riskLevel": "high",
+      "risks": [
+        "Sharing the wrong port can expose a local service to remote peers",
+        "Steam identity and relay infrastructure become availability and privacy dependencies",
+        "Auto-detection can choose a port the user did not intend to publish"
+      ],
+      "verifiedAt": "2026-08-18",
+      "quickStart": [
+        "Use only on a disposable test host with a dedicated game server and host firewall allowlist",
+        "Never share RDP, database, Docker daemon, development dashboard or unauthenticated admin ports",
+        "Stop the lobby after the test and confirm the local listener/firewall state is closed"
+      ],
+      "reviewStatus": "verified",
+      "source": {
+        "file": "catalog/resources.json",
+        "key": "porthole-steam-port-sharing",
+        "legacy": {
+          "file": "User intake 2026-08-18",
+          "line": null,
+          "category": "August 2026 verified radar",
+          "subcategory": "Networking"
+        }
+      },
+      "description": "Free Steam utility from SeStudio that proxies selected TCP or UDP listeners to approved Steam friends through direct P2P or Valve relay paths. The narrow-port model is safer than exposing a whole virtual LAN, but it still creates a remote network boundary and must be treated as such.",
+      "features": [
+        "TCP and UDP sharing",
+        "Steam friend/share-code join",
+        "Per-port approval and remapping",
+        "P2P or Valve relay routing"
+      ],
+      "audience": [
+        "Players hosting private game servers",
+        "Small trusted playtest groups",
+        "Developers studying selective port-sharing UX"
+      ],
+      "limitations": [
+        "Requires Steam on both sides",
+        "Not a general VPN",
+        "No macOS support in the current Steam listing"
+      ],
+      "relatedTechnologies": [
+        "Steam Networking",
+        "TCP",
+        "UDP",
+        "NAT traversal",
+        "Relay",
+        "Game servers"
+      ],
+      "guide": "august-2026-research-privacy-tools-radar",
+      "addedAt": "2026-08-18",
+      "catalogOrder": 633,
+      "licenseInfo": {
+        "label": "Proprietary Steam-distributed utility governed by the Steam Subscriber Agreement and SeStudio product terms; no source-code reuse grant was found",
+        "original": "Proprietary Steam-distributed utility governed by the Steam Subscriber Agreement and SeStudio product terms; no source-code reuse grant was found",
+        "spdx": null,
+        "kind": "service-terms",
+        "status": "editor-reviewed",
+        "requiresReview": false,
+        "evidence": [
+          {
+            "kind": "official-source",
+            "label": "Official Steam product page",
+            "url": "https://store.steampowered.com/app/4963920/Porthole__Local_Port_Sharing/"
+          },
+          {
+            "kind": "terms",
+            "label": "Steam Subscriber Agreement",
+            "url": "https://store.steampowered.com/subscriber_agreement/"
+          }
+        ]
+      },
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://store.steampowered.com/app/4963920/Porthole__Local_Port_Sharing/"
+        },
+        {
+          "kind": "terms",
+          "label": "Steam Subscriber Agreement",
+          "url": "https://store.steampowered.com/subscriber_agreement/"
+        }
+      ],
+      "agentEligibility": {
+        "eligible": true,
+        "reasons": [],
+        "installAllowed": false
+      }
+    },
+    {
+      "id": "after-enter-web-simulator",
+      "url": "https://itcaat.github.io/after-enter/",
+      "title": "After Enter",
+      "type": "learn",
+      "category": "Курсы и гайды",
+      "subcategory": "Interactive web fundamentals",
+      "simpleDescription": "After Enter — русско- и англоязычный интерактивный симулятор пути от нажатия Enter до готовой веб-страницы: DNS, сеть, TLS, HTTP, backend и browser rendering. Он хорошо объясняет последовательность новичку, но исходный repository не содержит лицензии, поэтому контент и код можно только изучать и ссылаться на них, а не копировать.",
+      "useCases": [
+        "Дать студенту наглядное введение в DNS, TLS, HTTP и rendering pipeline",
+        "Использовать как reference для собственного интерактивного урока Educator-AI",
+        "Повторить материал перед собеседованием без чтения длинной теории"
+      ],
+      "platforms": [
+        "Web",
+        "GitHub Pages",
+        "Desktop",
+        "Mobile"
+      ],
+      "license": "No license grant was found in the official repository as of 18.08.2026; public viewing and linking do not permit copying, modification or redistribution",
+      "licenseEvidence": [
+        {
+          "kind": "source",
+          "label": "Official repository",
+          "url": "https://github.com/itcaat/after-enter"
+        },
+        {
+          "kind": "official-source",
+          "label": "Official interactive simulator",
+          "url": "https://itcaat.github.io/after-enter/"
+        }
+      ],
+      "pricing": "Publicly accessible without payment",
+      "access": {
+        "cost": "free",
+        "signup": "none",
+        "runtime": "cloud"
+      },
+      "trust": "community",
+      "trustReason": "The official repository and live GitHub Pages site were checked on 18.08.2026. The README names source articles and modernized topics, but no reuse license is present.",
+      "projects": [
+        "Educator-AI",
+        "Eclipse Library",
+        "Eclipse Forge Landing"
+      ],
+      "decision": "reference",
+      "riskLevel": "low",
+      "risks": [
+        "Educational simplifications can hide implementation- and browser-specific exceptions",
+        "No license means the Eclipse projects must not copy its JSON, illustrations or source code",
+        "External educational links can change or disappear"
+      ],
+      "verifiedAt": "2026-08-18",
+      "quickStart": [
+        "Link to the simulator as an external lesson and clearly credit the author",
+        "Create an original Eclipse lesson from protocol specifications and our own diagrams",
+        "Add short quizzes that test causal understanding rather than memorized step counts"
+      ],
+      "reviewStatus": "verified",
+      "source": {
+        "file": "catalog/resources.json",
+        "key": "after-enter-web-simulator",
+        "legacy": {
+          "file": "User intake 2026-08-18",
+          "line": null,
+          "category": "August 2026 verified radar",
+          "subcategory": "Learning"
+        }
+      },
+      "description": "Interactive Russian/English walkthrough of the browser navigation and rendering path, spanning local input, DNS, routing, TCP/QUIC, TLS, HTTP, CDN/backend and rendering. Strong learning reference; not reusable source because the repository lacks a license grant.",
+      "features": [
+        "Clickable stages and substeps",
+        "Simple and technical explanations",
+        "Russian and English localization",
+        "Responsive layout"
+      ],
+      "audience": [
+        "Junior developers",
+        "Interview candidates",
+        "Educators teaching web fundamentals"
+      ],
+      "limitations": [
+        "No reuse license",
+        "A fixed sequence cannot represent every browser/network path",
+        "Some claims depend on the cited secondary sources"
+      ],
+      "relatedTechnologies": [
+        "DNS",
+        "TCP",
+        "QUIC",
+        "TLS 1.3",
+        "HTTP",
+        "CDN",
+        "DOM",
+        "CSSOM"
+      ],
+      "guide": "august-2026-research-privacy-tools-radar",
+      "addedAt": "2026-08-18",
+      "catalogOrder": 634,
+      "licenseInfo": {
+        "label": "No license grant was found in the official repository as of 18.08.2026; public viewing and linking do not permit copying, modification or redistribution",
+        "original": "No license grant was found in the official repository as of 18.08.2026; public viewing and linking do not permit copying, modification or redistribution",
+        "spdx": null,
+        "kind": "custom",
+        "status": "editor-reviewed",
+        "requiresReview": false,
+        "evidence": [
+          {
+            "kind": "source",
+            "label": "Official repository",
+            "url": "https://github.com/itcaat/after-enter"
+          },
+          {
+            "kind": "official-source",
+            "label": "Official interactive simulator",
+            "url": "https://itcaat.github.io/after-enter/"
+          }
+        ]
+      },
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://itcaat.github.io/after-enter/"
+        },
+        {
+          "kind": "source",
+          "label": "Official repository",
+          "url": "https://github.com/itcaat/after-enter"
+        }
+      ],
+      "agentEligibility": {
+        "eligible": true,
+        "reasons": [],
+        "installAllowed": false
+      }
+    },
+    {
+      "id": "text-grab-windows-ocr",
+      "url": "https://github.com/TheJoeFin/Text-Grab",
+      "title": "Text Grab",
+      "type": "tool",
+      "category": "Инструменты",
+      "subcategory": "Local OCR and screen text capture",
+      "simpleDescription": "Text Grab извлекает текст из выбранной области экрана, изображений и документов через локальный Windows OCR, а затем отправляет результат в редактор или буфер обмена. Это полезный privacy-first reference для Sentinel, но захват экрана и clipboard требуют явного действия пользователя и защиты от случайного копирования секретов.",
+      "useCases": [
+        "Распознать текст в приложении или изображении, где обычное копирование недоступно",
+        "Изучить локальный OCR flow для opt-in capability в Hopson Sentinel",
+        "Подготовить доступный текстовый слой для учебных материалов Educator-AI"
+      ],
+      "platforms": [
+        "Windows 10+",
+        "Windows OCR API",
+        "Microsoft Store",
+        "GitHub Releases"
+      ],
+      "license": "MIT",
+      "licenseEvidence": [
+        {
+          "kind": "license",
+          "label": "Official MIT license",
+          "url": "https://github.com/TheJoeFin/Text-Grab/blob/main/LICENSE"
+        },
+        {
+          "kind": "source",
+          "label": "Official repository and privacy description",
+          "url": "https://github.com/TheJoeFin/Text-Grab"
+        }
+      ],
+      "pricing": "Open-source releases are free; Microsoft Store packaging or future optional features may have separate terms",
+      "access": {
+        "cost": "free",
+        "signup": "none",
+        "runtime": "local"
+      },
+      "trust": "verified",
+      "trustReason": "The official repository, MIT license, local OCR statement, build requirements and Windows-only boundary were checked on 18.08.2026. No binary was downloaded or executed.",
+      "projects": [
+        "Hopson Sentinel",
+        "Educator-AI",
+        "Eclipse Media"
+      ],
+      "decision": "roadmap",
+      "riskLevel": "high",
+      "risks": [
+        "Screen regions and clipboard content can contain passwords, tokens, personal data or private messages",
+        "OCR errors can alter numbers, code and legal text without an obvious warning",
+        "Background hotkeys and clipboard watching expand the local permission surface"
+      ],
+      "verifiedAt": "2026-08-18",
+      "quickStart": [
+        "Use the signed Store or verified GitHub release only on a non-production workstation",
+        "Keep capture user-initiated, show a preview and require confirmation before sending text to any model",
+        "Redact secret patterns locally and never enable silent background capture in Eclipse products"
+      ],
+      "reviewStatus": "verified",
+      "source": {
+        "file": "catalog/resources.json",
+        "key": "text-grab-windows-ocr",
+        "legacy": {
+          "file": "User intake 2026-08-18",
+          "line": null,
+          "category": "August 2026 verified radar",
+          "subcategory": "Local OCR"
+        }
+      },
+      "description": "MIT Windows utility using the on-device Windows OCR API for region capture, file recognition, cleanup and clipboard/editor workflows. Its local-first architecture is useful, while the permission and data-loss boundaries matter more than the visual convenience.",
+      "features": [
+        "Full-screen region OCR",
+        "Movable grab frame",
+        "Text cleanup and spreadsheet modes",
+        "Local processing without a cloud OCR service"
+      ],
+      "audience": [
+        "Windows power users",
+        "Accessibility workflows",
+        "Developers designing local capture tools"
+      ],
+      "limitations": [
+        "Windows-only",
+        "OCR accuracy depends on the source and system language packs",
+        "Clipboard and screen capture are sensitive capabilities"
+      ],
+      "relatedTechnologies": [
+        "OCR",
+        "Windows API",
+        "Clipboard",
+        "Accessibility",
+        "Local-first privacy"
+      ],
+      "guide": "august-2026-research-privacy-tools-radar",
+      "addedAt": "2026-08-18",
+      "catalogOrder": 635,
+      "licenseInfo": {
+        "label": "MIT",
+        "original": "MIT for the Text Grab source code; Windows OCR APIs, Store distribution and bundled third-party components have separate terms",
+        "spdx": "MIT",
+        "kind": "open-source",
+        "status": "source-declared",
+        "requiresReview": false,
+        "evidence": [
+          {
+            "kind": "license",
+            "label": "MIT license",
+            "url": "https://api.github.com/repos/thejoefin/text-grab/license"
+          },
+          {
+            "kind": "license",
+            "label": "Official MIT license",
+            "url": "https://github.com/TheJoeFin/Text-Grab/blob/main/LICENSE"
+          },
+          {
+            "kind": "source",
+            "label": "Official repository and privacy description",
+            "url": "https://github.com/TheJoeFin/Text-Grab"
+          }
+        ]
+      },
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://github.com/TheJoeFin/Text-Grab"
+        },
+        {
+          "kind": "license",
+          "label": "MIT license",
+          "url": "https://api.github.com/repos/thejoefin/text-grab/license"
+        },
+        {
+          "kind": "license",
+          "label": "Official MIT license",
+          "url": "https://github.com/TheJoeFin/Text-Grab/blob/main/LICENSE"
+        }
+      ],
+      "agentEligibility": {
+        "eligible": true,
+        "reasons": [],
+        "installAllowed": false
+      }
+    },
+    {
+      "id": "morphe-android-patcher",
+      "url": "https://github.com/MorpheApp/morphe-manager",
+      "title": "Morphe Android Patcher",
+      "type": "grey",
+      "category": "Security и grey zone",
+      "subcategory": "APK patching / subscription and ad circumvention",
+      "simpleDescription": "Morphe модифицирует Android APK и предлагает патчи для удаления рекламы, изменения поведения и обхода ограничений приложений. Код открыт, но сама операция нарушает trust boundary подписи и может конфликтовать с Terms, авторскими правами и безопасностью аккаунта. Для Eclipse это только риск-reference, не инструмент для установки или интеграции.",
+      "useCases": [
+        "Изучить supply-chain и signature-spoofing риски Android patch ecosystems",
+        "Составить Sentinel policy, которая блокирует непроверенные patched APK",
+        "Показать пользователям разницу между open-source кодом и законностью модификации чужого сервиса"
+      ],
+      "platforms": [
+        "Android",
+        "APK",
+        "GitHub Releases"
+      ],
+      "license": "GPL-3.0",
+      "licenseEvidence": [
+        {
+          "kind": "license",
+          "label": "Official GPL-3.0 repository license",
+          "url": "https://github.com/MorpheApp/morphe-manager/blob/main/LICENSE"
+        },
+        {
+          "kind": "official-source",
+          "label": "Official Morphe product page",
+          "url": "https://morphe.software/"
+        }
+      ],
+      "pricing": "The official project is presented as free; modified apps and third-party services retain their own commercial conditions",
+      "access": {
+        "cost": "free",
+        "signup": "none",
+        "runtime": "local"
+      },
+      "trust": "caution",
+      "trustReason": "The domain-verified GitHub organization and GPL repository exist, but no APK was installed or audited dynamically. Community bundles are separately maintained, and the product deliberately modifies and re-signs third-party applications.",
+      "projects": [
+        "Hopson Sentinel",
+        "Eclipse Library"
+      ],
+      "decision": "no",
+      "riskLevel": "high",
+      "risks": [
+        "Patched APKs can contain malicious code, steal sessions or break update/signature guarantees",
+        "Ad removal and feature unlocking can violate platform Terms or rights-holder conditions",
+        "Community patch bundles create an unbounded supply-chain and maintenance surface"
+      ],
+      "verifiedAt": "2026-08-18",
+      "quickStart": [
+        "Do not install patched APKs on devices with Eclipse, banking, work or primary social accounts",
+        "Do not publish installation instructions or recommend the catalog to Eclipse agents",
+        "Use only as a defensive example for APK provenance, signing and policy checks"
+      ],
+      "reviewStatus": "verified",
+      "source": {
+        "file": "catalog/resources.json",
+        "key": "morphe-android-patcher",
+        "legacy": {
+          "file": "User intake 2026-08-18",
+          "line": null,
+          "category": "August 2026 verified radar",
+          "subcategory": "Grey zone"
+        }
+      },
+      "description": "Open-source Android application patch manager derived from the ReVanced ecosystem. Its code license does not grant rights to redistribute modified proprietary applications or bypass their business rules, and patched binaries lose the original vendor signing trust chain.",
+      "features": [
+        "APK patch application",
+        "UI and behavior customization",
+        "Community patch bundles",
+        "Modified app installation flow"
+      ],
+      "audience": [
+        "Mobile security reviewers",
+        "Supply-chain educators",
+        "Policy authors"
+      ],
+      "limitations": [
+        "Not approved for Eclipse use",
+        "Third-party app rights remain unchanged",
+        "Dynamic safety cannot be inferred from an open repository"
+      ],
+      "relatedTechnologies": [
+        "Android",
+        "APK",
+        "Code signing",
+        "Bytecode patching",
+        "Supply chain",
+        "ReVanced"
+      ],
+      "guide": "august-2026-research-privacy-tools-radar",
+      "addedAt": "2026-08-18",
+      "catalogOrder": 636,
+      "licenseInfo": {
+        "label": "GPL-3.0",
+        "original": "GPL-3.0 for the Morphe manager repository; patched third-party applications, trademarks, services and community bundles retain separate rights and Terms",
+        "spdx": "GPL-3.0",
+        "kind": "open-source",
+        "status": "source-declared",
+        "requiresReview": false,
+        "evidence": [
+          {
+            "kind": "license",
+            "label": "GPL-3.0 license",
+            "url": "https://api.github.com/repos/morpheapp/morphe-manager/license"
+          },
+          {
+            "kind": "license",
+            "label": "Official GPL-3.0 repository license",
+            "url": "https://github.com/MorpheApp/morphe-manager/blob/main/LICENSE"
+          },
+          {
+            "kind": "official-source",
+            "label": "Official Morphe product page",
+            "url": "https://morphe.software/"
+          }
+        ]
+      },
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://github.com/MorpheApp/morphe-manager"
+        },
+        {
+          "kind": "license",
+          "label": "GPL-3.0 license",
+          "url": "https://api.github.com/repos/morpheapp/morphe-manager/license"
+        },
+        {
+          "kind": "license",
+          "label": "Official GPL-3.0 repository license",
+          "url": "https://github.com/MorpheApp/morphe-manager/blob/main/LICENSE"
+        },
+        {
+          "kind": "official-source",
+          "label": "Official Morphe product page",
+          "url": "https://morphe.software/"
+        }
+      ],
+      "agentEligibility": {
+        "eligible": false,
+        "reasons": [
+          "grey-resource",
+          "editorial-decision-no"
+        ],
+        "installAllowed": false
+      }
+    },
+    {
+      "id": "pc-tuning-valleyofdoom",
+      "url": "https://github.com/valleyofdoom/PC-Tuning",
+      "title": "PC-Tuning",
+      "type": "learn",
+      "category": "Курсы и гайды",
+      "subcategory": "Windows and hardware tuning",
+      "simpleDescription": "PC-Tuning — большой GPL‑3.0 гайд по Windows, BIOS, охлаждению, памяти, GPU и benchmark. Автор часто просит измерять эффект, но часть шагов меняет firmware, registry, security и recovery behavior. Поэтому это справочник для опытного пользователя, а не сценарий автоматической оптимизации Sentinel.",
+      "useCases": [
+        "Сверять hardware diagnostics и benchmark terminology для Hardware Doctor",
+        "Составить безопасный read-only чек-лист производительности Windows",
+        "Понять trade-offs между latency, энергопотреблением, стабильностью и безопасностью"
+      ],
+      "platforms": [
+        "Windows",
+        "BIOS/UEFI",
+        "Desktop hardware"
+      ],
+      "license": "GPL-3.0",
+      "licenseEvidence": [
+        {
+          "kind": "license",
+          "label": "Official GPL-3.0 license",
+          "url": "https://github.com/valleyofdoom/PC-Tuning/blob/main/LICENSE"
+        },
+        {
+          "kind": "source",
+          "label": "Official guide",
+          "url": "https://github.com/valleyofdoom/PC-Tuning"
+        }
+      ],
+      "pricing": "Free public guide; linked utilities, replacement hardware and energy costs are separate",
+      "access": {
+        "cost": "free",
+        "signup": "none",
+        "runtime": "local"
+      },
+      "trust": "community",
+      "trustReason": "The maintained public repository, GPL-3.0 license and repeated benchmark cautions were checked on 18.08.2026. Individual recommendations were not validated on Eclipse hardware.",
+      "projects": [
+        "Hopson Sentinel",
+        "Eclipse AI Hub"
+      ],
+      "decision": "reference",
+      "riskLevel": "high",
+      "risks": [
+        "BIOS, voltage, clock, registry or service changes can cause instability, data loss or reduced security",
+        "Hardware-specific advice can regress performance on another system",
+        "Disabling updates, mitigations, restore behavior or background services can weaken recovery and protection"
+      ],
+      "verifiedAt": "2026-08-18",
+      "quickStart": [
+        "Use read-only measurements and a restore plan before considering any change",
+        "Change one variable at a time and compare repeatable benchmark plus stability results",
+        "Never let an Eclipse agent apply BIOS, voltage, security or destructive registry changes automatically"
+      ],
+      "reviewStatus": "verified",
+      "source": {
+        "file": "catalog/resources.json",
+        "key": "pc-tuning-valleyofdoom",
+        "legacy": {
+          "file": "User intake 2026-08-18",
+          "line": null,
+          "category": "August 2026 verified radar",
+          "subcategory": "Hardware"
+        }
+      },
+      "description": "Extensive Windows and desktop-hardware tuning reference covering firmware, cooling, memory, GPU, latency, OS configuration and maintenance. Useful as terminology and measurement input for Hardware Doctor, but unsafe as a one-click optimization source.",
+      "features": [
+        "Hardware and cooling checklist",
+        "BIOS and Windows tuning topics",
+        "Benchmark methodology",
+        "Maintenance and rollback considerations"
+      ],
+      "audience": [
+        "Experienced Windows users",
+        "Hardware diagnostics developers",
+        "Performance engineers"
+      ],
+      "limitations": [
+        "Not an official Microsoft or hardware-vendor guide",
+        "Results vary by machine and workload",
+        "Some changes require elevated privileges and recovery preparation"
+      ],
+      "relatedTechnologies": [
+        "Windows",
+        "BIOS",
+        "UEFI",
+        "GPU",
+        "RAM",
+        "Benchmarking",
+        "Hardware Doctor"
+      ],
+      "guide": "august-2026-research-privacy-tools-radar",
+      "addedAt": "2026-08-18",
+      "catalogOrder": 637,
+      "licenseInfo": {
+        "label": "GPL-3.0",
+        "original": "GPL-3.0 for the repository content and scripts; linked vendor tools and firmware retain their own terms",
+        "spdx": "GPL-3.0",
+        "kind": "open-source",
+        "status": "source-declared",
+        "requiresReview": false,
+        "evidence": [
+          {
+            "kind": "license",
+            "label": "GPL-3.0 license",
+            "url": "https://api.github.com/repos/valleyofdoom/pc-tuning/license"
+          },
+          {
+            "kind": "license",
+            "label": "Official GPL-3.0 license",
+            "url": "https://github.com/valleyofdoom/PC-Tuning/blob/main/LICENSE"
+          },
+          {
+            "kind": "source",
+            "label": "Official guide",
+            "url": "https://github.com/valleyofdoom/PC-Tuning"
+          }
+        ]
+      },
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://github.com/valleyofdoom/PC-Tuning"
+        },
+        {
+          "kind": "license",
+          "label": "GPL-3.0 license",
+          "url": "https://api.github.com/repos/valleyofdoom/pc-tuning/license"
+        },
+        {
+          "kind": "license",
+          "label": "Official GPL-3.0 license",
+          "url": "https://github.com/valleyofdoom/PC-Tuning/blob/main/LICENSE"
         }
       ],
       "agentEligibility": {
@@ -16369,28 +17519,30 @@
       "platforms": [
         "Web"
       ],
-      "license": "Нужно проверить в официальном источнике",
+      "license": "MIT",
       "pricing": "Актуальную стоимость нужно проверить на официальной странице",
       "access": {
         "cost": "free",
         "signup": "unknown",
         "runtime": "cloud"
       },
-      "trust": "unknown",
-      "trustReason": "Запись структурирована автоматически из опубликованного описания. Официальный источник, лицензия и условия ещё не прошли отдельную редакторскую проверку.",
+      "trust": "official",
+      "trustReason": "The official Hume AI model cards expose distinct license metadata for the language model and codec. The catalog therefore does not collapse the collection into a misleading single open-source label.",
       "projects": [],
       "decision": "reference",
-      "riskLevel": "medium",
+      "riskLevel": "high",
       "risks": [
-        "Лицензия, цена, permissions и обработка данных могут отличаться от краткого описания."
+        "The Llama 3.2 Community License has conditions distinct from MIT.",
+        "Speech generation requires consent, anti-impersonation controls and provenance.",
+        "Pin the exact artifact and revision; never install directly from the catalog."
       ],
-      "verifiedAt": null,
+      "verifiedAt": "2026-08-18",
       "quickStart": [
         "Откройте официальный источник и проверьте владельца, лицензию и дату обновления.",
         "Не передавайте secrets или рабочие данные; начните с пустого тестового проекта.",
         "Сравните результат с текущим способом работы и только потом решайте об интеграции."
       ],
-      "reviewStatus": "inferred",
+      "reviewStatus": "verified",
       "source": {
         "file": "catalog/resources.json",
         "key": "tada-huggingface-co",
@@ -16402,18 +17554,45 @@
         }
       },
       "addedAt": null,
+      "licenseEvidence": [
+        {
+          "kind": "model-card",
+          "label": "Official TADA 1B model card",
+          "url": "https://huggingface.co/HumeAI/tada-1b"
+        },
+        {
+          "kind": "model-card",
+          "label": "Official TADA codec model card",
+          "url": "https://huggingface.co/HumeAI/tada-codec"
+        },
+        {
+          "kind": "source",
+          "label": "Official TADA collection",
+          "url": "https://huggingface.co/collections/HumeAI/tada"
+        }
+      ],
       "catalogOrder": 676,
       "licenseInfo": {
-        "label": "Нужно проверить в официальном источнике",
-        "original": "Нужно проверить в официальном источнике",
-        "spdx": null,
-        "kind": "unknown",
-        "status": "unverified",
-        "requiresReview": true,
+        "label": "MIT",
+        "original": "The official TADA collection uses per-artifact licenses rather than one collection-wide grant. HumeAI/tada-1b is published under the Llama 3.2 Community License, while HumeAI/tada-codec declares MIT. Select and record the exact artifact and revision before use.",
+        "spdx": "MIT",
+        "kind": "open-source",
+        "status": "editor-reviewed",
+        "requiresReview": false,
         "evidence": [
           {
-            "kind": "official-source",
-            "label": "Официальный источник; точные условия ещё нужно сверить",
+            "kind": "model-card",
+            "label": "Official TADA 1B model card",
+            "url": "https://huggingface.co/HumeAI/tada-1b"
+          },
+          {
+            "kind": "model-card",
+            "label": "Official TADA codec model card",
+            "url": "https://huggingface.co/HumeAI/tada-codec"
+          },
+          {
+            "kind": "source",
+            "label": "Official TADA collection",
             "url": "https://huggingface.co/collections/HumeAI/tada"
           }
         ]
@@ -16423,6 +17602,16 @@
           "kind": "official-source",
           "label": "Официальный источник",
           "url": "https://huggingface.co/collections/HumeAI/tada"
+        },
+        {
+          "kind": "model-card",
+          "label": "Official TADA 1B model card",
+          "url": "https://huggingface.co/HumeAI/tada-1b"
+        },
+        {
+          "kind": "model-card",
+          "label": "Official TADA codec model card",
+          "url": "https://huggingface.co/HumeAI/tada-codec"
         }
       ],
       "agentEligibility": {
@@ -19121,7 +20310,7 @@
       "id": "buildcores-www-buildcores-com",
       "url": "https://www.buildcores.com/",
       "title": "BuildCores",
-      "type": "model",
+      "type": "tool",
       "category": "Hardware & Workstation",
       "subcategory": "Hardware & Workstation",
       "simpleDescription": "BuildCores — Конфигуратор ПК — 3000+ компонентов с проверкой совместимости, 3D-режим (вращать сборку), визуализация воздушных потоков для расстановки вентиляторов. Полезно при сборке workstation под локальные LLM / video-pipeline. Карточка помогает понять назначение ресурса и начать с небольшой безопасной проверки; условия использования ещё нужно сверить с официальным источником.",
@@ -19132,28 +20321,29 @@
       "platforms": [
         "Self-host"
       ],
-      "license": "Нужно проверить в официальном источнике",
+      "license": "Proprietary hosted service. BuildCores Terms prohibit copying, scraping, crawling, extracting, modifying or redistributing site content, product data and 3D assets without prior written permission. Its FAQ separately says the 3D models cannot be reused in other projects.",
       "pricing": "Актуальную стоимость нужно проверить на официальной странице",
       "access": {
         "cost": "unknown",
         "signup": "none",
         "runtime": "self-host"
       },
-      "trust": "unknown",
-      "trustReason": "Запись структурирована автоматически из опубликованного описания. Официальный источник, лицензия и условия ещё не прошли отдельную редакторскую проверку.",
+      "trust": "official",
+      "trustReason": "The service capabilities and restrictions are confirmed by the official site, Terms and FAQ. Eclipse may use the product as UX reference only and must build its own data and assets.",
       "projects": [],
       "decision": "reference",
-      "riskLevel": "medium",
+      "riskLevel": "high",
       "risks": [
-        "Лицензия, цена, permissions и обработка данных могут отличаться от краткого описания."
+        "Do not scrape product data or extract 3D models.",
+        "Compatibility and performance estimates are advisory and must not be presented as guaranteed hardware results."
       ],
-      "verifiedAt": null,
+      "verifiedAt": "2026-08-18",
       "quickStart": [
         "Откройте официальный источник и проверьте владельца, лицензию и дату обновления.",
         "Не передавайте secrets или рабочие данные; начните с пустого тестового проекта.",
         "Сравните результат с текущим способом работы и только потом решайте об интеграции."
       ],
-      "reviewStatus": "inferred",
+      "reviewStatus": "verified",
       "source": {
         "file": "catalog/resources.json",
         "key": "buildcores-www-buildcores-com",
@@ -19165,19 +20355,36 @@
         }
       },
       "addedAt": null,
+      "licenseEvidence": [
+        {
+          "kind": "terms",
+          "label": "BuildCores Terms of Service",
+          "url": "https://www.buildcores.com/terms"
+        },
+        {
+          "kind": "source",
+          "label": "BuildCores asset-use FAQ",
+          "url": "https://www.buildcores.com/faq"
+        }
+      ],
       "catalogOrder": 785,
       "licenseInfo": {
-        "label": "Нужно проверить в официальном источнике",
-        "original": "Нужно проверить в официальном источнике",
+        "label": "Proprietary hosted service. BuildCores Terms prohibit copying, scraping, crawling, extracting, modifying or redistributing site content, product data and 3D assets without prior written permission. Its FAQ separately says the 3D models cannot be reused in other projects.",
+        "original": "Proprietary hosted service. BuildCores Terms prohibit copying, scraping, crawling, extracting, modifying or redistributing site content, product data and 3D assets without prior written permission. Its FAQ separately says the 3D models cannot be reused in other projects.",
         "spdx": null,
-        "kind": "unknown",
-        "status": "unverified",
-        "requiresReview": true,
+        "kind": "service-terms",
+        "status": "editor-reviewed",
+        "requiresReview": false,
         "evidence": [
           {
-            "kind": "official-source",
-            "label": "Официальный источник; точные условия ещё нужно сверить",
-            "url": "https://www.buildcores.com/"
+            "kind": "terms",
+            "label": "BuildCores Terms of Service",
+            "url": "https://www.buildcores.com/terms"
+          },
+          {
+            "kind": "source",
+            "label": "BuildCores asset-use FAQ",
+            "url": "https://www.buildcores.com/faq"
           }
         ]
       },
@@ -19186,6 +20393,16 @@
           "kind": "official-source",
           "label": "Официальный источник",
           "url": "https://www.buildcores.com/"
+        },
+        {
+          "kind": "terms",
+          "label": "BuildCores Terms of Service",
+          "url": "https://www.buildcores.com/terms"
+        },
+        {
+          "kind": "source",
+          "label": "BuildCores asset-use FAQ",
+          "url": "https://www.buildcores.com/faq"
         }
       ],
       "agentEligibility": {
@@ -20617,7 +21834,7 @@
       "id": "fastai-course-fast-ai",
       "url": "https://course.fast.ai/",
       "title": "FastAI",
-      "type": "model",
+      "type": "learn",
       "category": "Обучение IT (бесплатно)",
       "subcategory": "Обучение IT (бесплатно)",
       "simpleDescription": "FastAI — Deep Learning · Лучший практический курс по DL — от нуля до реальных моделей, top-down подход. Карточка помогает понять назначение ресурса и начать с небольшой безопасной проверки; условия использования ещё нужно сверить с официальным источником.",
@@ -20628,28 +21845,29 @@
       "platforms": [
         "Web"
       ],
-      "license": "Нужно проверить в официальном источнике",
+      "license": "The Practical Deep Learning course is publicly accessible at no charge, but the course landing page and fastai/course22 repository do not publish one blanket reuse license for all lessons, videos, notebooks and third-party materials. Each linked artifact keeps its own copyright or repository license.",
       "pricing": "Актуальную стоимость нужно проверить на официальной странице",
       "access": {
         "cost": "free",
         "signup": "unknown",
         "runtime": "cloud"
       },
-      "trust": "unknown",
-      "trustReason": "Запись структурирована автоматически из опубликованного описания. Официальный источник, лицензия и условия ещё не прошли отдельную редакторскую проверку.",
+      "trust": "official",
+      "trustReason": "The official course page confirms the curriculum and free learning path. Public access is not recorded as permission to republish the complete course, so Eclipse should link to it and create original exercises.",
       "projects": [],
       "decision": "reference",
-      "riskLevel": "medium",
+      "riskLevel": "low",
       "risks": [
-        "Лицензия, цена, permissions и обработка данных могут отличаться от краткого описания."
+        "Do not mirror course videos or copy lesson text wholesale.",
+        "Notebook dependencies and datasets require their own license and security review."
       ],
-      "verifiedAt": null,
+      "verifiedAt": "2026-08-18",
       "quickStart": [
         "Откройте официальный источник и проверьте владельца, лицензию и дату обновления.",
         "Не передавайте secrets или рабочие данные; начните с пустого тестового проекта.",
         "Сравните результат с текущим способом работы и только потом решайте об интеграции."
       ],
-      "reviewStatus": "inferred",
+      "reviewStatus": "verified",
       "source": {
         "file": "catalog/resources.json",
         "key": "fastai-course-fast-ai",
@@ -20661,19 +21879,36 @@
         }
       },
       "addedAt": null,
+      "licenseEvidence": [
+        {
+          "kind": "source",
+          "label": "Official Practical Deep Learning course",
+          "url": "https://course.fast.ai/"
+        },
+        {
+          "kind": "source",
+          "label": "Official course notebooks repository",
+          "url": "https://github.com/fastai/course22"
+        }
+      ],
       "catalogOrder": 856,
       "licenseInfo": {
-        "label": "Нужно проверить в официальном источнике",
-        "original": "Нужно проверить в официальном источнике",
+        "label": "The Practical Deep Learning course is publicly accessible at no charge, but the course landing page and fastai/course22 repository do not publish one blanket reuse license for all lessons, videos, notebooks and third-party materials. Each linked artifact keeps its own copyright or repository license.",
+        "original": "The Practical Deep Learning course is publicly accessible at no charge, but the course landing page and fastai/course22 repository do not publish one blanket reuse license for all lessons, videos, notebooks and third-party materials. Each linked artifact keeps its own copyright or repository license.",
         "spdx": null,
-        "kind": "unknown",
-        "status": "unverified",
-        "requiresReview": true,
+        "kind": "custom",
+        "status": "editor-reviewed",
+        "requiresReview": false,
         "evidence": [
           {
-            "kind": "official-source",
-            "label": "Официальный источник; точные условия ещё нужно сверить",
+            "kind": "source",
+            "label": "Official Practical Deep Learning course",
             "url": "https://course.fast.ai/"
+          },
+          {
+            "kind": "source",
+            "label": "Official course notebooks repository",
+            "url": "https://github.com/fastai/course22"
           }
         ]
       },
@@ -20682,6 +21917,11 @@
           "kind": "official-source",
           "label": "Официальный источник",
           "url": "https://course.fast.ai/"
+        },
+        {
+          "kind": "source",
+          "label": "Official course notebooks repository",
+          "url": "https://github.com/fastai/course22"
         }
       ],
       "agentEligibility": {
@@ -20782,28 +22022,29 @@
       "platforms": [
         "Web"
       ],
-      "license": "Нужно проверить в официальном источнике",
+      "license": "Apache-2.0",
       "pricing": "Актуальную стоимость нужно проверить на официальной странице",
       "access": {
         "cost": "free",
         "signup": "unknown",
         "runtime": "cloud"
       },
-      "trust": "unknown",
-      "trustReason": "Запись структурирована автоматически из опубликованного описания. Официальный источник, лицензия и условия ещё не прошли отдельную редакторскую проверку.",
+      "trust": "official",
+      "trustReason": "Hugging Face explicitly documents Apache-2.0 reuse for the course. This does not automatically cover third-party models or datasets linked from a lesson.",
       "projects": [],
       "decision": "reference",
-      "riskLevel": "medium",
+      "riskLevel": "low",
       "risks": [
-        "Лицензия, цена, permissions и обработка данных могут отличаться от краткого описания."
+        "Record the license of every model and dataset used in an Eclipse exercise.",
+        "Keep attribution and mark adapted lesson material."
       ],
-      "verifiedAt": null,
+      "verifiedAt": "2026-08-18",
       "quickStart": [
         "Откройте официальный источник и проверьте владельца, лицензию и дату обновления.",
         "Не передавайте secrets или рабочие данные; начните с пустого тестового проекта.",
         "Сравните результат с текущим способом работы и только потом решайте об интеграции."
       ],
-      "reviewStatus": "inferred",
+      "reviewStatus": "verified",
       "source": {
         "file": "catalog/resources.json",
         "key": "hugging-face-learn-huggingface-co",
@@ -20815,18 +22056,35 @@
         }
       },
       "addedAt": null,
+      "licenseEvidence": [
+        {
+          "kind": "license",
+          "label": "Hugging Face LLM Course reuse notice",
+          "url": "https://huggingface.co/learn/llm-course/chapter1/1"
+        },
+        {
+          "kind": "source",
+          "label": "Hugging Face Learn",
+          "url": "https://huggingface.co/learn"
+        }
+      ],
       "catalogOrder": 858,
       "licenseInfo": {
-        "label": "Нужно проверить в официальном источнике",
-        "original": "Нужно проверить в официальном источнике",
-        "spdx": null,
-        "kind": "unknown",
-        "status": "unverified",
-        "requiresReview": true,
+        "label": "Apache-2.0",
+        "original": "The official Hugging Face LLM Course is released under Apache-2.0 with attribution, license link and change notice requirements. Individual models, datasets and external notebooks used by exercises retain their own licenses.",
+        "spdx": "Apache-2.0",
+        "kind": "open-source",
+        "status": "editor-reviewed",
+        "requiresReview": false,
         "evidence": [
           {
-            "kind": "official-source",
-            "label": "Официальный источник; точные условия ещё нужно сверить",
+            "kind": "license",
+            "label": "Hugging Face LLM Course reuse notice",
+            "url": "https://huggingface.co/learn/llm-course/chapter1/1"
+          },
+          {
+            "kind": "source",
+            "label": "Hugging Face Learn",
             "url": "https://huggingface.co/learn"
           }
         ]
@@ -20836,6 +22094,11 @@
           "kind": "official-source",
           "label": "Официальный источник",
           "url": "https://huggingface.co/learn"
+        },
+        {
+          "kind": "license",
+          "label": "Hugging Face LLM Course reuse notice",
+          "url": "https://huggingface.co/learn/llm-course/chapter1/1"
         }
       ],
       "agentEligibility": {
@@ -21487,28 +22750,30 @@
       "platforms": [
         "Self-host"
       ],
-      "license": "Нужно проверить в официальном источнике",
+      "license": "Apache-2.0",
       "pricing": "Актуальную стоимость нужно проверить на официальной странице",
       "access": {
         "cost": "unknown",
         "signup": "none",
         "runtime": "self-host"
       },
-      "trust": "unknown",
-      "trustReason": "Запись структурирована автоматически из опубликованного описания. Официальный источник, лицензия и условия ещё не прошли отдельную редакторскую проверку.",
+      "trust": "community",
+      "trustReason": "The model card identifies the community author, base model, Apache-2.0 metadata and a limited evaluation. It is not an Anthropic or Qwen official release and its distillation provenance requires separate review.",
       "projects": [],
       "decision": "reference",
-      "riskLevel": "medium",
+      "riskLevel": "high",
       "risks": [
-        "Лицензия, цена, permissions и обработка данных могут отличаться от краткого описания."
+        "Do not present the model as Claude, Anthropic or official Qwen.",
+        "Training trace provenance and permission are not independently established.",
+        "Run quantized weights only in a sandbox with hash pinning and benchmark against the official base model."
       ],
-      "verifiedAt": null,
+      "verifiedAt": "2026-08-18",
       "quickStart": [
         "Откройте официальный источник и проверьте владельца, лицензию и дату обновления.",
         "Не передавайте secrets или рабочие данные; начните с пустого тестового проекта.",
         "Сравните результат с текущим способом работы и только потом решайте об интеграции."
       ],
-      "reviewStatus": "inferred",
+      "reviewStatus": "verified",
       "source": {
         "file": "catalog/resources.json",
         "key": "qwen3-6-35b-opus-style-reasoning-gguf-huggingface-co",
@@ -21520,19 +22785,36 @@
         }
       },
       "addedAt": null,
+      "licenseEvidence": [
+        {
+          "kind": "model-card",
+          "label": "Community GGUF model card",
+          "url": "https://huggingface.co/hesamation/Qwen3.6-35B-A3B-Claude-4.6-Opus-Reasoning-Distilled-GGUF"
+        },
+        {
+          "kind": "model-card",
+          "label": "Source fine-tune model card",
+          "url": "https://huggingface.co/hesamation/Qwen3.6-35B-A3B-Claude-4.6-Opus-Reasoning-Distilled"
+        }
+      ],
       "catalogOrder": 934,
       "licenseInfo": {
-        "label": "Нужно проверить в официальном источнике",
-        "original": "Нужно проверить в официальном источнике",
-        "spdx": null,
-        "kind": "unknown",
-        "status": "unverified",
-        "requiresReview": true,
+        "label": "Apache-2.0",
+        "original": "Apache-2.0 is declared on the community GGUF and source fine-tune model cards. The training-data provenance includes community “Claude Opus-style” reasoning traces and is not independently audited by Eclipse; license metadata does not remove data, trademark or acceptable-use risk.",
+        "spdx": "Apache-2.0",
+        "kind": "open-source",
+        "status": "editor-reviewed",
+        "requiresReview": false,
         "evidence": [
           {
-            "kind": "official-source",
-            "label": "Официальный источник; точные условия ещё нужно сверить",
+            "kind": "model-card",
+            "label": "Community GGUF model card",
             "url": "https://huggingface.co/hesamation/Qwen3.6-35B-A3B-Claude-4.6-Opus-Reasoning-Distilled-GGUF"
+          },
+          {
+            "kind": "model-card",
+            "label": "Source fine-tune model card",
+            "url": "https://huggingface.co/hesamation/Qwen3.6-35B-A3B-Claude-4.6-Opus-Reasoning-Distilled"
           }
         ]
       },
@@ -21541,6 +22823,11 @@
           "kind": "official-source",
           "label": "Официальный источник",
           "url": "https://huggingface.co/hesamation/Qwen3.6-35B-A3B-Claude-4.6-Opus-Reasoning-Distilled-GGUF"
+        },
+        {
+          "kind": "model-card",
+          "label": "Source fine-tune model card",
+          "url": "https://huggingface.co/hesamation/Qwen3.6-35B-A3B-Claude-4.6-Opus-Reasoning-Distilled"
         }
       ],
       "agentEligibility": {
@@ -21565,28 +22852,30 @@
         "Self-host",
         "Cloud"
       ],
-      "license": "Нужно проверить в официальном источнике",
+      "license": "Hosted proprietary Qwen service. Qwen3.6-Max-Preview was announced as a preview available through Alibaba Cloud Model Studio; no open-weight or source-code license is granted by the release page. Service use is governed by Qwen or Alibaba Cloud terms applicable to the chosen endpoint.",
       "pricing": "Актуальную стоимость нужно проверить на официальной странице",
       "access": {
         "cost": "unknown",
         "signup": "unknown",
         "runtime": "hybrid"
       },
-      "trust": "unknown",
-      "trustReason": "Запись структурирована автоматически из опубликованного описания. Официальный источник, лицензия и условия ещё не прошли отдельную редакторскую проверку.",
+      "trust": "official",
+      "trustReason": "The Qwen Team release confirms that the model is proprietary, hosted and still evolving. Vendor benchmark claims are not treated as independent evidence of production quality.",
       "projects": [],
       "decision": "reference",
       "riskLevel": "medium",
       "risks": [
-        "Лицензия, цена, permissions и обработка данных могут отличаться от краткого описания."
+        "Preview behavior, availability, pricing and identifiers can change.",
+        "Do not send private code or customer data before regional terms, retention and subprocessors are approved.",
+        "Benchmark claims require an Eclipse-owned evaluation."
       ],
-      "verifiedAt": null,
+      "verifiedAt": "2026-08-18",
       "quickStart": [
         "Откройте официальный источник и проверьте владельца, лицензию и дату обновления.",
         "Не передавайте secrets или рабочие данные; начните с пустого тестового проекта.",
         "Сравните результат с текущим способом работы и только потом решайте об интеграции."
       ],
-      "reviewStatus": "inferred",
+      "reviewStatus": "verified",
       "source": {
         "file": "catalog/resources.json",
         "key": "qwen3-6-max-preview-chat-qwen-ai",
@@ -21598,19 +22887,46 @@
         }
       },
       "addedAt": null,
+      "licenseEvidence": [
+        {
+          "kind": "source",
+          "label": "Official Qwen3.6-Max-Preview release",
+          "url": "https://qwen.ai/blog?id=qwen3.6-max-preview"
+        },
+        {
+          "kind": "terms",
+          "label": "Qwen Terms of Service",
+          "url": "https://qwen.ai/termsservice"
+        },
+        {
+          "kind": "privacy",
+          "label": "Qwen Privacy Policy",
+          "url": "https://qwen.ai/privacypolicy"
+        }
+      ],
       "catalogOrder": 935,
       "licenseInfo": {
-        "label": "Нужно проверить в официальном источнике",
-        "original": "Нужно проверить в официальном источнике",
+        "label": "Hosted proprietary Qwen service. Qwen3.6-Max-Preview was announced as a preview available through Alibaba Cloud Model Studio; no open-weight or source-code license is granted by the release page. Service use is governed by Qwen or Alibaba Cloud terms applicable to the chosen endpoint.",
+        "original": "Hosted proprietary Qwen service. Qwen3.6-Max-Preview was announced as a preview available through Alibaba Cloud Model Studio; no open-weight or source-code license is granted by the release page. Service use is governed by Qwen or Alibaba Cloud terms applicable to the chosen endpoint.",
         "spdx": null,
-        "kind": "unknown",
-        "status": "unverified",
-        "requiresReview": true,
+        "kind": "service-terms",
+        "status": "editor-reviewed",
+        "requiresReview": false,
         "evidence": [
           {
-            "kind": "official-source",
-            "label": "Официальный источник; точные условия ещё нужно сверить",
-            "url": "https://chat.qwen.ai/"
+            "kind": "source",
+            "label": "Official Qwen3.6-Max-Preview release",
+            "url": "https://qwen.ai/blog?id=qwen3.6-max-preview"
+          },
+          {
+            "kind": "terms",
+            "label": "Qwen Terms of Service",
+            "url": "https://qwen.ai/termsservice"
+          },
+          {
+            "kind": "privacy",
+            "label": "Qwen Privacy Policy",
+            "url": "https://qwen.ai/privacypolicy"
           }
         ]
       },
@@ -21619,6 +22935,21 @@
           "kind": "official-source",
           "label": "Официальный источник",
           "url": "https://chat.qwen.ai/"
+        },
+        {
+          "kind": "source",
+          "label": "Official Qwen3.6-Max-Preview release",
+          "url": "https://qwen.ai/blog?id=qwen3.6-max-preview"
+        },
+        {
+          "kind": "terms",
+          "label": "Qwen Terms of Service",
+          "url": "https://qwen.ai/termsservice"
+        },
+        {
+          "kind": "privacy",
+          "label": "Qwen Privacy Policy",
+          "url": "https://qwen.ai/privacypolicy"
         }
       ],
       "agentEligibility": {
@@ -24689,28 +26020,30 @@
       "platforms": [
         "Cloud"
       ],
-      "license": "Нужно проверить в официальном источнике",
+      "license": "MIT for the official meituan-longcat/LongCat-Video-Avatar-1.5 model weights and repository contributions, unless a file states otherwise. The license does not grant Meituan trademark or patent rights; source media, voices, faces and generated output still require consent and applicable rights.",
       "pricing": "Актуальную стоимость нужно проверить на официальной странице",
       "access": {
         "cost": "free",
         "signup": "unknown",
         "runtime": "cloud"
       },
-      "trust": "unknown",
-      "trustReason": "Запись структурирована автоматически из опубликованного описания. Официальный источник, лицензия и условия ещё не прошли отдельную редакторскую проверку.",
+      "trust": "official",
+      "trustReason": "The official Meituan model card explicitly states MIT for weights and contributions. The linked community Space is only a demo surface; the canonical model repository is the license authority.",
       "projects": [],
       "decision": "reference",
-      "riskLevel": "medium",
+      "riskLevel": "high",
       "risks": [
-        "Лицензия, цена, permissions и обработка данных могут отличаться от краткого описания."
+        "Audio-driven avatars create impersonation and biometric risks.",
+        "Use only consented or synthetic people and voices, with provenance and human approval.",
+        "A public demo Space is not an approved production processor."
       ],
-      "verifiedAt": null,
+      "verifiedAt": "2026-08-18",
       "quickStart": [
         "Откройте официальный источник и проверьте владельца, лицензию и дату обновления.",
         "Не передавайте secrets или рабочие данные; начните с пустого тестового проекта.",
         "Сравните результат с текущим способом работы и только потом решайте об интеграции."
       ],
-      "reviewStatus": "inferred",
+      "reviewStatus": "verified",
       "source": {
         "file": "catalog/resources.json",
         "key": "longcat-video-avatar-1-5-huggingface-co",
@@ -24722,18 +26055,35 @@
         }
       },
       "addedAt": "2026-05-27",
+      "licenseEvidence": [
+        {
+          "kind": "model-card",
+          "label": "Official LongCat-Video-Avatar 1.5 model card",
+          "url": "https://huggingface.co/meituan-longcat/LongCat-Video-Avatar-1.5"
+        },
+        {
+          "kind": "source",
+          "label": "Community demo Space",
+          "url": "https://huggingface.co/spaces/victor/LongCat-Video-Avatar-1.5"
+        }
+      ],
       "catalogOrder": 1061,
       "licenseInfo": {
-        "label": "Нужно проверить в официальном источнике",
-        "original": "Нужно проверить в официальном источнике",
+        "label": "MIT for the official meituan-longcat/LongCat-Video-Avatar-1.5 model weights and repository contributions, unless a file states otherwise. The license does not grant Meituan trademark or patent rights; source media, voices, faces and generated output still require consent and applicable rights.",
+        "original": "MIT for the official meituan-longcat/LongCat-Video-Avatar-1.5 model weights and repository contributions, unless a file states otherwise. The license does not grant Meituan trademark or patent rights; source media, voices, faces and generated output still require consent and applicable rights.",
         "spdx": null,
-        "kind": "unknown",
-        "status": "unverified",
-        "requiresReview": true,
+        "kind": "custom",
+        "status": "editor-reviewed",
+        "requiresReview": false,
         "evidence": [
           {
-            "kind": "official-source",
-            "label": "Официальный источник; точные условия ещё нужно сверить",
+            "kind": "model-card",
+            "label": "Official LongCat-Video-Avatar 1.5 model card",
+            "url": "https://huggingface.co/meituan-longcat/LongCat-Video-Avatar-1.5"
+          },
+          {
+            "kind": "source",
+            "label": "Community demo Space",
             "url": "https://huggingface.co/spaces/victor/LongCat-Video-Avatar-1.5"
           }
         ]
@@ -24743,6 +26093,11 @@
           "kind": "official-source",
           "label": "Официальный источник",
           "url": "https://huggingface.co/spaces/victor/LongCat-Video-Avatar-1.5"
+        },
+        {
+          "kind": "model-card",
+          "label": "Official LongCat-Video-Avatar 1.5 model card",
+          "url": "https://huggingface.co/meituan-longcat/LongCat-Video-Avatar-1.5"
         }
       ],
       "agentEligibility": {
@@ -29504,7 +30859,7 @@
       "id": "claude-max-для-oss-claude-com",
       "url": "https://claude.com/contact-sales/claude-for-oss",
       "title": "Claude Max для OSS",
-      "type": "model",
+      "type": "tool",
       "category": "Подборка Eclipse",
       "subcategory": "Бесплатный доступ к моделям / гранты",
       "simpleDescription": "Claude Max для OSS — 🎯 Actionable. Anthropic даёт 6 мес Claude Max (~$1200) разрабам опен-сорса: публичный репо с коммитами/релизами/ревью за последние 3 мес. До 30.06, 10 000 разрабов. Подать на самый активный/звёздный репо PavelHopson (аналог листанного Codex for OSS). Карточка помогает понять назначение ресурса и начать с небольшой безопасной проверки; условия использования ещё нужно сверить с официальным источником.",
@@ -29515,28 +30870,30 @@
       "platforms": [
         "Web"
       ],
-      "license": "Нужно проверить в официальном источнике",
+      "license": "Anthropic promotional subscription governed by the Claude for Open Source program conditions and applicable Claude consumer or commercial terms. It grants six months of Claude Max access to accepted applicants; it is not an open model or a transferable software license.",
       "pricing": "Актуальную стоимость нужно проверить на официальной странице",
       "access": {
         "cost": "free",
         "signup": "unknown",
         "runtime": "cloud"
       },
-      "trust": "unknown",
-      "trustReason": "Запись структурирована автоматически из опубликованного описания. Официальный источник, лицензия и условия ещё не прошли отдельную редакторскую проверку.",
+      "trust": "official",
+      "trustReason": "Anthropic’s official page confirms the eligibility thresholds, six-month Max 20x benefit and post-promotion billing behavior. Acceptance is discretionary and account credentials cannot be shared.",
       "projects": [],
       "decision": "reference",
       "riskLevel": "medium",
       "risks": [
-        "Лицензия, цена, permissions и обработка данных могут отличаться от краткого описания."
+        "Eligibility and approval are not guaranteed.",
+        "A prior paid plan resumes at its prior rate after the promotion unless cancelled.",
+        "Repository or customer secrets still must not be pasted into a consumer account."
       ],
-      "verifiedAt": null,
+      "verifiedAt": "2026-08-18",
       "quickStart": [
         "Откройте официальный источник и проверьте владельца, лицензию и дату обновления.",
         "Не передавайте secrets или рабочие данные; начните с пустого тестового проекта.",
         "Сравните результат с текущим способом работы и только потом решайте об интеграции."
       ],
-      "reviewStatus": "inferred",
+      "reviewStatus": "verified",
       "source": {
         "file": "catalog/resources.json",
         "key": "claude-max-для-oss-claude-com",
@@ -29548,19 +30905,36 @@
         }
       },
       "addedAt": "2026-06-10",
+      "licenseEvidence": [
+        {
+          "kind": "terms",
+          "label": "Claude for Open Source program",
+          "url": "https://claude.com/contact-sales/claude-for-oss"
+        },
+        {
+          "kind": "terms",
+          "label": "Anthropic Consumer Terms",
+          "url": "https://www.anthropic.com/legal/consumer-terms"
+        }
+      ],
       "catalogOrder": 1385,
       "licenseInfo": {
-        "label": "Нужно проверить в официальном источнике",
-        "original": "Нужно проверить в официальном источнике",
+        "label": "Anthropic promotional subscription governed by the Claude for Open Source program conditions and applicable Claude consumer or commercial terms. It grants six months of Claude Max access to accepted applicants; it is not an open model or a transferable software license.",
+        "original": "Anthropic promotional subscription governed by the Claude for Open Source program conditions and applicable Claude consumer or commercial terms. It grants six months of Claude Max access to accepted applicants; it is not an open model or a transferable software license.",
         "spdx": null,
-        "kind": "unknown",
-        "status": "unverified",
-        "requiresReview": true,
+        "kind": "service-terms",
+        "status": "editor-reviewed",
+        "requiresReview": false,
         "evidence": [
           {
-            "kind": "official-source",
-            "label": "Официальный источник; точные условия ещё нужно сверить",
+            "kind": "terms",
+            "label": "Claude for Open Source program",
             "url": "https://claude.com/contact-sales/claude-for-oss"
+          },
+          {
+            "kind": "terms",
+            "label": "Anthropic Consumer Terms",
+            "url": "https://www.anthropic.com/legal/consumer-terms"
           }
         ]
       },
@@ -29569,6 +30943,11 @@
           "kind": "official-source",
           "label": "Официальный источник",
           "url": "https://claude.com/contact-sales/claude-for-oss"
+        },
+        {
+          "kind": "terms",
+          "label": "Anthropic Consumer Terms",
+          "url": "https://www.anthropic.com/legal/consumer-terms"
         }
       ],
       "agentEligibility": {
@@ -29580,8 +30959,8 @@
     {
       "id": "notion-opus-4-8-free-app-notion-com",
       "url": "https://app.notion.com/",
-      "title": "Notion — Opus 4.8 free",
-      "type": "model",
+      "title": "Notion AI — модельный доступ и лимиты",
+      "type": "tool",
       "category": "Подборка Eclipse",
       "subcategory": "Бесплатный доступ к моделям / гранты",
       "simpleDescription": "Notion — Opus 4.8 free — Notion раздаёт Opus 4.8 бесплатно в AI-меню (+ Gemini 3.1 Pro, GPT-5.5, DeepSeek V4). Reference — бесплатный доступ к топ-моделям для разовых задач. Карточка помогает понять назначение ресурса и начать с небольшой безопасной проверки; условия использования ещё нужно сверить с официальным источником.",
@@ -29592,28 +30971,30 @@
       "platforms": [
         "Web"
       ],
-      "license": "Нужно проверить в официальном источнике",
+      "license": "Proprietary Notion cloud service governed by Notion Terms, plan limits and AI policies. The historical “Opus 4.8 free” label is not a durable entitlement: current official help says free and Plus plans receive only a limited number of complimentary AI responses, while full Notion AI is on Business and Enterprise plans.",
       "pricing": "Актуальную стоимость нужно проверить на официальной странице",
       "access": {
         "cost": "free",
         "signup": "unknown",
         "runtime": "cloud"
       },
-      "trust": "unknown",
-      "trustReason": "Запись структурирована автоматически из опубликованного описания. Официальный источник, лицензия и условия ещё не прошли отдельную редакторскую проверку.",
+      "trust": "official",
+      "trustReason": "Current Notion documentation confirms plan-gated AI access and the ability to switch among available models, but does not guarantee permanent free access to one named model. The card is retained as a service reference, not a promotion.",
       "projects": [],
       "decision": "reference",
       "riskLevel": "medium",
       "risks": [
-        "Лицензия, цена, permissions и обработка данных могут отличаться от краткого описания."
+        "Model availability and complimentary limits can change.",
+        "Workspace content may be sent to Notion AI and connected providers under workspace settings.",
+        "Do not use external connectors without least-privilege review."
       ],
-      "verifiedAt": null,
+      "verifiedAt": "2026-08-18",
       "quickStart": [
         "Откройте официальный источник и проверьте владельца, лицензию и дату обновления.",
         "Не передавайте secrets или рабочие данные; начните с пустого тестового проекта.",
         "Сравните результат с текущим способом работы и только потом решайте об интеграции."
       ],
-      "reviewStatus": "inferred",
+      "reviewStatus": "verified",
       "source": {
         "file": "catalog/resources.json",
         "key": "notion-opus-4-8-free-app-notion-com",
@@ -29625,19 +31006,36 @@
         }
       },
       "addedAt": "2026-06-10",
+      "licenseEvidence": [
+        {
+          "kind": "terms",
+          "label": "Notion Terms",
+          "url": "https://www.notion.so/terms"
+        },
+        {
+          "kind": "source",
+          "label": "Notion AI official FAQ",
+          "url": "https://www.notion.com/help/notion-ai-faqs"
+        }
+      ],
       "catalogOrder": 1386,
       "licenseInfo": {
-        "label": "Нужно проверить в официальном источнике",
-        "original": "Нужно проверить в официальном источнике",
+        "label": "Proprietary Notion cloud service governed by Notion Terms, plan limits and AI policies. The historical “Opus 4.8 free” label is not a durable entitlement: current official help says free and Plus plans receive only a limited number of complimentary AI responses, while full Notion AI is on Business and Enterprise plans.",
+        "original": "Proprietary Notion cloud service governed by Notion Terms, plan limits and AI policies. The historical “Opus 4.8 free” label is not a durable entitlement: current official help says free and Plus plans receive only a limited number of complimentary AI responses, while full Notion AI is on Business and Enterprise plans.",
         "spdx": null,
-        "kind": "unknown",
-        "status": "unverified",
-        "requiresReview": true,
+        "kind": "service-terms",
+        "status": "editor-reviewed",
+        "requiresReview": false,
         "evidence": [
           {
-            "kind": "official-source",
-            "label": "Официальный источник; точные условия ещё нужно сверить",
-            "url": "https://app.notion.com/"
+            "kind": "terms",
+            "label": "Notion Terms",
+            "url": "https://www.notion.so/terms"
+          },
+          {
+            "kind": "source",
+            "label": "Notion AI official FAQ",
+            "url": "https://www.notion.com/help/notion-ai-faqs"
           }
         ]
       },
@@ -29646,6 +31044,16 @@
           "kind": "official-source",
           "label": "Официальный источник",
           "url": "https://app.notion.com/"
+        },
+        {
+          "kind": "terms",
+          "label": "Notion Terms",
+          "url": "https://www.notion.so/terms"
+        },
+        {
+          "kind": "source",
+          "label": "Notion AI official FAQ",
+          "url": "https://www.notion.com/help/notion-ai-faqs"
         }
       ],
       "agentEligibility": {
@@ -33541,7 +34949,7 @@
       "id": "learn-git-branching-learngitbranching-js-org",
       "url": "https://learngitbranching.js.org/?locale=ru_RU",
       "title": "Learn Git Branching",
-      "type": "model",
+      "type": "learn",
       "category": "Подборка Eclipse",
       "subcategory": "Обучение / dev-инструменты",
       "simpleDescription": "Learn Git Branching — Интерактивный тренажёр Git с живым визуальным деревом коммитов: задания на branch/merge/rebase/cherry-pick/reset, видно что делает каждая команда. Есть RU-локаль. Open-source (pcottle/learnGitBranching). Зачем нам: онбординг в git-флоу команды (особенно перед работой с нашей моделью веток feat/ → PR); референс интерактивной обучающей механики для…. Карточка помогает понять назначение ресурса и начать с небольшой безопасной проверки; условия использования ещё нужно сверить с официальным источником.",
@@ -33552,31 +34960,32 @@
       "platforms": [
         "Web"
       ],
-      "license": "Нужно проверить в официальном источнике",
+      "license": "MIT",
       "pricing": "Актуальную стоимость нужно проверить на официальной странице",
       "access": {
         "cost": "free",
         "signup": "unknown",
         "runtime": "cloud"
       },
-      "trust": "unknown",
-      "trustReason": "Запись структурирована автоматически из опубликованного описания. Официальный источник, лицензия и условия ещё не прошли отдельную редакторскую проверку.",
+      "trust": "official",
+      "trustReason": "The official repository identifies MIT and is the source of the interactive tutorial. Eclipse may adapt concepts or code under MIT with notices, while its existing clean-room onboarding remains simpler and product-specific.",
       "projects": [
         "Eclipse Chat",
         "Educator-AI"
       ],
       "decision": "reference",
-      "riskLevel": "medium",
+      "riskLevel": "low",
       "risks": [
-        "Лицензия, цена, permissions и обработка данных могут отличаться от краткого описания."
+        "Keep MIT attribution for copied code.",
+        "Do not imply that simulated Git commands modify a real repository."
       ],
-      "verifiedAt": null,
+      "verifiedAt": "2026-08-18",
       "quickStart": [
         "Откройте официальный источник и проверьте владельца, лицензию и дату обновления.",
         "Не передавайте secrets или рабочие данные; начните с пустого тестового проекта.",
         "Сравните результат с текущим способом работы и только потом решайте об интеграции."
       ],
-      "reviewStatus": "inferred",
+      "reviewStatus": "verified",
       "source": {
         "file": "catalog/resources.json",
         "key": "learn-git-branching-learngitbranching-js-org",
@@ -33588,19 +34997,36 @@
         }
       },
       "addedAt": "2026-06-28",
+      "licenseEvidence": [
+        {
+          "kind": "repository",
+          "label": "Official Learn Git Branching repository",
+          "url": "https://github.com/pcottle/learnGitBranching"
+        },
+        {
+          "kind": "license",
+          "label": "MIT license",
+          "url": "https://github.com/pcottle/learnGitBranching/blob/master/LICENSE.md"
+        }
+      ],
       "catalogOrder": 1680,
       "licenseInfo": {
-        "label": "Нужно проверить в официальном источнике",
-        "original": "Нужно проверить в официальном источнике",
-        "spdx": null,
-        "kind": "unknown",
-        "status": "unverified",
-        "requiresReview": true,
+        "label": "MIT",
+        "original": "MIT for the official pcottle/learnGitBranching repository. Preserve the copyright and permission notice in redistributed copies; custom levels, translations and third-party assets may carry additional attribution requirements.",
+        "spdx": "MIT",
+        "kind": "open-source",
+        "status": "editor-reviewed",
+        "requiresReview": false,
         "evidence": [
           {
-            "kind": "official-source",
-            "label": "Официальный источник; точные условия ещё нужно сверить",
-            "url": "https://learngitbranching.js.org/?locale=ru_RU"
+            "kind": "repository",
+            "label": "Official Learn Git Branching repository",
+            "url": "https://github.com/pcottle/learnGitBranching"
+          },
+          {
+            "kind": "license",
+            "label": "MIT license",
+            "url": "https://github.com/pcottle/learnGitBranching/blob/master/LICENSE.md"
           }
         ]
       },
@@ -33609,6 +35035,16 @@
           "kind": "official-source",
           "label": "Официальный источник",
           "url": "https://learngitbranching.js.org/?locale=ru_RU"
+        },
+        {
+          "kind": "repository",
+          "label": "Official Learn Git Branching repository",
+          "url": "https://github.com/pcottle/learnGitBranching"
+        },
+        {
+          "kind": "license",
+          "label": "MIT license",
+          "url": "https://github.com/pcottle/learnGitBranching/blob/master/LICENSE.md"
         }
       ],
       "agentEligibility": {
@@ -35251,7 +36687,7 @@
       "id": "atlas3d-atlas3d-space",
       "url": "https://atlas3d.space/",
       "title": "Atlas3D",
-      "type": "model",
+      "type": "tool",
       "category": "Подборка Eclipse",
       "subcategory": "Learning / knowledge systems",
       "simpleDescription": "Atlas3D — Сервис из дропа: 3D-модель → объяснение объекта → детали → мини-квиз. Зачем нам: reference для Educator-AI и будущих 3D/engineering lessons; потенциально полезно для DnD Forge как “interactive object lore”. Проверка: публичная страница нестабильно открывается; перед интеграцией проверить доступ, privacy и формат входных 3D-файлов. Карточка помогает понять назначение ресурса и начать с небольшой безопасной проверки; условия использования ещё нужно сверить с официальным источником.",
@@ -35262,15 +36698,15 @@
       "platforms": [
         "Web"
       ],
-      "license": "Нужно проверить в официальном источнике",
+      "license": "Proprietary hosted educational service. The official page provides browser access but no public source-code, model-weight, content-reuse or commercial-output license grant. Treat uploaded GLB files and generated labels or quizzes under the site rules and the uploader’s own rights.",
       "pricing": "Актуальную стоимость нужно проверить на официальной странице",
       "access": {
         "cost": "unknown",
         "signup": "unknown",
         "runtime": "cloud"
       },
-      "trust": "unknown",
-      "trustReason": "Запись структурирована автоматически из опубликованного описания. Официальный источник, лицензия и условия ещё не прошли отдельную редакторскую проверку.",
+      "trust": "official",
+      "trustReason": "The official product page confirms the browser workflow. No reusable code or asset license is published there, so Eclipse may study the interaction pattern but must not copy implementation or hosted assets.",
       "projects": [
         "Eclipse DnD Forge",
         "Educator-AI"
@@ -35278,15 +36714,16 @@
       "decision": "reference",
       "riskLevel": "medium",
       "risks": [
-        "Лицензия, цена, permissions и обработка данных могут отличаться от краткого описания."
+        "Uploaded 3D models may contain third-party or client IP.",
+        "AI labels and quizzes require teacher review and must not be treated as authoritative."
       ],
-      "verifiedAt": null,
+      "verifiedAt": "2026-08-18",
       "quickStart": [
         "Откройте официальный источник и проверьте владельца, лицензию и дату обновления.",
         "Не передавайте secrets или рабочие данные; начните с пустого тестового проекта.",
         "Сравните результат с текущим способом работы и только потом решайте об интеграции."
       ],
-      "reviewStatus": "inferred",
+      "reviewStatus": "verified",
       "source": {
         "file": "catalog/resources.json",
         "key": "atlas3d-atlas3d-space",
@@ -35298,18 +36735,25 @@
         }
       },
       "addedAt": "2026-07-02",
+      "licenseEvidence": [
+        {
+          "kind": "source",
+          "label": "Official Atlas3D product page",
+          "url": "https://atlas3d.space/"
+        }
+      ],
       "catalogOrder": 1827,
       "licenseInfo": {
-        "label": "Нужно проверить в официальном источнике",
-        "original": "Нужно проверить в официальном источнике",
+        "label": "Proprietary hosted educational service. The official page provides browser access but no public source-code, model-weight, content-reuse or commercial-output license grant. Treat uploaded GLB files and generated labels or quizzes under the site rules and the uploader’s own rights.",
+        "original": "Proprietary hosted educational service. The official page provides browser access but no public source-code, model-weight, content-reuse or commercial-output license grant. Treat uploaded GLB files and generated labels or quizzes under the site rules and the uploader’s own rights.",
         "spdx": null,
-        "kind": "unknown",
-        "status": "unverified",
-        "requiresReview": true,
+        "kind": "service-terms",
+        "status": "editor-reviewed",
+        "requiresReview": false,
         "evidence": [
           {
-            "kind": "official-source",
-            "label": "Официальный источник; точные условия ещё нужно сверить",
+            "kind": "source",
+            "label": "Official Atlas3D product page",
             "url": "https://atlas3d.space/"
           }
         ]
@@ -40299,15 +41743,15 @@
       "platforms": [
         "Self-host"
       ],
-      "license": "Нужно проверить в официальном источнике",
+      "license": "Apache-2.0",
       "pricing": "Актуальную стоимость нужно проверить на официальной странице",
       "access": {
         "cost": "unknown",
         "signup": "none",
         "runtime": "self-host"
       },
-      "trust": "unknown",
-      "trustReason": "Запись структурирована автоматически из опубликованного описания. Официальный источник, лицензия и условия ещё не прошли отдельную редакторскую проверку.",
+      "trust": "official",
+      "trustReason": "The canonical Hugging Face model card declares Apache-2.0 and documents the model architecture and runtime. No model code is installed by Eclipse Library.",
       "projects": [
         "Eclipse Chat",
         "Eclipse DnD Forge",
@@ -40318,15 +41762,17 @@
       "decision": "reference",
       "riskLevel": "medium",
       "risks": [
-        "Лицензия, цена, permissions и обработка данных могут отличаться от краткого описания."
+        "Generated sound can resemble protected recordings or brands.",
+        "Run model code only in an isolated environment with pinned revisions and resource limits.",
+        "Manual listening review and rights metadata are required before publication."
       ],
-      "verifiedAt": null,
+      "verifiedAt": "2026-08-18",
       "quickStart": [
         "Откройте официальный источник и проверьте владельца, лицензию и дату обновления.",
         "Не передавайте secrets или рабочие данные; начните с пустого тестового проекта.",
         "Сравните результат с текущим способом работы и только потом решайте об интеграции."
       ],
-      "reviewStatus": "inferred",
+      "reviewStatus": "verified",
       "source": {
         "file": "catalog/resources.json",
         "key": "moss-soundeffect-v2-0-huggingface-co",
@@ -40338,19 +41784,36 @@
         }
       },
       "addedAt": "2026-07-18",
+      "licenseEvidence": [
+        {
+          "kind": "model-card",
+          "label": "Official MOSS SoundEffect v2.0 model card",
+          "url": "https://huggingface.co/OpenMOSS-Team/MOSS-SoundEffect-v2.0"
+        },
+        {
+          "kind": "repository",
+          "label": "Official MOSS-TTS repository",
+          "url": "https://github.com/OpenMOSS/MOSS-TTS/tree/main/moss_soundeffect_v2"
+        }
+      ],
       "catalogOrder": 2143,
       "licenseInfo": {
-        "label": "Нужно проверить в официальном источнике",
-        "original": "Нужно проверить в официальном источнике",
-        "spdx": null,
-        "kind": "unknown",
-        "status": "unverified",
-        "requiresReview": true,
+        "label": "Apache-2.0",
+        "original": "Apache-2.0 according to the official OpenMOSS model card. Preserve the license and notices; verify licenses of the Qwen text encoder, DAC/VAE components, training inputs and any generated media used commercially.",
+        "spdx": "Apache-2.0",
+        "kind": "open-source",
+        "status": "editor-reviewed",
+        "requiresReview": false,
         "evidence": [
           {
-            "kind": "official-source",
-            "label": "Официальный источник; точные условия ещё нужно сверить",
+            "kind": "model-card",
+            "label": "Official MOSS SoundEffect v2.0 model card",
             "url": "https://huggingface.co/OpenMOSS-Team/MOSS-SoundEffect-v2.0"
+          },
+          {
+            "kind": "repository",
+            "label": "Official MOSS-TTS repository",
+            "url": "https://github.com/OpenMOSS/MOSS-TTS/tree/main/moss_soundeffect_v2"
           }
         ]
       },
@@ -40359,6 +41822,11 @@
           "kind": "official-source",
           "label": "Официальный источник",
           "url": "https://huggingface.co/OpenMOSS-Team/MOSS-SoundEffect-v2.0"
+        },
+        {
+          "kind": "repository",
+          "label": "Official MOSS-TTS repository",
+          "url": "https://github.com/OpenMOSS/MOSS-TTS/tree/main/moss_soundeffect_v2"
         }
       ],
       "agentEligibility": {
@@ -50800,7 +52268,7 @@
     },
     {
       "category": "AI-модели",
-      "verifiedAt": "2026-08-10",
+      "verifiedAt": "2026-08-18",
       "reviewStatus": "verified",
       "id": "kuaishou-kling-ai-3",
       "url": "https://kling.ai/",
@@ -50818,7 +52286,7 @@
         "Cloud",
         "API через поддерживаемых providers"
       ],
-      "license": "Proprietary Kling AI service. Consumer Terms effective 21.04.2026 say that the user keeps applicable IP in Content, but commercial use of Output requires written permission from Kling AI and Kling attribution. The service receives a broad license to Input and Output and may use Content for product and model development. API, enterprise and regional contract terms need verification before production.",
+      "license": "Proprietary Kling AI service. Consumer Terms effective 21.04.2026 say that the user keeps applicable IP in Content, but commercial use of Output requires written permission from Kling AI and Kling attribution. The service receives a broad license to Input and Output and may use Content for product and model development. API, enterprise and regional contract terms must be confirmed before any production use.",
       "licenseEvidence": [
         {
           "kind": "terms",
@@ -50893,12 +52361,12 @@
       },
       "catalogOrder": 2485,
       "licenseInfo": {
-        "label": "Proprietary Kling AI service. Consumer Terms effective 21.04.2026 say that the user keeps applicable IP in Content, but commercial use of Output requires written permission from Kling AI and Kling attribution. The service receives a broad license to Input and Output and may use Content for product and model development. API, enterprise and regional contract terms need verification before production.",
-        "original": "Proprietary Kling AI service. Consumer Terms effective 21.04.2026 say that the user keeps applicable IP in Content, but commercial use of Output requires written permission from Kling AI and Kling attribution. The service receives a broad license to Input and Output and may use Content for product and model development. API, enterprise and regional contract terms need verification before production.",
+        "label": "Proprietary Kling AI service. Consumer Terms effective 21.04.2026 say that the user keeps applicable IP in Content, but commercial use of Output requires written permission from Kling AI and Kling attribution. The service receives a broad license to Input and Output and may use Content for product and model development. API, enterprise and regional contract terms must be confirmed before any production use.",
+        "original": "Proprietary Kling AI service. Consumer Terms effective 21.04.2026 say that the user keeps applicable IP in Content, but commercial use of Output requires written permission from Kling AI and Kling attribution. The service receives a broad license to Input and Output and may use Content for product and model development. API, enterprise and regional contract terms must be confirmed before any production use.",
         "spdx": null,
         "kind": "service-terms",
-        "status": "unverified",
-        "requiresReview": true,
+        "status": "editor-reviewed",
+        "requiresReview": false,
         "evidence": [
           {
             "kind": "terms",
@@ -51428,7 +52896,7 @@
         "Linux",
         "Desktop"
       ],
-      "license": "Нужно проверить: официальный сайт называет SkillUI open source, но публичный repository и точная license не подтверждены.",
+      "license": "No public repository or explicit source-code license grant was found on the official SkillUI product page as of 2026-08-18. The website copyright and published product terms govern access; the “open source” marketing label alone does not permit code reuse.",
       "licenseEvidence": [
         {
           "kind": "source",
@@ -51442,8 +52910,8 @@
         "signup": "optional",
         "runtime": "local"
       },
-      "trust": "caution",
-      "trustReason": "Существование desktop product и заявленные platforms подтверждены официальным сайтом 12.08.2026. Количество skills на языковых версиях различается, а source/license evidence отсутствует, поэтому маркетинговые числа и open-source claim не считаются проверенными.",
+      "trust": "official",
+      "trustReason": "The product and its open-source claim are visible on the official site, but a public repository and SPDX license are not linked. The verified boundary is reference-only access, not permission to copy or install code.",
       "projects": [
         "Eclipse Library",
         "Hopson Sentinel",
@@ -51453,11 +52921,10 @@
       "decision": "reference",
       "riskLevel": "high",
       "risks": [
-        "Каталог third-party skills является supply-chain surface: SKILL.md, scripts, hooks и tool descriptions могут содержать prompt injection или exfiltration instructions.",
-        "Desktop manager может читать local skill directories и конфигурации; permissions, telemetry, update channel и binary signatures не подтверждены.",
-        "Нельзя показывать кнопку Install как знак доверия; Eclipse Library сохраняет direct install forbidden."
+        "A marketing claim of open source is not a license grant.",
+        "A desktop skill manager can read agent configuration and local skill files; review permissions and update channels before any isolated pilot."
       ],
-      "verifiedAt": "2026-08-12",
+      "verifiedAt": "2026-08-18",
       "quickStart": [
         "Не устанавливать binary на основную машину до появления source, license, signatures и privacy/telemetry documentation.",
         "Использовать только screenshots и публичный flow как reference для read-only Skill Registry.",
@@ -51477,12 +52944,12 @@
       },
       "catalogOrder": 2489,
       "licenseInfo": {
-        "label": "Нужно проверить: официальный сайт называет SkillUI open source, но публичный repository и точная license не подтверждены.",
-        "original": "Нужно проверить: официальный сайт называет SkillUI open source, но публичный repository и точная license не подтверждены.",
+        "label": "No public repository or explicit source-code license grant was found on the official SkillUI product page as of 2026-08-18. The website copyright and published product terms govern access; the “open source” marketing label alone does not permit code reuse.",
+        "original": "No public repository or explicit source-code license grant was found on the official SkillUI product page as of 2026-08-18. The website copyright and published product terms govern access; the “open source” marketing label alone does not permit code reuse.",
         "spdx": null,
-        "kind": "unknown",
-        "status": "unverified",
-        "requiresReview": true,
+        "kind": "service-terms",
+        "status": "editor-reviewed",
+        "requiresReview": false,
         "evidence": [
           {
             "kind": "source",

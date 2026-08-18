@@ -1,6 +1,6 @@
 # Eclipse Library Roadmap
 
-Последнее обновление: **17.08.2026**
+Последнее обновление: **18.08.2026**
 
 ## Текущее состояние
 
@@ -15,7 +15,7 @@
   exact 5-scene/15-second contract и ручными render/publish boundaries. Обе схемы static-only,
   используют локальные шрифты и отдельные desktop/mobile SVG без выдуманной автоматизации.
 
-- `catalog/resources.json` — канонический structured catalog из 629 уникальных записей;
+- `catalog/resources.json` — канонический structured catalog из 637 уникальных записей;
   `README.md` сокращён до документации и больше не является runtime-источником данных.
 - `web/catalog-review.js` и `web/review.css` — собственный локальный editorial review-flow:
   четыре evidence gates, явный итог, bounded draft, clipboard fallback и downloadable v2 JSON packet.
@@ -23,13 +23,13 @@
   apply к текущей ветке, commit, merge и deploy отсутствуют по контракту.
 - `web/app.js` — command-first поиск, фильтры, detail view и guide viewer; structured adapter,
   карточки, editorial feed, progressive DOM и evidence-first Inspector вынесены в модули. При старте
-  в DOM создаются только первые 36 карточек вместо всех 629; mobile Inspector открывается как sheet.
-- `web/catalog-index.json` — production schema v2: 195 записей редакторски проверены,
-  434 честно помечены `inferred`, 348 имеют отдельный `addedAt`, даты удалены из category.
-- License layer: у 389 записей лицензия или условия нормализованы с evidence URL;
-  240 остаются в детерминированной manual-review очереди (P1: 14, P2: 190, P3: 36).
-- Agent policy: 553 записи доступны автоматическим consumers, 76 исключены fail closed;
-  все 69 grey-ресурсов скрыты от recommendations, direct install запрещён для всех записей.
+  в DOM создаются только первые 36 карточек вместо всех 637; mobile Inspector открывается как sheet.
+- `web/catalog-index.json` — production schema v2: 254 записи редакторски проверены,
+  383 честно помечены `inferred`, 356 имеют отдельный `addedAt`, даты удалены из category.
+- License layer: у 411 записей лицензия или условия нормализованы с evidence URL;
+  226 остаются в детерминированной manual-review очереди (P1: 0, P2: 190, P3: 36).
+- Agent policy: 560 записей доступны автоматическим consumers, 77 исключены fail closed;
+  все 70 grey-ресурсов скрыты от recommendations, direct install запрещён для всех записей.
 - `web/api/v1/` — versioned static exports для full catalog, agents, Eclipse CRM и Eclipse AI;
   consumers больше не должны читать README.
 - `web/star-technology-registry.json` и `web/registry.html` — отдельный read-only decision
@@ -65,6 +65,9 @@
 - [x] Снизить license/terms backlog с 279 до 240: вручную проверить 20 GitHub NOASSERTION
       repositories и 19 owned Eclipse Library records; публиковать evidence URL, не выдавать
       custom/non-commercial/source-available условия за open source и не разрешать direct install.
+- [x] Закрыть P1 license queue: проверить 14 приоритетных записей и снизить общий backlog
+      с 240 до 226. Отсутствие публичного grant у SkillUI/Atlas3D и запрет на извлечение
+      BuildCores зафиксированы как evidence-backed ограничения, а не как разрешение на reuse.
 - [x] Исправить Coursera/Learn Harness audit semantics: Learn Harness подтверждён HTTP 200;
       Coursera честно маркируется restricted при fetch failure с датой повторной проверки 17.09.2026.
       Broken Apple Hide My Email URL заменён актуальной официальной статьёй.
@@ -314,6 +317,18 @@
       self-check, EN/RU copy и без обязательного API key.
 
 ## Changelog
+### 2026-08-18 — verified research radar and P1 license closure
+
+- Added eight non-duplicate records: Firecrawl PDF Inspector, Qwen3.8 Max, Qwen3.8-27B,
+  Porthole, After Enter, Text Grab, Morphe and PC-Tuning. Twelve existing records were
+  updated through the shared radar; the unsupported Claude watermark-removal claim was excluded.
+- Reviewed all 14 P1 license records from official product pages, terms, repositories and
+  model cards. The remaining queue is 226 items (P1: 0, P2: 190, P3: 36); direct install remains
+  forbidden and proprietary/no-grant records remain reference-only or blocked.
+- Linked the completed bounded rollout already present in AI Hub, Eclipse Media and Educator-AI:
+  opt-in GPT-5.6 routing, dry-run Music 3 benchmark and a local AI app-building learning track.
+  Live provider canaries, model execution and autonomous publication are still separate gates.
+
 ### 2026-08-17 — license evidence queue and cross-project rollout
 
 - Reviewed 39 previously unresolved records: 20 repository licenses/terms from official
