@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "consumer": "Eclipse CRM",
-  "catalogVersion": "a9522b1aeecc8a6dae8f385fa6122f7b79a6950e63d59c10636f3e45b7050a0c",
+  "catalogVersion": "e0ba45b06865af4634d568e9afd8036ee7d65b4c949974157aced43185490198",
   "generatedAt": null,
   "policy": {
     "greyResourcesExcluded": true,
@@ -2694,43 +2694,69 @@
       "category": "AI & Claude Code",
       "subcategory": "Промпт-коллекции",
       "addedAt": null,
-      "description": "GPT-5.5 Prompt Guide (OpenAI) — Официальный гайд OpenAI: НЕ переиспользовать старые длинные промпты, минимизировать инструкции, давать данные + ожидаемый формат. Карточка помогает понять назначение ресурса и начать с небольшой безопасной проверки; условия использования ещё нужно сверить с официальным источником.",
+      "description": "Официальный OpenAI guide по prompting GPT‑5.5: model-specific рекомендации по инструкциям, reasoning и tool use. Он полезен для настройки router и evals, но документация не является open-content пакетом — использовать нужно как reference по действующим OpenAI Terms.",
       "useCases": [
-        "Разобраться, подходит ли GPT-5.5 Prompt Guide (OpenAI) для вашей задачи",
-        "Проверить возможности на небольшом тестовом сценарии до интеграции"
+        "Настроить GPT‑5.5 prompt profile и regression evals в Eclipse AI Hub",
+        "Сравнить model-specific guidance с текущими Codex harness rules"
       ],
       "platforms": [
-        "Web"
+        "OpenAI API",
+        "OpenAI Developers",
+        "Cloud AI"
       ],
       "license": {
-        "label": "Нужно проверить в официальном источнике",
-        "original": "Нужно проверить в официальном источнике",
+        "label": "Proprietary OpenAI documentation and service material governed by the OpenAI Services Agreement and Service Terms; no standalone open-content reuse license was identified",
+        "original": "Proprietary OpenAI documentation and service material governed by the OpenAI Services Agreement and Service Terms; no standalone open-content reuse license was identified",
         "spdx": null,
-        "kind": "unknown",
-        "status": "unverified",
-        "requiresReview": true,
+        "kind": "service-terms",
+        "status": "editor-reviewed",
+        "requiresReview": false,
         "evidence": [
           {
             "kind": "official-source",
-            "label": "Официальный источник; точные условия ещё нужно сверить",
+            "label": "Official GPT-5.5 prompt guidance",
             "url": "https://developers.openai.com/api/docs/guides/prompt-guidance?model=gpt-5.5"
+          },
+          {
+            "kind": "terms",
+            "label": "OpenAI Services Agreement",
+            "url": "https://openai.com/policies/services-agreement/"
+          },
+          {
+            "kind": "terms",
+            "label": "OpenAI Service Terms",
+            "url": "https://openai.com/policies/service-terms/"
           }
         ]
       },
       "access": {
-        "cost": "unknown",
-        "signup": "unknown",
+        "cost": "freemium",
+        "signup": "required",
         "runtime": "cloud"
       },
-      "trust": "unknown",
+      "trust": "official",
       "decision": "reference",
       "riskLevel": "medium",
-      "projects": [],
+      "projects": [
+        "Eclipse AI Hub",
+        "Hopson Sentinel",
+        "oh-my-claudecode"
+      ],
       "evidence": [
         {
           "kind": "official-source",
           "label": "Официальный источник",
           "url": "https://developers.openai.com/api/docs/guides/prompt-guidance?model=gpt-5.5"
+        },
+        {
+          "kind": "terms",
+          "label": "OpenAI Services Agreement",
+          "url": "https://openai.com/policies/services-agreement/"
+        },
+        {
+          "kind": "terms",
+          "label": "OpenAI Service Terms",
+          "url": "https://openai.com/policies/service-terms/"
         }
       ],
       "actions": {
@@ -8503,47 +8529,70 @@
       "id": "astro-astro-build",
       "title": "Astro",
       "url": "https://astro.build",
-      "type": "learn",
-      "category": "Лендинги — учебный курс",
-      "subcategory": "Фреймворки и UI-киты (бесплатно)",
+      "type": "oss",
+      "category": "Dev Tools & CLI",
+      "subcategory": "Web frameworks",
       "addedAt": null,
-      "description": "Astro — Заточен под быстрые маркетинг-сайты/лендинги, нулевой JS по умолчанию. Топ-выбор для лендинга. Карточка помогает понять назначение ресурса и начать с небольшой безопасной проверки; условия использования ещё нужно сверить с официальным источником.",
+      "description": "Astro — web framework для быстрых content-first сайтов: по умолчанию отправляет минимум JavaScript и позволяет подключать React, Vue, Svelte и другие UI-компоненты только там, где они нужны. Код framework открыт под MIT; документация, логотипы и сторонние integrations имеют собственные условия.",
       "useCases": [
-        "Разобраться, подходит ли Astro для вашей задачи",
-        "Проверить возможности на небольшом тестовом сценарии до интеграции"
+        "Строить быстрые лендинги, документацию и editorial-разделы с server-first HTML",
+        "Постепенно подключать интерактивные islands без превращения всей страницы в SPA"
       ],
       "platforms": [
-        "Web"
+        "Node.js",
+        "Web",
+        "Static site generation",
+        "SSR",
+        "Self-host"
       ],
       "license": {
-        "label": "Нужно проверить в официальном источнике",
-        "original": "Нужно проверить в официальном источнике",
-        "spdx": null,
-        "kind": "unknown",
-        "status": "unverified",
-        "requiresReview": true,
+        "label": "MIT",
+        "original": "MIT for the Astro framework source; documentation, trademarks, integrations and third-party packages retain separate rights",
+        "spdx": "MIT",
+        "kind": "open-source",
+        "status": "editor-reviewed",
+        "requiresReview": false,
         "evidence": [
           {
-            "kind": "official-source",
-            "label": "Официальный источник; точные условия ещё нужно сверить",
-            "url": "https://astro.build"
+            "kind": "license",
+            "label": "Official MIT license",
+            "url": "https://github.com/withastro/astro/blob/main/LICENSE"
+          },
+          {
+            "kind": "source",
+            "label": "Official Astro repository",
+            "url": "https://github.com/withastro/astro"
           }
         ]
       },
       "access": {
         "cost": "free",
-        "signup": "unknown",
-        "runtime": "cloud"
+        "signup": "none",
+        "runtime": "self-host"
       },
-      "trust": "unknown",
+      "trust": "official",
       "decision": "reference",
-      "riskLevel": "medium",
-      "projects": [],
+      "riskLevel": "low",
+      "projects": [
+        "Eclipse Forge Landing",
+        "Eclipse Library",
+        "Educator-AI"
+      ],
       "evidence": [
         {
           "kind": "official-source",
           "label": "Официальный источник",
           "url": "https://astro.build"
+        },
+        {
+          "kind": "license",
+          "label": "Official MIT license",
+          "url": "https://github.com/withastro/astro/blob/main/LICENSE"
+        },
+        {
+          "kind": "source",
+          "label": "Official Astro repository",
+          "url": "https://github.com/withastro/astro"
         }
       ],
       "actions": {
@@ -8609,47 +8658,70 @@
       "id": "hyperui-www-hyperui-dev",
       "title": "HyperUI",
       "url": "https://www.hyperui.dev",
-      "type": "learn",
-      "category": "Лендинги — учебный курс",
-      "subcategory": "Фреймворки и UI-киты (бесплатно)",
+      "type": "oss",
+      "category": "UI / Design",
+      "subcategory": "Tailwind component libraries",
       "addedAt": null,
-      "description": "HyperUI — Бесплатные копипаст-компоненты для маркетинга на Tailwind. Карточка помогает понять назначение ресурса и начать с небольшой безопасной проверки; условия использования ещё нужно сверить с официальным источником.",
+      "description": "HyperUI — коллекция готовых Tailwind CSS components для marketing sites, shops и application interfaces. Компоненты можно копировать, изменять и использовать коммерчески по MIT без обязательной attribution, но accessibility и product fit всё равно нужно проверять самостоятельно.",
       "useCases": [
-        "Разобраться, подходит ли HyperUI для вашей задачи",
-        "Проверить возможности на небольшом тестовом сценарии до интеграции"
+        "Быстро собрать baseline section или form в Tailwind-проекте",
+        "Изучить простые композиционные patterns и затем привести их к visual contract Eclipse Forge"
       ],
       "platforms": [
-        "Web"
+        "Web",
+        "Tailwind CSS",
+        "HTML",
+        "React"
       ],
       "license": {
-        "label": "Нужно проверить в официальном источнике",
-        "original": "Нужно проверить в официальном источнике",
-        "spdx": null,
-        "kind": "unknown",
-        "status": "unverified",
-        "requiresReview": true,
+        "label": "MIT",
+        "original": "MIT for the HyperUI component source; third-party icons, fonts, images and trademarks retain separate rights",
+        "spdx": "MIT",
+        "kind": "open-source",
+        "status": "editor-reviewed",
+        "requiresReview": false,
         "evidence": [
           {
+            "kind": "license",
+            "label": "Official MIT license",
+            "url": "https://github.com/markmead/hyperui/blob/main/LICENSE"
+          },
+          {
             "kind": "official-source",
-            "label": "Официальный источник; точные условия ещё нужно сверить",
-            "url": "https://www.hyperui.dev"
+            "label": "Official HyperUI FAQ",
+            "url": "https://www.hyperui.dev/blog/faqs/"
           }
         ]
       },
       "access": {
         "cost": "free",
-        "signup": "unknown",
-        "runtime": "cloud"
+        "signup": "none",
+        "runtime": "local"
       },
-      "trust": "unknown",
+      "trust": "community",
       "decision": "reference",
-      "riskLevel": "medium",
-      "projects": [],
+      "riskLevel": "low",
+      "projects": [
+        "Eclipse Forge Landing",
+        "Eclipse Library",
+        "Eclipse Chat",
+        "Eclipse AI Hub"
+      ],
       "evidence": [
         {
           "kind": "official-source",
           "label": "Официальный источник",
           "url": "https://www.hyperui.dev"
+        },
+        {
+          "kind": "license",
+          "label": "Official MIT license",
+          "url": "https://github.com/markmead/hyperui/blob/main/LICENSE"
+        },
+        {
+          "kind": "official-source",
+          "label": "Official HyperUI FAQ",
+          "url": "https://www.hyperui.dev/blog/faqs/"
         }
       ],
       "actions": {
@@ -8768,47 +8840,70 @@
       "id": "gsap-gsap-com",
       "title": "GSAP",
       "url": "https://gsap.com",
-      "type": "learn",
-      "category": "Лендинги — учебный курс",
-      "subcategory": "Анимации (premium-ощущение)",
+      "type": "tool",
+      "category": "UI / Design",
+      "subcategory": "Animation runtimes",
       "addedAt": null,
-      "description": "GSAP — Мощные scroll-анимации/таймлайны (vanilla/любой фреймворк). Карточка помогает понять назначение ресурса и начать с небольшой безопасной проверки; условия использования ещё нужно сверить с официальным источником.",
+      "description": "GSAP — professional JavaScript animation engine for timelines, scroll effects, SVG and complex UI motion. Обычные сайты и приложения можно делать бесплатно по Standard No Charge License, но это proprietary license: visual animation builders, конкурирующие с Webflow, требуют отдельного разрешения.",
       "useCases": [
-        "Разобраться, подходит ли GSAP для вашей задачи",
-        "Проверить возможности на небольшом тестовом сценарии до интеграции"
+        "Создавать сложные управляемые timelines и scroll-driven motion в premium landing experiences",
+        "Использовать один animation runtime для SVG, text and UI sequences where CSS is insufficient"
       ],
       "platforms": [
-        "Web"
+        "Web",
+        "JavaScript",
+        "npm",
+        "Self-host"
       ],
       "license": {
-        "label": "Нужно проверить в официальном источнике",
-        "original": "Нужно проверить в официальном источнике",
+        "label": "GSAP Standard No Charge License: permitted for websites, web apps and digital interfaces; prohibited for competing no-code visual animation builders without written consent",
+        "original": "GSAP Standard No Charge License: permitted for websites, web apps and digital interfaces; prohibited for competing no-code visual animation builders without written consent",
         "spdx": null,
-        "kind": "unknown",
-        "status": "unverified",
-        "requiresReview": true,
+        "kind": "custom",
+        "status": "editor-reviewed",
+        "requiresReview": false,
         "evidence": [
           {
+            "kind": "license",
+            "label": "Official GSAP Standard License",
+            "url": "https://gsap.com/community/standard-license/"
+          },
+          {
             "kind": "official-source",
-            "label": "Официальный источник; точные условия ещё нужно сверить",
-            "url": "https://gsap.com"
+            "label": "Official installation documentation",
+            "url": "https://gsap.com/docs/v3/Installation/"
           }
         ]
       },
       "access": {
-        "cost": "unknown",
-        "signup": "unknown",
-        "runtime": "cloud"
+        "cost": "free",
+        "signup": "none",
+        "runtime": "local"
       },
-      "trust": "unknown",
+      "trust": "official",
       "decision": "reference",
       "riskLevel": "medium",
-      "projects": [],
+      "projects": [
+        "Eclipse Forge Landing",
+        "Eclipse Library",
+        "Eclipse Chat",
+        "Eclipse AI Hub"
+      ],
       "evidence": [
         {
           "kind": "official-source",
           "label": "Официальный источник",
           "url": "https://gsap.com"
+        },
+        {
+          "kind": "license",
+          "label": "Official GSAP Standard License",
+          "url": "https://gsap.com/community/standard-license/"
+        },
+        {
+          "kind": "official-source",
+          "label": "Official installation documentation",
+          "url": "https://gsap.com/docs/v3/Installation/"
         }
       ],
       "actions": {
@@ -8821,47 +8916,68 @@
       "id": "aos-michalsnik-github-io",
       "title": "AOS",
       "url": "https://michalsnik.github.io/aos/",
-      "type": "learn",
-      "category": "Лендинги — учебный курс",
-      "subcategory": "Анимации (premium-ощущение)",
+      "type": "oss",
+      "category": "UI / Design",
+      "subcategory": "Scroll animation libraries",
       "addedAt": null,
-      "description": "AOS — Animate-On-Scroll одним атрибутом — для статики. Карточка помогает понять назначение ресурса и начать с небольшой безопасной проверки; условия использования ещё нужно сверить с официальным источником.",
+      "description": "AOS (Animate On Scroll) — небольшая JavaScript-библиотека, которая запускает CSS-анимации, когда элемент появляется в области просмотра. Код можно использовать и изменять по MIT; для новых сложных интерфейсов сначала сравните её с нативными CSS и Intersection Observer.",
       "useCases": [
-        "Разобраться, подходит ли AOS для вашей задачи",
-        "Проверить возможности на небольшом тестовом сценарии до интеграции"
+        "Быстро добавить понятные scroll-reveal анимации на статический лендинг",
+        "Изучить простой declarative API через data-атрибуты без привязки к framework"
       ],
       "platforms": [
-        "Web"
+        "Web",
+        "JavaScript",
+        "npm",
+        "Self-host"
       ],
       "license": {
-        "label": "Нужно проверить в официальном источнике",
-        "original": "Нужно проверить в официальном источнике",
-        "spdx": null,
-        "kind": "unknown",
-        "status": "unverified",
-        "requiresReview": true,
+        "label": "MIT",
+        "original": "MIT for the AOS software; demo content, third-party assets and trademarks retain separate rights",
+        "spdx": "MIT",
+        "kind": "open-source",
+        "status": "editor-reviewed",
+        "requiresReview": false,
         "evidence": [
           {
-            "kind": "official-source",
-            "label": "Официальный источник; точные условия ещё нужно сверить",
-            "url": "https://michalsnik.github.io/aos/"
+            "kind": "license",
+            "label": "Official MIT license",
+            "url": "https://github.com/michalsnik/aos/blob/next/LICENSE"
+          },
+          {
+            "kind": "source",
+            "label": "Official source repository",
+            "url": "https://github.com/michalsnik/aos"
           }
         ]
       },
       "access": {
-        "cost": "unknown",
-        "signup": "unknown",
-        "runtime": "cloud"
+        "cost": "free",
+        "signup": "none",
+        "runtime": "local"
       },
-      "trust": "unknown",
+      "trust": "community",
       "decision": "reference",
-      "riskLevel": "medium",
-      "projects": [],
+      "riskLevel": "low",
+      "projects": [
+        "Eclipse Forge Landing",
+        "Eclipse Library"
+      ],
       "evidence": [
         {
           "kind": "official-source",
           "label": "Официальный источник",
           "url": "https://michalsnik.github.io/aos/"
+        },
+        {
+          "kind": "license",
+          "label": "Official MIT license",
+          "url": "https://github.com/michalsnik/aos/blob/next/LICENSE"
+        },
+        {
+          "kind": "source",
+          "label": "Official source repository",
+          "url": "https://github.com/michalsnik/aos"
         }
       ],
       "actions": {
@@ -9167,47 +9283,70 @@
       "id": "haikei-haikei-app",
       "title": "Haikei",
       "url": "https://haikei.app",
-      "type": "learn",
-      "category": "Лендинги — учебный курс",
-      "subcategory": "Дизайн-инспирация и ассеты",
+      "type": "tool",
+      "category": "UI / Design",
+      "subcategory": "SVG asset generators",
       "addedAt": null,
-      "description": "Haikei — SVG-волны/блобы/паттерны для фонов. Карточка помогает понять назначение ресурса и начать с небольшой безопасной проверки; условия использования ещё нужно сверить с официальным источником.",
+      "description": "Haikei — browser generator for SVG waves, blobs, gradients and other abstract backgrounds. Сгенерированные designs разрешено использовать в personal и commercial projects без attribution, но сайт и generator proprietary: нельзя копировать его код или строить на его designs аналогичный generator.",
       "useCases": [
-        "Разобраться, подходит ли Haikei для вашей задачи",
-        "Проверить возможности на небольшом тестовом сценарии до интеграции"
+        "Создать редактируемый SVG-background для лендинга или social asset",
+        "Быстро исследовать формы и цветовые сочетания перед созданием собственного Eclipse asset"
       ],
       "platforms": [
-        "Web"
+        "Web",
+        "SVG",
+        "PNG export",
+        "Cloud service"
       ],
       "license": {
-        "label": "Нужно проверить в официальном источнике",
-        "original": "Нужно проверить в официальном источнике",
+        "label": "Generated designs may be used in personal and commercial projects without attribution; Haikei site/content are proprietary and designs may not power a similar generator",
+        "original": "Generated designs may be used in personal and commercial projects without attribution; Haikei site/content are proprietary and designs may not power a similar generator",
         "spdx": null,
-        "kind": "unknown",
-        "status": "unverified",
-        "requiresReview": true,
+        "kind": "service-terms",
+        "status": "editor-reviewed",
+        "requiresReview": false,
         "evidence": [
           {
+            "kind": "terms",
+            "label": "Official Haikei Terms",
+            "url": "https://haikei.app/terms/"
+          },
+          {
             "kind": "official-source",
-            "label": "Официальный источник; точные условия ещё нужно сверить",
-            "url": "https://haikei.app"
+            "label": "Official Haikei pricing and FAQ",
+            "url": "https://haikei.app/pricing/"
           }
         ]
       },
       "access": {
-        "cost": "unknown",
-        "signup": "unknown",
+        "cost": "freemium",
+        "signup": "optional",
         "runtime": "cloud"
       },
-      "trust": "unknown",
+      "trust": "official",
       "decision": "reference",
       "riskLevel": "medium",
-      "projects": [],
+      "projects": [
+        "Eclipse Forge Landing",
+        "Eclipse Library",
+        "Eclipse Media",
+        "Text2Image"
+      ],
       "evidence": [
         {
           "kind": "official-source",
           "label": "Официальный источник",
           "url": "https://haikei.app"
+        },
+        {
+          "kind": "terms",
+          "label": "Official Haikei Terms",
+          "url": "https://haikei.app/terms/"
+        },
+        {
+          "kind": "official-source",
+          "label": "Official Haikei pricing and FAQ",
+          "url": "https://haikei.app/pricing/"
         }
       ],
       "actions": {
@@ -9220,47 +9359,74 @@
       "id": "lucide-lucide-dev",
       "title": "Lucide",
       "url": "https://lucide.dev",
-      "type": "learn",
-      "category": "Лендинги — учебный курс",
-      "subcategory": "Дизайн-инспирация и ассеты",
+      "type": "oss",
+      "category": "UI / Design",
+      "subcategory": "Icon libraries",
       "addedAt": null,
-      "description": "Lucide — Иконки единого стиля. Карточка помогает понять назначение ресурса и начать с небольшой безопасной проверки; условия использования ещё нужно сверить с официальным источником.",
+      "description": "Lucide — большой набор аккуратных SVG icons с packages для React, Vue, Svelte, Flutter и других stacks. Основная лицензия ISC разрешает commercial use и modification; часть icons, производных от Feather, дополнительно сохраняет MIT notice.",
       "useCases": [
-        "Разобраться, подходит ли Lucide для вашей задачи",
-        "Проверить возможности на небольшом тестовом сценарии до интеграции"
+        "Использовать единый предсказуемый icon family во всех Eclipse interfaces",
+        "Подключать только нужные tree-shakeable icons вместо собственных случайных SVG"
       ],
       "platforms": [
+        "SVG",
+        "React",
+        "Vue",
+        "Svelte",
+        "Flutter",
         "Web"
       ],
       "license": {
-        "label": "Нужно проверить в официальном источнике",
-        "original": "Нужно проверить в официальном источнике",
-        "spdx": null,
-        "kind": "unknown",
-        "status": "unverified",
-        "requiresReview": true,
+        "label": "MIT",
+        "original": "ISC for Lucide; listed Feather-derived icons also retain the MIT license and copyright notice in the official LICENSE file",
+        "spdx": "MIT",
+        "kind": "open-source",
+        "status": "editor-reviewed",
+        "requiresReview": false,
         "evidence": [
           {
+            "kind": "license",
+            "label": "Official Lucide ISC and Feather MIT notices",
+            "url": "https://github.com/lucide-icons/lucide/blob/main/LICENSE"
+          },
+          {
             "kind": "official-source",
-            "label": "Официальный источник; точные условия ещё нужно сверить",
-            "url": "https://lucide.dev"
+            "label": "Official Lucide project site",
+            "url": "https://lucide.dev/"
           }
         ]
       },
       "access": {
-        "cost": "unknown",
-        "signup": "unknown",
-        "runtime": "cloud"
+        "cost": "free",
+        "signup": "none",
+        "runtime": "local"
       },
-      "trust": "unknown",
+      "trust": "community",
       "decision": "reference",
-      "riskLevel": "medium",
-      "projects": [],
+      "riskLevel": "low",
+      "projects": [
+        "Eclipse Forge Landing",
+        "Eclipse Library",
+        "Eclipse Chat",
+        "Eclipse AI Hub",
+        "Eclipse DnD Forge",
+        "Hopson Sentinel"
+      ],
       "evidence": [
         {
           "kind": "official-source",
           "label": "Официальный источник",
           "url": "https://lucide.dev"
+        },
+        {
+          "kind": "license",
+          "label": "Official Lucide ISC and Feather MIT notices",
+          "url": "https://github.com/lucide-icons/lucide/blob/main/LICENSE"
+        },
+        {
+          "kind": "official-source",
+          "label": "Official Lucide project site",
+          "url": "https://lucide.dev/"
         }
       ],
       "actions": {
@@ -9326,47 +9492,71 @@
       "id": "lighthouse-developer-chrome-com",
       "title": "Lighthouse",
       "url": "https://developer.chrome.com/docs/lighthouse",
-      "type": "learn",
-      "category": "Лендинги — учебный курс",
-      "subcategory": "Аналитика и скорость",
+      "type": "tool",
+      "category": "Dev Tools & CLI",
+      "subcategory": "Web quality auditing",
       "addedAt": null,
-      "description": "Lighthouse — Проверка скорости/SEO/доступности (цель 90+). Карточка помогает понять назначение ресурса и начать с небольшой безопасной проверки; условия использования ещё нужно сверить с официальным источником.",
+      "description": "Lighthouse — automated audit engine from Chrome for performance, accessibility, SEO and web best practices. Software is Apache‑2.0 and can run in DevTools, CLI or CI, but a high score is only a signal: manual accessibility, security and real-user monitoring remain necessary.",
       "useCases": [
-        "Разобраться, подходит ли Lighthouse для вашей задачи",
-        "Проверить возможности на небольшом тестовом сценарии до интеграции"
+        "Добавить repeatable performance and accessibility budgets в CI",
+        "Диагностировать regressions на Eclipse Forge Landing и Library до deploy"
       ],
       "platforms": [
+        "Chrome DevTools",
+        "Node.js CLI",
+        "CI",
         "Web"
       ],
       "license": {
-        "label": "Нужно проверить в официальном источнике",
-        "original": "Нужно проверить в официальном источнике",
-        "spdx": null,
-        "kind": "unknown",
-        "status": "unverified",
-        "requiresReview": true,
+        "label": "Apache-2.0",
+        "original": "Apache-2.0 for the Lighthouse software; Chrome documentation content, browser binaries and third-party audits retain separate terms",
+        "spdx": "Apache-2.0",
+        "kind": "open-source",
+        "status": "editor-reviewed",
+        "requiresReview": false,
         "evidence": [
           {
-            "kind": "official-source",
-            "label": "Официальный источник; точные условия ещё нужно сверить",
-            "url": "https://developer.chrome.com/docs/lighthouse"
+            "kind": "license",
+            "label": "Official Apache-2.0 license",
+            "url": "https://github.com/GoogleChrome/lighthouse/blob/main/LICENSE"
+          },
+          {
+            "kind": "source",
+            "label": "Official Lighthouse repository",
+            "url": "https://github.com/GoogleChrome/lighthouse"
           }
         ]
       },
       "access": {
-        "cost": "unknown",
-        "signup": "unknown",
-        "runtime": "cloud"
+        "cost": "free",
+        "signup": "none",
+        "runtime": "local"
       },
-      "trust": "unknown",
+      "trust": "official",
       "decision": "reference",
-      "riskLevel": "medium",
-      "projects": [],
+      "riskLevel": "low",
+      "projects": [
+        "Eclipse Forge Landing",
+        "Eclipse Library",
+        "Eclipse Chat",
+        "Eclipse AI Hub",
+        "Eclipse DnD Forge"
+      ],
       "evidence": [
         {
           "kind": "official-source",
           "label": "Официальный источник",
           "url": "https://developer.chrome.com/docs/lighthouse"
+        },
+        {
+          "kind": "license",
+          "label": "Official Apache-2.0 license",
+          "url": "https://github.com/GoogleChrome/lighthouse/blob/main/LICENSE"
+        },
+        {
+          "kind": "source",
+          "label": "Official Lighthouse repository",
+          "url": "https://github.com/GoogleChrome/lighthouse"
         }
       ],
       "actions": {
@@ -14168,43 +14358,63 @@
       "category": "Обучение IT (бесплатно)",
       "subcategory": "Обучение IT (бесплатно)",
       "addedAt": null,
-      "description": "javascript.info — JavaScript · Лучший учебник по JS — от основ до async/await, с интерактивными задачами. Карточка помогает понять назначение ресурса и начать с небольшой безопасной проверки; условия использования ещё нужно сверить с официальным источником.",
+      "description": "JavaScript.info — подробный современный учебник по JavaScript от языка до browser APIs. Исходные уроки доступны публично, но license основана на CC BY-NC 4.0: нужна attribution и разрешено только non-commercial reuse, поэтому коммерческие Eclipse-продукты должны ссылаться на курс, а не копировать его.",
       "useCases": [
-        "Разобраться, подходит ли javascript.info для вашей задачи",
-        "Проверить возможности на небольшом тестовом сценарии до интеграции"
+        "Использовать как внешний справочник по JavaScript и browser platform",
+        "Сверять темы при создании оригинальных уроков Educator-AI без переноса текста и примеров"
       ],
       "platforms": [
-        "Web"
+        "Web",
+        "GitHub",
+        "JavaScript"
       ],
       "license": {
-        "label": "Нужно проверить в официальном источнике",
-        "original": "Нужно проверить в официальном источнике",
+        "label": "Custom license based on CC BY-NC 4.0: attribution required and reuse is limited to non-commercial purposes; contact the author for broader permission",
+        "original": "Custom license based on CC BY-NC 4.0: attribution required and reuse is limited to non-commercial purposes; contact the author for broader permission",
         "spdx": null,
-        "kind": "unknown",
-        "status": "unverified",
-        "requiresReview": true,
+        "kind": "service-terms",
+        "status": "editor-reviewed",
+        "requiresReview": false,
         "evidence": [
           {
-            "kind": "official-source",
-            "label": "Официальный источник; точные условия ещё нужно сверить",
-            "url": "https://javascript.info"
+            "kind": "license",
+            "label": "Official JavaScript.info license",
+            "url": "https://github.com/javascript-tutorial/en.javascript.info/blob/master/LICENSE.md"
+          },
+          {
+            "kind": "source",
+            "label": "Official English tutorial repository",
+            "url": "https://github.com/javascript-tutorial/en.javascript.info"
           }
         ]
       },
       "access": {
         "cost": "free",
-        "signup": "unknown",
+        "signup": "none",
         "runtime": "cloud"
       },
-      "trust": "unknown",
+      "trust": "community",
       "decision": "reference",
       "riskLevel": "medium",
-      "projects": [],
+      "projects": [
+        "Educator-AI",
+        "Eclipse Library"
+      ],
       "evidence": [
         {
           "kind": "official-source",
           "label": "Официальный источник",
           "url": "https://javascript.info"
+        },
+        {
+          "kind": "license",
+          "label": "Official JavaScript.info license",
+          "url": "https://github.com/javascript-tutorial/en.javascript.info/blob/master/LICENSE.md"
+        },
+        {
+          "kind": "source",
+          "label": "Official English tutorial repository",
+          "url": "https://github.com/javascript-tutorial/en.javascript.info"
         }
       ],
       "actions": {
@@ -14321,49 +14531,69 @@
     },
     {
       "id": "elements-of-ai-elementsofai-com",
-      "title": "elements of ai",
+      "title": "Elements of AI",
       "url": "https://elementsofai.com",
       "type": "learn",
       "category": "Обучение IT (бесплатно)",
       "subcategory": "Обучение IT (бесплатно)",
       "addedAt": null,
-      "description": "elements of ai — AI основы · Курс от Хельсинкского университета — основы AI понятным языком, без кода. Карточка помогает понять назначение ресурса и начать с небольшой безопасной проверки; условия использования ещё нужно сверить с официальным источником.",
+      "description": "Elements of AI — вводный онлайн-курс University of Helsinki и MinnaLearn для людей без обязательного programming background. Доступ к community регулируется ограниченной личной некоммерческой лицензией; материалы нельзя просто копировать в Educator-AI.",
       "useCases": [
-        "Разобраться, подходит ли elements of ai для вашей задачи",
-        "Проверить возможности на небольшом тестовом сценарии до интеграции"
+        "Рекомендовать понятный внешний introduction to AI для начинающих",
+        "Использовать структуру тем как reference при создании полностью оригинального learning track"
       ],
       "platforms": [
-        "Web"
+        "Web",
+        "Online course",
+        "Community"
       ],
       "license": {
-        "label": "Нужно проверить в официальном источнике",
-        "original": "Нужно проверить в официальном источнике",
+        "label": "Limited, revocable, personal non-commercial access under Elements of AI Terms; course/community materials remain proprietary unless a specific component states otherwise",
+        "original": "Limited, revocable, personal non-commercial access under Elements of AI Terms; course/community materials remain proprietary unless a specific component states otherwise",
         "spdx": null,
-        "kind": "unknown",
-        "status": "unverified",
-        "requiresReview": true,
+        "kind": "service-terms",
+        "status": "editor-reviewed",
+        "requiresReview": false,
         "evidence": [
           {
-            "kind": "official-source",
-            "label": "Официальный источник; точные условия ещё нужно сверить",
-            "url": "https://elementsofai.com"
+            "kind": "terms",
+            "label": "Elements of AI Terms of Service",
+            "url": "https://community.elementsofai.com/terms"
+          },
+          {
+            "kind": "privacy",
+            "label": "Elements of AI Privacy Policy",
+            "url": "https://community.elementsofai.com/privacy"
           }
         ]
       },
       "access": {
         "cost": "free",
-        "signup": "unknown",
+        "signup": "required",
         "runtime": "cloud"
       },
-      "trust": "unknown",
+      "trust": "official",
       "decision": "reference",
       "riskLevel": "medium",
-      "projects": [],
+      "projects": [
+        "Educator-AI",
+        "Eclipse Library"
+      ],
       "evidence": [
         {
           "kind": "official-source",
           "label": "Официальный источник",
           "url": "https://elementsofai.com"
+        },
+        {
+          "kind": "terms",
+          "label": "Elements of AI Terms of Service",
+          "url": "https://community.elementsofai.com/terms"
+        },
+        {
+          "kind": "privacy",
+          "label": "Elements of AI Privacy Policy",
+          "url": "https://community.elementsofai.com/privacy"
         }
       ],
       "actions": {
@@ -14834,43 +15064,64 @@
       "category": "Обучение IT (бесплатно)",
       "subcategory": "Обучение IT (бесплатно)",
       "addedAt": null,
-      "description": "Linux Journey — Linux · Пошаговый маршрут от нуля до уверенного администрирования. Карточка помогает понять назначение ресурса и начать с небольшой безопасной проверки; условия использования ещё нужно сверить с официальным источником.",
+      "description": "Linux Journey — структурированный бесплатный курс по shell, processes, filesystems, networking и Linux administration. Lesson content открыт под CC BY-SA 4.0 с attribution и share-alike; название, branding, visual identity и создание confusingly similar clone в это разрешение не входят.",
       "useCases": [
-        "Разобраться, подходит ли Linux Journey для вашей задачи",
-        "Проверить возможности на небольшом тестовом сценарии до интеграции"
+        "Дать начинающим последовательный внешний learning path по Linux",
+        "Адаптировать отдельные уроки по CC BY-SA в явно независимый Educator-AI track с attribution"
       ],
       "platforms": [
+        "Web",
+        "GitHub",
         "Linux"
       ],
       "license": {
-        "label": "Нужно проверить в официальном источнике",
-        "original": "Нужно проверить в официальном источнике",
+        "label": "CC BY-SA 4.0 for lesson content with attribution and share-alike; Linux Journey name, branding, visual identity and confusingly similar replacement services are excluded",
+        "original": "CC BY-SA 4.0 for lesson content with attribution and share-alike; Linux Journey name, branding, visual identity and confusingly similar replacement services are excluded",
         "spdx": null,
-        "kind": "unknown",
-        "status": "unverified",
-        "requiresReview": true,
+        "kind": "custom",
+        "status": "editor-reviewed",
+        "requiresReview": false,
         "evidence": [
           {
+            "kind": "license",
+            "label": "Official repository license and usage notice",
+            "url": "https://github.com/labex-labs/linuxjourney#license-and-usage"
+          },
+          {
             "kind": "official-source",
-            "label": "Официальный источник; точные условия ещё нужно сверить",
-            "url": "https://linuxjourney.com"
+            "label": "Official maintained Linux Journey repository",
+            "url": "https://github.com/labex-labs/linuxjourney"
           }
         ]
       },
       "access": {
-        "cost": "free",
-        "signup": "none",
-        "runtime": "local"
+        "cost": "freemium",
+        "signup": "optional",
+        "runtime": "cloud"
       },
-      "trust": "unknown",
+      "trust": "official",
       "decision": "reference",
-      "riskLevel": "medium",
-      "projects": [],
+      "riskLevel": "low",
+      "projects": [
+        "Educator-AI",
+        "Hopson Sentinel",
+        "Eclipse Library"
+      ],
       "evidence": [
         {
           "kind": "official-source",
           "label": "Официальный источник",
           "url": "https://linuxjourney.com"
+        },
+        {
+          "kind": "license",
+          "label": "Official repository license and usage notice",
+          "url": "https://github.com/labex-labs/linuxjourney#license-and-usage"
+        },
+        {
+          "kind": "official-source",
+          "label": "Official maintained Linux Journey repository",
+          "url": "https://github.com/labex-labs/linuxjourney"
         }
       ],
       "actions": {
@@ -14887,43 +15138,63 @@
       "category": "Обучение IT (бесплатно)",
       "subcategory": "Обучение IT (бесплатно)",
       "addedAt": null,
-      "description": "CryptoZombies — Web3 / Solidity · Смарт-контракты через геймификацию — собираешь армию зомби. Карточка помогает понять назначение ресурса и начать с небольшой безопасной проверки; условия использования ещё нужно сверить с официальным источником.",
+      "description": "CryptoZombies — интерактивный курс по Solidity и Ethereum, где студент по шагам пишет smart contract для игры с зомби. Учиться на сайте можно по его Terms, но публичный доступ не даёт права копировать уроки, графику или платформу в коммерческий продукт.",
       "useCases": [
-        "Разобраться, подходит ли CryptoZombies для вашей задачи",
-        "Проверить возможности на небольшом тестовом сценарии до интеграции"
+        "Дать внешнюю практику по Solidity после базового блока Educator-AI",
+        "Использовать игровой progression как UX-reference для собственных оригинальных уроков"
       ],
       "platforms": [
-        "Web"
+        "Web",
+        "Solidity",
+        "Ethereum"
       ],
       "license": {
-        "label": "Нужно проверить в официальном источнике",
-        "original": "Нужно проверить в официальном источнике",
+        "label": "Proprietary course and website content governed by CryptoZombies Terms; no broad code/content reuse grant was identified",
+        "original": "Proprietary course and website content governed by CryptoZombies Terms; no broad code/content reuse grant was identified",
         "spdx": null,
-        "kind": "unknown",
-        "status": "unverified",
-        "requiresReview": true,
+        "kind": "service-terms",
+        "status": "editor-reviewed",
+        "requiresReview": false,
         "evidence": [
           {
+            "kind": "terms",
+            "label": "Official CryptoZombies Terms",
+            "url": "https://cryptozombies.io/terms"
+          },
+          {
             "kind": "official-source",
-            "label": "Официальный источник; точные условия ещё нужно сверить",
-            "url": "https://cryptozombies.io"
+            "label": "Official course",
+            "url": "https://cryptozombies.io/"
           }
         ]
       },
       "access": {
         "cost": "free",
-        "signup": "unknown",
+        "signup": "optional",
         "runtime": "cloud"
       },
-      "trust": "unknown",
+      "trust": "official",
       "decision": "reference",
-      "riskLevel": "medium",
-      "projects": [],
+      "riskLevel": "low",
+      "projects": [
+        "Educator-AI",
+        "Eclipse DnD Forge"
+      ],
       "evidence": [
         {
           "kind": "official-source",
           "label": "Официальный источник",
           "url": "https://cryptozombies.io"
+        },
+        {
+          "kind": "terms",
+          "label": "Official CryptoZombies Terms",
+          "url": "https://cryptozombies.io/terms"
+        },
+        {
+          "kind": "official-source",
+          "label": "Official course",
+          "url": "https://cryptozombies.io/"
         }
       ],
       "actions": {
@@ -19961,46 +20232,59 @@
       "category": "Подборка Eclipse",
       "subcategory": "Prompt-engineering (official + reference)",
       "addedAt": "2026-06-10",
-      "description": "Claude Fable 5 prompting guide — Официальный гайд Anthropic по промптингу Fable 5: актуальные шаблоны, особенности модели, «длинные промпты теперь могут мешать». (Mythos=Fable 5 во всех подписках до 22.06, потом кредиты.) Фит: prompt-eng reference для Eclipse AI Hub / Hopson Sentinel / промпт-файлов. Карточка помогает понять назначение ресурса и начать с небольшой безопасной проверки; условия использования ещё нужно сверить с официальным источником.",
+      "description": "Официальный guide Anthropic по prompting Claude Fable 5: как формулировать инструкции, управлять reasoning и получать более стабильный результат от модели. Это reference для настройки запросов, а не открытая prompt-библиотека: отдельной лицензии на массовое копирование документации не опубликовано.",
       "useCases": [
-        "Разобраться, подходит ли Claude Fable 5 prompting guide для вашей задачи",
-        "Проверить возможности на небольшом тестовом сценарии до интеграции"
+        "Настроить model-specific prompts и evaluation cases для Claude в Eclipse AI Hub",
+        "Обновить harness rules без переноса всей официальной документации в собственный продукт"
       ],
       "platforms": [
-        "Web"
+        "Claude Platform",
+        "Anthropic API",
+        "Cloud AI"
       ],
       "license": {
-        "label": "Нужно проверить в официальном источнике",
-        "original": "Нужно проверить в официальном источнике",
+        "label": "Proprietary Anthropic documentation and service material governed by Anthropic Commercial Terms; no standalone open-content reuse license was identified",
+        "original": "Proprietary Anthropic documentation and service material governed by Anthropic Commercial Terms; no standalone open-content reuse license was identified",
         "spdx": null,
-        "kind": "unknown",
-        "status": "unverified",
-        "requiresReview": true,
+        "kind": "service-terms",
+        "status": "editor-reviewed",
+        "requiresReview": false,
         "evidence": [
           {
             "kind": "official-source",
-            "label": "Официальный источник; точные условия ещё нужно сверить",
+            "label": "Official Claude Fable 5 prompting guide",
             "url": "https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/prompting-claude-fable-5"
+          },
+          {
+            "kind": "terms",
+            "label": "Anthropic Commercial Terms",
+            "url": "https://www.anthropic.com/legal/commercial-terms"
           }
         ]
       },
       "access": {
-        "cost": "paid",
+        "cost": "freemium",
         "signup": "required",
         "runtime": "cloud"
       },
-      "trust": "unknown",
+      "trust": "official",
       "decision": "reference",
       "riskLevel": "medium",
       "projects": [
         "Eclipse AI Hub",
-        "Hopson Sentinel"
+        "Hopson Sentinel",
+        "oh-my-claudecode"
       ],
       "evidence": [
         {
           "kind": "official-source",
           "label": "Официальный источник",
           "url": "https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/prompting-claude-fable-5"
+        },
+        {
+          "kind": "terms",
+          "label": "Anthropic Commercial Terms",
+          "url": "https://www.anthropic.com/legal/commercial-terms"
         }
       ],
       "actions": {
@@ -21551,51 +21835,69 @@
       "id": "cloudflare-is-it-agent-ready-isitagentready-com",
       "title": "Cloudflare Is It Agent Ready?",
       "url": "https://isitagentready.com/",
-      "type": "prompt",
+      "type": "tool",
       "category": "Подборка Eclipse",
       "subcategory": "Agent-ready web / discoverability",
       "addedAt": "2026-06-30",
-      "description": "Cloudflare Is It Agent Ready? — Проверка сайта на готовность к AI-агентам: SEO/AI Search, bot access, MCP/Web Bot Auth и рекомендации с промптом для правок. Зачем нам: прогонять Eclipse Forge Landing, Eclipse Library, Eclipse Chat landing, будущие продуктовые сайты и клиентские лендинги. Это напрямую ложится в позиционирование “строим системы для эпохи агентов”, а не просто красивые…. Карточка помогает понять назначение ресурса и начать с небольшой безопасной проверки; условия использования ещё нужно сверить с официальным источником.",
+      "description": "Is It Agent Ready? — официальный Cloudflare scanner, который проверяет, насколько сайт понятен AI-агентам: структуру контента, discovery, authentication и связанные web standards. Его score полезен как диагностика, но не является сертификатом качества или безопасности.",
       "useCases": [
-        "Разобраться, подходит ли Cloudflare Is It Agent Ready? для вашей задачи",
-        "Проверить возможности на небольшом тестовом сценарии до интеграции"
+        "Получить внешний baseline agent-readiness для публичных сайтов Eclipse Forge",
+        "Найти пробелы в machine-readable navigation, authentication и content delivery"
       ],
       "platforms": [
-        "Web"
+        "Web",
+        "Cloudflare",
+        "Cloud service"
       ],
       "license": {
-        "label": "Нужно проверить в официальном источнике",
-        "original": "Нужно проверить в официальном источнике",
+        "label": "Proprietary Cloudflare online service governed by Cloudflare Website and Online Services Terms; no source-code or content-reuse license was identified",
+        "original": "Proprietary Cloudflare online service governed by Cloudflare Website and Online Services Terms; no source-code or content-reuse license was identified",
         "spdx": null,
-        "kind": "unknown",
-        "status": "unverified",
-        "requiresReview": true,
+        "kind": "service-terms",
+        "status": "editor-reviewed",
+        "requiresReview": false,
         "evidence": [
           {
             "kind": "official-source",
-            "label": "Официальный источник; точные условия ещё нужно сверить",
-            "url": "https://isitagentready.com/"
+            "label": "Official Cloudflare announcement",
+            "url": "https://blog.cloudflare.com/agent-readiness/"
+          },
+          {
+            "kind": "terms",
+            "label": "Cloudflare Website and Online Services Terms",
+            "url": "https://www.cloudflare.com/policies/terms/"
           }
         ]
       },
       "access": {
-        "cost": "unknown",
-        "signup": "unknown",
+        "cost": "free",
+        "signup": "none",
         "runtime": "cloud"
       },
-      "trust": "unknown",
+      "trust": "official",
       "decision": "reference",
       "riskLevel": "medium",
       "projects": [
-        "Eclipse Chat",
         "Eclipse Forge Landing",
-        "Eclipse Library"
+        "Eclipse Library",
+        "Hopson Sentinel",
+        "Eclipse Webclaw"
       ],
       "evidence": [
         {
           "kind": "official-source",
           "label": "Официальный источник",
           "url": "https://isitagentready.com/"
+        },
+        {
+          "kind": "official-source",
+          "label": "Official Cloudflare announcement",
+          "url": "https://blog.cloudflare.com/agent-readiness/"
+        },
+        {
+          "kind": "terms",
+          "label": "Cloudflare Website and Online Services Terms",
+          "url": "https://www.cloudflare.com/policies/terms/"
         }
       ],
       "actions": {
@@ -22752,47 +23054,69 @@
       "category": "Подборка Eclipse",
       "subcategory": "Prompting / coding / content",
       "addedAt": "2026-07-05",
-      "description": "Claude Code Prompt Library — Официальная библиотека Anthropic с copy-paste prompts для Claude Code, tags by task/role, explanation “why this works”. Зачем нам: oh-my-claudecode, Hopson Sentinel, eclipse-library/prompts, onboarding команды. Ценность не в копировании промптов, а в паттернах: outcome-first, verification, reference files, measurable targets. Карточка помогает понять назначение ресурса и начать с небольшой безопасной проверки; условия использования ещё нужно сверить с официальным источником.",
+      "description": "Официальная библиотека Anthropic с готовыми starting prompts для Claude Code: объяснение codebase, исправление ошибок, тесты, refactoring и другие типовые задачи. Примеры прямо предназначены для копирования и адаптации, но сама документация и сервис Claude остаются proprietary и регулируются Terms Anthropic.",
       "useCases": [
-        "Разобраться, подходит ли Claude Code Prompt Library для вашей задачи",
-        "Проверить возможности на небольшом тестовом сценарии до интеграции"
+        "Брать безопасный starting prompt для повторяемой задачи Claude Code",
+        "Сравнивать структуру официальных примеров с собственными Eclipse skills и harness rules"
       ],
       "platforms": [
-        "Web"
+        "Claude Code",
+        "Anthropic Docs",
+        "Cloud AI"
       ],
       "license": {
-        "label": "Нужно проверить в официальном источнике",
-        "original": "Нужно проверить в официальном источнике",
+        "label": "Prompt examples are explicitly provided by Anthropic to copy and adapt; Claude Code, documentation and services remain proprietary under Anthropic Consumer or Commercial Terms",
+        "original": "Prompt examples are explicitly provided by Anthropic to copy and adapt; Claude Code, documentation and services remain proprietary under Anthropic Consumer or Commercial Terms",
         "spdx": null,
-        "kind": "unknown",
-        "status": "unverified",
-        "requiresReview": true,
+        "kind": "service-terms",
+        "status": "editor-reviewed",
+        "requiresReview": false,
         "evidence": [
           {
             "kind": "official-source",
-            "label": "Официальный источник; точные условия ещё нужно сверить",
+            "label": "Official Claude Code prompt library",
             "url": "https://code.claude.com/docs/en/prompt-library"
+          },
+          {
+            "kind": "terms",
+            "label": "Anthropic Commercial Terms",
+            "url": "https://www.anthropic.com/legal/commercial-terms"
+          },
+          {
+            "kind": "terms",
+            "label": "Anthropic Consumer Terms",
+            "url": "https://www.anthropic.com/legal/consumer-terms"
           }
         ]
       },
       "access": {
-        "cost": "unknown",
-        "signup": "unknown",
+        "cost": "freemium",
+        "signup": "required",
         "runtime": "cloud"
       },
-      "trust": "unknown",
+      "trust": "official",
       "decision": "reference",
       "riskLevel": "medium",
       "projects": [
+        "Eclipse AI Hub",
         "Hopson Sentinel",
-        "oh-my-claudecode",
-        "Eclipse Library"
+        "oh-my-claudecode"
       ],
       "evidence": [
         {
           "kind": "official-source",
           "label": "Официальный источник",
           "url": "https://code.claude.com/docs/en/prompt-library"
+        },
+        {
+          "kind": "terms",
+          "label": "Anthropic Commercial Terms",
+          "url": "https://www.anthropic.com/legal/commercial-terms"
+        },
+        {
+          "kind": "terms",
+          "label": "Anthropic Consumer Terms",
+          "url": "https://www.anthropic.com/legal/consumer-terms"
         }
       ],
       "actions": {

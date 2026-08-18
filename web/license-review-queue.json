@@ -1,20 +1,20 @@
 {
   "schemaVersion": 1,
-  "sourceHash": "a9522b1aeecc8a6dae8f385fa6122f7b79a6950e63d59c10636f3e45b7050a0c",
+  "sourceHash": "e0ba45b06865af4634d568e9afd8036ee7d65b4c949974157aced43185490198",
   "policy": {
     "automaticApprovalForbidden": true,
     "directInstallForbidden": true,
     "missingLicenseMeansNoReusePermission": true
   },
   "totals": {
-    "reviewRequired": 226,
+    "reviewRequired": 211,
     "byPriority": {
       "P1": 0,
-      "P2": 190,
+      "P2": 175,
       "P3": 36
     },
     "byBucket": {
-      "content-terms": 46,
+      "content-terms": 31,
       "grey-reference": 36,
       "manual-other": 25,
       "repository-license-not-detected": 25,
@@ -61,48 +61,6 @@
           "kind": "official-source",
           "label": "Официальный источник; точные условия ещё нужно сверить",
           "url": "https://create.zvuk.com/?&Erid=2W5zFJUUVxM"
-        }
-      ]
-    },
-    {
-      "id": "aos-michalsnik-github-io",
-      "title": "AOS",
-      "type": "learn",
-      "url": "https://michalsnik.github.io/aos/",
-      "decision": "reference",
-      "riskLevel": "medium",
-      "currentLicense": "Нужно проверить в официальном источнике",
-      "reviewStatus": "inferred",
-      "bucket": "content-terms",
-      "priority": "P2",
-      "reason": "Public access does not automatically permit copying, republishing or commercial reuse of content.",
-      "nextStep": "Confirm the content license and separate it from platform Terms and third-party assets.",
-      "evidence": [
-        {
-          "kind": "official-source",
-          "label": "Официальный источник; точные условия ещё нужно сверить",
-          "url": "https://michalsnik.github.io/aos/"
-        }
-      ]
-    },
-    {
-      "id": "astro-astro-build",
-      "title": "Astro",
-      "type": "learn",
-      "url": "https://astro.build",
-      "decision": "reference",
-      "riskLevel": "medium",
-      "currentLicense": "Нужно проверить в официальном источнике",
-      "reviewStatus": "inferred",
-      "bucket": "content-terms",
-      "priority": "P2",
-      "reason": "Public access does not automatically permit copying, republishing or commercial reuse of content.",
-      "nextStep": "Confirm the content license and separate it from platform Terms and third-party assets.",
-      "evidence": [
-        {
-          "kind": "official-source",
-          "label": "Официальный источник; точные условия ещё нужно сверить",
-          "url": "https://astro.build"
         }
       ]
     },
@@ -159,48 +117,6 @@
       ]
     },
     {
-      "id": "claude-code-prompt-library-code-claude-com",
-      "title": "Claude Code Prompt Library",
-      "type": "prompt",
-      "url": "https://code.claude.com/docs/en/prompt-library",
-      "decision": "reference",
-      "riskLevel": "medium",
-      "currentLicense": "Нужно проверить в официальном источнике",
-      "reviewStatus": "inferred",
-      "bucket": "content-terms",
-      "priority": "P2",
-      "reason": "Public access does not automatically permit copying, republishing or commercial reuse of content.",
-      "nextStep": "Confirm the content license and separate it from platform Terms and third-party assets.",
-      "evidence": [
-        {
-          "kind": "official-source",
-          "label": "Официальный источник; точные условия ещё нужно сверить",
-          "url": "https://code.claude.com/docs/en/prompt-library"
-        }
-      ]
-    },
-    {
-      "id": "claude-fable-5-prompting-guide-platform-claude-com",
-      "title": "Claude Fable 5 prompting guide",
-      "type": "prompt",
-      "url": "https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/prompting-claude-fable-5",
-      "decision": "reference",
-      "riskLevel": "medium",
-      "currentLicense": "Нужно проверить в официальном источнике",
-      "reviewStatus": "inferred",
-      "bucket": "content-terms",
-      "priority": "P2",
-      "reason": "Public access does not automatically permit copying, republishing or commercial reuse of content.",
-      "nextStep": "Confirm the content license and separate it from platform Terms and third-party assets.",
-      "evidence": [
-        {
-          "kind": "official-source",
-          "label": "Официальный источник; точные условия ещё нужно сверить",
-          "url": "https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/prompting-claude-fable-5"
-        }
-      ]
-    },
-    {
       "id": "claude-science-beta-claude-com",
       "title": "Claude Science beta",
       "type": "learn",
@@ -222,48 +138,6 @@
       ]
     },
     {
-      "id": "cloudflare-is-it-agent-ready-isitagentready-com",
-      "title": "Cloudflare Is It Agent Ready?",
-      "type": "prompt",
-      "url": "https://isitagentready.com/",
-      "decision": "reference",
-      "riskLevel": "medium",
-      "currentLicense": "Нужно проверить в официальном источнике",
-      "reviewStatus": "inferred",
-      "bucket": "content-terms",
-      "priority": "P2",
-      "reason": "Public access does not automatically permit copying, republishing or commercial reuse of content.",
-      "nextStep": "Confirm the content license and separate it from platform Terms and third-party assets.",
-      "evidence": [
-        {
-          "kind": "official-source",
-          "label": "Официальный источник; точные условия ещё нужно сверить",
-          "url": "https://isitagentready.com/"
-        }
-      ]
-    },
-    {
-      "id": "cryptozombies-cryptozombies-io",
-      "title": "CryptoZombies",
-      "type": "learn",
-      "url": "https://cryptozombies.io",
-      "decision": "reference",
-      "riskLevel": "medium",
-      "currentLicense": "Нужно проверить в официальном источнике",
-      "reviewStatus": "inferred",
-      "bucket": "content-terms",
-      "priority": "P2",
-      "reason": "Public access does not automatically permit copying, republishing or commercial reuse of content.",
-      "nextStep": "Confirm the content license and separate it from platform Terms and third-party assets.",
-      "evidence": [
-        {
-          "kind": "official-source",
-          "label": "Официальный источник; точные условия ещё нужно сверить",
-          "url": "https://cryptozombies.io"
-        }
-      ]
-    },
-    {
       "id": "deeplearning-ai-deeplearning-ai",
       "title": "DeepLearning.AI",
       "type": "prompt",
@@ -281,27 +155,6 @@
           "kind": "official-source",
           "label": "Официальный источник; точные условия ещё нужно сверить",
           "url": "https://deeplearning.ai/"
-        }
-      ]
-    },
-    {
-      "id": "elements-of-ai-elementsofai-com",
-      "title": "elements of ai",
-      "type": "learn",
-      "url": "https://elementsofai.com",
-      "decision": "reference",
-      "riskLevel": "medium",
-      "currentLicense": "Нужно проверить в официальном источнике",
-      "reviewStatus": "inferred",
-      "bucket": "content-terms",
-      "priority": "P2",
-      "reason": "Public access does not automatically permit copying, republishing or commercial reuse of content.",
-      "nextStep": "Confirm the content license and separate it from platform Terms and third-party assets.",
-      "evidence": [
-        {
-          "kind": "official-source",
-          "label": "Официальный источник; точные условия ещё нужно сверить",
-          "url": "https://elementsofai.com"
         }
       ]
     },
@@ -453,90 +306,6 @@
       ]
     },
     {
-      "id": "gpt-5-5-prompt-guide-openai-developers-openai-com",
-      "title": "GPT-5.5 Prompt Guide (OpenAI)",
-      "type": "prompt",
-      "url": "https://developers.openai.com/api/docs/guides/prompt-guidance?model=gpt-5.5",
-      "decision": "reference",
-      "riskLevel": "medium",
-      "currentLicense": "Нужно проверить в официальном источнике",
-      "reviewStatus": "inferred",
-      "bucket": "content-terms",
-      "priority": "P2",
-      "reason": "Public access does not automatically permit copying, republishing or commercial reuse of content.",
-      "nextStep": "Confirm the content license and separate it from platform Terms and third-party assets.",
-      "evidence": [
-        {
-          "kind": "official-source",
-          "label": "Официальный источник; точные условия ещё нужно сверить",
-          "url": "https://developers.openai.com/api/docs/guides/prompt-guidance?model=gpt-5.5"
-        }
-      ]
-    },
-    {
-      "id": "gsap-gsap-com",
-      "title": "GSAP",
-      "type": "learn",
-      "url": "https://gsap.com",
-      "decision": "reference",
-      "riskLevel": "medium",
-      "currentLicense": "Нужно проверить в официальном источнике",
-      "reviewStatus": "inferred",
-      "bucket": "content-terms",
-      "priority": "P2",
-      "reason": "Public access does not automatically permit copying, republishing or commercial reuse of content.",
-      "nextStep": "Confirm the content license and separate it from platform Terms and third-party assets.",
-      "evidence": [
-        {
-          "kind": "official-source",
-          "label": "Официальный источник; точные условия ещё нужно сверить",
-          "url": "https://gsap.com"
-        }
-      ]
-    },
-    {
-      "id": "haikei-haikei-app",
-      "title": "Haikei",
-      "type": "learn",
-      "url": "https://haikei.app",
-      "decision": "reference",
-      "riskLevel": "medium",
-      "currentLicense": "Нужно проверить в официальном источнике",
-      "reviewStatus": "inferred",
-      "bucket": "content-terms",
-      "priority": "P2",
-      "reason": "Public access does not automatically permit copying, republishing or commercial reuse of content.",
-      "nextStep": "Confirm the content license and separate it from platform Terms and third-party assets.",
-      "evidence": [
-        {
-          "kind": "official-source",
-          "label": "Официальный источник; точные условия ещё нужно сверить",
-          "url": "https://haikei.app"
-        }
-      ]
-    },
-    {
-      "id": "hyperui-www-hyperui-dev",
-      "title": "HyperUI",
-      "type": "learn",
-      "url": "https://www.hyperui.dev",
-      "decision": "reference",
-      "riskLevel": "medium",
-      "currentLicense": "Нужно проверить в официальном источнике",
-      "reviewStatus": "inferred",
-      "bucket": "content-terms",
-      "priority": "P2",
-      "reason": "Public access does not automatically permit copying, republishing or commercial reuse of content.",
-      "nextStep": "Confirm the content license and separate it from platform Terms and third-party assets.",
-      "evidence": [
-        {
-          "kind": "official-source",
-          "label": "Официальный источник; точные условия ещё нужно сверить",
-          "url": "https://www.hyperui.dev"
-        }
-      ]
-    },
-    {
       "id": "inworld-realtime-tts-2-inworld-ai",
       "title": "Inworld Realtime TTS-2",
       "type": "prompt",
@@ -558,27 +327,6 @@
       ]
     },
     {
-      "id": "javascript-info-javascript-info",
-      "title": "javascript.info",
-      "type": "learn",
-      "url": "https://javascript.info",
-      "decision": "reference",
-      "riskLevel": "medium",
-      "currentLicense": "Нужно проверить в официальном источнике",
-      "reviewStatus": "inferred",
-      "bucket": "content-terms",
-      "priority": "P2",
-      "reason": "Public access does not automatically permit copying, republishing or commercial reuse of content.",
-      "nextStep": "Confirm the content license and separate it from platform Terms and third-party assets.",
-      "evidence": [
-        {
-          "kind": "official-source",
-          "label": "Официальный источник; точные условия ещё нужно сверить",
-          "url": "https://javascript.info"
-        }
-      ]
-    },
-    {
       "id": "land-book-land-book-com",
       "title": "Land-book",
       "type": "learn",
@@ -596,69 +344,6 @@
           "kind": "official-source",
           "label": "Официальный источник; точные условия ещё нужно сверить",
           "url": "https://land-book.com"
-        }
-      ]
-    },
-    {
-      "id": "lighthouse-developer-chrome-com",
-      "title": "Lighthouse",
-      "type": "learn",
-      "url": "https://developer.chrome.com/docs/lighthouse",
-      "decision": "reference",
-      "riskLevel": "medium",
-      "currentLicense": "Нужно проверить в официальном источнике",
-      "reviewStatus": "inferred",
-      "bucket": "content-terms",
-      "priority": "P2",
-      "reason": "Public access does not automatically permit copying, republishing or commercial reuse of content.",
-      "nextStep": "Confirm the content license and separate it from platform Terms and third-party assets.",
-      "evidence": [
-        {
-          "kind": "official-source",
-          "label": "Официальный источник; точные условия ещё нужно сверить",
-          "url": "https://developer.chrome.com/docs/lighthouse"
-        }
-      ]
-    },
-    {
-      "id": "linux-journey-linuxjourney-com",
-      "title": "Linux Journey",
-      "type": "learn",
-      "url": "https://linuxjourney.com",
-      "decision": "reference",
-      "riskLevel": "medium",
-      "currentLicense": "Нужно проверить в официальном источнике",
-      "reviewStatus": "inferred",
-      "bucket": "content-terms",
-      "priority": "P2",
-      "reason": "Public access does not automatically permit copying, republishing or commercial reuse of content.",
-      "nextStep": "Confirm the content license and separate it from platform Terms and third-party assets.",
-      "evidence": [
-        {
-          "kind": "official-source",
-          "label": "Официальный источник; точные условия ещё нужно сверить",
-          "url": "https://linuxjourney.com"
-        }
-      ]
-    },
-    {
-      "id": "lucide-lucide-dev",
-      "title": "Lucide",
-      "type": "learn",
-      "url": "https://lucide.dev",
-      "decision": "reference",
-      "riskLevel": "medium",
-      "currentLicense": "Нужно проверить в официальном источнике",
-      "reviewStatus": "inferred",
-      "bucket": "content-terms",
-      "priority": "P2",
-      "reason": "Public access does not automatically permit copying, republishing or commercial reuse of content.",
-      "nextStep": "Confirm the content license and separate it from platform Terms and third-party assets.",
-      "evidence": [
-        {
-          "kind": "official-source",
-          "label": "Официальный источник; точные условия ещё нужно сверить",
-          "url": "https://lucide.dev"
         }
       ]
     },

@@ -24,10 +24,10 @@
 - `web/app.js` — command-first поиск, фильтры, detail view и guide viewer; structured adapter,
   карточки, editorial feed, progressive DOM и evidence-first Inspector вынесены в модули. При старте
   в DOM создаются только первые 36 карточек вместо всех 637; mobile Inspector открывается как sheet.
-- `web/catalog-index.json` — production schema v2: 254 записи редакторски проверены,
-  383 честно помечены `inferred`, 356 имеют отдельный `addedAt`, даты удалены из category.
-- License layer: у 411 записей лицензия или условия нормализованы с evidence URL;
-  226 остаются в детерминированной manual-review очереди (P1: 0, P2: 190, P3: 36).
+- `web/catalog-index.json` — production schema v2: 269 записей редакторски проверены,
+  368 честно помечены `inferred`, 356 имеют отдельный `addedAt`, даты удалены из category.
+- License layer: у 426 записей лицензия или условия нормализованы с evidence URL;
+  211 остаются в детерминированной manual-review очереди (P1: 0, P2: 175, P3: 36).
 - Agent policy: 560 записей доступны автоматическим consumers, 77 исключены fail closed;
   все 70 grey-ресурсов скрыты от recommendations, direct install запрещён для всех записей.
 - `web/api/v1/` — versioned static exports для full catalog, agents, Eclipse CRM и Eclipse AI;
@@ -316,6 +316,17 @@
       self-check, EN/RU copy и без обязательного API key.
 
 ## Changelog
+### 2026-08-18 — P2 content and frontend license review
+- Проверены 15 P2-карточек по canonical license-файлам и официальным Terms: AOS, Astro,
+  Claude Code Prompt Library, Claude Fable 5 guide, Cloudflare Is It Agent Ready?,
+  CryptoZombies, Elements of AI, GPT-5.5 Prompt Guide, GSAP, Haikei, HyperUI,
+  JavaScript.info, Lighthouse, Linux Journey и Lucide.
+- Исправлена классификация frontend-ресурсов: libraries и generators больше не показаны как
+  учебные курсы. Отдельно зафиксированы MIT/Apache/ISC/CC permissions, proprietary service terms,
+  GSAP non-compete boundary, Haikei output rights и ограничения non-commercial/share-alike.
+- Manual license queue снижена с 226 до 211 (P1: 0, P2: 175, P3: 36); direct install остаётся
+  запрещён, 560 записей доступны agent-safe export и 77 исключены policy.
+
 ### 2026-08-18 — verified research radar and P1 license closure
 
 - Added eight non-duplicate records: Firecrawl PDF Inspector, Qwen3.8 Max, Qwen3.8-27B,

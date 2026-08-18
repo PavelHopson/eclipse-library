@@ -1746,46 +1746,65 @@
       "id": "aos-michalsnik-github-io",
       "url": "https://michalsnik.github.io/aos/",
       "title": "AOS",
-      "type": "learn",
-      "category": "Лендинги — учебный курс",
-      "subcategory": "Анимации (premium-ощущение)",
-      "simpleDescription": "AOS — Animate-On-Scroll одним атрибутом — для статики. Карточка помогает понять назначение ресурса и начать с небольшой безопасной проверки; условия использования ещё нужно сверить с официальным источником.",
+      "type": "oss",
+      "category": "UI / Design",
+      "subcategory": "Scroll animation libraries",
+      "simpleDescription": "AOS (Animate On Scroll) — небольшая JavaScript-библиотека, которая запускает CSS-анимации, когда элемент появляется в области просмотра. Код можно использовать и изменять по MIT; для новых сложных интерфейсов сначала сравните её с нативными CSS и Intersection Observer.",
       "useCases": [
-        "Разобраться, подходит ли AOS для вашей задачи",
-        "Проверить возможности на небольшом тестовом сценарии до интеграции"
+        "Быстро добавить понятные scroll-reveal анимации на статический лендинг",
+        "Изучить простой declarative API через data-атрибуты без привязки к framework"
       ],
       "platforms": [
-        "Web"
+        "Web",
+        "JavaScript",
+        "npm",
+        "Self-host"
       ],
-      "license": "Нужно проверить в официальном источнике",
-      "pricing": "Актуальную стоимость нужно проверить на официальной странице",
+      "license": "MIT for the AOS software; demo content, third-party assets and trademarks retain separate rights",
+      "pricing": "Open-source software; no license fee",
       "access": {
-        "cost": "unknown",
-        "signup": "unknown",
-        "runtime": "cloud"
+        "cost": "free",
+        "signup": "none",
+        "runtime": "local"
       },
-      "trust": "unknown",
-      "trustReason": "Запись структурирована автоматически из опубликованного описания. Официальный источник, лицензия и условия ещё не прошли отдельную редакторскую проверку.",
-      "projects": [],
+      "trust": "community",
+      "trustReason": "The canonical michalsnik/aos repository, maintained project site and MIT license were checked on 18.08.2026. Package code was not installed or executed during the review.",
+      "projects": [
+        "Eclipse Forge Landing",
+        "Eclipse Library"
+      ],
       "decision": "reference",
-      "riskLevel": "medium",
+      "riskLevel": "low",
       "risks": [
-        "Лицензия, цена, permissions и обработка данных могут отличаться от краткого описания."
+        "Excessive reveal animations can hurt accessibility, perceived speed and layout stability",
+        "Older animation helpers can duplicate capabilities available in modern CSS and browser APIs"
       ],
-      "verifiedAt": null,
+      "verifiedAt": "2026-08-18",
       "quickStart": [
-        "Откройте официальный источник и проверьте владельца, лицензию и дату обновления.",
-        "Не передавайте secrets или рабочие данные; начните с пустого тестового проекта.",
-        "Сравните результат с текущим способом работы и только потом решайте об интеграции."
+        "Prototype one non-critical section and measure layout shift plus main-thread work",
+        "Respect prefers-reduced-motion and keep content visible when JavaScript fails",
+        "Pin the package version and review transitive dependencies before production use"
       ],
-      "reviewStatus": "inferred",
+      "reviewStatus": "verified",
       "source": {
         "file": "README.md",
         "line": 592,
         "category": "Лендинги — учебный курс",
         "subcategory": "Анимации (premium-ощущение)"
       },
-      "addedAt": null
+      "addedAt": null,
+      "licenseEvidence": [
+        {
+          "kind": "license",
+          "label": "Official MIT license",
+          "url": "https://github.com/michalsnik/aos/blob/next/LICENSE"
+        },
+        {
+          "kind": "source",
+          "label": "Official source repository",
+          "url": "https://github.com/michalsnik/aos"
+        }
+      ]
     },
     {
       "id": "api-mega-list-github-com",
@@ -2082,46 +2101,67 @@
       "id": "astro-astro-build",
       "url": "https://astro.build",
       "title": "Astro",
-      "type": "learn",
-      "category": "Лендинги — учебный курс",
-      "subcategory": "Фреймворки и UI-киты (бесплатно)",
-      "simpleDescription": "Astro — Заточен под быстрые маркетинг-сайты/лендинги, нулевой JS по умолчанию. Топ-выбор для лендинга. Карточка помогает понять назначение ресурса и начать с небольшой безопасной проверки; условия использования ещё нужно сверить с официальным источником.",
+      "type": "oss",
+      "category": "Dev Tools & CLI",
+      "subcategory": "Web frameworks",
+      "simpleDescription": "Astro — web framework для быстрых content-first сайтов: по умолчанию отправляет минимум JavaScript и позволяет подключать React, Vue, Svelte и другие UI-компоненты только там, где они нужны. Код framework открыт под MIT; документация, логотипы и сторонние integrations имеют собственные условия.",
       "useCases": [
-        "Разобраться, подходит ли Astro для вашей задачи",
-        "Проверить возможности на небольшом тестовом сценарии до интеграции"
+        "Строить быстрые лендинги, документацию и editorial-разделы с server-first HTML",
+        "Постепенно подключать интерактивные islands без превращения всей страницы в SPA"
       ],
       "platforms": [
-        "Web"
+        "Node.js",
+        "Web",
+        "Static site generation",
+        "SSR",
+        "Self-host"
       ],
-      "license": "Нужно проверить в официальном источнике",
-      "pricing": "Актуальную стоимость нужно проверить на официальной странице",
+      "license": "MIT for the Astro framework source; documentation, trademarks, integrations and third-party packages retain separate rights",
+      "pricing": "Framework is open source; hosting, adapters and external services may cost separately",
       "access": {
         "cost": "free",
-        "signup": "unknown",
-        "runtime": "cloud"
+        "signup": "none",
+        "runtime": "self-host"
       },
-      "trust": "unknown",
-      "trustReason": "Запись структурирована автоматически из опубликованного описания. Официальный источник, лицензия и условия ещё не прошли отдельную редакторскую проверку.",
-      "projects": [],
+      "trust": "official",
+      "trustReason": "The official withastro/astro repository and root MIT license were reviewed on 18.08.2026. GitHub license metadata was inconclusive, so the actual license file was used as evidence.",
+      "projects": [
+        "Eclipse Forge Landing",
+        "Eclipse Library",
+        "Educator-AI"
+      ],
       "decision": "reference",
-      "riskLevel": "medium",
+      "riskLevel": "low",
       "risks": [
-        "Лицензия, цена, permissions и обработка данных могут отличаться от краткого описания."
+        "Adapters and integrations add independent dependencies and deployment constraints",
+        "A migration from an existing stack can cost more than the JavaScript savings justify"
       ],
-      "verifiedAt": null,
+      "verifiedAt": "2026-08-18",
       "quickStart": [
-        "Откройте официальный источник и проверьте владельца, лицензию и дату обновления.",
-        "Не передавайте secrets или рабочие данные; начните с пустого тестового проекта.",
-        "Сравните результат с текущим способом работы и только потом решайте об интеграции."
+        "Benchmark one content-heavy route against the current production page before proposing migration",
+        "Use only required integrations and pin their versions",
+        "Verify SSR, accessibility, cache behavior and mobile layout in the target hosting environment"
       ],
-      "reviewStatus": "inferred",
+      "reviewStatus": "verified",
       "source": {
         "file": "README.md",
         "line": 581,
         "category": "Лендинги — учебный курс",
         "subcategory": "Фреймворки и UI-киты (бесплатно)"
       },
-      "addedAt": null
+      "addedAt": null,
+      "licenseEvidence": [
+        {
+          "kind": "license",
+          "label": "Official MIT license",
+          "url": "https://github.com/withastro/astro/blob/main/LICENSE"
+        },
+        {
+          "kind": "source",
+          "label": "Official Astro repository",
+          "url": "https://github.com/withastro/astro"
+        }
+      ]
     },
     {
       "id": "atlas3d-atlas3d-space",
@@ -4603,47 +4643,67 @@
       "type": "prompt",
       "category": "Подборка Eclipse",
       "subcategory": "Prompting / coding / content",
-      "simpleDescription": "Claude Code Prompt Library — Официальная библиотека Anthropic с copy-paste prompts для Claude Code, tags by task/role, explanation “why this works”. Зачем нам: oh-my-claudecode, Hopson Sentinel, eclipse-library/prompts, onboarding команды. Ценность не в копировании промптов, а в паттернах: outcome-first, verification, reference files, measurable targets. Карточка помогает понять назначение ресурса и начать с небольшой безопасной проверки; условия использования ещё нужно сверить с официальным источником.",
+      "simpleDescription": "Официальная библиотека Anthropic с готовыми starting prompts для Claude Code: объяснение codebase, исправление ошибок, тесты, refactoring и другие типовые задачи. Примеры прямо предназначены для копирования и адаптации, но сама документация и сервис Claude остаются proprietary и регулируются Terms Anthropic.",
       "useCases": [
-        "Разобраться, подходит ли Claude Code Prompt Library для вашей задачи",
-        "Проверить возможности на небольшом тестовом сценарии до интеграции"
+        "Брать безопасный starting prompt для повторяемой задачи Claude Code",
+        "Сравнивать структуру официальных примеров с собственными Eclipse skills и harness rules"
       ],
       "platforms": [
-        "Web"
+        "Claude Code",
+        "Anthropic Docs",
+        "Cloud AI"
       ],
-      "license": "Нужно проверить в официальном источнике",
-      "pricing": "Актуальную стоимость нужно проверить на официальной странице",
+      "license": "Prompt examples are explicitly provided by Anthropic to copy and adapt; Claude Code, documentation and services remain proprietary under Anthropic Consumer or Commercial Terms",
+      "pricing": "Documentation is public; executing prompts requires applicable Claude Code/API access and plan limits",
       "access": {
-        "cost": "unknown",
-        "signup": "unknown",
+        "cost": "freemium",
+        "signup": "required",
         "runtime": "cloud"
       },
-      "trust": "unknown",
-      "trustReason": "Запись структурирована автоматически из опубликованного описания. Официальный источник, лицензия и условия ещё не прошли отдельную редакторскую проверку.",
+      "trust": "official",
+      "trustReason": "The official Claude Code documentation and current Anthropic commercial and consumer terms were reviewed on 18.08.2026. Copy permission is limited to the prompt examples intentionally presented as reusable starting points.",
       "projects": [
+        "Eclipse AI Hub",
         "Hopson Sentinel",
-        "oh-my-claudecode",
-        "Eclipse Library"
+        "oh-my-claudecode"
       ],
       "decision": "reference",
       "riskLevel": "medium",
       "risks": [
-        "Лицензия, цена, permissions и обработка данных могут отличаться от краткого описания."
+        "A generic prompt does not replace repository rules, tests, approval gates or threat modeling",
+        "Prompted actions can expose source or secrets if the connected tools and scopes are too broad"
       ],
-      "verifiedAt": null,
+      "verifiedAt": "2026-08-18",
       "quickStart": [
-        "Откройте официальный источник и проверьте владельца, лицензию и дату обновления.",
-        "Не передавайте secrets или рабочие данные; начните с пустого тестового проекта.",
-        "Сравните результат с текущим способом работы и только потом решайте об интеграции."
+        "Copy only the relevant example and add repository-specific constraints plus acceptance criteria",
+        "Keep write, deploy and external-action tools behind explicit approval",
+        "Evaluate the result with tests and a diff instead of trusting the prose response"
       ],
-      "reviewStatus": "inferred",
+      "reviewStatus": "verified",
       "source": {
         "file": "README.md",
         "line": 1896,
         "category": "Подборка Eclipse (05.07.2026)",
         "subcategory": "Prompting / coding / content"
       },
-      "addedAt": "2026-07-05"
+      "addedAt": "2026-07-05",
+      "licenseEvidence": [
+        {
+          "kind": "official-source",
+          "label": "Official Claude Code prompt library",
+          "url": "https://code.claude.com/docs/en/prompt-library"
+        },
+        {
+          "kind": "terms",
+          "label": "Anthropic Commercial Terms",
+          "url": "https://www.anthropic.com/legal/commercial-terms"
+        },
+        {
+          "kind": "terms",
+          "label": "Anthropic Consumer Terms",
+          "url": "https://www.anthropic.com/legal/consumer-terms"
+        }
+      ]
     },
     {
       "id": "claude-code-router-musistudio-github-com",
@@ -4742,46 +4802,62 @@
       "type": "prompt",
       "category": "Подборка Eclipse",
       "subcategory": "Prompt-engineering (official + reference)",
-      "simpleDescription": "Claude Fable 5 prompting guide — Официальный гайд Anthropic по промптингу Fable 5: актуальные шаблоны, особенности модели, «длинные промпты теперь могут мешать». (Mythos=Fable 5 во всех подписках до 22.06, потом кредиты.) Фит: prompt-eng reference для Eclipse AI Hub / Hopson Sentinel / промпт-файлов. Карточка помогает понять назначение ресурса и начать с небольшой безопасной проверки; условия использования ещё нужно сверить с официальным источником.",
+      "simpleDescription": "Официальный guide Anthropic по prompting Claude Fable 5: как формулировать инструкции, управлять reasoning и получать более стабильный результат от модели. Это reference для настройки запросов, а не открытая prompt-библиотека: отдельной лицензии на массовое копирование документации не опубликовано.",
       "useCases": [
-        "Разобраться, подходит ли Claude Fable 5 prompting guide для вашей задачи",
-        "Проверить возможности на небольшом тестовом сценарии до интеграции"
+        "Настроить model-specific prompts и evaluation cases для Claude в Eclipse AI Hub",
+        "Обновить harness rules без переноса всей официальной документации в собственный продукт"
       ],
       "platforms": [
-        "Web"
+        "Claude Platform",
+        "Anthropic API",
+        "Cloud AI"
       ],
-      "license": "Нужно проверить в официальном источнике",
-      "pricing": "Актуальную стоимость нужно проверить на официальной странице",
+      "license": "Proprietary Anthropic documentation and service material governed by Anthropic Commercial Terms; no standalone open-content reuse license was identified",
+      "pricing": "Guide is publicly readable; model/API usage follows current Anthropic pricing and availability",
       "access": {
-        "cost": "paid",
+        "cost": "freemium",
         "signup": "required",
         "runtime": "cloud"
       },
-      "trust": "unknown",
-      "trustReason": "Запись структурирована автоматически из опубликованного описания. Официальный источник, лицензия и условия ещё не прошли отдельную редакторскую проверку.",
+      "trust": "official",
+      "trustReason": "The canonical Anthropic guide and Commercial Terms were checked on 18.08.2026. Recommendations are vendor guidance and still need evaluation on Eclipse tasks.",
       "projects": [
         "Eclipse AI Hub",
-        "Hopson Sentinel"
+        "Hopson Sentinel",
+        "oh-my-claudecode"
       ],
       "decision": "reference",
       "riskLevel": "medium",
       "risks": [
-        "Лицензия, цена, permissions и обработка данных могут отличаться от краткого описания."
+        "Model behavior and recommended prompt patterns can change with model revisions",
+        "Vendor examples are not proof of reliability, security or cost on Eclipse workloads"
       ],
-      "verifiedAt": null,
+      "verifiedAt": "2026-08-18",
       "quickStart": [
-        "Откройте официальный источник и проверьте владельца, лицензию и дату обновления.",
-        "Не передавайте secrets или рабочие данные; начните с пустого тестового проекта.",
-        "Сравните результат с текущим способом работы и только потом решайте об интеграции."
+        "Translate each useful recommendation into a versioned evaluation case rather than copying the whole page",
+        "Test quality, latency, tokens and tool-call safety on a fixed Eclipse fixture set",
+        "Keep a fallback prompt and model version in the router"
       ],
-      "reviewStatus": "inferred",
+      "reviewStatus": "verified",
       "source": {
         "file": "README.md",
         "line": 1393,
         "category": "Подборка Eclipse (10–16.06.2026)",
         "subcategory": "Prompt-engineering (official + reference)"
       },
-      "addedAt": "2026-06-10"
+      "addedAt": "2026-06-10",
+      "licenseEvidence": [
+        {
+          "kind": "official-source",
+          "label": "Official Claude Fable 5 prompting guide",
+          "url": "https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/prompting-claude-fable-5"
+        },
+        {
+          "kind": "terms",
+          "label": "Anthropic Commercial Terms",
+          "url": "https://www.anthropic.com/legal/commercial-terms"
+        }
+      ]
     },
     {
       "id": "claude-finance-6-prompts-github-com",
@@ -5617,50 +5693,67 @@
       "id": "cloudflare-is-it-agent-ready-isitagentready-com",
       "url": "https://isitagentready.com/",
       "title": "Cloudflare Is It Agent Ready?",
-      "type": "prompt",
+      "type": "tool",
       "category": "Подборка Eclipse",
       "subcategory": "Agent-ready web / discoverability",
-      "simpleDescription": "Cloudflare Is It Agent Ready? — Проверка сайта на готовность к AI-агентам: SEO/AI Search, bot access, MCP/Web Bot Auth и рекомендации с промптом для правок. Зачем нам: прогонять Eclipse Forge Landing, Eclipse Library, Eclipse Chat landing, будущие продуктовые сайты и клиентские лендинги. Это напрямую ложится в позиционирование “строим системы для эпохи агентов”, а не просто красивые…. Карточка помогает понять назначение ресурса и начать с небольшой безопасной проверки; условия использования ещё нужно сверить с официальным источником.",
+      "simpleDescription": "Is It Agent Ready? — официальный Cloudflare scanner, который проверяет, насколько сайт понятен AI-агентам: структуру контента, discovery, authentication и связанные web standards. Его score полезен как диагностика, но не является сертификатом качества или безопасности.",
       "useCases": [
-        "Разобраться, подходит ли Cloudflare Is It Agent Ready? для вашей задачи",
-        "Проверить возможности на небольшом тестовом сценарии до интеграции"
+        "Получить внешний baseline agent-readiness для публичных сайтов Eclipse Forge",
+        "Найти пробелы в machine-readable navigation, authentication и content delivery"
       ],
       "platforms": [
-        "Web"
+        "Web",
+        "Cloudflare",
+        "Cloud service"
       ],
-      "license": "Нужно проверить в официальном источнике",
-      "pricing": "Актуальную стоимость нужно проверить на официальной странице",
+      "license": "Proprietary Cloudflare online service governed by Cloudflare Website and Online Services Terms; no source-code or content-reuse license was identified",
+      "pricing": "Public web scanner; availability and limits can change without a local SLA",
       "access": {
-        "cost": "unknown",
-        "signup": "unknown",
+        "cost": "free",
+        "signup": "none",
         "runtime": "cloud"
       },
-      "trust": "unknown",
-      "trustReason": "Запись структурирована автоматически из опубликованного описания. Официальный источник, лицензия и условия ещё не прошли отдельную редакторскую проверку.",
+      "trust": "official",
+      "trustReason": "The Cloudflare announcement, live scanner and website terms were checked on 18.08.2026. The score is treated as vendor diagnostics, not independent certification.",
       "projects": [
-        "Eclipse Chat",
         "Eclipse Forge Landing",
-        "Eclipse Library"
+        "Eclipse Library",
+        "Hopson Sentinel",
+        "Eclipse Webclaw"
       ],
       "decision": "reference",
       "riskLevel": "medium",
       "risks": [
-        "Лицензия, цена, permissions и обработка данных могут отличаться от краткого описания."
+        "Submitting a non-public hostname or URL discloses it to an external service",
+        "A high score can coexist with weak accessibility, security, privacy or human UX",
+        "The scoring model and tested standards can change"
       ],
-      "verifiedAt": null,
+      "verifiedAt": "2026-08-18",
       "quickStart": [
-        "Откройте официальный источник и проверьте владельца, лицензию и дату обновления.",
-        "Не передавайте secrets или рабочие данные; начните с пустого тестового проекта.",
-        "Сравните результат с текущим способом работы и только потом решайте об интеграции."
+        "Scan only public production URLs with no tokens or private query parameters",
+        "Record individual failed checks, not only the aggregate score",
+        "Validate proposed fixes with accessibility, security and human UX tests before release"
       ],
-      "reviewStatus": "inferred",
+      "reviewStatus": "verified",
       "source": {
         "file": "README.md",
         "line": 1755,
         "category": "Подборка Eclipse (30.06–01.07.2026)",
         "subcategory": "Agent-ready web / discoverability"
       },
-      "addedAt": "2026-06-30"
+      "addedAt": "2026-06-30",
+      "licenseEvidence": [
+        {
+          "kind": "official-source",
+          "label": "Official Cloudflare announcement",
+          "url": "https://blog.cloudflare.com/agent-readiness/"
+        },
+        {
+          "kind": "terms",
+          "label": "Cloudflare Website and Online Services Terms",
+          "url": "https://www.cloudflare.com/policies/terms/"
+        }
+      ]
     },
     {
       "id": "cloudflare-pages-pages-cloudflare-com",
@@ -6694,43 +6787,61 @@
       "type": "learn",
       "category": "Обучение IT (бесплатно)",
       "subcategory": "Обучение IT (бесплатно)",
-      "simpleDescription": "CryptoZombies — Web3 / Solidity · Смарт-контракты через геймификацию — собираешь армию зомби. Карточка помогает понять назначение ресурса и начать с небольшой безопасной проверки; условия использования ещё нужно сверить с официальным источником.",
+      "simpleDescription": "CryptoZombies — интерактивный курс по Solidity и Ethereum, где студент по шагам пишет smart contract для игры с зомби. Учиться на сайте можно по его Terms, но публичный доступ не даёт права копировать уроки, графику или платформу в коммерческий продукт.",
       "useCases": [
-        "Разобраться, подходит ли CryptoZombies для вашей задачи",
-        "Проверить возможности на небольшом тестовом сценарии до интеграции"
+        "Дать внешнюю практику по Solidity после базового блока Educator-AI",
+        "Использовать игровой progression как UX-reference для собственных оригинальных уроков"
       ],
       "platforms": [
-        "Web"
+        "Web",
+        "Solidity",
+        "Ethereum"
       ],
-      "license": "Нужно проверить в официальном источнике",
-      "pricing": "Актуальную стоимость нужно проверить на официальной странице",
+      "license": "Proprietary course and website content governed by CryptoZombies Terms; no broad code/content reuse grant was identified",
+      "pricing": "Core course is publicly accessible; future features and availability may change",
       "access": {
         "cost": "free",
-        "signup": "unknown",
+        "signup": "optional",
         "runtime": "cloud"
       },
-      "trust": "unknown",
-      "trustReason": "Запись структурирована автоматически из опубликованного описания. Официальный источник, лицензия и условия ещё не прошли отдельную редакторскую проверку.",
-      "projects": [],
+      "trust": "official",
+      "trustReason": "The official course and its Terms were reviewed on 18.08.2026. The educational value is confirmed, while reuse of course materials remains restricted.",
+      "projects": [
+        "Educator-AI",
+        "Eclipse DnD Forge"
+      ],
       "decision": "reference",
-      "riskLevel": "medium",
+      "riskLevel": "low",
       "risks": [
-        "Лицензия, цена, permissions и обработка данных могут отличаться от краткого описания."
+        "Lessons can lag current Solidity, Ethereum tooling or security practice",
+        "Copying the narrative, illustrations or lesson text would exceed the identified permission"
       ],
-      "verifiedAt": null,
+      "verifiedAt": "2026-08-18",
       "quickStart": [
-        "Откройте официальный источник и проверьте владельца, лицензию и дату обновления.",
-        "Не передавайте secrets или рабочие данные; начните с пустого тестового проекта.",
-        "Сравните результат с текущим способом работы и только потом решайте об интеграции."
+        "Link to the official lesson rather than embedding its content",
+        "Pair exercises with current Solidity security guidance and a disposable test network",
+        "Create original Eclipse exercises and artwork if adding a gamified blockchain track"
       ],
-      "reviewStatus": "inferred",
+      "reviewStatus": "verified",
       "source": {
         "file": "README.md",
         "line": 862,
         "category": "Обучение IT (бесплатно)",
         "subcategory": null
       },
-      "addedAt": null
+      "addedAt": null,
+      "licenseEvidence": [
+        {
+          "kind": "terms",
+          "label": "Official CryptoZombies Terms",
+          "url": "https://cryptozombies.io/terms"
+        },
+        {
+          "kind": "official-source",
+          "label": "Official course",
+          "url": "https://cryptozombies.io/"
+        }
+      ]
     },
     {
       "id": "cs-self-learning-github-com",
@@ -8368,47 +8479,65 @@
     {
       "id": "elements-of-ai-elementsofai-com",
       "url": "https://elementsofai.com",
-      "title": "elements of ai",
+      "title": "Elements of AI",
       "type": "learn",
       "category": "Обучение IT (бесплатно)",
       "subcategory": "Обучение IT (бесплатно)",
-      "simpleDescription": "elements of ai — AI основы · Курс от Хельсинкского университета — основы AI понятным языком, без кода. Карточка помогает понять назначение ресурса и начать с небольшой безопасной проверки; условия использования ещё нужно сверить с официальным источником.",
+      "simpleDescription": "Elements of AI — вводный онлайн-курс University of Helsinki и MinnaLearn для людей без обязательного programming background. Доступ к community регулируется ограниченной личной некоммерческой лицензией; материалы нельзя просто копировать в Educator-AI.",
       "useCases": [
-        "Разобраться, подходит ли elements of ai для вашей задачи",
-        "Проверить возможности на небольшом тестовом сценарии до интеграции"
+        "Рекомендовать понятный внешний introduction to AI для начинающих",
+        "Использовать структуру тем как reference при создании полностью оригинального learning track"
       ],
       "platforms": [
-        "Web"
+        "Web",
+        "Online course",
+        "Community"
       ],
-      "license": "Нужно проверить в официальном источнике",
-      "pricing": "Актуальную стоимость нужно проверить на официальной странице",
+      "license": "Limited, revocable, personal non-commercial access under Elements of AI Terms; course/community materials remain proprietary unless a specific component states otherwise",
+      "pricing": "Course access is presented as free; account and community conditions apply",
       "access": {
         "cost": "free",
-        "signup": "unknown",
+        "signup": "required",
         "runtime": "cloud"
       },
-      "trust": "unknown",
-      "trustReason": "Запись структурирована автоматически из опубликованного описания. Официальный источник, лицензия и условия ещё не прошли отдельную редакторскую проверку.",
-      "projects": [],
+      "trust": "official",
+      "trustReason": "The official community Terms and Privacy Policy were reviewed on 18.08.2026. The license is personal and non-commercial, so the course remains an external reference only.",
+      "projects": [
+        "Educator-AI",
+        "Eclipse Library"
+      ],
       "decision": "reference",
       "riskLevel": "medium",
       "risks": [
-        "Лицензия, цена, permissions и обработка данных могут отличаться от краткого описания."
+        "The personal non-commercial license does not permit copying materials into a commercial Eclipse course",
+        "Community registration introduces account and privacy obligations"
       ],
-      "verifiedAt": null,
+      "verifiedAt": "2026-08-18",
       "quickStart": [
-        "Откройте официальный источник и проверьте владельца, лицензию и дату обновления.",
-        "Не передавайте secrets или рабочие данные; начните с пустого тестового проекта.",
-        "Сравните результат с текущим способом работы и только потом решайте об интеграции."
+        "Offer a normal external link and explain that registration is handled by the course provider",
+        "Do not import lessons, graphics, quizzes or community posts into Eclipse products",
+        "Write an original curriculum from public concepts and primary academic sources"
       ],
-      "reviewStatus": "inferred",
+      "reviewStatus": "verified",
       "source": {
         "file": "README.md",
         "line": 852,
         "category": "Обучение IT (бесплатно)",
         "subcategory": null
       },
-      "addedAt": null
+      "addedAt": null,
+      "licenseEvidence": [
+        {
+          "kind": "terms",
+          "label": "Elements of AI Terms of Service",
+          "url": "https://community.elementsofai.com/terms"
+        },
+        {
+          "kind": "privacy",
+          "label": "Elements of AI Privacy Policy",
+          "url": "https://community.elementsofai.com/privacy"
+        }
+      ]
     },
     {
       "id": "email-fake-com-email-fake-com",
@@ -11030,43 +11159,67 @@
       "type": "prompt",
       "category": "AI & Claude Code",
       "subcategory": "Промпт-коллекции",
-      "simpleDescription": "GPT-5.5 Prompt Guide (OpenAI) — Официальный гайд OpenAI: НЕ переиспользовать старые длинные промпты, минимизировать инструкции, давать данные + ожидаемый формат. Карточка помогает понять назначение ресурса и начать с небольшой безопасной проверки; условия использования ещё нужно сверить с официальным источником.",
+      "simpleDescription": "Официальный OpenAI guide по prompting GPT‑5.5: model-specific рекомендации по инструкциям, reasoning и tool use. Он полезен для настройки router и evals, но документация не является open-content пакетом — использовать нужно как reference по действующим OpenAI Terms.",
       "useCases": [
-        "Разобраться, подходит ли GPT-5.5 Prompt Guide (OpenAI) для вашей задачи",
-        "Проверить возможности на небольшом тестовом сценарии до интеграции"
+        "Настроить GPT‑5.5 prompt profile и regression evals в Eclipse AI Hub",
+        "Сравнить model-specific guidance с текущими Codex harness rules"
       ],
       "platforms": [
-        "Web"
+        "OpenAI API",
+        "OpenAI Developers",
+        "Cloud AI"
       ],
-      "license": "Нужно проверить в официальном источнике",
-      "pricing": "Актуальную стоимость нужно проверить на официальной странице",
+      "license": "Proprietary OpenAI documentation and service material governed by the OpenAI Services Agreement and Service Terms; no standalone open-content reuse license was identified",
+      "pricing": "Guide is publicly readable; API use follows current model pricing, limits and regional availability",
       "access": {
-        "cost": "unknown",
-        "signup": "unknown",
+        "cost": "freemium",
+        "signup": "required",
         "runtime": "cloud"
       },
-      "trust": "unknown",
-      "trustReason": "Запись структурирована автоматически из опубликованного описания. Официальный источник, лицензия и условия ещё не прошли отдельную редакторскую проверку.",
-      "projects": [],
+      "trust": "official",
+      "trustReason": "The official developer guide, Services Agreement and Service Terms were checked on 18.08.2026. Vendor guidance is treated as input to Eclipse evaluations, not proof of task success.",
+      "projects": [
+        "Eclipse AI Hub",
+        "Hopson Sentinel",
+        "oh-my-claudecode"
+      ],
       "decision": "reference",
       "riskLevel": "medium",
       "risks": [
-        "Лицензия, цена, permissions и обработка данных могут отличаться от краткого описания."
+        "Model and documentation revisions can change behavior, cost and recommended prompting",
+        "Sending repository or user data to the API requires an approved data boundary and secret hygiene"
       ],
-      "verifiedAt": null,
+      "verifiedAt": "2026-08-18",
       "quickStart": [
-        "Откройте официальный источник и проверьте владельца, лицензию и дату обновления.",
-        "Не передавайте secrets или рабочие данные; начните с пустого тестового проекта.",
-        "Сравните результат с текущим способом работы и только потом решайте об интеграции."
+        "Convert guidance into versioned router settings and fixed eval cases",
+        "Benchmark public or synthetic fixtures before any private repository data",
+        "Keep budget, tool permissions, retries and human approval explicit"
       ],
-      "reviewStatus": "inferred",
+      "reviewStatus": "verified",
       "source": {
         "file": "README.md",
         "line": 234,
         "category": "AI & Claude Code",
         "subcategory": "Промпт-коллекции"
       },
-      "addedAt": null
+      "addedAt": null,
+      "licenseEvidence": [
+        {
+          "kind": "official-source",
+          "label": "Official GPT-5.5 prompt guidance",
+          "url": "https://developers.openai.com/api/docs/guides/prompt-guidance?model=gpt-5.5"
+        },
+        {
+          "kind": "terms",
+          "label": "OpenAI Services Agreement",
+          "url": "https://openai.com/policies/services-agreement/"
+        },
+        {
+          "kind": "terms",
+          "label": "OpenAI Service Terms",
+          "url": "https://openai.com/policies/service-terms/"
+        }
+      ]
     },
     {
       "id": "gpt-sovits-rvc-boss-github-com",
@@ -11231,46 +11384,68 @@
       "id": "gsap-gsap-com",
       "url": "https://gsap.com",
       "title": "GSAP",
-      "type": "learn",
-      "category": "Лендинги — учебный курс",
-      "subcategory": "Анимации (premium-ощущение)",
-      "simpleDescription": "GSAP — Мощные scroll-анимации/таймлайны (vanilla/любой фреймворк). Карточка помогает понять назначение ресурса и начать с небольшой безопасной проверки; условия использования ещё нужно сверить с официальным источником.",
+      "type": "tool",
+      "category": "UI / Design",
+      "subcategory": "Animation runtimes",
+      "simpleDescription": "GSAP — professional JavaScript animation engine for timelines, scroll effects, SVG and complex UI motion. Обычные сайты и приложения можно делать бесплатно по Standard No Charge License, но это proprietary license: visual animation builders, конкурирующие с Webflow, требуют отдельного разрешения.",
       "useCases": [
-        "Разобраться, подходит ли GSAP для вашей задачи",
-        "Проверить возможности на небольшом тестовом сценарии до интеграции"
+        "Создавать сложные управляемые timelines и scroll-driven motion в premium landing experiences",
+        "Использовать один animation runtime для SVG, text and UI sequences where CSS is insufficient"
       ],
       "platforms": [
-        "Web"
+        "Web",
+        "JavaScript",
+        "npm",
+        "Self-host"
       ],
-      "license": "Нужно проверить в официальном источнике",
-      "pricing": "Актуальную стоимость нужно проверить на официальной странице",
+      "license": "GSAP Standard No Charge License: permitted for websites, web apps and digital interfaces; prohibited for competing no-code visual animation builders without written consent",
+      "pricing": "All GSAP plugins are currently available without a package fee; license restrictions and hosting costs still apply",
       "access": {
-        "cost": "unknown",
-        "signup": "unknown",
-        "runtime": "cloud"
+        "cost": "free",
+        "signup": "none",
+        "runtime": "local"
       },
-      "trust": "unknown",
-      "trustReason": "Запись структурирована автоматически из опубликованного описания. Официальный источник, лицензия и условия ещё не прошли отдельную редакторскую проверку.",
-      "projects": [],
+      "trust": "official",
+      "trustReason": "The current Webflow-owned GSAP Standard License and official installation documentation were reviewed on 18.08.2026. Free availability was not misclassified as open source.",
+      "projects": [
+        "Eclipse Forge Landing",
+        "Eclipse Library",
+        "Eclipse Chat",
+        "Eclipse AI Hub"
+      ],
       "decision": "reference",
       "riskLevel": "medium",
       "risks": [
-        "Лицензия, цена, permissions и обработка данных могут отличаться от краткого описания."
+        "The custom license blocks unapproved competing visual animation builders",
+        "Heavy timelines can harm accessibility, battery life and Core Web Vitals",
+        "Removing proprietary notices or assuming MIT-style redistribution rights would violate the license"
       ],
-      "verifiedAt": null,
+      "verifiedAt": "2026-08-18",
       "quickStart": [
-        "Откройте официальный источник и проверьте владельца, лицензию и дату обновления.",
-        "Не передавайте secrets или рабочие данные; начните с пустого тестового проекта.",
-        "Сравните результат с текущим способом работы и только потом решайте об интеграции."
+        "Confirm the product is a permitted website/interface rather than a visual animation builder",
+        "Prototype one high-value sequence and preserve a reduced-motion/static fallback",
+        "Measure main-thread time, layout shift and mobile battery impact before rollout"
       ],
-      "reviewStatus": "inferred",
+      "reviewStatus": "verified",
       "source": {
         "file": "README.md",
         "line": 591,
         "category": "Лендинги — учебный курс",
         "subcategory": "Анимации (premium-ощущение)"
       },
-      "addedAt": null
+      "addedAt": null,
+      "licenseEvidence": [
+        {
+          "kind": "license",
+          "label": "Official GSAP Standard License",
+          "url": "https://gsap.com/community/standard-license/"
+        },
+        {
+          "kind": "official-source",
+          "label": "Official installation documentation",
+          "url": "https://gsap.com/docs/v3/Installation/"
+        }
+      ]
     },
     {
       "id": "gtweak-github-com",
@@ -11412,46 +11587,68 @@
       "id": "haikei-haikei-app",
       "url": "https://haikei.app",
       "title": "Haikei",
-      "type": "learn",
-      "category": "Лендинги — учебный курс",
-      "subcategory": "Дизайн-инспирация и ассеты",
-      "simpleDescription": "Haikei — SVG-волны/блобы/паттерны для фонов. Карточка помогает понять назначение ресурса и начать с небольшой безопасной проверки; условия использования ещё нужно сверить с официальным источником.",
+      "type": "tool",
+      "category": "UI / Design",
+      "subcategory": "SVG asset generators",
+      "simpleDescription": "Haikei — browser generator for SVG waves, blobs, gradients and other abstract backgrounds. Сгенерированные designs разрешено использовать в personal и commercial projects без attribution, но сайт и generator proprietary: нельзя копировать его код или строить на его designs аналогичный generator.",
       "useCases": [
-        "Разобраться, подходит ли Haikei для вашей задачи",
-        "Проверить возможности на небольшом тестовом сценарии до интеграции"
+        "Создать редактируемый SVG-background для лендинга или social asset",
+        "Быстро исследовать формы и цветовые сочетания перед созданием собственного Eclipse asset"
       ],
       "platforms": [
-        "Web"
+        "Web",
+        "SVG",
+        "PNG export",
+        "Cloud service"
       ],
-      "license": "Нужно проверить в официальном источнике",
-      "pricing": "Актуальную стоимость нужно проверить на официальной странице",
+      "license": "Generated designs may be used in personal and commercial projects without attribution; Haikei site/content are proprietary and designs may not power a similar generator",
+      "pricing": "Free and paid features may coexist; verify current export limits before production use",
       "access": {
-        "cost": "unknown",
-        "signup": "unknown",
+        "cost": "freemium",
+        "signup": "optional",
         "runtime": "cloud"
       },
-      "trust": "unknown",
-      "trustReason": "Запись структурирована автоматически из опубликованного описания. Официальный источник, лицензия и условия ещё не прошли отдельную редакторскую проверку.",
-      "projects": [],
+      "trust": "official",
+      "trustReason": "Haikei Terms and official pricing/FAQ were reviewed on 18.08.2026. The output-use permission is recorded separately from the proprietary generator and website content.",
+      "projects": [
+        "Eclipse Forge Landing",
+        "Eclipse Library",
+        "Eclipse Media",
+        "Text2Image"
+      ],
       "decision": "reference",
       "riskLevel": "medium",
       "risks": [
-        "Лицензия, цена, permissions и обработка данных могут отличаться от краткого описания."
+        "The generated asset can look generic or fail contrast/accessibility requirements",
+        "Terms prohibit using the designs to provide a similar generator",
+        "Uploading or entering brand-sensitive material into a cloud tool creates an external data boundary"
       ],
-      "verifiedAt": null,
+      "verifiedAt": "2026-08-18",
       "quickStart": [
-        "Откройте официальный источник и проверьте владельца, лицензию и дату обновления.",
-        "Не передавайте secrets или рабочие данные; начните с пустого тестового проекта.",
-        "Сравните результат с текущим способом работы и только потом решайте об интеграции."
+        "Generate only abstract non-sensitive assets and export SVG for local review",
+        "Simplify paths, verify contrast and test responsive cropping before shipping",
+        "Store the final approved asset locally with its source URL and review date"
       ],
-      "reviewStatus": "inferred",
+      "reviewStatus": "verified",
       "source": {
         "file": "README.md",
         "line": 615,
         "category": "Лендинги — учебный курс",
         "subcategory": "Дизайн-инспирация и ассеты"
       },
-      "addedAt": null
+      "addedAt": null,
+      "licenseEvidence": [
+        {
+          "kind": "terms",
+          "label": "Official Haikei Terms",
+          "url": "https://haikei.app/terms/"
+        },
+        {
+          "kind": "official-source",
+          "label": "Official Haikei pricing and FAQ",
+          "url": "https://haikei.app/pricing/"
+        }
+      ]
     },
     {
       "id": "hands-on-ai-engineering-sumanth077-github-com",
@@ -12293,46 +12490,67 @@
       "id": "hyperui-www-hyperui-dev",
       "url": "https://www.hyperui.dev",
       "title": "HyperUI",
-      "type": "learn",
-      "category": "Лендинги — учебный курс",
-      "subcategory": "Фреймворки и UI-киты (бесплатно)",
-      "simpleDescription": "HyperUI — Бесплатные копипаст-компоненты для маркетинга на Tailwind. Карточка помогает понять назначение ресурса и начать с небольшой безопасной проверки; условия использования ещё нужно сверить с официальным источником.",
+      "type": "oss",
+      "category": "UI / Design",
+      "subcategory": "Tailwind component libraries",
+      "simpleDescription": "HyperUI — коллекция готовых Tailwind CSS components для marketing sites, shops и application interfaces. Компоненты можно копировать, изменять и использовать коммерчески по MIT без обязательной attribution, но accessibility и product fit всё равно нужно проверять самостоятельно.",
       "useCases": [
-        "Разобраться, подходит ли HyperUI для вашей задачи",
-        "Проверить возможности на небольшом тестовом сценарии до интеграции"
+        "Быстро собрать baseline section или form в Tailwind-проекте",
+        "Изучить простые композиционные patterns и затем привести их к visual contract Eclipse Forge"
       ],
       "platforms": [
-        "Web"
+        "Web",
+        "Tailwind CSS",
+        "HTML",
+        "React"
       ],
-      "license": "Нужно проверить в официальном источнике",
-      "pricing": "Актуальную стоимость нужно проверить на официальной странице",
+      "license": "MIT for the HyperUI component source; third-party icons, fonts, images and trademarks retain separate rights",
+      "pricing": "Open-source components; no license fee",
       "access": {
         "cost": "free",
-        "signup": "unknown",
-        "runtime": "cloud"
+        "signup": "none",
+        "runtime": "local"
       },
-      "trust": "unknown",
-      "trustReason": "Запись структурирована автоматически из опубликованного описания. Официальный источник, лицензия и условия ещё не прошли отдельную редакторскую проверку.",
-      "projects": [],
+      "trust": "community",
+      "trustReason": "The canonical repository, MIT license and official FAQ confirming commercial use were checked on 18.08.2026. Components were not installed or executed during review.",
+      "projects": [
+        "Eclipse Forge Landing",
+        "Eclipse Library",
+        "Eclipse Chat",
+        "Eclipse AI Hub"
+      ],
       "decision": "reference",
-      "riskLevel": "medium",
+      "riskLevel": "low",
       "risks": [
-        "Лицензия, цена, permissions и обработка данных могут отличаться от краткого описания."
+        "Copy-pasted components may not meet Eclipse accessibility, responsive or state requirements",
+        "Examples can introduce inconsistent visual language and duplicate existing design-system components"
       ],
-      "verifiedAt": null,
+      "verifiedAt": "2026-08-18",
       "quickStart": [
-        "Откройте официальный источник и проверьте владельца, лицензию и дату обновления.",
-        "Не передавайте secrets или рабочие данные; начните с пустого тестового проекта.",
-        "Сравните результат с текущим способом работы и только потом решайте об интеграции."
+        "Use a component only when the existing Eclipse design system has a real gap",
+        "Replace styling tokens and icons with the established project system",
+        "Test keyboard, focus, loading, empty, error and mobile states before merge"
       ],
-      "reviewStatus": "inferred",
+      "reviewStatus": "verified",
       "source": {
         "file": "README.md",
         "line": 583,
         "category": "Лендинги — учебный курс",
         "subcategory": "Фреймворки и UI-киты (бесплатно)"
       },
-      "addedAt": null
+      "addedAt": null,
+      "licenseEvidence": [
+        {
+          "kind": "license",
+          "label": "Official MIT license",
+          "url": "https://github.com/markmead/hyperui/blob/main/LICENSE"
+        },
+        {
+          "kind": "official-source",
+          "label": "Official HyperUI FAQ",
+          "url": "https://www.hyperui.dev/blog/faqs/"
+        }
+      ]
     },
     {
       "id": "i-want-fable-i-want-fable-vercel-app",
@@ -12725,43 +12943,61 @@
       "type": "learn",
       "category": "Обучение IT (бесплатно)",
       "subcategory": "Обучение IT (бесплатно)",
-      "simpleDescription": "javascript.info — JavaScript · Лучший учебник по JS — от основ до async/await, с интерактивными задачами. Карточка помогает понять назначение ресурса и начать с небольшой безопасной проверки; условия использования ещё нужно сверить с официальным источником.",
+      "simpleDescription": "JavaScript.info — подробный современный учебник по JavaScript от языка до browser APIs. Исходные уроки доступны публично, но license основана на CC BY-NC 4.0: нужна attribution и разрешено только non-commercial reuse, поэтому коммерческие Eclipse-продукты должны ссылаться на курс, а не копировать его.",
       "useCases": [
-        "Разобраться, подходит ли javascript.info для вашей задачи",
-        "Проверить возможности на небольшом тестовом сценарии до интеграции"
+        "Использовать как внешний справочник по JavaScript и browser platform",
+        "Сверять темы при создании оригинальных уроков Educator-AI без переноса текста и примеров"
       ],
       "platforms": [
-        "Web"
+        "Web",
+        "GitHub",
+        "JavaScript"
       ],
-      "license": "Нужно проверить в официальном источнике",
-      "pricing": "Актуальную стоимость нужно проверить на официальной странице",
+      "license": "Custom license based on CC BY-NC 4.0: attribution required and reuse is limited to non-commercial purposes; contact the author for broader permission",
+      "pricing": "Publicly readable without payment; content reuse remains non-commercial unless separately authorized",
       "access": {
         "cost": "free",
-        "signup": "unknown",
+        "signup": "none",
         "runtime": "cloud"
       },
-      "trust": "unknown",
-      "trustReason": "Запись структурирована автоматически из опубликованного описания. Официальный источник, лицензия и условия ещё не прошли отдельную редакторскую проверку.",
-      "projects": [],
+      "trust": "community",
+      "trustReason": "The official tutorial repository and its custom CC BY-NC-based license were reviewed on 18.08.2026. The non-commercial restriction is treated as incompatible with copying into commercial Eclipse products.",
+      "projects": [
+        "Educator-AI",
+        "Eclipse Library"
+      ],
       "decision": "reference",
       "riskLevel": "medium",
       "risks": [
-        "Лицензия, цена, permissions и обработка данных могут отличаться от краткого описания."
+        "Commercial republication or adaptation requires separate permission",
+        "Tutorial examples and browser behavior can age as the platform evolves"
       ],
-      "verifiedAt": null,
+      "verifiedAt": "2026-08-18",
       "quickStart": [
-        "Откройте официальный источник и проверьте владельца, лицензию и дату обновления.",
-        "Не передавайте secrets или рабочие данные; начните с пустого тестового проекта.",
-        "Сравните результат с текущим способом работы и только потом решайте об интеграции."
+        "Link to the relevant official chapter with attribution",
+        "Write original Eclipse explanations and exercises from language specifications and measured behavior",
+        "Request written permission before any substantial adaptation or commercial redistribution"
       ],
-      "reviewStatus": "inferred",
+      "reviewStatus": "verified",
       "source": {
         "file": "README.md",
         "line": 849,
         "category": "Обучение IT (бесплатно)",
         "subcategory": null
       },
-      "addedAt": null
+      "addedAt": null,
+      "licenseEvidence": [
+        {
+          "kind": "license",
+          "label": "Official JavaScript.info license",
+          "url": "https://github.com/javascript-tutorial/en.javascript.info/blob/master/LICENSE.md"
+        },
+        {
+          "kind": "source",
+          "label": "Official English tutorial repository",
+          "url": "https://github.com/javascript-tutorial/en.javascript.info"
+        }
+      ]
     },
     {
       "id": "jcode",
@@ -13823,46 +14059,68 @@
       "id": "lighthouse-developer-chrome-com",
       "url": "https://developer.chrome.com/docs/lighthouse",
       "title": "Lighthouse",
-      "type": "learn",
-      "category": "Лендинги — учебный курс",
-      "subcategory": "Аналитика и скорость",
-      "simpleDescription": "Lighthouse — Проверка скорости/SEO/доступности (цель 90+). Карточка помогает понять назначение ресурса и начать с небольшой безопасной проверки; условия использования ещё нужно сверить с официальным источником.",
+      "type": "tool",
+      "category": "Dev Tools & CLI",
+      "subcategory": "Web quality auditing",
+      "simpleDescription": "Lighthouse — automated audit engine from Chrome for performance, accessibility, SEO and web best practices. Software is Apache‑2.0 and can run in DevTools, CLI or CI, but a high score is only a signal: manual accessibility, security and real-user monitoring remain necessary.",
       "useCases": [
-        "Разобраться, подходит ли Lighthouse для вашей задачи",
-        "Проверить возможности на небольшом тестовом сценарии до интеграции"
+        "Добавить repeatable performance and accessibility budgets в CI",
+        "Диагностировать regressions на Eclipse Forge Landing и Library до deploy"
       ],
       "platforms": [
+        "Chrome DevTools",
+        "Node.js CLI",
+        "CI",
         "Web"
       ],
-      "license": "Нужно проверить в официальном источнике",
-      "pricing": "Актуальную стоимость нужно проверить на официальной странице",
+      "license": "Apache-2.0 for the Lighthouse software; Chrome documentation content, browser binaries and third-party audits retain separate terms",
+      "pricing": "Open-source software; CI compute and hosted monitoring are separate costs",
       "access": {
-        "cost": "unknown",
-        "signup": "unknown",
-        "runtime": "cloud"
+        "cost": "free",
+        "signup": "none",
+        "runtime": "local"
       },
-      "trust": "unknown",
-      "trustReason": "Запись структурирована автоматически из опубликованного описания. Официальный источник, лицензия и условия ещё не прошли отдельную редакторскую проверку.",
-      "projects": [],
+      "trust": "official",
+      "trustReason": "The official GoogleChrome/lighthouse repository, Apache-2.0 license and Chrome documentation were checked on 18.08.2026.",
+      "projects": [
+        "Eclipse Forge Landing",
+        "Eclipse Library",
+        "Eclipse Chat",
+        "Eclipse AI Hub",
+        "Eclipse DnD Forge"
+      ],
       "decision": "reference",
-      "riskLevel": "medium",
+      "riskLevel": "low",
       "risks": [
-        "Лицензия, цена, permissions и обработка данных могут отличаться от краткого описания."
+        "Lab scores vary by hardware, network, browser version and page state",
+        "Automated checks cover only part of accessibility and cannot prove security or product usability"
       ],
-      "verifiedAt": null,
+      "verifiedAt": "2026-08-18",
       "quickStart": [
-        "Откройте официальный источник и проверьте владельца, лицензию и дату обновления.",
-        "Не передавайте secrets или рабочие данные; начните с пустого тестового проекта.",
-        "Сравните результат с текущим способом работы и только потом решайте об интеграции."
+        "Pin Lighthouse and Chrome versions for CI comparisons",
+        "Test representative mobile routes with stable fixtures and explicit budgets",
+        "Pair automated results with real-user metrics and manual keyboard/screen-reader review"
       ],
-      "reviewStatus": "inferred",
+      "reviewStatus": "verified",
       "source": {
         "file": "README.md",
         "line": 623,
         "category": "Лендинги — учебный курс",
         "subcategory": "Аналитика и скорость"
       },
-      "addedAt": null
+      "addedAt": null,
+      "licenseEvidence": [
+        {
+          "kind": "license",
+          "label": "Official Apache-2.0 license",
+          "url": "https://github.com/GoogleChrome/lighthouse/blob/main/LICENSE"
+        },
+        {
+          "kind": "source",
+          "label": "Official Lighthouse repository",
+          "url": "https://github.com/GoogleChrome/lighthouse"
+        }
+      ]
     },
     {
       "id": "lightpanda-browser",
@@ -13974,43 +14232,62 @@
       "type": "learn",
       "category": "Обучение IT (бесплатно)",
       "subcategory": "Обучение IT (бесплатно)",
-      "simpleDescription": "Linux Journey — Linux · Пошаговый маршрут от нуля до уверенного администрирования. Карточка помогает понять назначение ресурса и начать с небольшой безопасной проверки; условия использования ещё нужно сверить с официальным источником.",
+      "simpleDescription": "Linux Journey — структурированный бесплатный курс по shell, processes, filesystems, networking и Linux administration. Lesson content открыт под CC BY-SA 4.0 с attribution и share-alike; название, branding, visual identity и создание confusingly similar clone в это разрешение не входят.",
       "useCases": [
-        "Разобраться, подходит ли Linux Journey для вашей задачи",
-        "Проверить возможности на небольшом тестовом сценарии до интеграции"
+        "Дать начинающим последовательный внешний learning path по Linux",
+        "Адаптировать отдельные уроки по CC BY-SA в явно независимый Educator-AI track с attribution"
       ],
       "platforms": [
+        "Web",
+        "GitHub",
         "Linux"
       ],
-      "license": "Нужно проверить в официальном источнике",
-      "pricing": "Актуальную стоимость нужно проверить на официальной странице",
+      "license": "CC BY-SA 4.0 for lesson content with attribution and share-alike; Linux Journey name, branding, visual identity and confusingly similar replacement services are excluded",
+      "pricing": "Lesson content is public; LabEx hands-on labs or account features may have separate plans",
       "access": {
-        "cost": "free",
-        "signup": "none",
-        "runtime": "local"
+        "cost": "freemium",
+        "signup": "optional",
+        "runtime": "cloud"
       },
-      "trust": "unknown",
-      "trustReason": "Запись структурирована автоматически из опубликованного описания. Официальный источник, лицензия и условия ещё не прошли отдельную редакторскую проверку.",
-      "projects": [],
+      "trust": "official",
+      "trustReason": "The official LabEx-maintained repository identifies itself as the current Linux Journey source and states CC BY-SA 4.0 plus explicit brand and anti-confusion boundaries. Reviewed 18.08.2026.",
+      "projects": [
+        "Educator-AI",
+        "Hopson Sentinel",
+        "Eclipse Library"
+      ],
       "decision": "reference",
-      "riskLevel": "medium",
+      "riskLevel": "low",
       "risks": [
-        "Лицензия, цена, permissions и обработка данных могут отличаться от краткого описания."
+        "Adapted lesson content must retain attribution and compatible share-alike licensing",
+        "Substantial reuse must not imply official affiliation or replace the branded course experience"
       ],
-      "verifiedAt": null,
+      "verifiedAt": "2026-08-18",
       "quickStart": [
-        "Откройте официальный источник и проверьте владельца, лицензию и дату обновления.",
-        "Не передавайте secrets или рабочие данные; начните с пустого тестового проекта.",
-        "Сравните результат с текущим способом работы и только потом решайте об интеграции."
+        "Prefer an external link for the full course",
+        "If adapting one lesson, preserve attribution, link the source and publish the adaptation under CC BY-SA 4.0",
+        "Use original Eclipse branding, examples, exercises and course structure"
       ],
-      "reviewStatus": "inferred",
+      "reviewStatus": "verified",
       "source": {
         "file": "README.md",
         "line": 861,
         "category": "Обучение IT (бесплатно)",
         "subcategory": null
       },
-      "addedAt": null
+      "addedAt": null,
+      "licenseEvidence": [
+        {
+          "kind": "license",
+          "label": "Official repository license and usage notice",
+          "url": "https://github.com/labex-labs/linuxjourney#license-and-usage"
+        },
+        {
+          "kind": "official-source",
+          "label": "Official maintained Linux Journey repository",
+          "url": "https://github.com/labex-labs/linuxjourney"
+        }
+      ]
     },
     {
       "id": "llm-interview-questions-github-com",
@@ -14550,46 +14827,72 @@
       "id": "lucide-lucide-dev",
       "url": "https://lucide.dev",
       "title": "Lucide",
-      "type": "learn",
-      "category": "Лендинги — учебный курс",
-      "subcategory": "Дизайн-инспирация и ассеты",
-      "simpleDescription": "Lucide — Иконки единого стиля. Карточка помогает понять назначение ресурса и начать с небольшой безопасной проверки; условия использования ещё нужно сверить с официальным источником.",
+      "type": "oss",
+      "category": "UI / Design",
+      "subcategory": "Icon libraries",
+      "simpleDescription": "Lucide — большой набор аккуратных SVG icons с packages для React, Vue, Svelte, Flutter и других stacks. Основная лицензия ISC разрешает commercial use и modification; часть icons, производных от Feather, дополнительно сохраняет MIT notice.",
       "useCases": [
-        "Разобраться, подходит ли Lucide для вашей задачи",
-        "Проверить возможности на небольшом тестовом сценарии до интеграции"
+        "Использовать единый предсказуемый icon family во всех Eclipse interfaces",
+        "Подключать только нужные tree-shakeable icons вместо собственных случайных SVG"
       ],
       "platforms": [
+        "SVG",
+        "React",
+        "Vue",
+        "Svelte",
+        "Flutter",
         "Web"
       ],
-      "license": "Нужно проверить в официальном источнике",
-      "pricing": "Актуальную стоимость нужно проверить на официальной странице",
+      "license": "ISC for Lucide; listed Feather-derived icons also retain the MIT license and copyright notice in the official LICENSE file",
+      "pricing": "Open-source icon library; no license fee",
       "access": {
-        "cost": "unknown",
-        "signup": "unknown",
-        "runtime": "cloud"
+        "cost": "free",
+        "signup": "none",
+        "runtime": "local"
       },
-      "trust": "unknown",
-      "trustReason": "Запись структурирована автоматически из опубликованного описания. Официальный источник, лицензия и условия ещё не прошли отдельную редакторскую проверку.",
-      "projects": [],
+      "trust": "community",
+      "trustReason": "The canonical lucide-icons/lucide repository and root license containing ISC plus Feather-derived MIT notices were reviewed on 18.08.2026.",
+      "projects": [
+        "Eclipse Forge Landing",
+        "Eclipse Library",
+        "Eclipse Chat",
+        "Eclipse AI Hub",
+        "Eclipse DnD Forge",
+        "Hopson Sentinel"
+      ],
       "decision": "reference",
-      "riskLevel": "medium",
+      "riskLevel": "low",
       "risks": [
-        "Лицензия, цена, permissions и обработка данных могут отличаться от краткого описания."
+        "Icons alone cannot replace clear labels for unfamiliar actions",
+        "Package-wide imports can increase bundle size",
+        "Lucide intentionally excludes brand logos, which need separate trademark-safe sources"
       ],
-      "verifiedAt": null,
+      "verifiedAt": "2026-08-18",
       "quickStart": [
-        "Откройте официальный источник и проверьте владельца, лицензию и дату обновления.",
-        "Не передавайте secrets или рабочие данные; начните с пустого тестового проекта.",
-        "Сравните результат с текущим способом работы и только потом решайте об интеграции."
+        "Use the project’s existing Lucide package and import individual icons",
+        "Keep text labels for primary or ambiguous actions and add accessible names",
+        "Preserve required license notices in distributed source/bundles"
       ],
-      "reviewStatus": "inferred",
+      "reviewStatus": "verified",
       "source": {
         "file": "README.md",
         "line": 616,
         "category": "Лендинги — учебный курс",
         "subcategory": "Дизайн-инспирация и ассеты"
       },
-      "addedAt": null
+      "addedAt": null,
+      "licenseEvidence": [
+        {
+          "kind": "license",
+          "label": "Official Lucide ISC and Feather MIT notices",
+          "url": "https://github.com/lucide-icons/lucide/blob/main/LICENSE"
+        },
+        {
+          "kind": "official-source",
+          "label": "Official Lucide project site",
+          "url": "https://lucide.dev/"
+        }
+      ]
     },
     {
       "id": "lucy-2-5-decart-lucy-decart-ai",
