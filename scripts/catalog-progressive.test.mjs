@@ -130,7 +130,7 @@ test('adopts the versioned Eclipse Forge product visual profile locally', () => 
 
   assert.equal(tokens.schemaVersion, 'eclipse-forge.visual-system.v1');
   assert.ok(tokens.intensityProfiles.includes('product'));
-  assert.match(html, /styles\.css\?v=28/);
+  assert.match(html, /styles\.css\?v=29/);
   assert.match(html, /assets\/fonts\/inter-cyrillic\.woff2/);
   assert.doesNotMatch(html + css, /fonts\.googleapis\.com|fonts\.gstatic\.com/);
   assert.match(css, /--bg: #05070a;/);

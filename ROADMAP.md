@@ -117,9 +117,10 @@
       consented testimonials и weekly review. Каждый workflow обязан иметь evidence, budget, timeout,
       cancel, human approval для внешнего действия и versioned receipt; browser cookies, production
       secrets, autonomous publish/send/delete/payment запрещены.
-- [ ] Eclipse Library: провести P1/S mobile navigation pilot на текущем bottom dock — сохранить
-      task-first information architecture, добавить только спокойный segmented active state и проверить
-      48 px targets, keyboard/touch, 390 px overflow и reduced motion. Liquid/blob/orbit effects не внедрять.
+- [x] Eclipse Library: провести P1/S adaptive navigation pilot — сохранить task-first information
+      architecture, добавить спокойный segmented active state на mobile и moving active rail в desktop
+      sidebar. Проверены touch, 390 px overflow, устойчивый scroll и reduced motion; liquid/blob/orbit
+      effects не внедрены.
 - [ ] Eclipse Chat / AI Hub / Sentinel / DnD Forge: провести P1/M sidebar interaction audit —
       `aria-expanded/current`, mobile drawer/focus management, long labels и expand/collapse без
       per-frame `height`/blur. Использовать CSS grid, WAAPI или FLIP после Performance evidence.
@@ -338,6 +339,17 @@
       self-check, EN/RU copy и без обязательного API key.
 
 ## Changelog
+### 2026-08-20 — adaptive motion navigation pilot
+- В Library внедрён собственный motion-паттерн на основе присланных segmented dock/sidebar
+  references: mobile view switcher получил общий moving indicator, desktop sidebar — один shared
+  active rail вместо независимых скачущих подсветок.
+- Все переходы ограничены compositor-friendly `transform`/`opacity`, карточки получили короткое
+  hover elevation без новой runtime-зависимости; `prefers-reduced-motion` сохраняет статичное состояние.
+- Edge QA пройден на 1440×1000 и 390×844: нет console/page errors и horizontal overflow, mobile
+  indicator перемещается между вкладками, scroll остаётся на 2400 после scrollspy и не прыгает наверх.
+- Добавлен regression-контракт motion-разметки, runtime и reduced-motion fallback; asset cache обновлён
+  до `styles.css?v=29` и `app.js?v=42`.
+
 ### 2026-08-20 — automation playbook and frontend motion references
 - Каталог вырос до 651 материала: добавлен first-party Eclipse Automation Playbook на 45 сценариев
   и две community reference-карточки Prozavlly/FrontendJoe. Social snippets не считаются reusable

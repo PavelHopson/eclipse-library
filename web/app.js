@@ -1247,6 +1247,30 @@
     link.scrollIntoView({ block: 'nearest' });
   }
 
+  let navRailFrame = 0;
+  function syncActiveNavRail(link) {
+    const nav = $('#nav');
+    if (!nav || window.matchMedia('(max-width: 960px)').matches) return;
+    let rail = nav.querySelector('.nav-active-rail');
+    if (!rail) {
+      rail = el('span', 'nav-active-rail');
+      rail.setAttribute('aria-hidden', 'true');
+      nav.prepend(rail);
+    }
+    cancelAnimationFrame(navRailFrame);
+    navRailFrame = requestAnimationFrame(() => {
+      if (!link?.isConnected) {
+        rail.classList.remove('is-visible');
+        return;
+      }
+      const navRect = nav.getBoundingClientRect();
+      const linkRect = link.getBoundingClientRect();
+      nav.style.setProperty('--nav-active-y', `${Math.round(linkRect.top - navRect.top)}px`);
+      rail.style.height = `${Math.round(linkRect.height)}px`;
+      rail.classList.add('is-visible');
+    });
+  }
+
   function scrollSpy() {
     const links = [...document.querySelectorAll('#nav a')];
     const map = new Map(links.map((a) => [a.getAttribute('href').slice(1), a]));
@@ -1254,7 +1278,7 @@
       entries.forEach((e) => {
         if (e.isIntersecting) {
           links.forEach((a) => a.classList.remove('active'));
-          const a = map.get(e.target.id); if (a) { a.classList.add('active'); revealActiveNavLink(a); }
+          const a = map.get(e.target.id); if (a) { a.classList.add('active'); revealActiveNavLink(a); syncActiveNavRail(a); }
         }
       });
     }, { rootMargin: '-120px 0px -72% 0px' });
@@ -1880,6 +1904,7 @@
   $('#filterSheetApply').addEventListener('click', () => { advancedFilters.open = false; $('#filters').scrollIntoView({ block: 'start' }); });
   window.addEventListener('resize', syncFilterSheetState, { passive: true });
   $('#loadMore').addEventListener('click', () => { visibleLimit += PAGE_SIZE; applyFilters(false); });
+  window.addEventListener('resize', () => syncActiveNavRail($('#nav a.active')), { passive: true });
   document.addEventListener('click', (event) => {
     const inspectorClose = event.target.closest('[data-inspector-close]');
     if (inspectorClose) { closeInspectorSheet(); return; }

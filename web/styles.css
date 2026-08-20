@@ -991,3 +991,72 @@ body.noscroll { overflow: hidden; }
 @media (prefers-reduced-motion: reduce) {
   .forge-cursor-light { display: none !important; }
 }
+
+/* ===== Motion navigation — adapted from segmented dock / sidebar references ===== */
+.nav { --nav-active-y: 0px; position: relative; isolation: isolate; }
+.nav-active-rail {
+  position: absolute; z-index: 0; top: 0; left: 4px; width: calc(100% - 8px); height: 36px;
+  border: 1px solid var(--blue-line); border-radius: 12px;
+  background: linear-gradient(135deg, rgba(107,163,255,.16), rgba(154,124,255,.08));
+  box-shadow: inset 3px 0 0 rgba(141,203,255,.8), 0 12px 28px -24px rgba(107,163,255,.9);
+  opacity: 0; pointer-events: none;
+  transform: translate3d(0, var(--nav-active-y), 0) scale(.985);
+  transform-origin: center;
+  transition: transform .42s var(--ease-spring), opacity .16s var(--ease);
+}
+.nav-active-rail.is-visible { opacity: 1; transform: translate3d(0, var(--nav-active-y), 0) scale(1); }
+.nav a { position: relative; z-index: 1; transition: background .15s, color .15s, border-color .15s, transform .2s var(--ease-spring); }
+.nav a.active { color: #dfefff; background: transparent; border-color: transparent; }
+
+.view-switcher { --switch-gap: 9px; position: relative; gap: var(--switch-gap); isolation: isolate; }
+.view-switcher-indicator {
+  position: absolute; z-index: 0; inset: 0 auto 0 0;
+  width: calc((100% - (var(--switch-gap) * 3)) / 4);
+  border: 1px solid var(--blue-line); border-radius: 14px;
+  background: linear-gradient(135deg, rgba(107,163,255,.16), rgba(154,124,255,.09) 62%, rgba(216,181,81,.06));
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.06), 0 18px 34px -28px rgba(107,163,255,.9);
+  opacity: 0; pointer-events: none;
+  transform: translate3d(0,0,0) scale(.97);
+  transition: transform .46s var(--ease-spring), opacity .16s var(--ease);
+}
+.view-switcher:has(a:nth-of-type(1).active) .view-switcher-indicator { opacity: 1; transform: translate3d(0,0,0) scale(1); }
+.view-switcher:has(a:nth-of-type(2).active) .view-switcher-indicator { opacity: 1; transform: translate3d(calc(100% + var(--switch-gap)),0,0) scale(1); }
+.view-switcher:has(a:nth-of-type(3).active) .view-switcher-indicator { opacity: 1; transform: translate3d(calc((100% + var(--switch-gap)) * 2),0,0) scale(1); }
+.view-switcher:has(a:nth-of-type(4).active) .view-switcher-indicator { opacity: 1; transform: translate3d(calc((100% + var(--switch-gap)) * 3),0,0) scale(1); }
+.view-switcher a {
+  position: relative; z-index: 1;
+  transition: transform .22s var(--ease-spring), color .16s var(--ease), border-color .16s var(--ease), background .16s var(--ease);
+}
+.view-switcher a:hover { border-color: rgba(107,163,255,.34); background: rgba(107,163,255,.055); transform: translateY(-2px); }
+.view-switcher a.active { border-color: transparent; background: transparent; transform: translateY(-1px); }
+
+/* Card elevation stays on the compositor; the glow is an opacity layer. */
+.card { transition: border-color .2s var(--ease), transform .22s var(--ease), opacity .24s var(--ease); }
+.card::after {
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.045), 0 28px 62px -48px rgba(107,163,255,.95);
+  transition: opacity .24s var(--ease);
+}
+.card:hover { transform: translateY(-6px) scale(1.006); box-shadow: var(--shadow-hi); transition: transform .26s var(--ease-spring), border-color .2s var(--ease); }
+.card:hover::after { opacity: .72; }
+
+@media (max-width: 960px) {
+  .nav-active-rail { display: none; }
+  .nav a.active { border-color: var(--blue-line); background: linear-gradient(135deg, var(--blue-soft), rgba(107,163,255,.08)); }
+}
+
+@media (max-width: 620px) {
+  .view-switcher { --switch-gap: 5px; }
+  .view-switcher-indicator {
+    top: 5px; right: auto; bottom: 5px; left: 5px;
+    width: calc((100% - 10px - (var(--switch-gap) * 3)) / 4);
+    border-radius: 9px;
+  }
+  .view-switcher a:hover { transform: none; }
+  .view-switcher a.active { transform: none; }
+  .card:hover { transform: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .nav-active-rail, .view-switcher-indicator { transition: opacity .01ms linear !important; transform: none !important; }
+  .view-switcher a, .nav a, .card { transform: none !important; }
+}

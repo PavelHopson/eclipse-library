@@ -18,18 +18,24 @@ test('catalog boot uses the compact summary and validates lazy detail shards', a
 });
 
 test('product motion stays bounded and respects the operating-system preference', async () => {
-  const [app, styles] = await Promise.all([
+  const [app, styles, html] = await Promise.all([
     readFile(appUrl, 'utf8'),
     readFile(styleUrl, 'utf8'),
+    readFile(indexUrl, 'utf8'),
   ]);
   assert.doesNotMatch(styles, /forgeOrbitPresence/);
   assert.doesNotMatch(app, /behavior: 'smooth'/);
   assert.match(app, /prefers-reduced-motion: reduce/);
   assert.match(styles, /animation-iteration-count: 1 !important/);
+  assert.match(html, /class="view-switcher-indicator"/);
+  assert.match(app, /function syncActiveNavRail/);
+  assert.match(styles, /\.nav-active-rail/);
+  assert.match(styles, /\.view-switcher:has\(/);
+  assert.match(styles, /\.nav-active-rail, \.view-switcher-indicator \{ transition: opacity \.01ms/);
 });
 
 test('changed assets carry an explicit cache-bust version', async () => {
   const html = await readFile(indexUrl, 'utf8');
-  assert.match(html, /styles\.css\?v=28/);
-  assert.match(html, /app\.js\?v=41/);
+  assert.match(html, /styles\.css\?v=29/);
+  assert.match(html, /app\.js\?v=42/);
 });
