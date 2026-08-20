@@ -1,6 +1,6 @@
 # Eclipse Library Roadmap
 
-Последнее обновление: **18.08.2026**
+Последнее обновление: **19.08.2026**
 
 ## Текущее состояние
 
@@ -24,6 +24,10 @@
 - `web/app.js` — command-first поиск, фильтры, detail view и guide viewer; structured adapter,
   карточки, editorial feed, progressive DOM и evidence-first Inspector вынесены в модули. При старте
   в DOM создаются только первые 36 карточек вместо всех 637; mobile Inspector открывается как sheet.
+- Стартовый каталог теперь загружает compact catalog-summary вместо полного production index:
+  initial JSON на 31% меньше compact index и примерно на 44% меньше прежнего pretty payload.
+  Полные evidence, ограничения и исходное описание распределены по 16 deterministic shards;
+  detail view имеет честные loading, error и retry состояния.
 - `web/catalog-index.json` — production schema v2: 269 записей редакторски проверены,
   368 честно помечены `inferred`, 356 имеют отдельный `addedAt`, даты удалены из category.
 - License layer: у 426 записей лицензия или условия нормализованы с evidence URL;
@@ -87,6 +91,9 @@
 - [x] Перевести Library с README parsing на canonical `catalog/resources.json`, добавить schema v2,
       normalized license evidence, `addedAt`, agent-safe exports, fail-closed install policy,
       локальные WOFF2 fonts и разбить frontend runtime.
+- [x] Снизить initial catalog payload через deterministic summary/detail split, добавить
+      sourceHash validation, retryable lazy loading, CI freshness gate и post-deploy smoke;
+      убрать бесконечную hero-анимацию и уважать prefers-reduced-motion при scroll.
 
 - [x] Добавить `AI Landing Sprint`: безопасный путь brief → evidence/rights → wireframe → AI drafts → code → claims/QA/security → human approval → deploy; добавить отдельные verified-карточки Krea, Google Nano Banana Pro и Kling AI 3.0 с актуальными pricing, rollout, privacy, IP и biometric boundaries.
 
@@ -316,6 +323,16 @@
       self-check, EN/RU copy и без обязательного API key.
 
 ## Changelog
+### 2026-08-19 — catalog payload and product motion QA
+- Клиент переведён с полного catalog-index.json на compact catalog-summary.json; полный анализ
+  подгружается из одного из 16 deterministic shards только после явного открытия карточки.
+- Добавлены sourceHash/schema validation, request race guard, aria-busy, error/retry UI,
+  generator freshness check, client contract tests и production smoke для summary и shard.
+- Product motion стал спокойнее: удалён постоянный hero orbit, entrance cascade сокращён,
+  два оставшихся smooth-scroll сценария теперь учитывают системный reduced motion.
+- Mobile QA дополнительно убрал непомещающийся keyboard shortcut, сократил подпись Registry
+  в bottom navigation и подтвердил поиск/открытие lazy detail для GitHub Spec Kit на точном 390px.
+- Cache bust поднят до styles.css?v=28 и app.js?v=41; production deploy ещё не выполнялся.
 ### 2026-08-18 — P2 content and frontend license review
 - Проверены 15 P2-карточек по canonical license-файлам и официальным Terms: AOS, Astro,
   Claude Code Prompt Library, Claude Fable 5 guide, Cloudflare Is It Agent Ready?,

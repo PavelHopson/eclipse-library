@@ -5,7 +5,9 @@
 
   const REPO = 'PavelHopson/eclipse-library';
   const REPO_URL = `https://github.com/${REPO}`;
-  const DETAILS_URL = 'catalog-index.json?v=2';
+  const SUMMARY_URL = 'catalog-summary.json?v=1';
+  const DETAIL_BASE_URL = 'catalog-details/';
+  const DETAIL_SHARD_COUNT = 16;
   const GUIDES_URL = 'guides.json?v=1';
   const LINK_HEALTH_URL = 'link-health.json?v=1';
   const GITHUB_METADATA_URL = 'github-metadata.json?v=1';
@@ -118,6 +120,10 @@
     commerce: { label: 'Сделать сайт или магазин', hint: 'лендинг, storefront и платежи', match: (c) => c.type === 'shop' || /storefront|e-commerce|интернет-магазин|лендинг|payment|платеж/i.test(c.text) },
   };
   let detailsByUrl = new Map();
+  const fullDetailsById = new Map();
+  const detailShardPromises = new Map();
+  let catalogSourceHash = '';
+  let itemRequestToken = 0;
   let catalogTotals = { all: 0, verified: 0, inferred: 0, licenseReviewRequired: 0, agentSafe: 0 };
   let structuredItems = [];
   let guidesManifest = [];
@@ -450,6 +456,54 @@
     if (/self-hosted|privacy|opsec|hardware|workstation/.test(l)) return 'ops';
     if (/обучение|компьютерные науки/.test(l)) return 'learn';
     return 'other';
+  }
+  function detailShardForId(value) {
+    const text = String(value || '');
+    let hash = 0x811c9dc5;
+    for (let index = 0; index < text.length; index += 1) {
+      hash ^= text.charCodeAt(index);
+      hash = Math.imul(hash, 0x01000193);
+    }
+    return (hash >>> 0) % DETAIL_SHARD_COUNT;
+  }
+
+  async function loadFullDetail(id) {
+    if (fullDetailsById.has(id)) return fullDetailsById.get(id);
+    const shard = detailShardForId(id).toString(16).padStart(2, '0');
+    if (!detailShardPromises.has(shard)) {
+      const version = encodeURIComponent(catalogSourceHash.slice(0, 12) || '1');
+      const request = fetch(DETAIL_BASE_URL + shard + '.json?v=' + version, { cache: 'no-cache' })
+        .then(async (response) => {
+          if (!response.ok) throw new Error('catalog detail ' + shard + ': HTTP ' + response.status);
+          const payload = await response.json();
+          if (
+            payload?.schemaVersion !== 1
+            || payload?.shard !== shard
+            || payload?.sourceHash !== catalogSourceHash
+            || !Array.isArray(payload.items)
+          ) throw new Error('catalog detail ' + shard + ' имеет неверный формат');
+          payload.items.forEach((item) => fullDetailsById.set(item.id, item));
+        })
+        .catch((error) => {
+          detailShardPromises.delete(shard);
+          throw error;
+        });
+      detailShardPromises.set(shard, request);
+    }
+    await detailShardPromises.get(shard);
+    const detail = fullDetailsById.get(id);
+    if (!detail) throw new Error('Полный анализ ' + id + ' не найден');
+    return detail;
+  }
+
+  function hydrateFullResource(resource, detail) {
+    Object.assign(resource, detail);
+    resource.detail = detail.reviewStatus === 'verified' ? detail : null;
+    resource.runtime = detail.access.runtime;
+    resource.cost = detail.access.cost;
+    resource.signup = detail.access.signup;
+    resource.freshness = freshnessState(resource.verifiedAt);
+    resource.guide = detail.guide || '';
   }
   function enrichResource(r, cat, sub) {
     const detail = detailsByUrl.get(canonicalUrl(r.url)) || null;
@@ -1436,17 +1490,41 @@
   }
 
   let itemReturnFocus = null;
-  function openItem(id) {
+  async function openItem(id) {
     const entry = cards.find((card) => card.resource.id === id);
     if (!entry) return;
+    const requestToken = ++itemRequestToken;
     closeGuide();
     closeCompare();
-    itemReturnFocus = document.activeElement instanceof HTMLElement ? document.activeElement : null;
-    const r = entry.resource;
-    recordRecent(r);
+    if (!itemReturnFocus) itemReturnFocus = document.activeElement instanceof HTMLElement ? document.activeElement : null;
     const view = $('#itemView');
     const body = $('#itemBody');
     const sourceTop = $('#itemSourceTop');
+    sourceTop.hidden = true;
+    sourceTop.removeAttribute('href');
+    body.setAttribute('aria-busy', 'true');
+    body.innerHTML = '<div class="status item-detail-status" role="status"><b>Загружаю полный анализ…</b><span>Подтягиваю доказательства, ограничения и безопасный следующий шаг.</span></div>';
+    view.hidden = false;
+    view.scrollTop = 0;
+    document.body.classList.add('noscroll');
+    requestAnimationFrame(() => $('#itemBack').focus());
+
+    try {
+      const detail = await loadFullDetail(id);
+      if (requestToken !== itemRequestToken) return;
+      hydrateFullResource(entry.resource, detail);
+    } catch (error) {
+      if (requestToken !== itemRequestToken) return;
+      console.error('Full catalog detail is unavailable.', error);
+      body.removeAttribute('aria-busy');
+      body.innerHTML = '<div class="status err item-detail-status" role="alert"><b>Полный анализ не загрузился.</b><span>Краткая карточка остаётся доступна. Проверьте соединение и повторите попытку.</span><button type="button" class="retry-detail">Повторить</button></div>';
+      body.querySelector('.retry-detail').addEventListener('click', () => openItem(id));
+      return;
+    }
+
+    body.removeAttribute('aria-busy');
+    const r = entry.resource;
+    recordRecent(r);
     const sourceBlocked = r.linkHealth.status === 'blocked';
     sourceTop.hidden = sourceBlocked;
     if (sourceBlocked) sourceTop.removeAttribute('href'); else sourceTop.href = r.url;
@@ -1522,16 +1600,15 @@
     renderRelatedItems(entry);
     updateFavoritesUI();
     updateCompareUI();
-    view.hidden = false;
     view.scrollTop = 0;
-    document.body.classList.add('noscroll');
-    requestAnimationFrame(() => $('#itemBack').focus());
   }
 
   function closeItem() {
+    itemRequestToken += 1;
     const view = $('#itemView');
     if (view.hidden) return;
     view.hidden = true;
+    $('#itemBody').removeAttribute('aria-busy');
     document.body.classList.remove('noscroll');
     if (itemReturnFocus && document.contains(itemReturnFocus)) itemReturnFocus.focus();
     itemReturnFocus = null;
@@ -1571,12 +1648,14 @@
     try {
       await Promise.all([
         (async () => {
-          const response = await fetch(DETAILS_URL, { cache: 'no-cache' });
-          if (!response.ok) throw new Error(`catalog-index.json: HTTP ${response.status}`);
+          const response = await fetch(SUMMARY_URL, { cache: 'no-cache' });
+          if (!response.ok) throw new Error('catalog-summary.json: HTTP ' + response.status);
           const catalog = await response.json();
-          if (catalog?.schemaVersion !== 2 || !Array.isArray(catalog.items)) throw new Error('catalog-index.json имеет неверный формат');
-          if (catalog.totals?.all !== catalog.items.length || catalog.totals?.verified + catalog.totals?.inferred !== catalog.totals?.all) throw new Error('catalog-index.json содержит неверные счётчики');
-          if (catalog.policy?.directInstallForbidden !== true) throw new Error('catalog-index.json не содержит fail-closed install policy');
+          if (catalog?.schemaVersion !== 1 || !Array.isArray(catalog.items)) throw new Error('catalog-summary.json имеет неверный формат');
+          if (catalog.totals?.all !== catalog.items.length || catalog.totals?.verified + catalog.totals?.inferred !== catalog.totals?.all) throw new Error('catalog-summary.json содержит неверные счётчики');
+          if (catalog.policy?.directInstallForbidden !== true) throw new Error('catalog-summary.json не содержит fail-closed install policy');
+          if (catalog.details?.shards !== DETAIL_SHARD_COUNT || catalog.details?.baseUrl !== DETAIL_BASE_URL) throw new Error('catalog-summary.json содержит неверный detail shard contract');
+          catalogSourceHash = catalog.sourceHash;
           catalogTotals = catalog.totals;
           structuredItems = catalog.items;
           detailsByUrl = new Map(catalog.items.map((detail) => [canonicalUrl(detail.url), detail]));
@@ -1771,14 +1850,14 @@
     activeFavorites = true;
     updateFavoritesUI();
     applyFilters();
-    $('#filters').scrollIntoView({ behavior: 'smooth', block: 'start' });
+    $('#filters').scrollIntoView({ behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth', block: 'start' });
   });
   $('#guideToc').addEventListener('click', (e) => {
     const b = e.target.closest('.gt-link'); if (!b) return;
     const target = document.getElementById(b.dataset.target);
     const tocDetails = b.closest('.gt-details');
     if (tocDetails && !window.matchMedia('(min-width: 1080px)').matches) tocDetails.open = false;
-    if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    if (target) target.scrollIntoView({ behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth', block: 'start' });
   });
   $('#emptyClear').addEventListener('click', () => clearLibraryFilters({ focus: true }));
   $('#shareFilters').addEventListener('click', async () => {

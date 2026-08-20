@@ -113,6 +113,10 @@ export async function smokeProduction(baseValue, deploySha = '') {
     readFile(new URL('web/registry.css', repoRoot), 'utf8').then(normalizeTextPayload),
     readFile(new URL('web/star-technology-registry.json', repoRoot), 'utf8').then(JSON.parse),
   ]);
+  const [localSummary, localDetailShard] = await Promise.all([
+    readFile(new URL('web/catalog-summary.json', repoRoot), 'utf8').then(JSON.parse),
+    readFile(new URL('web/catalog-details/00.json', repoRoot), 'utf8').then(JSON.parse),
+  ]);
   const liveIndex = await fetchText(new URL(`?deploy=${cacheKey}`, base));
   const localAppAsset = extractVersionedAsset(localIndex, 'app.js');
   const liveAppAsset = extractVersionedAsset(liveIndex, 'app.js');
@@ -170,9 +174,20 @@ export async function smokeProduction(baseValue, deploySha = '') {
     fetchText(new URL(`api/v1/agents.json?deploy=${cacheKey}`, base)).then(JSON.parse),
     fetchText(new URL(`star-technology-registry.json?deploy=${cacheKey}`, base)).then(JSON.parse),
   ]);
+  const [liveSummary, liveDetailShard] = await Promise.all([
+    fetchText(new URL('catalog-summary.json?deploy=' + cacheKey, base)).then(JSON.parse),
+    fetchText(new URL('catalog-details/00.json?deploy=' + cacheKey, base)).then(JSON.parse),
+  ]);
   assert.equal(liveCatalog?.schemaVersion, 2, 'Production catalog index schema is invalid.');
   assert.equal(liveCatalog?.sourceHash, localCatalog.sourceHash, 'Production catalog index is stale.');
   assert.deepEqual(liveCatalog?.totals, localCatalog.totals, 'Production catalog index totals are stale.');
+  assert.equal(liveSummary?.schemaVersion, 1, 'Production catalog summary schema is invalid.');
+  assert.equal(liveSummary?.sourceHash, localSummary.sourceHash, 'Production catalog summary is stale.');
+  assert.deepEqual(liveSummary?.totals, localSummary.totals, 'Production catalog summary totals are stale.');
+  assert.equal(liveSummary?.details?.shards, 16, 'Production detail shard count is invalid.');
+  assert.equal(liveDetailShard?.schemaVersion, 1, 'Production detail shard schema is invalid.');
+  assert.equal(liveDetailShard?.shard, '00', 'Production detail shard identity is invalid.');
+  assert.equal(liveDetailShard?.sourceHash, localDetailShard.sourceHash, 'Production detail shard is stale.');
   assert.equal(liveMetadata?.schemaVersion, 1, 'Production GitHub metadata schema is invalid.');
   assert.equal(liveMetadata?.totals?.repositories, localMetadata.totals.repositories, 'Production GitHub metadata is stale.');
   assert.equal(liveProjects?.schemaVersion, 1, 'Production projects schema is invalid.');

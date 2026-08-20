@@ -32,6 +32,8 @@ README больше не является базой данных и не раз
 |---|---|
 | [`catalog/resources.json`](catalog/resources.json) | Канонические structured records. Новые записи и редакторские правки вносятся сюда. |
 | [`web/catalog-index.json`](web/catalog-index.json) | Production index schema v2: normalized license, evidence, `addedAt`, agent policy и счётчики. |
+| [web/catalog-summary.json](web/catalog-summary.json) | Компактный initial payload для поиска, фильтров, карточек и Inspector без загрузки полного каталога. |
+| [web/catalog-details/](web/catalog-details/) | 16 deterministic shards с полным анализом, evidence и ограничениями; загружается только при открытии записи. |
 | [web/license-review-queue.json](web/license-review-queue.json) | Deterministic evidence queue для оставшихся ручных проверок: bucket, P1–P3, причина и следующий шаг без автоматического approval. |
 | [`web/catalog-details.json`](web/catalog-details.json) | Исторический набор ручных editorial reviews; его содержимое уже мигрировано в canonical records. |
 | [`web/github-metadata.json`](web/github-metadata.json) | Official GitHub state и license evidence для repository URL. |
@@ -102,6 +104,7 @@ Draft хранится только в `localStorage` текущего брау�
 
 ```bash
 node scripts/build-catalog-index.mjs
+node scripts/build-catalog-runtime.mjs
 node scripts/build-catalog-exports.mjs
 node scripts/build-guides-manifest.mjs
 node scripts/validate-catalog-index.mjs
@@ -121,6 +124,7 @@ GITHUB_TOKEN=... node scripts/refresh-github-metadata.mjs
 Quality workflow проверяет:
 
 - deterministic build canonical catalog и static exports;
+- compact runtime summary, deterministic detail shards и lazy-loading client contract;
 - duplicate URL, repository и title identities;
 - normalized license/evidence schema;
 - запрет grey resources в agent exports;

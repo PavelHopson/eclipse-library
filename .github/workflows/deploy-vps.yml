@@ -39,9 +39,12 @@ jobs:
       - name: Validate static payload
         run: |
           node scripts/build-catalog-index.mjs --check
+          node scripts/build-catalog-runtime.mjs --check
           node scripts/build-catalog-exports.mjs --check
           node scripts/build-guides-manifest.mjs --check
           node scripts/validate-star-technology-registry.mjs
+          node --test scripts/catalog-runtime-build.test.mjs
+          node --test scripts/catalog-client-contract.test.mjs
           node --test scripts/diagram-contract.test.mjs
           node --test scripts/brand-assets.test.mjs
           node --check web/catalog-review.js

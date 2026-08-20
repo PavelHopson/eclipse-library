@@ -130,13 +130,13 @@ test('adopts the versioned Eclipse Forge product visual profile locally', () => 
 
   assert.equal(tokens.schemaVersion, 'eclipse-forge.visual-system.v1');
   assert.ok(tokens.intensityProfiles.includes('product'));
-  assert.match(html, /styles\.css\?v=26/);
+  assert.match(html, /styles\.css\?v=28/);
   assert.match(html, /assets\/fonts\/inter-cyrillic\.woff2/);
   assert.doesNotMatch(html + css, /fonts\.googleapis\.com|fonts\.gstatic\.com/);
   assert.match(css, /--bg: #05070a;/);
   assert.match(css, /--gold: #d4af37;/);
   assert.match(css, /--display: 'Outfit'/);
-  assert.match(css, /@keyframes forgeOrbitPresence/);
+  assert.doesNotMatch(css, /forgeOrbitPresence|animation:[^;]*infinite/);
   assert.match(css, /@media \(prefers-reduced-motion: reduce\)/);
   assert.match(css, /\.forge-cursor-light--gold/);
   assert.match(css, /\(hover: hover\) and \(pointer: fine\) and \(min-width: 1024px\)/);
