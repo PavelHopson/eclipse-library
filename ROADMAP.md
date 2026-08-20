@@ -349,6 +349,7 @@
   indicator перемещается между вкладками, scroll остаётся на 2400 после scrollspy и не прыгает наверх.
 - Добавлен regression-контракт motion-разметки, runtime и reduced-motion fallback; asset cache обновлён
   до `styles.css?v=29` и `app.js?v=42`.
+- Commit `f1018fb` отправлен в `origin/master`; validation [#32418671308](https://github.com/PavelHopson/eclipse-library/actions/runs/32418671308) и deploy [#32418671302](https://github.com/PavelHopson/eclipse-library/actions/runs/32418671302) завершены успешно; production вернул HTTP 200 с новыми asset versions.
 
 ### 2026-08-20 — automation playbook and frontend motion references
 - Каталог вырос до 651 материала: добавлен first-party Eclipse Automation Playbook на 45 сценариев
