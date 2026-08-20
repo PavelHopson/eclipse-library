@@ -42,13 +42,13 @@
 - `web/link-health.json` — безопасный публичный snapshot weekly-аудита: доступность ссылки
   показывается отдельно от редакторского доверия и не считается security endorsement.
 - Deploy: GitHub Actions → VPS/Caddy из ветки `master`.
-- Production синхронизирован с research radar commit `abebd7e`: quality
-  [#32164384083](https://github.com/PavelHopson/eclipse-library/actions/runs/32164384083)
-  и deploy [#32164383903](https://github.com/PavelHopson/eclipse-library/actions/runs/32164383903)
-  от 18.08.2026 успешно завершены. Independent production smoke подтвердил `app.js?v=40`,
-  637 материалов, 560 agent-safe записей, 331 repository, 41 guide и 26 решений Eclipse.
-  Сетевой audit проверил 665 уникальных URL: 0 broken и 0 unsafe; restricted, unavailable и
-  network unknown остаются отдельными состояниями и не подменяют редакторское доверие.
+- Production синхронизирован с controlled skills rollout commit `63fed1c`: quality
+  [#32372130649](https://github.com/PavelHopson/eclipse-library/actions/runs/32372130649)
+  и deploy [#32372130687](https://github.com/PavelHopson/eclipse-library/actions/runs/32372130687)
+  от 20.08.2026 успешно завершены. Production manifest и HTTP smoke подтвердили 648 материалов,
+  569 agent-safe записей, 79 policy exclusions, 331 repository, 42 guide и 26 решений Eclipse.
+  Последний полный сетевой audit от 18.08.2026 проверил 665 уникальных URL: 0 broken и 0 unsafe;
+  новые ссылки пока покрыты редакторской проверкой и offline identity audit, не live network sweep.
 
 ## Приоритеты
 
@@ -337,6 +337,9 @@
 - В общей Eclipse Forge таблице создан лист `Rollout 20.08.2026` с 20 инициативами, owner,
   приоритетом, рисками, evidence и следующим шагом; cross-project работа распределена между
   Growth OS, Social, Future, Chat, DnD Living World, DnD Legal Cleanup и Design задачами.
+- Commit `63fed1c` отправлен в `origin/master`; quality `#32372130649` и deploy
+  `#32372130687` зелёные. Production manifest вернул 648 total / 569 agent-safe / 79 excluded,
+  homepage и новый guide отвечают HTTP 200.
 
 ### 2026-08-19 — catalog payload and product motion QA
 - Клиент переведён с полного catalog-index.json на compact catalog-summary.json; полный анализ
