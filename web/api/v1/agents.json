@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "consumer": "generic-agent",
-  "catalogVersion": "f84224c993890812fa4b5488e3dc024417a8d10d2d71fb063f0a636e057366e0",
+  "catalogVersion": "328acec659498be6213b86abcf30ae795f3edcb6aa12647d8579526b77320466",
   "generatedAt": null,
   "policy": {
     "greyResourcesExcluded": true,
@@ -9,7 +9,7 @@
     "externalMutationsRequireHumanApproval": true
   },
   "totals": {
-    "items": 569
+    "items": 572
   },
   "items": [
     {
@@ -11541,6 +11541,129 @@
       }
     },
     {
+      "id": "eclipse-automation-playbook-45",
+      "title": "Eclipse Automation Playbook · 45 bounded workflows",
+      "url": "https://library.eclipse-forge.ru/guides/eclipse-automation-playbook-45.md",
+      "type": "learn",
+      "category": "Курсы и гайды",
+      "subcategory": "Growth and operations automation",
+      "addedAt": "2026-08-20",
+      "description": "First-party разбор 45 офисных AI-сценариев: что можно выполнять read-only, что должно оставаться draft, а где нужен понятный diff и ручное подтверждение перед отправкой, публикацией, изменением файлов или финансовым действием.",
+      "useCases": [
+        "Выбрать безопасные автоматизации для Growth OS",
+        "Спроектировать approval и receipt states",
+        "Распределить сценарии между Chat, AI Hub, Library и Sentinel"
+      ],
+      "platforms": [
+        "Eclipse Forge",
+        "Web",
+        "Agent workflows"
+      ],
+      "license": {
+        "label": "Eclipse Forge first-party editorial guide; external products and source materials retain their own rights",
+        "original": "Eclipse Forge first-party editorial guide; external products and source materials retain their own rights",
+        "spdx": null,
+        "kind": "custom",
+        "status": "editor-reviewed",
+        "requiresReview": false,
+        "evidence": [
+          {
+            "kind": "source",
+            "label": "First-party guide",
+            "url": "https://library.eclipse-forge.ru/guides/eclipse-automation-playbook-45.md"
+          }
+        ]
+      },
+      "access": {
+        "cost": "free",
+        "signup": "none",
+        "runtime": "local"
+      },
+      "trust": "official",
+      "decision": "now",
+      "riskLevel": "medium",
+      "projects": [
+        "Eclipse Growth OS",
+        "Eclipse Chat",
+        "Eclipse AI Hub",
+        "Eclipse Library",
+        "Hopson Sentinel"
+      ],
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://library.eclipse-forge.ru/guides/eclipse-automation-playbook-45.md"
+        }
+      ],
+      "actions": {
+        "openOfficialSource": true,
+        "installFromCatalog": false,
+        "mutateExternalSystems": false
+      }
+    },
+    {
+      "id": "prozavlly-frontend-motion-references",
+      "title": "Prozavlly · Frontend motion references",
+      "url": "https://www.instagram.com/prozavlly/",
+      "type": "learn",
+      "category": "Курсы и гайды",
+      "subcategory": "Frontend UI inspiration",
+      "addedAt": "2026-08-20",
+      "description": "Instagram-профиль с концептами mobile navigation и UI motion. Для Eclipse это direction board: каждый конкретный паттерн требует canonical source, license evidence, keyboard/touch/reduced-motion и performance QA до реализации.",
+      "useCases": [
+        "Собирать mobile navigation references",
+        "Обсуждать interaction direction",
+        "Формировать оригинальные Eclipse prototypes"
+      ],
+      "platforms": [
+        "Instagram",
+        "Web",
+        "Mobile UI"
+      ],
+      "license": {
+        "label": "Instagram content; no code, asset or composition reuse license established",
+        "original": "Instagram content; no code, asset or composition reuse license established",
+        "spdx": null,
+        "kind": "custom",
+        "status": "unverified",
+        "requiresReview": true,
+        "evidence": [
+          {
+            "kind": "official-source",
+            "label": "Creator profile",
+            "url": "https://www.instagram.com/prozavlly/"
+          }
+        ]
+      },
+      "access": {
+        "cost": "free",
+        "signup": "optional",
+        "runtime": "cloud"
+      },
+      "trust": "community",
+      "decision": "reference",
+      "riskLevel": "medium",
+      "projects": [
+        "Eclipse Library",
+        "Eclipse Forge Landing",
+        "Eclipse Media",
+        "Eclipse DnD Forge"
+      ],
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://www.instagram.com/prozavlly/"
+        }
+      ],
+      "actions": {
+        "openOfficialSource": true,
+        "installFromCatalog": false,
+        "mutateExternalSystems": false
+      }
+    },
+    {
       "id": "scraperai-github-com",
       "title": "ScraperAI",
       "url": "https://github.com/scraperai/scraperai",
@@ -11608,6 +11731,67 @@
           "kind": "license",
           "label": "Repository GPL-3.0 license",
           "url": "https://github.com/scraperai/scraperai/blob/main/LICENSE"
+        }
+      ],
+      "actions": {
+        "openOfficialSource": true,
+        "installFromCatalog": false,
+        "mutateExternalSystems": false
+      }
+    },
+    {
+      "id": "frontendjoe-ui-animation-references",
+      "title": "FrontendJoe · UI animation references",
+      "url": "https://www.instagram.com/frontendjoe/",
+      "type": "learn",
+      "category": "Курсы и гайды",
+      "subcategory": "Frontend UI inspiration",
+      "addedAt": "2026-08-20",
+      "description": "Community-профиль с короткими HTML/CSS/React примерами: glass footer, expandable sidebar и people-card accordion. Фрагменты полезны для обсуждения interaction, но hover-only и layout-heavy snippets нельзя переносить в Eclipse без самостоятельной реализации и QA.",
+      "useCases": [
+        "Изучать sidebar and accordion interactions",
+        "Планировать Landing project showcase",
+        "Находить кандидатов для isolated prototypes"
+      ],
+      "platforms": [
+        "Instagram",
+        "Web",
+        "React"
+      ],
+      "license": {
+        "label": "Instagram content; canonical repository and code reuse license must be established per example",
+        "original": "Instagram content; canonical repository and code reuse license must be established per example",
+        "spdx": null,
+        "kind": "custom",
+        "status": "unverified",
+        "requiresReview": true,
+        "evidence": [
+          {
+            "kind": "official-source",
+            "label": "Creator profile",
+            "url": "https://www.instagram.com/frontendjoe/"
+          }
+        ]
+      },
+      "access": {
+        "cost": "free",
+        "signup": "optional",
+        "runtime": "cloud"
+      },
+      "trust": "community",
+      "decision": "reference",
+      "riskLevel": "medium",
+      "projects": [
+        "Eclipse Forge Landing",
+        "Eclipse Library",
+        "Eclipse AI Hub",
+        "Hopson Sentinel"
+      ],
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://www.instagram.com/frontendjoe/"
         }
       ],
       "actions": {

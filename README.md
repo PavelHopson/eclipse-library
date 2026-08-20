@@ -15,14 +15,14 @@ Runtime-зависимости от главного лендинга нет.
 
 ## Текущее состояние
 
-- 648 уникальных записей доступны пользователям.
-- 280 карточек прошли ручную редакторскую проверку.
-- 368 карточек честно помечены как `inferred` и ожидают углублённого review.
-- У 437 записей лицензия или условия уже нормализованы и подкреплены evidence.
-- 211 лицензий или наборов условий всё ещё требуют отдельной проверки; срочная очередь P1 закрыта.
+- 651 уникальная запись доступна пользователям.
+- 281 карточка прошла ручную редакторскую проверку.
+- 370 карточек честно помечены как `inferred` и ожидают углублённого review.
+- У 438 записей лицензия или условия уже нормализованы и подкреплены evidence.
+- 213 лицензий или наборов условий всё ещё требуют отдельной проверки; срочная очередь P1 закрыта.
 - 71 grey-ресурс виден человеку как reference, но исключён из agent recommendations.
-- Всего 79 записей исключены из agent exports по risk, editorial, transport или repository policy; 569 доступны для agent consumers.
-- 367 записей получили отдельное поле `addedAt`; неизвестные даты не выдумываются.
+- Всего 79 записей исключены из agent exports по risk, editorial, transport или repository policy; 572 доступны для agent consumers.
+- 370 записей получили отдельное поле `addedAt`; неизвестные даты не выдумываются.
 
 ## Как устроены данные
 
@@ -148,6 +148,8 @@ Quality workflow проверяет:
 - [Eclipse Repository Architecture Map Prompt](guides/repository-architecture-map.md)
 - [Eclipse Forge Codex session tree](guides/eclipse-session-tree.md)
 - [August 2026 skills, Voice OS and Growth rollout](guides/august-2026-skills-voice-growth-rollout.md)
+- [Eclipse Automation Playbook: 45 bounded workflows](guides/eclipse-automation-playbook-45.md)
+- [Frontend motion references: evidence, accessibility and performance review](guides/frontend-motion-reference-review-2026-08-20.md)
 - [Eclipse Diagram Contract: первый static data-flow pilot](web/diagrams/catalog-data-flow.html)
 - [Eclipse AI Hub: model provider boundary](web/diagrams/ai-hub-provider-boundary.html)
 - [Hopson Sentinel: capability и approval boundary](web/diagrams/sentinel-capability-boundary.html)

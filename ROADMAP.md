@@ -15,7 +15,7 @@
   exact 5-scene/15-second contract и ручными render/publish boundaries. Обе схемы static-only,
   используют локальные шрифты и отдельные desktop/mobile SVG без выдуманной автоматизации.
 
-- `catalog/resources.json` — канонический structured catalog из 648 уникальных записей;
+- `catalog/resources.json` — канонический structured catalog из 651 уникальной записи;
   `README.md` сокращён до документации и больше не является runtime-источником данных.
 - `web/catalog-review.js` и `web/review.css` — собственный локальный editorial review-flow:
   четыре evidence gates, явный итог, bounded draft, clipboard fallback и downloadable v2 JSON packet.
@@ -28,11 +28,11 @@
   initial JSON на 31% меньше compact index и примерно на 44% меньше прежнего pretty payload.
   Полные evidence, ограничения и исходное описание распределены по 16 deterministic shards;
   detail view имеет честные loading, error и retry состояния.
-- `web/catalog-index.json` — production schema v2: 280 записей редакторски проверены,
-  368 честно помечены `inferred`, 367 имеют отдельный `addedAt`, даты удалены из category.
-- License layer: у 437 записей лицензия или условия нормализованы с evidence URL;
-  211 остаются в детерминированной manual-review очереди (P1: 0, P2: 175, P3: 36).
-- Agent policy: 569 записей доступны автоматическим consumers, 79 исключены fail closed;
+- `web/catalog-index.json` — production schema v2: 281 запись редакторски проверена,
+  370 честно помечены `inferred`, 370 имеют отдельный `addedAt`, даты удалены из category.
+- License layer: у 438 записей лицензия или условия нормализованы с evidence URL;
+  213 остаются в детерминированной manual-review очереди (P1: 0, P2: 177, P3: 36).
+- Agent policy: 572 записи доступны автоматическим consumers, 79 исключены fail closed;
   все 71 grey-ресурс скрыты от recommendations, direct install запрещён для всех записей.
 - `web/api/v1/` — versioned static exports для full catalog, agents, Eclipse CRM и Eclipse AI;
   consumers больше не должны читать README.
@@ -111,6 +111,21 @@
       и Trends; source/rights/provenance обязательны, публикация и account access только после approval.
       Hook Vault, normalized analytics, public-only Competitor Tracker и Planner готовы;
       Content Plan и Trends остаются в работе.
+- [ ] Growth OS / Library / Chat / Sentinel: реализовать Automation Playbook P1/L первыми десятью
+      bounded workflows — official news scanner, draft + repurposing, Content Plan, SEO audit,
+      weekly performance review, competitor/industry monitor, survey/FAQ synthesis, voice note → tasks,
+      consented testimonials и weekly review. Каждый workflow обязан иметь evidence, budget, timeout,
+      cancel, human approval для внешнего действия и versioned receipt; browser cookies, production
+      secrets, autonomous publish/send/delete/payment запрещены.
+- [ ] Eclipse Library: провести P1/S mobile navigation pilot на текущем bottom dock — сохранить
+      task-first information architecture, добавить только спокойный segmented active state и проверить
+      48 px targets, keyboard/touch, 390 px overflow и reduced motion. Liquid/blob/orbit effects не внедрять.
+- [ ] Eclipse Chat / AI Hub / Sentinel / DnD Forge: провести P1/M sidebar interaction audit —
+      `aria-expanded/current`, mobile drawer/focus management, long labels и expand/collapse без
+      per-frame `height`/blur. Использовать CSS grid, WAAPI или FLIP после Performance evidence.
+- [ ] Eclipse Forge Landing: собрать P2/M accessible project accordion для 6–8 флагманов —
+      click/focus/touch selection, stable DOM, FLIP + opacity, static reduced-motion fallback и собственная
+      композиция. Hover-only social snippet и чужие assets/code не копировать.
 - [ ] Eclipse AI Hub / Growth OS: встроить Editor Stylist v2 P1/S — три понятных режима,
       locked facts, voice samples, `claimsChanged`, semantic diff и human approval; без detector bypass.
 - [x] Eclipse Library: завершить owned Human Review pilot P1/M — v2 packet, обязательный полный
@@ -323,6 +338,16 @@
       self-check, EN/RU copy и без обязательного API key.
 
 ## Changelog
+### 2026-08-20 — automation playbook and frontend motion references
+- Каталог вырос до 651 материала: добавлен first-party Eclipse Automation Playbook на 45 сценариев
+  и две community reference-карточки Prozavlly/FrontendJoe. Social snippets не считаются reusable
+  components: canonical repository/license не подтверждены, direct install и копирование запрещены.
+- Опубликован приоритизированный cross-project rollout: десять P1 bounded workflows для Growth OS,
+  evidence/approval/receipt contract, отдельные ограничения для legal/financial/file actions и метрики.
+- Статичные navigation/footer/sidebar/accordion references разобраны по accessibility и performance:
+  в roadmap попали segmented dock, sidebar audit и accessible FLIP accordion; liquid/blob/orbit оставлены
+  reference. MP4 не содержит демонстрации движения, поэтому timing и 60 fps по нему не подтверждались.
+
 ### 2026-08-20 — controlled skill intake and owned Voice OS rollout
 - Каталог вырос до 648 материалов: добавлены skills.sh, собственный Eclipse Skill Intake,
   Reference Board System, Vengeance UI, Skiper UI, AnimMasterLib, Buildcoolshit, Vlipsy,

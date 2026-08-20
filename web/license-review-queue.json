@@ -1,20 +1,20 @@
 {
   "schemaVersion": 1,
-  "sourceHash": "f84224c993890812fa4b5488e3dc024417a8d10d2d71fb063f0a636e057366e0",
+  "sourceHash": "328acec659498be6213b86abcf30ae795f3edcb6aa12647d8579526b77320466",
   "policy": {
     "automaticApprovalForbidden": true,
     "directInstallForbidden": true,
     "missingLicenseMeansNoReusePermission": true
   },
   "totals": {
-    "reviewRequired": 211,
+    "reviewRequired": 213,
     "byPriority": {
       "P1": 0,
-      "P2": 175,
+      "P2": 177,
       "P3": 36
     },
     "byBucket": {
-      "content-terms": 31,
+      "content-terms": 33,
       "grey-reference": 36,
       "manual-other": 25,
       "repository-license-not-detected": 25,
@@ -176,6 +176,27 @@
           "kind": "official-source",
           "label": "Официальный источник; точные условия ещё нужно сверить",
           "url": "http://engoo.com/"
+        }
+      ]
+    },
+    {
+      "id": "frontendjoe-ui-animation-references",
+      "title": "FrontendJoe · UI animation references",
+      "type": "learn",
+      "url": "https://www.instagram.com/frontendjoe/",
+      "decision": "reference",
+      "riskLevel": "medium",
+      "currentLicense": "Instagram content; canonical repository and code reuse license must be established per example",
+      "reviewStatus": "inferred",
+      "bucket": "content-terms",
+      "priority": "P2",
+      "reason": "Public access does not automatically permit copying, republishing or commercial reuse of content.",
+      "nextStep": "Confirm the content license and separate it from platform Terms and third-party assets.",
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Creator profile",
+          "url": "https://www.instagram.com/frontendjoe/"
         }
       ]
     },
@@ -522,6 +543,27 @@
           "kind": "official-source",
           "label": "Официальный источник; точные условия ещё нужно сверить",
           "url": "https://preline.co"
+        }
+      ]
+    },
+    {
+      "id": "prozavlly-frontend-motion-references",
+      "title": "Prozavlly · Frontend motion references",
+      "type": "learn",
+      "url": "https://www.instagram.com/prozavlly/",
+      "decision": "reference",
+      "riskLevel": "medium",
+      "currentLicense": "Instagram content; no code, asset or composition reuse license established",
+      "reviewStatus": "inferred",
+      "bucket": "content-terms",
+      "priority": "P2",
+      "reason": "Public access does not automatically permit copying, republishing or commercial reuse of content.",
+      "nextStep": "Confirm the content license and separate it from platform Terms and third-party assets.",
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Creator profile",
+          "url": "https://www.instagram.com/prozavlly/"
         }
       ]
     },
