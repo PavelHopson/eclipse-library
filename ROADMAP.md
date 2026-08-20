@@ -1,6 +1,6 @@
 # Eclipse Library Roadmap
 
-Последнее обновление: **19.08.2026**
+Последнее обновление: **20.08.2026**
 
 ## Текущее состояние
 
@@ -15,7 +15,7 @@
   exact 5-scene/15-second contract и ручными render/publish boundaries. Обе схемы static-only,
   используют локальные шрифты и отдельные desktop/mobile SVG без выдуманной автоматизации.
 
-- `catalog/resources.json` — канонический structured catalog из 637 уникальных записей;
+- `catalog/resources.json` — канонический structured catalog из 648 уникальных записей;
   `README.md` сокращён до документации и больше не является runtime-источником данных.
 - `web/catalog-review.js` и `web/review.css` — собственный локальный editorial review-flow:
   четыре evidence gates, явный итог, bounded draft, clipboard fallback и downloadable v2 JSON packet.
@@ -23,17 +23,17 @@
   apply к текущей ветке, commit, merge и deploy отсутствуют по контракту.
 - `web/app.js` — command-first поиск, фильтры, detail view и guide viewer; structured adapter,
   карточки, editorial feed, progressive DOM и evidence-first Inspector вынесены в модули. При старте
-  в DOM создаются только первые 36 карточек вместо всех 637; mobile Inspector открывается как sheet.
+  в DOM создаются только первые 36 карточек вместо всех 648; mobile Inspector открывается как sheet.
 - Стартовый каталог теперь загружает compact catalog-summary вместо полного production index:
   initial JSON на 31% меньше compact index и примерно на 44% меньше прежнего pretty payload.
   Полные evidence, ограничения и исходное описание распределены по 16 deterministic shards;
   detail view имеет честные loading, error и retry состояния.
-- `web/catalog-index.json` — production schema v2: 269 записей редакторски проверены,
-  368 честно помечены `inferred`, 356 имеют отдельный `addedAt`, даты удалены из category.
-- License layer: у 426 записей лицензия или условия нормализованы с evidence URL;
+- `web/catalog-index.json` — production schema v2: 280 записей редакторски проверены,
+  368 честно помечены `inferred`, 367 имеют отдельный `addedAt`, даты удалены из category.
+- License layer: у 437 записей лицензия или условия нормализованы с evidence URL;
   211 остаются в детерминированной manual-review очереди (P1: 0, P2: 175, P3: 36).
-- Agent policy: 560 записей доступны автоматическим consumers, 77 исключены fail closed;
-  все 70 grey-ресурсов скрыты от recommendations, direct install запрещён для всех записей.
+- Agent policy: 569 записей доступны автоматическим consumers, 79 исключены fail closed;
+  все 71 grey-ресурс скрыты от recommendations, direct install запрещён для всех записей.
 - `web/api/v1/` — versioned static exports для full catalog, agents, Eclipse CRM и Eclipse AI;
   consumers больше не должны читать README.
 - `web/star-technology-registry.json` и `web/registry.html` — отдельный read-only decision
@@ -323,6 +323,21 @@
       self-check, EN/RU copy и без обязательного API key.
 
 ## Changelog
+### 2026-08-20 — controlled skill intake and owned Voice OS rollout
+- Каталог вырос до 648 материалов: добавлены skills.sh, собственный Eclipse Skill Intake,
+  Reference Board System, Vengeance UI, Skiper UI, AnimMasterLib, Buildcoolshit, Vlipsy,
+  Oceon Form Vault, Vibehub Academy и Jarvis Claude Code Guide. Существующие shadcn/ui,
+  Refero Styles и tweakcn повторно не добавлялись; ChatPlace исключён как tracking/lead redirect.
+- Добавлен fail-closed skill `eclipse-skill-intake`: canonical source, pinned revision, license,
+  scripts, dependencies, telemetry и capabilities проверяются до sandbox-пробы; secrets,
+  cookies, production accounts, direct install и внешние mutations запрещены.
+- Опубликован guide Brain → Markdown Memory → local push-to-talk Voice → calm HUD с authority
+  ladder observe → propose → diff → approve → execute → verify → receipt. Внешние lead magnets
+  используются только как reference, без копирования закрытого контента и marketing claims.
+- В общей Eclipse Forge таблице создан лист `Rollout 20.08.2026` с 20 инициативами, owner,
+  приоритетом, рисками, evidence и следующим шагом; cross-project работа распределена между
+  Growth OS, Social, Future, Chat, DnD Living World, DnD Legal Cleanup и Design задачами.
+
 ### 2026-08-19 — catalog payload and product motion QA
 - Клиент переведён с полного catalog-index.json на compact catalog-summary.json; полный анализ
   подгружается из одного из 16 deterministic shards только после явного открытия карточки.

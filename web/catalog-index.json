@@ -1,20 +1,20 @@
 {
   "schemaVersion": 2,
-  "sourceHash": "e0ba45b06865af4634d568e9afd8036ee7d65b4c949974157aced43185490198",
+  "sourceHash": "f84224c993890812fa4b5488e3dc024417a8d10d2d71fb063f0a636e057366e0",
   "policy": {
     "canonicalSource": "catalog/resources.json",
     "directInstallForbidden": true,
     "greyResourcesExcludedFromAgentRecommendations": true
   },
   "totals": {
-    "all": 637,
-    "verified": 269,
+    "all": 648,
+    "verified": 280,
     "inferred": 368,
     "licenseReviewRequired": 211,
-    "agentSafe": 560,
-    "agentExcluded": 77,
-    "grey": 70,
-    "withAddedAt": 356
+    "agentSafe": 569,
+    "agentExcluded": 79,
+    "grey": 71,
+    "withAddedAt": 367
   },
   "items": [
     {
@@ -15804,6 +15804,381 @@
       }
     },
     {
+      "id": "skills-sh-agent-skill-directory",
+      "url": "https://www.skills.sh/",
+      "title": "skills.sh",
+      "type": "skill",
+      "category": "Skills",
+      "subcategory": "Cross-agent skill directory",
+      "simpleDescription": "skills.sh — публичный каталог skills для Codex, Claude Code, Cursor и других агентов. Он полезен для discovery, но не является trust boundary: каждый skill отдельно проверяется, фиксируется на commit SHA и тестируется без secrets; установка прямо из Library запрещена.",
+      "useCases": [
+        "Найти candidate skill по задаче",
+        "Сравнить популярность и документацию",
+        "Передать источник в controlled Eclipse skill intake"
+      ],
+      "platforms": [
+        "Web",
+        "CLI",
+        "Codex",
+        "Claude Code",
+        "Cursor"
+      ],
+      "license": "Directory service terms; vercel-labs/skills CLI is open source, while every listed skill retains its own license and permissions",
+      "licenseEvidence": [
+        {
+          "kind": "official-source",
+          "label": "Official documentation",
+          "url": "https://www.skills.sh/docs"
+        },
+        {
+          "kind": "source",
+          "label": "Official CLI repository",
+          "url": "https://github.com/vercel-labs/skills"
+        }
+      ],
+      "pricing": "Directory and CLI are publicly available; listed services, models and skills can have separate costs",
+      "access": {
+        "cost": "free",
+        "signup": "none",
+        "runtime": "hybrid"
+      },
+      "trust": "official",
+      "trustReason": "Official docs and CLI repository were checked on 20.08.2026. The directory explicitly cannot guarantee the security or quality of every third-party skill.",
+      "projects": [
+        "Eclipse Library",
+        "Hopson Sentinel",
+        "Eclipse AI Hub",
+        "oh-my-claudecode"
+      ],
+      "decision": "now",
+      "riskLevel": "high",
+      "risks": [
+        "A SKILL.md can trigger shell, network, filesystem or account actions",
+        "Anonymous install telemetry is enabled by the CLI unless opted out",
+        "Rankings and audits do not replace component-level review"
+      ],
+      "quickStart": [
+        "Use only as a discovery source",
+        "Run eclipse-skill-intake against a pinned revision",
+        "Set DISABLE_TELEMETRY=1 for evaluation and keep installAllowed=false"
+      ],
+      "description": "Cross-agent directory and CLI ecosystem for reusable instruction bundles. Eclipse uses it as an intake source, not as an automatic installer.",
+      "features": [
+        "Searchable skill directory",
+        "Multi-agent CLI",
+        "Install leaderboard",
+        "Security audit indicators"
+      ],
+      "audience": [
+        "Agent developers",
+        "Codex and Claude Code users",
+        "Skill reviewers"
+      ],
+      "limitations": [
+        "Third-party quality varies",
+        "Telemetry requires an explicit opt-out",
+        "Each skill has independent license and capabilities"
+      ],
+      "relatedTechnologies": [
+        "SKILL.md",
+        "Codex",
+        "Claude Code",
+        "Supply chain",
+        "Allowlist"
+      ],
+      "verifiedAt": "2026-08-20",
+      "reviewStatus": "verified",
+      "source": {
+        "file": "catalog/resources.json",
+        "key": "skills-sh-agent-skill-directory",
+        "legacy": {
+          "file": "User intake 2026-08-20",
+          "line": null,
+          "category": "August 2026 skills/voice/growth rollout",
+          "subcategory": "Cross-agent skill directory"
+        }
+      },
+      "guide": "august-2026-skills-voice-growth-rollout",
+      "addedAt": "2026-08-20",
+      "catalogOrder": 638,
+      "licenseInfo": {
+        "label": "Directory service terms; vercel-labs/skills CLI is open source, while every listed skill retains its own license and permissions",
+        "original": "Directory service terms; vercel-labs/skills CLI is open source, while every listed skill retains its own license and permissions",
+        "spdx": null,
+        "kind": "service-terms",
+        "status": "editor-reviewed",
+        "requiresReview": false,
+        "evidence": [
+          {
+            "kind": "official-source",
+            "label": "Official documentation",
+            "url": "https://www.skills.sh/docs"
+          },
+          {
+            "kind": "source",
+            "label": "Official CLI repository",
+            "url": "https://github.com/vercel-labs/skills"
+          }
+        ]
+      },
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://www.skills.sh/"
+        },
+        {
+          "kind": "official-source",
+          "label": "Official documentation",
+          "url": "https://www.skills.sh/docs"
+        },
+        {
+          "kind": "source",
+          "label": "Official CLI repository",
+          "url": "https://github.com/vercel-labs/skills"
+        }
+      ],
+      "agentEligibility": {
+        "eligible": true,
+        "reasons": [],
+        "installAllowed": false
+      }
+    },
+    {
+      "id": "eclipse-skill-intake",
+      "url": "https://library.eclipse-forge.ru/guides/august-2026-skills-voice-growth-rollout.md",
+      "title": "Eclipse Skill Intake",
+      "type": "skill",
+      "category": "Skills",
+      "subcategory": "Supply-chain review",
+      "simpleDescription": "First-party Eclipse workflow для проверки внешнего skill до установки: canonical source, pinned revision, полный разбор инструкций и scripts, capability manifest, sandbox и отдельное решение allowlist.",
+      "useCases": [
+        "Проверить skill из skills.sh или GitHub",
+        "Зафиксировать permissions и telemetry",
+        "Выдать approved/restricted/reference/rejected решение"
+      ],
+      "platforms": [
+        "Codex",
+        "Claude Code",
+        "Repository review"
+      ],
+      "license": "Eclipse Forge first-party editorial workflow; external candidates retain their own licenses",
+      "licenseEvidence": [
+        {
+          "kind": "source",
+          "label": "First-party skill source",
+          "url": "https://library.eclipse-forge.ru/guides/august-2026-skills-voice-growth-rollout.md"
+        }
+      ],
+      "pricing": "Free first-party workflow; evaluation compute and external services are separate",
+      "access": {
+        "cost": "free",
+        "signup": "none",
+        "runtime": "local"
+      },
+      "trust": "official",
+      "trustReason": "Maintained in Eclipse Library with fail-closed rules and no installer code.",
+      "projects": [
+        "Eclipse Library",
+        "Hopson Sentinel",
+        "Eclipse AI Hub",
+        "oh-my-claudecode"
+      ],
+      "decision": "now",
+      "riskLevel": "low",
+      "risks": [
+        "A review can miss behavior hidden in binaries or remote services",
+        "Approval expires when source or dependencies change"
+      ],
+      "quickStart": [
+        "Invoke the skill for a specific canonical repository",
+        "Pin a revision and complete the manifest",
+        "Keep installation as a separate approval"
+      ],
+      "description": "Security-first intake skill that converts a public agent skill into an evidence-backed allowlist decision.",
+      "features": [
+        "Pinned source review",
+        "Capability manifest",
+        "Sandbox boundary",
+        "Four-state decision"
+      ],
+      "audience": [
+        "Eclipse maintainers",
+        "Agent runtime owners"
+      ],
+      "limitations": [
+        "Does not dynamically prove safety",
+        "Does not install candidates"
+      ],
+      "relatedTechnologies": [
+        "SBOM",
+        "Provenance",
+        "Sandbox",
+        "Least privilege"
+      ],
+      "verifiedAt": "2026-08-20",
+      "reviewStatus": "verified",
+      "source": {
+        "file": "catalog/resources.json",
+        "key": "eclipse-skill-intake",
+        "legacy": {
+          "file": "User intake 2026-08-20",
+          "line": null,
+          "category": "August 2026 skills/voice/growth rollout",
+          "subcategory": "Supply-chain review"
+        }
+      },
+      "guide": "august-2026-skills-voice-growth-rollout",
+      "addedAt": "2026-08-20",
+      "catalogOrder": 639,
+      "licenseInfo": {
+        "label": "Eclipse Forge first-party editorial workflow; external candidates retain their own licenses",
+        "original": "Eclipse Forge first-party editorial workflow; external candidates retain their own licenses",
+        "spdx": null,
+        "kind": "custom",
+        "status": "editor-reviewed",
+        "requiresReview": false,
+        "evidence": [
+          {
+            "kind": "source",
+            "label": "First-party skill source",
+            "url": "https://library.eclipse-forge.ru/guides/august-2026-skills-voice-growth-rollout.md"
+          }
+        ]
+      },
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://library.eclipse-forge.ru/guides/august-2026-skills-voice-growth-rollout.md"
+        }
+      ],
+      "agentEligibility": {
+        "eligible": true,
+        "reasons": [],
+        "installAllowed": false
+      }
+    },
+    {
+      "id": "reference-board-system-guide",
+      "url": "https://docs.google.com/document/d/1mnm_Z-BCNY-_fSe0RgIe0kZZt8PDnOYFwrnA8NUqlWM/mobilebasic",
+      "title": "Reference Board System Guide",
+      "type": "prompt",
+      "category": "Промпты",
+      "subcategory": "Consistent visual generation",
+      "simpleDescription": "Система из shot, object, location, pose, character и creature boards для согласованной генерации. В Eclipse используем только taxonomy и создаём собственные prompts, provenance и consent flow; близкий GPT Image2 document считается дублем, а не второй карточкой.",
+      "useCases": [
+        "Собрать visual bible проекта",
+        "Удерживать traits между кадрами",
+        "Подготовить campaign assets и storyboard"
+      ],
+      "platforms": [
+        "Google Docs",
+        "Image models",
+        "Eclipse Media"
+      ],
+      "license": "Publicly shared guide with no explicit reuse license found; link and taxonomy are reference-only, prompt text must not be republished verbatim",
+      "licenseEvidence": [
+        {
+          "kind": "source",
+          "label": "Owner-provided public document",
+          "url": "https://docs.google.com/document/d/1mnm_Z-BCNY-_fSe0RgIe0kZZt8PDnOYFwrnA8NUqlWM/mobilebasic"
+        }
+      ],
+      "pricing": "Public document; image-model and editor usage have separate terms",
+      "access": {
+        "cost": "free",
+        "signup": "optional",
+        "runtime": "cloud"
+      },
+      "trust": "community",
+      "trustReason": "The document content and duplicate relationship were manually reviewed on 20.08.2026; authorship and reuse license were not established.",
+      "projects": [
+        "Eclipse Media",
+        "Shotforge",
+        "Text2Image",
+        "Eclipse DnD Forge",
+        "Eclipse Forge Landing"
+      ],
+      "decision": "now",
+      "riskLevel": "high",
+      "risks": [
+        "Reference images can violate copyright or likeness rights",
+        "Prompt copying is not licensed",
+        "Models can drift despite a reference board"
+      ],
+      "quickStart": [
+        "Use the six-board taxonomy in a first-party wizard",
+        "Require source rights, consent and commercial-use status",
+        "Store stable traits and provenance with every result"
+      ],
+      "description": "Reference taxonomy for building consistent visual boards across scenes, characters, creatures, locations, objects and poses.",
+      "features": [
+        "Six board types",
+        "Multi-angle consistency",
+        "Project visual bible",
+        "Prompt chaining"
+      ],
+      "audience": [
+        "Creative directors",
+        "Game masters",
+        "Storyboard artists"
+      ],
+      "limitations": [
+        "No explicit reuse license",
+        "Consistency is model-dependent",
+        "Rights must be checked per source"
+      ],
+      "relatedTechnologies": [
+        "GPT Image",
+        "Storyboards",
+        "Character consistency",
+        "Provenance"
+      ],
+      "verifiedAt": "2026-08-20",
+      "reviewStatus": "verified",
+      "source": {
+        "file": "catalog/resources.json",
+        "key": "reference-board-system-guide",
+        "legacy": {
+          "file": "User intake 2026-08-20",
+          "line": null,
+          "category": "August 2026 skills/voice/growth rollout",
+          "subcategory": "Consistent visual generation"
+        }
+      },
+      "guide": "august-2026-skills-voice-growth-rollout",
+      "addedAt": "2026-08-20",
+      "catalogOrder": 640,
+      "licenseInfo": {
+        "label": "Publicly shared guide with no explicit reuse license found; link and taxonomy are reference-only, prompt text must not be republished verbatim",
+        "original": "Publicly shared guide with no explicit reuse license found; link and taxonomy are reference-only, prompt text must not be republished verbatim",
+        "spdx": null,
+        "kind": "custom",
+        "status": "editor-reviewed",
+        "requiresReview": false,
+        "evidence": [
+          {
+            "kind": "source",
+            "label": "Owner-provided public document",
+            "url": "https://docs.google.com/document/d/1mnm_Z-BCNY-_fSe0RgIe0kZZt8PDnOYFwrnA8NUqlWM/mobilebasic"
+          }
+        ]
+      },
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://docs.google.com/document/d/1mnm_Z-BCNY-_fSe0RgIe0kZZt8PDnOYFwrnA8NUqlWM/mobilebasic"
+        }
+      ],
+      "agentEligibility": {
+        "eligible": true,
+        "reasons": [],
+        "installAllowed": false
+      }
+    },
+    {
       "id": "localsend-github-com",
       "url": "https://github.com/localsend/localsend",
       "title": "LocalSend",
@@ -15878,6 +16253,138 @@
           "kind": "license",
           "label": "Apache-2.0 license",
           "url": "https://api.github.com/repos/localsend/localsend/license"
+        }
+      ],
+      "agentEligibility": {
+        "eligible": true,
+        "reasons": [],
+        "installAllowed": false
+      }
+    },
+    {
+      "id": "vengeance-ui",
+      "url": "https://github.com/Ashutoshx7/VengeanceUI",
+      "title": "Vengeance UI",
+      "type": "oss",
+      "category": "Инструменты",
+      "subcategory": "Animated React components",
+      "simpleDescription": "Vengeance UI — MIT-библиотека animated React/Next/shadcn components. Подходит для bounded marketing-surface pilot, но каждый компонент проходит provenance, keyboard, contrast, reduced-motion, mobile и bundle review.",
+      "useCases": [
+        "Добавить один выразительный showcase-блок",
+        "Изучить interaction patterns",
+        "Проверить shadcn registry workflow"
+      ],
+      "platforms": [
+        "React",
+        "Next.js",
+        "shadcn/ui",
+        "Web"
+      ],
+      "license": "MIT",
+      "licenseEvidence": [
+        {
+          "kind": "license",
+          "label": "Official MIT repository license",
+          "url": "https://github.com/Ashutoshx7/VengeanceUI/blob/main/LICENSE"
+        },
+        {
+          "kind": "source",
+          "label": "Official repository",
+          "url": "https://github.com/Ashutoshx7/VengeanceUI"
+        }
+      ],
+      "pricing": "Open source; optional hosting and dependencies are separate",
+      "access": {
+        "cost": "free",
+        "signup": "none",
+        "runtime": "local"
+      },
+      "trust": "community",
+      "trustReason": "Repository ownership, active public state and MIT metadata were checked on 20.08.2026.",
+      "projects": [
+        "Eclipse Forge Landing",
+        "Eclipse Library",
+        "Eclipse Media"
+      ],
+      "decision": "roadmap",
+      "riskLevel": "medium",
+      "risks": [
+        "Animation can hurt accessibility and performance",
+        "Registry commands expand dependency surface",
+        "Marketing motion is unsuitable for dense operational screens"
+      ],
+      "quickStart": [
+        "Pilot one component only",
+        "Pin source and inspect dependencies",
+        "Test keyboard, reduced motion, mobile and bundle delta"
+      ],
+      "description": "Community React component registry focused on animated interactions and marketing surfaces.",
+      "features": [
+        "Animated components",
+        "shadcn registry",
+        "React/Next examples",
+        "Copyable source"
+      ],
+      "audience": [
+        "Frontend developers",
+        "Design engineers"
+      ],
+      "limitations": [
+        "Component quality varies",
+        "Requires local adaptation",
+        "No blanket accessibility guarantee"
+      ],
+      "relatedTechnologies": [
+        "React",
+        "Next.js",
+        "Tailwind CSS",
+        "Motion"
+      ],
+      "verifiedAt": "2026-08-20",
+      "reviewStatus": "verified",
+      "source": {
+        "file": "catalog/resources.json",
+        "key": "vengeance-ui",
+        "legacy": {
+          "file": "User intake 2026-08-20",
+          "line": null,
+          "category": "August 2026 skills/voice/growth rollout",
+          "subcategory": "Animated React components"
+        }
+      },
+      "guide": "august-2026-skills-voice-growth-rollout",
+      "addedAt": "2026-08-20",
+      "catalogOrder": 641,
+      "licenseInfo": {
+        "label": "MIT",
+        "original": "MIT",
+        "spdx": "MIT",
+        "kind": "open-source",
+        "status": "editor-reviewed",
+        "requiresReview": false,
+        "evidence": [
+          {
+            "kind": "license",
+            "label": "Official MIT repository license",
+            "url": "https://github.com/Ashutoshx7/VengeanceUI/blob/main/LICENSE"
+          },
+          {
+            "kind": "source",
+            "label": "Official repository",
+            "url": "https://github.com/Ashutoshx7/VengeanceUI"
+          }
+        ]
+      },
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://github.com/Ashutoshx7/VengeanceUI"
+        },
+        {
+          "kind": "license",
+          "label": "Official MIT repository license",
+          "url": "https://github.com/Ashutoshx7/VengeanceUI/blob/main/LICENSE"
         }
       ],
       "agentEligibility": {
@@ -15972,6 +16479,252 @@
       }
     },
     {
+      "id": "skiper-ui",
+      "url": "https://skiper-ui.com/",
+      "title": "Skiper UI",
+      "type": "tool",
+      "category": "Инструменты",
+      "subcategory": "React UI reference",
+      "simpleDescription": "Skiper UI предлагает free и paid React/shadcn components, но free attribution, general Terms и происхождение recreated interfaces создают противоречивый reuse boundary. Для Eclipse это visual reference, не production dependency.",
+      "useCases": [
+        "Изучить landing interactions",
+        "Сравнить component layouts",
+        "Сформировать оригинальное design direction"
+      ],
+      "platforms": [
+        "Web",
+        "React",
+        "Next.js",
+        "shadcn/ui"
+      ],
+      "license": "Mixed service/component terms; free attribution and general no-copy language require component-level clarification",
+      "licenseEvidence": [
+        {
+          "kind": "terms",
+          "label": "Official Terms",
+          "url": "https://skiper-ui.com/docs/terms-of-service"
+        },
+        {
+          "kind": "official-source",
+          "label": "Official quick start",
+          "url": "https://skiper-ui.com/docs/quick-start"
+        }
+      ],
+      "pricing": "Free attributed components and paid Pro plan; verify current checkout before purchase",
+      "access": {
+        "cost": "freemium",
+        "signup": "optional",
+        "runtime": "hybrid"
+      },
+      "trust": "caution",
+      "trustReason": "Official docs were reviewed on 20.08.2026 and reveal inconsistent reuse signals and recreated-interface provenance caveats.",
+      "projects": [
+        "Eclipse Forge Landing",
+        "Eclipse Library",
+        "Eclipse Media"
+      ],
+      "decision": "reference",
+      "riskLevel": "high",
+      "risks": [
+        "Conflicting reuse terms",
+        "Possible missing third-party credits",
+        "CLI install changes dependencies"
+      ],
+      "quickStart": [
+        "Do not run the installer in production repos",
+        "Use screenshots only for direction-setting",
+        "Request written clarification before code reuse"
+      ],
+      "description": "Commercial/community UI component collection with attractive motion and unresolved component-level provenance questions.",
+      "features": [
+        "React components",
+        "shadcn CLI",
+        "Free and paid tiers",
+        "Animation examples"
+      ],
+      "audience": [
+        "Design engineers"
+      ],
+      "limitations": [
+        "Terms conflict",
+        "Attribution requirements",
+        "No approved Eclipse code reuse"
+      ],
+      "relatedTechnologies": [
+        "React",
+        "shadcn/ui",
+        "Tailwind CSS"
+      ],
+      "verifiedAt": "2026-08-20",
+      "reviewStatus": "verified",
+      "source": {
+        "file": "catalog/resources.json",
+        "key": "skiper-ui",
+        "legacy": {
+          "file": "User intake 2026-08-20",
+          "line": null,
+          "category": "August 2026 skills/voice/growth rollout",
+          "subcategory": "React UI reference"
+        }
+      },
+      "guide": "august-2026-skills-voice-growth-rollout",
+      "addedAt": "2026-08-20",
+      "catalogOrder": 642,
+      "licenseInfo": {
+        "label": "Mixed service/component terms; free attribution and general no-copy language require component-level clarification",
+        "original": "Mixed service/component terms; free attribution and general no-copy language require component-level clarification",
+        "spdx": null,
+        "kind": "service-terms",
+        "status": "editor-reviewed",
+        "requiresReview": false,
+        "evidence": [
+          {
+            "kind": "terms",
+            "label": "Official Terms",
+            "url": "https://skiper-ui.com/docs/terms-of-service"
+          },
+          {
+            "kind": "official-source",
+            "label": "Official quick start",
+            "url": "https://skiper-ui.com/docs/quick-start"
+          }
+        ]
+      },
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://skiper-ui.com/"
+        },
+        {
+          "kind": "terms",
+          "label": "Official Terms",
+          "url": "https://skiper-ui.com/docs/terms-of-service"
+        },
+        {
+          "kind": "official-source",
+          "label": "Official quick start",
+          "url": "https://skiper-ui.com/docs/quick-start"
+        }
+      ],
+      "agentEligibility": {
+        "eligible": true,
+        "reasons": [],
+        "installAllowed": false
+      }
+    },
+    {
+      "id": "animmasterlib",
+      "url": "https://animmasterlib.dev/pagetr",
+      "title": "AnimMasterLib",
+      "type": "grey",
+      "category": "Security и grey zone",
+      "subcategory": "Unverified animated UI library",
+      "simpleDescription": "AnimMasterLib заявляет каталог animated UI, WebGL и scroll components, но официальный license/Terms boundary не был подтверждён. Запись остаётся grey reference и исключается из agent recommendations и установки.",
+      "useCases": [
+        "Посмотреть motion directions",
+        "Найти идеи для original prototypes"
+      ],
+      "platforms": [
+        "Web",
+        "Frontend"
+      ],
+      "license": "No verified reuse license or component terms found at review time",
+      "licenseEvidence": [
+        {
+          "kind": "official-source",
+          "label": "Provided project page",
+          "url": "https://animmasterlib.dev/pagetr"
+        }
+      ],
+      "pricing": "Unknown; verify on the official source",
+      "access": {
+        "cost": "unknown",
+        "signup": "unknown",
+        "runtime": "cloud"
+      },
+      "trust": "unknown",
+      "trustReason": "Only the provided project page and secondary descriptions were available; provenance and rights remain unverified.",
+      "projects": [
+        "Eclipse Forge Landing",
+        "Eclipse Media"
+      ],
+      "decision": "reference",
+      "riskLevel": "high",
+      "risks": [
+        "Unknown license",
+        "Unknown dependency and script provenance",
+        "WebGL/motion performance and accessibility risks"
+      ],
+      "quickStart": [
+        "Do not copy or install code",
+        "Use only as a visual reference",
+        "Re-review when official repository and license are available"
+      ],
+      "description": "Unverified animated-component showcase referenced by a public link.",
+      "features": [
+        "Claimed animated components",
+        "Claimed WebGL and scroll effects"
+      ],
+      "audience": [
+        "Visual researchers"
+      ],
+      "limitations": [
+        "License unknown",
+        "Repository not established",
+        "Install blocked"
+      ],
+      "relatedTechnologies": [
+        "WebGL",
+        "Animation",
+        "Frontend"
+      ],
+      "verifiedAt": "2026-08-20",
+      "reviewStatus": "verified",
+      "source": {
+        "file": "catalog/resources.json",
+        "key": "animmasterlib",
+        "legacy": {
+          "file": "User intake 2026-08-20",
+          "line": null,
+          "category": "August 2026 skills/voice/growth rollout",
+          "subcategory": "Unverified animated UI library"
+        }
+      },
+      "guide": "august-2026-skills-voice-growth-rollout",
+      "addedAt": "2026-08-20",
+      "catalogOrder": 643,
+      "licenseInfo": {
+        "label": "No verified reuse license or component terms found at review time",
+        "original": "No verified reuse license or component terms found at review time",
+        "spdx": null,
+        "kind": "service-terms",
+        "status": "editor-reviewed",
+        "requiresReview": false,
+        "evidence": [
+          {
+            "kind": "official-source",
+            "label": "Provided project page",
+            "url": "https://animmasterlib.dev/pagetr"
+          }
+        ]
+      },
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://animmasterlib.dev/pagetr"
+        }
+      ],
+      "agentEligibility": {
+        "eligible": false,
+        "reasons": [
+          "grey-resource"
+        ],
+        "installAllowed": false
+      }
+    },
+    {
       "id": "ghost-downloader-3-github-com",
       "url": "https://github.com/XiaoYouChR/Ghost-Downloader-3",
       "title": "Ghost Downloader 3",
@@ -16046,6 +16799,118 @@
           "kind": "license",
           "label": "GPL-3.0 license",
           "url": "https://api.github.com/repos/xiaoyouchr/ghost-downloader-3/license"
+        }
+      ],
+      "agentEligibility": {
+        "eligible": true,
+        "reasons": [],
+        "installAllowed": false
+      }
+    },
+    {
+      "id": "buildcool-open-source-inspiration",
+      "url": "https://buildcool.sh/",
+      "title": "Buildcoolshit",
+      "type": "tool",
+      "category": "Инструменты",
+      "subcategory": "Open-source discovery",
+      "simpleDescription": "Buildcoolshit — curated discovery gallery открытых проектов и expressive web work. Полезен как входящий источник Library, но shared pages и карточки не заменяют проверку canonical repository, license, activity и security.",
+      "useCases": [
+        "Находить кандидатов для Library",
+        "Собирать visual references",
+        "Формировать manual review queue"
+      ],
+      "platforms": [
+        "Web"
+      ],
+      "license": "Directory/service terms; every linked project retains its own license",
+      "licenseEvidence": [
+        {
+          "kind": "official-source",
+          "label": "Official directory",
+          "url": "https://buildcool.sh/"
+        }
+      ],
+      "pricing": "Publicly accessible; linked projects may be paid",
+      "access": {
+        "cost": "free",
+        "signup": "optional",
+        "runtime": "cloud"
+      },
+      "trust": "community",
+      "trustReason": "The official directory identity was checked; the owner-provided share page could not be reliably hydrated outside its client runtime.",
+      "projects": [
+        "Eclipse Library",
+        "Eclipse Forge Landing"
+      ],
+      "decision": "reference",
+      "riskLevel": "medium",
+      "risks": [
+        "Stale or misleading listings",
+        "Unknown terms for shared collections",
+        "Linked projects require independent review"
+      ],
+      "quickStart": [
+        "Save canonical project URL, not share URL",
+        "Run duplicate/license/security checks",
+        "Never auto-install a listed project"
+      ],
+      "description": "Visual discovery catalog for open-source and creative web projects.",
+      "features": [
+        "Curated projects",
+        "Shareable collections",
+        "Visual previews"
+      ],
+      "audience": [
+        "Researchers",
+        "Designers",
+        "Developers"
+      ],
+      "limitations": [
+        "Not a security authority",
+        "Client-only shares can be opaque",
+        "Independent verification required"
+      ],
+      "relatedTechnologies": [
+        "Open source",
+        "Discovery",
+        "Design reference"
+      ],
+      "verifiedAt": "2026-08-20",
+      "reviewStatus": "verified",
+      "source": {
+        "file": "catalog/resources.json",
+        "key": "buildcool-open-source-inspiration",
+        "legacy": {
+          "file": "User intake 2026-08-20",
+          "line": null,
+          "category": "August 2026 skills/voice/growth rollout",
+          "subcategory": "Open-source discovery"
+        }
+      },
+      "guide": "august-2026-skills-voice-growth-rollout",
+      "addedAt": "2026-08-20",
+      "catalogOrder": 644,
+      "licenseInfo": {
+        "label": "Directory/service terms; every linked project retains its own license",
+        "original": "Directory/service terms; every linked project retains its own license",
+        "spdx": null,
+        "kind": "service-terms",
+        "status": "editor-reviewed",
+        "requiresReview": false,
+        "evidence": [
+          {
+            "kind": "official-source",
+            "label": "Official directory",
+            "url": "https://buildcool.sh/"
+          }
+        ]
+      },
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://buildcool.sh/"
         }
       ],
       "agentEligibility": {
@@ -16283,6 +17148,265 @@
       }
     },
     {
+      "id": "vlipsy-reaction-clips",
+      "url": "https://vlipsy.com/",
+      "title": "Vlipsy",
+      "type": "tool",
+      "category": "Медиа",
+      "subcategory": "Reaction clip search reference",
+      "simpleDescription": "Vlipsy ищет короткие reaction clips и video memes. Для Eclipse полезен только UX поиска эмоции и preview: чужие фильмы, сериалы и social clips нельзя импортировать в коммерческую медиатеку без прав.",
+      "useCases": [
+        "Изучить emotion-search UX",
+        "Спроектировать preview licensed assets",
+        "Генерировать оригинальную reaction concept"
+      ],
+      "platforms": [
+        "Web",
+        "Social media"
+      ],
+      "license": "Proprietary service Terms; clip rights remain with their owners and fair-use responsibility remains with the user",
+      "licenseEvidence": [
+        {
+          "kind": "terms",
+          "label": "Official Terms",
+          "url": "https://vlipsy.com/terms"
+        },
+        {
+          "kind": "terms",
+          "label": "Official DMCA policy",
+          "url": "https://vlipsy.com/dmca"
+        }
+      ],
+      "pricing": "Free ad-supported and optional Pro service; verify current plan",
+      "access": {
+        "cost": "freemium",
+        "signup": "optional",
+        "runtime": "cloud"
+      },
+      "trust": "official",
+      "trustReason": "Official Terms and DMCA pages were checked on 20.08.2026. They do not grant Eclipse rights to build a commercial clip library.",
+      "projects": [
+        "Eclipse Media",
+        "Shotforge"
+      ],
+      "decision": "reference",
+      "riskLevel": "high",
+      "risks": [
+        "Copyright and trademark claims",
+        "Targeted advertising and privacy boundary",
+        "Terms restrict scraping and redistribution"
+      ],
+      "quickStart": [
+        "Do not scrape or ingest the catalog",
+        "Use only owned/licensed/public-domain assets",
+        "Implement original reaction generation and rights metadata"
+      ],
+      "description": "Search and download service for short reaction clips and memes, useful as a product UX reference rather than a content source.",
+      "features": [
+        "Reaction search",
+        "Quick preview",
+        "Social formats"
+      ],
+      "audience": [
+        "Social creators"
+      ],
+      "limitations": [
+        "Rights vary per clip",
+        "US-oriented terms",
+        "No approved bulk reuse"
+      ],
+      "relatedTechnologies": [
+        "Video",
+        "Memes",
+        "Copyright",
+        "Asset registry"
+      ],
+      "verifiedAt": "2026-08-20",
+      "reviewStatus": "verified",
+      "source": {
+        "file": "catalog/resources.json",
+        "key": "vlipsy-reaction-clips",
+        "legacy": {
+          "file": "User intake 2026-08-20",
+          "line": null,
+          "category": "August 2026 skills/voice/growth rollout",
+          "subcategory": "Reaction clip search reference"
+        }
+      },
+      "guide": "august-2026-skills-voice-growth-rollout",
+      "addedAt": "2026-08-20",
+      "catalogOrder": 645,
+      "licenseInfo": {
+        "label": "Proprietary service Terms; clip rights remain with their owners and fair-use responsibility remains with the user",
+        "original": "Proprietary service Terms; clip rights remain with their owners and fair-use responsibility remains with the user",
+        "spdx": null,
+        "kind": "service-terms",
+        "status": "editor-reviewed",
+        "requiresReview": false,
+        "evidence": [
+          {
+            "kind": "terms",
+            "label": "Official Terms",
+            "url": "https://vlipsy.com/terms"
+          },
+          {
+            "kind": "terms",
+            "label": "Official DMCA policy",
+            "url": "https://vlipsy.com/dmca"
+          }
+        ]
+      },
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://vlipsy.com/"
+        },
+        {
+          "kind": "terms",
+          "label": "Official Terms",
+          "url": "https://vlipsy.com/terms"
+        },
+        {
+          "kind": "terms",
+          "label": "Official DMCA policy",
+          "url": "https://vlipsy.com/dmca"
+        }
+      ],
+      "agentEligibility": {
+        "eligible": true,
+        "reasons": [],
+        "installAllowed": false
+      }
+    },
+    {
+      "id": "oceon-form-vault-reference",
+      "url": "https://oceon.io/ui/form-vault-password",
+      "title": "Oceon Form Vault Password",
+      "type": "tool",
+      "category": "Security",
+      "subcategory": "Secret form UX reference",
+      "simpleDescription": "Oceon показывает password/vault form как UI reference. Это не подтверждённый password manager и не место для реальных secrets; Eclipse реализует собственный encrypted server-side flow с masking, audit и запретом возвращать сохранённое значение.",
+      "useCases": [
+        "Спроектировать secret connection flow",
+        "Показать saved/not saved state",
+        "Изучить calm security-form layout"
+      ],
+      "platforms": [
+        "Web"
+      ],
+      "license": "Public UI page; no verified code-reuse license found",
+      "licenseEvidence": [
+        {
+          "kind": "official-source",
+          "label": "Official component page",
+          "url": "https://oceon.io/ui/form-vault-password"
+        },
+        {
+          "kind": "official-source",
+          "label": "Official product explanation",
+          "url": "https://oceon.io/what-is-ai-territories"
+        }
+      ],
+      "pricing": "Public reference page; platform features may use separate plans",
+      "access": {
+        "cost": "unknown",
+        "signup": "optional",
+        "runtime": "cloud"
+      },
+      "trust": "community",
+      "trustReason": "The official domain and product explanation were reviewed, but component code license and security properties were not established.",
+      "projects": [
+        "Eclipse AI Hub",
+        "Eclipse Chat",
+        "Hopson Sentinel"
+      ],
+      "decision": "reference",
+      "riskLevel": "high",
+      "risks": [
+        "Users can paste real secrets into an untrusted demo",
+        "Visual similarity does not establish cryptographic safety",
+        "Unknown reuse terms"
+      ],
+      "quickStart": [
+        "Never submit a real password or API key",
+        "Implement the flow independently",
+        "Threat-model encryption, logging, rotation and deletion"
+      ],
+      "description": "Public security-form UI reference, not a security control.",
+      "features": [
+        "Password field pattern",
+        "Vault-like status UI"
+      ],
+      "audience": [
+        "Product designers",
+        "Security UX teams"
+      ],
+      "limitations": [
+        "No verified code license",
+        "No verified storage guarantees",
+        "Reference only"
+      ],
+      "relatedTechnologies": [
+        "Secrets",
+        "Encryption",
+        "Audit log",
+        "Security UX"
+      ],
+      "verifiedAt": "2026-08-20",
+      "reviewStatus": "verified",
+      "source": {
+        "file": "catalog/resources.json",
+        "key": "oceon-form-vault-reference",
+        "legacy": {
+          "file": "User intake 2026-08-20",
+          "line": null,
+          "category": "August 2026 skills/voice/growth rollout",
+          "subcategory": "Secret form UX reference"
+        }
+      },
+      "guide": "august-2026-skills-voice-growth-rollout",
+      "addedAt": "2026-08-20",
+      "catalogOrder": 646,
+      "licenseInfo": {
+        "label": "Public UI page; no verified code-reuse license found",
+        "original": "Public UI page; no verified code-reuse license found",
+        "spdx": null,
+        "kind": "custom",
+        "status": "editor-reviewed",
+        "requiresReview": false,
+        "evidence": [
+          {
+            "kind": "official-source",
+            "label": "Official component page",
+            "url": "https://oceon.io/ui/form-vault-password"
+          },
+          {
+            "kind": "official-source",
+            "label": "Official product explanation",
+            "url": "https://oceon.io/what-is-ai-territories"
+          }
+        ]
+      },
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://oceon.io/ui/form-vault-password"
+        },
+        {
+          "kind": "official-source",
+          "label": "Official product explanation",
+          "url": "https://oceon.io/what-is-ai-territories"
+        }
+      ],
+      "agentEligibility": {
+        "eligible": true,
+        "reasons": [],
+        "installAllowed": false
+      }
+    },
+    {
       "id": "scrapling-github-com",
       "url": "https://github.com/D4Vinci/Scrapling",
       "title": "Scrapling",
@@ -16443,6 +17567,119 @@
       }
     },
     {
+      "id": "vibehub-academy",
+      "url": "https://vibehub.academy/",
+      "title": "Vibehub Academy",
+      "type": "learn",
+      "category": "Курсы и гайды",
+      "subcategory": "AI business learning reference",
+      "simpleDescription": "Vibehub Academy продаёт tracks по Vibe Business, Coding и Marketing. Структура короткий урок → template → практика → review полезна для Educator-AI, но подписку не покупаем и paid materials не копируем; маркетинговые claims не считаются evidence.",
+      "useCases": [
+        "Изучить структуру learning path",
+        "Сравнить course onboarding",
+        "Спроектировать original production-AI track"
+      ],
+      "platforms": [
+        "Web",
+        "Online course"
+      ],
+      "license": "Proprietary paid course and service terms; no content reuse grant",
+      "licenseEvidence": [
+        {
+          "kind": "official-source",
+          "label": "Official academy and pricing page",
+          "url": "https://vibehub.academy/"
+        }
+      ],
+      "pricing": "Paid annual subscription presented with a monthly equivalent and auto-renewal; verify checkout before purchase",
+      "access": {
+        "cost": "paid",
+        "signup": "required",
+        "runtime": "cloud"
+      },
+      "trust": "official",
+      "trustReason": "Official sales page and offer structure were checked. Performance claims remain vendor marketing, not independent evidence.",
+      "projects": [
+        "Educator-AI",
+        "Eclipse Growth OS"
+      ],
+      "decision": "no",
+      "riskLevel": "medium",
+      "risks": [
+        "Annual auto-renewal",
+        "Lead capture and personal data",
+        "Unverified business outcome claims"
+      ],
+      "quickStart": [
+        "Do not purchase for the current roadmap",
+        "Use only the general learning-path structure",
+        "Create first-party lessons from official technical sources"
+      ],
+      "description": "Paid AI business/coding/marketing academy used only as a product-structure reference.",
+      "features": [
+        "Learning tracks",
+        "Templates",
+        "Community and live sessions"
+      ],
+      "audience": [
+        "AI business learners"
+      ],
+      "limitations": [
+        "Paid proprietary content",
+        "Marketing claims",
+        "No reuse rights"
+      ],
+      "relatedTechnologies": [
+        "Education",
+        "Vibe coding",
+        "Marketing"
+      ],
+      "verifiedAt": "2026-08-20",
+      "reviewStatus": "verified",
+      "source": {
+        "file": "catalog/resources.json",
+        "key": "vibehub-academy",
+        "legacy": {
+          "file": "User intake 2026-08-20",
+          "line": null,
+          "category": "August 2026 skills/voice/growth rollout",
+          "subcategory": "AI business learning reference"
+        }
+      },
+      "guide": "august-2026-skills-voice-growth-rollout",
+      "addedAt": "2026-08-20",
+      "catalogOrder": 647,
+      "licenseInfo": {
+        "label": "Proprietary paid course and service terms; no content reuse grant",
+        "original": "Proprietary paid course and service terms; no content reuse grant",
+        "spdx": null,
+        "kind": "service-terms",
+        "status": "editor-reviewed",
+        "requiresReview": false,
+        "evidence": [
+          {
+            "kind": "official-source",
+            "label": "Official academy and pricing page",
+            "url": "https://vibehub.academy/"
+          }
+        ]
+      },
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://vibehub.academy/"
+        }
+      ],
+      "agentEligibility": {
+        "eligible": false,
+        "reasons": [
+          "editorial-decision-no"
+        ],
+        "installAllowed": false
+      }
+    },
+    {
       "id": "api-mega-list-github-com",
       "url": "https://github.com/cporter202/API-mega-list",
       "title": "API-mega-list",
@@ -16512,6 +17749,120 @@
           "kind": "official-source",
           "label": "Официальный источник",
           "url": "https://github.com/cporter202/API-mega-list"
+        }
+      ],
+      "agentEligibility": {
+        "eligible": true,
+        "reasons": [],
+        "installAllowed": false
+      }
+    },
+    {
+      "id": "jarvis-claude-code-guide",
+      "url": "https://claude-code-guide-one-nu.vercel.app/jarvis",
+      "title": "Jarvis Claude Code Guide",
+      "type": "learn",
+      "category": "Курсы и гайды",
+      "subcategory": "Voice OS architecture reference",
+      "simpleDescription": "Email-gated community guide про Claude Code engine, Markdown memory, local voice и единый HUD. Это не Anthropic product и не reusable code source; идеи применяем в Sentinel/Chat только через собственную architecture с approval и kill switch.",
+      "useCases": [
+        "Спроектировать voice command room",
+        "Показать memory sources and receipts",
+        "Собрать local-first push-to-talk flow"
+      ],
+      "platforms": [
+        "Web",
+        "Claude Code concept"
+      ],
+      "license": "No public repository or reuse license established; lead-magnet content is reference-only",
+      "licenseEvidence": [
+        {
+          "kind": "official-source",
+          "label": "Clean public landing URL",
+          "url": "https://claude-code-guide-one-nu.vercel.app/jarvis"
+        }
+      ],
+      "pricing": "Free lead magnet in exchange for contact data; downstream offer unknown",
+      "access": {
+        "cost": "free",
+        "signup": "required",
+        "runtime": "cloud"
+      },
+      "trust": "caution",
+      "trustReason": "The public payload was reviewed on 20.08.2026. Generic page metadata and Jarvis-specific content do not fully align, and no canonical repository/license was found.",
+      "projects": [
+        "Hopson Sentinel",
+        "Eclipse Chat"
+      ],
+      "decision": "reference",
+      "riskLevel": "high",
+      "risks": [
+        "Email/lead capture",
+        "Unknown code provenance",
+        "Voice and tool control expand local attack surface"
+      ],
+      "quickStart": [
+        "Do not bypass the email gate or copy hidden content",
+        "Use the four-layer architecture only as reference",
+        "Require local voice, visible state, allowlist, approval and kill switch"
+      ],
+      "description": "Community lead magnet describing a voice-driven personal AI operating system.",
+      "features": [
+        "Claude Code engine concept",
+        "Markdown vault",
+        "Local voice concept",
+        "Single HUD"
+      ],
+      "audience": [
+        "Personal agent builders"
+      ],
+      "limitations": [
+        "No source license",
+        "Not official Anthropic material",
+        "Implementation details unverified"
+      ],
+      "relatedTechnologies": [
+        "Voice agent",
+        "Markdown",
+        "STT",
+        "TTS",
+        "HUD"
+      ],
+      "verifiedAt": "2026-08-20",
+      "reviewStatus": "verified",
+      "source": {
+        "file": "catalog/resources.json",
+        "key": "jarvis-claude-code-guide",
+        "legacy": {
+          "file": "User intake 2026-08-20",
+          "line": null,
+          "category": "August 2026 skills/voice/growth rollout",
+          "subcategory": "Voice OS architecture reference"
+        }
+      },
+      "guide": "august-2026-skills-voice-growth-rollout",
+      "addedAt": "2026-08-20",
+      "catalogOrder": 648,
+      "licenseInfo": {
+        "label": "No public repository or reuse license established; lead-magnet content is reference-only",
+        "original": "No public repository or reuse license established; lead-magnet content is reference-only",
+        "spdx": null,
+        "kind": "custom",
+        "status": "editor-reviewed",
+        "requiresReview": false,
+        "evidence": [
+          {
+            "kind": "official-source",
+            "label": "Clean public landing URL",
+            "url": "https://claude-code-guide-one-nu.vercel.app/jarvis"
+          }
+        ]
+      },
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://claude-code-guide-one-nu.vercel.app/jarvis"
         }
       ],
       "agentEligibility": {

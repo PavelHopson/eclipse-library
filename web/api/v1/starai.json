@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "consumer": "Eclipse AI",
-  "catalogVersion": "e0ba45b06865af4634d568e9afd8036ee7d65b4c949974157aced43185490198",
+  "catalogVersion": "f84224c993890812fa4b5488e3dc024417a8d10d2d71fb063f0a636e057366e0",
   "generatedAt": null,
   "policy": {
     "greyResourcesExcluded": true,
@@ -9,7 +9,7 @@
     "externalMutationsRequireHumanApproval": true
   },
   "totals": {
-    "items": 560
+    "items": 569
   },
   "items": [
     {
@@ -10401,6 +10401,207 @@
       }
     },
     {
+      "id": "skills-sh-agent-skill-directory",
+      "title": "skills.sh",
+      "url": "https://www.skills.sh/",
+      "type": "skill",
+      "category": "Skills",
+      "subcategory": "Cross-agent skill directory",
+      "addedAt": "2026-08-20",
+      "description": "skills.sh — публичный каталог skills для Codex, Claude Code, Cursor и других агентов. Он полезен для discovery, но не является trust boundary: каждый skill отдельно проверяется, фиксируется на commit SHA и тестируется без secrets; установка прямо из Library запрещена.",
+      "useCases": [
+        "Найти candidate skill по задаче",
+        "Сравнить популярность и документацию",
+        "Передать источник в controlled Eclipse skill intake"
+      ],
+      "platforms": [
+        "Web",
+        "CLI",
+        "Codex",
+        "Claude Code",
+        "Cursor"
+      ],
+      "license": {
+        "label": "Directory service terms; vercel-labs/skills CLI is open source, while every listed skill retains its own license and permissions",
+        "original": "Directory service terms; vercel-labs/skills CLI is open source, while every listed skill retains its own license and permissions",
+        "spdx": null,
+        "kind": "service-terms",
+        "status": "editor-reviewed",
+        "requiresReview": false,
+        "evidence": [
+          {
+            "kind": "official-source",
+            "label": "Official documentation",
+            "url": "https://www.skills.sh/docs"
+          },
+          {
+            "kind": "source",
+            "label": "Official CLI repository",
+            "url": "https://github.com/vercel-labs/skills"
+          }
+        ]
+      },
+      "access": {
+        "cost": "free",
+        "signup": "none",
+        "runtime": "hybrid"
+      },
+      "trust": "official",
+      "decision": "now",
+      "riskLevel": "high",
+      "projects": [
+        "Eclipse Library",
+        "Hopson Sentinel",
+        "Eclipse AI Hub",
+        "oh-my-claudecode"
+      ],
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://www.skills.sh/"
+        },
+        {
+          "kind": "official-source",
+          "label": "Official documentation",
+          "url": "https://www.skills.sh/docs"
+        },
+        {
+          "kind": "source",
+          "label": "Official CLI repository",
+          "url": "https://github.com/vercel-labs/skills"
+        }
+      ],
+      "actions": {
+        "openOfficialSource": true,
+        "installFromCatalog": false,
+        "mutateExternalSystems": false
+      }
+    },
+    {
+      "id": "eclipse-skill-intake",
+      "title": "Eclipse Skill Intake",
+      "url": "https://library.eclipse-forge.ru/guides/august-2026-skills-voice-growth-rollout.md",
+      "type": "skill",
+      "category": "Skills",
+      "subcategory": "Supply-chain review",
+      "addedAt": "2026-08-20",
+      "description": "First-party Eclipse workflow для проверки внешнего skill до установки: canonical source, pinned revision, полный разбор инструкций и scripts, capability manifest, sandbox и отдельное решение allowlist.",
+      "useCases": [
+        "Проверить skill из skills.sh или GitHub",
+        "Зафиксировать permissions и telemetry",
+        "Выдать approved/restricted/reference/rejected решение"
+      ],
+      "platforms": [
+        "Codex",
+        "Claude Code",
+        "Repository review"
+      ],
+      "license": {
+        "label": "Eclipse Forge first-party editorial workflow; external candidates retain their own licenses",
+        "original": "Eclipse Forge first-party editorial workflow; external candidates retain their own licenses",
+        "spdx": null,
+        "kind": "custom",
+        "status": "editor-reviewed",
+        "requiresReview": false,
+        "evidence": [
+          {
+            "kind": "source",
+            "label": "First-party skill source",
+            "url": "https://library.eclipse-forge.ru/guides/august-2026-skills-voice-growth-rollout.md"
+          }
+        ]
+      },
+      "access": {
+        "cost": "free",
+        "signup": "none",
+        "runtime": "local"
+      },
+      "trust": "official",
+      "decision": "now",
+      "riskLevel": "low",
+      "projects": [
+        "Eclipse Library",
+        "Hopson Sentinel",
+        "Eclipse AI Hub",
+        "oh-my-claudecode"
+      ],
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://library.eclipse-forge.ru/guides/august-2026-skills-voice-growth-rollout.md"
+        }
+      ],
+      "actions": {
+        "openOfficialSource": true,
+        "installFromCatalog": false,
+        "mutateExternalSystems": false
+      }
+    },
+    {
+      "id": "reference-board-system-guide",
+      "title": "Reference Board System Guide",
+      "url": "https://docs.google.com/document/d/1mnm_Z-BCNY-_fSe0RgIe0kZZt8PDnOYFwrnA8NUqlWM/mobilebasic",
+      "type": "prompt",
+      "category": "Промпты",
+      "subcategory": "Consistent visual generation",
+      "addedAt": "2026-08-20",
+      "description": "Система из shot, object, location, pose, character и creature boards для согласованной генерации. В Eclipse используем только taxonomy и создаём собственные prompts, provenance и consent flow; близкий GPT Image2 document считается дублем, а не второй карточкой.",
+      "useCases": [
+        "Собрать visual bible проекта",
+        "Удерживать traits между кадрами",
+        "Подготовить campaign assets и storyboard"
+      ],
+      "platforms": [
+        "Google Docs",
+        "Image models",
+        "Eclipse Media"
+      ],
+      "license": {
+        "label": "Publicly shared guide with no explicit reuse license found; link and taxonomy are reference-only, prompt text must not be republished verbatim",
+        "original": "Publicly shared guide with no explicit reuse license found; link and taxonomy are reference-only, prompt text must not be republished verbatim",
+        "spdx": null,
+        "kind": "custom",
+        "status": "editor-reviewed",
+        "requiresReview": false,
+        "evidence": [
+          {
+            "kind": "source",
+            "label": "Owner-provided public document",
+            "url": "https://docs.google.com/document/d/1mnm_Z-BCNY-_fSe0RgIe0kZZt8PDnOYFwrnA8NUqlWM/mobilebasic"
+          }
+        ]
+      },
+      "access": {
+        "cost": "free",
+        "signup": "optional",
+        "runtime": "cloud"
+      },
+      "trust": "community",
+      "decision": "now",
+      "riskLevel": "high",
+      "projects": [
+        "Eclipse Media",
+        "Shotforge",
+        "Text2Image",
+        "Eclipse DnD Forge",
+        "Eclipse Forge Landing"
+      ],
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://docs.google.com/document/d/1mnm_Z-BCNY-_fSe0RgIe0kZZt8PDnOYFwrnA8NUqlWM/mobilebasic"
+        }
+      ],
+      "actions": {
+        "openOfficialSource": true,
+        "installFromCatalog": false,
+        "mutateExternalSystems": false
+      }
+    },
+    {
       "id": "localsend-github-com",
       "title": "LocalSend",
       "url": "https://github.com/localsend/localsend",
@@ -10451,6 +10652,77 @@
           "kind": "license",
           "label": "Apache-2.0 license",
           "url": "https://api.github.com/repos/localsend/localsend/license"
+        }
+      ],
+      "actions": {
+        "openOfficialSource": true,
+        "installFromCatalog": false,
+        "mutateExternalSystems": false
+      }
+    },
+    {
+      "id": "vengeance-ui",
+      "title": "Vengeance UI",
+      "url": "https://github.com/Ashutoshx7/VengeanceUI",
+      "type": "oss",
+      "category": "Инструменты",
+      "subcategory": "Animated React components",
+      "addedAt": "2026-08-20",
+      "description": "Vengeance UI — MIT-библиотека animated React/Next/shadcn components. Подходит для bounded marketing-surface pilot, но каждый компонент проходит provenance, keyboard, contrast, reduced-motion, mobile и bundle review.",
+      "useCases": [
+        "Добавить один выразительный showcase-блок",
+        "Изучить interaction patterns",
+        "Проверить shadcn registry workflow"
+      ],
+      "platforms": [
+        "React",
+        "Next.js",
+        "shadcn/ui",
+        "Web"
+      ],
+      "license": {
+        "label": "MIT",
+        "original": "MIT",
+        "spdx": "MIT",
+        "kind": "open-source",
+        "status": "editor-reviewed",
+        "requiresReview": false,
+        "evidence": [
+          {
+            "kind": "license",
+            "label": "Official MIT repository license",
+            "url": "https://github.com/Ashutoshx7/VengeanceUI/blob/main/LICENSE"
+          },
+          {
+            "kind": "source",
+            "label": "Official repository",
+            "url": "https://github.com/Ashutoshx7/VengeanceUI"
+          }
+        ]
+      },
+      "access": {
+        "cost": "free",
+        "signup": "none",
+        "runtime": "local"
+      },
+      "trust": "community",
+      "decision": "roadmap",
+      "riskLevel": "medium",
+      "projects": [
+        "Eclipse Forge Landing",
+        "Eclipse Library",
+        "Eclipse Media"
+      ],
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://github.com/Ashutoshx7/VengeanceUI"
+        },
+        {
+          "kind": "license",
+          "label": "Official MIT repository license",
+          "url": "https://github.com/Ashutoshx7/VengeanceUI/blob/main/LICENSE"
         }
       ],
       "actions": {
@@ -10521,6 +10793,82 @@
       }
     },
     {
+      "id": "skiper-ui",
+      "title": "Skiper UI",
+      "url": "https://skiper-ui.com/",
+      "type": "tool",
+      "category": "Инструменты",
+      "subcategory": "React UI reference",
+      "addedAt": "2026-08-20",
+      "description": "Skiper UI предлагает free и paid React/shadcn components, но free attribution, general Terms и происхождение recreated interfaces создают противоречивый reuse boundary. Для Eclipse это visual reference, не production dependency.",
+      "useCases": [
+        "Изучить landing interactions",
+        "Сравнить component layouts",
+        "Сформировать оригинальное design direction"
+      ],
+      "platforms": [
+        "Web",
+        "React",
+        "Next.js",
+        "shadcn/ui"
+      ],
+      "license": {
+        "label": "Mixed service/component terms; free attribution and general no-copy language require component-level clarification",
+        "original": "Mixed service/component terms; free attribution and general no-copy language require component-level clarification",
+        "spdx": null,
+        "kind": "service-terms",
+        "status": "editor-reviewed",
+        "requiresReview": false,
+        "evidence": [
+          {
+            "kind": "terms",
+            "label": "Official Terms",
+            "url": "https://skiper-ui.com/docs/terms-of-service"
+          },
+          {
+            "kind": "official-source",
+            "label": "Official quick start",
+            "url": "https://skiper-ui.com/docs/quick-start"
+          }
+        ]
+      },
+      "access": {
+        "cost": "freemium",
+        "signup": "optional",
+        "runtime": "hybrid"
+      },
+      "trust": "caution",
+      "decision": "reference",
+      "riskLevel": "high",
+      "projects": [
+        "Eclipse Forge Landing",
+        "Eclipse Library",
+        "Eclipse Media"
+      ],
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://skiper-ui.com/"
+        },
+        {
+          "kind": "terms",
+          "label": "Official Terms",
+          "url": "https://skiper-ui.com/docs/terms-of-service"
+        },
+        {
+          "kind": "official-source",
+          "label": "Official quick start",
+          "url": "https://skiper-ui.com/docs/quick-start"
+        }
+      ],
+      "actions": {
+        "openOfficialSource": true,
+        "installFromCatalog": false,
+        "mutateExternalSystems": false
+      }
+    },
+    {
       "id": "ghost-downloader-3-github-com",
       "title": "Ghost Downloader 3",
       "url": "https://github.com/XiaoYouChR/Ghost-Downloader-3",
@@ -10571,6 +10919,63 @@
           "kind": "license",
           "label": "GPL-3.0 license",
           "url": "https://api.github.com/repos/xiaoyouchr/ghost-downloader-3/license"
+        }
+      ],
+      "actions": {
+        "openOfficialSource": true,
+        "installFromCatalog": false,
+        "mutateExternalSystems": false
+      }
+    },
+    {
+      "id": "buildcool-open-source-inspiration",
+      "title": "Buildcoolshit",
+      "url": "https://buildcool.sh/",
+      "type": "tool",
+      "category": "Инструменты",
+      "subcategory": "Open-source discovery",
+      "addedAt": "2026-08-20",
+      "description": "Buildcoolshit — curated discovery gallery открытых проектов и expressive web work. Полезен как входящий источник Library, но shared pages и карточки не заменяют проверку canonical repository, license, activity и security.",
+      "useCases": [
+        "Находить кандидатов для Library",
+        "Собирать visual references",
+        "Формировать manual review queue"
+      ],
+      "platforms": [
+        "Web"
+      ],
+      "license": {
+        "label": "Directory/service terms; every linked project retains its own license",
+        "original": "Directory/service terms; every linked project retains its own license",
+        "spdx": null,
+        "kind": "service-terms",
+        "status": "editor-reviewed",
+        "requiresReview": false,
+        "evidence": [
+          {
+            "kind": "official-source",
+            "label": "Official directory",
+            "url": "https://buildcool.sh/"
+          }
+        ]
+      },
+      "access": {
+        "cost": "free",
+        "signup": "optional",
+        "runtime": "cloud"
+      },
+      "trust": "community",
+      "decision": "reference",
+      "riskLevel": "medium",
+      "projects": [
+        "Eclipse Library",
+        "Eclipse Forge Landing"
+      ],
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://buildcool.sh/"
         }
       ],
       "actions": {
@@ -10704,6 +11109,147 @@
           "kind": "license",
           "label": "BSD-3-Clause license",
           "url": "https://api.github.com/repos/scrapy/scrapy/license"
+        }
+      ],
+      "actions": {
+        "openOfficialSource": true,
+        "installFromCatalog": false,
+        "mutateExternalSystems": false
+      }
+    },
+    {
+      "id": "vlipsy-reaction-clips",
+      "title": "Vlipsy",
+      "url": "https://vlipsy.com/",
+      "type": "tool",
+      "category": "Медиа",
+      "subcategory": "Reaction clip search reference",
+      "addedAt": "2026-08-20",
+      "description": "Vlipsy ищет короткие reaction clips и video memes. Для Eclipse полезен только UX поиска эмоции и preview: чужие фильмы, сериалы и social clips нельзя импортировать в коммерческую медиатеку без прав.",
+      "useCases": [
+        "Изучить emotion-search UX",
+        "Спроектировать preview licensed assets",
+        "Генерировать оригинальную reaction concept"
+      ],
+      "platforms": [
+        "Web",
+        "Social media"
+      ],
+      "license": {
+        "label": "Proprietary service Terms; clip rights remain with their owners and fair-use responsibility remains with the user",
+        "original": "Proprietary service Terms; clip rights remain with their owners and fair-use responsibility remains with the user",
+        "spdx": null,
+        "kind": "service-terms",
+        "status": "editor-reviewed",
+        "requiresReview": false,
+        "evidence": [
+          {
+            "kind": "terms",
+            "label": "Official Terms",
+            "url": "https://vlipsy.com/terms"
+          },
+          {
+            "kind": "terms",
+            "label": "Official DMCA policy",
+            "url": "https://vlipsy.com/dmca"
+          }
+        ]
+      },
+      "access": {
+        "cost": "freemium",
+        "signup": "optional",
+        "runtime": "cloud"
+      },
+      "trust": "official",
+      "decision": "reference",
+      "riskLevel": "high",
+      "projects": [
+        "Eclipse Media",
+        "Shotforge"
+      ],
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://vlipsy.com/"
+        },
+        {
+          "kind": "terms",
+          "label": "Official Terms",
+          "url": "https://vlipsy.com/terms"
+        },
+        {
+          "kind": "terms",
+          "label": "Official DMCA policy",
+          "url": "https://vlipsy.com/dmca"
+        }
+      ],
+      "actions": {
+        "openOfficialSource": true,
+        "installFromCatalog": false,
+        "mutateExternalSystems": false
+      }
+    },
+    {
+      "id": "oceon-form-vault-reference",
+      "title": "Oceon Form Vault Password",
+      "url": "https://oceon.io/ui/form-vault-password",
+      "type": "tool",
+      "category": "Security",
+      "subcategory": "Secret form UX reference",
+      "addedAt": "2026-08-20",
+      "description": "Oceon показывает password/vault form как UI reference. Это не подтверждённый password manager и не место для реальных secrets; Eclipse реализует собственный encrypted server-side flow с masking, audit и запретом возвращать сохранённое значение.",
+      "useCases": [
+        "Спроектировать secret connection flow",
+        "Показать saved/not saved state",
+        "Изучить calm security-form layout"
+      ],
+      "platforms": [
+        "Web"
+      ],
+      "license": {
+        "label": "Public UI page; no verified code-reuse license found",
+        "original": "Public UI page; no verified code-reuse license found",
+        "spdx": null,
+        "kind": "custom",
+        "status": "editor-reviewed",
+        "requiresReview": false,
+        "evidence": [
+          {
+            "kind": "official-source",
+            "label": "Official component page",
+            "url": "https://oceon.io/ui/form-vault-password"
+          },
+          {
+            "kind": "official-source",
+            "label": "Official product explanation",
+            "url": "https://oceon.io/what-is-ai-territories"
+          }
+        ]
+      },
+      "access": {
+        "cost": "unknown",
+        "signup": "optional",
+        "runtime": "cloud"
+      },
+      "trust": "community",
+      "decision": "reference",
+      "riskLevel": "high",
+      "projects": [
+        "Eclipse AI Hub",
+        "Eclipse Chat",
+        "Hopson Sentinel"
+      ],
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://oceon.io/ui/form-vault-password"
+        },
+        {
+          "kind": "official-source",
+          "label": "Official product explanation",
+          "url": "https://oceon.io/what-is-ai-territories"
         }
       ],
       "actions": {
@@ -10870,6 +11416,64 @@
           "kind": "official-source",
           "label": "Официальный источник",
           "url": "https://github.com/cporter202/API-mega-list"
+        }
+      ],
+      "actions": {
+        "openOfficialSource": true,
+        "installFromCatalog": false,
+        "mutateExternalSystems": false
+      }
+    },
+    {
+      "id": "jarvis-claude-code-guide",
+      "title": "Jarvis Claude Code Guide",
+      "url": "https://claude-code-guide-one-nu.vercel.app/jarvis",
+      "type": "learn",
+      "category": "Курсы и гайды",
+      "subcategory": "Voice OS architecture reference",
+      "addedAt": "2026-08-20",
+      "description": "Email-gated community guide про Claude Code engine, Markdown memory, local voice и единый HUD. Это не Anthropic product и не reusable code source; идеи применяем в Sentinel/Chat только через собственную architecture с approval и kill switch.",
+      "useCases": [
+        "Спроектировать voice command room",
+        "Показать memory sources and receipts",
+        "Собрать local-first push-to-talk flow"
+      ],
+      "platforms": [
+        "Web",
+        "Claude Code concept"
+      ],
+      "license": {
+        "label": "No public repository or reuse license established; lead-magnet content is reference-only",
+        "original": "No public repository or reuse license established; lead-magnet content is reference-only",
+        "spdx": null,
+        "kind": "custom",
+        "status": "editor-reviewed",
+        "requiresReview": false,
+        "evidence": [
+          {
+            "kind": "official-source",
+            "label": "Clean public landing URL",
+            "url": "https://claude-code-guide-one-nu.vercel.app/jarvis"
+          }
+        ]
+      },
+      "access": {
+        "cost": "free",
+        "signup": "required",
+        "runtime": "cloud"
+      },
+      "trust": "caution",
+      "decision": "reference",
+      "riskLevel": "high",
+      "projects": [
+        "Hopson Sentinel",
+        "Eclipse Chat"
+      ],
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://claude-code-guide-one-nu.vercel.app/jarvis"
         }
       ],
       "actions": {

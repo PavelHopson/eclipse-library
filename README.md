@@ -15,14 +15,14 @@ Runtime-зависимости от главного лендинга нет.
 
 ## Текущее состояние
 
-- 637 уникальных записей доступны пользователям.
-- 269 карточек прошли ручную редакторскую проверку.
+- 648 уникальных записей доступны пользователям.
+- 280 карточек прошли ручную редакторскую проверку.
 - 368 карточек честно помечены как `inferred` и ожидают углублённого review.
-- У 426 записей лицензия или условия уже нормализованы и подкреплены evidence.
+- У 437 записей лицензия или условия уже нормализованы и подкреплены evidence.
 - 211 лицензий или наборов условий всё ещё требуют отдельной проверки; срочная очередь P1 закрыта.
-- 70 grey-ресурсов видны человеку как reference, но исключены из agent recommendations.
-- Всего 77 записей исключены из agent exports по risk, editorial, transport или repository policy; 560 доступны для agent consumers.
-- 356 записей получили отдельное поле `addedAt`; неизвестные даты не выдумываются.
+- 71 grey-ресурс виден человеку как reference, но исключён из agent recommendations.
+- Всего 79 записей исключены из agent exports по risk, editorial, transport или repository policy; 569 доступны для agent consumers.
+- 367 записей получили отдельное поле `addedAt`; неизвестные даты не выдумываются.
 
 ## Как устроены данные
 
@@ -147,6 +147,7 @@ Quality workflow проверяет:
 - [August 2026 harness, media and code radar](guides/august-2026-harness-media-code-radar.md)
 - [Eclipse Repository Architecture Map Prompt](guides/repository-architecture-map.md)
 - [Eclipse Forge Codex session tree](guides/eclipse-session-tree.md)
+- [August 2026 skills, Voice OS and Growth rollout](guides/august-2026-skills-voice-growth-rollout.md)
 - [Eclipse Diagram Contract: первый static data-flow pilot](web/diagrams/catalog-data-flow.html)
 - [Eclipse AI Hub: model provider boundary](web/diagrams/ai-hub-provider-boundary.html)
 - [Hopson Sentinel: capability и approval boundary](web/diagrams/sentinel-capability-boundary.html)

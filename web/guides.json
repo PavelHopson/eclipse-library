@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "totals": {
-    "guides": 41
+    "guides": 42
   },
   "guides": [
     {
@@ -225,6 +225,13 @@
       "name": "razer-aikit-diagram-design-review",
       "title": "Razer AIKit и Diagram Design: проверка и план внедрения",
       "description": "Проверено 13.08.2026 по canonical GitHub repositories, лицензиям, release/plugin metadata, документации, Compose и CI.",
+      "modules": 0,
+      "lessons": 0
+    },
+    {
+      "name": "august-2026-skills-voice-growth-rollout",
+      "title": "Skills, Voice OS и Growth rollout — 20.08.2026",
+      "description": "Практический план Eclipse Forge: публичные каталоги остаются источниками находок, skills проходят отдельный supply-chain intake, а голосовой помощник строится по цепочке Brain…",
       "modules": 0,
       "lessons": 0
     },
