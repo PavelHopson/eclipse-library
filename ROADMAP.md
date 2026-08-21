@@ -17,7 +17,7 @@
   exact 5-scene/15-second contract и ручными render/publish boundaries. Обе схемы static-only,
   используют локальные шрифты и отдельные desktop/mobile SVG без выдуманной автоматизации.
 
-- `catalog/resources.json` — канонический structured catalog из 651 уникальной записи;
+- `catalog/resources.json` — канонический structured catalog из 672 уникальных записей;
   `README.md` сокращён до документации и больше не является runtime-источником данных.
 - `web/catalog-review.js` и `web/review.css` — собственный локальный editorial review-flow:
   четыре evidence gates, явный итог, bounded draft, clipboard fallback и downloadable v2 JSON packet.
@@ -30,12 +30,12 @@
   initial JSON на 31% меньше compact index и примерно на 44% меньше прежнего pretty payload.
   Полные evidence, ограничения и исходное описание распределены по 16 deterministic shards;
   detail view имеет честные loading, error и retry состояния.
-- `web/catalog-index.json` — production schema v2: 281 запись редакторски проверена,
-  370 честно помечены `inferred`, 370 имеют отдельный `addedAt`, даты удалены из category.
-- License layer: у 438 записей лицензия или условия нормализованы с evidence URL;
-  213 остаются в детерминированной manual-review очереди (P1: 0, P2: 177, P3: 36).
-- Agent policy: 572 записи доступны автоматическим consumers, 79 исключены fail closed;
-  все 71 grey-ресурс скрыты от recommendations, direct install запрещён для всех записей.
+- `web/catalog-index.json` — production schema v2: 303 записи редакторски проверены,
+  369 честно помечены `inferred`, 392 имеют отдельный `addedAt`, даты удалены из category.
+- License layer: у 458 записей лицензия или условия нормализованы с evidence URL;
+  214 остаются в детерминированной manual-review очереди.
+- Agent policy: 590 записей доступны автоматическим consumers, 82 исключены fail closed;
+  все 74 grey-ресурса скрыты от recommendations, direct install запрещён для всех записей.
 - `web/api/v1/` — versioned static exports для full catalog, agents, Eclipse CRM и Eclipse AI;
   consumers больше не должны читать README.
 - `web/star-technology-registry.json` и `web/registry.html` — отдельный read-only decision
@@ -66,6 +66,19 @@
       install, commit, push, deploy или внешних действий.
 
 ### P1
+
+- [ ] Sentinel / Eclipse AI Hub / oh-my-claudecode: провести P1/M Verifier Pipeline benchmark
+      на synthetic fixtures с известными дефектами — несколько bounded candidates, независимый
+      read-only verifier, disagreement report, budget/timeout и human approval; не считать claims
+      LLM-as-a-Verifier доказанными до воспроизводимого сравнения с single-pass baseline.
+- [ ] Eclipse AI Hub / Sentinel: реализовать P1/M Local Model Hardware Doctor — read-only RAM/VRAM/disk
+      scan, explainable compatibility profiles и короткий benchmark Magnitude/Ornith fixtures;
+      загрузка и установка моделей из Library остаются запрещены.
+- [ ] Text2Image / Eclipse Media / Shotforge: добавить P1/S transparent-asset и poster workflow —
+      alpha preview, rights/provenance metadata, safe PNG/WebP export, 1:1/4:5/9:16 templates и
+      human approval перед публикацией.
+- [ ] Educator-AI: собрать P1/S Claude fundamentals и Language Coach pilot tracks с rubric,
+      privacy warning, local progress и teacher/human review.
 
 - [x] Снизить license/terms backlog с 279 до 240: вручную проверить 20 GitHub NOASSERTION
       repositories и 19 owned Eclipse Library records; публиковать evidence URL, не выдавать
@@ -289,6 +302,9 @@
 
 ### P2
 
+- [ ] Educator-AI: создать P2/S accessible Computer Lab по мотивам CraftingTable — deterministic
+      CPU/memory lessons, keyboard controls, error states и reduced-motion fallback.
+
 - [ ] Eclipse AI Hub Model Registry: проверить Soup CLI в isolated GPU lab P2/L на одном public
       dataset и небольшой open model — pinned dependencies, network deny-by-default, license gate,
       holdout evaluation, resource budget и provenance; не запускать training на основной машине.
@@ -341,6 +357,18 @@
       self-check, EN/RU copy и без обязательного API key.
 
 ## Changelog
+
+### 2026-08-21 — Agent, learning и media radar
+
+- Добавлены 18 проверенных записей: models, agent frameworks, learning products, media workflows,
+  prompts и privacy-sensitive tooling; MarketingSkills обновлён без дубликата, PC-Tuning повторно не добавлялся.
+- Рекламные claims разделены с фактами: Huihui, Reverse API Engineer и Ox Alpha опубликованы как
+  grey/reference с fail-closed agent policy; detector bypass и неавторизованный reverse engineering не рекомендуются.
+- Добавлен подробный guide `guides/august-2026-agent-learning-media-radar.md` с решениями now,
+  roadmap, reference и no-use, проектами, ценностью, сложностью, рисками и следующими шагами.
+- Production catalog: 672 human-visible, 590 agent-safe, 303 verified, 369 inferred,
+  214 license/terms records остаются в manual review; direct install запрещён для всех записей.
+
 ### 2026-08-21 — Animation Lab full cinematic 3D system
 - Единый cinematic 3D contract распространён с Vault Dial на остальные шесть first-party demo без унификации их поведения: Upload Queue получил spatial file stack, AI Generation — reactor core, OTP Auth — code-cell depth, Guardian — layered companion, Orbit Upload — transfer portal, OTP Glass — translucent layers.
 - Pointer parallax ограничен desktop `pointer:fine`; mobile и reduced-motion уплощают композицию, сохраняя focus, error, success и primary action. Regression-тест теперь требует depth/readiness contract для всех семи demo.

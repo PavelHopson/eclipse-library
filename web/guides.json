@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "totals": {
-    "guides": 45
+    "guides": 46
   },
   "guides": [
     {
@@ -36,6 +36,13 @@
       "name": "agent-reach-security-review-2026-07-31",
       "title": "Agent Reach — static security review",
       "description": "Решение Eclipse Forge на 31.07.2026: сохранить как архитектурный Reference.",
+      "modules": 0,
+      "lessons": 0
+    },
+    {
+      "name": "august-2026-agent-learning-media-radar",
+      "title": "Agent, learning и media radar — 21 августа 2026",
+      "description": "",
       "modules": 0,
       "lessons": 0
     },

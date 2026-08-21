@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "consumer": "Eclipse CRM",
-  "catalogVersion": "f56269ad8ce22a0a1bf41da3312b38aa55c5b87dcd433ffd45cc5b955c89b546",
+  "catalogVersion": "9bd97e57ab40ae9de25fb716b5116a0a2c20ca01429007bd798dffe395937f09",
   "generatedAt": null,
   "policy": {
     "greyResourcesExcluded": true,
@@ -9,7 +9,7 @@
     "externalMutationsRequireHumanApproval": true
   },
   "totals": {
-    "items": 575
+    "items": 590
   },
   "items": [
     {
@@ -82,6 +82,936 @@
           "kind": "terms",
           "label": "21st.dev Terms",
           "url": "https://21st.dev/terms"
+        }
+      ],
+      "actions": {
+        "openOfficialSource": true,
+        "installFromCatalog": false,
+        "mutateExternalSystems": false
+      }
+    },
+    {
+      "id": "ai-copywriter-mikiarlo3",
+      "title": "AI Copywriter",
+      "url": "https://github.com/mikiarlo3/ai-copywriter",
+      "type": "skill",
+      "category": "Скиллы для Claude",
+      "subcategory": "Copywriting workflow",
+      "addedAt": "2026-08-21",
+      "description": "MIT-набор copywriting и marketing instructions для более ясного тона, структуры и редакторского контроля. Полезен как reference для Editor Stylist, но обещания «не палится детекторами» и использование для учебного обмана не подтверждены и не поддерживаются Eclipse Forge.",
+      "useCases": [
+        "Editor Stylist в Growth OS",
+        "Черновики email и landing copy",
+        "Проверка тона и ритма без изменения фактов"
+      ],
+      "platforms": [
+        "Claude Code",
+        "AI agents",
+        "Markdown skills"
+      ],
+      "license": {
+        "label": "MIT",
+        "original": "MIT",
+        "spdx": "MIT",
+        "kind": "open-source",
+        "status": "editor-reviewed",
+        "requiresReview": false,
+        "evidence": [
+          {
+            "kind": "source",
+            "label": "Official repository and MIT metadata",
+            "url": "https://github.com/mikiarlo3/ai-copywriter"
+          }
+        ]
+      },
+      "access": {
+        "cost": "free",
+        "signup": "none",
+        "runtime": "local"
+      },
+      "trust": "community",
+      "decision": "reference",
+      "riskLevel": "medium",
+      "projects": [
+        "Eclipse AI Hub",
+        "Eclipse Growth OS",
+        "Eclipse Forge Landing"
+      ],
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://github.com/mikiarlo3/ai-copywriter"
+        }
+      ],
+      "actions": {
+        "openOfficialSource": true,
+        "installFromCatalog": false,
+        "mutateExternalSystems": false
+      }
+    },
+    {
+      "id": "chatgpt-images-transparent-background",
+      "title": "ChatGPT Images: transparent backgrounds",
+      "url": "https://help.openai.com/en/articles/11084440",
+      "type": "service",
+      "category": "AI-модели",
+      "subcategory": "Image generation and editing",
+      "addedAt": "2026-08-21",
+      "description": "Официальный ChatGPT Images workflow умеет генерировать и редактировать изображения, включая просьбу сделать background transparent. Это удобно для UI assets и product mockups, но output всё равно нужно проверить на alpha edges, текст, brand rights and provenance.",
+      "useCases": [
+        "PNG assets for Text2Image",
+        "Transparent mockups for Eclipse Media",
+        "Draft icons for Shotforge storyboards"
+      ],
+      "platforms": [
+        "ChatGPT web",
+        "iOS",
+        "Android",
+        "Codex"
+      ],
+      "license": {
+        "label": "OpenAI Terms and usage policies; input and third-party asset rights remain the user's responsibility",
+        "original": "OpenAI Terms and usage policies; input and third-party asset rights remain the user's responsibility",
+        "spdx": null,
+        "kind": "service-terms",
+        "status": "editor-reviewed",
+        "requiresReview": false,
+        "evidence": [
+          {
+            "kind": "source",
+            "label": "Official OpenAI Images guide",
+            "url": "https://help.openai.com/en/articles/11084440"
+          }
+        ]
+      },
+      "access": {
+        "cost": "freemium",
+        "signup": "required",
+        "runtime": "cloud"
+      },
+      "trust": "official",
+      "decision": "now",
+      "riskLevel": "medium",
+      "projects": [
+        "Text2Image",
+        "Eclipse Media",
+        "Shotforge",
+        "Eclipse Forge Landing"
+      ],
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://help.openai.com/en/articles/11084440"
+        }
+      ],
+      "actions": {
+        "openOfficialSource": true,
+        "installFromCatalog": false,
+        "mutateExternalSystems": false
+      }
+    },
+    {
+      "id": "claude-academy",
+      "title": "Claude Academy",
+      "url": "https://academy.claude.com/",
+      "type": "learn",
+      "category": "Курсы и гайды",
+      "subcategory": "Claude platform learning",
+      "addedAt": "2026-08-21",
+      "description": "Официальная Anthropic learning platform с курсами по Claude API, MCP, Amazon Bedrock, Google Vertex AI и platform basics. Уроки, quizzes и badges полезны для structured onboarding; точное число курсов и certificate availability меняются и не фиксируются рекламным обещанием.",
+      "useCases": [
+        "Learning track в Educator-AI",
+        "Onboarding developers to Claude API/MCP",
+        "Source-backed internal competency checklist"
+      ],
+      "platforms": [
+        "Web",
+        "Anthropic account"
+      ],
+      "license": {
+        "label": "Anthropic proprietary learning content and service terms",
+        "original": "Anthropic proprietary learning content and service terms",
+        "spdx": null,
+        "kind": "service-terms",
+        "status": "editor-reviewed",
+        "requiresReview": false,
+        "evidence": [
+          {
+            "kind": "source",
+            "label": "Official Claude Academy",
+            "url": "https://academy.claude.com/"
+          }
+        ]
+      },
+      "access": {
+        "cost": "free",
+        "signup": "required",
+        "runtime": "cloud"
+      },
+      "trust": "official",
+      "decision": "now",
+      "riskLevel": "low",
+      "projects": [
+        "Educator-AI",
+        "Eclipse AI Hub",
+        "oh-my-claudecode"
+      ],
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://academy.claude.com/"
+        }
+      ],
+      "actions": {
+        "openOfficialSource": true,
+        "installFromCatalog": false,
+        "mutateExternalSystems": false
+      }
+    },
+    {
+      "id": "craftingtable-computer",
+      "title": "CraftingTable Computer",
+      "url": "https://computer.craftingtable.com/",
+      "type": "learn",
+      "category": "Курсы и гайды",
+      "subcategory": "Electronics simulation",
+      "addedAt": "2026-08-21",
+      "description": "Браузерный simulator для электронных схем и AVR microcontrollers с компонентами, guided lessons и daily challenges. Позволяет учиться без реального железа, но симуляция не заменяет electrical safety и проверку поведения физической платы.",
+      "useCases": [
+        "Интерактивные labs в Educator-AI",
+        "Reference для step-by-step learning UI",
+        "Beginner electronics exercises"
+      ],
+      "platforms": [
+        "Web",
+        "Browser",
+        "AVR simulation"
+      ],
+      "license": {
+        "label": "Proprietary web service; educational content and hardware kits retain separate terms",
+        "original": "Proprietary web service; educational content and hardware kits retain separate terms",
+        "spdx": null,
+        "kind": "service-terms",
+        "status": "editor-reviewed",
+        "requiresReview": false,
+        "evidence": [
+          {
+            "kind": "source",
+            "label": "Official simulator",
+            "url": "https://computer.craftingtable.com/"
+          }
+        ]
+      },
+      "access": {
+        "cost": "freemium",
+        "signup": "optional",
+        "runtime": "cloud"
+      },
+      "trust": "official",
+      "decision": "roadmap",
+      "riskLevel": "low",
+      "projects": [
+        "Educator-AI"
+      ],
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://computer.craftingtable.com/"
+        }
+      ],
+      "actions": {
+        "openOfficialSource": true,
+        "installFromCatalog": false,
+        "mutateExternalSystems": false
+      }
+    },
+    {
+      "id": "ctxport",
+      "title": "CtxPort",
+      "url": "https://github.com/nicepkg/ctxport",
+      "type": "repo",
+      "category": "AI и агенты",
+      "subcategory": "Conversation export",
+      "addedAt": "2026-08-21",
+      "description": "MIT browser extension exports conversations from ChatGPT, Claude, Gemini, DeepSeek, Grok and GitHub as clean Markdown Context Bundles. Processing is declared local, but the extension reads sensitive page content, so permissions, secrets and exported personal data need manual review.",
+      "useCases": [
+        "Session handoff in Eclipse Chat",
+        "User-controlled context export",
+        "Reference for eclipse.handoff.v1"
+      ],
+      "platforms": [
+        "Browser extension",
+        "Markdown",
+        "Local"
+      ],
+      "license": {
+        "label": "MIT",
+        "original": "MIT",
+        "spdx": "MIT",
+        "kind": "open-source",
+        "status": "editor-reviewed",
+        "requiresReview": false,
+        "evidence": [
+          {
+            "kind": "source",
+            "label": "Official repository and MIT metadata",
+            "url": "https://github.com/nicepkg/ctxport"
+          }
+        ]
+      },
+      "access": {
+        "cost": "free",
+        "signup": "none",
+        "runtime": "local"
+      },
+      "trust": "community",
+      "decision": "reference",
+      "riskLevel": "high",
+      "projects": [
+        "Eclipse Chat",
+        "Eclipse AI Hub",
+        "oh-my-claudecode"
+      ],
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://github.com/nicepkg/ctxport"
+        }
+      ],
+      "actions": {
+        "openOfficialSource": true,
+        "installFromCatalog": false,
+        "mutateExternalSystems": false
+      }
+    },
+    {
+      "id": "ffmpeg-webcli",
+      "title": "ffmpeg-webCLI",
+      "url": "https://github.com/tejaswigowda/ffmpeg-webCLI",
+      "type": "repo",
+      "category": "Медиа",
+      "subcategory": "Browser video processing",
+      "addedAt": "2026-08-21",
+      "description": "GPL-3.0 browser video editor на ffmpeg.wasm: conversion, compression, trimming, audio extraction, GIF, blur, speed and other local operations without upload. Это сильный reference для privacy-first media tools; removal of ownership marks or copyright circumvention is not an Eclipse use case.",
+      "useCases": [
+        "Local preview processing in Eclipse Media",
+        "Client-side trim/compress before upload",
+        "Offline media utility reference"
+      ],
+      "platforms": [
+        "Browser",
+        "WebAssembly",
+        "PWA",
+        "FFmpeg"
+      ],
+      "license": {
+        "label": "GPL-3.0",
+        "original": "GPL-3.0; ffmpeg.wasm dependencies retain their own terms",
+        "spdx": "GPL-3.0",
+        "kind": "open-source",
+        "status": "editor-reviewed",
+        "requiresReview": false,
+        "evidence": [
+          {
+            "kind": "license",
+            "label": "Official GPL-3.0 license",
+            "url": "https://github.com/tejaswigowda/ffmpeg-webCLI/blob/main/LICENSE"
+          }
+        ]
+      },
+      "access": {
+        "cost": "free",
+        "signup": "none",
+        "runtime": "local"
+      },
+      "trust": "community",
+      "decision": "roadmap",
+      "riskLevel": "medium",
+      "projects": [
+        "Eclipse Media",
+        "Shotforge"
+      ],
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://github.com/tejaswigowda/ffmpeg-webCLI"
+        },
+        {
+          "kind": "license",
+          "label": "Official GPL-3.0 license",
+          "url": "https://github.com/tejaswigowda/ffmpeg-webCLI/blob/main/LICENSE"
+        }
+      ],
+      "actions": {
+        "openOfficialSource": true,
+        "installFromCatalog": false,
+        "mutateExternalSystems": false
+      }
+    },
+    {
+      "id": "gemini-study-notebooks",
+      "title": "Gemini Study Notebooks",
+      "url": "https://blog.google/innovation-and-ai/products/gemini-app/gemini-study-notebooks/",
+      "type": "service",
+      "category": "Обучение",
+      "subcategory": "Adaptive learning",
+      "addedAt": "2026-08-21",
+      "description": "Официальный learning mode в Gemini: принимает цель и учебные материалы, проводит diagnostic quiz, строит короткие adaptive lessons и отслеживает прогресс. Это точнее исходного заявления о «курсах прямо в Google Search»; rollout и доступность зависят от account, региона и устройства.",
+      "useCases": [
+        "Reference для Educator-AI learning tracks",
+        "Diagnostic quiz before curriculum",
+        "Adaptive checkpoints grounded in user materials"
+      ],
+      "platforms": [
+        "Gemini web",
+        "Google accounts",
+        "Desktop rollout"
+      ],
+      "license": {
+        "label": "Google proprietary service terms; uploaded class materials retain their own rights",
+        "original": "Google proprietary service terms; uploaded class materials retain their own rights",
+        "spdx": null,
+        "kind": "service-terms",
+        "status": "editor-reviewed",
+        "requiresReview": false,
+        "evidence": [
+          {
+            "kind": "source",
+            "label": "Official Google announcement",
+            "url": "https://blog.google/innovation-and-ai/products/gemini-app/gemini-study-notebooks/"
+          }
+        ]
+      },
+      "access": {
+        "cost": "freemium",
+        "signup": "required",
+        "runtime": "cloud"
+      },
+      "trust": "official",
+      "decision": "reference",
+      "riskLevel": "medium",
+      "projects": [
+        "Educator-AI",
+        "Eclipse AI Hub"
+      ],
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://blog.google/innovation-and-ai/products/gemini-app/gemini-study-notebooks/"
+        }
+      ],
+      "actions": {
+        "openOfficialSource": true,
+        "installFromCatalog": false,
+        "mutateExternalSystems": false
+      }
+    },
+    {
+      "id": "hapi-remote-agent-control",
+      "title": "HAPI",
+      "url": "https://hapi.run/",
+      "type": "repo",
+      "category": "AI и агенты",
+      "subcategory": "Remote agent control",
+      "addedAt": "2026-08-21",
+      "description": "Local-first AGPL-3.0 оболочка для Claude Code, Codex, Cursor Agent, OpenCode и других coding agents. Даёт PWA/телефон/Telegram, просмотр diff и permission prompts, но фактически открывает удалённый доступ к локальному агенту и терминалу — это высокорисковая capability.",
+      "useCases": [
+        "Reference для Eclipse Chat Agent Control Room",
+        "Безопасный mobile approval UX",
+        "Session handoff между desktop и телефоном"
+      ],
+      "platforms": [
+        "Web/PWA",
+        "Telegram",
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "license": {
+        "label": "AGPL-3.0-only",
+        "original": "AGPL-3.0-only",
+        "spdx": null,
+        "kind": "custom",
+        "status": "editor-reviewed",
+        "requiresReview": false,
+        "evidence": [
+          {
+            "kind": "license",
+            "label": "Official HAPI FAQ and license",
+            "url": "https://hapi.run/docs/guide/faq"
+          },
+          {
+            "kind": "source",
+            "label": "Supported agents",
+            "url": "https://hapi.run/docs/guide/agents"
+          }
+        ]
+      },
+      "access": {
+        "cost": "free",
+        "signup": "none",
+        "runtime": "self-host"
+      },
+      "trust": "official",
+      "decision": "reference",
+      "riskLevel": "high",
+      "projects": [
+        "Eclipse Chat",
+        "Hopson Sentinel",
+        "oh-my-claudecode"
+      ],
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://hapi.run/"
+        },
+        {
+          "kind": "license",
+          "label": "Official HAPI FAQ and license",
+          "url": "https://hapi.run/docs/guide/faq"
+        },
+        {
+          "kind": "source",
+          "label": "Supported agents",
+          "url": "https://hapi.run/docs/guide/agents"
+        }
+      ],
+      "actions": {
+        "openOfficialSource": true,
+        "installFromCatalog": false,
+        "mutateExternalSystems": false
+      }
+    },
+    {
+      "id": "happy-shrimp-ai-music",
+      "title": "Happy Shrimp",
+      "url": "https://www.happyshrimp.ai/",
+      "type": "service",
+      "category": "Медиа",
+      "subcategory": "AI music generation",
+      "addedAt": "2026-08-21",
+      "description": "Облачный AI music service создаёт full song из короткого описания: lyrics, composition, arrangement и vocals, а также показывает community feed. Сервис существует и размещён на Alibaba infrastructure, но публичные Terms, pricing, training-data и commercial-rights условия требуют отдельной проверки.",
+      "useCases": [
+        "Benchmark original music briefs для Eclipse Media",
+        "Reference для song-structure UX",
+        "Preview только на оригинальных lyrics"
+      ],
+      "platforms": [
+        "Web",
+        "Cloud"
+      ],
+      "license": {
+        "label": "Proprietary; public usage, training-data and commercial-output terms require review",
+        "original": "Proprietary; public usage, training-data and commercial-output terms require review",
+        "spdx": null,
+        "kind": "service-terms",
+        "status": "editor-reviewed",
+        "requiresReview": false,
+        "evidence": [
+          {
+            "kind": "source",
+            "label": "Official service",
+            "url": "https://www.happyshrimp.ai/"
+          }
+        ]
+      },
+      "access": {
+        "cost": "unknown",
+        "signup": "required",
+        "runtime": "cloud"
+      },
+      "trust": "official",
+      "decision": "reference",
+      "riskLevel": "high",
+      "projects": [
+        "Eclipse Media",
+        "Shotforge"
+      ],
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://www.happyshrimp.ai/"
+        }
+      ],
+      "actions": {
+        "openOfficialSource": true,
+        "installFromCatalog": false,
+        "mutateExternalSystems": false
+      }
+    },
+    {
+      "id": "language-coach-seven-workflows",
+      "title": "Language Coach: 7 bounded prompts",
+      "url": "https://library.eclipse-forge.ru/guides/august-2026-agent-learning-media-radar.md#language-coach",
+      "type": "prompt",
+      "category": "Промпты",
+      "subcategory": "Language learning",
+      "addedAt": "2026-08-21",
+      "description": "Семь связанных prompt-workflows: учебный план, разговор, vocabulary, grammar, listening, shadowing и weekly review. Они помогают персонализировать практику, но не заменяют носителя языка, квалифицированного преподавателя или проверку произношения человеком.",
+      "useCases": [
+        "Learning track в Educator-AI",
+        "Adaptive weekly plan",
+        "Conversation and pronunciation practice"
+      ],
+      "platforms": [
+        "Eclipse AI Hub",
+        "Chat assistants"
+      ],
+      "license": {
+        "label": "Eclipse Library editorial prompt pack",
+        "original": "Eclipse Library editorial prompt pack",
+        "spdx": null,
+        "kind": "custom",
+        "status": "editor-reviewed",
+        "requiresReview": false,
+        "evidence": [
+          {
+            "kind": "source",
+            "label": "Eclipse editorial guide",
+            "url": "https://library.eclipse-forge.ru/#guide/august-2026-agent-learning-media-radar"
+          }
+        ]
+      },
+      "access": {
+        "cost": "free",
+        "signup": "optional",
+        "runtime": "hybrid"
+      },
+      "trust": "verified",
+      "decision": "now",
+      "riskLevel": "low",
+      "projects": [
+        "Educator-AI",
+        "Eclipse AI Hub",
+        "Eclipse Chat"
+      ],
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://library.eclipse-forge.ru/guides/august-2026-agent-learning-media-radar.md#language-coach"
+        },
+        {
+          "kind": "source",
+          "label": "Eclipse editorial guide",
+          "url": "https://library.eclipse-forge.ru/#guide/august-2026-agent-learning-media-radar"
+        }
+      ],
+      "actions": {
+        "openOfficialSource": true,
+        "installFromCatalog": false,
+        "mutateExternalSystems": false
+      }
+    },
+    {
+      "id": "llm-as-a-verifier",
+      "title": "LLM-as-a-Verifier",
+      "url": "https://github.com/llm-as-a-verifier/llm-as-a-verifier",
+      "type": "repo",
+      "category": "AI и агенты",
+      "subcategory": "Verifier orchestration",
+      "addedAt": "2026-08-21",
+      "description": "MIT-фреймворк генерирует несколько candidate answers, проверяет их отдельным verifier-проходом и выбирает лучший. Может повысить качество сложных agent tasks без fine-tuning, но увеличивает latency и расход токенов и не устраняет общие ошибки generator/verifier.",
+      "useCases": [
+        "Rejudge benchmark в Sentinel",
+        "Best-of-N режим в AI Hub Arena",
+        "Read-only review в oh-my-claudecode"
+      ],
+      "platforms": [
+        "Python",
+        "LLM APIs",
+        "CLI"
+      ],
+      "license": {
+        "label": "MIT",
+        "original": "MIT",
+        "spdx": "MIT",
+        "kind": "open-source",
+        "status": "editor-reviewed",
+        "requiresReview": false,
+        "evidence": [
+          {
+            "kind": "license",
+            "label": "Official MIT license",
+            "url": "https://github.com/llm-as-a-verifier/llm-as-a-verifier/blob/main/LICENSE"
+          }
+        ]
+      },
+      "access": {
+        "cost": "free",
+        "signup": "optional",
+        "runtime": "hybrid"
+      },
+      "trust": "community",
+      "decision": "roadmap",
+      "riskLevel": "medium",
+      "projects": [
+        "Hopson Sentinel",
+        "Eclipse AI Hub",
+        "oh-my-claudecode"
+      ],
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://github.com/llm-as-a-verifier/llm-as-a-verifier"
+        },
+        {
+          "kind": "license",
+          "label": "Official MIT license",
+          "url": "https://github.com/llm-as-a-verifier/llm-as-a-verifier/blob/main/LICENSE"
+        }
+      ],
+      "actions": {
+        "openOfficialSource": true,
+        "installFromCatalog": false,
+        "mutateExternalSystems": false
+      }
+    },
+    {
+      "id": "magnitude-local-model-agent",
+      "title": "Magnitude",
+      "url": "https://github.com/magnitudedev/magnitude",
+      "type": "repo",
+      "category": "AI и агенты",
+      "subcategory": "Local model runtime",
+      "addedAt": "2026-08-21",
+      "description": "Apache-2.0 coding agent с встроенным local-model runtime. Профилирует hardware, предлагает подходящие модели и параметры и запускает их через Rust/llama.cpp stack. Полезен как reference для Hardware Doctor, но его прогноз скорости нужно проверять реальным benchmark.",
+      "useCases": [
+        "Hardware Doctor в Eclipse AI Hub",
+        "Local model benchmark в Sentinel",
+        "Подбор quantization до загрузки weights"
+      ],
+      "platforms": [
+        "macOS",
+        "Linux",
+        "Windows via WSL",
+        "llama.cpp"
+      ],
+      "license": {
+        "label": "Apache-2.0",
+        "original": "Apache-2.0",
+        "spdx": "Apache-2.0",
+        "kind": "open-source",
+        "status": "editor-reviewed",
+        "requiresReview": false,
+        "evidence": [
+          {
+            "kind": "license",
+            "label": "Official Apache-2.0 license",
+            "url": "https://github.com/magnitudedev/magnitude/blob/main/LICENSE"
+          }
+        ]
+      },
+      "access": {
+        "cost": "free",
+        "signup": "none",
+        "runtime": "local"
+      },
+      "trust": "community",
+      "decision": "roadmap",
+      "riskLevel": "medium",
+      "projects": [
+        "Eclipse AI Hub",
+        "Hopson Sentinel"
+      ],
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://github.com/magnitudedev/magnitude"
+        },
+        {
+          "kind": "license",
+          "label": "Official Apache-2.0 license",
+          "url": "https://github.com/magnitudedev/magnitude/blob/main/LICENSE"
+        }
+      ],
+      "actions": {
+        "openOfficialSource": true,
+        "installFromCatalog": false,
+        "mutateExternalSystems": false
+      }
+    },
+    {
+      "id": "minimalist-split-poster-prompt",
+      "title": "Minimalist Split Poster Prompt",
+      "url": "https://library.eclipse-forge.ru/#guide/august-2026-agent-learning-media-radar",
+      "type": "prompt",
+      "category": "Промпты",
+      "subcategory": "Image composition",
+      "addedAt": "2026-08-21",
+      "description": "Редакционная версия prompt-паттерна: верхняя половина сохраняет исходную фотографию, нижняя переводит её ключевой силуэт в минималистичную геометрию. Подходит для обложек и презентаций, если отдельно проверить права на фото, likeness и надписи.",
+      "useCases": [
+        "Обложки кейсов Eclipse Forge",
+        "Карточки релизов",
+        "Презентации без collage"
+      ],
+      "platforms": [
+        "ChatGPT Images",
+        "Image models"
+      ],
+      "license": {
+        "label": "Eclipse Library editorial prompt; uploaded photos and generated assets retain their own rights and provider terms",
+        "original": "Eclipse Library editorial prompt; uploaded photos and generated assets retain their own rights and provider terms",
+        "spdx": null,
+        "kind": "service-terms",
+        "status": "editor-reviewed",
+        "requiresReview": false,
+        "evidence": [
+          {
+            "kind": "source",
+            "label": "Eclipse editorial guide",
+            "url": "https://library.eclipse-forge.ru/#guide/august-2026-agent-learning-media-radar"
+          }
+        ]
+      },
+      "access": {
+        "cost": "free",
+        "signup": "optional",
+        "runtime": "cloud"
+      },
+      "trust": "verified",
+      "decision": "now",
+      "riskLevel": "medium",
+      "projects": [
+        "Eclipse Media",
+        "Shotforge",
+        "Eclipse Forge Landing"
+      ],
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://library.eclipse-forge.ru/#guide/august-2026-agent-learning-media-radar"
+        }
+      ],
+      "actions": {
+        "openOfficialSource": true,
+        "installFromCatalog": false,
+        "mutateExternalSystems": false
+      }
+    },
+    {
+      "id": "ornith-1-5-9b-gguf",
+      "title": "Ornith 1.5 9B GGUF",
+      "url": "https://huggingface.co/ornith-ai/Ornith-1.5-9B-GGUF",
+      "type": "model",
+      "category": "AI-модели",
+      "subcategory": "Local coding model",
+      "addedAt": "2026-08-21",
+      "description": "MIT GGUF text-generation model из семейства Ornith. Карточка существует и активно скачивается, но официальный metadata определяет её как text-generation, а не multimodal model; заявления о запуске на любом телефоне и автоматическом self-improvement требуют device benchmark.",
+      "useCases": [
+        "Local coding benchmark в AI Hub",
+        "Low-memory agent fixtures",
+        "Comparison with other 9B GGUF models"
+      ],
+      "platforms": [
+        "GGUF",
+        "llama.cpp-compatible runtimes",
+        "Local devices"
+      ],
+      "license": {
+        "label": "MIT",
+        "original": "MIT",
+        "spdx": "MIT",
+        "kind": "open-source",
+        "status": "editor-reviewed",
+        "requiresReview": false,
+        "evidence": [
+          {
+            "kind": "license",
+            "label": "Official model metadata",
+            "url": "https://huggingface.co/ornith-ai/Ornith-1.5-9B-GGUF"
+          }
+        ]
+      },
+      "access": {
+        "cost": "free",
+        "signup": "optional",
+        "runtime": "local"
+      },
+      "trust": "official",
+      "decision": "roadmap",
+      "riskLevel": "medium",
+      "projects": [
+        "Eclipse AI Hub",
+        "Hopson Sentinel",
+        "Educator-AI"
+      ],
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://huggingface.co/ornith-ai/Ornith-1.5-9B-GGUF"
+        }
+      ],
+      "actions": {
+        "openOfficialSource": true,
+        "installFromCatalog": false,
+        "mutateExternalSystems": false
+      }
+    },
+    {
+      "id": "teamspeak-6",
+      "title": "TeamSpeak 6",
+      "url": "https://teamspeak.com/en/",
+      "type": "service",
+      "category": "Коммуникации",
+      "subcategory": "Voice and screen sharing",
+      "addedAt": "2026-08-21",
+      "description": "Обновлённый TeamSpeak client/server stack с переработанным UI, Communities, voice, messaging и screen sharing. Полезен как product reference для Eclipse Chat, но это не библиотека для встраивания и не подтверждение рекламного тезиса «Discord закончился».",
+      "useCases": [
+        "Reference для low-latency voice UX",
+        "Screen-sharing quality matrix",
+        "Server/community permissions comparison"
+      ],
+      "platforms": [
+        "Windows",
+        "macOS",
+        "Linux",
+        "Self-hosted servers"
+      ],
+      "license": {
+        "label": "Proprietary TeamSpeak software and service terms",
+        "original": "Proprietary TeamSpeak software and service terms",
+        "spdx": null,
+        "kind": "service-terms",
+        "status": "editor-reviewed",
+        "requiresReview": false,
+        "evidence": [
+          {
+            "kind": "terms",
+            "label": "Official TeamSpeak site",
+            "url": "https://teamspeak.com/en/"
+          }
+        ]
+      },
+      "access": {
+        "cost": "freemium",
+        "signup": "optional",
+        "runtime": "hybrid"
+      },
+      "trust": "official",
+      "decision": "reference",
+      "riskLevel": "low",
+      "projects": [
+        "Eclipse Chat"
+      ],
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://teamspeak.com/en/"
         }
       ],
       "actions": {
@@ -5490,13 +6420,13 @@
     },
     {
       "id": "marketing-skills-coreyhaines31-github-com",
-      "title": "Marketing Skills (coreyhaines31)",
+      "title": "MarketingSkills",
       "url": "https://github.com/coreyhaines31/marketingskills",
       "type": "skill",
       "category": "Скиллы для Claude",
-      "subcategory": "Скиллы для Claude",
-      "addedAt": null,
-      "description": "Marketing Skills (coreyhaines31) — Набор примерно из 40 marketing-skills: аудитория, боли, возражения, email-цепочки, SEO, конверсия, лид-магниты. Сильная идея — базовый product-context skill, на который опираются остальные · EclipseForgeLanding, kwork-офферы, Eclipse AI Hub Copywriter, Eclipse Market/Eclipse CRM marketing flows. Карточка помогает понять назначение ресурса и начать с небольшой безопасной проверки; условия использования ещё нужно сверить с официальным источником.",
+      "subcategory": "Marketing agent skills",
+      "addedAt": "2026-08-21",
+      "description": "Открытый набор переиспользуемых marketing skills для AI-агентов: product context, positioning, copywriting, SEO, CRO, email, launch и growth workflows. Это не автономный маркетолог и не гарантия роста: навыки дают структуру работы, а факты, доступы, бюджет, публикацию и итоговые решения должен контролировать человек.",
       "useCases": [
         "Разобраться, подходит ли Marketing Skills (coreyhaines31) для вашей задачи",
         "Проверить возможности на небольшом тестовом сценарии до интеграции"
@@ -5506,7 +6436,7 @@
       ],
       "license": {
         "label": "MIT",
-        "original": "Нужно проверить в официальном источнике",
+        "original": "MIT",
         "spdx": "MIT",
         "kind": "open-source",
         "status": "source-declared",
@@ -5525,7 +6455,7 @@
         "runtime": "cloud"
       },
       "trust": "community",
-      "decision": "reference",
+      "decision": "roadmap",
       "riskLevel": "medium",
       "projects": [
         "Eclipse AI Hub",
