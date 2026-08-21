@@ -341,6 +341,12 @@
       self-check, EN/RU copy и без обязательного API key.
 
 ## Changelog
+### 2026-08-21 — Vault Dial cinematic 3D
+- Flat Vault Dial concept rebuilt as an Eclipse-owned 3D security interaction: perspective chamber, direct-manipulation mechanical dial, three retracting pins and bounded door opening.
+- Pointer drag, wheel, keyboard arrows, Enter/Space and the primary Unlock action share one state machine with visible idle, checking, error and open feedback.
+- Mobile, reduced motion, numeric input sanitization, focus visibility and deterministic QA harness are covered. Browser QA passed at 900×760 and 390×844 with zero page/console/request errors.
+- Security boundary remains explicit: this is a local visual concept and does not replace server-side validation, rate limiting, access control or audit logging.
+
 ### 2026-08-21 — Animation Lab production workbench
 - Витрина motion-паттернов преобразована в тихий product/developer workbench с 7 оригинальными demos, device preview, state selector, speed, accent/glow/density, accessibility toggles, focus mode и deterministic timeline.
 - Upload Queue получил real file input/drop, pause/retry/cancel/error, progress и FLIP reorder; добавлен AI Generation с честными stages/event log/checkpoint retry; OTP Auth Kit получил paste/edit/resend/loading/error/success/expired.

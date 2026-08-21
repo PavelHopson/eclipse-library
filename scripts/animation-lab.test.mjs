@@ -19,6 +19,16 @@ for(const demo of manifest.demos){
   assert.doesNotMatch(source,/https?:\/\//i,'Standalone demos must not call remote origins: '+demo.file);
   assert.doesNotMatch(source,/(?:const|let|var)\s+\w+\s*=\s*Number\([^\n;]*\.get\(["']t["']\)\)/,'Missing t must not become frozen frame zero: '+demo.file);
 }
+const vault=fs.readFileSync(path.join(web,'animation-vault-dial.html'),'utf8');
+assert.match(vault,/perspective:1200px/,'Vault must establish a real 3D perspective');
+assert.match(vault,/rotateY\(-72deg\)/,'Vault door must open through a bounded 3D rotation');
+assert.match(vault,/pointerdown|pointermove/,'Vault dial must support direct manipulation');
+assert.match(vault,/addEventListener\("wheel"/,'Vault dial must support wheel input');
+assert.match(vault,/ArrowRight|ArrowLeft/,'Vault dial must support keyboard rotation');
+assert.match(vault,/prefers-reduced-motion:reduce/,'Vault must provide a reduced-motion presentation');
+assert.doesNotMatch(vault,/class="chamber"[^>]*aria-hidden/,'Interactive vault chamber must stay in the accessibility tree');
+assert.match(vault,/replace\(\/\\D\/g,""\)/,'Vault code input must reject non-numeric characters');
+assert.match(vault,/window\.__ready=true/,'Vault must expose deterministic browser readiness');
 const upload=fs.readFileSync(path.join(web,'animation-upload-queue.html'),'utf8');
 assert.match(upload,/escapeHtml\(f\.name\)/,'User-controlled file names must be output encoded before innerHTML rendering');
 const page=fs.readFileSync(path.join(web,'animations.html'),'utf8');

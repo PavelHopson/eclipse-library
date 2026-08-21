@@ -45,3 +45,38 @@
 ## Final Result
 
 final result: passed
+---
+
+# Design QA — Eclipse Vault Dial 3D
+
+- Date: 2026-08-21
+- Source reference: `.artifacts/vault-reference.png` (551 × 456, idle/closed state)
+- Implementation: `web/animation-vault-dial.html`
+- Comparison board: `.artifacts/vault-qa-board.jpg`
+- Desktop viewport: 900 × 760
+- Mobile viewport: 390 × 844
+- States reviewed: idle, error, open, reduced motion
+
+## Focused comparison
+
+The implementation preserves the source hierarchy: compact security identity, dominant mechanical dial, six-digit code and one primary Unlock action. The visual contract intentionally advances the reference from a flat panel to a deeper Eclipse-owned mechanism with chamber depth, restrained blue material lighting, door hinges, three retracting pins and a bounded 3D door swing.
+
+## Functional visual acceptance
+
+- closed state reads as a secure object before interaction;
+- open state clearly reveals depth and confirms the state change;
+- status color, feedback text and button label agree in idle/error/open states;
+- drag, wheel, keyboard and primary button converge on the same state machine;
+- mobile keeps the object, code and action in one obvious vertical path;
+- reduced motion removes parallax and large displacement without hiding confirmation;
+- no horizontal overflow, console errors, page errors or failed requests.
+
+## Comparison history
+
+1. Source: flat framed vault with central dial and compact code action.
+2. First 3D pass: layered chamber, mechanical dial and hinged door; functional browser QA passed.
+3. Final pass: source-matched closed-state comparison added, accessible chamber preserved, pin selectors corrected, mobile and reduced-motion screenshots verified.
+
+## Final result
+
+Passed. The implementation is visually stronger than the source while preserving its hierarchy, task clarity and Eclipse visual language. No blocking mismatch remains.

@@ -28,9 +28,20 @@ Preview работает в `sandbox="allow-scripts"` без `allow-same-origin`
 | OTP Auth Kit | Paste шести цифр, edit, resend timer, loading/error/success/expired | Внедрить сейчас, P1/M | Eclipse Chat, Eclipse DnD Forge |
 | Guardian Login | Pointer feedback и состояние формы без вмешательства в auth | Reference до backend integration, P2/S | Eclipse Chat |
 | Orbit Upload | Компактный progress для долгой операции | Внедрить сейчас, P1/S | Eclipse Media, Shotforge |
-| Vault Dial | Эмоциональная метафора защищённого действия | Concept only, P3/M | Sentinel |
+| Vault Dial | Кинематографичный 3D security concept: direct-manipulation dial, проверка кода, retracting pins и открытие тяжёлой двери | Concept only, P3/M | Sentinel |
 | OTP Glass | Светлый mobile-first вариант OTP contract | Reference, P2/S | Eclipse Forge Landing |
 
+## Vault Dial 3D contract
+
+Vault Dial сохраняет понятный основной путь — локальный шестизначный код и заметная кнопка Unlock — но добавляет контролируемый объём:
+
+- perspective и лёгкий pointer parallax только на desktop с точным устройством ввода;
+- dial управляется drag, wheel и стрелками клавиатуры;
+- неверная комбинация остаётся видимой, после исправления доступен retry;
+- успешная проверка втягивает три механических pin и открывает дверь через ограниченный `rotateY`;
+- mobile сохраняет тот же сценарий в одноколоночной раскладке без horizontal overflow;
+- reduced motion отключает parallax и заменяет большой swing двери короткой сменой opacity;
+- это визуальный concept, а не auth-компонент: production всё равно требует server validation, rate limit, audit и access control.
 ## Motion contract
 
 1. Motion объясняет state change, hierarchy или spatial continuity.
