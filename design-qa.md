@@ -80,3 +80,36 @@ The implementation preserves the source hierarchy: compact security identity, do
 ## Final result
 
 Passed. The implementation is visually stronger than the source while preserving its hierarchy, task clarity and Eclipse visual language. No blocking mismatch remains.
+
+---
+
+# Design QA — Animation Lab full cinematic 3D system
+
+- Date: 2026-08-21
+- Implementations: all seven `web/animation-*.html` demos
+- Desktop contact sheet: `.artifacts/all-3d-desktop-contact.png`
+- Mobile contact sheet: `.artifacts/all-3d-mobile-contact.png`
+- Browser harness: `.artifacts/all-3d-browser-qa.cjs`
+- Viewports: 900 × 760 desktop, 390 × 844 mobile, 900 × 760 reduced motion
+
+## Visual contract
+
+All demos share Eclipse materials, lighting, bounded perspective and state feedback, but retain distinct metaphors: file stack, reactor, code cells, guardian, portal, mechanical vault and translucent glass. Depth communicates hierarchy or operation state; it is not a decorative card tilt applied blindly.
+
+## Functional acceptance
+
+- every demo exposes deterministic `window.__ready` and reproducible query states;
+- pointer parallax reacts on desktop with a precise pointer and is removed on touch/mobile;
+- reduced motion flattens each root object while preserving status, focus, error and success;
+- upload retry, AI cancel, orbit cancel, both OTP confirmations and Guardian submit were exercised;
+- desktop and mobile have no horizontal overflow;
+- seven desktop and seven mobile captures show no clipped primary action or unreadable state;
+- browser run completed with zero console, page and request errors.
+
+## Security and performance
+
+Standalone demos contain no remote scripts, remote origins, secrets, `eval` or `document.write`. Preview remains sandboxed with `allow-scripts` only. Per-frame depth uses transforms; auth and upload scenes remain presentation/state contracts and do not claim backend validation or production authority.
+
+## Final result
+
+Passed. The seven demos form one recognizable cinematic Eclipse collection without sacrificing mobile usability, reduced motion or the 3-second primary path.

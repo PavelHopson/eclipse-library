@@ -42,6 +42,19 @@ Vault Dial сохраняет понятный основной путь — л�
 - mobile сохраняет тот же сценарий в одноколоночной раскладке без horizontal overflow;
 - reduced motion отключает parallax и заменяет большой swing двери короткой сменой opacity;
 - это визуальный concept, а не auth-компонент: production всё равно требует server validation, rate limit, audit и access control.
+## Общий 3D motion contract
+
+Кинематографичный объём теперь применяется ко всем семи demo, но не превращает их в одинаковые карточки. У каждого сценария своя пространственная метафора:
+
+- Upload Queue — стопка файлов и поднятая активная операция;
+- AI Generation — reactor core с разнонаправленными орбитами;
+- OTP Auth Kit — единый пространственный объект из шести code cells;
+- Guardian Login — многослойный security companion;
+- Orbit Upload — transfer portal, который показывает фазу операции;
+- Vault Dial — механическая дверь, pins и direct-manipulation dial;
+- OTP Glass — спокойные translucent layers для светлого mobile-first варианта.
+
+Depth объясняет hierarchy или состояние, а не служит декорацией. Pointer parallax доступен только на desktop с `pointer:fine`, ограничен небольшим углом и не влияет на кликабельность. На mobile композиции уплощаются, сохраняя визуальную иерархию и touch targets. В `prefers-reduced-motion` отключаются parallax, большие повороты и декоративные циклы; статусы, focus, error и success остаются заметными. Per-frame motion ограничен `transform` и `opacity`.
 ## Motion contract
 
 1. Motion объясняет state change, hierarchy или spatial continuity.

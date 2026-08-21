@@ -4,7 +4,7 @@
 
 ## Текущее состояние
 
-- Animation Lab v3 работает как production workbench: 7 first-party standalone demos, state presets, desktop/tablet/mobile preview, motion tokens, reduced-motion/high-contrast modes, deterministic frame timeline и export kit для HTML, React contract, tokens и QA checklist. Upload Queue, AI Generation и OTP Auth Kit имеют реальные error/retry/cancel/loading/success сценарии; preview остаётся sandboxed и без внешней сети.
+- Animation Lab v3 работает как production workbench: 7 first-party standalone demos получили единый cinematic 3D contract и разные пространственные метафоры — file stack, reactor core, spatial OTP, guardian, transfer portal, mechanical vault и translucent glass. State presets, desktop/tablet/mobile preview, reduced motion, deterministic timeline и export kit сохранены; preview sandboxed и не обращается во внешнюю сеть.
 
 - Owned Growth OS MVP завершён без Teamly: Eclipse AI Hub исполняет пять bounded ролей и выдаёт
   `growth.run.v1`, Eclipse Chat даёт tenant-scoped Command Room с budget, cancel, provenance и
@@ -341,6 +341,10 @@
       self-check, EN/RU copy и без обязательного API key.
 
 ## Changelog
+### 2026-08-21 — Animation Lab full cinematic 3D system
+- Единый cinematic 3D contract распространён с Vault Dial на остальные шесть first-party demo без унификации их поведения: Upload Queue получил spatial file stack, AI Generation — reactor core, OTP Auth — code-cell depth, Guardian — layered companion, Orbit Upload — transfer portal, OTP Glass — translucent layers.
+- Pointer parallax ограничен desktop `pointer:fine`; mobile и reduced-motion уплощают композицию, сохраняя focus, error, success и primary action. Regression-тест теперь требует depth/readiness contract для всех семи demo.
+- Playwright QA пройден на 900×760, 390×844 и OS reduced motion: 7/7 demos, ключевые interaction paths, нулевой horizontal overflow, console/page/request errors отсутствуют.
 ### 2026-08-21 — Vault Dial cinematic 3D
 - Flat Vault Dial concept rebuilt as an Eclipse-owned 3D security interaction: perspective chamber, direct-manipulation mechanical dial, three retracting pins and bounded door opening.
 - Pointer drag, wheel, keyboard arrows, Enter/Space and the primary Unlock action share one state machine with visible idle, checking, error and open feedback.

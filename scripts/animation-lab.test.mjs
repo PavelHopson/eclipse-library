@@ -12,12 +12,19 @@ assert.equal(new Set(manifest.demos.map(item=>item.id)).size,manifest.demos.leng
 for(const demo of manifest.demos){
   const source=fs.readFileSync(path.join(web,demo.file),'utf8');
   assert.match(source,/prefers-reduced-motion|reduce/,'Reduced motion path is required: '+demo.file);
+  assert.match(source,/perspective/,'Every cinematic demo must establish an explicit depth contract: '+demo.file);
   assert.match(source,/URLSearchParams/,'Query harness is required: '+demo.file);
+  assert.match(source,/window\.__ready=true/,'Deterministic browser readiness is required: '+demo.file);
   assert.match(source,/viewport/,'Responsive viewport is required: '+demo.file);
   assert.doesNotMatch(source,/<script\s+src=/i,'Remote scripts are forbidden: '+demo.file);
   assert.doesNotMatch(source,/\beval\s*\(|document\.write/i,'Unsafe execution is forbidden: '+demo.file);
   assert.doesNotMatch(source,/https?:\/\//i,'Standalone demos must not call remote origins: '+demo.file);
   assert.doesNotMatch(source,/(?:const|let|var)\s+\w+\s*=\s*Number\([^\n;]*\.get\(["']t["']\)\)/,'Missing t must not become frozen frame zero: '+demo.file);
+}
+for(const demo of manifest.demos.filter(item=>item.id!=='vault-dial')){
+  const source=fs.readFileSync(path.join(web,demo.file),'utf8');
+  assert.match(source,/Eclipse 3D contract/,'Every upgraded demo must document its unique 3D metaphor: '+demo.file);
+  assert.match(source,/pointer:fine/,'Desktop parallax must be limited to precise pointing devices: '+demo.file);
 }
 const vault=fs.readFileSync(path.join(web,'animation-vault-dial.html'),'utf8');
 assert.match(vault,/perspective:1200px/,'Vault must establish a real 3D perspective');
