@@ -1,74 +1,19 @@
 const demos=[
-  {id:'upload-queue',title:'Upload Queue',kind:'upload',label:'Загрузка',file:'animation-upload-queue.html',description:'Файл занимает своё место в очереди, а прогресс раскрывает превью без скачков layout.'},
-  {id:'orbit-upload',title:'Orbit Upload',kind:'upload feedback',label:'Загрузка · feedback',file:'animation-orbit-upload.html',description:'Компактный индикатор долгой операции с понятным процентом, отменой и состоянием завершения.'},
-  {id:'reactive-login',title:'Reactive Login',kind:'auth',label:'Вход',file:'animation-reactive-login.html',description:'Спокойная реакция интерфейса на фокус поля и отправку формы — без отвлечения от входа.'},
-  {id:'otp-input',title:'Accessible OTP',kind:'auth feedback',label:'Вход · feedback',file:'animation-otp-input.html',description:'Ввод, вставка полного кода, стрелки, удаление и ясная ошибка — с одним логическим полем для screen reader.'},
-  {id:'vault-dial',title:'Vault Dial',kind:'auth feedback',label:'Security concept',file:'animation-vault-dial.html',description:'Тактильный dial как дополнительная визуальная метафора защищённого действия, не замена основной аутентификации.'}
+{id:"upload-queue",title:"Upload Queue",label:"Очередь файлов",file:"animation-upload-queue.html",description:"Файлы мягко занимают свои места, а прогресс раскрывает цветное превью без скачков layout.",tags:["upload","progress","drag & drop"]},
+{id:"reactive-login",title:"Guardian Login",label:"Реактивный вход",file:"animation-reactive-login.html",description:"Живой guardian реагирует на курсор, фокус пароля и отправку формы, не мешая основному сценарию.",tags:["auth","pointer","feedback"]},
+{id:"orbit-upload",title:"Orbit Upload",label:"Круговой прогресс",file:"animation-orbit-upload.html",description:"Минималистичная траектория показывает длительную загрузку, процент, отмену и завершение.",tags:["upload","svg","progress"]},
+{id:"otp-input",title:"OTP Terminal",label:"Код подтверждения",file:"animation-otp-input.html",description:"Тёмный OTP-компонент поддерживает ввод, вставку кода, клавиатуру, ошибку и успешное подтверждение.",tags:["otp","keyboard","a11y"]},
+{id:"vault-dial",title:"Vault Dial",label:"Защищённое действие",file:"animation-vault-dial.html",description:"Механический dial усиливает ощущение защищённого действия, оставаясь дополнительной метафорой.",tags:["security","dial","feedback"]},
+{id:"otp-light",title:"OTP Glass",label:"Светлый OTP",file:"animation-otp-light.html",description:"Светлая glass-версия подтверждения с последовательным вводом и ясным состоянием готовности.",tags:["otp","glass","mobile"]}
 ];
-
-const grid=document.querySelector('#demo-grid');
-const empty=document.querySelector('#empty-state');
-const reduceButton=document.querySelector('.motion-toggle');
-let filter='all';
-let forcedReduced=false;
-
-function demoUrl(item,replay=false){
-  const params=new URLSearchParams();
-  if(forcedReduced) params.set('reduce','1');
-  if(replay) params.set('replay',String(Date.now()));
-  const query=params.toString();
-  return `${item.file}${query?`?${query}`:''}`;
-}
-
-function render(){
-  const visible=demos.filter(item=>filter==='all'||item.kind.split(' ').includes(filter));
-  empty.hidden=visible.length>0;
-  grid.replaceChildren(...visible.map(item=>{
-    const card=document.createElement('article');
-    card.className='demo-card';
-    card.dataset.kind=item.kind;
-    card.innerHTML=`
-      <div class="demo-preview">
-        <iframe src="${demoUrl(item)}" title="Демо: ${item.title}" loading="lazy" sandbox="allow-scripts"></iframe>
-        <span class="preview-status">LIVE · SANDBOXED</span>
-      </div>
-      <div class="demo-content">
-        <div class="demo-meta"><span>${item.label}</span><span>Standalone HTML</span></div>
-        <h3>${item.title}</h3><p>${item.description}</p>
-        <div class="demo-actions">
-          <button type="button" data-replay="${item.id}">Повторить</button>
-          <a href="${demoUrl(item)}" target="_blank" rel="noopener">Открыть</a>
-          <a href="${item.file}" download>Скачать HTML</a>
-        </div>
-      </div>`;
-    return card;
-  }));
-}
-
-document.querySelector('.filters').addEventListener('click',event=>{
-  const button=event.target.closest('button[data-filter]');
-  if(!button)return;
-  filter=button.dataset.filter;
-  document.querySelectorAll('[data-filter]').forEach(candidate=>candidate.setAttribute('aria-pressed',String(candidate===button)));
-  render();
-});
-
-grid.addEventListener('click',event=>{
-  const button=event.target.closest('[data-replay]');
-  if(!button)return;
-  const item=demos.find(candidate=>candidate.id===button.dataset.replay);
-  const frame=button.closest('.demo-card').querySelector('iframe');
-  frame.src=demoUrl(item,true);
-  button.textContent='Запущено';
-  window.setTimeout(()=>button.textContent='Повторить',900);
-});
-
-reduceButton.addEventListener('click',()=>{
-  forcedReduced=!forcedReduced;
-  document.documentElement.classList.toggle('motion-reduced',forcedReduced);
-  reduceButton.setAttribute('aria-pressed',String(forcedReduced));
-  reduceButton.textContent=forcedReduced?'Движение уменьшено':'Уменьшить движение';
-  render();
-});
-
-render();
+const list=document.querySelector("#demo-list"),frame=document.querySelector("#stage-frame"),loading=document.querySelector("#stage-loading"),toggle=document.querySelector(".motion-toggle");
+const ui={index:document.querySelector("#active-index"),title:document.querySelector("#active-title"),description:document.querySelector("#active-description"),tags:document.querySelector("#active-tags"),file:document.querySelector("#stage-file"),open:document.querySelector('[data-action="open"]'),download:document.querySelector('[data-action="download"]')};
+let active=0,reduced=false;
+function url(item,replay=false){const q=new URLSearchParams();if(reduced)q.set("reduce","1");if(replay)q.set("replay",Date.now());const s=q.toString();return item.file+(s?"?"+s:"")}
+function renderList(){list.replaceChildren(...demos.map((item,i)=>{const b=document.createElement("button");b.type="button";b.className="demo-option";b.dataset.index=i;b.setAttribute("aria-current",String(i===active));b.innerHTML='<span class="demo-num">'+String(i+1).padStart(2,"0")+'</span><span class="demo-copy"><b>'+item.title+'</b><small>'+item.label+'</small></span><i class="demo-live" aria-hidden="true"></i>';return b}))}
+function select(index,replay=false){active=index;const item=demos[index];loading.hidden=false;frame.title="Интерактивное демо: "+item.title;frame.src=url(item,replay);ui.index.textContent=String(index+1).padStart(2,"0");ui.title.textContent=item.title;ui.description.textContent=item.description;ui.file.textContent=item.file;ui.tags.replaceChildren(...item.tags.map(tag=>{const li=document.createElement("li");li.textContent=tag;return li}));ui.open.href=url(item);ui.download.href=item.file;renderList()}
+list.addEventListener("click",e=>{const b=e.target.closest(".demo-option");if(b)select(Number(b.dataset.index),true)});
+frame.addEventListener("load",()=>{loading.hidden=true});
+document.querySelector('[data-action="replay"]').addEventListener("click",()=>select(active,true));
+toggle.addEventListener("click",()=>{reduced=!reduced;toggle.setAttribute("aria-pressed",String(reduced));toggle.querySelector("span:last-child").textContent=reduced?"Motion: reduced":"Motion: on";document.documentElement.classList.toggle("motion-reduced",reduced);select(active,true)});
+renderList();select(0,true);

@@ -1,65 +1,31 @@
 <!doctype html>
 <html lang="ru">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="color-scheme" content="dark">
-  <meta name="description" content="Animation Lab Eclipse Library — живые, доступные и готовые к скачиванию UI-анимации.">
-  <title>Animation Lab — Eclipse Library</title>
-  <link rel="icon" href="assets/brand/eclipse-library-favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="animation-lab.css?v=1">
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="color-scheme" content="dark">
+  <meta name="description" content="Eclipse Animation Lab — интерактивная коллекция готовых motion-паттернов для продуктов Eclipse Forge.">
+  <title>Animation Lab — Eclipse Library</title><link rel="icon" href="assets/brand/eclipse-library-favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="animation-lab.css?v=2">
 </head>
 <body>
-  <a class="skip-link" href="#animations">К анимациям</a>
-  <header class="site-header">
-    <a class="brand" href="index.html" aria-label="Eclipse Library — на главную">
-      <span class="brand-mark" aria-hidden="true"></span>
-      <span><strong>Eclipse Library</strong><small>Curated tools & knowledge</small></span>
-    </a>
-    <nav aria-label="Основная навигация">
-      <a href="index.html">Каталог</a>
-      <a href="index.html#projects">Проекты</a>
-      <a href="animations.html" aria-current="page">Анимации</a>
-    </nav>
+  <a class="skip-link" href="#motion-stage">К активной анимации</a>
+  <header class="topbar">
+    <a class="brand" href="index.html" aria-label="Eclipse Library — на главную"><span class="brand-mark" aria-hidden="true"></span><span><strong>Eclipse Library</strong><small>Animation Lab</small></span></a>
+    <nav aria-label="Основная навигация"><a href="index.html">Каталог</a><a href="index.html#projects">Проекты</a><a href="animations.html" aria-current="page">Анимации</a></nav>
+    <button class="motion-toggle" type="button" aria-pressed="false"><span class="toggle-dot" aria-hidden="true"></span><span>Motion: on</span></button>
   </header>
-
-  <main>
-    <section class="hero" aria-labelledby="lab-title">
-      <p class="eyebrow">Eclipse Motion System · v1</p>
-      <h1 id="lab-title">Анимации, которые<br><span>объясняют действие</span></h1>
-      <p class="hero-copy">Посмотрите поведение прямо в карточке, откройте демо отдельно или скачайте один автономный HTML-файл. Без зависимостей, трекеров и скрытых запросов.</p>
-      <div class="hero-actions">
-        <a class="primary-action" href="#animations">Смотреть демо</a>
-        <button class="motion-toggle" type="button" aria-pressed="false">Уменьшить движение</button>
-      </div>
-      <ul class="trust-row" aria-label="Свойства коллекции">
-        <li>5 оригинальных демо</li><li>Keyboard & touch</li><li>Reduced motion</li><li>Standalone HTML</li>
-      </ul>
-    </section>
-
-    <section class="catalog" id="animations" aria-labelledby="catalog-title">
-      <div class="section-heading">
-        <div><p class="eyebrow">Живая коллекция</p><h2 id="catalog-title">Выберите сценарий</h2></div>
-        <div class="filters" role="group" aria-label="Фильтр анимаций">
-          <button type="button" data-filter="all" aria-pressed="true">Все</button>
-          <button type="button" data-filter="upload" aria-pressed="false">Загрузка</button>
-          <button type="button" data-filter="auth" aria-pressed="false">Вход</button>
-          <button type="button" data-filter="feedback" aria-pressed="false">Обратная связь</button>
-        </div>
-      </div>
-      <div class="demo-grid" id="demo-grid" aria-live="polite"></div>
-      <p class="empty-state" id="empty-state" hidden>В этой категории пока нет демо. Выберите другой фильтр.</p>
-    </section>
-
-    <section class="usage-note" aria-labelledby="safe-title">
-      <p class="eyebrow">Перед внедрением</p>
-      <h2 id="safe-title">Демо показывает поведение, а не заменяет продуктовую логику</h2>
-      <p>Upload и OTP работают локально только для демонстрации. В production нужны серверная валидация, rate limit, безопасное хранение и реальные состояния ошибок. Новые анимации проходят keyboard, mobile, reduced-motion и performance QA.</p>
-      <a href="index.html#guidesFeat">Открыть руководство по интеграции</a>
+  <main class="lab-shell">
+    <aside class="lab-rail" aria-label="Коллекция анимаций">
+      <div class="rail-heading"><p>Motion library</p><span id="demo-count">06</span></div><div class="demo-list" id="demo-list"></div>
+      <div class="rail-note"><span class="status-light" aria-hidden="true"></span><div><strong>Standalone HTML</strong><small>Без библиотек и внешних запросов</small></div></div>
+    </aside>
+    <section class="workbench" aria-labelledby="lab-title">
+      <header class="workbench-header">
+        <div><p class="eyebrow">Eclipse Motion System · 01</p><h1 id="lab-title">Живые UI-паттерны</h1><p>Выберите пример слева, взаимодействуйте с ним на сцене и скачайте готовый автономный файл.</p></div>
+        <div class="stage-actions"><button type="button" data-action="replay">Повторить</button><a data-action="open" target="_blank" rel="noopener">Открыть отдельно</a><a class="primary" data-action="download" download>Скачать HTML</a></div>
+      </header>
+      <div class="stage-wrap" id="motion-stage"><div class="stage-chrome" aria-hidden="true"><span></span><span></span><span></span><b id="stage-file">animation.html</b><em>LIVE</em></div><iframe id="stage-frame" title="Интерактивная демонстрация анимации" sandbox="allow-scripts"></iframe><div class="stage-loading" id="stage-loading" role="status"><span></span>Загружаем сцену</div></div>
+      <footer class="workbench-meta"><div><span id="active-index">01</span><b id="active-title">Upload Queue</b></div><p id="active-description"></p><ul id="active-tags" aria-label="Свойства анимации"></ul></footer>
     </section>
   </main>
-
-  <footer><span>Eclipse Forge</span><span>Motion with purpose, not decoration.</span></footer>
-  <script src="animation-lab.js?v=1" defer></script>
-</body>
-</html>
+  <section class="integration" aria-labelledby="integration-title"><div><p class="eyebrow">Production path</p><h2 id="integration-title">От демо к компоненту</h2></div><ol><li><span>01</span><b>Посмотрите</b><small>Проверьте поведение мышью, клавиатурой и на touch.</small></li><li><span>02</span><b>Скачайте</b><small>Каждый файл автономен и не подключает сторонний код.</small></li><li><span>03</span><b>Адаптируйте</b><small>Подключите реальные состояния продукта, валидацию и API.</small></li></ol></section>
+  <script src="animation-lab.js?v=2" defer></script>
+</body></html>

@@ -1,11 +1,12 @@
 {
-  "version": 1,
-  "license": "Original Eclipse Forge demos. Review before production use.",
+  "version": 2,
+  "license": "Original Eclipse Forge motion demos. Adapt validation, product state and backend integration before production use.",
   "demos": [
     {"id":"upload-queue","file":"animation-upload-queue.html","category":"upload"},
-    {"id":"orbit-upload","file":"animation-orbit-upload.html","category":"upload"},
     {"id":"reactive-login","file":"animation-reactive-login.html","category":"auth"},
+    {"id":"orbit-upload","file":"animation-orbit-upload.html","category":"upload"},
     {"id":"otp-input","file":"animation-otp-input.html","category":"auth"},
-    {"id":"vault-dial","file":"animation-vault-dial.html","category":"security-concept"}
+    {"id":"vault-dial","file":"animation-vault-dial.html","category":"security-concept"},
+    {"id":"otp-light","file":"animation-otp-light.html","category":"auth"}
   ]
 }

@@ -1,6 +1,6 @@
 # Eclipse Library Roadmap
 
-Последнее обновление: **20.08.2026**
+Последнее обновление: **21.08.2026**
 
 ## Текущее состояние
 
@@ -339,9 +339,21 @@
       self-check, EN/RU copy и без обязательного API key.
 
 ## Changelog
+### 2026-08-21 — Animation Lab motion remediation
+- После пользовательского QA витрина полностью перестроена из generic promo-grid в operational
+  motion workbench: compact selector, одна крупная live-сцена, replay/open/download и responsive mobile rail.
+- Исправлен корень остановки autoplay: `Number(URLSearchParams.get('t'))` превращал отсутствующий
+  параметр в frozen frame 0. Deterministic mode теперь включается только при реальном `?t=N`;
+  regression-тест блокирует возврат ошибки.
+- Все пять прежних demos переработаны ближе к behavioral references, добавлен шестой отдельный
+  `OTP Glass`. Демо остаются first-party, автономными, sandboxed, без внешнего кода и сетевых запросов.
+- Edge headless QA выполнен на 1440×1000 и 390×844; отдельные autoplay-кадры на 0.15 и 2.6 секунды,
+  а также deterministic кадры `t=0`/`t=12` имеют разные SHA-256, что подтверждает реальное движение.
+
+
 ### 2026-08-21 — Eclipse Animation Lab MVP
-- Добавлена отдельная Animation Lab витрина с пятью оригинальными first-party demos: Upload Queue,
-  Orbit Upload, Reactive Login, Accessible OTP и Vault Dial. Preview изолирован sandboxed iframe;
+- Добавлена отдельная Animation Lab витрина с шестью оригинальными first-party demos: Upload Queue,
+  Orbit Upload, Reactive Login, Accessible OTP, Vault Dial и OTP Glass. Preview изолирован sandboxed iframe;
   каждое демо можно повторить, открыть отдельно и скачать как автономный HTML без внешних requests.
 - Motion contract закрепляет transform/opacity hot path, deterministic `?t=N`, forced `?reduce=1`,
   keyboard/touch paths и reduced-motion fallback. Social screenshots остаются reference и не копируются.
