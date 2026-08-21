@@ -142,3 +142,34 @@ The source captures showed the lower form edge colliding with or disappearing be
 ## Final result
 
 Passed. No P0/P1/P2 containment mismatch remains.
+
+---
+
+# Design QA — Remaining Animation Lab card containment
+
+- Date: 2026-08-21
+- Source references: user captures `690 × 578` (Upload Queue), `783 × 541` (AI Progress), `523 × 455` (dark OTP) and `590 × 455` (glass OTP)
+- Implementations: `web/animation-upload-queue.html`, `web/animation-ai-progress.html`, `web/animation-otp-input.html`, `web/animation-otp-light.html`
+- Browser harnesses: `.artifacts/containment-qa.cjs`, `.artifacts/containment-qa-motion.cjs`
+- Captures: `.artifacts/containment-*-reference.png`, `.artifacts/containment-*-mobile.png`
+
+## Defect and correction
+
+The four remaining demos still used negative decorative backplate insets and fixed viewport assumptions. That let the perceived outer object exceed the visible owner even when the primary controls themselves appeared usable. Every root card now owns and clips its depth layers, uses a capped responsive width, accepts the dynamic viewport height and allows internal grid/flex children to shrink.
+
+## Functional acceptance
+
+- Upload Queue at `690 × 578`: card `610 × 476`; header, drop zone, all file rows and footer are contained;
+- AI Progress at `783 × 541`: shell `660 × 459.5`; stage header, reactor, progress panel and cancel action are contained;
+- dark OTP at `523 × 455`: card `470 × 413.2`; all six digits, validation status, primary action and resend footer are contained;
+- glass OTP at `590 × 455`: card `480 × 367`; mark, title, six digits, primary action and status are contained;
+- all four demos at `390 × 844` remain inside the viewport with zero horizontal or vertical document overflow;
+- normal motion and reduced-motion runs both pass with zero console or page errors.
+
+## Comparison result
+
+The source hierarchy and unique 3D metaphors remain intact. The correction only removes accidental geometry outside the owning frame and keeps the complete primary task visible at the reference and mobile sizes.
+
+## Final result
+
+Passed. No P0/P1/P2 containment mismatch remains across the four previously omitted demos.

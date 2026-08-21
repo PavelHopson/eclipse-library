@@ -44,6 +44,19 @@ assert.match(guardian,/\.card\{position:relative;isolation:isolate;overflow:clip
 assert.doesNotMatch(guardian,/inset:14px -11px -15px 17px/,'Guardian depth plate must not overflow its card');
 const upload=fs.readFileSync(path.join(web,'animation-upload-queue.html'),'utf8');
 assert.match(upload,/escapeHtml\(f\.name\)/,'User-controlled file names must be output encoded before innerHTML rendering');
+assert.match(upload,/\.card\{position:relative;isolation:isolate;width:min\(100%,610px\);max-width:100%;[^}]*overflow:clip/,'Upload Queue must contain its 3D layers inside the visible card');
+assert.match(upload,/\.file>\*\{min-width:0\}/,'Upload Queue rows must remain shrink-safe');
+const progress=fs.readFileSync(path.join(web,'animation-ai-progress.html'),'utf8');
+assert.match(progress,/\.shell\{position:relative;isolation:isolate;width:min\(100%,660px\);max-width:100%;overflow:clip/,'AI Progress must contain its 3D layers inside the visible shell');
+assert.match(progress,/\.body>\*\{min-width:0\}/,'AI Progress columns must remain shrink-safe');
+const otp=fs.readFileSync(path.join(web,'animation-otp-input.html'),'utf8');
+assert.match(otp,/\.card\{position:relative;isolation:isolate;width:min\(100%,470px\);max-width:100%;overflow:clip/,'Dark OTP must contain its 3D layers inside the visible card');
+const otpLight=fs.readFileSync(path.join(web,'animation-otp-light.html'),'utf8');
+assert.match(otpLight,/\.card\{position:relative;isolation:isolate;width:min\(100%,480px\);max-width:100%;overflow:clip/,'Light OTP must contain its 3D layers inside the visible card');
+for(const source of [upload,progress,otp,otpLight]){
+  assert.doesNotMatch(source,/inset:\d+px -\d+px -\d+px \d+px/,'Decorative depth plates must not escape the owning card');
+  assert.match(source,/min-height:100dvh/,'Each demo must use the dynamic viewport height contract');
+}
 const page=fs.readFileSync(path.join(web,'animations.html'),'utf8');
 const app=fs.readFileSync(path.join(web,'animation-lab.js'),'utf8');
 const css=fs.readFileSync(path.join(web,'animation-lab.css'),'utf8');

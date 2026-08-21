@@ -1307,5 +1307,6 @@
 
 ### 2026-08-21 — Animation Lab containment hardening
 
-- Vault and Guardian previews now use their visible 3D card as a strict layout boundary: decorative depth cannot escape the frame, Vault chamber height follows available `100dvh`, and controls remain shrink-safe.
-- Exact browser regression at 626×586, 500×520 and 390×844 confirms all form elements are contained, document overflow is zero and console/page errors are zero.
+- All six task forms now use their visible 3D card as a strict layout boundary: Vault, Guardian Login, Upload Queue, AI Progress and both OTP variants keep decorative depth, controls and status content inside the frame.
+- Vault chamber height follows available `100dvh`; the remaining demos use `100dvh`, capped responsive widths and shrink-safe rows/columns instead of negative backplate insets.
+- Exact browser regression at 626×586, 500×520, 690×578, 783×541, 523×455, 590×455 and 390×844 confirms containment in normal and reduced-motion modes, zero document overflow and zero console/page errors.
