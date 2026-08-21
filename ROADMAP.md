@@ -339,6 +339,18 @@
       self-check, EN/RU copy и без обязательного API key.
 
 ## Changelog
+### 2026-08-21 — Eclipse Animation Lab MVP
+- Добавлена отдельная Animation Lab витрина с пятью оригинальными first-party demos: Upload Queue,
+  Orbit Upload, Reactive Login, Accessible OTP и Vault Dial. Preview изолирован sandboxed iframe;
+  каждое демо можно повторить, открыть отдельно и скачать как автономный HTML без внешних requests.
+- Motion contract закрепляет transform/opacity hot path, deterministic `?t=N`, forced `?reduce=1`,
+  keyboard/touch paths и reduced-motion fallback. Social screenshots остаются reference и не копируются.
+- В каталог добавлены Vercel Web Design Guidelines, 21st.dev Agent Skill и Vivid Sites. Taste Skill,
+  Design.md и Microsoft Playwright CLI уже существовали и не дублировались. 21st marketplace требует
+  per-component license review; Vivid assets нельзя перепаковывать в конкурирующую библиотеку.
+- P1 rollout: Upload Queue для Chat/Media/AI Hub, long-job progress для Media/Shotforge/Text2Image,
+  Accessible OTP для Chat/DnD после auth security review. Reactive Login и Vault Dial оставлены reference.
+
 ### 2026-08-20 — adaptive motion navigation pilot
 - В Library внедрён собственный motion-паттерн на основе присланных segmented dock/sidebar
   references: mobile view switcher получил общий moving indicator, desktop sidebar — один shared

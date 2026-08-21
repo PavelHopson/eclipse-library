@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "consumer": "Eclipse AI",
-  "catalogVersion": "328acec659498be6213b86abcf30ae795f3edcb6aa12647d8579526b77320466",
+  "catalogVersion": "f56269ad8ce22a0a1bf41da3312b38aa55c5b87dcd433ffd45cc5b955c89b546",
   "generatedAt": null,
   "policy": {
     "greyResourcesExcluded": true,
@@ -9,9 +9,234 @@
     "externalMutationsRequireHumanApproval": true
   },
   "totals": {
-    "items": 572
+    "items": 575
   },
   "items": [
+    {
+      "id": "21st-dev-agent-skill",
+      "title": "21st.dev Agent Skill",
+      "url": "https://github.com/21st-dev/skill",
+      "type": "skill",
+      "category": "Скиллы для Claude",
+      "subcategory": "UI component discovery",
+      "addedAt": "2026-08-21",
+      "description": "Официальный skill для поиска, установки и публикации React/shadcn components, themes и templates через 21st CLI. Ускоряет discovery, но не даёт общей лицензии на весь marketplace: условия каждого компонента проверяются отдельно.",
+      "useCases": [
+        "Искать component references для Eclipse Chat, AI Hub и Library",
+        "Сравнивать варианты interaction pattern до собственной реализации",
+        "Синхронизировать проверенные Eclipse design tokens как theme только после отдельного review"
+      ],
+      "platforms": [
+        "Codex",
+        "Claude Code",
+        "React",
+        "shadcn/ui",
+        "CLI"
+      ],
+      "license": {
+        "label": "Apache-2.0",
+        "original": "Apache-2.0 для skill repository; marketplace-компоненты имеют отдельные условия авторов и 21st.dev Terms",
+        "spdx": "Apache-2.0",
+        "kind": "open-source",
+        "status": "editor-reviewed",
+        "requiresReview": false,
+        "evidence": [
+          {
+            "kind": "license",
+            "label": "Skill Apache-2.0 license",
+            "url": "https://github.com/21st-dev/skill/blob/main/LICENSE"
+          },
+          {
+            "kind": "terms",
+            "label": "21st.dev Terms",
+            "url": "https://21st.dev/terms"
+          }
+        ]
+      },
+      "access": {
+        "cost": "freemium",
+        "signup": "optional",
+        "runtime": "hybrid"
+      },
+      "trust": "official",
+      "decision": "roadmap",
+      "riskLevel": "medium",
+      "projects": [
+        "Eclipse Library",
+        "Eclipse Chat",
+        "Eclipse AI Hub",
+        "Eclipse DnD Forge"
+      ],
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://github.com/21st-dev/skill"
+        },
+        {
+          "kind": "license",
+          "label": "Skill Apache-2.0 license",
+          "url": "https://github.com/21st-dev/skill/blob/main/LICENSE"
+        },
+        {
+          "kind": "terms",
+          "label": "21st.dev Terms",
+          "url": "https://21st.dev/terms"
+        }
+      ],
+      "actions": {
+        "openOfficialSource": true,
+        "installFromCatalog": false,
+        "mutateExternalSystems": false
+      }
+    },
+    {
+      "id": "vercel-web-design-guidelines",
+      "title": "Vercel Web Design Guidelines",
+      "url": "https://github.com/vercel-labs/agent-skills/tree/main/skills/web-design-guidelines",
+      "type": "skill",
+      "category": "Скиллы для Claude",
+      "subcategory": "Frontend design review",
+      "addedAt": "2026-08-21",
+      "description": "Официальный Vercel skill для проверки web-интерфейса по более чем 100 правилам accessibility, forms, navigation, typography, content и performance. Он помогает найти нарушения, но не заменяет product review и browser QA.",
+      "useCases": [
+        "Добавить rule-based UI review после Taste review для всех frontend-проектов Eclipse Forge",
+        "Проверять формы, keyboard navigation, focus, responsive layout и content quality перед release",
+        "Превращать повторяющиеся замечания в versioned regression tests"
+      ],
+      "platforms": [
+        "Claude Code",
+        "Codex",
+        "Cursor",
+        "Agent skill"
+      ],
+      "license": {
+        "label": "MIT",
+        "original": "MIT repository; применяются условия используемого AI-агента",
+        "spdx": "MIT",
+        "kind": "open-source",
+        "status": "editor-reviewed",
+        "requiresReview": false,
+        "evidence": [
+          {
+            "kind": "source",
+            "label": "Official Vercel skill",
+            "url": "https://github.com/vercel-labs/agent-skills/tree/main/skills/web-design-guidelines"
+          },
+          {
+            "kind": "source",
+            "label": "Vercel Web Interface Guidelines",
+            "url": "https://vercel.com/design/guidelines"
+          }
+        ]
+      },
+      "access": {
+        "cost": "free",
+        "signup": "none",
+        "runtime": "local"
+      },
+      "trust": "official",
+      "decision": "now",
+      "riskLevel": "low",
+      "projects": [
+        "Eclipse Forge Landing",
+        "Eclipse Library",
+        "Eclipse Chat",
+        "Eclipse AI Hub",
+        "Eclipse DnD Forge"
+      ],
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://github.com/vercel-labs/agent-skills/tree/main/skills/web-design-guidelines"
+        },
+        {
+          "kind": "source",
+          "label": "Vercel Web Interface Guidelines",
+          "url": "https://vercel.com/design/guidelines"
+        }
+      ],
+      "actions": {
+        "openOfficialSource": true,
+        "installFromCatalog": false,
+        "mutateExternalSystems": false
+      }
+    },
+    {
+      "id": "vivid-sites",
+      "title": "Vivid Sites",
+      "url": "https://www.vividsites.app/",
+      "type": "service",
+      "category": "Дизайн и разработка",
+      "subcategory": "Animation references",
+      "addedAt": "2026-08-21",
+      "description": "Галерея и AI-assisted builder для выразительных web-анимаций и landing experiences на HTML/CSS, React, Tailwind, Three.js и WebGL. Полезен как reference и генератор для собственного сайта, но его packs, previews и guides нельзя перепаковывать в Eclipse Library.",
+      "useCases": [
+        "Изучать motion composition и переходы для Eclipse Forge Landing",
+        "Собирать безопасные prototypes, затем реализовывать их заново в Eclipse design system",
+        "Сравнивать premium motion с требованиями performance и reduced motion"
+      ],
+      "platforms": [
+        "Web",
+        "HTML/CSS",
+        "React",
+        "Tailwind",
+        "Three.js",
+        "WebGL"
+      ],
+      "license": {
+        "label": "Proprietary Terms: использование в собственных и client websites разрешено; resale, redistribution, sublicensing и competing library запрещены",
+        "original": "Proprietary Terms: использование в собственных и client websites разрешено; resale, redistribution, sublicensing и competing library запрещены",
+        "spdx": null,
+        "kind": "service-terms",
+        "status": "editor-reviewed",
+        "requiresReview": false,
+        "evidence": [
+          {
+            "kind": "terms",
+            "label": "Vivid Sites Terms",
+            "url": "https://www.vividsites.app/terms"
+          },
+          {
+            "kind": "source",
+            "label": "Official Vivid Sites",
+            "url": "https://www.vividsites.app/"
+          }
+        ]
+      },
+      "access": {
+        "cost": "freemium",
+        "signup": "optional",
+        "runtime": "cloud"
+      },
+      "trust": "official",
+      "decision": "reference",
+      "riskLevel": "medium",
+      "projects": [
+        "Eclipse Forge Landing",
+        "Eclipse Library",
+        "Eclipse Media",
+        "Shotforge"
+      ],
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://www.vividsites.app/"
+        },
+        {
+          "kind": "terms",
+          "label": "Vivid Sites Terms",
+          "url": "https://www.vividsites.app/terms"
+        }
+      ],
+      "actions": {
+        "openOfficialSource": true,
+        "installFromCatalog": false,
+        "mutateExternalSystems": false
+      }
+    },
     {
       "id": "google-ai-studio",
       "title": "Google AI Studio · Gemini",

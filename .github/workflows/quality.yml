@@ -33,6 +33,7 @@ jobs:
           node --check web/catalog-progressive.js
           node --check web/catalog-review.js
           node --check web/app.js
+          node --check web/animation-lab.js
           node --check web/registry.js
           node --check scripts/review-preview-policy.mjs
           node --check scripts/review-preview.mjs
@@ -51,6 +52,7 @@ jobs:
           node --test scripts/catalog-progressive.test.mjs
           node --test scripts/diagram-contract.test.mjs
           node --test scripts/brand-assets.test.mjs
+          node scripts/animation-lab.test.mjs
           node --test scripts/review-preview.test.mjs
       - name: Validate Eclipse Forge projects
         run: node scripts/validate-projects.mjs

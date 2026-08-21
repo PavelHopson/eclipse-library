@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "totals": {
-    "guides": 44
+    "guides": 45
   },
   "guides": [
     {
@@ -99,6 +99,13 @@
       "name": "august-2026-discovery-review-security-radar",
       "title": "Discovery, review и provenance: безопасный разбор августовской подборки",
       "description": "Проверено 12.08.2026 по официальным сайтам, GitHub-репозиториям, лицензиям и документации.",
+      "modules": 0,
+      "lessons": 0
+    },
+    {
+      "name": "eclipse-animation-lab",
+      "title": "Eclipse Animation Lab: как использовать motion без ущерба UX",
+      "description": "",
       "modules": 0,
       "lessons": 0
     },
