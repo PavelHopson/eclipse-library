@@ -1304,3 +1304,8 @@
 - Commit `7d13e37` отправлен в `origin/master`; production deploy
   [#30112663215](https://github.com/PavelHopson/eclipse-library/actions/runs/30112663215)
   завершён успешно, live README/app/guide проверены.
+
+### 2026-08-21 — Animation Lab containment hardening
+
+- Vault and Guardian previews now use their visible 3D card as a strict layout boundary: decorative depth cannot escape the frame, Vault chamber height follows available `100dvh`, and controls remain shrink-safe.
+- Exact browser regression at 626×586, 500×520 and 390×844 confirms all form elements are contained, document overflow is zero and console/page errors are zero.

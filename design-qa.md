@@ -113,3 +113,32 @@ Standalone demos contain no remote scripts, remote origins, secrets, `eval` or `
 ## Final result
 
 Passed. The seven demos form one recognizable cinematic Eclipse collection without sacrificing mobile usability, reduced motion or the 3-second primary path.
+---
+
+# Design QA — Animation Lab card containment
+
+- Date: 2026-08-21
+- Source references: user captures `626 × 586` (Vault) and `500 × 520` (Guardian)
+- Implementations: `web/animation-vault-dial.html`, `web/animation-reactive-login.html`
+- Browser harness: `.artifacts/containment-qa.cjs`
+- Captures: `.artifacts/containment-*-reference.png`, `.artifacts/containment-*-mobile.png`
+
+## Defect and correction
+
+The short embedded preview exposed two conflicting layout systems: Vault sized its chamber from viewport width, while both demos allowed decorative 3D backplates to extend beyond the owning card. The fix makes the visible card the hard containment boundary, sizes Vault from available `100dvh`, and keeps grid children shrink-safe.
+
+## Functional acceptance
+
+- Vault at `626 × 586`: card `510 × 504.8`, all chamber/control/feedback bounds contained;
+- Guardian at `500 × 520`: card `390 × 478`, all form fields/actions/status contained;
+- both demos at `390 × 844`: contained with no horizontal or vertical document overflow;
+- reduced-motion state used for deterministic geometry; interactive state contracts remain unchanged;
+- zero console or page errors in all four runs.
+
+## Comparison result
+
+The source captures showed the lower form edge colliding with or disappearing behind the preview boundary. Final captures retain the same Eclipse dark-tech hierarchy and 3D material language while restoring a complete visible border around the full task path.
+
+## Final result
+
+Passed. No P0/P1/P2 containment mismatch remains.

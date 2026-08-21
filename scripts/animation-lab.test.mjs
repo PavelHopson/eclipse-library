@@ -36,6 +36,12 @@ assert.match(vault,/prefers-reduced-motion:reduce/,'Vault must provide a reduced
 assert.doesNotMatch(vault,/class="chamber"[^>]*aria-hidden/,'Interactive vault chamber must stay in the accessibility tree');
 assert.match(vault,/replace\(\/\\D\/g,""\)/,'Vault code input must reject non-numeric characters');
 assert.match(vault,/window\.__ready=true/,'Vault must expose deterministic browser readiness');
+assert.match(vault,/overflow:clip/,'Vault shell must clip decorative depth layers to the card boundary');
+assert.match(vault,/calc\(100dvh - 250px\)/,'Vault chamber must size from available viewport height');
+assert.match(vault,/\.controls>\*\{min-width:0\}/,'Vault controls must be shrink-safe inside the card');
+const guardian=fs.readFileSync(path.join(web,'animation-reactive-login.html'),'utf8');
+assert.match(guardian,/\.card\{position:relative;isolation:isolate;overflow:clip;max-width:100%/,'Guardian form must contain all 3D layers and fields');
+assert.doesNotMatch(guardian,/inset:14px -11px -15px 17px/,'Guardian depth plate must not overflow its card');
 const upload=fs.readFileSync(path.join(web,'animation-upload-queue.html'),'utf8');
 assert.match(upload,/escapeHtml\(f\.name\)/,'User-controlled file names must be output encoded before innerHTML rendering');
 const page=fs.readFileSync(path.join(web,'animations.html'),'utf8');
