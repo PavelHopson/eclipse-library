@@ -4,6 +4,8 @@
 
 ## Текущее состояние
 
+- Animation Lab v3 работает как production workbench: 7 first-party standalone demos, state presets, desktop/tablet/mobile preview, motion tokens, reduced-motion/high-contrast modes, deterministic frame timeline и export kit для HTML, React contract, tokens и QA checklist. Upload Queue, AI Generation и OTP Auth Kit имеют реальные error/retry/cancel/loading/success сценарии; preview остаётся sandboxed и без внешней сети.
+
 - Owned Growth OS MVP завершён без Teamly: Eclipse AI Hub исполняет пять bounded ролей и выдаёт
   `growth.run.v1`, Eclipse Chat даёт tenant-scoped Command Room с budget, cancel, provenance и
   approval. В AI Hub готовы четыре локальных экрана Content Command Center: Hook Vault, Channel Analytics,
@@ -339,6 +341,13 @@
       self-check, EN/RU copy и без обязательного API key.
 
 ## Changelog
+### 2026-08-21 — Animation Lab production workbench
+- Витрина motion-паттернов преобразована в тихий product/developer workbench с 7 оригинальными demos, device preview, state selector, speed, accent/glow/density, accessibility toggles, focus mode и deterministic timeline.
+- Upload Queue получил real file input/drop, pause/retry/cancel/error, progress и FLIP reorder; добавлен AI Generation с честными stages/event log/checkpoint retry; OTP Auth Kit получил paste/edit/resend/loading/error/success/expired.
+- Export kit выдаёт sandboxed embed, React state contract, tokens и blocking QA checklist. Direct install отсутствует; standalone files не подключают remote scripts и не выполняют сетевых запросов.
+- Manifest обновлён до v3, regression suite проверяет 7 demos, minimal iframe sandbox, reduced motion, deterministic query harness, отсутствие remote/unsafe execution и wiring всех файлов.
+- Browser QA на 1440×900, 1280×800 reduced-motion и 390×844 проверил все 7 standalone demos, live progress, state/device/export flows и runtime errors. Найден и исправлен mobile grid min-content overflow 1086→390 px; regression-test закрепляет shrink contract. Defensive XSS test подтвердил output encoding опасного file name.
+
 ### 2026-08-21 — Animation Lab motion remediation
 - После пользовательского QA витрина полностью перестроена из generic promo-grid в operational
   motion workbench: compact selector, одна крупная live-сцена, replay/open/download и responsive mobile rail.

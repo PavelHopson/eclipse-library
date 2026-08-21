@@ -1,55 +1,67 @@
-# Eclipse Animation Lab: как использовать motion без ущерба UX
+# Eclipse Animation Lab: production workbench для motion-паттернов
 
-## Что изменилось после browser QA
+## Что это
 
-Animation Lab теперь устроен как рабочая motion-витрина, а не отдельный promo landing:
+Animation Lab — не галерея красивых эффектов, а безопасный стенд для выбора, проверки и передачи UI-паттернов в проекты Eclipse Forge. Пользователь выбирает сценарий, переключает состояние и viewport, проверяет accessibility, затем скачивает автономный HTML или копирует integration contract.
 
-1. слева выбирается один из шести паттернов;
-2. активное демо открывается на большой интерактивной сцене;
-3. анимацию можно повторить без перезагрузки Library;
-4. автономный HTML можно открыть отдельно или скачать;
-5. mobile использует горизонтальный selector без видимого scrollbar.
+Социальные скриншоты и Vivid Sites использовались только как behavioral reference. Код, графика, брендинг и платные материалы третьих лиц не копируются. Все семь demo созданы внутри Eclipse Forge и не делают сетевых запросов.
 
-Исправлен критический autoplay bug: отсутствие query-параметра `t` раньше превращалось через
-`Number(null)` в ноль и ошибочно включало frozen frame. Теперь deterministic frame активируется
-только когда `?t=N` действительно передан. Regression-тест запрещает возвращать этот паттерн.
+## Что доступно в workbench
 
-Код создан внутри Eclipse Forge. Социальные скриншоты используются только как behavioral reference:
-неизвестный код, изображения, брендинг и стили авторов не копируются.
+- preview для Desktop, Tablet и Mobile;
+- state presets для loading, error, success, cancel, retry и других сценариев;
+- скорость 0.5×–2×, accent, glow и density;
+- отдельные reduced-motion и high-contrast режимы;
+- live mode и deterministic frame через `?t=N`;
+- focus mode без лишней панели;
+- export kit: sandboxed HTML embed, React state contract, motion tokens и blocking QA checklist;
+- скачивание автономного HTML без установки из каталога.
 
-## Шесть оригинальных демо
+Preview работает в `sandbox="allow-scripts"` без `allow-same-origin`, forms, popups и внешней сети.
 
-| Сценарий | Решение | Проекты | Ценность | Приоритет / сложность |
-|---|---|---|---|---|
-| Upload Queue | Внедрить сейчас | Eclipse Chat, Eclipse Media, AI Hub | Очередь, реальный progress и состояние каждого файла понятны без инструкции | P1 / M |
-| Orbit Upload | Внедрить сейчас | Eclipse Media, Shotforge, Text2Image | Долгая операция получает заметный progress, cancel и completed state | P1 / S |
-| OTP Terminal | Добавить в roadmap | Eclipse Chat, Eclipse DnD Forge | Paste, keyboard flow и ясные ошибки уменьшают срывы входа | P1 / M |
-| OTP Glass | Оставить как visual variant | Mobile onboarding | Светлая версия полезна только в продукте со светлой темой | P2 / S |
-| Guardian Login | Оставить как reference | Landing, onboarding Chat | Усиливает характер бренда, но не должен отвлекать от входа | P2 / S |
-| Vault Dial | Оставить как reference | Sentinel, AI Hub secrets | Метафора защищённого действия, но не замена auth или approval | P3 / M |
+## Семь оригинальных demos
 
-Следующий продуктовый шаг: вынести Upload Queue, Progress и OTP в общий
-`@eclipse-forge/ui-motion` только после подключения реальных состояний, validation,
-visual regression и feature flag.
+| Паттерн | Для чего | Решение | Проекты |
+|---|---|---|---|
+| Upload Queue | Drag & drop, pause, retry, cancel, error recovery и FLIP reorder | Внедрить сейчас, P1/M | Eclipse Media, Eclipse Chat |
+| AI Generation | Честные этапы AI-задачи, event log, checkpoint retry и cancel | Внедрить сейчас, P1/M | Eclipse AI Hub, Shotforge, Text2Image |
+| OTP Auth Kit | Paste шести цифр, edit, resend timer, loading/error/success/expired | Внедрить сейчас, P1/M | Eclipse Chat, Eclipse DnD Forge |
+| Guardian Login | Pointer feedback и состояние формы без вмешательства в auth | Reference до backend integration, P2/S | Eclipse Chat |
+| Orbit Upload | Компактный progress для долгой операции | Внедрить сейчас, P1/S | Eclipse Media, Shotforge |
+| Vault Dial | Эмоциональная метафора защищённого действия | Concept only, P3/M | Sentinel |
+| OTP Glass | Светлый mobile-first вариант OTP contract | Reference, P2/S | Eclipse Forge Landing |
 
 ## Motion contract
 
-1. Анимация объясняет state change, hierarchy или spatial continuity.
-2. В hot path используются `transform`, `opacity`, `clip-path` и SVG `stroke-dashoffset`;
-   layout не пересчитывается на каждом кадре.
-3. Основное действие доступно с keyboard и touch; hover не является единственным входом.
-4. `prefers-reduced-motion` и переключатель Library убирают большие перемещения и декоративные циклы.
-5. Демо поддерживают `?reduce=1`, replay cache-buster и deterministic `?t=N` для QA.
-6. Preview работает в `sandbox="allow-scripts"` без forms, popups, same-origin и внешней сети.
-7. Auth/upload demos ничего не отправляют и не заменяют server validation, rate limit,
-   access control, virus scanning или storage policy.
+1. Motion объясняет state change, hierarchy или spatial continuity.
+2. Hot path ограничен `transform`, `opacity`, `clip-path` и SVG `stroke-dashoffset`; layout не пересчитывается на каждом кадре.
+3. Mouse, touch и keyboard получают одинаковый результат. Hover не является единственным входом.
+4. Reduced motion убирает displacement и декоративные циклы, но оставляет статус и полезную обратную связь.
+5. Ошибки не исчезают сами: пользователь видит причину, retry и безопасный выход.
+6. Progress не притворяется точным. AI Generation различает подтверждённый этап и оценку времени.
+7. Auth/upload demo не заменяют server validation, rate limit, access control, antivirus scanning, object-storage policy или approval gates.
 
-## Проверка перед внедрением
+## Query contract
 
-- desktop 1440 px и mobile 390 px;
-- фактическое изменение кадров autoplay, а не только наличие CSS animation;
-- keyboard-only, visible focus и touch;
+- `state=<preset>` — воспроизводимое состояние;
+- `reduce=1` — reduced motion;
+- `contrast=1` — усиленные границы;
+- `speed=0.5|1|1.5|2` — скорость;
+- `accent=%236ba3ff` — accent token;
+- `glow=0..1` и `density=0..2` — визуальные настройки;
+- `t=N` — deterministic frame для visual regression.
+
+Отсутствие `t` нельзя преобразовывать через `Number(null)`: это ошибочно включает frozen frame zero. Regression-тест блокирует возврат этого бага.
+
+## Blocking QA перед внедрением
+
+- 1440×900, 768×1024 и 390×844 без horizontal overflow;
+- keyboard-only, visible focus и touch targets не меньше 44×44 px;
 - normal и reduced motion;
-- loading, success, error, disabled и cancel states;
-- отсутствие remote scripts, secrets, `eval`, `document.write` и unsafe HTML injection;
-- production integration проходит отдельный auth/API/upload security review.
+- loading, empty, error, success, disabled, cancel и retry;
+- autoplay реально меняет кадры;
+- нет remote scripts, secrets, `eval`, `document.write` и unsafe HTML injection;
+- production integration проходит отдельный auth/API/upload security review;
+- визуальная реализация сохраняет Eclipse design tokens и не превращает operational UI в marketing page.
+
+Следующий cross-project шаг — переносить не standalone HTML целиком, а его state machine и tokens в существующие design systems проектов под feature flag и с visual regression.
