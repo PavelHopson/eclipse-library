@@ -1,21 +1,21 @@
 {
   "schemaVersion": 1,
-  "sourceHash": "6c46e7c8875b1fe7d67430b889922c3780e313fb5eaa8c3c8a5f63400a4e3c13",
+  "sourceHash": "2e78638c1bde178313b56e0e05c0306fef0c6cec8ec3845ea4a36739deaa03b3",
   "policy": {
     "automaticApprovalForbidden": true,
     "directInstallForbidden": true,
     "missingLicenseMeansNoReusePermission": true
   },
   "totals": {
-    "reviewRequired": 214,
+    "reviewRequired": 215,
     "byPriority": {
       "P1": 0,
       "P2": 177,
-      "P3": 37
+      "P3": 38
     },
     "byBucket": {
       "content-terms": 33,
-      "grey-reference": 37,
+      "grey-reference": 38,
       "manual-other": 25,
       "repository-license-not-detected": 25,
       "service-terms": 94
@@ -4274,6 +4274,27 @@
           "kind": "source",
           "label": "Published master prompt",
           "url": "https://panda-orchid-barn.pagey.site/master-prompt.txt"
+        }
+      ]
+    },
+    {
+      "id": "open-higgsfield-ai-unverified",
+      "title": "Open-Higgsfield-AI",
+      "type": "grey",
+      "url": "https://github.com/ClabstreamTeam/Open-Higgsfield-AI",
+      "decision": "no",
+      "riskLevel": "high",
+      "currentLicense": "MIT",
+      "reviewStatus": "quarantined",
+      "bucket": "grey-reference",
+      "priority": "P3",
+      "reason": "Grey resources stay excluded from agent recommendations; review only if a human needs this reference.",
+      "nextStep": "Confirm ownership, redistribution rights and legal/safety boundaries before any use.",
+      "evidence": [
+        {
+          "kind": "source",
+          "label": "Community repository",
+          "url": "https://github.com/ClabstreamTeam/Open-Higgsfield-AI"
         }
       ]
     },

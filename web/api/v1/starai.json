@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "consumer": "Eclipse AI",
-  "catalogVersion": "6c46e7c8875b1fe7d67430b889922c3780e313fb5eaa8c3c8a5f63400a4e3c13",
+  "catalogVersion": "c1b4d16474b23543b8fd4848eae0039edcb65e5716a800182279c6b65c44cc89",
   "generatedAt": null,
   "policy": {
     "greyResourcesExcluded": true,
@@ -9,7 +9,7 @@
     "externalMutationsRequireHumanApproval": true
   },
   "totals": {
-    "items": 592
+    "items": 603
   },
   "items": [
     {
@@ -13810,6 +13810,78 @@
       }
     },
     {
+      "id": "openreply-instagram-comment-dm",
+      "title": "OpenReply",
+      "url": "https://github.com/diwenne/openreply",
+      "type": "oss",
+      "category": "Автоматизация",
+      "subcategory": "Instagram comment-to-DM",
+      "addedAt": "2026-08-22",
+      "description": "OpenReply — MIT-проект для self-hosted Instagram comment-to-DM через официальный Meta API. Это кандидат для Growth OS, но не «бесплатный ManyChat в один клик»: нужны web app, постоянно работающий worker, PostgreSQL, Redis, Meta App Review и строгие approval gates.",
+      "useCases": [
+        "Прототипировать keyword comment-to-DM",
+        "Хранить кампании и delivery receipts",
+        "Сравнить TCO с managed automation"
+      ],
+      "platforms": [
+        "Next.js",
+        "Node.js",
+        "PostgreSQL",
+        "Redis",
+        "Meta Graph API"
+      ],
+      "license": {
+        "label": "MIT",
+        "original": "MIT",
+        "spdx": "MIT",
+        "kind": "open-source",
+        "status": "editor-reviewed",
+        "requiresReview": false,
+        "evidence": [
+          {
+            "kind": "license",
+            "label": "Official MIT license",
+            "url": "https://github.com/diwenne/openreply/blob/main/LICENSE"
+          },
+          {
+            "kind": "source",
+            "label": "Official repository",
+            "url": "https://github.com/diwenne/openreply"
+          }
+        ]
+      },
+      "access": {
+        "cost": "free",
+        "signup": "required",
+        "runtime": "self-host"
+      },
+      "trust": "community",
+      "decision": "roadmap",
+      "riskLevel": "high",
+      "projects": [
+        "Eclipse Growth OS",
+        "Eclipse Social",
+        "Hopson Sentinel"
+      ],
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://github.com/diwenne/openreply"
+        },
+        {
+          "kind": "license",
+          "label": "Official MIT license",
+          "url": "https://github.com/diwenne/openreply/blob/main/LICENSE"
+        }
+      ],
+      "actions": {
+        "openOfficialSource": true,
+        "installFromCatalog": false,
+        "mutateExternalSystems": false
+      }
+    },
+    {
       "id": "reclip-github-com",
       "title": "Reclip",
       "url": "https://github.com/averygan/reclip",
@@ -13861,6 +13933,77 @@
           "kind": "license",
           "label": "MIT license",
           "url": "https://api.github.com/repos/averygan/reclip/license"
+        }
+      ],
+      "actions": {
+        "openOfficialSource": true,
+        "installFromCatalog": false,
+        "mutateExternalSystems": false
+      }
+    },
+    {
+      "id": "awesome-claude-skills-composio",
+      "title": "Awesome Claude Skills by Composio",
+      "url": "https://github.com/ComposioHQ/awesome-claude-skills",
+      "type": "skill",
+      "category": "Skills",
+      "subcategory": "Curated skill collection",
+      "addedAt": "2026-08-22",
+      "description": "Коллекция skills и ссылок для Claude-совместимых агентов. Eclipse использует её только как discovery source: SKILL.md объясняет «как», а connect-apps/Composio даёт OAuth-действия — это разные границы доверия и разные решения approval.",
+      "useCases": [
+        "Найти skill-кандидаты",
+        "Сравнить workflow patterns",
+        "Передать кандидата в Eclipse Skill Intake"
+      ],
+      "platforms": [
+        "Claude Code",
+        "Codex",
+        "GitHub",
+        "Composio"
+      ],
+      "license": {
+        "label": "No repository-wide license verified; each linked skill and connector keeps its own terms",
+        "original": "No repository-wide license verified; each linked skill and connector keeps its own terms",
+        "spdx": null,
+        "kind": "service-terms",
+        "status": "editor-reviewed",
+        "requiresReview": false,
+        "evidence": [
+          {
+            "kind": "source",
+            "label": "Official repository",
+            "url": "https://github.com/ComposioHQ/awesome-claude-skills"
+          },
+          {
+            "kind": "official-source",
+            "label": "Composio toolkits",
+            "url": "https://composio.dev/toolkits"
+          }
+        ]
+      },
+      "access": {
+        "cost": "freemium",
+        "signup": "optional",
+        "runtime": "hybrid"
+      },
+      "trust": "community",
+      "decision": "reference",
+      "riskLevel": "high",
+      "projects": [
+        "Eclipse Library",
+        "Eclipse AI Hub",
+        "Hopson Sentinel"
+      ],
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://github.com/ComposioHQ/awesome-claude-skills"
+        },
+        {
+          "kind": "official-source",
+          "label": "Composio toolkits",
+          "url": "https://composio.dev/toolkits"
         }
       ],
       "actions": {
@@ -14001,6 +14144,75 @@
       }
     },
     {
+      "id": "screenpipe-local-computer-history",
+      "title": "Screenpipe",
+      "url": "https://github.com/screenpipe/screenpipe",
+      "type": "tool",
+      "category": "Инструменты",
+      "subcategory": "Local computer history",
+      "addedAt": "2026-08-22",
+      "description": "Screenpipe записывает экран и звук локально и делает историю доступной агентам. Полезно для персональной памяти и QA evidence, но текущая лицензия требует отдельного commercial agreement для бизнес-использования и unattended machines; приватность здесь критичнее удобства.",
+      "useCases": [
+        "Личная локальная история действий",
+        "Поиск контекста по рабочему дню",
+        "Сбор QA evidence с явным consent"
+      ],
+      "platforms": [
+        "Desktop",
+        "Local AI",
+        "MCP"
+      ],
+      "license": {
+        "label": "Screenpipe Commercial License; free personal/non-commercial use and limited evaluation, paid license required for commercial use",
+        "original": "Screenpipe Commercial License; free personal/non-commercial use and limited evaluation, paid license required for commercial use",
+        "spdx": null,
+        "kind": "service-terms",
+        "status": "editor-reviewed",
+        "requiresReview": false,
+        "evidence": [
+          {
+            "kind": "license",
+            "label": "Official current license",
+            "url": "https://github.com/screenpipe/screenpipe/blob/main/LICENSE.md"
+          },
+          {
+            "kind": "source",
+            "label": "Official repository",
+            "url": "https://github.com/screenpipe/screenpipe"
+          }
+        ]
+      },
+      "access": {
+        "cost": "paid",
+        "signup": "optional",
+        "runtime": "local"
+      },
+      "trust": "official",
+      "decision": "reference",
+      "riskLevel": "high",
+      "projects": [
+        "Hopson Sentinel",
+        "Eclipse Chat"
+      ],
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://github.com/screenpipe/screenpipe"
+        },
+        {
+          "kind": "license",
+          "label": "Official current license",
+          "url": "https://github.com/screenpipe/screenpipe/blob/main/LICENSE.md"
+        }
+      ],
+      "actions": {
+        "openOfficialSource": true,
+        "installFromCatalog": false,
+        "mutateExternalSystems": false
+      }
+    },
+    {
       "id": "inworld-realtime-tts-2-inworld-ai",
       "title": "Inworld Realtime TTS-2",
       "url": "https://inworld.ai/blog/realtime-tts-2",
@@ -14046,6 +14258,77 @@
           "kind": "official-source",
           "label": "Официальный источник",
           "url": "https://inworld.ai/blog/realtime-tts-2"
+        }
+      ],
+      "actions": {
+        "openOfficialSource": true,
+        "installFromCatalog": false,
+        "mutateExternalSystems": false
+      }
+    },
+    {
+      "id": "twenty-open-crm",
+      "title": "Twenty CRM",
+      "url": "https://github.com/twentyhq/twenty",
+      "type": "oss",
+      "category": "Бизнес",
+      "subcategory": "CRM platform",
+      "addedAt": "2026-08-22",
+      "description": "Twenty — self-hostable CRM и кандидат для сравнения со StarCRM, а не автоматическая замена. Большая часть проекта AGPL-3.0 с исключением для приложений, отдельные файлы Enterprise и SDK/UI-пакеты с собственными лицензиями требуют component-level review.",
+      "useCases": [
+        "Сравнить CRM UX и data model",
+        "Оценить self-host TCO",
+        "Изучить API, webhooks и app platform"
+      ],
+      "platforms": [
+        "Web",
+        "PostgreSQL",
+        "Docker",
+        "GraphQL",
+        "REST"
+      ],
+      "license": {
+        "label": "Mostly AGPL-3.0 with Twenty Application Exception; some Enterprise-licensed files and MIT packages",
+        "original": "Mostly AGPL-3.0 with Twenty Application Exception; some Enterprise-licensed files and MIT packages",
+        "spdx": null,
+        "kind": "custom",
+        "status": "editor-reviewed",
+        "requiresReview": false,
+        "evidence": [
+          {
+            "kind": "license",
+            "label": "Official mixed license",
+            "url": "https://github.com/twentyhq/twenty/blob/main/LICENSE"
+          },
+          {
+            "kind": "source",
+            "label": "Official repository",
+            "url": "https://github.com/twentyhq/twenty"
+          }
+        ]
+      },
+      "access": {
+        "cost": "freemium",
+        "signup": "none",
+        "runtime": "self-host"
+      },
+      "trust": "official",
+      "decision": "reference",
+      "riskLevel": "high",
+      "projects": [
+        "StarCRM",
+        "Eclipse Growth OS"
+      ],
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://github.com/twentyhq/twenty"
+        },
+        {
+          "kind": "license",
+          "label": "Official mixed license",
+          "url": "https://github.com/twentyhq/twenty/blob/main/LICENSE"
         }
       ],
       "actions": {
@@ -14113,6 +14396,75 @@
       }
     },
     {
+      "id": "nocodb-self-hosted-table-database",
+      "title": "NocoDB",
+      "url": "https://github.com/nocodb/nocodb",
+      "type": "oss",
+      "category": "Данные",
+      "subcategory": "Table database UI",
+      "addedAt": "2026-08-22",
+      "description": "NocoDB даёт grid, forms, kanban и API поверх базы данных. Подходит как reference для внутренних таблиц и Library operations, но текущий Sustainable Use License разрешает внутреннее бизнес-использование и ограничивает распространение/сервис — это не обычная permissive OSS-лицензия.",
+      "useCases": [
+        "Внутренние операционные таблицы",
+        "Формы и lightweight admin UI",
+        "Сравнение с Airtable"
+      ],
+      "platforms": [
+        "Web",
+        "Database",
+        "Docker"
+      ],
+      "license": {
+        "label": "Sustainable Use License 1.0 for master/develop; other branches may be unlicensed",
+        "original": "Sustainable Use License 1.0 for master/develop; other branches may be unlicensed",
+        "spdx": null,
+        "kind": "custom",
+        "status": "editor-reviewed",
+        "requiresReview": false,
+        "evidence": [
+          {
+            "kind": "license",
+            "label": "Official current license",
+            "url": "https://github.com/nocodb/nocodb/blob/develop/LICENSE.md"
+          },
+          {
+            "kind": "source",
+            "label": "Official repository",
+            "url": "https://github.com/nocodb/nocodb"
+          }
+        ]
+      },
+      "access": {
+        "cost": "freemium",
+        "signup": "none",
+        "runtime": "self-host"
+      },
+      "trust": "official",
+      "decision": "reference",
+      "riskLevel": "medium",
+      "projects": [
+        "Eclipse Library",
+        "Eclipse Growth OS"
+      ],
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://github.com/nocodb/nocodb"
+        },
+        {
+          "kind": "license",
+          "label": "Official current license",
+          "url": "https://github.com/nocodb/nocodb/blob/develop/LICENSE.md"
+        }
+      ],
+      "actions": {
+        "openOfficialSource": true,
+        "installFromCatalog": false,
+        "mutateExternalSystems": false
+      }
+    },
+    {
       "id": "frame-github-com",
       "title": "Frame",
       "url": "https://github.com/66HEX/frame",
@@ -14171,6 +14523,147 @@
       }
     },
     {
+      "id": "voicebox-local-ai-voice-studio",
+      "title": "Voicebox",
+      "url": "https://github.com/jamiepine/voicebox",
+      "type": "oss",
+      "category": "Медиа",
+      "subcategory": "Local AI voice studio",
+      "addedAt": "2026-08-22",
+      "description": "Voicebox — MIT local-first voice studio для TTS, диктовки и работы с голосами. Кандидат для Eclipse Media и Chat, но клонирование голоса допускается только с документированным согласием владельца и заметной маркировкой синтетического аудио.",
+      "useCases": [
+        "Локальная озвучка прототипов",
+        "Диктовка в Eclipse Chat",
+        "Сравнение TTS engines"
+      ],
+      "platforms": [
+        "Desktop",
+        "Local AI",
+        "TTS",
+        "STT"
+      ],
+      "license": {
+        "label": "MIT",
+        "original": "MIT",
+        "spdx": "MIT",
+        "kind": "open-source",
+        "status": "editor-reviewed",
+        "requiresReview": false,
+        "evidence": [
+          {
+            "kind": "license",
+            "label": "Official MIT license",
+            "url": "https://github.com/jamiepine/voicebox/blob/main/LICENSE"
+          },
+          {
+            "kind": "source",
+            "label": "Official repository",
+            "url": "https://github.com/jamiepine/voicebox"
+          }
+        ]
+      },
+      "access": {
+        "cost": "free",
+        "signup": "none",
+        "runtime": "local"
+      },
+      "trust": "community",
+      "decision": "roadmap",
+      "riskLevel": "high",
+      "projects": [
+        "Eclipse Media",
+        "Eclipse Chat",
+        "Educator-AI"
+      ],
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://github.com/jamiepine/voicebox"
+        },
+        {
+          "kind": "license",
+          "label": "Official MIT license",
+          "url": "https://github.com/jamiepine/voicebox/blob/main/LICENSE"
+        }
+      ],
+      "actions": {
+        "openOfficialSource": true,
+        "installFromCatalog": false,
+        "mutateExternalSystems": false
+      }
+    },
+    {
+      "id": "agency-agents-template-collection",
+      "title": "Agency Agents",
+      "url": "https://github.com/msitarzewski/agency-agents",
+      "type": "skill",
+      "category": "Агенты",
+      "subcategory": "Specialist agent templates",
+      "addedAt": "2026-08-22",
+      "description": "Agency Agents — MIT-набор персонажей и workflow templates для специализированных агентов. Используем как reference для ролей и deliverables, но не как «готовых сотрудников»: каждый prompt проходит проверку полномочий, данных, инструментов и measurable acceptance criteria.",
+      "useCases": [
+        "Спроектировать команды specialist agents",
+        "Сравнить role templates",
+        "Добавить deliverable checklists"
+      ],
+      "platforms": [
+        "Markdown",
+        "Agent runtimes",
+        "GitHub"
+      ],
+      "license": {
+        "label": "MIT",
+        "original": "MIT",
+        "spdx": "MIT",
+        "kind": "open-source",
+        "status": "editor-reviewed",
+        "requiresReview": false,
+        "evidence": [
+          {
+            "kind": "license",
+            "label": "Official MIT license",
+            "url": "https://github.com/msitarzewski/agency-agents/blob/main/LICENSE"
+          },
+          {
+            "kind": "source",
+            "label": "Official repository",
+            "url": "https://github.com/msitarzewski/agency-agents"
+          }
+        ]
+      },
+      "access": {
+        "cost": "free",
+        "signup": "none",
+        "runtime": "local"
+      },
+      "trust": "community",
+      "decision": "roadmap",
+      "riskLevel": "medium",
+      "projects": [
+        "Eclipse AI Hub",
+        "Eclipse Growth OS",
+        "Eclipse Library"
+      ],
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://github.com/msitarzewski/agency-agents"
+        },
+        {
+          "kind": "license",
+          "label": "Official MIT license",
+          "url": "https://github.com/msitarzewski/agency-agents/blob/main/LICENSE"
+        }
+      ],
+      "actions": {
+        "openOfficialSource": true,
+        "installFromCatalog": false,
+        "mutateExternalSystems": false
+      }
+    },
+    {
       "id": "linly-dubbing-github-com",
       "title": "Linly-Dubbing",
       "url": "https://github.com/Kedreamix/Linly-Dubbing",
@@ -14220,6 +14713,76 @@
           "kind": "license",
           "label": "Apache-2.0 license",
           "url": "https://api.github.com/repos/kedreamix/linly-dubbing/license"
+        }
+      ],
+      "actions": {
+        "openOfficialSource": true,
+        "installFromCatalog": false,
+        "mutateExternalSystems": false
+      }
+    },
+    {
+      "id": "arcads-agent-skills",
+      "title": "Arcads Agent Skills",
+      "url": "https://github.com/arcads-ai/skills",
+      "type": "skill",
+      "category": "Медиа",
+      "subcategory": "Paid UGC generation connector",
+      "addedAt": "2026-08-22",
+      "description": "Официальный небольшой набор skills для управления Arcads UGC workflows. Это paid action surface с внешними аккаунтами, кредитами, лицами и продуктами; Library хранит ссылку и policy, но не запускает генерацию и не авторизует MCP автоматически.",
+      "useCases": [
+        "Изучить UGC workflow schema",
+        "Подготовить human-approved ad brief",
+        "Оценить платный pilot Arcads"
+      ],
+      "platforms": [
+        "Arcads",
+        "Claude-compatible agents",
+        "MCP"
+      ],
+      "license": {
+        "label": "No repository-wide license verified; Arcads service terms and skill files require separate review",
+        "original": "No repository-wide license verified; Arcads service terms and skill files require separate review",
+        "spdx": null,
+        "kind": "service-terms",
+        "status": "editor-reviewed",
+        "requiresReview": false,
+        "evidence": [
+          {
+            "kind": "source",
+            "label": "Official Arcads skills repository",
+            "url": "https://github.com/arcads-ai/skills"
+          },
+          {
+            "kind": "official-source",
+            "label": "Arcads MCP endpoint",
+            "url": "https://mcp.arcads.ai"
+          }
+        ]
+      },
+      "access": {
+        "cost": "paid",
+        "signup": "required",
+        "runtime": "cloud"
+      },
+      "trust": "official",
+      "decision": "reference",
+      "riskLevel": "high",
+      "projects": [
+        "Eclipse Media",
+        "Shotforge",
+        "Eclipse Growth OS"
+      ],
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://github.com/arcads-ai/skills"
+        },
+        {
+          "kind": "official-source",
+          "label": "Arcads MCP endpoint",
+          "url": "https://mcp.arcads.ai"
         }
       ],
       "actions": {
@@ -14345,6 +14908,76 @@
       }
     },
     {
+      "id": "wan21-open-video-model",
+      "title": "Wan 2.1",
+      "url": "https://github.com/Wan-Video/Wan2.1",
+      "type": "oss",
+      "category": "Модели",
+      "subcategory": "Open video generation",
+      "addedAt": "2026-08-22",
+      "description": "Wan 2.1 — Apache-2.0 repository for open video-generation models. Это реальный кандидат для local media experiments, но «бесплатно» означает только отсутствие SaaS-подписки: нужны совместимое железо, model-weight license/provenance review и безопасная очередь генерации.",
+      "useCases": [
+        "Локальные video-generation experiments",
+        "Сравнить качество и стоимость с cloud APIs",
+        "Создать owned B-roll"
+      ],
+      "platforms": [
+        "Python",
+        "GPU",
+        "Local AI"
+      ],
+      "license": {
+        "label": "Apache-2.0 repository; model weights and bundled components must be checked separately",
+        "original": "Apache-2.0 repository; model weights and bundled components must be checked separately",
+        "spdx": null,
+        "kind": "custom",
+        "status": "editor-reviewed",
+        "requiresReview": false,
+        "evidence": [
+          {
+            "kind": "license",
+            "label": "Official Apache-2.0 license",
+            "url": "https://github.com/Wan-Video/Wan2.1/blob/main/LICENSE.txt"
+          },
+          {
+            "kind": "source",
+            "label": "Official repository",
+            "url": "https://github.com/Wan-Video/Wan2.1"
+          }
+        ]
+      },
+      "access": {
+        "cost": "free",
+        "signup": "none",
+        "runtime": "local"
+      },
+      "trust": "official",
+      "decision": "roadmap",
+      "riskLevel": "high",
+      "projects": [
+        "Eclipse Media",
+        "Shotforge",
+        "Text2Image"
+      ],
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://github.com/Wan-Video/Wan2.1"
+        },
+        {
+          "kind": "license",
+          "label": "Official Apache-2.0 license",
+          "url": "https://github.com/Wan-Video/Wan2.1/blob/main/LICENSE.txt"
+        }
+      ],
+      "actions": {
+        "openOfficialSource": true,
+        "installFromCatalog": false,
+        "mutateExternalSystems": false
+      }
+    },
+    {
       "id": "comic-translate-github-com",
       "title": "Comic-translate",
       "url": "https://github.com/ogkalu2/comic-translate",
@@ -14403,6 +15036,76 @@
       }
     },
     {
+      "id": "scrapegraph-mcp-server",
+      "title": "ScrapeGraph MCP",
+      "url": "https://github.com/ScrapeGraphAI/scrapegraph-mcp",
+      "type": "oss",
+      "category": "Парсинг",
+      "subcategory": "Hosted scraping MCP",
+      "addedAt": "2026-08-22",
+      "description": "ScrapeGraph MCP — MIT MCP-сервер для вызова ScrapeGraph API из агента. Это отдельный ресурс от Python-библиотеки ScrapeGraphAI: сервер требует API key и может передавать URL/контент внешнему сервису, поэтому подходит для разрешённых публичных источников, а не для скрытого обхода платформ.",
+      "useCases": [
+        "Структурировать публичные страницы",
+        "Получить schema-shaped extraction",
+        "Сравнить MCP и local library"
+      ],
+      "platforms": [
+        "MCP",
+        "Node.js",
+        "ScrapeGraph API"
+      ],
+      "license": {
+        "label": "MIT",
+        "original": "MIT",
+        "spdx": "MIT",
+        "kind": "open-source",
+        "status": "editor-reviewed",
+        "requiresReview": false,
+        "evidence": [
+          {
+            "kind": "license",
+            "label": "Official MIT license",
+            "url": "https://github.com/ScrapeGraphAI/scrapegraph-mcp/blob/main/LICENSE"
+          },
+          {
+            "kind": "source",
+            "label": "Official repository",
+            "url": "https://github.com/ScrapeGraphAI/scrapegraph-mcp"
+          }
+        ]
+      },
+      "access": {
+        "cost": "freemium",
+        "signup": "required",
+        "runtime": "cloud"
+      },
+      "trust": "official",
+      "decision": "roadmap",
+      "riskLevel": "high",
+      "projects": [
+        "Eclipse Library",
+        "Eclipse Growth OS",
+        "Eclipse AI Hub"
+      ],
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://github.com/ScrapeGraphAI/scrapegraph-mcp"
+        },
+        {
+          "kind": "license",
+          "label": "Official MIT license",
+          "url": "https://github.com/ScrapeGraphAI/scrapegraph-mcp/blob/main/LICENSE"
+        }
+      ],
+      "actions": {
+        "openOfficialSource": true,
+        "installFromCatalog": false,
+        "mutateExternalSystems": false
+      }
+    },
+    {
       "id": "final2x-github-com",
       "title": "Final2x",
       "url": "https://github.com/EutropicAI/Final2x",
@@ -14452,6 +15155,66 @@
           "kind": "license",
           "label": "BSD-3-Clause license",
           "url": "https://api.github.com/repos/eutropicai/final2x/license"
+        }
+      ],
+      "actions": {
+        "openOfficialSource": true,
+        "installFromCatalog": false,
+        "mutateExternalSystems": false
+      }
+    },
+    {
+      "id": "claude-code-guide-community-collection",
+      "title": "Claude Code Guide Community Collection",
+      "url": "https://claude-code-guide-one-nu.vercel.app/",
+      "type": "learn",
+      "category": "Курсы и гайды",
+      "subcategory": "Community prompt collection",
+      "addedAt": "2026-08-22",
+      "description": "Большая community-библиотека prompt playbooks про агентов, дизайн, медиа, маршрутизацию моделей и автоматизацию. Это не официальная документация Anthropic: Library хранит источник и собственный разбор, но не принимает команды, версии моделей, цены и benchmark claims за факты.",
+      "useCases": [
+        "Находить идеи для product epics",
+        "Извлекать reusable architecture patterns",
+        "Создавать verification queue"
+      ],
+      "platforms": [
+        "Web",
+        "Claude Code concepts"
+      ],
+      "license": {
+        "label": "No public reuse license established; summarize and link, do not republish prompt text verbatim",
+        "original": "No public reuse license established; summarize and link, do not republish prompt text verbatim",
+        "spdx": null,
+        "kind": "custom",
+        "status": "editor-reviewed",
+        "requiresReview": false,
+        "evidence": [
+          {
+            "kind": "official-source",
+            "label": "Community collection landing",
+            "url": "https://claude-code-guide-one-nu.vercel.app/"
+          }
+        ]
+      },
+      "access": {
+        "cost": "free",
+        "signup": "optional",
+        "runtime": "cloud"
+      },
+      "trust": "caution",
+      "decision": "reference",
+      "riskLevel": "high",
+      "projects": [
+        "Eclipse Library",
+        "Eclipse AI Hub",
+        "Eclipse Growth OS",
+        "Eclipse Media"
+      ],
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://claude-code-guide-one-nu.vercel.app/"
         }
       ],
       "actions": {

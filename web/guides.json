@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "totals": {
-    "guides": 48
+    "guides": 59
   },
   "guides": [
     {
@@ -33,9 +33,23 @@
       "lessons": 0
     },
     {
+      "name": "agent-operator-approval-control-plane",
+      "title": "Agent Operator и approval control plane",
+      "description": "Архитектура «ИИ-сотрудников», Telegram/mobile-команд и handoff без автономных внешних действий.",
+      "modules": 0,
+      "lessons": 0
+    },
+    {
       "name": "agent-reach-security-review-2026-07-31",
       "title": "Agent Reach — static security review",
       "description": "Решение Eclipse Forge на 31.07.2026: сохранить как архитектурный Reference.",
+      "modules": 0,
+      "lessons": 0
+    },
+    {
+      "name": "agent-systems-roadmap-2026-08-22",
+      "title": "Agent Systems: дорожная карта Eclipse Forge",
+      "description": "Видимый индекс всей подборки: 10 самостоятельных направлений, владельцы проектов, приоритеты и обязательные approval gates.",
       "modules": 0,
       "lessons": 0
     },
@@ -98,7 +112,14 @@
     {
       "name": "community-agent-prompt-library-review-2026-08-22",
       "title": "Community Agent Prompt Library: проверка и Eclipse rollout",
-      "description": "",
+      "description": "Полный разбор большой community-подборки: отдельные ресурсы, продуктовые epic’и, безопасные blueprints и отсев неподтверждённых заявлений.",
+      "modules": 0,
+      "lessons": 0
+    },
+    {
+      "name": "content-growth-engine",
+      "title": "Content & Growth Engine",
+      "description": "Контролируемый цикл scan → filter → write → build → approve → publish → listen, где evidence важнее лайков.",
       "modules": 0,
       "lessons": 0
     },
@@ -106,6 +127,27 @@
       "name": "creator-ops-stack",
       "title": "Creator Ops Stack: контент, desktop-инструменты и UI без магических обещаний",
       "description": "Проверено 12.08.2026. Этот гайд превращает подборки со скриншотов в безопасные решения для Eclipse Forge. Каталог не устанавливает приложения, skills, CLI или MCP и не…",
+      "modules": 0,
+      "lessons": 0
+    },
+    {
+      "name": "defensive-security-pipeline",
+      "title": "Defensive Security Pipeline",
+      "description": "Security-проверка изменений и Strix-пилот только на собственных разрешённых целях: evidence, patch, rescan и rollback.",
+      "modules": 0,
+      "lessons": 0
+    },
+    {
+      "name": "design-stack-and-motion-workbench",
+      "title": "Design Stack & Motion Workbench",
+      "description": "Taste, Playwright, Open Design, 21st.dev и motion references без копирования чужого UI и без превращения рабочих экранов в маркетинговый аттракцион.",
+      "modules": 0,
+      "lessons": 0
+    },
+    {
+      "name": "deterministic-media-factory",
+      "title": "Deterministic Media Factory",
+      "description": "Единый contract для rough cut, HyperFrames, Remotion, Carousel Studio и AI-provider handoff с frame-accurate render и правами на asset.",
       "modules": 0,
       "lessons": 0
     },
@@ -243,6 +285,20 @@
       "lessons": 0
     },
     {
+      "name": "local-ai-employee-and-screen-memory",
+      "title": "Local AI Employee & Screen Memory",
+      "description": "Always-on worker и память экрана с privacy-first контрактом: read-only summary, затем drafts, затем точечно одобренные действия.",
+      "modules": 0,
+      "lessons": 0
+    },
+    {
+      "name": "open-source-replacement-matrix",
+      "title": "Open-source Replacement Matrix",
+      "description": "«Открытый исходный код» не означает бесплатную эксплуатацию или полную замену SaaS: фиксируем функции, лицензию, TCO и migration gap.",
+      "modules": 0,
+      "lessons": 0
+    },
+    {
       "name": "august-2026-operational-agent-stack",
       "title": "Operational Agent Stack: от сигнала до результата",
       "description": "Проверка от 03.08.2026. Цель этого набора не установить шесть случайных инструментов, а собрать управляемый pipeline: анализ - решение - выполнение - артефакт - review.",
@@ -260,6 +316,20 @@
       "name": "razer-aikit-diagram-design-review",
       "title": "Razer AIKit и Diagram Design: проверка и план внедрения",
       "description": "Проверено 13.08.2026 по canonical GitHub repositories, лицензиям, release/plugin metadata, документации, Compose и CI.",
+      "modules": 0,
+      "lessons": 0
+    },
+    {
+      "name": "research-web-video-intake",
+      "title": "Research, Web & Video Intake",
+      "description": "Безопасный intake для Agent Reach, Crawl4AI, ScrapeGraph и video watcher: источники цитируются, контент не становится инструкцией.",
+      "modules": 0,
+      "lessons": 0
+    },
+    {
+      "name": "skills-connectors-and-agent-teams",
+      "title": "Skills, Connectors & Agent Teams",
+      "description": "Skill объясняет процесс, connector даёт реальные «руки», agent role ограничивает ответственность.",
       "modules": 0,
       "lessons": 0
     },
@@ -288,6 +358,13 @@
       "name": "mcp-runtime-audit",
       "title": "Безопасный runtime-аудит MCP server",
       "description": "",
+      "modules": 0,
+      "lessons": 0
+    },
+    {
+      "name": "verified-model-routing-and-cost-control",
+      "title": "Проверенная маршрутизация моделей и контроль стоимости",
+      "description": "Registry-backed router вместо рекламных таблиц: доступность, цена, политика данных, Eclipse benchmark и видимый fallback.",
       "modules": 0,
       "lessons": 0
     },
