@@ -175,7 +175,11 @@ LocalSend — cross-platform передача файлов и сообщений
 
 ### Первый пилот и критерий успеха
 
-Использовать как внешний инструмент в одной QA-сессии. Для продуктовой идеи сделать отдельный прототип transfer card с подтверждением устройства, checksum, retry и явной папкой назначения.
+**Статус 2026-08-22: send vertical slice внедрён в Eclipse Chat / Eclipse Desktop.**
+Есть discovery, системный picker без раскрытия путей webview, явный выбор адресата,
+HTTPS с certificate pinning, прогресс, отмена и SHA-256. Входящий режим выключен.
+Следующий пилот — реальная передача phone → workstation через внешний LocalSend,
+затем controlled receive с quarantine и malware-scan, а не автоматический импорт.
 
 ### Ограничения
 
