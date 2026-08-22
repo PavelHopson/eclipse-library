@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "sourceHash": "2e78638c1bde178313b56e0e05c0306fef0c6cec8ec3845ea4a36739deaa03b3",
+  "sourceHash": "c1b4d16474b23543b8fd4848eae0039edcb65e5716a800182279c6b65c44cc89",
   "policy": {
     "automaticApprovalForbidden": true,
     "directInstallForbidden": true,
@@ -4285,7 +4285,7 @@
       "decision": "no",
       "riskLevel": "high",
       "currentLicense": "MIT",
-      "reviewStatus": "quarantined",
+      "reviewStatus": "inferred",
       "bucket": "grey-reference",
       "priority": "P3",
       "reason": "Grey resources stay excluded from agent recommendations; review only if a human needs this reference.",
