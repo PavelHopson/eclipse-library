@@ -1,18 +1,18 @@
 {
   "schemaVersion": 2,
-  "sourceHash": "c1b4d16474b23543b8fd4848eae0039edcb65e5716a800182279c6b65c44cc89",
+  "sourceHash": "02c42e5a4927850ea70ad6980a54fc7d889ebc22792049ec5609045e9b787ed9",
   "policy": {
     "directInstallForbidden": true
   },
   "totals": {
-    "all": 686,
-    "verified": 316,
-    "inferred": 370,
+    "all": 693,
+    "verified": 324,
+    "inferred": 369,
     "licenseReviewRequired": 215,
-    "agentSafe": 603,
+    "agentSafe": 610,
     "agentExcluded": 83,
     "grey": 75,
-    "withAddedAt": 406
+    "withAddedAt": 413
   },
   "items": [
     {
@@ -719,6 +719,120 @@
       }
     },
     {
+      "id": "duplicati-encrypted-backups",
+      "url": "https://github.com/duplicati/duplicati",
+      "title": "Duplicati",
+      "type": "tool",
+      "category": "Infrastructure & Ops",
+      "subcategory": "Зашифрованные резервные копии",
+      "simpleDescription": "Кроссплатформенная система зашифрованных инкрементальных backup по расписанию с поддержкой локальных и облачных хранилищ. Ценность для Eclipse — проверяемое восстановление, а не просто зелёный статус задания.",
+      "useCases": [
+        "Backup конфигураций, каталогов и БД Eclipse",
+        "Backup health и restore drills в Hopson Sentinel",
+        "Раздельные recovery-планы StarCRM и StarMarket"
+      ],
+      "features": [
+        "Client-side encryption",
+        "Incremental backups",
+        "Retention policies",
+        "Multiple storage backends",
+        "Scheduled jobs"
+      ],
+      "platforms": [
+        "Windows",
+        "macOS",
+        "Linux",
+        "Docker",
+        "Self-host"
+      ],
+      "license": "MIT",
+      "licenseEvidence": [
+        {
+          "kind": "license",
+          "label": "Official mixed license notice",
+          "url": "https://github.com/duplicati/duplicati/blob/master/LICENSE"
+        }
+      ],
+      "pricing": "Основной self-hosted код бесплатный; storage, egress и отдельные коммерческие компоненты могут стоить денег",
+      "access": {
+        "cost": "freemium",
+        "signup": "optional",
+        "runtime": "self-host"
+      },
+      "trust": "official",
+      "trustReason": "Проверены официальный репозиторий duplicati/duplicati и полный license notice, включая отдельные условия proprietary/.",
+      "projects": [
+        "Hopson Sentinel",
+        "Eclipse Library",
+        "Eclipse Chat",
+        "StarCRM",
+        "StarMarket"
+      ],
+      "decision": "now",
+      "riskLevel": "high",
+      "risks": [
+        "Потеря ключа шифрования делает backup бесполезным",
+        "Скомпрометированные credentials могут позволить удалить backup",
+        "Успешное задание не доказывает возможность восстановления"
+      ],
+      "quickStart": [
+        "Взять непроизводственный dataset",
+        "Создать зашифрованный backup во второе хранилище",
+        "Восстановить в чистую директорию и сверить checksum, RPO и RTO"
+      ],
+      "limitations": [
+        "Не хранить encryption key рядом с backup",
+        "Нужны immutable/versioned storage и регулярные restore drills"
+      ],
+      "reviewStatus": "verified",
+      "verifiedAt": "2026-08-22",
+      "addedAt": "2026-08-22",
+      "guide": "self-hosted-platforms-for-eclipse-2026-08-22",
+      "source": {
+        "file": "catalog/resources.json",
+        "key": "duplicati-encrypted-backups",
+        "legacy": {
+          "file": "guides/self-hosted-platforms-for-eclipse-2026-08-22.md",
+          "line": 1,
+          "category": "Self-hosted & Open Source",
+          "subcategory": "Платформы для Eclipse"
+        }
+      },
+      "catalogOrder": 1,
+      "licenseInfo": {
+        "label": "MIT",
+        "original": "Преимущественно MIT; каталог proprietary/ и сторонние компоненты имеют отдельные условия",
+        "spdx": "MIT",
+        "kind": "open-source",
+        "status": "editor-reviewed",
+        "requiresReview": false,
+        "evidence": [
+          {
+            "kind": "license",
+            "label": "Official mixed license notice",
+            "url": "https://github.com/duplicati/duplicati/blob/master/LICENSE"
+          }
+        ]
+      },
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://github.com/duplicati/duplicati"
+        },
+        {
+          "kind": "license",
+          "label": "Official mixed license notice",
+          "url": "https://github.com/duplicati/duplicati/blob/master/LICENSE"
+        }
+      ],
+      "agentEligibility": {
+        "eligible": true,
+        "reasons": [],
+        "installAllowed": false
+      }
+    },
+    {
       "id": "ffmpeg-webcli",
       "url": "https://github.com/tejaswigowda/ffmpeg-webCLI",
       "title": "ffmpeg-webCLI",
@@ -1305,6 +1419,230 @@
       }
     },
     {
+      "id": "linkding-self-hosted-bookmarks",
+      "url": "https://github.com/sissbruecker/linkding",
+      "title": "Linkding",
+      "type": "tool",
+      "category": "Knowledge & Research",
+      "subcategory": "Research inbox и закладки",
+      "simpleDescription": "Минималистичный self-hosted bookmark manager с тегами, поиском и browser extensions. Подходит как быстрый входящий слой между найденной ссылкой и проверенной карточкой Eclipse Library.",
+      "useCases": [
+        "Research inbox для Eclipse Library",
+        "Источники и конкуренты в Eclipse Growth OS",
+        "Реестр документации и evals в Eclipse AI Hub"
+      ],
+      "features": [
+        "Tags",
+        "Search",
+        "Browser extensions",
+        "Archive snapshots",
+        "Self-hosting"
+      ],
+      "platforms": [
+        "Web",
+        "Docker",
+        "Self-host",
+        "Browser extension"
+      ],
+      "license": "MIT",
+      "licenseEvidence": [
+        {
+          "kind": "license",
+          "label": "Official MIT license",
+          "url": "https://github.com/sissbruecker/linkding/blob/master/LICENSE.txt"
+        }
+      ],
+      "pricing": "Self-hosted приложение бесплатно; инфраструктура, backups и эксплуатация оплачиваются владельцем",
+      "access": {
+        "cost": "free",
+        "signup": "none",
+        "runtime": "self-host"
+      },
+      "trust": "official",
+      "trustReason": "Проверены официальный репозиторий sissbruecker/linkding, homepage и MIT license.",
+      "projects": [
+        "Eclipse Library",
+        "Eclipse Growth OS",
+        "Eclipse AI Hub"
+      ],
+      "decision": "now",
+      "riskLevel": "medium",
+      "risks": [
+        "Внешние страницы могут содержать prompt injection",
+        "Metadata fetch может создать SSRF-риск",
+        "Токены расширений дают доступ к приватным закладкам"
+      ],
+      "quickStart": [
+        "Создать теги inbox/license-check/security-check/project:*",
+        "Подключить canonical URL dedupe",
+        "Экспортировать только review-approved ссылки в Library intake"
+      ],
+      "limitations": [
+        "Закладка не считается проверенным источником",
+        "Внешний текст всегда считать данными, а не инструкциями"
+      ],
+      "reviewStatus": "verified",
+      "verifiedAt": "2026-08-22",
+      "addedAt": "2026-08-22",
+      "guide": "self-hosted-platforms-for-eclipse-2026-08-22",
+      "source": {
+        "file": "catalog/resources.json",
+        "key": "linkding-self-hosted-bookmarks",
+        "legacy": {
+          "file": "guides/self-hosted-platforms-for-eclipse-2026-08-22.md",
+          "line": 1,
+          "category": "Self-hosted & Open Source",
+          "subcategory": "Платформы для Eclipse"
+        }
+      },
+      "catalogOrder": 1,
+      "licenseInfo": {
+        "label": "MIT",
+        "original": "MIT",
+        "spdx": "MIT",
+        "kind": "open-source",
+        "status": "editor-reviewed",
+        "requiresReview": false,
+        "evidence": [
+          {
+            "kind": "license",
+            "label": "Official MIT license",
+            "url": "https://github.com/sissbruecker/linkding/blob/master/LICENSE.txt"
+          }
+        ]
+      },
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://github.com/sissbruecker/linkding"
+        },
+        {
+          "kind": "license",
+          "label": "Official MIT license",
+          "url": "https://github.com/sissbruecker/linkding/blob/master/LICENSE.txt"
+        }
+      ],
+      "agentEligibility": {
+        "eligible": true,
+        "reasons": [],
+        "installAllowed": false
+      }
+    },
+    {
+      "id": "listmonk-self-hosted-newsletters",
+      "url": "https://github.com/knadh/listmonk",
+      "title": "Listmonk",
+      "type": "tool",
+      "category": "Marketing & Growth",
+      "subcategory": "Рассылки и списки подписчиков",
+      "simpleDescription": "Высокопроизводительный self-hosted менеджер подписчиков, сегментов и массовых email-кампаний. Подходит для approval-first рассылок Growth OS, но не заменяет SMTP-провайдера и deliverability-процесс.",
+      "useCases": [
+        "Черновики и сегменты рассылок Eclipse Growth OS",
+        "Email digest из одобренного контента Eclipse Socials",
+        "Consent-controlled экспорт контактов из StarCRM"
+      ],
+      "features": [
+        "Subscriber lists",
+        "Segmentation",
+        "Campaigns",
+        "Templates",
+        "Analytics",
+        "Single binary"
+      ],
+      "platforms": [
+        "Linux",
+        "Docker",
+        "Self-host",
+        "Web"
+      ],
+      "license": "AGPL-3.0",
+      "licenseEvidence": [
+        {
+          "kind": "license",
+          "label": "Official AGPL-3.0 license",
+          "url": "https://github.com/knadh/listmonk/blob/master/LICENSE"
+        }
+      ],
+      "pricing": "Self-hosted код бесплатный; SMTP, IP reputation, домен и эксплуатация оплачиваются отдельно",
+      "access": {
+        "cost": "free",
+        "signup": "none",
+        "runtime": "self-host"
+      },
+      "trust": "official",
+      "trustReason": "Проверены официальный репозиторий knadh/listmonk, homepage и AGPL-3.0.",
+      "projects": [
+        "Eclipse Growth OS",
+        "Eclipse Socials",
+        "StarCRM"
+      ],
+      "decision": "roadmap",
+      "riskLevel": "high",
+      "risks": [
+        "Subscriber data является PII",
+        "Ошибка сегмента или automation может вызвать массовую нежелательную отправку",
+        "Нужны consent, unsubscribe, suppression, bounce и legal controls"
+      ],
+      "quickStart": [
+        "Поднять staging и импортировать только внутренний test list",
+        "Настроить double opt-in, unsubscribe и suppression",
+        "Разрешать отправку только после preview и человеческого approval"
+      ],
+      "limitations": [
+        "Не transactional email provider",
+        "Никаких автономных массовых отправок",
+        "AGPL требует review при модификации сетевого сервиса"
+      ],
+      "reviewStatus": "verified",
+      "verifiedAt": "2026-08-22",
+      "addedAt": "2026-08-22",
+      "guide": "self-hosted-platforms-for-eclipse-2026-08-22",
+      "source": {
+        "file": "catalog/resources.json",
+        "key": "listmonk-self-hosted-newsletters",
+        "legacy": {
+          "file": "guides/self-hosted-platforms-for-eclipse-2026-08-22.md",
+          "line": 1,
+          "category": "Self-hosted & Open Source",
+          "subcategory": "Платформы для Eclipse"
+        }
+      },
+      "catalogOrder": 1,
+      "licenseInfo": {
+        "label": "AGPL-3.0",
+        "original": "GNU Affero General Public License v3.0 (AGPL-3.0)",
+        "spdx": "AGPL-3.0",
+        "kind": "open-source",
+        "status": "editor-reviewed",
+        "requiresReview": false,
+        "evidence": [
+          {
+            "kind": "license",
+            "label": "Official AGPL-3.0 license",
+            "url": "https://github.com/knadh/listmonk/blob/master/LICENSE"
+          }
+        ]
+      },
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://github.com/knadh/listmonk"
+        },
+        {
+          "kind": "license",
+          "label": "Official AGPL-3.0 license",
+          "url": "https://github.com/knadh/listmonk/blob/master/LICENSE"
+        }
+      ],
+      "agentEligibility": {
+        "eligible": true,
+        "reasons": [],
+        "installAllowed": false
+      }
+    },
+    {
       "id": "llm-as-a-verifier",
       "url": "https://github.com/llm-as-a-verifier/llm-as-a-verifier",
       "title": "LLM-as-a-Verifier",
@@ -1592,6 +1930,116 @@
       }
     },
     {
+      "id": "niri-scrollable-tiling-wayland-compositor",
+      "url": "https://github.com/niri-wm/niri",
+      "title": "Niri",
+      "type": "oss",
+      "category": "Desktop & OS",
+      "subcategory": "Scrollable workspace UX",
+      "simpleDescription": "Scrollable-tiling compositor для Wayland: окна располагаются в растущей горизонтальной ленте. Для Eclipse ценен прежде всего как UX-референс пространственных рабочих областей, а не как продуктовая зависимость.",
+      "useCases": [
+        "Прототип ленты контекстов в Eclipse Chat",
+        "Operational workspaces в Hopson Sentinel",
+        "Пространственная навигация в DnD / Living World"
+      ],
+      "features": [
+        "Scrollable tiling",
+        "Wayland compositor",
+        "Keyboard-driven navigation",
+        "Dynamic workspaces"
+      ],
+      "platforms": [
+        "Linux",
+        "Wayland",
+        "Desktop"
+      ],
+      "license": "GPL-3.0",
+      "licenseEvidence": [
+        {
+          "kind": "license",
+          "label": "Official GPL-3.0 license",
+          "url": "https://github.com/niri-wm/niri/blob/main/LICENSE"
+        }
+      ],
+      "pricing": "Бесплатный open-source системный компонент; внедрение его идей в продукт требует отдельной разработки",
+      "access": {
+        "cost": "free",
+        "signup": "none",
+        "runtime": "local"
+      },
+      "trust": "official",
+      "trustReason": "Исходная ссылка YaLTeR/niri перенаправляет в официальный активный репозиторий niri-wm/niri; проверены homepage и GPL-3.0.",
+      "projects": [
+        "Eclipse Chat",
+        "Hopson Sentinel",
+        "DnD / Living World",
+        "Eclipse Library"
+      ],
+      "decision": "reference",
+      "riskLevel": "low",
+      "risks": [
+        "Linux/Wayland only",
+        "Пространственная навигация может ухудшить keyboard focus и accessibility",
+        "Анимации требуют reduced-motion fallback"
+      ],
+      "quickStart": [
+        "Не устанавливать как зависимость Eclipse",
+        "Собрать отдельный web-прототип scrollable workspace",
+        "Проверить history, deep links, focus order, mobile и reduced motion"
+      ],
+      "limitations": [
+        "Не Windows/macOS-компонент",
+        "Использовать идеи интерфейса, а не копировать системную архитектуру"
+      ],
+      "reviewStatus": "verified",
+      "verifiedAt": "2026-08-22",
+      "addedAt": "2026-08-22",
+      "guide": "self-hosted-platforms-for-eclipse-2026-08-22",
+      "source": {
+        "file": "catalog/resources.json",
+        "key": "niri-scrollable-tiling-wayland-compositor",
+        "legacy": {
+          "file": "guides/self-hosted-platforms-for-eclipse-2026-08-22.md",
+          "line": 1,
+          "category": "Self-hosted & Open Source",
+          "subcategory": "Платформы для Eclipse"
+        }
+      },
+      "catalogOrder": 1,
+      "licenseInfo": {
+        "label": "GPL-3.0",
+        "original": "GNU General Public License v3.0 (GPL-3.0)",
+        "spdx": "GPL-3.0",
+        "kind": "open-source",
+        "status": "editor-reviewed",
+        "requiresReview": false,
+        "evidence": [
+          {
+            "kind": "license",
+            "label": "Official GPL-3.0 license",
+            "url": "https://github.com/niri-wm/niri/blob/main/LICENSE"
+          }
+        ]
+      },
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://github.com/niri-wm/niri"
+        },
+        {
+          "kind": "license",
+          "label": "Official GPL-3.0 license",
+          "url": "https://github.com/niri-wm/niri/blob/main/LICENSE"
+        }
+      ],
+      "agentEligibility": {
+        "eligible": true,
+        "reasons": [],
+        "installAllowed": false
+      }
+    },
+    {
       "id": "openrouter-ox-alpha",
       "url": "https://openrouter.ai/stealth/ox-alpha",
       "title": "Ox Alpha",
@@ -1769,6 +2217,338 @@
           "kind": "official-source",
           "label": "Официальный источник",
           "url": "https://huggingface.co/ornith-ai/Ornith-1.5-9B-GGUF"
+        }
+      ],
+      "agentEligibility": {
+        "eligible": true,
+        "reasons": [],
+        "installAllowed": false
+      }
+    },
+    {
+      "id": "penpot-open-source-design-platform",
+      "url": "https://github.com/penpot/penpot",
+      "title": "Penpot",
+      "type": "tool",
+      "category": "Design & UI",
+      "subcategory": "Совместный дизайн и дизайн-системы",
+      "simpleDescription": "Open-source веб-платформа для совместного проектирования интерфейсов. Полезна как единый источник компонентов, responsive-макетов и дизайн-токенов с более прозрачным handoff в HTML, CSS и SVG.",
+      "useCases": [
+        "Вести общую дизайн-систему Eclipse с состояниями и responsive-вариантами",
+        "Синхронизировать токены Penpot и CSS variables Eclipse Chat",
+        "Публиковать проверенные UI-паттерны и исходники в Eclipse Library"
+      ],
+      "features": [
+        "Совместное редактирование",
+        "Компоненты и библиотеки",
+        "Работа с веб-стандартами",
+        "Self-hosting"
+      ],
+      "platforms": [
+        "Web",
+        "Self-host",
+        "Cloud",
+        "Docker"
+      ],
+      "license": "MPL-2.0",
+      "licenseEvidence": [
+        {
+          "kind": "license",
+          "label": "Official MPL-2.0 license",
+          "url": "https://github.com/penpot/penpot/blob/develop/LICENSE"
+        }
+      ],
+      "pricing": "Исходный код доступен для self-hosting; облачный сервис и эксплуатация имеют отдельные условия и стоимость",
+      "access": {
+        "cost": "freemium",
+        "signup": "optional",
+        "runtime": "hybrid"
+      },
+      "trust": "official",
+      "trustReason": "Проверены официальный репозиторий penpot/penpot, homepage и файл MPL-2.0 в ветке develop.",
+      "projects": [
+        "Eclipse Design System",
+        "Eclipse Library",
+        "Eclipse Chat",
+        "Eclipse Forge Landing"
+      ],
+      "decision": "roadmap",
+      "riskLevel": "medium",
+      "risks": [
+        "Миграция макетов и компонентов может потерять fidelity",
+        "Нужны backups, RBAC и контроль внешнего доступа",
+        "Изменённые MPL-файлы сохраняют требования MPL"
+      ],
+      "quickStart": [
+        "Поднять sandbox без production-данных",
+        "Перенести один вертикальный срез компонентов",
+        "Сопоставить дизайн-токены с CSS variables и пройти desktop/mobile QA"
+      ],
+      "limitations": [
+        "Не заменять текущий дизайн-процесс до проверки handoff",
+        "Не использовать экспортированный код без review"
+      ],
+      "reviewStatus": "verified",
+      "verifiedAt": "2026-08-22",
+      "addedAt": "2026-08-22",
+      "guide": "self-hosted-platforms-for-eclipse-2026-08-22",
+      "source": {
+        "file": "catalog/resources.json",
+        "key": "penpot-open-source-design-platform",
+        "legacy": {
+          "file": "guides/self-hosted-platforms-for-eclipse-2026-08-22.md",
+          "line": 1,
+          "category": "Self-hosted & Open Source",
+          "subcategory": "Платформы для Eclipse"
+        }
+      },
+      "catalogOrder": 1,
+      "licenseInfo": {
+        "label": "MPL-2.0",
+        "original": "Mozilla Public License 2.0 (MPL-2.0)",
+        "spdx": "MPL-2.0",
+        "kind": "open-source",
+        "status": "editor-reviewed",
+        "requiresReview": false,
+        "evidence": [
+          {
+            "kind": "license",
+            "label": "Official MPL-2.0 license",
+            "url": "https://github.com/penpot/penpot/blob/develop/LICENSE"
+          }
+        ]
+      },
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://github.com/penpot/penpot"
+        },
+        {
+          "kind": "license",
+          "label": "Official MPL-2.0 license",
+          "url": "https://github.com/penpot/penpot/blob/develop/LICENSE"
+        }
+      ],
+      "agentEligibility": {
+        "eligible": true,
+        "reasons": [],
+        "installAllowed": false
+      }
+    },
+    {
+      "id": "plausible-privacy-first-analytics",
+      "url": "https://github.com/plausible/analytics",
+      "title": "Plausible Analytics",
+      "type": "tool",
+      "category": "Analytics & Data",
+      "subcategory": "Privacy-first веб-аналитика",
+      "simpleDescription": "Лёгкая privacy-first веб-аналитика с небольшим набором понятных метрик, cloud и self-hosted вариантами. Подходит для публичных Eclipse-поверхностей при строгом запрете PII в событиях.",
+      "useCases": [
+        "CTA-конверсии Eclipse Forge Landing",
+        "Search-to-source funnel Eclipse Library",
+        "Goals и content funnel Eclipse Growth OS"
+      ],
+      "features": [
+        "Cookie-less analytics",
+        "Goals",
+        "Custom events",
+        "Lightweight script",
+        "Self-hosting"
+      ],
+      "platforms": [
+        "Web",
+        "Cloud",
+        "Self-host",
+        "Docker"
+      ],
+      "license": "AGPL-3.0",
+      "licenseEvidence": [
+        {
+          "kind": "license",
+          "label": "Official AGPL-3.0 license",
+          "url": "https://github.com/plausible/analytics/blob/master/LICENSE.md"
+        }
+      ],
+      "pricing": "Self-hosted код доступен по AGPL; официальный cloud — платная подписка, инфраструктура self-host оплачивается отдельно",
+      "access": {
+        "cost": "freemium",
+        "signup": "optional",
+        "runtime": "hybrid"
+      },
+      "trust": "official",
+      "trustReason": "Проверены официальный репозиторий plausible/analytics, homepage и AGPL-3.0.",
+      "projects": [
+        "Eclipse Forge Landing",
+        "Eclipse Library",
+        "Eclipse Growth OS"
+      ],
+      "decision": "roadmap",
+      "riskLevel": "medium",
+      "risks": [
+        "Privacy-first не исключает применимость privacy law",
+        "Custom properties могут случайно содержать PII или токены",
+        "Self-hosting добавляет update, backup и monitoring burden"
+      ],
+      "quickStart": [
+        "Создать allowlist из 5–8 событий без свободного текста",
+        "Проверить payloads, DNT и consent policy",
+        "Связать каждый goal с продуктовым решением"
+      ],
+      "limitations": [
+        "Не отправлять user content, email, tenant IDs и секретные URL parameters",
+        "AGPL требует review при модификации сетевого сервиса"
+      ],
+      "reviewStatus": "verified",
+      "verifiedAt": "2026-08-22",
+      "addedAt": "2026-08-22",
+      "guide": "self-hosted-platforms-for-eclipse-2026-08-22",
+      "source": {
+        "file": "catalog/resources.json",
+        "key": "plausible-privacy-first-analytics",
+        "legacy": {
+          "file": "guides/self-hosted-platforms-for-eclipse-2026-08-22.md",
+          "line": 1,
+          "category": "Self-hosted & Open Source",
+          "subcategory": "Платформы для Eclipse"
+        }
+      },
+      "catalogOrder": 1,
+      "licenseInfo": {
+        "label": "AGPL-3.0",
+        "original": "GNU Affero General Public License v3.0 (AGPL-3.0)",
+        "spdx": "AGPL-3.0",
+        "kind": "open-source",
+        "status": "editor-reviewed",
+        "requiresReview": false,
+        "evidence": [
+          {
+            "kind": "license",
+            "label": "Official AGPL-3.0 license",
+            "url": "https://github.com/plausible/analytics/blob/master/LICENSE.md"
+          }
+        ]
+      },
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://github.com/plausible/analytics"
+        },
+        {
+          "kind": "license",
+          "label": "Official AGPL-3.0 license",
+          "url": "https://github.com/plausible/analytics/blob/master/LICENSE.md"
+        }
+      ],
+      "agentEligibility": {
+        "eligible": true,
+        "reasons": [],
+        "installAllowed": false
+      }
+    },
+    {
+      "id": "portainer-container-management-ce",
+      "url": "https://github.com/portainer/portainer",
+      "title": "Portainer Community Edition",
+      "type": "tool",
+      "category": "Infrastructure & Ops",
+      "subcategory": "Управление контейнерами",
+      "simpleDescription": "Официальный UI для управления Docker, Swarm и Kubernetes. Для Eclipse это операционный инструмент инвентаризации и диагностики self-hosted stack, а не компонент пользовательских продуктов.",
+      "useCases": [
+        "Read-only inventory staging-контейнеров",
+        "Health и version drift в Hopson Sentinel",
+        "Референс модели environments → stacks → containers → events"
+      ],
+      "features": [
+        "Docker management",
+        "Kubernetes management",
+        "Stack visibility",
+        "Role-based administration"
+      ],
+      "platforms": [
+        "Docker",
+        "Kubernetes",
+        "Self-host",
+        "Web"
+      ],
+      "license": "zlib License для Community Edition repository; Business Edition имеет отдельные коммерческие условия",
+      "licenseEvidence": [
+        {
+          "kind": "license",
+          "label": "Official zlib license",
+          "url": "https://github.com/portainer/portainer/blob/develop/LICENSE"
+        }
+      ],
+      "pricing": "Community Edition доступна бесплатно; Business Edition и поддержка оплачиваются отдельно",
+      "access": {
+        "cost": "freemium",
+        "signup": "none",
+        "runtime": "self-host"
+      },
+      "trust": "official",
+      "trustReason": "Проверены официальный репозиторий portainer/portainer, homepage и zlib license; CE отделена от коммерческих функций.",
+      "projects": [
+        "Hopson Sentinel",
+        "Eclipse Infrastructure",
+        "Eclipse AI Hub"
+      ],
+      "decision": "roadmap",
+      "riskLevel": "high",
+      "risks": [
+        "Docker socket даёт root-equivalent контроль над host",
+        "Публичный admin UI — критическая attack surface",
+        "Ошибочное действие может остановить production"
+      ],
+      "quickStart": [
+        "Подключить только staging host",
+        "Настроить TLS, MFA/SSO, allowlist и минимальные роли",
+        "Оставить deploy/stop/delete/secret changes вне автоматизации"
+      ],
+      "limitations": [
+        "Не встраивать в клиентские продукты",
+        "Не использовать автономные destructive actions"
+      ],
+      "reviewStatus": "verified",
+      "verifiedAt": "2026-08-22",
+      "addedAt": "2026-08-22",
+      "guide": "self-hosted-platforms-for-eclipse-2026-08-22",
+      "source": {
+        "file": "catalog/resources.json",
+        "key": "portainer-container-management-ce",
+        "legacy": {
+          "file": "guides/self-hosted-platforms-for-eclipse-2026-08-22.md",
+          "line": 1,
+          "category": "Self-hosted & Open Source",
+          "subcategory": "Платформы для Eclipse"
+        }
+      },
+      "catalogOrder": 1,
+      "licenseInfo": {
+        "label": "zlib License для Community Edition repository; Business Edition имеет отдельные коммерческие условия",
+        "original": "zlib License для Community Edition repository; Business Edition имеет отдельные коммерческие условия",
+        "spdx": null,
+        "kind": "custom",
+        "status": "editor-reviewed",
+        "requiresReview": false,
+        "evidence": [
+          {
+            "kind": "license",
+            "label": "Official zlib license",
+            "url": "https://github.com/portainer/portainer/blob/develop/LICENSE"
+          }
+        ]
+      },
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://github.com/portainer/portainer"
+        },
+        {
+          "kind": "license",
+          "label": "Official zlib license",
+          "url": "https://github.com/portainer/portainer/blob/develop/LICENSE"
         }
       ],
       "agentEligibility": {
@@ -3183,11 +3963,12 @@
       "type": "tool",
       "category": "AI & Claude Code",
       "subcategory": "Локальный AI без внешнего API",
-      "simpleDescription": "Локальный runtime для языковых и мультимодальных моделей. Он скачивает выбранную модель, запускает её на компьютере и предоставляет простой CLI и REST API, к которому можно подключить приложение без внешнего AI-ключа.",
+      "simpleDescription": "Локальный runtime и HTTP API для языковых и мультимодальных моделей на Windows, macOS и Linux. Даёт Eclipse общий local-provider и privacy-mode без отправки prompts внешнему API.",
       "useCases": [
-        "Запустить приватный local provider для Eclipse AI Hub",
-        "Дать Hopson Sentinel резервную модель без облачного API",
-        "Проверять модели и prompts на локальном eval-наборе до подключения платного provider"
+        "Local provider и capability registry в Eclipse AI Hub",
+        "Явный локальный privacy-mode в Eclipse Chat",
+        "Offline summaries в Hopson Sentinel",
+        "Локальные NPC и worldbuilding в DnD / Living World"
       ],
       "platforms": [
         "Windows",
@@ -3208,23 +3989,22 @@
       "trustReason": "Проверены официальный сайт, репозиторий ollama/ollama, MIT license и документация REST API. Runtime активно развивается, поэтому совместимость конкретной модели нужно подтверждать на pinned release.",
       "projects": [
         "Eclipse AI Hub",
-        "Hopson Sentinel",
         "Eclipse Chat",
-        "Educator-AI",
-        "oh-my-claudecode"
+        "Hopson Sentinel",
+        "DnD / Living World"
       ],
       "decision": "now",
       "riskLevel": "medium",
       "risks": [
-        "Скачиваемые model weights могут иметь отдельную или ограничительную лицензию",
-        "Большой контекст и модель могут исчерпать RAM или VRAM и сделать устройство нестабильным",
-        "Локальный API нельзя открывать во внешнюю сеть без authentication, firewall и rate limit"
+        "Лицензия Ollama не покрывает автоматически скачиваемые model weights",
+        "Неограниченные context/concurrency могут исчерпать RAM или VRAM",
+        "Неаутентифицированный API нельзя публиковать за пределы loopback"
       ],
-      "verifiedAt": "2026-07-27",
+      "verifiedAt": "2026-08-22",
       "quickStart": [
-        "Скачать установщик или pinned release только с официального сайта; не запускать curl-pipe скрипт без ручного просмотра",
-        "Выбрать небольшую модель под доступную RAM или VRAM и проверить её лицензию",
-        "Оставить API на localhost и прогнать короткий eval по качеству, latency и памяти"
+        "Подключить одну небольшую модель через общий provider interface",
+        "Оставить API на localhost и задать RAM/VRAM/concurrency limits",
+        "Прогнать общий eval-набор и проверить fallback, latency, memory и логи"
       ],
       "reviewStatus": "verified",
       "source": {
@@ -3238,6 +4018,18 @@
         }
       },
       "addedAt": null,
+      "licenseEvidence": [
+        {
+          "kind": "license",
+          "label": "Official MIT license",
+          "url": "https://github.com/ollama/ollama/blob/main/LICENSE"
+        }
+      ],
+      "limitations": [
+        "Проверять provenance и лицензию каждой модели",
+        "Не выставлять 0.0.0.0 без auth, TLS, firewall и rate limits"
+      ],
+      "guide": "self-hosted-platforms-for-eclipse-2026-08-22",
       "catalogOrder": 118,
       "licenseInfo": {
         "label": "MIT для Ollama; лицензия и допустимое использование каждой загружаемой модели проверяются отдельно",
@@ -3248,9 +4040,9 @@
         "requiresReview": false,
         "evidence": [
           {
-            "kind": "official-source",
-            "label": "Официальный источник; точные условия ещё нужно сверить",
-            "url": "https://ollama.com"
+            "kind": "license",
+            "label": "Official MIT license",
+            "url": "https://github.com/ollama/ollama/blob/main/LICENSE"
           }
         ]
       },
@@ -3259,6 +4051,11 @@
           "kind": "official-source",
           "label": "Официальный источник",
           "url": "https://ollama.com"
+        },
+        {
+          "kind": "license",
+          "label": "Official MIT license",
+          "url": "https://github.com/ollama/ollama/blob/main/LICENSE"
         }
       ],
       "agentEligibility": {
@@ -18452,40 +19249,52 @@
       "id": "localsend-github-com",
       "url": "https://github.com/localsend/localsend",
       "title": "LocalSend",
-      "type": "oss",
-      "category": "Dev Tools & CLI",
-      "subcategory": "Dev Tools & CLI",
-      "simpleDescription": "LocalSend — Flutter/Dart · Передача файлов по локальной сети без интернета — HTTPS, P2P discovery, все платформы. Карточка помогает понять назначение ресурса и начать с небольшой безопасной проверки; условия использования ещё нужно сверить с официальным источником.",
+      "type": "tool",
+      "category": "Productivity & Files",
+      "subcategory": "Локальная передача файлов",
+      "simpleDescription": "Cross-platform инструмент для передачи файлов и сообщений по локальной сети без облачного посредника и аккаунта. Полезен для Media/Shotforge/QA handoff и как UX-референс безопасного device discovery.",
       "useCases": [
-        "Разобраться, подходит ли LocalSend для вашей задачи",
-        "Проверить возможности на небольшом тестовом сценарии до интеграции"
+        "Передача исходников между телефоном и Eclipse Media workstation",
+        "QA screenshots, recordings и device logs",
+        "On-prem handoff диагностических пакетов в Hopson Sentinel",
+        "Референс transfer UI с progress, retry и confirmation"
       ],
       "platforms": [
-        "CLI",
-        "Self-host"
+        "Windows",
+        "macOS",
+        "Linux",
+        "Android",
+        "iOS"
       ],
       "license": "Apache-2.0",
-      "pricing": "Исходный код доступен публично; hosting, модели и внешние API могут оплачиваться отдельно",
+      "pricing": "Бесплатное open-source приложение; сеть, устройства и operational controls остаются на стороне пользователя",
       "access": {
         "cost": "free",
         "signup": "none",
-        "runtime": "self-host"
+        "runtime": "local"
       },
-      "trust": "community",
-      "trustReason": "Запись структурирована автоматически из опубликованного описания. Официальный источник, лицензия и условия ещё не прошли отдельную редакторскую проверку.",
-      "projects": [],
-      "decision": "reference",
+      "trust": "official",
+      "trustReason": "Проверены официальный репозиторий localsend/localsend, homepage и Apache-2.0 license.",
+      "projects": [
+        "Eclipse Media",
+        "Shotforge",
+        "Hopson Sentinel",
+        "Eclipse Chat"
+      ],
+      "decision": "roadmap",
       "riskLevel": "medium",
       "risks": [
-        "Лицензия, цена, permissions и обработка данных могут отличаться от краткого описания."
+        "Одна LAN не является доверенной границей",
+        "Пользователь может выбрать неверное устройство",
+        "Входящие filenames и файлы могут быть вредоносными"
       ],
-      "verifiedAt": null,
+      "verifiedAt": "2026-08-22",
       "quickStart": [
-        "Откройте официальный источник и проверьте владельца, лицензию и дату обновления.",
-        "Не передавайте secrets или рабочие данные; начните с пустого тестового проекта.",
-        "Сравните результат с текущим способом работы и только потом решайте об интеграции."
+        "Провести одну QA-сессию как внешний инструмент",
+        "Проверить явное имя/fingerprint получателя и папку назначения",
+        "Для product prototype добавить checksum, size limits, retry и malware scan"
       ],
-      "reviewStatus": "inferred",
+      "reviewStatus": "verified",
       "source": {
         "file": "catalog/resources.json",
         "key": "localsend-github-com",
@@ -18497,10 +19306,28 @@
         }
       },
       "addedAt": null,
+      "features": [
+        "Local network discovery",
+        "Cross-platform transfer",
+        "No cloud account",
+        "Files and messages"
+      ],
+      "licenseEvidence": [
+        {
+          "kind": "license",
+          "label": "Official Apache-2.0 license",
+          "url": "https://github.com/localsend/localsend/blob/main/LICENSE"
+        }
+      ],
+      "limitations": [
+        "Не использовать как серверную automation-шину",
+        "Требовать подтверждение получателя для чувствительных файлов"
+      ],
+      "guide": "self-hosted-platforms-for-eclipse-2026-08-22",
       "catalogOrder": 641,
       "licenseInfo": {
         "label": "Apache-2.0",
-        "original": "Нужно проверить в официальном источнике",
+        "original": "Apache License 2.0",
         "spdx": "Apache-2.0",
         "kind": "open-source",
         "status": "source-declared",
@@ -18510,6 +19337,11 @@
             "kind": "license",
             "label": "Apache-2.0 license",
             "url": "https://api.github.com/repos/localsend/localsend/license"
+          },
+          {
+            "kind": "license",
+            "label": "Official Apache-2.0 license",
+            "url": "https://github.com/localsend/localsend/blob/main/LICENSE"
           }
         ]
       },
@@ -18523,6 +19355,11 @@
           "kind": "license",
           "label": "Apache-2.0 license",
           "url": "https://api.github.com/repos/localsend/localsend/license"
+        },
+        {
+          "kind": "license",
+          "label": "Official Apache-2.0 license",
+          "url": "https://github.com/localsend/localsend/blob/main/LICENSE"
         }
       ],
       "agentEligibility": {
@@ -22675,11 +23512,12 @@
       "type": "oss",
       "category": "Данные",
       "subcategory": "Table database UI",
-      "simpleDescription": "NocoDB даёт grid, forms, kanban и API поверх базы данных. Подходит как reference для внутренних таблиц и Library operations, но текущий Sustainable Use License разрешает внутреннее бизнес-использование и ограничивает распространение/сервис — это не обычная permissive OSS-лицензия.",
+      "simpleDescription": "Self-hosted no-code слой над SQL-базой: табличные представления, формы, связи и API. В Eclipse полезен как внутренняя операционная панель для Library intake и Growth OS, но Sustainable Use License не позволяет считать его беспрепятственно встраиваемой коммерческой зависимостью.",
       "useCases": [
-        "Внутренние операционные таблицы",
-        "Формы и lightweight admin UI",
-        "Сравнение с Airtable"
+        "Очередь intake → license review → security review → публикация в Eclipse Library",
+        "Контент-календарь и experiment tracker Eclipse Growth OS",
+        "Внутренний reference/admin prototype для StarCRM",
+        "Реестр моделей и eval-запусков Eclipse AI Hub"
       ],
       "platforms": [
         "Web",
@@ -22709,7 +23547,9 @@
       "trustReason": "Canonical repository and current Sustainable Use License were checked on 22.08.2026.",
       "projects": [
         "Eclipse Library",
-        "Eclipse Growth OS"
+        "Eclipse Growth OS",
+        "StarCRM",
+        "Eclipse AI Hub"
       ],
       "decision": "reference",
       "riskLevel": "medium",
@@ -22719,9 +23559,9 @@
         "Backups and schema migration"
       ],
       "quickStart": [
-        "Use only for an internal sandbox comparison",
-        "Review database permissions and backups",
-        "Do not redistribute or resell without license review"
+        "Поднять sandbox над копией несекретных Library-данных",
+        "Настроить роли автор/редактор/администратор и журнал изменений",
+        "Проверить export, backup и отсутствие прямого production DB access"
       ],
       "description": "Self-hosted Airtable-like interface with internal-use-friendly but non-permissive licensing.",
       "features": [
@@ -22735,9 +23575,8 @@
         "Internal tool builders"
       ],
       "limitations": [
-        "Sustainable Use restrictions",
-        "Not a drop-in free SaaS replacement",
-        "Needs database operations"
+        "Не встраивать и не перепродавать без legal review Sustainable Use License 1.0",
+        "Не выдавать UI широкие права к production DB"
       ],
       "relatedTechnologies": [
         "Airtable",
@@ -22756,7 +23595,7 @@
           "subcategory": "Table database UI"
         }
       },
-      "guide": "community-agent-prompt-library-review-2026-08-22",
+      "guide": "self-hosted-platforms-for-eclipse-2026-08-22",
       "addedAt": "2026-08-22",
       "catalogOrder": 679,
       "licenseInfo": {
