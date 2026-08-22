@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "consumer": "Eclipse CRM",
-  "catalogVersion": "9bd97e57ab40ae9de25fb716b5116a0a2c20ca01429007bd798dffe395937f09",
+  "catalogVersion": "6c46e7c8875b1fe7d67430b889922c3780e313fb5eaa8c3c8a5f63400a4e3c13",
   "generatedAt": null,
   "policy": {
     "greyResourcesExcluded": true,
@@ -9,7 +9,7 @@
     "externalMutationsRequireHumanApproval": true
   },
   "totals": {
-    "items": 590
+    "items": 592
   },
   "items": [
     {
@@ -82,6 +82,87 @@
           "kind": "terms",
           "label": "21st.dev Terms",
           "url": "https://21st.dev/terms"
+        }
+      ],
+      "actions": {
+        "openOfficialSource": true,
+        "installFromCatalog": false,
+        "mutateExternalSystems": false
+      }
+    },
+    {
+      "id": "abacus-ai-agent-appllm",
+      "title": "Abacus.AI Agent and AppLLM",
+      "url": "https://abacus.ai/pricing",
+      "type": "service",
+      "category": "AI и агенты",
+      "subcategory": "Cloud agent and app builder",
+      "addedAt": "2026-08-22",
+      "description": "Платная cloud-платформа с доступом к нескольким LLM, image/video models, general-purpose agent и AppLLM builder. Официально заявлены scheduled tasks, hosted apps, databases, chatbots и QA workflows. Это удобный workflow reference, но не полностью локальная система и не единая лицензия на все generated assets: стоимость credits и commercial rights зависят от выбранной модели и операции.",
+      "useCases": [
+        "UX benchmark для AI Hub agent workspace",
+        "Reference для scheduled monitoring prototypes",
+        "Сравнение app-builder onboarding и rollback UX"
+      ],
+      "platforms": [
+        "Web",
+        "Cloud",
+        "Hosted agent",
+        "App builder"
+      ],
+      "license": {
+        "label": "Abacus.AI proprietary service terms; each connected model and generated asset may have separate commercial-use conditions",
+        "original": "Abacus.AI proprietary service terms; each connected model and generated asset may have separate commercial-use conditions",
+        "spdx": null,
+        "kind": "service-terms",
+        "status": "editor-reviewed",
+        "requiresReview": false,
+        "evidence": [
+          {
+            "kind": "pricing",
+            "label": "Official Abacus.AI pricing",
+            "url": "https://abacus.ai/pricing"
+          },
+          {
+            "kind": "terms",
+            "label": "Official ChatLLM billing FAQ",
+            "url": "https://api.abacus.ai/help/chatllm-ai-super-assistant/faqs/billing"
+          },
+          {
+            "kind": "source",
+            "label": "Official AppLLM product page",
+            "url": "https://appllm.abacus.ai/"
+          }
+        ]
+      },
+      "access": {
+        "cost": "paid",
+        "signup": "required",
+        "runtime": "cloud"
+      },
+      "trust": "official",
+      "decision": "reference",
+      "riskLevel": "medium",
+      "projects": [
+        "Eclipse AI Hub",
+        "Hopson Sentinel",
+        "Eclipse Growth OS"
+      ],
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://abacus.ai/pricing"
+        },
+        {
+          "kind": "terms",
+          "label": "Official ChatLLM billing FAQ",
+          "url": "https://api.abacus.ai/help/chatllm-ai-super-assistant/faqs/billing"
+        },
+        {
+          "kind": "source",
+          "label": "Official AppLLM product page",
+          "url": "https://appllm.abacus.ai/"
         }
       ],
       "actions": {
@@ -1159,6 +1240,70 @@
           "kind": "terms",
           "label": "Vivid Sites Terms",
           "url": "https://www.vividsites.app/terms"
+        }
+      ],
+      "actions": {
+        "openOfficialSource": true,
+        "installFromCatalog": false,
+        "mutateExternalSystems": false
+      }
+    },
+    {
+      "id": "web3nity-seven-ai-service-offers",
+      "title": "Web3nity: 7 AI service offers",
+      "url": "https://www.youtube.com/watch?v=Uk7HHfF9n2Q",
+      "type": "learn",
+      "category": "Курсы и гайды",
+      "subcategory": "AI service validation",
+      "addedAt": "2026-08-22",
+      "description": "22-минутное видео разбирает семь понятных офферов для малого бизнеса: product photos, short-video packs, content repurposing, landing pages, calculators/quizzes, FAQ bots и public monitoring. Полезно как карта проблем и способов показать sample result, но не как доказательство дохода: цены, спрос и истории заработка не подтверждены выборкой или финансовыми данными.",
+      "useCases": [
+        "Сформировать bounded Kwork offers",
+        "Выбрать pilot для Eclipse Growth OS",
+        "Объяснить разницу между продажей AI и продажей результата"
+      ],
+      "platforms": [
+        "YouTube",
+        "Web"
+      ],
+      "license": {
+        "label": "YouTube-hosted creator content; viewing and linking are allowed under platform terms, reuse of video/transcript requires permission",
+        "original": "YouTube-hosted creator content; viewing and linking are allowed under platform terms, reuse of video/transcript requires permission",
+        "spdx": null,
+        "kind": "service-terms",
+        "status": "editor-reviewed",
+        "requiresReview": false,
+        "evidence": [
+          {
+            "kind": "source",
+            "label": "Official YouTube video",
+            "url": "https://www.youtube.com/watch?v=Uk7HHfF9n2Q"
+          }
+        ]
+      },
+      "access": {
+        "cost": "free",
+        "signup": "optional",
+        "runtime": "cloud"
+      },
+      "trust": "community",
+      "decision": "now",
+      "riskLevel": "medium",
+      "projects": [
+        "Eclipse Growth OS",
+        "Hopson Sentinel",
+        "Eclipse Chat",
+        "Eclipse AI Hub",
+        "Eclipse Media",
+        "Shotforge",
+        "Text2Image",
+        "Eclipse Forge Landing"
+      ],
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://www.youtube.com/watch?v=Uk7HHfF9n2Q"
         }
       ],
       "actions": {

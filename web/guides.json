@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "totals": {
-    "guides": 46
+    "guides": 47
   },
   "guides": [
     {
@@ -281,6 +281,13 @@
       "name": "mcp-runtime-audit",
       "title": "Безопасный runtime-аудит MCP server",
       "description": "",
+      "modules": 0,
+      "lessons": 0
+    },
+    {
+      "name": "seven-ai-service-offers-eclipse-forge",
+      "title": "Семь AI-услуг: проверка офферов и план Eclipse Forge",
+      "description": "Практическая выжимка из видео Web3nity от 21 августа 2026 года.",
       "modules": 0,
       "lessons": 0
     },

@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "migratedAt": "2026-08-03",
   "totals": {
-    "items": 672
+    "items": 674
   },
   "items": [
     {
@@ -35394,23 +35394,56 @@
       "category": "AI-модели",
       "subcategory": "Safety-reduced local model",
       "simpleDescription": "Неофициальная safety-reduced модификация Qwen3.8-27B с text/image input. Модель существует и опубликована под Apache-2.0, но автор прямо предупреждает об ослабленных safety-механизмах и отсутствии гарантий. Не подходит для production, публичных пользователей и автоматических рекомендаций.",
-      "useCases": ["Изолированный safety benchmark", "Исследование поведения safety-reduced моделей"],
-      "platforms": ["Hugging Face", "Transformers", "GPU workstation"],
+      "useCases": [
+        "Изолированный safety benchmark",
+        "Исследование поведения safety-reduced моделей"
+      ],
+      "platforms": [
+        "Hugging Face",
+        "Transformers",
+        "GPU workstation"
+      ],
       "license": "Apache-2.0 for model repository; base-model terms and acceptable-use obligations still apply",
       "pricing": "Free weights; requires substantial local GPU/RAM/storage",
-      "access": {"cost": "free", "signup": "optional", "runtime": "local"},
+      "access": {
+        "cost": "free",
+        "signup": "optional",
+        "runtime": "local"
+      },
       "trust": "community",
       "trustReason": "Проверены официальный model card и Hugging Face metadata 21.08.2026. Рекламное сравнение с Opus 4.6 независимо не подтверждено.",
-      "projects": ["Eclipse AI Hub", "Hopson Sentinel"],
+      "projects": [
+        "Eclipse AI Hub",
+        "Hopson Sentinel"
+      ],
       "decision": "reference",
       "riskLevel": "high",
-      "risks": ["Ослаблены safety controls", "Возможен запрещённый, токсичный или опасный output", "Требуется большой hardware budget"],
+      "risks": [
+        "Ослаблены safety controls",
+        "Возможен запрещённый, токсичный или опасный output",
+        "Требуется большой hardware budget"
+      ],
       "verifiedAt": "2026-08-21",
-      "quickStart": ["Не подключать к production routing", "Тестировать только в disposable sandbox на synthetic fixtures", "Не давать network, secrets или write tools"],
+      "quickStart": [
+        "Не подключать к production routing",
+        "Тестировать только в disposable sandbox на synthetic fixtures",
+        "Не давать network, secrets или write tools"
+      ],
       "reviewStatus": "verified",
-      "source": {"file": "guides/august-2026-agent-learning-media-radar.md", "line": 1, "category": "August 2026 verified radar", "subcategory": "Models"},
+      "source": {
+        "file": "guides/august-2026-agent-learning-media-radar.md",
+        "line": 1,
+        "category": "August 2026 verified radar",
+        "subcategory": "Models"
+      },
       "addedAt": "2026-08-21",
-      "licenseEvidence": [{"kind": "license", "label": "Model card license", "url": "https://huggingface.co/huihui-ai/Huihui-Qwen3.8-27B-abliterated"}]
+      "licenseEvidence": [
+        {
+          "kind": "license",
+          "label": "Model card license",
+          "url": "https://huggingface.co/huihui-ai/Huihui-Qwen3.8-27B-abliterated"
+        }
+      ]
     },
     {
       "id": "llm-as-a-verifier",
@@ -35420,23 +35453,58 @@
       "category": "AI и агенты",
       "subcategory": "Verifier orchestration",
       "simpleDescription": "MIT-фреймворк генерирует несколько candidate answers, проверяет их отдельным verifier-проходом и выбирает лучший. Может повысить качество сложных agent tasks без fine-tuning, но увеличивает latency и расход токенов и не устраняет общие ошибки generator/verifier.",
-      "useCases": ["Rejudge benchmark в Sentinel", "Best-of-N режим в AI Hub Arena", "Read-only review в oh-my-claudecode"],
-      "platforms": ["Python", "LLM APIs", "CLI"],
+      "useCases": [
+        "Rejudge benchmark в Sentinel",
+        "Best-of-N режим в AI Hub Arena",
+        "Read-only review в oh-my-claudecode"
+      ],
+      "platforms": [
+        "Python",
+        "LLM APIs",
+        "CLI"
+      ],
       "license": "MIT",
       "pricing": "Open source; multiple model calls increase provider cost",
-      "access": {"cost": "free", "signup": "optional", "runtime": "hybrid"},
+      "access": {
+        "cost": "free",
+        "signup": "optional",
+        "runtime": "hybrid"
+      },
       "trust": "community",
       "trustReason": "Проверены официальный repository, MIT license, benchmark tables и active release 21.08.2026. Результаты авторов требуют воспроизведения на Eclipse fixtures.",
-      "projects": ["Hopson Sentinel", "Eclipse AI Hub", "oh-my-claudecode"],
+      "projects": [
+        "Hopson Sentinel",
+        "Eclipse AI Hub",
+        "oh-my-claudecode"
+      ],
       "decision": "roadmap",
       "riskLevel": "medium",
-      "risks": ["Best-of-N умножает стоимость и latency", "Verifier может разделять bias генератора", "Нельзя превращать score в разрешение на auto-fix"],
+      "risks": [
+        "Best-of-N умножает стоимость и latency",
+        "Verifier может разделять bias генератора",
+        "Нельзя превращать score в разрешение на auto-fix"
+      ],
       "verifiedAt": "2026-08-21",
-      "quickStart": ["Собрать 20 synthetic fixtures с известными дефектами", "Сравнить single reviewer и verifier pipeline", "Оставить fixes и внешние действия за human approval"],
+      "quickStart": [
+        "Собрать 20 synthetic fixtures с известными дефектами",
+        "Сравнить single reviewer и verifier pipeline",
+        "Оставить fixes и внешние действия за human approval"
+      ],
       "reviewStatus": "verified",
-      "source": {"file": "guides/august-2026-agent-learning-media-radar.md", "line": 1, "category": "August 2026 verified radar", "subcategory": "Agents"},
+      "source": {
+        "file": "guides/august-2026-agent-learning-media-radar.md",
+        "line": 1,
+        "category": "August 2026 verified radar",
+        "subcategory": "Agents"
+      },
       "addedAt": "2026-08-21",
-      "licenseEvidence": [{"kind": "license", "label": "Official MIT license", "url": "https://github.com/llm-as-a-verifier/llm-as-a-verifier/blob/main/LICENSE"}]
+      "licenseEvidence": [
+        {
+          "kind": "license",
+          "label": "Official MIT license",
+          "url": "https://github.com/llm-as-a-verifier/llm-as-a-verifier/blob/main/LICENSE"
+        }
+      ]
     },
     {
       "id": "minimalist-split-poster-prompt",
@@ -35446,23 +35514,56 @@
       "category": "Промпты",
       "subcategory": "Image composition",
       "simpleDescription": "Редакционная версия prompt-паттерна: верхняя половина сохраняет исходную фотографию, нижняя переводит её ключевой силуэт в минималистичную геометрию. Подходит для обложек и презентаций, если отдельно проверить права на фото, likeness и надписи.",
-      "useCases": ["Обложки кейсов Eclipse Forge", "Карточки релизов", "Презентации без collage"],
-      "platforms": ["ChatGPT Images", "Image models"],
+      "useCases": [
+        "Обложки кейсов Eclipse Forge",
+        "Карточки релизов",
+        "Презентации без collage"
+      ],
+      "platforms": [
+        "ChatGPT Images",
+        "Image models"
+      ],
       "license": "Eclipse Library editorial prompt; uploaded photos and generated assets retain their own rights and provider terms",
       "pricing": "Depends on selected image provider",
-      "access": {"cost": "free", "signup": "optional", "runtime": "cloud"},
+      "access": {
+        "cost": "free",
+        "signup": "optional",
+        "runtime": "cloud"
+      },
       "trust": "verified",
       "trustReason": "Паттерн переработан Eclipse Library и не повторяет рекламные обещания исходного Telegram-поста.",
-      "projects": ["Eclipse Media", "Shotforge", "Eclipse Forge Landing"],
+      "projects": [
+        "Eclipse Media",
+        "Shotforge",
+        "Eclipse Forge Landing"
+      ],
       "decision": "now",
       "riskLevel": "medium",
-      "risks": ["Нужны права на исходное фото и consent изображённых людей", "Модель может исказить лицо, текст или brand assets"],
+      "risks": [
+        "Нужны права на исходное фото и consent изображённых людей",
+        "Модель может исказить лицо, текст или brand assets"
+      ],
       "verifiedAt": "2026-08-21",
-      "quickStart": ["Использовать только owned/licensed photo", "Зафиксировать 3:4 split и locked subject", "Проверить likeness, typography и provenance вручную"],
+      "quickStart": [
+        "Использовать только owned/licensed photo",
+        "Зафиксировать 3:4 split и locked subject",
+        "Проверить likeness, typography и provenance вручную"
+      ],
       "reviewStatus": "verified",
-      "source": {"file": "guides/august-2026-agent-learning-media-radar.md", "line": 1, "category": "Промпты", "subcategory": "Image composition"},
+      "source": {
+        "file": "guides/august-2026-agent-learning-media-radar.md",
+        "line": 1,
+        "category": "Промпты",
+        "subcategory": "Image composition"
+      },
       "addedAt": "2026-08-21",
-      "licenseEvidence": [{"kind": "source", "label": "Eclipse editorial guide", "url": "https://library.eclipse-forge.ru/#guide/august-2026-agent-learning-media-radar"}]
+      "licenseEvidence": [
+        {
+          "kind": "source",
+          "label": "Eclipse editorial guide",
+          "url": "https://library.eclipse-forge.ru/#guide/august-2026-agent-learning-media-radar"
+        }
+      ]
     },
     {
       "id": "hapi-remote-agent-control",
@@ -35472,23 +35573,65 @@
       "category": "AI и агенты",
       "subcategory": "Remote agent control",
       "simpleDescription": "Local-first AGPL-3.0 оболочка для Claude Code, Codex, Cursor Agent, OpenCode и других coding agents. Даёт PWA/телефон/Telegram, просмотр diff и permission prompts, но фактически открывает удалённый доступ к локальному агенту и терминалу — это высокорисковая capability.",
-      "useCases": ["Reference для Eclipse Chat Agent Control Room", "Безопасный mobile approval UX", "Session handoff между desktop и телефоном"],
-      "platforms": ["Web/PWA", "Telegram", "Windows", "macOS", "Linux"],
+      "useCases": [
+        "Reference для Eclipse Chat Agent Control Room",
+        "Безопасный mobile approval UX",
+        "Session handoff между desktop и телефоном"
+      ],
+      "platforms": [
+        "Web/PWA",
+        "Telegram",
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
       "license": "AGPL-3.0-only",
       "pricing": "Free self-hosted software; tunnels, voice providers and agents may cost extra",
-      "access": {"cost": "free", "signup": "none", "runtime": "self-host"},
+      "access": {
+        "cost": "free",
+        "signup": "none",
+        "runtime": "self-host"
+      },
       "trust": "official",
       "trustReason": "Проверены официальные docs, supported-agent matrix, local storage model и AGPL license 21.08.2026.",
-      "projects": ["Eclipse Chat", "Hopson Sentinel", "oh-my-claudecode"],
+      "projects": [
+        "Eclipse Chat",
+        "Hopson Sentinel",
+        "oh-my-claudecode"
+      ],
       "decision": "reference",
       "riskLevel": "high",
-      "risks": ["Компрометация access token даёт доступ к agent sessions", "Remote terminal и yolo modes расширяют blast radius", "AGPL требует отдельной legal оценки для network deployment"],
+      "risks": [
+        "Компрометация access token даёт доступ к agent sessions",
+        "Remote terminal и yolo modes расширяют blast radius",
+        "AGPL требует отдельной legal оценки для network deployment"
+      ],
       "verifiedAt": "2026-08-21",
-      "quickStart": ["Не устанавливать на production workstation", "Проверять только в isolated VM через private network", "Отключить yolo и разрешать каждое write action вручную"],
+      "quickStart": [
+        "Не устанавливать на production workstation",
+        "Проверять только в isolated VM через private network",
+        "Отключить yolo и разрешать каждое write action вручную"
+      ],
       "reviewStatus": "verified",
-      "source": {"file": "guides/august-2026-agent-learning-media-radar.md", "line": 1, "category": "August 2026 verified radar", "subcategory": "Agents"},
+      "source": {
+        "file": "guides/august-2026-agent-learning-media-radar.md",
+        "line": 1,
+        "category": "August 2026 verified radar",
+        "subcategory": "Agents"
+      },
       "addedAt": "2026-08-21",
-      "licenseEvidence": [{"kind": "license", "label": "Official HAPI FAQ and license", "url": "https://hapi.run/docs/guide/faq"}, {"kind": "source", "label": "Supported agents", "url": "https://hapi.run/docs/guide/agents"}]
+      "licenseEvidence": [
+        {
+          "kind": "license",
+          "label": "Official HAPI FAQ and license",
+          "url": "https://hapi.run/docs/guide/faq"
+        },
+        {
+          "kind": "source",
+          "label": "Supported agents",
+          "url": "https://hapi.run/docs/guide/agents"
+        }
+      ]
     },
     {
       "id": "magnitude-local-model-agent",
@@ -35498,23 +35641,58 @@
       "category": "AI и агенты",
       "subcategory": "Local model runtime",
       "simpleDescription": "Apache-2.0 coding agent с встроенным local-model runtime. Профилирует hardware, предлагает подходящие модели и параметры и запускает их через Rust/llama.cpp stack. Полезен как reference для Hardware Doctor, но его прогноз скорости нужно проверять реальным benchmark.",
-      "useCases": ["Hardware Doctor в Eclipse AI Hub", "Local model benchmark в Sentinel", "Подбор quantization до загрузки weights"],
-      "platforms": ["macOS", "Linux", "Windows via WSL", "llama.cpp"],
+      "useCases": [
+        "Hardware Doctor в Eclipse AI Hub",
+        "Local model benchmark в Sentinel",
+        "Подбор quantization до загрузки weights"
+      ],
+      "platforms": [
+        "macOS",
+        "Linux",
+        "Windows via WSL",
+        "llama.cpp"
+      ],
       "license": "Apache-2.0",
       "pricing": "Free open source; local hardware and model storage required",
-      "access": {"cost": "free", "signup": "none", "runtime": "local"},
+      "access": {
+        "cost": "free",
+        "signup": "none",
+        "runtime": "local"
+      },
       "trust": "community",
       "trustReason": "Проверены официальный repository, Apache-2.0 license и README 21.08.2026. Hardware predictions не проверены на Eclipse machines.",
-      "projects": ["Eclipse AI Hub", "Hopson Sentinel"],
+      "projects": [
+        "Eclipse AI Hub",
+        "Hopson Sentinel"
+      ],
       "decision": "roadmap",
       "riskLevel": "medium",
-      "risks": ["Automatic downloads introduce model supply-chain risk", "Estimated tok/s may differ from real workload", "Model license and disk/VRAM requirements vary"],
+      "risks": [
+        "Automatic downloads introduce model supply-chain risk",
+        "Estimated tok/s may differ from real workload",
+        "Model license and disk/VRAM requirements vary"
+      ],
       "verifiedAt": "2026-08-21",
-      "quickStart": ["Запустить read-only hardware profile в disposable environment", "Сравнить prediction с three-model benchmark", "Pin model revision and verify license/hash before download"],
+      "quickStart": [
+        "Запустить read-only hardware profile в disposable environment",
+        "Сравнить prediction с three-model benchmark",
+        "Pin model revision and verify license/hash before download"
+      ],
       "reviewStatus": "verified",
-      "source": {"file": "guides/august-2026-agent-learning-media-radar.md", "line": 1, "category": "August 2026 verified radar", "subcategory": "Local AI"},
+      "source": {
+        "file": "guides/august-2026-agent-learning-media-radar.md",
+        "line": 1,
+        "category": "August 2026 verified radar",
+        "subcategory": "Local AI"
+      },
       "addedAt": "2026-08-21",
-      "licenseEvidence": [{"kind": "license", "label": "Official Apache-2.0 license", "url": "https://github.com/magnitudedev/magnitude/blob/main/LICENSE"}]
+      "licenseEvidence": [
+        {
+          "kind": "license",
+          "label": "Official Apache-2.0 license",
+          "url": "https://github.com/magnitudedev/magnitude/blob/main/LICENSE"
+        }
+      ]
     },
     {
       "id": "ai-copywriter-mikiarlo3",
@@ -35524,23 +35702,58 @@
       "category": "Скиллы для Claude",
       "subcategory": "Copywriting workflow",
       "simpleDescription": "MIT-набор copywriting и marketing instructions для более ясного тона, структуры и редакторского контроля. Полезен как reference для Editor Stylist, но обещания «не палится детекторами» и использование для учебного обмана не подтверждены и не поддерживаются Eclipse Forge.",
-      "useCases": ["Editor Stylist в Growth OS", "Черновики email и landing copy", "Проверка тона и ритма без изменения фактов"],
-      "platforms": ["Claude Code", "AI agents", "Markdown skills"],
+      "useCases": [
+        "Editor Stylist в Growth OS",
+        "Черновики email и landing copy",
+        "Проверка тона и ритма без изменения фактов"
+      ],
+      "platforms": [
+        "Claude Code",
+        "AI agents",
+        "Markdown skills"
+      ],
       "license": "MIT",
       "pricing": "Free repository; model usage is separate",
-      "access": {"cost": "free", "signup": "none", "runtime": "local"},
+      "access": {
+        "cost": "free",
+        "signup": "none",
+        "runtime": "local"
+      },
       "trust": "community",
       "trustReason": "Проверены официальный repository и MIT license 21.08.2026. Detector-evasion и zero-hallucination claims не считаются фактами.",
-      "projects": ["Eclipse AI Hub", "Eclipse Growth OS", "Eclipse Forge Landing"],
+      "projects": [
+        "Eclipse AI Hub",
+        "Eclipse Growth OS",
+        "Eclipse Forge Landing"
+      ],
       "decision": "reference",
       "riskLevel": "medium",
-      "risks": ["Может менять смысл и claims ради гладкого текста", "AI detectors ненадёжны и не являются quality metric", "Нельзя использовать для сокрытия авторства или академического обмана"],
+      "risks": [
+        "Может менять смысл и claims ради гладкого текста",
+        "AI detectors ненадёжны и не являются quality metric",
+        "Нельзя использовать для сокрытия авторства или академического обмана"
+      ],
       "verifiedAt": "2026-08-21",
-      "quickStart": ["Lock facts and citations before rewrite", "Показывать semantic diff и claimsChanged", "Требовать human approval перед публикацией"],
+      "quickStart": [
+        "Lock facts and citations before rewrite",
+        "Показывать semantic diff и claimsChanged",
+        "Требовать human approval перед публикацией"
+      ],
       "reviewStatus": "verified",
-      "source": {"file": "guides/august-2026-agent-learning-media-radar.md", "line": 1, "category": "August 2026 verified radar", "subcategory": "Skills"},
+      "source": {
+        "file": "guides/august-2026-agent-learning-media-radar.md",
+        "line": 1,
+        "category": "August 2026 verified radar",
+        "subcategory": "Skills"
+      },
       "addedAt": "2026-08-21",
-      "licenseEvidence": [{"kind": "source", "label": "Official repository and MIT metadata", "url": "https://github.com/mikiarlo3/ai-copywriter"}]
+      "licenseEvidence": [
+        {
+          "kind": "source",
+          "label": "Official repository and MIT metadata",
+          "url": "https://github.com/mikiarlo3/ai-copywriter"
+        }
+      ]
     },
     {
       "id": "happy-shrimp-ai-music",
@@ -35550,23 +35763,56 @@
       "category": "Медиа",
       "subcategory": "AI music generation",
       "simpleDescription": "Облачный AI music service создаёт full song из короткого описания: lyrics, composition, arrangement и vocals, а также показывает community feed. Сервис существует и размещён на Alibaba infrastructure, но публичные Terms, pricing, training-data и commercial-rights условия требуют отдельной проверки.",
-      "useCases": ["Benchmark original music briefs для Eclipse Media", "Reference для song-structure UX", "Preview только на оригинальных lyrics"],
-      "platforms": ["Web", "Cloud"],
+      "useCases": [
+        "Benchmark original music briefs для Eclipse Media",
+        "Reference для song-structure UX",
+        "Preview только на оригинальных lyrics"
+      ],
+      "platforms": [
+        "Web",
+        "Cloud"
+      ],
       "license": "Proprietary; public usage, training-data and commercial-output terms require review",
       "pricing": "Account/checkout conditions must be checked before use",
-      "access": {"cost": "unknown", "signup": "required", "runtime": "cloud"},
+      "access": {
+        "cost": "unknown",
+        "signup": "required",
+        "runtime": "cloud"
+      },
       "trust": "official",
       "trustReason": "Проверены официальный сайт, canonical metadata и заявленный feature set 21.08.2026; Alibaba ownership and rights terms were not independently established.",
-      "projects": ["Eclipse Media", "Shotforge"],
+      "projects": [
+        "Eclipse Media",
+        "Shotforge"
+      ],
       "decision": "reference",
       "riskLevel": "high",
-      "risks": ["Неясны training-data и commercial output rights", "Возможны copyright/style imitation и voice likeness risks", "Загруженные тексты и аудио уходят в cloud service"],
+      "risks": [
+        "Неясны training-data и commercial output rights",
+        "Возможны copyright/style imitation и voice likeness risks",
+        "Загруженные тексты и аудио уходят в cloud service"
+      ],
       "verifiedAt": "2026-08-21",
-      "quickStart": ["Не загружать клиентские или чужие lyrics", "Проверить Terms/privacy/pricing до account", "Сравнивать только на original/public-domain fixtures"],
+      "quickStart": [
+        "Не загружать клиентские или чужие lyrics",
+        "Проверить Terms/privacy/pricing до account",
+        "Сравнивать только на original/public-domain fixtures"
+      ],
       "reviewStatus": "verified",
-      "source": {"file": "guides/august-2026-agent-learning-media-radar.md", "line": 1, "category": "August 2026 verified radar", "subcategory": "Media"},
+      "source": {
+        "file": "guides/august-2026-agent-learning-media-radar.md",
+        "line": 1,
+        "category": "August 2026 verified radar",
+        "subcategory": "Media"
+      },
       "addedAt": "2026-08-21",
-      "licenseEvidence": [{"kind": "source", "label": "Official service", "url": "https://www.happyshrimp.ai/"}]
+      "licenseEvidence": [
+        {
+          "kind": "source",
+          "label": "Official service",
+          "url": "https://www.happyshrimp.ai/"
+        }
+      ]
     },
     {
       "id": "craftingtable-computer",
@@ -35576,23 +35822,55 @@
       "category": "Курсы и гайды",
       "subcategory": "Electronics simulation",
       "simpleDescription": "Браузерный simulator для электронных схем и AVR microcontrollers с компонентами, guided lessons и daily challenges. Позволяет учиться без реального железа, но симуляция не заменяет electrical safety и проверку поведения физической платы.",
-      "useCases": ["Интерактивные labs в Educator-AI", "Reference для step-by-step learning UI", "Beginner electronics exercises"],
-      "platforms": ["Web", "Browser", "AVR simulation"],
+      "useCases": [
+        "Интерактивные labs в Educator-AI",
+        "Reference для step-by-step learning UI",
+        "Beginner electronics exercises"
+      ],
+      "platforms": [
+        "Web",
+        "Browser",
+        "AVR simulation"
+      ],
       "license": "Proprietary web service; educational content and hardware kits retain separate terms",
       "pricing": "Browser simulator includes free access; kits and institutional plans may cost extra",
-      "access": {"cost": "freemium", "signup": "optional", "runtime": "cloud"},
+      "access": {
+        "cost": "freemium",
+        "signup": "optional",
+        "runtime": "cloud"
+      },
       "trust": "official",
       "trustReason": "Проверены официальный simulator, course descriptions and product pages 21.08.2026.",
-      "projects": ["Educator-AI"],
+      "projects": [
+        "Educator-AI"
+      ],
       "decision": "roadmap",
       "riskLevel": "low",
-      "risks": ["Simulation can differ from real component tolerances", "External embeds and student accounts need privacy review"],
+      "risks": [
+        "Simulation can differ from real component tolerances",
+        "External embeds and student accounts need privacy review"
+      ],
       "verifiedAt": "2026-08-21",
-      "quickStart": ["Добавить link-only lesson без iframe", "Собрать один LED lab with learning objectives", "Оценивать понимание, а не только прохождение simulator"],
+      "quickStart": [
+        "Добавить link-only lesson без iframe",
+        "Собрать один LED lab with learning objectives",
+        "Оценивать понимание, а не только прохождение simulator"
+      ],
       "reviewStatus": "verified",
-      "source": {"file": "guides/august-2026-agent-learning-media-radar.md", "line": 1, "category": "August 2026 verified radar", "subcategory": "Learning"},
+      "source": {
+        "file": "guides/august-2026-agent-learning-media-radar.md",
+        "line": 1,
+        "category": "August 2026 verified radar",
+        "subcategory": "Learning"
+      },
       "addedAt": "2026-08-21",
-      "licenseEvidence": [{"kind": "source", "label": "Official simulator", "url": "https://computer.craftingtable.com/"}]
+      "licenseEvidence": [
+        {
+          "kind": "source",
+          "label": "Official simulator",
+          "url": "https://computer.craftingtable.com/"
+        }
+      ]
     },
     {
       "id": "language-coach-seven-workflows",
@@ -35602,23 +35880,57 @@
       "category": "Промпты",
       "subcategory": "Language learning",
       "simpleDescription": "Семь связанных prompt-workflows: учебный план, разговор, vocabulary, grammar, listening, shadowing и weekly review. Они помогают персонализировать практику, но не заменяют носителя языка, квалифицированного преподавателя или проверку произношения человеком.",
-      "useCases": ["Learning track в Educator-AI", "Adaptive weekly plan", "Conversation and pronunciation practice"],
-      "platforms": ["Eclipse AI Hub", "Chat assistants"],
+      "useCases": [
+        "Learning track в Educator-AI",
+        "Adaptive weekly plan",
+        "Conversation and pronunciation practice"
+      ],
+      "platforms": [
+        "Eclipse AI Hub",
+        "Chat assistants"
+      ],
       "license": "Eclipse Library editorial prompt pack",
       "pricing": "Depends on selected model provider",
-      "access": {"cost": "free", "signup": "optional", "runtime": "hybrid"},
+      "access": {
+        "cost": "free",
+        "signup": "optional",
+        "runtime": "hybrid"
+      },
       "trust": "verified",
       "trustReason": "Исходные идеи сведены в один bounded workflow и дополнены checkpoints, privacy и teacher-review constraints.",
-      "projects": ["Educator-AI", "Eclipse AI Hub", "Eclipse Chat"],
+      "projects": [
+        "Educator-AI",
+        "Eclipse AI Hub",
+        "Eclipse Chat"
+      ],
       "decision": "now",
       "riskLevel": "low",
-      "risks": ["Модель может закреплять ошибки или неестественные фразы", "Voice recordings may contain biometric data", "Free materials and links can become unavailable"],
+      "risks": [
+        "Модель может закреплять ошибки или неестественные фразы",
+        "Voice recordings may contain biometric data",
+        "Free materials and links can become unavailable"
+      ],
       "verifiedAt": "2026-08-21",
-      "quickStart": ["Спросить уровень, цель и доступное время", "Выдавать одну weekly plan и measurable checkpoint", "Не хранить voice recordings без explicit consent"],
+      "quickStart": [
+        "Спросить уровень, цель и доступное время",
+        "Выдавать одну weekly plan и measurable checkpoint",
+        "Не хранить voice recordings без explicit consent"
+      ],
       "reviewStatus": "verified",
-      "source": {"file": "guides/august-2026-agent-learning-media-radar.md", "line": 1, "category": "Промпты", "subcategory": "Language learning"},
+      "source": {
+        "file": "guides/august-2026-agent-learning-media-radar.md",
+        "line": 1,
+        "category": "Промпты",
+        "subcategory": "Language learning"
+      },
       "addedAt": "2026-08-21",
-      "licenseEvidence": [{"kind": "source", "label": "Eclipse editorial guide", "url": "https://library.eclipse-forge.ru/#guide/august-2026-agent-learning-media-radar"}]
+      "licenseEvidence": [
+        {
+          "kind": "source",
+          "label": "Eclipse editorial guide",
+          "url": "https://library.eclipse-forge.ru/#guide/august-2026-agent-learning-media-radar"
+        }
+      ]
     },
     {
       "id": "ornith-1-5-9b-gguf",
@@ -35628,23 +35940,58 @@
       "category": "AI-модели",
       "subcategory": "Local coding model",
       "simpleDescription": "MIT GGUF text-generation model из семейства Ornith. Карточка существует и активно скачивается, но официальный metadata определяет её как text-generation, а не multimodal model; заявления о запуске на любом телефоне и автоматическом self-improvement требуют device benchmark.",
-      "useCases": ["Local coding benchmark в AI Hub", "Low-memory agent fixtures", "Comparison with other 9B GGUF models"],
-      "platforms": ["GGUF", "llama.cpp-compatible runtimes", "Local devices"],
+      "useCases": [
+        "Local coding benchmark в AI Hub",
+        "Low-memory agent fixtures",
+        "Comparison with other 9B GGUF models"
+      ],
+      "platforms": [
+        "GGUF",
+        "llama.cpp-compatible runtimes",
+        "Local devices"
+      ],
       "license": "MIT",
       "pricing": "Free weights; device compute, RAM and storage required",
-      "access": {"cost": "free", "signup": "optional", "runtime": "local"},
+      "access": {
+        "cost": "free",
+        "signup": "optional",
+        "runtime": "local"
+      },
       "trust": "official",
       "trustReason": "Проверены Hugging Face API metadata, MIT license, text-generation pipeline and model availability 21.08.2026. Promotional benchmark and mobile claims remain unverified.",
-      "projects": ["Eclipse AI Hub", "Hopson Sentinel", "Educator-AI"],
+      "projects": [
+        "Eclipse AI Hub",
+        "Hopson Sentinel",
+        "Educator-AI"
+      ],
       "decision": "roadmap",
       "riskLevel": "medium",
-      "risks": ["Real context and speed depend on quantization and memory", "Model card claims need reproducible fixtures", "Local execution does not guarantee safe or correct code"],
+      "risks": [
+        "Real context and speed depend on quantization and memory",
+        "Model card claims need reproducible fixtures",
+        "Local execution does not guarantee safe or correct code"
+      ],
       "verifiedAt": "2026-08-21",
-      "quickStart": ["Pin exact GGUF revision and hash", "Test 4-bit variant on one desktop and one mobile device", "Measure quality, RAM, first-token latency and sustained tok/s"],
+      "quickStart": [
+        "Pin exact GGUF revision and hash",
+        "Test 4-bit variant on one desktop and one mobile device",
+        "Measure quality, RAM, first-token latency and sustained tok/s"
+      ],
       "reviewStatus": "verified",
-      "source": {"file": "guides/august-2026-agent-learning-media-radar.md", "line": 1, "category": "August 2026 verified radar", "subcategory": "Models"},
+      "source": {
+        "file": "guides/august-2026-agent-learning-media-radar.md",
+        "line": 1,
+        "category": "August 2026 verified radar",
+        "subcategory": "Models"
+      },
       "addedAt": "2026-08-21",
-      "licenseEvidence": [{"kind": "license", "label": "Official model metadata", "url": "https://huggingface.co/ornith-ai/Ornith-1.5-9B-GGUF"}]
+      "licenseEvidence": [
+        {
+          "kind": "license",
+          "label": "Official model metadata",
+          "url": "https://huggingface.co/ornith-ai/Ornith-1.5-9B-GGUF"
+        }
+      ]
     },
     {
       "id": "ctxport",
@@ -35654,23 +36001,58 @@
       "category": "AI и агенты",
       "subcategory": "Conversation export",
       "simpleDescription": "MIT browser extension exports conversations from ChatGPT, Claude, Gemini, DeepSeek, Grok and GitHub as clean Markdown Context Bundles. Processing is declared local, but the extension reads sensitive page content, so permissions, secrets and exported personal data need manual review.",
-      "useCases": ["Session handoff in Eclipse Chat", "User-controlled context export", "Reference for eclipse.handoff.v1"],
-      "platforms": ["Browser extension", "Markdown", "Local"],
+      "useCases": [
+        "Session handoff in Eclipse Chat",
+        "User-controlled context export",
+        "Reference for eclipse.handoff.v1"
+      ],
+      "platforms": [
+        "Browser extension",
+        "Markdown",
+        "Local"
+      ],
       "license": "MIT",
       "pricing": "Free open source",
-      "access": {"cost": "free", "signup": "none", "runtime": "local"},
+      "access": {
+        "cost": "free",
+        "signup": "none",
+        "runtime": "local"
+      },
       "trust": "community",
       "trustReason": "Проверены official repository, MIT metadata and zero-upload claim 21.08.2026; browser permissions were not independently audited.",
-      "projects": ["Eclipse Chat", "Eclipse AI Hub", "oh-my-claudecode"],
+      "projects": [
+        "Eclipse Chat",
+        "Eclipse AI Hub",
+        "oh-my-claudecode"
+      ],
       "decision": "reference",
       "riskLevel": "high",
-      "risks": ["Extension can read conversation content and code", "Exports may contain secrets, personal data or copyrighted material", "Cross-provider reuse can violate organizational policy"],
+      "risks": [
+        "Extension can read conversation content and code",
+        "Exports may contain secrets, personal data or copyrighted material",
+        "Cross-provider reuse can violate organizational policy"
+      ],
       "verifiedAt": "2026-08-21",
-      "quickStart": ["Audit manifest and content scripts before install", "Test only with synthetic conversations", "Add secret scan and explicit selection before export"],
+      "quickStart": [
+        "Audit manifest and content scripts before install",
+        "Test only with synthetic conversations",
+        "Add secret scan and explicit selection before export"
+      ],
       "reviewStatus": "verified",
-      "source": {"file": "guides/august-2026-agent-learning-media-radar.md", "line": 1, "category": "August 2026 verified radar", "subcategory": "Context"},
+      "source": {
+        "file": "guides/august-2026-agent-learning-media-radar.md",
+        "line": 1,
+        "category": "August 2026 verified radar",
+        "subcategory": "Context"
+      },
       "addedAt": "2026-08-21",
-      "licenseEvidence": [{"kind": "source", "label": "Official repository and MIT metadata", "url": "https://github.com/nicepkg/ctxport"}]
+      "licenseEvidence": [
+        {
+          "kind": "source",
+          "label": "Official repository and MIT metadata",
+          "url": "https://github.com/nicepkg/ctxport"
+        }
+      ]
     },
     {
       "id": "ffmpeg-webcli",
@@ -35680,23 +36062,58 @@
       "category": "Медиа",
       "subcategory": "Browser video processing",
       "simpleDescription": "GPL-3.0 browser video editor на ffmpeg.wasm: conversion, compression, trimming, audio extraction, GIF, blur, speed and other local operations without upload. Это сильный reference для privacy-first media tools; removal of ownership marks or copyright circumvention is not an Eclipse use case.",
-      "useCases": ["Local preview processing in Eclipse Media", "Client-side trim/compress before upload", "Offline media utility reference"],
-      "platforms": ["Browser", "WebAssembly", "PWA", "FFmpeg"],
+      "useCases": [
+        "Local preview processing in Eclipse Media",
+        "Client-side trim/compress before upload",
+        "Offline media utility reference"
+      ],
+      "platforms": [
+        "Browser",
+        "WebAssembly",
+        "PWA",
+        "FFmpeg"
+      ],
       "license": "GPL-3.0; ffmpeg.wasm dependencies retain their own terms",
       "pricing": "Free open source; browser memory/CPU costs are local",
-      "access": {"cost": "free", "signup": "none", "runtime": "local"},
+      "access": {
+        "cost": "free",
+        "signup": "none",
+        "runtime": "local"
+      },
       "trust": "community",
       "trustReason": "Проверены official repository, GPL-3.0 metadata, local-processing architecture and feature list 21.08.2026.",
-      "projects": ["Eclipse Media", "Shotforge"],
+      "projects": [
+        "Eclipse Media",
+        "Shotforge"
+      ],
       "decision": "roadmap",
       "riskLevel": "medium",
-      "risks": ["WASM processing can exhaust memory on large files", "GPL code cannot be copied into incompatible proprietary distribution", "Metadata removal can destroy provenance"],
+      "risks": [
+        "WASM processing can exhaust memory on large files",
+        "GPL code cannot be copied into incompatible proprietary distribution",
+        "Metadata removal can destroy provenance"
+      ],
       "verifiedAt": "2026-08-21",
-      "quickStart": ["Benchmark owned 30-second clips under strict size/time limits", "Preserve original and provenance metadata by default", "Use Worker isolation and fail safely on memory pressure"],
+      "quickStart": [
+        "Benchmark owned 30-second clips under strict size/time limits",
+        "Preserve original and provenance metadata by default",
+        "Use Worker isolation and fail safely on memory pressure"
+      ],
       "reviewStatus": "verified",
-      "source": {"file": "guides/august-2026-agent-learning-media-radar.md", "line": 1, "category": "August 2026 verified radar", "subcategory": "Media"},
+      "source": {
+        "file": "guides/august-2026-agent-learning-media-radar.md",
+        "line": 1,
+        "category": "August 2026 verified radar",
+        "subcategory": "Media"
+      },
       "addedAt": "2026-08-21",
-      "licenseEvidence": [{"kind": "license", "label": "Official GPL-3.0 license", "url": "https://github.com/tejaswigowda/ffmpeg-webCLI/blob/main/LICENSE"}]
+      "licenseEvidence": [
+        {
+          "kind": "license",
+          "label": "Official GPL-3.0 license",
+          "url": "https://github.com/tejaswigowda/ffmpeg-webCLI/blob/main/LICENSE"
+        }
+      ]
     },
     {
       "id": "gemini-study-notebooks",
@@ -35706,23 +36123,57 @@
       "category": "Обучение",
       "subcategory": "Adaptive learning",
       "simpleDescription": "Официальный learning mode в Gemini: принимает цель и учебные материалы, проводит diagnostic quiz, строит короткие adaptive lessons и отслеживает прогресс. Это точнее исходного заявления о «курсах прямо в Google Search»; rollout и доступность зависят от account, региона и устройства.",
-      "useCases": ["Reference для Educator-AI learning tracks", "Diagnostic quiz before curriculum", "Adaptive checkpoints grounded in user materials"],
-      "platforms": ["Gemini web", "Google accounts", "Desktop rollout"],
+      "useCases": [
+        "Reference для Educator-AI learning tracks",
+        "Diagnostic quiz before curriculum",
+        "Adaptive checkpoints grounded in user materials"
+      ],
+      "platforms": [
+        "Gemini web",
+        "Google accounts",
+        "Desktop rollout"
+      ],
       "license": "Google proprietary service terms; uploaded class materials retain their own rights",
       "pricing": "Feature availability and account tiers may change by rollout",
-      "access": {"cost": "freemium", "signup": "required", "runtime": "cloud"},
+      "access": {
+        "cost": "freemium",
+        "signup": "required",
+        "runtime": "cloud"
+      },
       "trust": "official",
       "trustReason": "Проверены official Google announcement and Education launch materials dated 25.06.2026.",
-      "projects": ["Educator-AI", "Eclipse AI Hub"],
+      "projects": [
+        "Educator-AI",
+        "Eclipse AI Hub"
+      ],
       "decision": "reference",
       "riskLevel": "medium",
-      "risks": ["Uploaded educational material is processed by a cloud service", "AI feedback can be wrong or pedagogically weak", "Rollout currently differs by account and device"],
+      "risks": [
+        "Uploaded educational material is processed by a cloud service",
+        "AI feedback can be wrong or pedagogically weak",
+        "Rollout currently differs by account and device"
+      ],
       "verifiedAt": "2026-08-21",
-      "quickStart": ["Use public or consented study material", "Compare diagnostic/adaptive loop with Educator-AI local track", "Keep teacher override and source citations"],
+      "quickStart": [
+        "Use public or consented study material",
+        "Compare diagnostic/adaptive loop with Educator-AI local track",
+        "Keep teacher override and source citations"
+      ],
       "reviewStatus": "verified",
-      "source": {"file": "guides/august-2026-agent-learning-media-radar.md", "line": 1, "category": "August 2026 verified radar", "subcategory": "Learning"},
+      "source": {
+        "file": "guides/august-2026-agent-learning-media-radar.md",
+        "line": 1,
+        "category": "August 2026 verified radar",
+        "subcategory": "Learning"
+      },
       "addedAt": "2026-08-21",
-      "licenseEvidence": [{"kind": "source", "label": "Official Google announcement", "url": "https://blog.google/innovation-and-ai/products/gemini-app/gemini-study-notebooks/"}]
+      "licenseEvidence": [
+        {
+          "kind": "source",
+          "label": "Official Google announcement",
+          "url": "https://blog.google/innovation-and-ai/products/gemini-app/gemini-study-notebooks/"
+        }
+      ]
     },
     {
       "id": "teamspeak-6",
@@ -35732,23 +36183,56 @@
       "category": "Коммуникации",
       "subcategory": "Voice and screen sharing",
       "simpleDescription": "Обновлённый TeamSpeak client/server stack с переработанным UI, Communities, voice, messaging и screen sharing. Полезен как product reference для Eclipse Chat, но это не библиотека для встраивания и не подтверждение рекламного тезиса «Discord закончился».",
-      "useCases": ["Reference для low-latency voice UX", "Screen-sharing quality matrix", "Server/community permissions comparison"],
-      "platforms": ["Windows", "macOS", "Linux", "Self-hosted servers"],
+      "useCases": [
+        "Reference для low-latency voice UX",
+        "Screen-sharing quality matrix",
+        "Server/community permissions comparison"
+      ],
+      "platforms": [
+        "Windows",
+        "macOS",
+        "Linux",
+        "Self-hosted servers"
+      ],
       "license": "Proprietary TeamSpeak software and service terms",
       "pricing": "Client is free; server licensing and hosted services have separate terms",
-      "access": {"cost": "freemium", "signup": "optional", "runtime": "hybrid"},
+      "access": {
+        "cost": "freemium",
+        "signup": "optional",
+        "runtime": "hybrid"
+      },
       "trust": "official",
       "trustReason": "Проверены official TeamSpeak site, downloads and TeamSpeak 6 announcements 21.08.2026. Region availability and future 1:1 calls were not treated as current facts.",
-      "projects": ["Eclipse Chat"],
+      "projects": [
+        "Eclipse Chat"
+      ],
       "decision": "reference",
       "riskLevel": "low",
-      "risks": ["Closed product cannot be cloned code-for-code", "Screen sharing and voice require privacy, bandwidth and abuse controls"],
+      "risks": [
+        "Closed product cannot be cloned code-for-code",
+        "Screen sharing and voice require privacy, bandwidth and abuse controls"
+      ],
       "verifiedAt": "2026-08-21",
-      "quickStart": ["Compare join-call and screen-share UX on a test server", "Measure memory, latency and reconnect behavior", "Reuse only product principles, not proprietary assets/code"],
+      "quickStart": [
+        "Compare join-call and screen-share UX on a test server",
+        "Measure memory, latency and reconnect behavior",
+        "Reuse only product principles, not proprietary assets/code"
+      ],
       "reviewStatus": "verified",
-      "source": {"file": "guides/august-2026-agent-learning-media-radar.md", "line": 1, "category": "August 2026 verified radar", "subcategory": "Communication"},
+      "source": {
+        "file": "guides/august-2026-agent-learning-media-radar.md",
+        "line": 1,
+        "category": "August 2026 verified radar",
+        "subcategory": "Communication"
+      },
       "addedAt": "2026-08-21",
-      "licenseEvidence": [{"kind": "terms", "label": "Official TeamSpeak site", "url": "https://teamspeak.com/en/"}]
+      "licenseEvidence": [
+        {
+          "kind": "terms",
+          "label": "Official TeamSpeak site",
+          "url": "https://teamspeak.com/en/"
+        }
+      ]
     },
     {
       "id": "reverse-api-engineer-nottelabs",
@@ -35758,23 +36242,58 @@
       "category": "Разработка",
       "subcategory": "Undocumented API client generation",
       "simpleDescription": "MIT research tool captures browser HAR in manual or agent mode and generates typed clients for observed endpoints. Это не превращает любой сайт в разрешённый API: cookies, tokens, Terms, bot protection, authorization and endpoint stability remain critical boundaries.",
-      "useCases": ["Reference for HAR-to-client tooling on owned systems", "Generate test clients for Eclipse staging", "Understand undocumented frontend/backend contracts"],
-      "platforms": ["Browser automation", "HAR", "Python", "TypeScript and other clients"],
+      "useCases": [
+        "Reference for HAR-to-client tooling on owned systems",
+        "Generate test clients for Eclipse staging",
+        "Understand undocumented frontend/backend contracts"
+      ],
+      "platforms": [
+        "Browser automation",
+        "HAR",
+        "Python",
+        "TypeScript and other clients"
+      ],
       "license": "MIT for repository code; target websites and captured data retain separate Terms and rights",
       "pricing": "Free repository; browser agents and model providers may cost extra",
-      "access": {"cost": "free", "signup": "none", "runtime": "local"},
+      "access": {
+        "cost": "free",
+        "signup": "none",
+        "runtime": "local"
+      },
       "trust": "community",
       "trustReason": "Проверены canonical redirect to nottelabs, official repository and MIT metadata 21.08.2026.",
-      "projects": ["Hopson Sentinel", "Eclipse AI Hub"],
+      "projects": [
+        "Hopson Sentinel",
+        "Eclipse AI Hub"
+      ],
       "decision": "reference",
       "riskLevel": "high",
-      "risks": ["HAR may contain session cookies, auth tokens and personal data", "Use against third-party sites can violate Terms or access controls", "Generated clients can call destructive/private endpoints"],
+      "risks": [
+        "HAR may contain session cookies, auth tokens and personal data",
+        "Use against third-party sites can violate Terms or access controls",
+        "Generated clients can call destructive/private endpoints"
+      ],
       "verifiedAt": "2026-08-21",
-      "quickStart": ["Use only owned staging domains with synthetic account", "Redact HAR secrets before model access", "Allow only read-only endpoints and review generated code"],
+      "quickStart": [
+        "Use only owned staging domains with synthetic account",
+        "Redact HAR secrets before model access",
+        "Allow only read-only endpoints and review generated code"
+      ],
       "reviewStatus": "verified",
-      "source": {"file": "guides/august-2026-agent-learning-media-radar.md", "line": 1, "category": "August 2026 verified radar", "subcategory": "Security-sensitive tooling"},
+      "source": {
+        "file": "guides/august-2026-agent-learning-media-radar.md",
+        "line": 1,
+        "category": "August 2026 verified radar",
+        "subcategory": "Security-sensitive tooling"
+      },
       "addedAt": "2026-08-21",
-      "licenseEvidence": [{"kind": "source", "label": "Canonical official repository", "url": "https://github.com/nottelabs/reverse-api-engineer"}]
+      "licenseEvidence": [
+        {
+          "kind": "source",
+          "label": "Canonical official repository",
+          "url": "https://github.com/nottelabs/reverse-api-engineer"
+        }
+      ]
     },
     {
       "id": "claude-academy",
@@ -35784,23 +36303,57 @@
       "category": "Курсы и гайды",
       "subcategory": "Claude platform learning",
       "simpleDescription": "Официальная Anthropic learning platform с курсами по Claude API, MCP, Amazon Bedrock, Google Vertex AI и platform basics. Уроки, quizzes и badges полезны для structured onboarding; точное число курсов и certificate availability меняются и не фиксируются рекламным обещанием.",
-      "useCases": ["Learning track в Educator-AI", "Onboarding developers to Claude API/MCP", "Source-backed internal competency checklist"],
-      "platforms": ["Web", "Anthropic account"],
+      "useCases": [
+        "Learning track в Educator-AI",
+        "Onboarding developers to Claude API/MCP",
+        "Source-backed internal competency checklist"
+      ],
+      "platforms": [
+        "Web",
+        "Anthropic account"
+      ],
       "license": "Anthropic proprietary learning content and service terms",
       "pricing": "Public learning platform; some progress features require sign-in and cloud exercises may have separate costs",
-      "access": {"cost": "free", "signup": "required", "runtime": "cloud"},
+      "access": {
+        "cost": "free",
+        "signup": "required",
+        "runtime": "cloud"
+      },
       "trust": "official",
       "trustReason": "Проверены official academy catalog and Anthropic course pages 21.08.2026.",
-      "projects": ["Educator-AI", "Eclipse AI Hub", "oh-my-claudecode"],
+      "projects": [
+        "Educator-AI",
+        "Eclipse AI Hub",
+        "oh-my-claudecode"
+      ],
       "decision": "now",
       "riskLevel": "low",
-      "risks": ["Course catalog and badges can change", "Bedrock/Vertex exercises may require cloud accounts and cost", "Do not copy course content into Eclipse products"],
+      "risks": [
+        "Course catalog and badges can change",
+        "Bedrock/Vertex exercises may require cloud accounts and cost",
+        "Do not copy course content into Eclipse products"
+      ],
       "verifiedAt": "2026-08-21",
-      "quickStart": ["Link official API and MCP tracks from Educator-AI", "Add Eclipse security and production-readiness assignments", "Store completion evidence only with user consent"],
+      "quickStart": [
+        "Link official API and MCP tracks from Educator-AI",
+        "Add Eclipse security and production-readiness assignments",
+        "Store completion evidence only with user consent"
+      ],
       "reviewStatus": "verified",
-      "source": {"file": "guides/august-2026-agent-learning-media-radar.md", "line": 1, "category": "August 2026 verified radar", "subcategory": "Learning"},
+      "source": {
+        "file": "guides/august-2026-agent-learning-media-radar.md",
+        "line": 1,
+        "category": "August 2026 verified radar",
+        "subcategory": "Learning"
+      },
       "addedAt": "2026-08-21",
-      "licenseEvidence": [{"kind": "source", "label": "Official Claude Academy", "url": "https://academy.claude.com/"}]
+      "licenseEvidence": [
+        {
+          "kind": "source",
+          "label": "Official Claude Academy",
+          "url": "https://academy.claude.com/"
+        }
+      ]
     },
     {
       "id": "openrouter-ox-alpha",
@@ -35810,23 +36363,56 @@
       "category": "AI-модели",
       "subcategory": "Stealth hosted model",
       "simpleDescription": "OpenRouter lists an unidentified stealth reasoning model with 1,048,576-token context and text/image/video input. Provider identity, training data, jurisdiction and durable pricing are undisclosed, so the model is unsuitable for confidential or production routing despite its current zero price.",
-      "useCases": ["Temporary public-fixture benchmark", "Long-context retrieval stress test", "Provider-risk UI reference"],
-      "platforms": ["OpenRouter API", "Cloud"],
+      "useCases": [
+        "Temporary public-fixture benchmark",
+        "Long-context retrieval stress test",
+        "Provider-risk UI reference"
+      ],
+      "platforms": [
+        "OpenRouter API",
+        "Cloud"
+      ],
       "license": "Unknown model license and provider identity; OpenRouter Terms apply",
       "pricing": "OpenRouter API currently reports zero token price; this is not a durable commitment",
-      "access": {"cost": "free", "signup": "required", "runtime": "cloud"},
+      "access": {
+        "cost": "free",
+        "signup": "required",
+        "runtime": "cloud"
+      },
       "trust": "caution",
       "trustReason": "Model id, modality, context and current pricing were confirmed through OpenRouter API 21.08.2026. Ownership and comparative benchmark claims remain unverified.",
-      "projects": ["Eclipse AI Hub", "Hopson Sentinel"],
+      "projects": [
+        "Eclipse AI Hub",
+        "Hopson Sentinel"
+      ],
       "decision": "reference",
       "riskLevel": "high",
-      "risks": ["Unknown provider, retention, training data and jurisdiction", "Free pricing can change without notice", "No confidential code, personal data or production prompts may be sent"],
+      "risks": [
+        "Unknown provider, retention, training data and jurisdiction",
+        "Free pricing can change without notice",
+        "No confidential code, personal data or production prompts may be sent"
+      ],
       "verifiedAt": "2026-08-21",
-      "quickStart": ["Exclude from automatic routing and agent exports", "If benchmarked, use synthetic public fixtures and strict budget", "Delete provider key after temporary test"],
+      "quickStart": [
+        "Exclude from automatic routing and agent exports",
+        "If benchmarked, use synthetic public fixtures and strict budget",
+        "Delete provider key after temporary test"
+      ],
       "reviewStatus": "verified",
-      "source": {"file": "guides/august-2026-agent-learning-media-radar.md", "line": 1, "category": "August 2026 verified radar", "subcategory": "Models"},
+      "source": {
+        "file": "guides/august-2026-agent-learning-media-radar.md",
+        "line": 1,
+        "category": "August 2026 verified radar",
+        "subcategory": "Models"
+      },
       "addedAt": "2026-08-21",
-      "licenseEvidence": [{"kind": "terms", "label": "OpenRouter model page", "url": "https://openrouter.ai/stealth/ox-alpha"}]
+      "licenseEvidence": [
+        {
+          "kind": "terms",
+          "label": "OpenRouter model page",
+          "url": "https://openrouter.ai/stealth/ox-alpha"
+        }
+      ]
     },
     {
       "id": "chatgpt-images-transparent-background",
@@ -35836,23 +36422,197 @@
       "category": "AI-модели",
       "subcategory": "Image generation and editing",
       "simpleDescription": "Официальный ChatGPT Images workflow умеет генерировать и редактировать изображения, включая просьбу сделать background transparent. Это удобно для UI assets и product mockups, но output всё равно нужно проверить на alpha edges, текст, brand rights and provenance.",
-      "useCases": ["PNG assets for Text2Image", "Transparent mockups for Eclipse Media", "Draft icons for Shotforge storyboards"],
-      "platforms": ["ChatGPT web", "iOS", "Android", "Codex"],
+      "useCases": [
+        "PNG assets for Text2Image",
+        "Transparent mockups for Eclipse Media",
+        "Draft icons for Shotforge storyboards"
+      ],
+      "platforms": [
+        "ChatGPT web",
+        "iOS",
+        "Android",
+        "Codex"
+      ],
       "license": "OpenAI Terms and usage policies; input and third-party asset rights remain the user's responsibility",
       "pricing": "Available by ChatGPT tier; limits and thinking mode vary",
-      "access": {"cost": "freemium", "signup": "required", "runtime": "cloud"},
+      "access": {
+        "cost": "freemium",
+        "signup": "required",
+        "runtime": "cloud"
+      },
       "trust": "official",
       "trustReason": "Проверена official OpenAI Help Center article updated 21.08.2026.",
-      "projects": ["Text2Image", "Eclipse Media", "Shotforge", "Eclipse Forge Landing"],
+      "projects": [
+        "Text2Image",
+        "Eclipse Media",
+        "Shotforge",
+        "Eclipse Forge Landing"
+      ],
       "decision": "now",
       "riskLevel": "medium",
-      "risks": ["Uploaded images are processed by a cloud service", "Transparent output may contain halos or incorrect edges", "Generated logos/characters can conflict with third-party rights"],
+      "risks": [
+        "Uploaded images are processed by a cloud service",
+        "Transparent output may contain halos or incorrect edges",
+        "Generated logos/characters can conflict with third-party rights"
+      ],
       "verifiedAt": "2026-08-21",
-      "quickStart": ["Use owned input and request transparent background explicitly", "Inspect alpha channel at light and dark backgrounds", "Run rights/provenance review before publication"],
+      "quickStart": [
+        "Use owned input and request transparent background explicitly",
+        "Inspect alpha channel at light and dark backgrounds",
+        "Run rights/provenance review before publication"
+      ],
       "reviewStatus": "verified",
-      "source": {"file": "guides/august-2026-agent-learning-media-radar.md", "line": 1, "category": "August 2026 verified radar", "subcategory": "Images"},
+      "source": {
+        "file": "guides/august-2026-agent-learning-media-radar.md",
+        "line": 1,
+        "category": "August 2026 verified radar",
+        "subcategory": "Images"
+      },
       "addedAt": "2026-08-21",
-      "licenseEvidence": [{"kind": "source", "label": "Official OpenAI Images guide", "url": "https://help.openai.com/en/articles/11084440"}]
+      "licenseEvidence": [
+        {
+          "kind": "source",
+          "label": "Official OpenAI Images guide",
+          "url": "https://help.openai.com/en/articles/11084440"
+        }
+      ]
+    },
+    {
+      "id": "web3nity-seven-ai-service-offers",
+      "url": "https://www.youtube.com/watch?v=Uk7HHfF9n2Q",
+      "title": "Web3nity: 7 AI service offers",
+      "type": "learn",
+      "category": "Курсы и гайды",
+      "subcategory": "AI service validation",
+      "simpleDescription": "22-минутное видео разбирает семь понятных офферов для малого бизнеса: product photos, short-video packs, content repurposing, landing pages, calculators/quizzes, FAQ bots и public monitoring. Полезно как карта проблем и способов показать sample result, но не как доказательство дохода: цены, спрос и истории заработка не подтверждены выборкой или финансовыми данными.",
+      "useCases": [
+        "Сформировать bounded Kwork offers",
+        "Выбрать pilot для Eclipse Growth OS",
+        "Объяснить разницу между продажей AI и продажей результата"
+      ],
+      "platforms": [
+        "YouTube",
+        "Web"
+      ],
+      "license": "YouTube-hosted creator content; viewing and linking are allowed under platform terms, reuse of video/transcript requires permission",
+      "pricing": "Free to watch; the promoted Abacus.AI service is a separate paid subscription",
+      "access": {
+        "cost": "free",
+        "signup": "optional",
+        "runtime": "cloud"
+      },
+      "trust": "community",
+      "trustReason": "Проверены official YouTube metadata, public chapters, Russian auto-transcript and the official Abacus.AI pricing/billing pages 22.08.2026. Earnings and demand claims remain unverified.",
+      "projects": [
+        "Eclipse Growth OS",
+        "Hopson Sentinel",
+        "Eclipse Chat",
+        "Eclipse AI Hub",
+        "Eclipse Media",
+        "Shotforge",
+        "Text2Image",
+        "Eclipse Forge Landing"
+      ],
+      "decision": "now",
+      "riskLevel": "medium",
+      "risks": [
+        "Promotional examples can be mistaken for guaranteed income",
+        "Speculative samples can misuse trademarks or copyrighted assets",
+        "FAQ and monitoring workflows can leak data or ingest prompt injection"
+      ],
+      "verifiedAt": "2026-08-22",
+      "quickStart": [
+        "Start with one read-only monitoring niche and five public sources",
+        "Measure precision, review time and cost for 30 days",
+        "Require rights, evidence and human approval before any client-facing output"
+      ],
+      "reviewStatus": "verified",
+      "source": {
+        "file": "guides/seven-ai-service-offers-eclipse-forge.md",
+        "line": 1,
+        "category": "Verified video review",
+        "subcategory": "Growth offers"
+      },
+      "addedAt": "2026-08-22",
+      "licenseEvidence": [
+        {
+          "kind": "source",
+          "label": "Official YouTube video",
+          "url": "https://www.youtube.com/watch?v=Uk7HHfF9n2Q"
+        }
+      ]
+    },
+    {
+      "id": "abacus-ai-agent-appllm",
+      "url": "https://abacus.ai/pricing",
+      "title": "Abacus.AI Agent and AppLLM",
+      "type": "service",
+      "category": "AI и агенты",
+      "subcategory": "Cloud agent and app builder",
+      "simpleDescription": "Платная cloud-платформа с доступом к нескольким LLM, image/video models, general-purpose agent и AppLLM builder. Официально заявлены scheduled tasks, hosted apps, databases, chatbots и QA workflows. Это удобный workflow reference, но не полностью локальная система и не единая лицензия на все generated assets: стоимость credits и commercial rights зависят от выбранной модели и операции.",
+      "useCases": [
+        "UX benchmark для AI Hub agent workspace",
+        "Reference для scheduled monitoring prototypes",
+        "Сравнение app-builder onboarding и rollback UX"
+      ],
+      "platforms": [
+        "Web",
+        "Cloud",
+        "Hosted agent",
+        "App builder"
+      ],
+      "license": "Abacus.AI proprietary service terms; each connected model and generated asset may have separate commercial-use conditions",
+      "pricing": "Official pricing on 22.08.2026: Basic $10/month with 20,000 credits; Pro $20/month with 30,000 credits; consumption varies by model, hosting, resolution and duration",
+      "access": {
+        "cost": "paid",
+        "signup": "required",
+        "runtime": "cloud"
+      },
+      "trust": "official",
+      "trustReason": "Проверены official pricing, billing FAQ, AppLLM product page and AI Studio credit documentation 22.08.2026.",
+      "projects": [
+        "Eclipse AI Hub",
+        "Hopson Sentinel",
+        "Eclipse Growth OS"
+      ],
+      "decision": "reference",
+      "riskLevel": "medium",
+      "risks": [
+        "Cloud processing and third-party model subprocessors require privacy review",
+        "Credits can be consumed by model calls, hosting, video length and resolution",
+        "Generated app code, claims and permissions still require QA and security review"
+      ],
+      "verifiedAt": "2026-08-22",
+      "quickStart": [
+        "Use only public synthetic fixtures for benchmark",
+        "Check model-specific commercial terms before any client asset",
+        "Do not connect production accounts or enable autonomous publishing"
+      ],
+      "reviewStatus": "verified",
+      "source": {
+        "file": "guides/seven-ai-service-offers-eclipse-forge.md",
+        "line": 1,
+        "category": "Verified video review",
+        "subcategory": "Cloud platforms"
+      },
+      "addedAt": "2026-08-22",
+      "licenseEvidence": [
+        {
+          "kind": "pricing",
+          "label": "Official Abacus.AI pricing",
+          "url": "https://abacus.ai/pricing"
+        },
+        {
+          "kind": "terms",
+          "label": "Official ChatLLM billing FAQ",
+          "url": "https://api.abacus.ai/help/chatllm-ai-super-assistant/faqs/billing"
+        },
+        {
+          "kind": "source",
+          "label": "Official AppLLM product page",
+          "url": "https://appllm.abacus.ai/"
+        }
+      ]
     }
   ]
 }

@@ -1,6 +1,6 @@
 # Eclipse Library Roadmap
 
-Последнее обновление: **21.08.2026**
+Последнее обновление: **22.08.2026**
 
 ## Текущее состояние
 
@@ -17,7 +17,7 @@
   exact 5-scene/15-second contract и ручными render/publish boundaries. Обе схемы static-only,
   используют локальные шрифты и отдельные desktop/mobile SVG без выдуманной автоматизации.
 
-- `catalog/resources.json` — канонический structured catalog из 672 уникальных записей;
+- `catalog/resources.json` — канонический structured catalog из 674 уникальных записей;
   `README.md` сокращён до документации и больше не является runtime-источником данных.
 - `web/catalog-review.js` и `web/review.css` — собственный локальный editorial review-flow:
   четыре evidence gates, явный итог, bounded draft, clipboard fallback и downloadable v2 JSON packet.
@@ -30,11 +30,11 @@
   initial JSON на 31% меньше compact index и примерно на 44% меньше прежнего pretty payload.
   Полные evidence, ограничения и исходное описание распределены по 16 deterministic shards;
   detail view имеет честные loading, error и retry состояния.
-- `web/catalog-index.json` — production schema v2: 303 записи редакторски проверены,
+- `web/catalog-index.json` — production schema v2: 305 записей редакторски проверены,
   369 честно помечены `inferred`, 392 имеют отдельный `addedAt`, даты удалены из category.
 - License layer: у 458 записей лицензия или условия нормализованы с evidence URL;
   214 остаются в детерминированной manual-review очереди.
-- Agent policy: 590 записей доступны автоматическим consumers, 82 исключены fail closed;
+- Agent policy: 592 записи доступны автоматическим consumers, 82 исключены fail closed;
   все 74 grey-ресурса скрыты от recommendations, direct install запрещён для всех записей.
 - `web/api/v1/` — versioned static exports для full catalog, agents, Eclipse CRM и Eclipse AI;
   consumers больше не должны читать README.
@@ -66,6 +66,26 @@
       install, commit, push, deploy или внешних действий.
 
 ### P1
+
+- [ ] Hopson Sentinel / Eclipse Chat: провести P0/M 30-дневный Public Monitoring Digest pilot —
+      один niche, пять allowlisted публичных источников, baseline/change detection, citations,
+      confidence, budget/timeout и approval card; никаких account cookies, autonomous outreach или
+      отправки отчёта без человека. Критерии выхода: precision, false-positive rate, review time и cost.
+- [ ] Text2Image / Shotforge / Eclipse Media: собрать P1/S Product Photo Pack — только owned/consented
+      assets, ограниченные light/background/crop edits, side-by-side preview, product-identity change
+      warning, provenance receipt и ручной export; запрещено улучшать товар до несоответствия продаже.
+- [ ] Shotforge / Eclipse Media / Growth OS: собрать P1/M Creative Variant Pack — problem/demo/FAQ
+      angles, existing storyboard handoff, subtitle safe zones, Claim Auditor, budget и manual publish;
+      эффективность измерять по принятым вариантам и client metrics, а не обещать заранее.
+- [ ] Growth OS / Eclipse Chat / Eclipse Media: добавить P1/M Longform Repurposing с permission gate,
+      transcript timestamps, speaker attribution, semantic-change warning и rights review; чужие видео
+      не скачивать и не перерабатывать без разрешения владельца.
+- [ ] Eclipse Forge Landing / Eclipse AI Hub: добавить P1/M Lead Calculator/Quiz template — versioned
+      formulas, ranges instead of false precision, keyboard flow, server validation, consent and anti-spam;
+      не использовать для медицинских, юридических или кредитных решений.
+- [ ] Eclipse Chat / Eclipse AI Hub: собрать P1/M Evidence FAQ Assistant — tenant isolation, allowlisted
+      knowledge base, citations/freshness, `не знаю`, prompt-injection fixtures, PII redaction, rate limit
+      и human escalation; изменения заказов, платежи и обещания условий остаются отдельными actions.
 
 - [ ] Sentinel / Eclipse AI Hub / oh-my-claudecode: провести P1/M Verifier Pipeline benchmark
       на synthetic fixtures с известными дефектами — несколько bounded candidates, независимый
@@ -357,6 +377,17 @@
       self-check, EN/RU copy и без обязательного API key.
 
 ## Changelog
+
+### 2026-08-22 — Seven AI service offers review
+
+- Проверено видео Web3nity `Uk7HHfF9n2Q`: официальные metadata, главы и русские автосубтитры
+  разобраны полностью; семь сценариев отделены от неподтверждённых обещаний дохода и цены `$1,200`.
+- Добавлены verified-карточки видео и Abacus.AI Agent/AppLLM с official pricing, credit mechanics,
+  model-specific commercial-rights boundary и запретом production accounts/autonomous publishing.
+- Подготовлен first-party implementation guide: Product Photo Pack, Creative Variant Pack,
+  rights-safe repurposing, existing AI Landing Sprint, Lead Quiz, Evidence FAQ и P0 Monitoring Digest.
+- В roadmap зафиксированы шесть bounded cross-project pilots с metrics, evidence, consent,
+  provenance, tenant isolation и human approval; первым выбран 30-дневный public monitoring pilot.
 
 ### 2026-08-21 — Agent, learning и media radar
 

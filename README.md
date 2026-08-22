@@ -15,13 +15,13 @@ Runtime-зависимости от главного лендинга нет.
 
 ## Текущее состояние
 
-- 672 уникальные записи доступны пользователям.
-- 303 карточки прошли ручную редакторскую проверку.
+- 674 уникальные записи доступны пользователям.
+- 305 карточек прошли ручную редакторскую проверку.
 - 369 карточек честно помечены как `inferred` и ожидают углублённого review.
 - У 458 записей лицензия или условия уже нормализованы и подкреплены evidence.
 - 214 лицензий или наборов условий всё ещё требуют отдельной проверки; срочная очередь P1 закрыта.
 - 74 grey-ресурса видны человеку как reference, но исключены из agent recommendations.
-- Всего 82 записи исключены из agent exports по risk, editorial, transport или repository policy; 590 доступны для agent consumers.
+- Всего 82 записи исключены из agent exports по risk, editorial, transport или repository policy; 592 доступны для agent consumers.
 - 392 записи получили отдельное поле `addedAt`; неизвестные даты не выдумываются.
 
 ## Как устроены данные
@@ -148,6 +148,7 @@ Quality workflow проверяет:
 - [Eclipse Repository Architecture Map Prompt](guides/repository-architecture-map.md)
 - [Eclipse Forge Codex session tree](guides/eclipse-session-tree.md)
 - [August 2026 skills, Voice OS and Growth rollout](guides/august-2026-skills-voice-growth-rollout.md)
+- [Seven AI service offers: проверка и rollout Eclipse Forge](guides/seven-ai-service-offers-eclipse-forge.md)
 - [Eclipse Automation Playbook: 45 bounded workflows](guides/eclipse-automation-playbook-45.md)
 - [Frontend motion references: evidence, accessibility and performance review](guides/frontend-motion-reference-review-2026-08-20.md)
 - [Eclipse Diagram Contract: первый static data-flow pilot](web/diagrams/catalog-data-flow.html)

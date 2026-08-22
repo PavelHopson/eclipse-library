@@ -1,18 +1,18 @@
 {
   "schemaVersion": 2,
-  "sourceHash": "9bd97e57ab40ae9de25fb716b5116a0a2c20ca01429007bd798dffe395937f09",
+  "sourceHash": "6c46e7c8875b1fe7d67430b889922c3780e313fb5eaa8c3c8a5f63400a4e3c13",
   "policy": {
     "directInstallForbidden": true
   },
   "totals": {
-    "all": 672,
-    "verified": 303,
+    "all": 674,
+    "verified": 305,
     "inferred": 369,
     "licenseReviewRequired": 214,
-    "agentSafe": 590,
+    "agentSafe": 592,
     "agentExcluded": 82,
     "grey": 74,
-    "withAddedAt": 392
+    "withAddedAt": 394
   },
   "items": [
     {
@@ -123,6 +123,130 @@
           "kind": "terms",
           "label": "21st.dev Terms",
           "url": "https://21st.dev/terms"
+        }
+      ],
+      "agentEligibility": {
+        "eligible": true,
+        "reasons": [],
+        "installAllowed": false
+      }
+    },
+    {
+      "id": "abacus-ai-agent-appllm",
+      "url": "https://abacus.ai/pricing",
+      "title": "Abacus.AI Agent and AppLLM",
+      "type": "service",
+      "category": "AI и агенты",
+      "subcategory": "Cloud agent and app builder",
+      "simpleDescription": "Платная cloud-платформа с доступом к нескольким LLM, image/video models, general-purpose agent и AppLLM builder. Официально заявлены scheduled tasks, hosted apps, databases, chatbots и QA workflows. Это удобный workflow reference, но не полностью локальная система и не единая лицензия на все generated assets: стоимость credits и commercial rights зависят от выбранной модели и операции.",
+      "useCases": [
+        "UX benchmark для AI Hub agent workspace",
+        "Reference для scheduled monitoring prototypes",
+        "Сравнение app-builder onboarding и rollback UX"
+      ],
+      "platforms": [
+        "Web",
+        "Cloud",
+        "Hosted agent",
+        "App builder"
+      ],
+      "license": "Abacus.AI proprietary service terms; each connected model and generated asset may have separate commercial-use conditions",
+      "pricing": "Official pricing on 22.08.2026: Basic $10/month with 20,000 credits; Pro $20/month with 30,000 credits; consumption varies by model, hosting, resolution and duration",
+      "access": {
+        "cost": "paid",
+        "signup": "required",
+        "runtime": "cloud"
+      },
+      "trust": "official",
+      "trustReason": "Проверены official pricing, billing FAQ, AppLLM product page and AI Studio credit documentation 22.08.2026.",
+      "projects": [
+        "Eclipse AI Hub",
+        "Hopson Sentinel",
+        "Eclipse Growth OS"
+      ],
+      "decision": "reference",
+      "riskLevel": "medium",
+      "risks": [
+        "Cloud processing and third-party model subprocessors require privacy review",
+        "Credits can be consumed by model calls, hosting, video length and resolution",
+        "Generated app code, claims and permissions still require QA and security review"
+      ],
+      "verifiedAt": "2026-08-22",
+      "quickStart": [
+        "Use only public synthetic fixtures for benchmark",
+        "Check model-specific commercial terms before any client asset",
+        "Do not connect production accounts or enable autonomous publishing"
+      ],
+      "reviewStatus": "verified",
+      "source": {
+        "file": "catalog/resources.json",
+        "key": "abacus-ai-agent-appllm",
+        "legacy": {
+          "file": "guides/seven-ai-service-offers-eclipse-forge.md",
+          "line": 1,
+          "category": "Verified video review",
+          "subcategory": "Cloud platforms"
+        }
+      },
+      "addedAt": "2026-08-22",
+      "licenseEvidence": [
+        {
+          "kind": "pricing",
+          "label": "Official Abacus.AI pricing",
+          "url": "https://abacus.ai/pricing"
+        },
+        {
+          "kind": "terms",
+          "label": "Official ChatLLM billing FAQ",
+          "url": "https://api.abacus.ai/help/chatllm-ai-super-assistant/faqs/billing"
+        },
+        {
+          "kind": "source",
+          "label": "Official AppLLM product page",
+          "url": "https://appllm.abacus.ai/"
+        }
+      ],
+      "catalogOrder": 1,
+      "licenseInfo": {
+        "label": "Abacus.AI proprietary service terms; each connected model and generated asset may have separate commercial-use conditions",
+        "original": "Abacus.AI proprietary service terms; each connected model and generated asset may have separate commercial-use conditions",
+        "spdx": null,
+        "kind": "service-terms",
+        "status": "editor-reviewed",
+        "requiresReview": false,
+        "evidence": [
+          {
+            "kind": "pricing",
+            "label": "Official Abacus.AI pricing",
+            "url": "https://abacus.ai/pricing"
+          },
+          {
+            "kind": "terms",
+            "label": "Official ChatLLM billing FAQ",
+            "url": "https://api.abacus.ai/help/chatllm-ai-super-assistant/faqs/billing"
+          },
+          {
+            "kind": "source",
+            "label": "Official AppLLM product page",
+            "url": "https://appllm.abacus.ai/"
+          }
+        ]
+      },
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://abacus.ai/pricing"
+        },
+        {
+          "kind": "terms",
+          "label": "Official ChatLLM billing FAQ",
+          "url": "https://api.abacus.ai/help/chatllm-ai-super-assistant/faqs/billing"
+        },
+        {
+          "kind": "source",
+          "label": "Official AppLLM product page",
+          "url": "https://appllm.abacus.ai/"
         }
       ],
       "agentEligibility": {
@@ -2054,6 +2178,103 @@
           "kind": "terms",
           "label": "Vivid Sites Terms",
           "url": "https://www.vividsites.app/terms"
+        }
+      ],
+      "agentEligibility": {
+        "eligible": true,
+        "reasons": [],
+        "installAllowed": false
+      }
+    },
+    {
+      "id": "web3nity-seven-ai-service-offers",
+      "url": "https://www.youtube.com/watch?v=Uk7HHfF9n2Q",
+      "title": "Web3nity: 7 AI service offers",
+      "type": "learn",
+      "category": "Курсы и гайды",
+      "subcategory": "AI service validation",
+      "simpleDescription": "22-минутное видео разбирает семь понятных офферов для малого бизнеса: product photos, short-video packs, content repurposing, landing pages, calculators/quizzes, FAQ bots и public monitoring. Полезно как карта проблем и способов показать sample result, но не как доказательство дохода: цены, спрос и истории заработка не подтверждены выборкой или финансовыми данными.",
+      "useCases": [
+        "Сформировать bounded Kwork offers",
+        "Выбрать pilot для Eclipse Growth OS",
+        "Объяснить разницу между продажей AI и продажей результата"
+      ],
+      "platforms": [
+        "YouTube",
+        "Web"
+      ],
+      "license": "YouTube-hosted creator content; viewing and linking are allowed under platform terms, reuse of video/transcript requires permission",
+      "pricing": "Free to watch; the promoted Abacus.AI service is a separate paid subscription",
+      "access": {
+        "cost": "free",
+        "signup": "optional",
+        "runtime": "cloud"
+      },
+      "trust": "community",
+      "trustReason": "Проверены official YouTube metadata, public chapters, Russian auto-transcript and the official Abacus.AI pricing/billing pages 22.08.2026. Earnings and demand claims remain unverified.",
+      "projects": [
+        "Eclipse Growth OS",
+        "Hopson Sentinel",
+        "Eclipse Chat",
+        "Eclipse AI Hub",
+        "Eclipse Media",
+        "Shotforge",
+        "Text2Image",
+        "Eclipse Forge Landing"
+      ],
+      "decision": "now",
+      "riskLevel": "medium",
+      "risks": [
+        "Promotional examples can be mistaken for guaranteed income",
+        "Speculative samples can misuse trademarks or copyrighted assets",
+        "FAQ and monitoring workflows can leak data or ingest prompt injection"
+      ],
+      "verifiedAt": "2026-08-22",
+      "quickStart": [
+        "Start with one read-only monitoring niche and five public sources",
+        "Measure precision, review time and cost for 30 days",
+        "Require rights, evidence and human approval before any client-facing output"
+      ],
+      "reviewStatus": "verified",
+      "source": {
+        "file": "catalog/resources.json",
+        "key": "web3nity-seven-ai-service-offers",
+        "legacy": {
+          "file": "guides/seven-ai-service-offers-eclipse-forge.md",
+          "line": 1,
+          "category": "Verified video review",
+          "subcategory": "Growth offers"
+        }
+      },
+      "addedAt": "2026-08-22",
+      "licenseEvidence": [
+        {
+          "kind": "source",
+          "label": "Official YouTube video",
+          "url": "https://www.youtube.com/watch?v=Uk7HHfF9n2Q"
+        }
+      ],
+      "catalogOrder": 1,
+      "licenseInfo": {
+        "label": "YouTube-hosted creator content; viewing and linking are allowed under platform terms, reuse of video/transcript requires permission",
+        "original": "YouTube-hosted creator content; viewing and linking are allowed under platform terms, reuse of video/transcript requires permission",
+        "spdx": null,
+        "kind": "service-terms",
+        "status": "editor-reviewed",
+        "requiresReview": false,
+        "evidence": [
+          {
+            "kind": "source",
+            "label": "Official YouTube video",
+            "url": "https://www.youtube.com/watch?v=Uk7HHfF9n2Q"
+          }
+        ]
+      },
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://www.youtube.com/watch?v=Uk7HHfF9n2Q"
         }
       ],
       "agentEligibility": {
