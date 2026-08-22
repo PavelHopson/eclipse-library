@@ -4,7 +4,7 @@
 
 ## Текущее состояние
 
-- Animation Lab v3 работает как production workbench: 7 first-party standalone demos получили единый cinematic 3D contract и разные пространственные метафоры — file stack, reactor core, spatial OTP, guardian, transfer portal, mechanical vault и translucent glass. State presets, desktop/tablet/mobile preview, reduced motion, deterministic timeline и export kit сохранены; preview sandboxed и не обращается во внешнюю сеть.
+- Animation Lab v4 работает как production workbench: 11 first-party standalone demos включают семь проверенных product-state паттернов и четыре новых reference-derived механики — Glass Navigation, Hologram CTA, Spatial Sidebar и Destination Card. Все новые демо click/touch-first, keyboard accessible, поддерживают reduced motion, sandbox preview и автономное скачивание без внешней сети.
 
 - Owned Growth OS MVP завершён без Teamly: Eclipse AI Hub исполняет пять bounded ролей и выдаёт
   `growth.run.v1`, Eclipse Chat даёт tenant-scoped Command Room с budget, cancel, provenance и
@@ -377,6 +377,14 @@
       self-check, EN/RU copy и без обязательного API key.
 
 ## Changelog
+
+### 2026-08-22 — Animation Lab navigation and conversion pack
+
+- По двум Instagram-подборкам собраны четыре оригинальных Eclipse Forge demo: Glass Navigation,
+  Hologram CTA, Spatial Sidebar и Destination Card; сторонний код, графика и branding не копировались.
+- Hover-only механики заменены click/touch-first управлением, добавлены Escape, outside click,
+  focus trap для dialog, локальная validation, mobile layouts и reduced-motion fallback.
+- Manifest и blocking validator переведены на v4 / 11 demos; production asset cache key обновлён до v4.
 
 ### 2026-08-22 — Seven AI service offers review
 

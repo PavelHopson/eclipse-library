@@ -1,5 +1,5 @@
 {
-  "version": 3,
+  "version": 4,
   "license": "Original Eclipse Forge motion demos. Adapt validation, product state and backend integration before production use.",
   "safety": {
     "execution": "sandboxed iframe with scripts only",
@@ -55,6 +55,34 @@
       "category": "auth",
       "readiness": "production-ready",
       "project": "Eclipse Forge Landing"
+    },
+    {
+      "id": "glass-navigation",
+      "file": "animation-glass-navigation.html",
+      "category": "navigation",
+      "readiness": "production-ready",
+      "project": "Eclipse Library / Eclipse Chat"
+    },
+    {
+      "id": "hologram-cta",
+      "file": "animation-hologram-cta.html",
+      "category": "conversion",
+      "readiness": "production-ready",
+      "project": "Eclipse Forge Landing / Growth OS"
+    },
+    {
+      "id": "spatial-sidebar",
+      "file": "animation-spatial-sidebar.html",
+      "category": "navigation",
+      "readiness": "production-ready",
+      "project": "Eclipse Chat / Eclipse AI Hub"
+    },
+    {
+      "id": "destination-card",
+      "file": "animation-destination-card.html",
+      "category": "content-card",
+      "readiness": "production-ready",
+      "project": "Eclipse Forge Landing / Eclipse DnD Forge"
     }
   ]
 }

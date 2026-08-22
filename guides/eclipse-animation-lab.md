@@ -4,7 +4,7 @@
 
 Animation Lab — не галерея красивых эффектов, а безопасный стенд для выбора, проверки и передачи UI-паттернов в проекты Eclipse Forge. Пользователь выбирает сценарий, переключает состояние и viewport, проверяет accessibility, затем скачивает автономный HTML или копирует integration contract.
 
-Социальные скриншоты и Vivid Sites использовались только как behavioral reference. Код, графика, брендинг и платные материалы третьих лиц не копируются. Все семь demo созданы внутри Eclipse Forge и не делают сетевых запросов.
+Социальные скриншоты и Vivid Sites использовались только как behavioral reference. Код, графика, брендинг и платные материалы третьих лиц не копируются. Все одиннадцать demo созданы внутри Eclipse Forge и не делают сетевых запросов.
 
 ## Что доступно в workbench
 
@@ -19,7 +19,7 @@ Animation Lab — не галерея красивых эффектов, а бе
 
 Preview работает в `sandbox="allow-scripts"` без `allow-same-origin`, forms, popups и внешней сети.
 
-## Семь оригинальных demos
+## Одиннадцать оригинальных demos
 
 | Паттерн | Для чего | Решение | Проекты |
 |---|---|---|---|
@@ -30,6 +30,10 @@ Preview работает в `sandbox="allow-scripts"` без `allow-same-origin`
 | Orbit Upload | Компактный progress для долгой операции | Внедрить сейчас, P1/S | Eclipse Media, Shotforge |
 | Vault Dial | Кинематографичный 3D security concept: direct-manipulation dial, проверка кода, retracting pins и открытие тяжёлой двери | Concept only, P3/M | Sentinel |
 | OTP Glass | Светлый mobile-first вариант OTP contract | Reference, P2/S | Eclipse Forge Landing |
+| Glass Navigation | Click-first dropdown, outside click, Escape и mobile layout | Внедрить сейчас, P1/S | Eclipse Library, Eclipse Chat |
+| Hologram CTA | Footer CTA, accessible modal, focus trap и локальная validation | Внедрить сейчас, P1/S | Forge Landing, Growth OS |
+| Spatial Sidebar | Operational accordion navigation и compact mode | Добавить в roadmap, P1/M | Eclipse Chat, Eclipse AI Hub |
+| Destination Card | Progressive disclosure, save state и responsive spatial reveal | Reference, P2/S | Forge Landing, Eclipse DnD Forge |
 
 ## Vault Dial 3D contract
 
