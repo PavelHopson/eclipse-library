@@ -2,6 +2,24 @@
 
 Последнее обновление: **22.08.2026**
 
+### 2026-08-22 — community prompt library review and safe rollout
+
+- [x] Community prompt dump разобран как reference source; ключевые проекты сверены с primary sources,
+  опубликован evidence-first review вместо слепого импорта команд и рекламных claims.
+- [ ] P0: registry-backed model router с `verifiedAt`, лимитом стоимости, fail-closed для неизвестных
+  model id и без скрытого перехода на дорогую модель.
+- [ ] P0: единый контур `read-only -> draft -> approval -> action -> receipt` для Growth OS,
+  Telegram control plane, рекламы, публикаций и DM.
+- [ ] P1: OpenReply sandbox только на тестовом Instagram Business/Creator account; worker, PostgreSQL,
+  Redis, Meta review/rate limits и secrets остаются отдельными production gates.
+- [ ] P1: selective ECC/Composio review по provenance, permissions, hooks, outbound endpoints и OAuth
+  scopes; полная установка коллекций не является default.
+- [ ] P1: deterministic Remotion/HyperFrames media contract — rights, preview, известная стоимость,
+  reduced motion, frame QA и human approval до публикации.
+- Legacy `@21st-dev/magic` не рекомендован для новой установки; использовать unified 21st.dev MCP.
+- Неподтверждённые model names, prices и benchmarks не попадают в router без canonical audit.
+- Запрещены remote install pipes, auto-login, расход credits, live ad writes и deploy без approval.
+
 ## Текущее состояние
 
 - Animation Lab v4 работает как production workbench: 11 first-party standalone demos включают семь проверенных product-state паттернов и четыре новых reference-derived механики — Glass Navigation, Hologram CTA, Spatial Sidebar и Destination Card. Все новые демо click/touch-first, keyboard accessible, поддерживают reduced motion, sandbox preview и автономное скачивание без внешней сети.

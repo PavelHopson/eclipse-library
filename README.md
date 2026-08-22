@@ -150,6 +150,7 @@ Quality workflow проверяет:
 - [August 2026 skills, Voice OS and Growth rollout](guides/august-2026-skills-voice-growth-rollout.md)
 - [Seven AI service offers: проверка и rollout Eclipse Forge](guides/seven-ai-service-offers-eclipse-forge.md)
 - [Eclipse Automation Playbook: 45 bounded workflows](guides/eclipse-automation-playbook-45.md)
+- [Community Agent Prompt Library: safe rollout](guides/community-agent-prompt-library-review-2026-08-22.md)
 - [Frontend motion references: evidence, accessibility and performance review](guides/frontend-motion-reference-review-2026-08-20.md)
 - [Eclipse Diagram Contract: первый static data-flow pilot](web/diagrams/catalog-data-flow.html)
 - [Eclipse AI Hub: model provider boundary](web/diagrams/ai-hub-provider-boundary.html)
