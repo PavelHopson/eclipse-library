@@ -1,9 +1,16 @@
 {
   "schemaVersion": 1,
   "totals": {
-    "guides": 60
+    "guides": 61
   },
   "guides": [
+    {
+      "name": "cinematic-scroll-video-storytelling",
+      "title": "Cinematic Scroll Video Storytelling: от трёх роликов до браузерного фильма",
+      "description": "Практический production-гайд по scroll-controlled video: драматургия, единая временная шкала, инерционный скраббинг, переходы, звук, accessibility, производительность и доказательная QA.",
+      "modules": 8,
+      "lessons": 17
+    },
     {
       "name": "ecommerce-course",
       "title": "🎓 Курс: интернет-магазин с нуля — учебный формат",
