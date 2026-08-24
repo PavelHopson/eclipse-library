@@ -1,9 +1,9 @@
 {
   "schemaVersion": 1,
-  "checkedAt": "2026-08-18T15:55:00.000Z",
+  "checkedAt": "2026-08-24T05:03:40.107Z",
   "totals": {
-    "repositories": 331,
-    "active": 328,
+    "repositories": 359,
+    "active": 356,
     "archived": 3,
     "disabled": 0,
     "unknown": 0
@@ -14,7 +14,7 @@
       "state": "active",
       "url": "https://github.com/0xNyk/awesome-hermes-agent",
       "pushedAt": "2026-08-16T14:50:13Z",
-      "updatedAt": "2026-08-17T04:36:23Z",
+      "updatedAt": "2026-08-24T00:54:03Z",
       "licenseInfo": {
         "name": "Other",
         "spdxId": "NOASSERTION",
@@ -25,8 +25,8 @@
       "key": "0xnyk/council-of-high-intelligence",
       "state": "active",
       "url": "https://github.com/0xNyk/council-of-high-intelligence",
-      "pushedAt": "2026-08-15T15:55:07Z",
-      "updatedAt": "2026-08-17T03:15:44Z",
+      "pushedAt": "2026-08-20T18:24:43Z",
+      "updatedAt": "2026-08-24T01:11:58Z",
       "licenseInfo": {
         "name": "MIT License",
         "spdxId": "MIT",
@@ -38,15 +38,15 @@
       "state": "active",
       "url": "https://github.com/0xSojalSec/LLMs-local",
       "pushedAt": "2026-06-10T20:19:16Z",
-      "updatedAt": "2026-08-17T02:40:27Z",
+      "updatedAt": "2026-08-23T11:29:11Z",
       "licenseInfo": null
     },
     {
       "key": "1jehuang/jcode",
       "state": "active",
       "url": "https://github.com/1jehuang/jcode",
-      "pushedAt": "2026-08-17T03:51:13Z",
-      "updatedAt": "2026-08-17T04:36:36Z",
+      "pushedAt": "2026-08-24T03:37:23Z",
+      "updatedAt": "2026-08-24T04:43:03Z",
       "licenseInfo": {
         "name": "MIT License",
         "spdxId": "MIT",
@@ -54,11 +54,23 @@
       }
     },
     {
+      "key": "21st-dev/skill",
+      "state": "active",
+      "url": "https://github.com/21st-dev/skill",
+      "pushedAt": "2026-07-10T22:59:14Z",
+      "updatedAt": "2026-08-12T01:13:58Z",
+      "licenseInfo": {
+        "name": "Apache License 2.0",
+        "spdxId": "Apache-2.0",
+        "url": "https://api.github.com/repos/21st-dev/skill/license"
+      }
+    },
+    {
       "key": "66hex/frame",
       "state": "active",
       "url": "https://github.com/66HEX/frame",
-      "pushedAt": "2026-08-17T02:38:43Z",
-      "updatedAt": "2026-08-17T04:08:43Z",
+      "pushedAt": "2026-08-24T02:39:30Z",
+      "updatedAt": "2026-08-24T03:05:50Z",
       "licenseInfo": {
         "name": "GNU General Public License v3.0",
         "spdxId": "GPL-3.0",
@@ -70,7 +82,7 @@
       "state": "active",
       "url": "https://github.com/ace-step/ACE-Step-1.5",
       "pushedAt": "2026-08-16T04:32:26Z",
-      "updatedAt": "2026-08-17T04:27:13Z",
+      "updatedAt": "2026-08-24T01:00:56Z",
       "licenseInfo": {
         "name": "MIT License",
         "spdxId": "MIT",
@@ -82,7 +94,7 @@
       "state": "active",
       "url": "https://github.com/achimala/TheLongSilence",
       "pushedAt": "2026-07-27T15:41:10Z",
-      "updatedAt": "2026-08-16T01:56:41Z",
+      "updatedAt": "2026-08-23T23:42:15Z",
       "licenseInfo": {
         "name": "MIT License",
         "spdxId": "MIT",
@@ -93,8 +105,8 @@
       "key": "adam-cad/cadam",
       "state": "active",
       "url": "https://github.com/Adam-CAD/CADAM",
-      "pushedAt": "2026-08-14T19:45:27Z",
-      "updatedAt": "2026-08-17T04:15:06Z",
+      "pushedAt": "2026-08-21T21:30:39Z",
+      "updatedAt": "2026-08-23T18:31:29Z",
       "licenseInfo": {
         "name": "GNU General Public License v3.0",
         "spdxId": "GPL-3.0",
@@ -105,8 +117,8 @@
       "key": "adguardteam/adguardhome",
       "state": "active",
       "url": "https://github.com/AdguardTeam/AdGuardHome",
-      "pushedAt": "2026-08-14T15:30:59Z",
-      "updatedAt": "2026-08-17T04:36:10Z",
+      "pushedAt": "2026-08-21T14:51:22Z",
+      "updatedAt": "2026-08-24T04:19:30Z",
       "licenseInfo": {
         "name": "GNU General Public License v3.0",
         "spdxId": "GPL-3.0",
@@ -117,8 +129,8 @@
       "key": "adventdevinc/kudu",
       "state": "active",
       "url": "https://github.com/AdventDevInc/kudu",
-      "pushedAt": "2026-08-17T03:17:32Z",
-      "updatedAt": "2026-08-17T04:55:16Z",
+      "pushedAt": "2026-08-23T05:30:47Z",
+      "updatedAt": "2026-08-24T03:30:39Z",
       "licenseInfo": {
         "name": "MIT License",
         "spdxId": "MIT",
@@ -130,7 +142,7 @@
       "state": "active",
       "url": "https://github.com/affaan-m/agentshield",
       "pushedAt": "2026-07-22T07:01:25Z",
-      "updatedAt": "2026-08-16T21:29:17Z",
+      "updatedAt": "2026-08-24T01:57:45Z",
       "licenseInfo": {
         "name": "MIT License",
         "spdxId": "MIT",
@@ -141,8 +153,8 @@
       "key": "affaan-m/ecc",
       "state": "active",
       "url": "https://github.com/affaan-m/ECC",
-      "pushedAt": "2026-08-17T04:55:56Z",
-      "updatedAt": "2026-08-17T04:50:54Z",
+      "pushedAt": "2026-08-24T05:00:04Z",
+      "updatedAt": "2026-08-24T05:02:28Z",
       "licenseInfo": {
         "name": "MIT License",
         "spdxId": "MIT",
@@ -154,7 +166,7 @@
       "state": "active",
       "url": "https://github.com/aghyad97/browserytools",
       "pushedAt": "2026-08-07T09:46:40Z",
-      "updatedAt": "2026-08-17T02:18:58Z",
+      "updatedAt": "2026-08-23T15:30:38Z",
       "licenseInfo": {
         "name": "GNU Affero General Public License v3.0",
         "spdxId": "AGPL-3.0",
@@ -166,7 +178,7 @@
       "state": "active",
       "url": "https://github.com/AgriciDaniel/claude-ads",
       "pushedAt": "2026-07-13T20:22:29Z",
-      "updatedAt": "2026-08-17T03:53:21Z",
+      "updatedAt": "2026-08-24T04:58:48Z",
       "licenseInfo": {
         "name": "MIT License",
         "spdxId": "MIT",
@@ -177,8 +189,8 @@
       "key": "agricidaniel/claude-seo",
       "state": "active",
       "url": "https://github.com/AgriciDaniel/claude-seo",
-      "pushedAt": "2026-08-16T00:30:55Z",
-      "updatedAt": "2026-08-17T04:49:02Z",
+      "pushedAt": "2026-08-20T21:13:44Z",
+      "updatedAt": "2026-08-24T04:51:55Z",
       "licenseInfo": {
         "name": "MIT License",
         "spdxId": "MIT",
@@ -190,7 +202,7 @@
       "state": "active",
       "url": "https://github.com/AI-App/OpenDevin.OpenDevin",
       "pushedAt": "2024-04-18T04:20:26Z",
-      "updatedAt": "2026-08-16T17:42:29Z",
+      "updatedAt": "2026-08-23T18:00:17Z",
       "licenseInfo": {
         "name": "MIT License",
         "spdxId": "MIT",
@@ -202,7 +214,7 @@
       "state": "active",
       "url": "https://github.com/AIDotNet/auto-prompt",
       "pushedAt": "2025-12-06T07:21:13Z",
-      "updatedAt": "2026-08-03T04:17:14Z",
+      "updatedAt": "2026-08-23T18:18:11Z",
       "licenseInfo": {
         "name": "Other",
         "spdxId": "NOASSERTION",
@@ -214,7 +226,7 @@
       "state": "active",
       "url": "https://github.com/aiming-lab/MetaClaw",
       "pushedAt": "2026-06-07T04:57:05Z",
-      "updatedAt": "2026-08-16T15:26:53Z",
+      "updatedAt": "2026-08-24T04:23:47Z",
       "licenseInfo": {
         "name": "MIT License",
         "spdxId": "MIT",
@@ -225,8 +237,8 @@
       "key": "aj3423/spamblocker",
       "state": "active",
       "url": "https://github.com/aj3423/SpamBlocker",
-      "pushedAt": "2026-08-14T19:02:27Z",
-      "updatedAt": "2026-08-17T02:53:03Z",
+      "pushedAt": "2026-08-21T15:21:50Z",
+      "updatedAt": "2026-08-23T21:42:57Z",
       "licenseInfo": {
         "name": "MIT License",
         "spdxId": "MIT",
@@ -238,7 +250,7 @@
       "state": "active",
       "url": "https://github.com/aleksilassila/reiverr",
       "pushedAt": "2026-02-19T13:29:08Z",
-      "updatedAt": "2026-08-16T01:46:21Z",
+      "updatedAt": "2026-08-20T07:24:37Z",
       "licenseInfo": {
         "name": "GNU Affero General Public License v3.0",
         "spdxId": "AGPL-3.0",
@@ -249,8 +261,8 @@
       "key": "alirezarezvani/claude-skills",
       "state": "active",
       "url": "https://github.com/alirezarezvani/claude-skills",
-      "pushedAt": "2026-08-17T02:43:44Z",
-      "updatedAt": "2026-08-17T03:51:43Z",
+      "pushedAt": "2026-08-21T09:39:58Z",
+      "updatedAt": "2026-08-24T04:58:49Z",
       "licenseInfo": {
         "name": "MIT License",
         "spdxId": "MIT",
@@ -262,7 +274,7 @@
       "state": "active",
       "url": "https://github.com/allweonedev/presentation-ai",
       "pushedAt": "2026-06-05T05:57:37Z",
-      "updatedAt": "2026-08-17T02:47:42Z",
+      "updatedAt": "2026-08-23T13:48:18Z",
       "licenseInfo": {
         "name": "MIT License",
         "spdxId": "MIT",
@@ -273,8 +285,8 @@
       "key": "andrewyng/openworker",
       "state": "active",
       "url": "https://github.com/andrewyng/openworker",
-      "pushedAt": "2026-08-08T03:37:02Z",
-      "updatedAt": "2026-08-17T04:42:20Z",
+      "pushedAt": "2026-08-24T04:51:34Z",
+      "updatedAt": "2026-08-24T04:52:00Z",
       "licenseInfo": {
         "name": "MIT License",
         "spdxId": "MIT",
@@ -286,7 +298,7 @@
       "state": "active",
       "url": "https://github.com/AndyMik90/Aperant",
       "pushedAt": "2026-06-14T08:27:00Z",
-      "updatedAt": "2026-08-17T00:56:45Z",
+      "updatedAt": "2026-08-24T02:24:06Z",
       "licenseInfo": {
         "name": "GNU Affero General Public License v3.0",
         "spdxId": "AGPL-3.0",
@@ -297,8 +309,8 @@
       "key": "anil-matcha/awesome-generative-ai-apps",
       "state": "active",
       "url": "https://github.com/Anil-matcha/awesome-generative-ai-apps",
-      "pushedAt": "2026-08-02T09:36:42Z",
-      "updatedAt": "2026-08-17T03:43:16Z",
+      "pushedAt": "2026-08-21T10:40:04Z",
+      "updatedAt": "2026-08-24T04:09:32Z",
       "licenseInfo": {
         "name": "MIT License",
         "spdxId": "MIT",
@@ -309,8 +321,8 @@
       "key": "anil-matcha/open-generative-ai",
       "state": "active",
       "url": "https://github.com/Anil-matcha/Open-Generative-AI",
-      "pushedAt": "2026-08-15T08:44:51Z",
-      "updatedAt": "2026-08-17T04:50:09Z",
+      "pushedAt": "2026-08-23T18:27:41Z",
+      "updatedAt": "2026-08-24T04:57:48Z",
       "licenseInfo": {
         "name": "MIT License",
         "spdxId": "MIT",
@@ -321,8 +333,8 @@
       "key": "anomalyco/opencode",
       "state": "active",
       "url": "https://github.com/anomalyco/opencode",
-      "pushedAt": "2026-08-17T04:54:36Z",
-      "updatedAt": "2026-08-17T04:54:50Z",
+      "pushedAt": "2026-08-24T05:03:19Z",
+      "updatedAt": "2026-08-24T05:01:17Z",
       "licenseInfo": {
         "name": "MIT License",
         "spdxId": "MIT",
@@ -333,8 +345,8 @@
       "key": "anthropics/claude-code-action",
       "state": "active",
       "url": "https://github.com/anthropics/claude-code-action",
-      "pushedAt": "2026-08-14T23:47:47Z",
-      "updatedAt": "2026-08-17T04:13:45Z",
+      "pushedAt": "2026-08-23T00:57:17Z",
+      "updatedAt": "2026-08-24T03:05:33Z",
       "licenseInfo": {
         "name": "MIT License",
         "spdxId": "MIT",
@@ -345,8 +357,8 @@
       "key": "anthropics/claude-for-legal",
       "state": "active",
       "url": "https://github.com/anthropics/claude-for-legal",
-      "pushedAt": "2026-08-14T20:09:08Z",
-      "updatedAt": "2026-08-17T03:44:29Z",
+      "pushedAt": "2026-08-21T19:22:13Z",
+      "updatedAt": "2026-08-24T03:58:14Z",
       "licenseInfo": {
         "name": "Apache License 2.0",
         "spdxId": "Apache-2.0",
@@ -357,8 +369,8 @@
       "key": "anthropics/claude-plugins-official",
       "state": "active",
       "url": "https://github.com/anthropics/claude-plugins-official",
-      "pushedAt": "2026-08-17T00:03:15Z",
-      "updatedAt": "2026-08-17T04:27:59Z",
+      "pushedAt": "2026-08-23T07:36:34Z",
+      "updatedAt": "2026-08-24T04:29:21Z",
       "licenseInfo": {
         "name": "Apache License 2.0",
         "spdxId": "Apache-2.0",
@@ -369,8 +381,8 @@
       "key": "anthropics/knowledge-work-plugins",
       "state": "active",
       "url": "https://github.com/anthropics/knowledge-work-plugins",
-      "pushedAt": "2026-08-17T00:05:45Z",
-      "updatedAt": "2026-08-17T04:20:04Z",
+      "pushedAt": "2026-08-23T20:10:06Z",
+      "updatedAt": "2026-08-24T03:05:36Z",
       "licenseInfo": {
         "name": "Apache License 2.0",
         "spdxId": "Apache-2.0",
@@ -381,8 +393,8 @@
       "key": "anthropics/skills",
       "state": "active",
       "url": "https://github.com/anthropics/skills",
-      "pushedAt": "2026-08-13T18:09:56Z",
-      "updatedAt": "2026-08-17T04:57:18Z",
+      "pushedAt": "2026-08-21T17:10:55Z",
+      "updatedAt": "2026-08-24T05:02:51Z",
       "licenseInfo": null
     },
     {
@@ -390,15 +402,15 @@
       "state": "active",
       "url": "https://github.com/apify/agent-skills",
       "pushedAt": "2026-08-10T15:02:02Z",
-      "updatedAt": "2026-08-17T01:39:26Z",
+      "updatedAt": "2026-08-24T01:03:47Z",
       "licenseInfo": null
     },
     {
       "key": "apify/crawlee",
       "state": "active",
       "url": "https://github.com/apify/crawlee",
-      "pushedAt": "2026-08-17T03:45:41Z",
-      "updatedAt": "2026-08-17T04:12:33Z",
+      "pushedAt": "2026-08-21T16:31:55Z",
+      "updatedAt": "2026-08-24T02:15:52Z",
       "licenseInfo": {
         "name": "Apache License 2.0",
         "spdxId": "Apache-2.0",
@@ -406,11 +418,19 @@
       }
     },
     {
+      "key": "arcads-ai/skills",
+      "state": "active",
+      "url": "https://github.com/arcads-ai/skills",
+      "pushedAt": "2026-08-14T19:31:12Z",
+      "updatedAt": "2026-08-20T19:16:59Z",
+      "licenseInfo": null
+    },
+    {
       "key": "arslanym/free-certifications",
       "state": "active",
       "url": "https://github.com/ArslanYM/Free-Certifications",
       "pushedAt": "2025-02-02T12:22:54Z",
-      "updatedAt": "2026-08-16T19:43:52Z",
+      "updatedAt": "2026-08-23T16:05:23Z",
       "licenseInfo": {
         "name": "MIT License",
         "spdxId": "MIT",
@@ -422,7 +442,7 @@
       "state": "active",
       "url": "https://github.com/arxhr007/Aliens_eye",
       "pushedAt": "2026-07-16T22:11:25Z",
-      "updatedAt": "2026-08-16T20:08:55Z",
+      "updatedAt": "2026-08-24T04:57:56Z",
       "licenseInfo": {
         "name": "MIT License",
         "spdxId": "MIT",
@@ -430,11 +450,23 @@
       }
     },
     {
+      "key": "ashutoshx7/vengeanceui",
+      "state": "active",
+      "url": "https://github.com/Ashutoshx7/VengeanceUI",
+      "pushedAt": "2026-08-21T13:57:05Z",
+      "updatedAt": "2026-08-23T02:52:45Z",
+      "licenseInfo": {
+        "name": "MIT License",
+        "spdxId": "MIT",
+        "url": "https://api.github.com/repos/ashutoshx7/vengeanceui/license"
+      }
+    },
+    {
       "key": "averygan/reclip",
       "state": "active",
       "url": "https://github.com/averygan/reclip",
       "pushedAt": "2026-07-09T17:49:44Z",
-      "updatedAt": "2026-08-17T04:57:01Z",
+      "updatedAt": "2026-08-24T04:41:47Z",
       "licenseInfo": {
         "name": "MIT License",
         "spdxId": "MIT",
@@ -445,8 +477,8 @@
       "key": "axorax/awesome-free-apps",
       "state": "active",
       "url": "https://github.com/Axorax/awesome-free-apps",
-      "pushedAt": "2026-08-16T15:12:01Z",
-      "updatedAt": "2026-08-17T00:06:05Z",
+      "pushedAt": "2026-08-21T12:19:23Z",
+      "updatedAt": "2026-08-23T21:12:23Z",
       "licenseInfo": {
         "name": "Other",
         "spdxId": "NOASSERTION",
@@ -457,8 +489,8 @@
       "key": "baairon/torlink",
       "state": "active",
       "url": "https://github.com/baairon/torlink",
-      "pushedAt": "2026-08-15T04:10:20Z",
-      "updatedAt": "2026-08-17T04:53:44Z",
+      "pushedAt": "2026-08-19T19:08:04Z",
+      "updatedAt": "2026-08-24T04:55:42Z",
       "licenseInfo": {
         "name": "MIT License",
         "spdxId": "MIT",
@@ -470,7 +502,7 @@
       "state": "active",
       "url": "https://github.com/baidu/Unlimited-OCR",
       "pushedAt": "2026-07-29T04:37:03Z",
-      "updatedAt": "2026-08-17T04:54:52Z",
+      "updatedAt": "2026-08-24T05:01:15Z",
       "licenseInfo": {
         "name": "MIT License",
         "spdxId": "MIT",
@@ -482,7 +514,7 @@
       "state": "active",
       "url": "https://github.com/baotlake/office-website",
       "pushedAt": "2026-04-25T08:03:12Z",
-      "updatedAt": "2026-08-17T03:43:13Z",
+      "updatedAt": "2026-08-24T03:26:53Z",
       "licenseInfo": {
         "name": "GNU Affero General Public License v3.0",
         "spdxId": "AGPL-3.0",
@@ -494,7 +526,7 @@
       "state": "active",
       "url": "https://github.com/BazedFrog/SongGeneration-Studio",
       "pushedAt": "2026-01-25T05:32:27Z",
-      "updatedAt": "2026-08-16T11:05:42Z",
+      "updatedAt": "2026-08-22T19:43:06Z",
       "licenseInfo": null
     },
     {
@@ -510,7 +542,7 @@
       "state": "active",
       "url": "https://github.com/BIT-DataLab/Edit-Banana",
       "pushedAt": "2026-08-16T13:58:25Z",
-      "updatedAt": "2026-08-17T03:54:53Z",
+      "updatedAt": "2026-08-23T13:56:52Z",
       "licenseInfo": {
         "name": "GNU Affero General Public License v3.0",
         "spdxId": "AGPL-3.0",
@@ -521,8 +553,8 @@
       "key": "blader/humanizer",
       "state": "active",
       "url": "https://github.com/blader/humanizer",
-      "pushedAt": "2026-07-22T06:26:25Z",
-      "updatedAt": "2026-08-17T04:54:07Z",
+      "pushedAt": "2026-08-19T05:58:53Z",
+      "updatedAt": "2026-08-24T04:59:36Z",
       "licenseInfo": {
         "name": "MIT License",
         "spdxId": "MIT",
@@ -533,8 +565,8 @@
       "key": "blakeblackshear/frigate",
       "state": "active",
       "url": "https://github.com/blakeblackshear/frigate",
-      "pushedAt": "2026-08-16T19:43:40Z",
-      "updatedAt": "2026-08-17T02:23:41Z",
+      "pushedAt": "2026-08-23T23:29:12Z",
+      "updatedAt": "2026-08-24T04:58:00Z",
       "licenseInfo": {
         "name": "MIT License",
         "spdxId": "MIT",
@@ -546,7 +578,7 @@
       "state": "active",
       "url": "https://github.com/BlendLog/MinerSearch",
       "pushedAt": "2026-08-16T10:13:58Z",
-      "updatedAt": "2026-08-16T19:04:43Z",
+      "updatedAt": "2026-08-23T21:08:27Z",
       "licenseInfo": {
         "name": "Other",
         "spdxId": "NOASSERTION",
@@ -557,8 +589,8 @@
       "key": "blockrunai/clawrouter",
       "state": "active",
       "url": "https://github.com/BlockRunAI/ClawRouter",
-      "pushedAt": "2026-08-12T15:29:00Z",
-      "updatedAt": "2026-08-17T03:55:57Z",
+      "pushedAt": "2026-08-24T04:51:17Z",
+      "updatedAt": "2026-08-24T04:46:04Z",
       "licenseInfo": {
         "name": "MIT License",
         "spdxId": "MIT",
@@ -570,7 +602,7 @@
       "state": "active",
       "url": "https://github.com/bradautomates/claude-video",
       "pushedAt": "2026-07-01T01:26:49Z",
-      "updatedAt": "2026-08-17T04:58:05Z",
+      "updatedAt": "2026-08-24T04:50:57Z",
       "licenseInfo": {
         "name": "MIT License",
         "spdxId": "MIT",
@@ -581,8 +613,8 @@
       "key": "braveopotato/fcksignups",
       "state": "active",
       "url": "https://github.com/BraveOPotato/FckSignups",
-      "pushedAt": "2026-08-11T14:31:25Z",
-      "updatedAt": "2026-08-16T22:16:05Z",
+      "pushedAt": "2026-08-22T01:59:09Z",
+      "updatedAt": "2026-08-24T01:05:37Z",
       "licenseInfo": {
         "name": "GNU General Public License v3.0",
         "spdxId": "GPL-3.0",
@@ -593,8 +625,8 @@
       "key": "breferrari/obsidian-mind",
       "state": "active",
       "url": "https://github.com/breferrari/obsidian-mind",
-      "pushedAt": "2026-08-16T22:08:51Z",
-      "updatedAt": "2026-08-17T03:55:04Z",
+      "pushedAt": "2026-08-23T23:21:48Z",
+      "updatedAt": "2026-08-24T00:59:00Z",
       "licenseInfo": {
         "name": "MIT License",
         "spdxId": "MIT",
@@ -606,7 +638,7 @@
       "state": "active",
       "url": "https://github.com/notlikeDev/CCPlugins",
       "pushedAt": "2026-06-26T15:20:03Z",
-      "updatedAt": "2026-08-13T11:55:09Z",
+      "updatedAt": "2026-08-20T09:50:46Z",
       "licenseInfo": {
         "name": "MIT License",
         "spdxId": "MIT",
@@ -618,7 +650,7 @@
       "state": "active",
       "url": "https://github.com/browser-use/video-use",
       "pushedAt": "2026-07-01T00:33:52Z",
-      "updatedAt": "2026-08-17T04:58:42Z",
+      "updatedAt": "2026-08-24T05:01:28Z",
       "licenseInfo": {
         "name": "MIT License",
         "spdxId": "MIT",
@@ -629,8 +661,8 @@
       "key": "brycewang-stanford/awesome-journal-skills",
       "state": "active",
       "url": "https://github.com/brycewang-stanford/Awesome-Journal-Skills",
-      "pushedAt": "2026-08-09T10:24:51Z",
-      "updatedAt": "2026-08-17T01:30:29Z",
+      "pushedAt": "2026-08-23T15:53:55Z",
+      "updatedAt": "2026-08-23T15:54:02Z",
       "licenseInfo": {
         "name": "MIT License",
         "spdxId": "MIT",
@@ -642,15 +674,15 @@
       "state": "active",
       "url": "https://github.com/builtbybel/FluentTweaker",
       "pushedAt": "2026-06-08T12:50:40Z",
-      "updatedAt": "2026-08-17T02:11:14Z",
+      "updatedAt": "2026-08-24T01:54:42Z",
       "licenseInfo": null
     },
     {
       "key": "bytedz/pclink",
       "state": "active",
       "url": "https://github.com/BYTEDz/PCLink",
-      "pushedAt": "2026-08-08T22:33:17Z",
-      "updatedAt": "2026-08-16T08:44:45Z",
+      "pushedAt": "2026-08-18T22:22:37Z",
+      "updatedAt": "2026-08-23T01:37:31Z",
       "licenseInfo": {
         "name": "Other",
         "spdxId": "NOASSERTION",
@@ -661,8 +693,8 @@
       "key": "cathrynlavery/diagram-design",
       "state": "active",
       "url": "https://github.com/cathrynlavery/diagram-design",
-      "pushedAt": "2026-08-14T21:28:44Z",
-      "updatedAt": "2026-08-17T04:58:53Z",
+      "pushedAt": "2026-08-21T22:26:23Z",
+      "updatedAt": "2026-08-24T05:03:29Z",
       "licenseInfo": {
         "name": "MIT License",
         "spdxId": "MIT",
@@ -673,8 +705,8 @@
       "key": "chidiwilliams/buzz",
       "state": "active",
       "url": "https://github.com/chidiwilliams/buzz",
-      "pushedAt": "2026-08-10T09:43:12Z",
-      "updatedAt": "2026-08-17T04:35:43Z",
+      "pushedAt": "2026-08-23T16:46:15Z",
+      "updatedAt": "2026-08-24T02:51:34Z",
       "licenseInfo": {
         "name": "MIT License",
         "spdxId": "MIT",
@@ -682,11 +714,19 @@
       }
     },
     {
+      "key": "clabstreamteam/open-higgsfield-ai",
+      "state": "active",
+      "url": "https://github.com/ClabstreamTeam/Open-Higgsfield-AI",
+      "pushedAt": "2026-04-19T12:46:32Z",
+      "updatedAt": "2026-08-22T20:53:20Z",
+      "licenseInfo": null
+    },
+    {
       "key": "cloakhq/cloakbrowser",
       "state": "active",
       "url": "https://github.com/CloakHQ/CloakBrowser",
-      "pushedAt": "2026-08-17T00:56:13Z",
-      "updatedAt": "2026-08-17T04:54:39Z",
+      "pushedAt": "2026-08-24T01:38:30Z",
+      "updatedAt": "2026-08-24T04:44:49Z",
       "licenseInfo": {
         "name": "MIT License",
         "spdxId": "MIT",
@@ -697,8 +737,8 @@
       "key": "cloudflare/cloudflare-os",
       "state": "active",
       "url": "https://github.com/cloudflare/cloudflare-os",
-      "pushedAt": "2026-08-17T03:48:17Z",
-      "updatedAt": "2026-08-17T04:46:50Z",
+      "pushedAt": "2026-08-24T04:46:58Z",
+      "updatedAt": "2026-08-24T05:03:18Z",
       "licenseInfo": {
         "name": "Apache License 2.0",
         "spdxId": "Apache-2.0",
@@ -710,7 +750,7 @@
       "state": "active",
       "url": "https://github.com/clucraft/PriceGhost",
       "pushedAt": "2026-02-03T00:32:34Z",
-      "updatedAt": "2026-08-16T22:33:36Z",
+      "updatedAt": "2026-08-23T20:56:01Z",
       "licenseInfo": null
     },
     {
@@ -729,8 +769,8 @@
       "key": "comfy-org/comfyui",
       "state": "active",
       "url": "https://github.com/Comfy-Org/ComfyUI",
-      "pushedAt": "2026-08-17T04:36:48Z",
-      "updatedAt": "2026-08-17T04:51:31Z",
+      "pushedAt": "2026-08-24T03:19:52Z",
+      "updatedAt": "2026-08-24T05:01:46Z",
       "licenseInfo": {
         "name": "GNU General Public License v3.0",
         "spdxId": "GPL-3.0",
@@ -741,13 +781,21 @@
       "key": "composiohq/agent-orchestrator",
       "state": "active",
       "url": "https://github.com/Untrivial-ai/agent-orchestrator",
-      "pushedAt": "2026-08-17T04:28:42Z",
-      "updatedAt": "2026-08-17T04:55:44Z",
+      "pushedAt": "2026-08-24T04:51:44Z",
+      "updatedAt": "2026-08-24T05:01:55Z",
       "licenseInfo": {
         "name": "Apache License 2.0",
         "spdxId": "Apache-2.0",
         "url": "https://api.github.com/repos/composiohq/agent-orchestrator/license"
       }
+    },
+    {
+      "key": "composiohq/awesome-claude-skills",
+      "state": "active",
+      "url": "https://github.com/ComposioHQ/awesome-claude-skills",
+      "pushedAt": "2026-08-10T21:45:44Z",
+      "updatedAt": "2026-08-24T05:00:19Z",
+      "licenseInfo": null
     },
     {
       "key": "composiohq/openclaw-composio",
@@ -766,7 +814,7 @@
       "state": "active",
       "url": "https://github.com/conaticus/FileExplorer",
       "pushedAt": "2025-09-17T18:54:36Z",
-      "updatedAt": "2026-08-16T05:02:51Z",
+      "updatedAt": "2026-08-23T14:52:43Z",
       "licenseInfo": {
         "name": "GNU General Public License v3.0",
         "spdxId": "GPL-3.0",
@@ -777,8 +825,8 @@
       "key": "coreyhaines31/marketingskills",
       "state": "active",
       "url": "https://github.com/coreyhaines31/marketingskills",
-      "pushedAt": "2026-07-29T05:41:15Z",
-      "updatedAt": "2026-08-17T04:57:28Z",
+      "pushedAt": "2026-08-23T22:08:07Z",
+      "updatedAt": "2026-08-24T04:58:32Z",
       "licenseInfo": {
         "name": "MIT License",
         "spdxId": "MIT",
@@ -790,7 +838,7 @@
       "state": "active",
       "url": "https://github.com/cporter202/API-mega-list",
       "pushedAt": "2026-07-23T19:20:07Z",
-      "updatedAt": "2026-08-16T15:30:09Z",
+      "updatedAt": "2026-08-23T12:42:07Z",
       "licenseInfo": null
     },
     {
@@ -798,7 +846,7 @@
       "state": "active",
       "url": "https://github.com/cporter202/scraping-apis-for-devs",
       "pushedAt": "2026-01-20T17:54:18Z",
-      "updatedAt": "2026-08-16T01:50:49Z",
+      "updatedAt": "2026-08-23T12:43:31Z",
       "licenseInfo": null
     },
     {
@@ -806,7 +854,7 @@
       "state": "active",
       "url": "https://github.com/csns1/bypass-paywalls-chrome-clean-magnolia1234",
       "pushedAt": "2022-06-01T10:20:12Z",
-      "updatedAt": "2026-08-17T02:12:52Z",
+      "updatedAt": "2026-08-24T03:45:23Z",
       "licenseInfo": {
         "name": "MIT License",
         "spdxId": "MIT",
@@ -818,7 +866,7 @@
       "state": "active",
       "url": "https://github.com/czl9707/build-your-own-openclaw",
       "pushedAt": "2026-07-08T00:16:40Z",
-      "updatedAt": "2026-08-16T14:04:31Z",
+      "updatedAt": "2026-08-22T04:06:36Z",
       "licenseInfo": {
         "name": "MIT License",
         "spdxId": "MIT",
@@ -829,8 +877,8 @@
       "key": "d4vinci/scrapling",
       "state": "active",
       "url": "https://github.com/D4Vinci/Scrapling",
-      "pushedAt": "2026-08-11T18:45:32Z",
-      "updatedAt": "2026-08-17T04:56:48Z",
+      "pushedAt": "2026-08-23T19:49:06Z",
+      "updatedAt": "2026-08-24T05:01:21Z",
       "licenseInfo": {
         "name": "BSD 3-Clause \"New\" or \"Revised\" License",
         "spdxId": "BSD-3-Clause",
@@ -842,7 +890,7 @@
       "state": "active",
       "url": "https://github.com/Daiwv/Anti-Miner",
       "pushedAt": "2024-07-26T07:01:12Z",
-      "updatedAt": "2026-08-09T21:40:11Z",
+      "updatedAt": "2026-08-23T05:33:37Z",
       "licenseInfo": {
         "name": "GNU General Public License v3.0",
         "spdxId": "GPL-3.0",
@@ -853,8 +901,8 @@
       "key": "dakheera47/job-ops",
       "state": "active",
       "url": "https://github.com/DaKheera47/job-ops",
-      "pushedAt": "2026-08-10T18:17:45Z",
-      "updatedAt": "2026-08-17T04:21:34Z",
+      "pushedAt": "2026-08-22T14:57:30Z",
+      "updatedAt": "2026-08-23T15:14:09Z",
       "licenseInfo": {
         "name": "Other",
         "spdxId": "NOASSERTION",
@@ -866,7 +914,7 @@
       "state": "active",
       "url": "https://github.com/Darksight-Analytics/tgspyder",
       "pushedAt": "2025-12-14T18:03:08Z",
-      "updatedAt": "2026-08-13T16:46:40Z",
+      "updatedAt": "2026-08-23T05:40:31Z",
       "licenseInfo": {
         "name": "MIT License",
         "spdxId": "MIT",
@@ -878,7 +926,7 @@
       "state": "active",
       "url": "https://github.com/darusc/VCamdroid",
       "pushedAt": "2026-01-25T18:42:05Z",
-      "updatedAt": "2026-08-16T13:21:03Z",
+      "updatedAt": "2026-08-23T05:46:43Z",
       "licenseInfo": {
         "name": "MIT License",
         "spdxId": "MIT",
@@ -886,11 +934,23 @@
       }
     },
     {
+      "key": "database64128/youtube-dl-wpf",
+      "state": "active",
+      "url": "https://github.com/database64128/youtube-dl-wpf",
+      "pushedAt": "2026-08-20T18:51:33Z",
+      "updatedAt": "2026-08-22T16:55:39Z",
+      "licenseInfo": {
+        "name": "GNU General Public License v3.0",
+        "spdxId": "GPL-3.0",
+        "url": "https://api.github.com/repos/database64128/youtube-dl-wpf/license"
+      }
+    },
+    {
       "key": "davila7/claude-code-templates",
       "state": "active",
       "url": "https://github.com/davila7/claude-code-templates",
-      "pushedAt": "2026-08-17T04:23:57Z",
-      "updatedAt": "2026-08-17T04:24:04Z",
+      "pushedAt": "2026-08-24T04:58:09Z",
+      "updatedAt": "2026-08-24T04:58:14Z",
       "licenseInfo": {
         "name": "MIT License",
         "spdxId": "MIT",
@@ -901,8 +961,8 @@
       "key": "dedsecinside/torbot",
       "state": "active",
       "url": "https://github.com/DedSecInside/TorBot",
-      "pushedAt": "2026-07-28T23:11:26Z",
-      "updatedAt": "2026-08-17T03:14:42Z",
+      "pushedAt": "2026-08-21T15:58:29Z",
+      "updatedAt": "2026-08-23T23:33:24Z",
       "licenseInfo": {
         "name": "Other",
         "spdxId": "NOASSERTION",
@@ -914,7 +974,7 @@
       "state": "active",
       "url": "https://github.com/deepfence/SecretScanner",
       "pushedAt": "2026-03-07T16:56:58Z",
-      "updatedAt": "2026-08-17T03:00:04Z",
+      "updatedAt": "2026-08-20T18:37:24Z",
       "licenseInfo": {
         "name": "MIT License",
         "spdxId": "MIT",
@@ -922,11 +982,23 @@
       }
     },
     {
+      "key": "deepseek-ai/deepseek-harness",
+      "state": "active",
+      "url": "https://github.com/deepseek-ai/deepseek-harness",
+      "pushedAt": "2026-08-21T12:35:08Z",
+      "updatedAt": "2026-08-24T05:03:27Z",
+      "licenseInfo": {
+        "name": "MIT License",
+        "spdxId": "MIT",
+        "url": "https://api.github.com/repos/deepseek-ai/deepseek-harness/license"
+      }
+    },
+    {
       "key": "developer-y/cs-video-courses",
       "state": "active",
       "url": "https://github.com/Developer-Y/cs-video-courses",
       "pushedAt": "2026-07-07T17:42:10Z",
-      "updatedAt": "2026-08-17T04:56:25Z",
+      "updatedAt": "2026-08-24T03:39:58Z",
       "licenseInfo": null
     },
     {
@@ -934,15 +1006,15 @@
       "state": "active",
       "url": "https://github.com/Devinterview-io/llms-interview-questions",
       "pushedAt": "2026-02-17T03:40:23Z",
-      "updatedAt": "2026-08-14T04:31:09Z",
+      "updatedAt": "2026-08-23T13:35:59Z",
       "licenseInfo": null
     },
     {
       "key": "dicklesworthstone/destructive_command_guard",
       "state": "active",
       "url": "https://github.com/Dicklesworthstone/destructive_command_guard",
-      "pushedAt": "2026-08-14T07:42:09Z",
-      "updatedAt": "2026-08-17T04:06:05Z",
+      "pushedAt": "2026-08-24T04:10:09Z",
+      "updatedAt": "2026-08-24T04:10:12Z",
       "licenseInfo": {
         "name": "Other",
         "spdxId": "NOASSERTION",
@@ -953,8 +1025,8 @@
       "key": "diegosouzapw/omniroute",
       "state": "active",
       "url": "https://github.com/diegosouzapw/OmniRoute",
-      "pushedAt": "2026-08-16T21:33:57Z",
-      "updatedAt": "2026-08-17T04:54:30Z",
+      "pushedAt": "2026-08-24T04:55:48Z",
+      "updatedAt": "2026-08-24T05:01:45Z",
       "licenseInfo": {
         "name": "MIT License",
         "spdxId": "MIT",
@@ -966,7 +1038,7 @@
       "state": "active",
       "url": "https://github.com/DietrichGebert/ponytail",
       "pushedAt": "2026-08-07T21:44:01Z",
-      "updatedAt": "2026-08-17T04:56:32Z",
+      "updatedAt": "2026-08-24T05:02:12Z",
       "licenseInfo": {
         "name": "MIT License",
         "spdxId": "MIT",
@@ -978,7 +1050,7 @@
       "state": "active",
       "url": "https://github.com/diffusionstudio/lottie",
       "pushedAt": "2026-07-25T07:22:58Z",
-      "updatedAt": "2026-08-17T00:45:41Z",
+      "updatedAt": "2026-08-24T03:03:22Z",
       "licenseInfo": {
         "name": "MIT License",
         "spdxId": "MIT",
@@ -990,7 +1062,7 @@
       "state": "active",
       "url": "https://github.com/DigitalPlatDev/FreeDomain",
       "pushedAt": "2026-08-12T10:36:46Z",
-      "updatedAt": "2026-08-17T04:51:21Z",
+      "updatedAt": "2026-08-24T04:58:19Z",
       "licenseInfo": {
         "name": "GNU Affero General Public License v3.0",
         "spdxId": "AGPL-3.0",
@@ -998,11 +1070,23 @@
       }
     },
     {
+      "key": "diwenne/openreply",
+      "state": "active",
+      "url": "https://github.com/diwenne/openreply",
+      "pushedAt": "2026-08-23T17:42:28Z",
+      "updatedAt": "2026-08-24T04:57:44Z",
+      "licenseInfo": {
+        "name": "MIT License",
+        "spdxId": "MIT",
+        "url": "https://api.github.com/repos/diwenne/openreply/license"
+      }
+    },
+    {
       "key": "donchitos/claude-code-game-studios",
       "state": "active",
       "url": "https://github.com/Donchitos/Claude-Code-Game-Studios",
       "pushedAt": "2026-05-21T23:33:07Z",
-      "updatedAt": "2026-08-17T04:48:23Z",
+      "updatedAt": "2026-08-24T04:44:40Z",
       "licenseInfo": {
         "name": "MIT License",
         "spdxId": "MIT",
@@ -1013,8 +1097,8 @@
       "key": "drumih/turbo-fieldfare",
       "state": "active",
       "url": "https://github.com/drumih/turbo-fieldfare",
-      "pushedAt": "2026-08-16T16:15:41Z",
-      "updatedAt": "2026-08-17T04:47:19Z",
+      "pushedAt": "2026-08-23T09:27:22Z",
+      "updatedAt": "2026-08-24T04:26:55Z",
       "licenseInfo": {
         "name": "Apache License 2.0",
         "spdxId": "Apache-2.0",
@@ -1022,11 +1106,23 @@
       }
     },
     {
+      "key": "duplicati/duplicati",
+      "state": "active",
+      "url": "https://github.com/duplicati/duplicati",
+      "pushedAt": "2026-08-22T09:48:08Z",
+      "updatedAt": "2026-08-24T00:27:17Z",
+      "licenseInfo": {
+        "name": "Other",
+        "spdxId": "NOASSERTION",
+        "url": "https://api.github.com/repos/duplicati/duplicati/license"
+      }
+    },
+    {
       "key": "dwgx/windsurfapi",
       "state": "active",
       "url": "https://github.com/dwgx/WindsurfAPI",
-      "pushedAt": "2026-08-17T03:01:59Z",
-      "updatedAt": "2026-08-17T03:02:17Z",
+      "pushedAt": "2026-08-24T03:05:22Z",
+      "updatedAt": "2026-08-24T03:05:35Z",
       "licenseInfo": {
         "name": "MIT License",
         "spdxId": "MIT",
@@ -1037,8 +1133,8 @@
       "key": "educlopez/smoothui",
       "state": "active",
       "url": "https://github.com/educlopez/smoothui",
-      "pushedAt": "2026-08-15T13:18:10Z",
-      "updatedAt": "2026-08-17T03:24:05Z",
+      "pushedAt": "2026-08-21T14:33:44Z",
+      "updatedAt": "2026-08-23T17:51:35Z",
       "licenseInfo": {
         "name": "MIT License",
         "spdxId": "MIT",
@@ -1050,7 +1146,7 @@
       "state": "active",
       "url": "https://github.com/Egonex-AI/Understand-Anything",
       "pushedAt": "2026-08-11T14:13:37Z",
-      "updatedAt": "2026-08-17T04:37:13Z",
+      "updatedAt": "2026-08-24T04:12:38Z",
       "licenseInfo": {
         "name": "MIT License",
         "spdxId": "MIT",
@@ -1062,7 +1158,7 @@
       "state": "active",
       "url": "https://github.com/ekwek1/soprano",
       "pushedAt": "2026-01-15T16:32:56Z",
-      "updatedAt": "2026-08-17T01:41:32Z",
+      "updatedAt": "2026-08-23T13:47:10Z",
       "licenseInfo": {
         "name": "Apache License 2.0",
         "spdxId": "Apache-2.0",
@@ -1074,7 +1170,7 @@
       "state": "active",
       "url": "https://github.com/elder-plinius/CL4R1T4S",
       "pushedAt": "2026-08-15T02:33:56Z",
-      "updatedAt": "2026-08-17T03:38:06Z",
+      "updatedAt": "2026-08-24T04:52:56Z",
       "licenseInfo": {
         "name": "GNU Affero General Public License v3.0",
         "spdxId": "AGPL-3.0",
@@ -1085,8 +1181,8 @@
       "key": "elder-plinius/t3mp3st",
       "state": "active",
       "url": "https://github.com/elder-plinius/T3MP3ST",
-      "pushedAt": "2026-08-12T17:28:55Z",
-      "updatedAt": "2026-08-17T04:23:45Z",
+      "pushedAt": "2026-08-24T01:27:31Z",
+      "updatedAt": "2026-08-24T04:26:45Z",
       "licenseInfo": {
         "name": "GNU Affero General Public License v3.0",
         "spdxId": "AGPL-3.0",
@@ -1097,8 +1193,8 @@
       "key": "elementalsouls/claude-bughunter",
       "state": "active",
       "url": "https://github.com/elementalsouls/Claude-BugHunter",
-      "pushedAt": "2026-08-16T04:52:08Z",
-      "updatedAt": "2026-08-17T04:50:20Z",
+      "pushedAt": "2026-08-23T04:54:45Z",
+      "updatedAt": "2026-08-24T04:08:59Z",
       "licenseInfo": {
         "name": "MIT License",
         "spdxId": "MIT",
@@ -1109,8 +1205,8 @@
       "key": "emilkowalski/skills",
       "state": "active",
       "url": "https://github.com/emilkowalski/skills",
-      "pushedAt": "2026-08-13T20:49:43Z",
-      "updatedAt": "2026-08-17T04:59:37Z",
+      "pushedAt": "2026-08-21T09:32:33Z",
+      "updatedAt": "2026-08-24T05:03:27Z",
       "licenseInfo": {
         "name": "MIT License",
         "spdxId": "MIT",
@@ -1122,7 +1218,7 @@
       "state": "active",
       "url": "https://github.com/ericosiu/ai-marketing-skills",
       "pushedAt": "2026-08-16T19:21:57Z",
-      "updatedAt": "2026-08-16T14:36:47Z",
+      "updatedAt": "2026-08-24T04:56:36Z",
       "licenseInfo": {
         "name": "MIT License",
         "spdxId": "MIT",
@@ -1133,8 +1229,8 @@
       "key": "eutropicai/final2x",
       "state": "active",
       "url": "https://github.com/EutropicAI/Final2x",
-      "pushedAt": "2026-07-16T00:24:15Z",
-      "updatedAt": "2026-08-17T01:40:21Z",
+      "pushedAt": "2026-08-20T13:26:24Z",
+      "updatedAt": "2026-08-23T15:11:51Z",
       "licenseInfo": {
         "name": "BSD 3-Clause \"New\" or \"Revised\" License",
         "spdxId": "BSD-3-Clause",
@@ -1145,8 +1241,8 @@
       "key": "f/prompts.chat",
       "state": "active",
       "url": "https://github.com/f/prompts.chat",
-      "pushedAt": "2026-08-17T03:22:38Z",
-      "updatedAt": "2026-08-17T04:43:03Z",
+      "pushedAt": "2026-08-24T03:24:40Z",
+      "updatedAt": "2026-08-24T03:38:46Z",
       "licenseInfo": {
         "name": "Other",
         "spdxId": "NOASSERTION",
@@ -1157,8 +1253,8 @@
       "key": "fincept-corporation/finceptterminal",
       "state": "active",
       "url": "https://github.com/Fincept-Corporation/FinceptTerminal",
-      "pushedAt": "2026-08-11T13:33:50Z",
-      "updatedAt": "2026-08-17T04:46:47Z",
+      "pushedAt": "2026-08-20T08:31:29Z",
+      "updatedAt": "2026-08-24T03:34:58Z",
       "licenseInfo": {
         "name": "Other",
         "spdxId": "NOASSERTION",
@@ -1169,8 +1265,8 @@
       "key": "firecrawl/anydoc",
       "state": "active",
       "url": "https://github.com/firecrawl/anydoc",
-      "pushedAt": "2026-08-13T21:40:09Z",
-      "updatedAt": "2026-08-17T04:58:49Z",
+      "pushedAt": "2026-08-20T23:51:46Z",
+      "updatedAt": "2026-08-24T04:54:46Z",
       "licenseInfo": {
         "name": "MIT License",
         "spdxId": "MIT",
@@ -1181,8 +1277,8 @@
       "key": "firecrawl/firecrawl",
       "state": "active",
       "url": "https://github.com/firecrawl/firecrawl",
-      "pushedAt": "2026-08-16T21:20:51Z",
-      "updatedAt": "2026-08-17T04:57:01Z",
+      "pushedAt": "2026-08-23T18:02:23Z",
+      "updatedAt": "2026-08-24T05:03:28Z",
       "licenseInfo": {
         "name": "GNU Affero General Public License v3.0",
         "spdxId": "AGPL-3.0",
@@ -1194,15 +1290,15 @@
       "state": "active",
       "url": "https://github.com/firecrawl/open-researcher",
       "pushedAt": "2025-07-02T17:03:54Z",
-      "updatedAt": "2026-08-11T21:48:06Z",
+      "updatedAt": "2026-08-20T09:32:06Z",
       "licenseInfo": null
     },
     {
       "key": "firecrawl/pdf-inspector",
       "state": "active",
       "url": "https://github.com/firecrawl/pdf-inspector",
-      "pushedAt": "2026-08-18T14:38:19Z",
-      "updatedAt": "2026-08-18T15:44:47Z",
+      "pushedAt": "2026-08-21T23:46:04Z",
+      "updatedAt": "2026-08-24T04:19:54Z",
       "licenseInfo": {
         "name": "MIT License",
         "spdxId": "MIT",
@@ -1213,8 +1309,8 @@
       "key": "flow-launcher/flow.launcher",
       "state": "active",
       "url": "https://github.com/Flow-Launcher/Flow.Launcher",
-      "pushedAt": "2026-08-16T22:36:56Z",
-      "updatedAt": "2026-08-17T03:08:30Z",
+      "pushedAt": "2026-08-24T05:00:03Z",
+      "updatedAt": "2026-08-24T03:03:05Z",
       "licenseInfo": {
         "name": "MIT License",
         "spdxId": "MIT",
@@ -1226,7 +1322,7 @@
       "state": "active",
       "url": "https://github.com/multica-ai/andrej-karpathy-skills",
       "pushedAt": "2026-04-20T10:05:04Z",
-      "updatedAt": "2026-08-17T04:58:49Z",
+      "updatedAt": "2026-08-24T05:02:05Z",
       "licenseInfo": null
     },
     {
@@ -1234,7 +1330,7 @@
       "state": "active",
       "url": "https://github.com/Forward-Future/loopy",
       "pushedAt": "2026-07-26T11:04:33Z",
-      "updatedAt": "2026-08-17T02:27:08Z",
+      "updatedAt": "2026-08-24T03:57:51Z",
       "licenseInfo": {
         "name": "MIT License",
         "spdxId": "MIT",
@@ -1245,8 +1341,8 @@
       "key": "freshrss/freshrss",
       "state": "active",
       "url": "https://github.com/FreshRSS/FreshRSS",
-      "pushedAt": "2026-08-16T20:32:36Z",
-      "updatedAt": "2026-08-17T02:25:04Z",
+      "pushedAt": "2026-08-21T20:49:52Z",
+      "updatedAt": "2026-08-23T21:59:01Z",
       "licenseInfo": {
         "name": "GNU Affero General Public License v3.0",
         "spdxId": "AGPL-3.0",
@@ -1258,7 +1354,7 @@
       "state": "active",
       "url": "https://github.com/Fugtemypt123/VIGA",
       "pushedAt": "2026-05-06T07:32:15Z",
-      "updatedAt": "2026-08-11T17:48:01Z",
+      "updatedAt": "2026-08-23T19:27:18Z",
       "licenseInfo": {
         "name": "MIT License",
         "spdxId": "MIT",
@@ -1270,7 +1366,7 @@
       "state": "active",
       "url": "https://github.com/QwenAudio/CosyVoice",
       "pushedAt": "2026-05-25T18:15:40Z",
-      "updatedAt": "2026-08-17T03:49:46Z",
+      "updatedAt": "2026-08-24T04:13:52Z",
       "licenseInfo": {
         "name": "Apache License 2.0",
         "spdxId": "Apache-2.0",
@@ -1281,8 +1377,8 @@
       "key": "github/github-mcp-server",
       "state": "active",
       "url": "https://github.com/github/github-mcp-server",
-      "pushedAt": "2026-08-14T22:44:12Z",
-      "updatedAt": "2026-08-17T03:54:19Z",
+      "pushedAt": "2026-08-21T19:33:51Z",
+      "updatedAt": "2026-08-24T04:57:35Z",
       "licenseInfo": {
         "name": "MIT License",
         "spdxId": "MIT",
@@ -1293,8 +1389,8 @@
       "key": "github/spec-kit",
       "state": "active",
       "url": "https://github.com/github/spec-kit",
-      "pushedAt": "2026-08-14T16:44:52Z",
-      "updatedAt": "2026-08-17T04:51:40Z",
+      "pushedAt": "2026-08-21T21:29:37Z",
+      "updatedAt": "2026-08-24T05:03:16Z",
       "licenseInfo": {
         "name": "MIT License",
         "spdxId": "MIT",
@@ -1305,8 +1401,8 @@
       "key": "glincker/thesvg",
       "state": "active",
       "url": "https://github.com/glincker/thesvg",
-      "pushedAt": "2026-08-16T05:07:19Z",
-      "updatedAt": "2026-08-16T21:24:27Z",
+      "pushedAt": "2026-08-20T18:49:13Z",
+      "updatedAt": "2026-08-24T04:23:20Z",
       "licenseInfo": {
         "name": "MIT License",
         "spdxId": "MIT",
@@ -1318,7 +1414,7 @@
       "state": "active",
       "url": "https://github.com/google-labs-code/design.md",
       "pushedAt": "2026-07-27T21:15:07Z",
-      "updatedAt": "2026-08-17T02:58:14Z",
+      "updatedAt": "2026-08-24T03:49:31Z",
       "licenseInfo": {
         "name": "Apache License 2.0",
         "spdxId": "Apache-2.0",
@@ -1329,8 +1425,8 @@
       "key": "greedeks/gtweak",
       "state": "active",
       "url": "https://github.com/Greedeks/GTweak",
-      "pushedAt": "2026-08-16T10:56:21Z",
-      "updatedAt": "2026-08-17T01:15:48Z",
+      "pushedAt": "2026-08-23T17:23:16Z",
+      "updatedAt": "2026-08-24T05:02:07Z",
       "licenseInfo": {
         "name": "BSD 3-Clause \"New\" or \"Revised\" License",
         "spdxId": "BSD-3-Clause",
@@ -1342,7 +1438,7 @@
       "state": "archived",
       "url": "https://github.com/gsd-build/get-shit-done",
       "pushedAt": "2026-05-31T17:46:54Z",
-      "updatedAt": "2026-08-17T01:38:35Z",
+      "updatedAt": "2026-08-24T02:16:24Z",
       "licenseInfo": {
         "name": "MIT License",
         "spdxId": "MIT",
@@ -1353,8 +1449,8 @@
       "key": "h4ckf0r0day/obscura",
       "state": "active",
       "url": "https://github.com/h4ckf0r0day/obscura",
-      "pushedAt": "2026-08-15T18:48:26Z",
-      "updatedAt": "2026-08-17T04:40:43Z",
+      "pushedAt": "2026-08-23T13:33:51Z",
+      "updatedAt": "2026-08-24T03:36:38Z",
       "licenseInfo": {
         "name": "Apache License 2.0",
         "spdxId": "Apache-2.0",
@@ -1365,8 +1461,8 @@
       "key": "hanumatori/nodumbmode",
       "state": "active",
       "url": "https://github.com/hanumatori/nodumbmode",
-      "pushedAt": "2026-08-13T10:21:01Z",
-      "updatedAt": "2026-08-16T23:08:06Z",
+      "pushedAt": "2026-08-21T09:54:02Z",
+      "updatedAt": "2026-08-23T11:31:48Z",
       "licenseInfo": null
     },
     {
@@ -1382,7 +1478,7 @@
       "state": "active",
       "url": "https://github.com/hardikpandya/stop-slop",
       "pushedAt": "2026-03-17T18:50:39Z",
-      "updatedAt": "2026-08-17T03:47:38Z",
+      "updatedAt": "2026-08-24T04:54:39Z",
       "licenseInfo": {
         "name": "MIT License",
         "spdxId": "MIT",
@@ -1394,7 +1490,7 @@
       "state": "active",
       "url": "https://github.com/hesamsheikh/awesome-openclaw-usecases",
       "pushedAt": "2026-03-24T14:54:56Z",
-      "updatedAt": "2026-08-16T20:47:55Z",
+      "updatedAt": "2026-08-24T04:07:18Z",
       "licenseInfo": {
         "name": "MIT License",
         "spdxId": "MIT",
@@ -1406,7 +1502,7 @@
       "state": "active",
       "url": "https://github.com/hexiecs/talk-normal",
       "pushedAt": "2026-04-22T03:21:20Z",
-      "updatedAt": "2026-08-16T13:30:39Z",
+      "updatedAt": "2026-08-24T04:25:27Z",
       "licenseInfo": {
         "name": "MIT License",
         "spdxId": "MIT",
@@ -1417,8 +1513,8 @@
       "key": "heygen-com/hyperframes",
       "state": "active",
       "url": "https://github.com/heygen-com/hyperframes",
-      "pushedAt": "2026-08-17T04:53:39Z",
-      "updatedAt": "2026-08-17T04:57:54Z",
+      "pushedAt": "2026-08-24T03:01:40Z",
+      "updatedAt": "2026-08-24T04:57:18Z",
       "licenseInfo": {
         "name": "Apache License 2.0",
         "spdxId": "Apache-2.0",
@@ -1429,8 +1525,8 @@
       "key": "hkuds/vibe-trading",
       "state": "active",
       "url": "https://github.com/HKUDS/Vibe-Trading",
-      "pushedAt": "2026-08-16T17:17:43Z",
-      "updatedAt": "2026-08-17T04:55:30Z",
+      "pushedAt": "2026-08-22T17:31:53Z",
+      "updatedAt": "2026-08-24T04:39:00Z",
       "licenseInfo": {
         "name": "MIT License",
         "spdxId": "MIT",
@@ -1441,8 +1537,8 @@
       "key": "hmbown/codewhale",
       "state": "active",
       "url": "https://github.com/Hmbown/CodeWhale",
-      "pushedAt": "2026-08-17T04:58:34Z",
-      "updatedAt": "2026-08-17T04:47:40Z",
+      "pushedAt": "2026-08-24T04:57:33Z",
+      "updatedAt": "2026-08-24T04:34:49Z",
       "licenseInfo": {
         "name": "MIT License",
         "spdxId": "MIT",
@@ -1453,8 +1549,8 @@
       "key": "home-assistant/core",
       "state": "active",
       "url": "https://github.com/home-assistant/core",
-      "pushedAt": "2026-08-16T23:44:37Z",
-      "updatedAt": "2026-08-17T03:38:42Z",
+      "pushedAt": "2026-08-23T23:17:46Z",
+      "updatedAt": "2026-08-24T04:47:40Z",
       "licenseInfo": {
         "name": "Apache License 2.0",
         "spdxId": "Apache-2.0",
@@ -1466,7 +1562,7 @@
       "state": "active",
       "url": "https://github.com/huggingface/ml-intern",
       "pushedAt": "2026-07-30T22:54:26Z",
-      "updatedAt": "2026-08-16T22:41:06Z",
+      "updatedAt": "2026-08-24T04:47:22Z",
       "licenseInfo": {
         "name": "Apache License 2.0",
         "spdxId": "Apache-2.0",
@@ -1477,8 +1573,8 @@
       "key": "huggingface/skills",
       "state": "active",
       "url": "https://github.com/huggingface/skills",
-      "pushedAt": "2026-08-13T01:26:40Z",
-      "updatedAt": "2026-08-17T01:18:41Z",
+      "pushedAt": "2026-08-18T15:35:11Z",
+      "updatedAt": "2026-08-24T03:11:24Z",
       "licenseInfo": {
         "name": "Apache License 2.0",
         "spdxId": "Apache-2.0",
@@ -1489,8 +1585,8 @@
       "key": "hugohe3/ppt-master",
       "state": "active",
       "url": "https://github.com/hugohe3/ppt-master",
-      "pushedAt": "2026-08-16T15:04:40Z",
-      "updatedAt": "2026-08-17T04:56:00Z",
+      "pushedAt": "2026-08-24T04:42:21Z",
+      "updatedAt": "2026-08-24T05:00:16Z",
       "licenseInfo": {
         "name": "MIT License",
         "spdxId": "MIT",
@@ -1502,7 +1598,7 @@
       "state": "active",
       "url": "https://github.com/hydropix/TranslateBooksWithLLMs",
       "pushedAt": "2026-08-09T20:45:07Z",
-      "updatedAt": "2026-08-17T02:32:52Z",
+      "updatedAt": "2026-08-24T03:57:55Z",
       "licenseInfo": {
         "name": "GNU Affero General Public License v3.0",
         "spdxId": "AGPL-3.0",
@@ -1514,7 +1610,7 @@
       "state": "active",
       "url": "https://github.com/hyperfield/ai-file-sorter",
       "pushedAt": "2026-08-16T14:41:15Z",
-      "updatedAt": "2026-08-16T14:41:42Z",
+      "updatedAt": "2026-08-23T16:12:07Z",
       "licenseInfo": {
         "name": "GNU Affero General Public License v3.0",
         "spdxId": "AGPL-3.0",
@@ -1526,7 +1622,7 @@
       "state": "active",
       "url": "https://github.com/IceWhaleTech/CasaOS",
       "pushedAt": "2025-08-06T08:54:04Z",
-      "updatedAt": "2026-08-17T02:23:34Z",
+      "updatedAt": "2026-08-24T01:51:50Z",
       "licenseInfo": {
         "name": "Apache License 2.0",
         "spdxId": "Apache-2.0",
@@ -1538,7 +1634,7 @@
       "state": "active",
       "url": "https://github.com/inulute/unlim-cloud",
       "pushedAt": "2024-03-09T10:49:32Z",
-      "updatedAt": "2026-08-15T12:36:31Z",
+      "updatedAt": "2026-08-21T10:01:38Z",
       "licenseInfo": {
         "name": "MIT License",
         "spdxId": "MIT",
@@ -1546,19 +1642,11 @@
       }
     },
     {
-      "key": "itcaat/after-enter",
-      "state": "active",
-      "url": "https://github.com/itcaat/after-enter",
-      "pushedAt": "2026-08-02T07:53:14Z",
-      "updatedAt": "2026-08-10T18:17:36Z",
-      "licenseInfo": null
-    },
-    {
       "key": "itsowen/cyberscraper-2077",
       "state": "active",
       "url": "https://github.com/itsOwen/CyberScraper-2077",
-      "pushedAt": "2026-08-02T22:22:00Z",
-      "updatedAt": "2026-08-16T06:43:40Z",
+      "pushedAt": "2026-08-20T10:26:04Z",
+      "updatedAt": "2026-08-24T04:18:04Z",
       "licenseInfo": {
         "name": "MIT License",
         "spdxId": "MIT",
@@ -1570,7 +1658,7 @@
       "state": "active",
       "url": "https://github.com/ItzCrazyKns/Vane",
       "pushedAt": "2026-04-11T14:33:06Z",
-      "updatedAt": "2026-08-17T04:58:44Z",
+      "updatedAt": "2026-08-24T04:38:47Z",
       "licenseInfo": {
         "name": "MIT License",
         "spdxId": "MIT",
@@ -1581,8 +1669,8 @@
       "key": "iv-org/invidious",
       "state": "active",
       "url": "https://github.com/iv-org/invidious",
-      "pushedAt": "2026-08-15T02:09:17Z",
-      "updatedAt": "2026-08-17T01:58:42Z",
+      "pushedAt": "2026-08-23T20:33:36Z",
+      "updatedAt": "2026-08-24T03:07:13Z",
       "licenseInfo": {
         "name": "GNU Affero General Public License v3.0",
         "spdxId": "AGPL-3.0",
@@ -1590,11 +1678,23 @@
       }
     },
     {
+      "key": "jamiepine/voicebox",
+      "state": "active",
+      "url": "https://github.com/jamiepine/voicebox",
+      "pushedAt": "2026-08-09T00:03:42Z",
+      "updatedAt": "2026-08-24T05:02:35Z",
+      "licenseInfo": {
+        "name": "MIT License",
+        "spdxId": "MIT",
+        "url": "https://api.github.com/repos/jamiepine/voicebox/license"
+      }
+    },
+    {
       "key": "jamwithai/production-agentic-rag-course",
       "state": "active",
       "url": "https://github.com/jamwithai/production-agentic-rag-course",
       "pushedAt": "2026-06-05T07:23:49Z",
-      "updatedAt": "2026-08-16T19:58:59Z",
+      "updatedAt": "2026-08-23T23:20:44Z",
       "licenseInfo": {
         "name": "MIT License",
         "spdxId": "MIT",
@@ -1606,7 +1706,7 @@
       "state": "active",
       "url": "https://github.com/jarvis2f/telegram-files",
       "pushedAt": "2026-08-13T14:03:16Z",
-      "updatedAt": "2026-08-16T20:27:06Z",
+      "updatedAt": "2026-08-23T13:41:37Z",
       "licenseInfo": {
         "name": "MIT License",
         "spdxId": "MIT",
@@ -1617,8 +1717,8 @@
       "key": "jaywcjlove/awesome-mac",
       "state": "active",
       "url": "https://github.com/jaywcjlove/awesome-mac",
-      "pushedAt": "2026-08-17T03:21:26Z",
-      "updatedAt": "2026-08-17T04:21:17Z",
+      "pushedAt": "2026-08-21T08:08:53Z",
+      "updatedAt": "2026-08-24T04:00:19Z",
       "licenseInfo": {
         "name": "Creative Commons Zero v1.0 Universal",
         "spdxId": "CC0-1.0",
@@ -1630,7 +1730,7 @@
       "state": "active",
       "url": "https://github.com/JCodesMore/ai-website-cloner-template",
       "pushedAt": "2026-08-14T22:02:06Z",
-      "updatedAt": "2026-08-17T04:52:42Z",
+      "updatedAt": "2026-08-24T04:47:10Z",
       "licenseInfo": {
         "name": "MIT License",
         "spdxId": "MIT",
@@ -1641,8 +1741,8 @@
       "key": "jellyfin/jellyfin",
       "state": "active",
       "url": "https://github.com/jellyfin/jellyfin",
-      "pushedAt": "2026-08-16T22:53:43Z",
-      "updatedAt": "2026-08-17T03:43:30Z",
+      "pushedAt": "2026-08-23T21:54:37Z",
+      "updatedAt": "2026-08-24T04:27:22Z",
       "licenseInfo": {
         "name": "GNU General Public License v2.0",
         "spdxId": "GPL-2.0",
@@ -1654,7 +1754,7 @@
       "state": "active",
       "url": "https://github.com/jina-ai/reader",
       "pushedAt": "2026-05-22T02:56:46Z",
-      "updatedAt": "2026-08-17T01:52:35Z",
+      "updatedAt": "2026-08-24T04:27:52Z",
       "licenseInfo": {
         "name": "Apache License 2.0",
         "spdxId": "Apache-2.0",
@@ -1665,8 +1765,8 @@
       "key": "jnsahaj/tweakcn",
       "state": "active",
       "url": "https://github.com/jnsahaj/tweakcn",
-      "pushedAt": "2026-07-31T22:37:18Z",
-      "updatedAt": "2026-08-17T01:34:20Z",
+      "pushedAt": "2026-08-17T15:20:50Z",
+      "updatedAt": "2026-08-24T04:13:17Z",
       "licenseInfo": {
         "name": "Apache License 2.0",
         "spdxId": "Apache-2.0",
@@ -1677,8 +1777,8 @@
       "key": "jo-inc/camofox-browser",
       "state": "active",
       "url": "https://github.com/jo-inc/camofox-browser",
-      "pushedAt": "2026-08-04T02:43:47Z",
-      "updatedAt": "2026-08-17T02:59:20Z",
+      "pushedAt": "2026-08-19T20:30:53Z",
+      "updatedAt": "2026-08-24T03:30:30Z",
       "licenseInfo": {
         "name": "MIT License",
         "spdxId": "MIT",
@@ -1690,7 +1790,7 @@
       "state": "active",
       "url": "https://github.com/jordan-gibbs/hyperresearch",
       "pushedAt": "2026-08-04T19:37:19Z",
-      "updatedAt": "2026-08-17T04:34:37Z",
+      "updatedAt": "2026-08-23T17:51:17Z",
       "licenseInfo": {
         "name": "MIT License",
         "spdxId": "MIT",
@@ -1701,8 +1801,8 @@
       "key": "jqueryscript/awesome-claude-code",
       "state": "active",
       "url": "https://github.com/jqueryscript/awesome-claude-code",
-      "pushedAt": "2026-08-08T16:40:00Z",
-      "updatedAt": "2026-08-16T19:51:55Z",
+      "pushedAt": "2026-08-23T14:33:33Z",
+      "updatedAt": "2026-08-24T03:12:51Z",
       "licenseInfo": {
         "name": "Creative Commons Zero v1.0 Universal",
         "spdxId": "CC0-1.0",
@@ -1713,8 +1813,8 @@
       "key": "juliusbrussee/caveman",
       "state": "active",
       "url": "https://github.com/JuliusBrussee/caveman",
-      "pushedAt": "2026-08-16T19:26:43Z",
-      "updatedAt": "2026-08-17T04:57:55Z",
+      "pushedAt": "2026-08-24T00:25:15Z",
+      "updatedAt": "2026-08-24T04:59:37Z",
       "licenseInfo": {
         "name": "Other",
         "spdxId": "NOASSERTION",
@@ -1725,8 +1825,8 @@
       "key": "justvugg/colibri",
       "state": "active",
       "url": "https://github.com/JustVugg/colibri",
-      "pushedAt": "2026-08-17T01:18:39Z",
-      "updatedAt": "2026-08-17T04:30:35Z",
+      "pushedAt": "2026-08-24T02:52:38Z",
+      "updatedAt": "2026-08-24T04:57:49Z",
       "licenseInfo": {
         "name": "Apache License 2.0",
         "spdxId": "Apache-2.0",
@@ -1738,7 +1838,7 @@
       "state": "active",
       "url": "https://github.com/karpathy/autoresearch",
       "pushedAt": "2026-03-26T00:07:37Z",
-      "updatedAt": "2026-08-17T04:42:09Z",
+      "updatedAt": "2026-08-24T05:01:28Z",
       "licenseInfo": null
     },
     {
@@ -1746,7 +1846,7 @@
       "state": "active",
       "url": "https://github.com/karust/openserp",
       "pushedAt": "2026-07-22T12:59:45Z",
-      "updatedAt": "2026-08-17T03:47:36Z",
+      "updatedAt": "2026-08-23T14:12:27Z",
       "licenseInfo": {
         "name": "MIT License",
         "spdxId": "MIT",
@@ -1758,7 +1858,7 @@
       "state": "active",
       "url": "https://github.com/Kedreamix/Linly-Dubbing",
       "pushedAt": "2025-03-05T03:06:35Z",
-      "updatedAt": "2026-08-16T12:17:05Z",
+      "updatedAt": "2026-08-23T06:51:12Z",
       "licenseInfo": {
         "name": "Apache License 2.0",
         "spdxId": "Apache-2.0",
@@ -1769,8 +1869,8 @@
       "key": "kiwix/kiwix-tools",
       "state": "active",
       "url": "https://github.com/kiwix/kiwix-tools",
-      "pushedAt": "2026-08-15T14:35:54Z",
-      "updatedAt": "2026-08-16T17:23:15Z",
+      "pushedAt": "2026-08-20T23:01:19Z",
+      "updatedAt": "2026-08-23T15:46:05Z",
       "licenseInfo": {
         "name": "GNU General Public License v3.0",
         "spdxId": "GPL-3.0",
@@ -1781,8 +1881,8 @@
       "key": "kizuna-ai-lab/sokuji",
       "state": "active",
       "url": "https://github.com/kizuna-ai-lab/sokuji",
-      "pushedAt": "2026-08-16T07:01:40Z",
-      "updatedAt": "2026-08-17T02:21:53Z",
+      "pushedAt": "2026-08-24T03:28:46Z",
+      "updatedAt": "2026-08-24T02:59:43Z",
       "licenseInfo": {
         "name": "GNU Affero General Public License v3.0",
         "spdxId": "AGPL-3.0",
@@ -1790,11 +1890,23 @@
       }
     },
     {
+      "key": "knadh/listmonk",
+      "state": "active",
+      "url": "https://github.com/knadh/listmonk",
+      "pushedAt": "2026-08-22T08:24:51Z",
+      "updatedAt": "2026-08-24T02:37:09Z",
+      "licenseInfo": {
+        "name": "GNU Affero General Public License v3.0",
+        "spdxId": "AGPL-3.0",
+        "url": "https://api.github.com/repos/knadh/listmonk/license"
+      }
+    },
+    {
       "key": "learningcircuit/local-deep-research",
       "state": "active",
       "url": "https://github.com/LearningCircuit/local-deep-research",
-      "pushedAt": "2026-08-17T04:18:20Z",
-      "updatedAt": "2026-08-16T20:24:11Z",
+      "pushedAt": "2026-08-24T04:16:45Z",
+      "updatedAt": "2026-08-24T04:46:26Z",
       "licenseInfo": {
         "name": "MIT License",
         "spdxId": "MIT",
@@ -1805,8 +1917,8 @@
       "key": "lightningpixel/modly",
       "state": "active",
       "url": "https://github.com/lightningpixel/modly",
-      "pushedAt": "2026-08-13T14:38:25Z",
-      "updatedAt": "2026-08-17T04:59:20Z",
+      "pushedAt": "2026-08-21T21:57:27Z",
+      "updatedAt": "2026-08-24T03:48:45Z",
       "licenseInfo": {
         "name": "Other",
         "spdxId": "NOASSERTION",
@@ -1817,8 +1929,8 @@
       "key": "lightpanda-io/browser",
       "state": "active",
       "url": "https://github.com/lightpanda-io/browser",
-      "pushedAt": "2026-08-17T04:06:21Z",
-      "updatedAt": "2026-08-17T03:44:07Z",
+      "pushedAt": "2026-08-24T03:51:03Z",
+      "updatedAt": "2026-08-24T04:49:03Z",
       "licenseInfo": {
         "name": "GNU Affero General Public License v3.0",
         "spdxId": "AGPL-3.0",
@@ -1826,11 +1938,23 @@
       }
     },
     {
+      "key": "llm-as-a-verifier/llm-as-a-verifier",
+      "state": "active",
+      "url": "https://github.com/llm-as-a-verifier/llm-as-a-verifier",
+      "pushedAt": "2026-08-20T07:01:30Z",
+      "updatedAt": "2026-08-24T04:59:49Z",
+      "licenseInfo": {
+        "name": "MIT License",
+        "spdxId": "MIT",
+        "url": "https://api.github.com/repos/llm-as-a-verifier/llm-as-a-verifier/license"
+      }
+    },
+    {
       "key": "localsend/localsend",
       "state": "active",
       "url": "https://github.com/localsend/localsend",
-      "pushedAt": "2026-08-13T13:59:31Z",
-      "updatedAt": "2026-08-17T04:40:54Z",
+      "pushedAt": "2026-08-24T00:11:36Z",
+      "updatedAt": "2026-08-24T05:02:21Z",
       "licenseInfo": {
         "name": "Apache License 2.0",
         "spdxId": "Apache-2.0",
@@ -1841,8 +1965,8 @@
       "key": "lyogavin/airllm",
       "state": "active",
       "url": "https://github.com/lyogavin/airllm",
-      "pushedAt": "2026-08-16T06:41:21Z",
-      "updatedAt": "2026-08-17T04:20:06Z",
+      "pushedAt": "2026-08-23T06:14:33Z",
+      "updatedAt": "2026-08-24T04:57:44Z",
       "licenseInfo": {
         "name": "Apache License 2.0",
         "spdxId": "Apache-2.0",
@@ -1854,7 +1978,7 @@
       "state": "active",
       "url": "https://github.com/m-damien/VisualStoryWriting",
       "pushedAt": "2025-07-13T20:52:06Z",
-      "updatedAt": "2026-08-12T15:32:12Z",
+      "updatedAt": "2026-08-23T17:16:06Z",
       "licenseInfo": {
         "name": "MIT License",
         "spdxId": "MIT",
@@ -1865,8 +1989,8 @@
       "key": "madappgang/claudish",
       "state": "active",
       "url": "https://github.com/MadAppGang/claudish",
-      "pushedAt": "2026-08-15T21:41:18Z",
-      "updatedAt": "2026-08-15T21:41:39Z",
+      "pushedAt": "2026-08-22T06:35:26Z",
+      "updatedAt": "2026-08-24T03:32:19Z",
       "licenseInfo": null
     },
     {
@@ -1874,7 +1998,7 @@
       "state": "active",
       "url": "https://github.com/Maddyrampant/MaddyPix",
       "pushedAt": "2026-08-15T18:57:52Z",
-      "updatedAt": "2026-08-16T01:48:49Z",
+      "updatedAt": "2026-08-17T12:39:17Z",
       "licenseInfo": null
     },
     {
@@ -1882,7 +2006,7 @@
       "state": "active",
       "url": "https://github.com/magicuidesign/magicui",
       "pushedAt": "2026-08-11T14:09:34Z",
-      "updatedAt": "2026-08-17T02:22:44Z",
+      "updatedAt": "2026-08-24T03:05:13Z",
       "licenseInfo": {
         "name": "MIT License",
         "spdxId": "MIT",
@@ -1890,11 +2014,23 @@
       }
     },
     {
+      "key": "magnitudedev/magnitude",
+      "state": "active",
+      "url": "https://github.com/magnitudedev/magnitude",
+      "pushedAt": "2026-08-23T20:54:12Z",
+      "updatedAt": "2026-08-24T02:23:10Z",
+      "licenseInfo": {
+        "name": "Apache License 2.0",
+        "spdxId": "Apache-2.0",
+        "url": "https://api.github.com/repos/magnitudedev/magnitude/license"
+      }
+    },
+    {
       "key": "makazhanalpamys/soup",
       "state": "active",
       "url": "https://github.com/MakazhanAlpamys/Soup",
-      "pushedAt": "2026-08-16T19:09:52Z",
-      "updatedAt": "2026-08-17T04:55:12Z",
+      "pushedAt": "2026-08-23T15:04:26Z",
+      "updatedAt": "2026-08-24T04:49:20Z",
       "licenseInfo": {
         "name": "Apache License 2.0",
         "spdxId": "Apache-2.0",
@@ -1906,7 +2042,7 @@
       "state": "active",
       "url": "https://github.com/massgen/MassGen",
       "pushedAt": "2026-06-12T18:38:37Z",
-      "updatedAt": "2026-08-16T23:32:54Z",
+      "updatedAt": "2026-08-21T11:22:49Z",
       "licenseInfo": {
         "name": "Other",
         "spdxId": "NOASSERTION",
@@ -1918,15 +2054,15 @@
       "state": "active",
       "url": "https://github.com/Masterjx9/OpenPostings",
       "pushedAt": "2026-06-07T23:47:38Z",
-      "updatedAt": "2026-08-16T02:05:21Z",
+      "updatedAt": "2026-08-21T11:38:58Z",
       "licenseInfo": null
     },
     {
       "key": "mauriceboe/trek",
       "state": "active",
       "url": "https://github.com/liketrek/TREK",
-      "pushedAt": "2026-08-17T04:32:57Z",
-      "updatedAt": "2026-08-17T04:43:38Z",
+      "pushedAt": "2026-08-23T22:23:55Z",
+      "updatedAt": "2026-08-24T04:59:48Z",
       "licenseInfo": {
         "name": "GNU Affero General Public License v3.0",
         "spdxId": "AGPL-3.0",
@@ -1938,7 +2074,7 @@
       "state": "active",
       "url": "https://github.com/membranedev/application-skills",
       "pushedAt": "2026-04-28T08:45:44Z",
-      "updatedAt": "2026-08-13T20:29:42Z",
+      "updatedAt": "2026-08-20T16:57:26Z",
       "licenseInfo": null
     },
     {
@@ -1946,7 +2082,7 @@
       "state": "active",
       "url": "https://github.com/MemTensor/MemOS-Cloud-OpenClaw-Plugin",
       "pushedAt": "2026-08-16T12:09:51Z",
-      "updatedAt": "2026-08-15T07:37:29Z",
+      "updatedAt": "2026-08-20T15:34:57Z",
       "licenseInfo": {
         "name": "Apache License 2.0",
         "spdxId": "Apache-2.0",
@@ -1957,8 +2093,8 @@
       "key": "mengto/skills",
       "state": "active",
       "url": "https://github.com/MengTo/Skills",
-      "pushedAt": "2026-08-14T06:13:14Z",
-      "updatedAt": "2026-08-17T04:12:32Z",
+      "pushedAt": "2026-08-18T06:04:32Z",
+      "updatedAt": "2026-08-24T04:06:06Z",
       "licenseInfo": {
         "name": "MIT License",
         "spdxId": "MIT",
@@ -1969,8 +2105,8 @@
       "key": "microsoft/ai-agents-for-beginners",
       "state": "active",
       "url": "https://github.com/microsoft/ai-agents-for-beginners",
-      "pushedAt": "2026-07-29T19:47:29Z",
-      "updatedAt": "2026-08-17T04:42:31Z",
+      "pushedAt": "2026-08-18T11:47:04Z",
+      "updatedAt": "2026-08-24T03:59:21Z",
       "licenseInfo": {
         "name": "MIT License",
         "spdxId": "MIT",
@@ -1981,8 +2117,8 @@
       "key": "microsoft/ai-engineering-coach",
       "state": "active",
       "url": "https://github.com/microsoft/AI-Engineering-Coach",
-      "pushedAt": "2026-08-16T17:28:45Z",
-      "updatedAt": "2026-08-17T04:22:26Z",
+      "pushedAt": "2026-08-21T08:02:36Z",
+      "updatedAt": "2026-08-24T05:00:56Z",
       "licenseInfo": {
         "name": "MIT License",
         "spdxId": "MIT",
@@ -1993,8 +2129,8 @@
       "key": "microsoft/playwright",
       "state": "active",
       "url": "https://github.com/microsoft/playwright",
-      "pushedAt": "2026-08-16T22:43:54Z",
-      "updatedAt": "2026-08-17T03:50:26Z",
+      "pushedAt": "2026-08-23T22:43:58Z",
+      "updatedAt": "2026-08-24T04:05:12Z",
       "licenseInfo": {
         "name": "Apache License 2.0",
         "spdxId": "Apache-2.0",
@@ -2005,8 +2141,8 @@
       "key": "microsoft/playwright-cli",
       "state": "active",
       "url": "https://github.com/microsoft/playwright-cli",
-      "pushedAt": "2026-08-13T18:39:25Z",
-      "updatedAt": "2026-08-17T04:58:45Z",
+      "pushedAt": "2026-08-19T19:49:28Z",
+      "updatedAt": "2026-08-24T03:29:35Z",
       "licenseInfo": {
         "name": "Apache License 2.0",
         "spdxId": "Apache-2.0",
@@ -2017,8 +2153,8 @@
       "key": "microsoft/playwright-mcp",
       "state": "active",
       "url": "https://github.com/microsoft/playwright-mcp",
-      "pushedAt": "2026-08-12T20:16:20Z",
-      "updatedAt": "2026-08-17T03:55:09Z",
+      "pushedAt": "2026-08-21T22:46:04Z",
+      "updatedAt": "2026-08-24T04:16:49Z",
       "licenseInfo": {
         "name": "Apache License 2.0",
         "spdxId": "Apache-2.0",
@@ -2029,8 +2165,8 @@
       "key": "microsoft/skillopt",
       "state": "active",
       "url": "https://github.com/microsoft/SkillOpt",
-      "pushedAt": "2026-08-15T17:35:33Z",
-      "updatedAt": "2026-08-17T04:36:18Z",
+      "pushedAt": "2026-08-23T07:02:47Z",
+      "updatedAt": "2026-08-24T04:32:26Z",
       "licenseInfo": {
         "name": "MIT License",
         "spdxId": "MIT",
@@ -2041,8 +2177,8 @@
       "key": "midrags/sff",
       "state": "active",
       "url": "https://github.com/Midrags/SFF",
-      "pushedAt": "2026-08-16T13:51:31Z",
-      "updatedAt": "2026-08-17T03:45:53Z",
+      "pushedAt": "2026-08-21T05:18:51Z",
+      "updatedAt": "2026-08-24T01:13:49Z",
       "licenseInfo": {
         "name": "Other",
         "spdxId": "NOASSERTION",
@@ -2054,7 +2190,7 @@
       "state": "active",
       "url": "https://github.com/midudev/autoskills",
       "pushedAt": "2026-07-19T19:53:46Z",
-      "updatedAt": "2026-08-17T00:40:30Z",
+      "updatedAt": "2026-08-24T01:08:27Z",
       "licenseInfo": {
         "name": "Other",
         "spdxId": "NOASSERTION",
@@ -2062,11 +2198,23 @@
       }
     },
     {
+      "key": "mikiarlo3/ai-copywriter",
+      "state": "active",
+      "url": "https://github.com/mikiarlo3/ai-copywriter",
+      "pushedAt": "2026-08-01T16:30:08Z",
+      "updatedAt": "2026-08-23T22:14:38Z",
+      "licenseInfo": {
+        "name": "MIT License",
+        "spdxId": "MIT",
+        "url": "https://api.github.com/repos/mikiarlo3/ai-copywriter/license"
+      }
+    },
+    {
       "key": "milkshiift/goofcord",
       "state": "active",
       "url": "https://github.com/Milkshiift/GoofCord",
       "pushedAt": "2026-07-21T08:13:07Z",
-      "updatedAt": "2026-08-17T03:07:29Z",
+      "updatedAt": "2026-08-23T20:58:56Z",
       "licenseInfo": {
         "name": "Open Software License 3.0",
         "spdxId": "OSL-3.0",
@@ -2078,7 +2226,7 @@
       "state": "active",
       "url": "https://github.com/MisoLabsAI/MisoTTS",
       "pushedAt": "2026-06-09T20:41:00Z",
-      "updatedAt": "2026-08-16T21:18:24Z",
+      "updatedAt": "2026-08-23T20:14:56Z",
       "licenseInfo": {
         "name": "Other",
         "spdxId": "NOASSERTION",
@@ -2090,7 +2238,7 @@
       "state": "active",
       "url": "https://github.com/mlabonne/llm-course",
       "pushedAt": "2026-02-05T13:09:26Z",
-      "updatedAt": "2026-08-17T04:35:51Z",
+      "updatedAt": "2026-08-24T04:19:33Z",
       "licenseInfo": {
         "name": "Apache License 2.0",
         "spdxId": "Apache-2.0",
@@ -2101,8 +2249,8 @@
       "key": "modelcontextprotocol/servers",
       "state": "active",
       "url": "https://github.com/modelcontextprotocol/servers",
-      "pushedAt": "2026-08-10T02:41:59Z",
-      "updatedAt": "2026-08-17T04:56:55Z",
+      "pushedAt": "2026-08-20T01:12:36Z",
+      "updatedAt": "2026-08-24T05:02:17Z",
       "licenseInfo": {
         "name": "Other",
         "spdxId": "NOASSERTION",
@@ -2126,7 +2274,7 @@
       "state": "active",
       "url": "https://github.com/Moh4696/100-free-open-source-github-repos",
       "pushedAt": "2026-05-25T13:34:46Z",
-      "updatedAt": "2026-08-12T11:11:08Z",
+      "updatedAt": "2026-08-22T14:03:48Z",
       "licenseInfo": {
         "name": "MIT License",
         "spdxId": "MIT",
@@ -2137,8 +2285,8 @@
       "key": "moinulmoin/voicetypr",
       "state": "active",
       "url": "https://github.com/moinulmoin/voicetypr",
-      "pushedAt": "2026-08-10T03:33:15Z",
-      "updatedAt": "2026-08-16T13:40:36Z",
+      "pushedAt": "2026-08-23T12:12:16Z",
+      "updatedAt": "2026-08-22T18:38:51Z",
       "licenseInfo": {
         "name": "GNU Affero General Public License v3.0",
         "spdxId": "AGPL-3.0",
@@ -2149,8 +2297,8 @@
       "key": "moonshotai/kimi-code",
       "state": "active",
       "url": "https://github.com/MoonshotAI/kimi-code",
-      "pushedAt": "2026-08-17T04:44:30Z",
-      "updatedAt": "2026-08-17T04:26:48Z",
+      "pushedAt": "2026-08-24T04:59:56Z",
+      "updatedAt": "2026-08-24T03:53:22Z",
       "licenseInfo": {
         "name": "MIT License",
         "spdxId": "MIT",
@@ -2161,8 +2309,8 @@
       "key": "morpheapp/morphe-manager",
       "state": "active",
       "url": "https://github.com/MorpheApp/morphe-manager",
-      "pushedAt": "2026-08-18T15:53:41Z",
-      "updatedAt": "2026-08-18T15:52:45Z",
+      "pushedAt": "2026-08-24T00:11:54Z",
+      "updatedAt": "2026-08-24T04:47:22Z",
       "licenseInfo": {
         "name": "GNU General Public License v3.0",
         "spdxId": "GPL-3.0",
@@ -2174,7 +2322,7 @@
       "state": "active",
       "url": "https://github.com/mr-r3b00t/fingerprintdetector",
       "pushedAt": "2026-04-08T13:30:56Z",
-      "updatedAt": "2026-08-14T09:06:08Z",
+      "updatedAt": "2026-08-24T00:28:50Z",
       "licenseInfo": null
     },
     {
@@ -2182,7 +2330,7 @@
       "state": "active",
       "url": "https://github.com/mrT4ntr4/NtWarden",
       "pushedAt": "2026-04-28T05:47:49Z",
-      "updatedAt": "2026-08-11T19:11:05Z",
+      "updatedAt": "2026-08-20T11:23:35Z",
       "licenseInfo": {
         "name": "MIT License",
         "spdxId": "MIT",
@@ -2190,11 +2338,23 @@
       }
     },
     {
+      "key": "msitarzewski/agency-agents",
+      "state": "active",
+      "url": "https://github.com/msitarzewski/agency-agents",
+      "pushedAt": "2026-08-06T13:29:47Z",
+      "updatedAt": "2026-08-24T05:02:58Z",
+      "licenseInfo": {
+        "name": "MIT License",
+        "spdxId": "MIT",
+        "url": "https://api.github.com/repos/msitarzewski/agency-agents/license"
+      }
+    },
+    {
       "key": "mukul975/anthropic-cybersecurity-skills",
       "state": "active",
       "url": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills",
-      "pushedAt": "2026-08-08T14:55:19Z",
-      "updatedAt": "2026-08-17T04:56:34Z",
+      "pushedAt": "2026-08-23T16:22:47Z",
+      "updatedAt": "2026-08-24T04:56:40Z",
       "licenseInfo": {
         "name": "Apache License 2.0",
         "spdxId": "Apache-2.0",
@@ -2205,8 +2365,8 @@
       "key": "muratcankoylan/agent-skills-for-context-engineering",
       "state": "active",
       "url": "https://github.com/muratcankoylan/Agent-Skills-for-Context-Engineering",
-      "pushedAt": "2026-08-16T01:23:46Z",
-      "updatedAt": "2026-08-17T03:11:26Z",
+      "pushedAt": "2026-08-19T01:55:00Z",
+      "updatedAt": "2026-08-24T04:54:41Z",
       "licenseInfo": {
         "name": "MIT License",
         "spdxId": "MIT",
@@ -2217,8 +2377,8 @@
       "key": "musistudio/claude-code-router",
       "state": "active",
       "url": "https://github.com/musistudio/claude-code-router",
-      "pushedAt": "2026-08-14T15:21:11Z",
-      "updatedAt": "2026-08-17T03:53:49Z",
+      "pushedAt": "2026-08-22T10:34:25Z",
+      "updatedAt": "2026-08-24T04:41:14Z",
       "licenseInfo": {
         "name": "MIT License",
         "spdxId": "MIT",
@@ -2229,8 +2389,8 @@
       "key": "mutonby/openshorts",
       "state": "active",
       "url": "https://github.com/mutonby/openshorts",
-      "pushedAt": "2026-08-13T08:11:07Z",
-      "updatedAt": "2026-08-17T04:58:44Z",
+      "pushedAt": "2026-08-23T22:38:13Z",
+      "updatedAt": "2026-08-24T02:45:19Z",
       "licenseInfo": {
         "name": "Other",
         "spdxId": "NOASSERTION",
@@ -2241,8 +2401,8 @@
       "key": "nagi-ovo/gemini-voyager",
       "state": "active",
       "url": "https://github.com/Nagi-ovo/voyager",
-      "pushedAt": "2026-08-16T00:11:26Z",
-      "updatedAt": "2026-08-17T04:29:30Z",
+      "pushedAt": "2026-08-23T11:48:17Z",
+      "updatedAt": "2026-08-24T04:31:35Z",
       "licenseInfo": {
         "name": "GNU General Public License v3.0",
         "spdxId": "GPL-3.0",
@@ -2266,7 +2426,7 @@
       "state": "active",
       "url": "https://github.com/neobrutalism/neobrutalism",
       "pushedAt": "2026-08-03T09:28:45Z",
-      "updatedAt": "2026-08-16T08:03:14Z",
+      "updatedAt": "2026-08-23T22:18:40Z",
       "licenseInfo": {
         "name": "MIT License",
         "spdxId": "MIT",
@@ -2278,7 +2438,7 @@
       "state": "active",
       "url": "https://github.com/nethical6/conversation-steganography",
       "pushedAt": "2026-07-18T13:20:49Z",
-      "updatedAt": "2026-08-17T00:22:00Z",
+      "updatedAt": "2026-08-23T21:04:48Z",
       "licenseInfo": {
         "name": "GNU General Public License v3.0",
         "spdxId": "GPL-3.0",
@@ -2301,8 +2461,8 @@
       "key": "nextcloud/server",
       "state": "active",
       "url": "https://github.com/nextcloud/server",
-      "pushedAt": "2026-08-17T02:32:09Z",
-      "updatedAt": "2026-08-17T04:54:08Z",
+      "pushedAt": "2026-08-24T02:34:06Z",
+      "updatedAt": "2026-08-24T03:29:17Z",
       "licenseInfo": {
         "name": "GNU Affero General Public License v3.0",
         "spdxId": "AGPL-3.0",
@@ -2313,8 +2473,8 @@
       "key": "nextlevelbuilder/ui-ux-pro-max-skill",
       "state": "active",
       "url": "https://github.com/nextlevelbuilder/ui-ux-pro-max-skill",
-      "pushedAt": "2026-08-13T17:10:11Z",
-      "updatedAt": "2026-08-17T04:56:30Z",
+      "pushedAt": "2026-08-20T11:49:07Z",
+      "updatedAt": "2026-08-24T04:52:57Z",
       "licenseInfo": {
         "name": "MIT License",
         "spdxId": "MIT",
@@ -2325,8 +2485,8 @@
       "key": "nexu-io/open-design",
       "state": "active",
       "url": "https://github.com/nexu-io/open-design",
-      "pushedAt": "2026-08-17T04:55:45Z",
-      "updatedAt": "2026-08-17T04:57:40Z",
+      "pushedAt": "2026-08-24T04:13:29Z",
+      "updatedAt": "2026-08-24T05:03:27Z",
       "licenseInfo": {
         "name": "Apache License 2.0",
         "spdxId": "Apache-2.0",
@@ -2334,19 +2494,67 @@
       }
     },
     {
+      "key": "nicepkg/ctxport",
+      "state": "active",
+      "url": "https://github.com/nicepkg/ctxport",
+      "pushedAt": "2026-03-04T12:33:53Z",
+      "updatedAt": "2026-08-23T11:04:40Z",
+      "licenseInfo": {
+        "name": "MIT License",
+        "spdxId": "MIT",
+        "url": "https://api.github.com/repos/nicepkg/ctxport/license"
+      }
+    },
+    {
       "key": "nickpittas/directorsconsole",
       "state": "active",
       "url": "https://github.com/NickPittas/DirectorsConsole",
       "pushedAt": "2026-02-25T18:56:05Z",
-      "updatedAt": "2026-08-09T11:30:58Z",
+      "updatedAt": "2026-08-23T18:41:57Z",
       "licenseInfo": null
+    },
+    {
+      "key": "niri-wm/niri",
+      "state": "active",
+      "url": "https://github.com/niri-wm/niri",
+      "pushedAt": "2026-08-21T18:51:41Z",
+      "updatedAt": "2026-08-24T04:50:57Z",
+      "licenseInfo": {
+        "name": "GNU General Public License v3.0",
+        "spdxId": "GPL-3.0",
+        "url": "https://api.github.com/repos/niri-wm/niri/license"
+      }
+    },
+    {
+      "key": "nocodb/nocodb",
+      "state": "active",
+      "url": "https://github.com/nocodb/nocodb",
+      "pushedAt": "2026-08-23T07:44:05Z",
+      "updatedAt": "2026-08-24T04:54:47Z",
+      "licenseInfo": {
+        "name": "Other",
+        "spdxId": "NOASSERTION",
+        "url": "https://api.github.com/repos/nocodb/nocodb/license"
+      }
+    },
+    {
+      "key": "nottelabs/reverse-api-engineer",
+      "state": "active",
+      "url": "https://github.com/nottelabs/reverse-api-engineer",
+      "pushedAt": "2026-08-20T11:48:58Z",
+      "updatedAt": "2026-08-24T04:16:35Z",
+      "licenseInfo": {
+        "name": "MIT License",
+        "spdxId": "MIT",
+        "url": "https://api.github.com/repos/nottelabs/reverse-api-engineer/license"
+      }
     },
     {
       "key": "nousresearch/hermes-agent",
       "state": "active",
       "url": "https://github.com/NousResearch/hermes-agent",
-      "pushedAt": "2026-08-17T04:56:32Z",
-      "updatedAt": "2026-08-17T04:56:46Z",
+      "pushedAt": "2026-08-24T05:02:03Z",
+      "updatedAt": "2026-08-24T05:00:12Z",
       "licenseInfo": {
         "name": "MIT License",
         "spdxId": "MIT",
@@ -2357,8 +2565,8 @@
       "key": "nvidia-nemo/speech",
       "state": "active",
       "url": "https://github.com/NVIDIA-NeMo/Speech",
-      "pushedAt": "2026-08-16T23:03:45Z",
-      "updatedAt": "2026-08-17T01:54:49Z",
+      "pushedAt": "2026-08-23T16:24:34Z",
+      "updatedAt": "2026-08-24T04:36:34Z",
       "licenseInfo": {
         "name": "Apache License 2.0",
         "spdxId": "Apache-2.0",
@@ -2369,8 +2577,8 @@
       "key": "nvidia/skills",
       "state": "active",
       "url": "https://github.com/NVIDIA/skills",
-      "pushedAt": "2026-08-17T02:30:10Z",
-      "updatedAt": "2026-08-17T04:01:04Z",
+      "pushedAt": "2026-08-23T02:32:27Z",
+      "updatedAt": "2026-08-24T02:04:02Z",
       "licenseInfo": {
         "name": "Apache License 2.0",
         "spdxId": "Apache-2.0",
@@ -2381,8 +2589,8 @@
       "key": "nvidia/skillspector",
       "state": "active",
       "url": "https://github.com/NVIDIA/SkillSpector",
-      "pushedAt": "2026-08-16T09:10:56Z",
-      "updatedAt": "2026-08-17T04:08:57Z",
+      "pushedAt": "2026-08-22T00:53:46Z",
+      "updatedAt": "2026-08-24T04:33:47Z",
       "licenseInfo": {
         "name": "Apache License 2.0",
         "spdxId": "Apache-2.0",
@@ -2393,8 +2601,8 @@
       "key": "obra/superpowers",
       "state": "active",
       "url": "https://github.com/obra/superpowers",
-      "pushedAt": "2026-08-13T00:36:31Z",
-      "updatedAt": "2026-08-17T04:55:43Z",
+      "pushedAt": "2026-08-19T17:33:23Z",
+      "updatedAt": "2026-08-24T05:02:51Z",
       "licenseInfo": {
         "name": "MIT License",
         "spdxId": "MIT",
@@ -2406,7 +2614,7 @@
       "state": "active",
       "url": "https://github.com/ogkalu2/comic-translate",
       "pushedAt": "2026-08-10T01:53:26Z",
-      "updatedAt": "2026-08-16T23:19:41Z",
+      "updatedAt": "2026-08-23T19:48:15Z",
       "licenseInfo": {
         "name": "Apache License 2.0",
         "spdxId": "Apache-2.0",
@@ -2418,7 +2626,7 @@
       "state": "active",
       "url": "https://github.com/oil-oil/beautify-github-readme",
       "pushedAt": "2026-07-27T06:24:02Z",
-      "updatedAt": "2026-08-17T03:00:21Z",
+      "updatedAt": "2026-08-24T02:30:07Z",
       "licenseInfo": {
         "name": "MIT License",
         "spdxId": "MIT",
@@ -2429,8 +2637,8 @@
       "key": "ojuschugh1/sqz",
       "state": "active",
       "url": "https://github.com/ojuschugh1/sqz",
-      "pushedAt": "2026-08-16T17:30:28Z",
-      "updatedAt": "2026-08-17T01:05:04Z",
+      "pushedAt": "2026-08-23T15:54:13Z",
+      "updatedAt": "2026-08-23T16:56:42Z",
       "licenseInfo": {
         "name": "Other",
         "spdxId": "NOASSERTION",
@@ -2441,8 +2649,8 @@
       "key": "oop7/ytsage",
       "state": "active",
       "url": "https://github.com/oop7/YTSage",
-      "pushedAt": "2026-08-16T03:47:59Z",
-      "updatedAt": "2026-08-17T03:43:21Z",
+      "pushedAt": "2026-08-23T03:50:31Z",
+      "updatedAt": "2026-08-24T02:00:22Z",
       "licenseInfo": {
         "name": "MIT License",
         "spdxId": "MIT",
@@ -2453,8 +2661,8 @@
       "key": "openai/openai-cookbook",
       "state": "active",
       "url": "https://github.com/openai/openai-cookbook",
-      "pushedAt": "2026-08-16T14:58:04Z",
-      "updatedAt": "2026-08-17T04:33:55Z",
+      "pushedAt": "2026-08-23T02:54:18Z",
+      "updatedAt": "2026-08-24T04:30:20Z",
       "licenseInfo": {
         "name": "MIT License",
         "spdxId": "MIT",
@@ -2465,8 +2673,8 @@
       "key": "openclaw/openclaw",
       "state": "active",
       "url": "https://github.com/openclaw/openclaw",
-      "pushedAt": "2026-08-17T04:59:00Z",
-      "updatedAt": "2026-08-17T04:59:16Z",
+      "pushedAt": "2026-08-24T05:03:27Z",
+      "updatedAt": "2026-08-24T04:59:59Z",
       "licenseInfo": {
         "name": "Other",
         "spdxId": "NOASSERTION",
@@ -2477,8 +2685,8 @@
       "key": "opendatalab/mineru",
       "state": "active",
       "url": "https://github.com/opendatalab/MinerU",
-      "pushedAt": "2026-08-16T08:22:47Z",
-      "updatedAt": "2026-08-17T04:45:46Z",
+      "pushedAt": "2026-08-19T10:42:08Z",
+      "updatedAt": "2026-08-24T04:56:26Z",
       "licenseInfo": {
         "name": "Other",
         "spdxId": "NOASSERTION",
@@ -2490,7 +2698,7 @@
       "state": "active",
       "url": "https://github.com/kurikomi-labs/komi-store",
       "pushedAt": "2026-07-29T17:44:50Z",
-      "updatedAt": "2026-08-17T04:13:05Z",
+      "updatedAt": "2026-08-24T04:17:43Z",
       "licenseInfo": {
         "name": "Apache License 2.0",
         "spdxId": "Apache-2.0",
@@ -2502,7 +2710,7 @@
       "state": "active",
       "url": "https://github.com/OpenMOSS/MOSS-TTS-Nano",
       "pushedAt": "2026-07-26T12:05:57Z",
-      "updatedAt": "2026-08-16T12:47:30Z",
+      "updatedAt": "2026-08-24T04:49:31Z",
       "licenseInfo": {
         "name": "Apache License 2.0",
         "spdxId": "Apache-2.0",
@@ -2513,8 +2721,8 @@
       "key": "osmantic/ods",
       "state": "active",
       "url": "https://github.com/Osmantic/ODS",
-      "pushedAt": "2026-08-13T08:35:33Z",
-      "updatedAt": "2026-08-17T04:56:18Z",
+      "pushedAt": "2026-08-21T17:18:44Z",
+      "updatedAt": "2026-08-24T04:21:11Z",
       "licenseInfo": {
         "name": "Apache License 2.0",
         "spdxId": "Apache-2.0",
@@ -2526,7 +2734,7 @@
       "state": "active",
       "url": "https://github.com/Owl-Listener/designer-skills",
       "pushedAt": "2026-08-08T16:02:37Z",
-      "updatedAt": "2026-08-17T04:12:37Z",
+      "updatedAt": "2026-08-24T04:43:01Z",
       "licenseInfo": {
         "name": "MIT License",
         "spdxId": "MIT",
@@ -2538,7 +2746,7 @@
       "state": "active",
       "url": "https://github.com/Panniantong/Agent-Reach",
       "pushedAt": "2026-08-12T03:39:49Z",
-      "updatedAt": "2026-08-17T04:52:06Z",
+      "updatedAt": "2026-08-24T05:03:22Z",
       "licenseInfo": {
         "name": "MIT License",
         "spdxId": "MIT",
@@ -2549,8 +2757,8 @@
       "key": "paperclipai/paperclip",
       "state": "active",
       "url": "https://github.com/paperclipai/paperclip",
-      "pushedAt": "2026-08-17T04:55:52Z",
-      "updatedAt": "2026-08-17T04:57:33Z",
+      "pushedAt": "2026-08-24T04:25:01Z",
+      "updatedAt": "2026-08-24T05:01:19Z",
       "licenseInfo": {
         "name": "MIT License",
         "spdxId": "MIT",
@@ -2561,8 +2769,8 @@
       "key": "paperless-ngx/paperless-ngx",
       "state": "active",
       "url": "https://github.com/paperless-ngx/paperless-ngx",
-      "pushedAt": "2026-08-17T03:15:55Z",
-      "updatedAt": "2026-08-17T04:44:33Z",
+      "pushedAt": "2026-08-24T04:58:07Z",
+      "updatedAt": "2026-08-24T04:57:53Z",
       "licenseInfo": {
         "name": "GNU General Public License v3.0",
         "spdxId": "GPL-3.0",
@@ -2605,8 +2813,8 @@
       "key": "pavelhopson/eclipse-ai-hub",
       "state": "active",
       "url": "https://github.com/PavelHopson/eclipse-ai-hub",
-      "pushedAt": "2026-08-14T14:07:21Z",
-      "updatedAt": "2026-08-14T14:08:38Z",
+      "pushedAt": "2026-08-22T16:21:48Z",
+      "updatedAt": "2026-08-22T16:22:04Z",
       "licenseInfo": {
         "name": "MIT License",
         "spdxId": "MIT",
@@ -2617,8 +2825,8 @@
       "key": "pavelhopson/eclipse-chat",
       "state": "active",
       "url": "https://github.com/PavelHopson/eclipse-chat",
-      "pushedAt": "2026-08-13T19:05:24Z",
-      "updatedAt": "2026-08-14T12:43:21Z",
+      "pushedAt": "2026-08-23T22:12:55Z",
+      "updatedAt": "2026-08-23T22:13:05Z",
       "licenseInfo": {
         "name": "MIT License",
         "spdxId": "MIT",
@@ -2641,8 +2849,8 @@
       "key": "pavelhopson/eclipse-dnd-forge",
       "state": "active",
       "url": "https://github.com/PavelHopson/eclipse-dnd-forge",
-      "pushedAt": "2026-08-13T16:23:19Z",
-      "updatedAt": "2026-08-13T16:22:49Z",
+      "pushedAt": "2026-08-22T16:22:46Z",
+      "updatedAt": "2026-08-22T16:21:56Z",
       "licenseInfo": {
         "name": "MIT License",
         "spdxId": "MIT",
@@ -2653,16 +2861,16 @@
       "key": "pavelhopson/eclipse-forge-website",
       "state": "active",
       "url": "https://github.com/PavelHopson/Eclipse-forge-website",
-      "pushedAt": "2026-08-13T09:59:24Z",
-      "updatedAt": "2026-08-03T17:15:50Z",
+      "pushedAt": "2026-08-23T21:34:36Z",
+      "updatedAt": "2026-08-23T21:34:40Z",
       "licenseInfo": null
     },
     {
       "key": "pavelhopson/eclipse-hopson-sentinel",
       "state": "active",
       "url": "https://github.com/PavelHopson/eclipse-hopson-sentinel",
-      "pushedAt": "2026-08-13T18:58:42Z",
-      "updatedAt": "2026-08-13T18:58:48Z",
+      "pushedAt": "2026-08-23T20:24:35Z",
+      "updatedAt": "2026-08-23T20:25:01Z",
       "licenseInfo": {
         "name": "Other",
         "spdxId": "NOASSERTION",
@@ -2673,16 +2881,16 @@
       "key": "pavelhopson/eclipse-library",
       "state": "active",
       "url": "https://github.com/PavelHopson/eclipse-library",
-      "pushedAt": "2026-08-14T16:17:38Z",
-      "updatedAt": "2026-08-14T16:18:16Z",
+      "pushedAt": "2026-08-23T22:20:54Z",
+      "updatedAt": "2026-08-23T22:21:17Z",
       "licenseInfo": null
     },
     {
       "key": "pavelhopson/eclipse-media",
       "state": "active",
       "url": "https://github.com/PavelHopson/eclipse-media",
-      "pushedAt": "2026-08-13T18:58:42Z",
-      "updatedAt": "2026-08-13T19:08:47Z",
+      "pushedAt": "2026-08-23T15:05:53Z",
+      "updatedAt": "2026-08-23T15:06:12Z",
       "licenseInfo": null
     },
     {
@@ -2705,8 +2913,8 @@
       "key": "pavelhopson/educator-ai",
       "state": "active",
       "url": "https://github.com/PavelHopson/Educator-AI",
-      "pushedAt": "2026-08-04T14:33:04Z",
-      "updatedAt": "2026-08-04T14:36:29Z",
+      "pushedAt": "2026-08-22T16:22:04Z",
+      "updatedAt": "2026-08-22T16:22:11Z",
       "licenseInfo": {
         "name": "MIT License",
         "spdxId": "MIT",
@@ -2741,8 +2949,8 @@
       "key": "pavelhopson/shotforge",
       "state": "active",
       "url": "https://github.com/PavelHopson/shotforge",
-      "pushedAt": "2026-08-12T21:13:42Z",
-      "updatedAt": "2026-08-12T21:13:46Z",
+      "pushedAt": "2026-08-22T16:21:58Z",
+      "updatedAt": "2026-08-22T16:22:53Z",
       "licenseInfo": {
         "name": "MIT License",
         "spdxId": "MIT",
@@ -2789,8 +2997,8 @@
       "key": "pavelhopson/text2image",
       "state": "active",
       "url": "https://github.com/PavelHopson/Text2Image",
-      "pushedAt": "2026-08-13T16:22:30Z",
-      "updatedAt": "2026-08-13T16:22:35Z",
+      "pushedAt": "2026-08-22T16:22:01Z",
+      "updatedAt": "2026-08-22T16:22:56Z",
       "licenseInfo": {
         "name": "MIT License",
         "spdxId": "MIT",
@@ -2813,8 +3021,8 @@
       "key": "pbakaus/impeccable",
       "state": "active",
       "url": "https://github.com/pbakaus/impeccable",
-      "pushedAt": "2026-08-17T02:41:04Z",
-      "updatedAt": "2026-08-17T04:58:59Z",
+      "pushedAt": "2026-08-24T03:26:27Z",
+      "updatedAt": "2026-08-24T05:00:41Z",
       "licenseInfo": {
         "name": "Apache License 2.0",
         "spdxId": "Apache-2.0",
@@ -2822,11 +3030,23 @@
       }
     },
     {
+      "key": "penpot/penpot",
+      "state": "active",
+      "url": "https://github.com/penpot/penpot",
+      "pushedAt": "2026-08-23T21:04:58Z",
+      "updatedAt": "2026-08-24T04:47:57Z",
+      "licenseInfo": {
+        "name": "Mozilla Public License 2.0",
+        "spdxId": "MPL-2.0",
+        "url": "https://api.github.com/repos/penpot/penpot/license"
+      }
+    },
+    {
       "key": "petergyang/human-review",
       "state": "active",
       "url": "https://github.com/petergyang/human-review",
       "pushedAt": "2026-08-15T18:45:34Z",
-      "updatedAt": "2026-08-17T04:51:00Z",
+      "updatedAt": "2026-08-24T04:25:06Z",
       "licenseInfo": {
         "name": "MIT License",
         "spdxId": "MIT",
@@ -2837,8 +3057,8 @@
       "key": "pewdiepie-archdaemon/odysseus",
       "state": "active",
       "url": "https://github.com/odysseus-dev/odysseus",
-      "pushedAt": "2026-08-17T04:29:43Z",
-      "updatedAt": "2026-08-17T04:29:54Z",
+      "pushedAt": "2026-08-20T17:39:01Z",
+      "updatedAt": "2026-08-24T05:01:44Z",
       "licenseInfo": {
         "name": "GNU Affero General Public License v3.0",
         "spdxId": "AGPL-3.0",
@@ -2850,7 +3070,7 @@
       "state": "active",
       "url": "https://github.com/pi-hole/docker-pi-hole",
       "pushedAt": "2026-08-09T04:46:47Z",
-      "updatedAt": "2026-08-16T12:20:47Z",
+      "updatedAt": "2026-08-24T04:27:10Z",
       "licenseInfo": {
         "name": "Other",
         "spdxId": "NOASSERTION",
@@ -2862,7 +3082,7 @@
       "state": "active",
       "url": "https://github.com/PicoTrex/Awesome-Nano-Banana-images",
       "pushedAt": "2025-12-12T19:38:04Z",
-      "updatedAt": "2026-08-16T21:05:36Z",
+      "updatedAt": "2026-08-24T03:20:07Z",
       "licenseInfo": {
         "name": "Apache License 2.0",
         "spdxId": "Apache-2.0",
@@ -2874,7 +3094,7 @@
       "state": "active",
       "url": "https://github.com/PKUFlyingPig/cs-self-learning",
       "pushedAt": "2026-08-13T14:21:23Z",
-      "updatedAt": "2026-08-17T04:40:39Z",
+      "updatedAt": "2026-08-24T04:15:23Z",
       "licenseInfo": {
         "name": "MIT License",
         "spdxId": "MIT",
@@ -2886,7 +3106,7 @@
       "state": "active",
       "url": "https://github.com/plannotator/effective-html",
       "pushedAt": "2026-08-03T23:19:04Z",
-      "updatedAt": "2026-08-17T03:32:29Z",
+      "updatedAt": "2026-08-24T05:02:01Z",
       "licenseInfo": {
         "name": "MIT License",
         "spdxId": "MIT",
@@ -2894,11 +3114,35 @@
       }
     },
     {
+      "key": "plausible/analytics",
+      "state": "active",
+      "url": "https://github.com/plausible/analytics",
+      "pushedAt": "2026-08-24T04:49:28Z",
+      "updatedAt": "2026-08-24T01:46:46Z",
+      "licenseInfo": {
+        "name": "GNU Affero General Public License v3.0",
+        "spdxId": "AGPL-3.0",
+        "url": "https://api.github.com/repos/plausible/analytics/license"
+      }
+    },
+    {
+      "key": "portainer/portainer",
+      "state": "active",
+      "url": "https://github.com/portainer/portainer",
+      "pushedAt": "2026-08-21T13:17:09Z",
+      "updatedAt": "2026-08-24T04:20:58Z",
+      "licenseInfo": {
+        "name": "zlib License",
+        "spdxId": "Zlib",
+        "url": "https://api.github.com/repos/portainer/portainer/license"
+      }
+    },
+    {
       "key": "pranshuparmar/witr",
       "state": "active",
       "url": "https://github.com/pranshuparmar/witr",
       "pushedAt": "2026-08-15T22:55:12Z",
-      "updatedAt": "2026-08-17T04:41:11Z",
+      "updatedAt": "2026-08-24T04:12:15Z",
       "licenseInfo": {
         "name": "Apache License 2.0",
         "spdxId": "Apache-2.0",
@@ -2909,11 +3153,11 @@
       "key": "purpledoubled/locally-uncensored",
       "state": "active",
       "url": "https://github.com/PurpleDoubleD/locally-uncensored",
-      "pushedAt": "2026-08-16T23:07:24Z",
-      "updatedAt": "2026-08-17T00:24:14Z",
+      "pushedAt": "2026-08-23T14:30:42Z",
+      "updatedAt": "2026-08-24T02:10:17Z",
       "licenseInfo": {
-        "name": "Other",
-        "spdxId": "NOASSERTION",
+        "name": "GNU Affero General Public License v3.0",
+        "spdxId": "AGPL-3.0",
         "url": "https://api.github.com/repos/purpledoubled/locally-uncensored/license"
       }
     },
@@ -2921,8 +3165,8 @@
       "key": "ql-win/quicklook",
       "state": "active",
       "url": "https://github.com/QL-Win/QuickLook",
-      "pushedAt": "2026-07-30T10:38:27Z",
-      "updatedAt": "2026-08-17T03:18:32Z",
+      "pushedAt": "2026-08-18T09:31:32Z",
+      "updatedAt": "2026-08-24T04:46:24Z",
       "licenseInfo": {
         "name": "GNU General Public License v3.0",
         "spdxId": "GPL-3.0",
@@ -2933,8 +3177,8 @@
       "key": "quentinfuxa/whisperlivekit",
       "state": "active",
       "url": "https://github.com/QuentinFuxa/WhisperLiveKit",
-      "pushedAt": "2026-08-16T15:41:08Z",
-      "updatedAt": "2026-08-17T04:46:23Z",
+      "pushedAt": "2026-08-24T04:38:41Z",
+      "updatedAt": "2026-08-24T01:45:01Z",
       "licenseInfo": {
         "name": "Apache License 2.0",
         "spdxId": "Apache-2.0",
@@ -2946,7 +3190,7 @@
       "state": "active",
       "url": "https://github.com/QwenLM/Qwen3-TTS",
       "pushedAt": "2026-03-17T06:38:41Z",
-      "updatedAt": "2026-08-17T02:26:08Z",
+      "updatedAt": "2026-08-24T04:19:01Z",
       "licenseInfo": {
         "name": "Apache License 2.0",
         "spdxId": "Apache-2.0",
@@ -2958,7 +3202,7 @@
       "state": "active",
       "url": "https://github.com/ramjke/Translumo",
       "pushedAt": "2026-06-14T06:38:55Z",
-      "updatedAt": "2026-08-17T01:08:59Z",
+      "updatedAt": "2026-08-24T03:26:48Z",
       "licenseInfo": {
         "name": "Apache License 2.0",
         "spdxId": "Apache-2.0",
@@ -2970,7 +3214,7 @@
       "state": "active",
       "url": "https://github.com/razerofficial/aikit",
       "pushedAt": "2026-08-05T15:16:31Z",
-      "updatedAt": "2026-08-14T10:48:24Z",
+      "updatedAt": "2026-08-22T15:00:07Z",
       "licenseInfo": {
         "name": "Apache License 2.0",
         "spdxId": "Apache-2.0",
@@ -2981,8 +3225,8 @@
       "key": "razzant/claudexor",
       "state": "active",
       "url": "https://github.com/razzant/claudexor",
-      "pushedAt": "2026-08-16T20:01:22Z",
-      "updatedAt": "2026-08-16T21:51:09Z",
+      "pushedAt": "2026-08-23T23:38:46Z",
+      "updatedAt": "2026-08-23T23:38:53Z",
       "licenseInfo": {
         "name": "MIT License",
         "spdxId": "MIT",
@@ -2993,8 +3237,8 @@
       "key": "repowise-dev/repowise",
       "state": "active",
       "url": "https://github.com/repowise-dev/repowise",
-      "pushedAt": "2026-08-17T04:37:30Z",
-      "updatedAt": "2026-08-17T04:37:32Z",
+      "pushedAt": "2026-08-24T04:56:25Z",
+      "updatedAt": "2026-08-24T04:57:02Z",
       "licenseInfo": {
         "name": "GNU Affero General Public License v3.0",
         "spdxId": "AGPL-3.0",
@@ -3005,8 +3249,8 @@
       "key": "robzilla1738/supergoal",
       "state": "active",
       "url": "https://github.com/robzilla1738/supergoal",
-      "pushedAt": "2026-06-08T14:28:25Z",
-      "updatedAt": "2026-08-13T16:35:34Z",
+      "pushedAt": "2026-08-18T17:23:53Z",
+      "updatedAt": "2026-08-18T17:24:59Z",
       "licenseInfo": {
         "name": "MIT License",
         "spdxId": "MIT",
@@ -3017,8 +3261,8 @@
       "key": "roflcoopter/viseron",
       "state": "active",
       "url": "https://github.com/roflcoopter/viseron",
-      "pushedAt": "2026-08-16T20:37:15Z",
-      "updatedAt": "2026-08-17T00:50:01Z",
+      "pushedAt": "2026-08-23T20:51:31Z",
+      "updatedAt": "2026-08-24T04:56:30Z",
       "licenseInfo": {
         "name": "MIT License",
         "spdxId": "MIT",
@@ -3029,8 +3273,8 @@
       "key": "rohitg00/agentmemory",
       "state": "active",
       "url": "https://github.com/rohitg00/agentmemory",
-      "pushedAt": "2026-08-16T13:56:39Z",
-      "updatedAt": "2026-08-17T04:55:03Z",
+      "pushedAt": "2026-08-23T18:17:31Z",
+      "updatedAt": "2026-08-24T04:56:30Z",
       "licenseInfo": {
         "name": "Apache License 2.0",
         "spdxId": "Apache-2.0",
@@ -3041,8 +3285,8 @@
       "key": "runmaestro/maestro",
       "state": "active",
       "url": "https://github.com/RunMaestro/Maestro",
-      "pushedAt": "2026-08-17T01:50:27Z",
-      "updatedAt": "2026-08-17T02:02:32Z",
+      "pushedAt": "2026-08-24T00:48:48Z",
+      "updatedAt": "2026-08-24T03:32:01Z",
       "licenseInfo": {
         "name": "GNU Affero General Public License v3.0",
         "spdxId": "AGPL-3.0",
@@ -3053,8 +3297,8 @@
       "key": "ruvnet/claude-flow",
       "state": "active",
       "url": "https://github.com/ruvnet/ruflo",
-      "pushedAt": "2026-08-16T06:29:37Z",
-      "updatedAt": "2026-08-17T04:57:55Z",
+      "pushedAt": "2026-08-22T16:40:30Z",
+      "updatedAt": "2026-08-24T04:54:35Z",
       "licenseInfo": {
         "name": "MIT License",
         "spdxId": "MIT",
@@ -3065,8 +3309,8 @@
       "key": "rvc-boss/gpt-sovits",
       "state": "active",
       "url": "https://github.com/RVC-Boss/GPT-SoVITS",
-      "pushedAt": "2026-07-22T08:21:07Z",
-      "updatedAt": "2026-08-17T04:49:55Z",
+      "pushedAt": "2026-08-18T09:16:25Z",
+      "updatedAt": "2026-08-24T04:27:15Z",
       "licenseInfo": {
         "name": "MIT License",
         "spdxId": "MIT",
@@ -3078,7 +3322,7 @@
       "state": "active",
       "url": "https://github.com/saleor/storefront",
       "pushedAt": "2026-08-11T16:21:26Z",
-      "updatedAt": "2026-08-16T09:44:35Z",
+      "updatedAt": "2026-08-24T00:46:11Z",
       "licenseInfo": {
         "name": "Other",
         "spdxId": "NOASSERTION",
@@ -3090,7 +3334,7 @@
       "state": "active",
       "url": "https://github.com/samyak2403/RepoStore",
       "pushedAt": "2026-08-16T14:55:48Z",
-      "updatedAt": "2026-08-17T01:25:10Z",
+      "updatedAt": "2026-08-24T01:59:11Z",
       "licenseInfo": {
         "name": "MIT License",
         "spdxId": "MIT",
@@ -3102,7 +3346,7 @@
       "state": "active",
       "url": "https://github.com/schlagmichdoch/PairDrop",
       "pushedAt": "2026-04-22T20:27:50Z",
-      "updatedAt": "2026-08-17T01:47:45Z",
+      "updatedAt": "2026-08-24T00:57:12Z",
       "licenseInfo": {
         "name": "GNU General Public License v3.0",
         "spdxId": "GPL-3.0",
@@ -3113,8 +3357,8 @@
       "key": "scrapegraphai/scrapegraph-ai",
       "state": "active",
       "url": "https://github.com/ScrapeGraphAI/Scrapegraph-ai",
-      "pushedAt": "2026-07-20T14:22:20Z",
-      "updatedAt": "2026-08-17T04:30:46Z",
+      "pushedAt": "2026-08-23T13:18:10Z",
+      "updatedAt": "2026-08-24T02:27:24Z",
       "licenseInfo": {
         "name": "MIT License",
         "spdxId": "MIT",
@@ -3122,11 +3366,23 @@
       }
     },
     {
+      "key": "scrapegraphai/scrapegraph-mcp",
+      "state": "active",
+      "url": "https://github.com/ScrapeGraphAI/scrapegraph-mcp",
+      "pushedAt": "2026-07-17T08:36:14Z",
+      "updatedAt": "2026-08-22T05:33:58Z",
+      "licenseInfo": {
+        "name": "MIT License",
+        "spdxId": "MIT",
+        "url": "https://api.github.com/repos/scrapegraphai/scrapegraph-mcp/license"
+      }
+    },
+    {
       "key": "scraperai/scraperai",
       "state": "active",
       "url": "https://github.com/scraperai/scraperai",
       "pushedAt": "2025-09-18T19:02:56Z",
-      "updatedAt": "2026-08-15T22:55:49Z",
+      "updatedAt": "2026-08-22T15:11:36Z",
       "licenseInfo": {
         "name": "GNU General Public License v3.0",
         "spdxId": "GPL-3.0",
@@ -3137,8 +3393,8 @@
       "key": "scrapy/scrapy",
       "state": "active",
       "url": "https://github.com/scrapy/scrapy",
-      "pushedAt": "2026-08-16T20:10:17Z",
-      "updatedAt": "2026-08-17T04:42:53Z",
+      "pushedAt": "2026-08-23T10:01:03Z",
+      "updatedAt": "2026-08-24T02:20:51Z",
       "licenseInfo": {
         "name": "BSD 3-Clause \"New\" or \"Revised\" License",
         "spdxId": "BSD-3-Clause",
@@ -3146,11 +3402,23 @@
       }
     },
     {
+      "key": "screenpipe/screenpipe",
+      "state": "active",
+      "url": "https://github.com/screenpipe/screenpipe",
+      "pushedAt": "2026-08-24T05:00:35Z",
+      "updatedAt": "2026-08-24T04:16:45Z",
+      "licenseInfo": {
+        "name": "Other",
+        "spdxId": "NOASSERTION",
+        "url": "https://api.github.com/repos/screenpipe/screenpipe/license"
+      }
+    },
+    {
       "key": "sdi2200262/agentic-project-management",
       "state": "active",
       "url": "https://github.com/sdi2200262/agentic-project-management",
       "pushedAt": "2026-06-08T13:30:29Z",
-      "updatedAt": "2026-08-16T22:25:26Z",
+      "updatedAt": "2026-08-23T22:30:42Z",
       "licenseInfo": {
         "name": "Other",
         "spdxId": "NOASSERTION",
@@ -3162,7 +3430,7 @@
       "state": "active",
       "url": "https://github.com/serpapi/awesome-seo-tools",
       "pushedAt": "2026-02-24T08:04:53Z",
-      "updatedAt": "2026-08-16T07:52:30Z",
+      "updatedAt": "2026-08-23T09:24:34Z",
       "licenseInfo": null
     },
     {
@@ -3170,7 +3438,7 @@
       "state": "active",
       "url": "https://github.com/severity1/claude-code-prompt-improver",
       "pushedAt": "2026-06-03T11:40:44Z",
-      "updatedAt": "2026-08-16T19:09:59Z",
+      "updatedAt": "2026-08-21T19:46:35Z",
       "licenseInfo": {
         "name": "MIT License",
         "spdxId": "MIT",
@@ -3181,8 +3449,8 @@
       "key": "shanraisshan/claude-code-best-practice",
       "state": "active",
       "url": "https://github.com/shanraisshan/claude-code-best-practice",
-      "pushedAt": "2026-08-17T04:46:31Z",
-      "updatedAt": "2026-08-17T04:51:16Z",
+      "pushedAt": "2026-08-24T04:49:56Z",
+      "updatedAt": "2026-08-24T04:51:08Z",
       "licenseInfo": {
         "name": "MIT License",
         "spdxId": "MIT",
@@ -3193,8 +3461,8 @@
       "key": "sharex/sharex",
       "state": "active",
       "url": "https://github.com/ShareX/ShareX",
-      "pushedAt": "2026-08-17T01:46:10Z",
-      "updatedAt": "2026-08-17T04:15:58Z",
+      "pushedAt": "2026-08-23T23:42:37Z",
+      "updatedAt": "2026-08-24T03:26:25Z",
       "licenseInfo": {
         "name": "GNU General Public License v3.0",
         "spdxId": "GPL-3.0",
@@ -3206,7 +3474,7 @@
       "state": "active",
       "url": "https://github.com/ShenSeanChen/waku-agent",
       "pushedAt": "2026-08-17T00:22:16Z",
-      "updatedAt": "2026-08-17T04:03:55Z",
+      "updatedAt": "2026-08-24T02:47:42Z",
       "licenseInfo": {
         "name": "MIT License",
         "spdxId": "MIT",
@@ -3217,8 +3485,8 @@
       "key": "sickn33/antigravity-awesome-skills",
       "state": "active",
       "url": "https://github.com/sickn33/agentic-awesome-skills",
-      "pushedAt": "2026-08-17T02:07:58Z",
-      "updatedAt": "2026-08-17T04:06:35Z",
+      "pushedAt": "2026-08-24T04:17:51Z",
+      "updatedAt": "2026-08-24T04:37:31Z",
       "licenseInfo": {
         "name": "MIT License",
         "spdxId": "MIT",
@@ -3229,8 +3497,8 @@
       "key": "simplex-chat/simplex-chat",
       "state": "active",
       "url": "https://github.com/simplex-chat/simplex-chat",
-      "pushedAt": "2026-08-16T21:51:56Z",
-      "updatedAt": "2026-08-17T04:25:31Z",
+      "pushedAt": "2026-08-23T20:51:15Z",
+      "updatedAt": "2026-08-24T00:19:54Z",
       "licenseInfo": {
         "name": "GNU Affero General Public License v3.0",
         "spdxId": "AGPL-3.0",
@@ -3238,11 +3506,23 @@
       }
     },
     {
+      "key": "sissbruecker/linkding",
+      "state": "active",
+      "url": "https://github.com/sissbruecker/linkding",
+      "pushedAt": "2026-08-18T21:08:57Z",
+      "updatedAt": "2026-08-24T02:31:34Z",
+      "licenseInfo": {
+        "name": "MIT License",
+        "spdxId": "MIT",
+        "url": "https://api.github.com/repos/sissbruecker/linkding/license"
+      }
+    },
+    {
       "key": "slavakurilyak/awesome-ai-agents",
       "state": "active",
       "url": "https://github.com/slavakurilyak/awesome-ai-agents",
       "pushedAt": "2025-09-09T22:33:26Z",
-      "updatedAt": "2026-08-17T00:09:44Z",
+      "updatedAt": "2026-08-23T22:27:01Z",
       "licenseInfo": {
         "name": "MIT License",
         "spdxId": "MIT",
@@ -3253,8 +3533,8 @@
       "key": "smtg-ai/claude-squad",
       "state": "active",
       "url": "https://github.com/smtg-ai/claude-squad",
-      "pushedAt": "2026-07-30T16:45:40Z",
-      "updatedAt": "2026-08-16T22:16:31Z",
+      "pushedAt": "2026-08-20T05:09:53Z",
+      "updatedAt": "2026-08-23T17:34:42Z",
       "licenseInfo": {
         "name": "GNU Affero General Public License v3.0",
         "spdxId": "AGPL-3.0",
@@ -3265,8 +3545,8 @@
       "key": "social-media-skills/skills",
       "state": "active",
       "url": "https://github.com/social-media-skills/skills",
-      "pushedAt": "2026-08-13T19:56:10Z",
-      "updatedAt": "2026-08-16T11:16:48Z",
+      "pushedAt": "2026-08-20T19:56:04Z",
+      "updatedAt": "2026-08-24T04:12:12Z",
       "licenseInfo": {
         "name": "MIT License",
         "spdxId": "MIT",
@@ -3278,7 +3558,7 @@
       "state": "active",
       "url": "https://github.com/sogonov/anubis",
       "pushedAt": "2026-05-10T22:33:44Z",
-      "updatedAt": "2026-08-15T11:40:26Z",
+      "updatedAt": "2026-08-23T22:23:54Z",
       "licenseInfo": {
         "name": "MIT License",
         "spdxId": "MIT",
@@ -3290,7 +3570,7 @@
       "state": "active",
       "url": "https://github.com/songguoxs/awesome-video-prompts",
       "pushedAt": "2025-10-18T14:00:06Z",
-      "updatedAt": "2026-08-15T10:22:06Z",
+      "updatedAt": "2026-08-18T03:19:40Z",
       "licenseInfo": null
     },
     {
@@ -3298,7 +3578,7 @@
       "state": "active",
       "url": "https://github.com/stackblitz/bolt-slides",
       "pushedAt": "2026-07-30T17:58:10Z",
-      "updatedAt": "2026-08-15T18:36:08Z",
+      "updatedAt": "2026-08-23T23:27:37Z",
       "licenseInfo": {
         "name": "MIT License",
         "spdxId": "MIT",
@@ -3309,8 +3589,8 @@
       "key": "stamparm/maltrail",
       "state": "active",
       "url": "https://github.com/stamparm/maltrail",
-      "pushedAt": "2026-08-16T19:37:48Z",
-      "updatedAt": "2026-08-16T19:38:35Z",
+      "pushedAt": "2026-08-23T22:42:41Z",
+      "updatedAt": "2026-08-23T22:42:52Z",
       "licenseInfo": {
         "name": "MIT License",
         "spdxId": "MIT",
@@ -3322,7 +3602,7 @@
       "state": "active",
       "url": "https://github.com/StarTrail-org/PixelRAG",
       "pushedAt": "2026-07-31T08:52:00Z",
-      "updatedAt": "2026-08-17T04:55:08Z",
+      "updatedAt": "2026-08-24T04:10:05Z",
       "licenseInfo": {
         "name": "Apache License 2.0",
         "spdxId": "Apache-2.0",
@@ -3333,8 +3613,8 @@
       "key": "stevethekiller/killerpdf",
       "state": "active",
       "url": "https://github.com/SteveTheKiller/KillerPDF",
-      "pushedAt": "2026-08-16T01:40:40Z",
-      "updatedAt": "2026-08-17T04:50:16Z",
+      "pushedAt": "2026-08-23T00:21:40Z",
+      "updatedAt": "2026-08-24T04:16:11Z",
       "licenseInfo": {
         "name": "GNU General Public License v3.0",
         "spdxId": "GPL-3.0",
@@ -3346,15 +3626,15 @@
       "state": "active",
       "url": "https://github.com/Sumanth077/Hands-On-AI-Engineering",
       "pushedAt": "2026-07-31T10:29:23Z",
-      "updatedAt": "2026-08-17T01:40:50Z",
+      "updatedAt": "2026-08-24T04:31:05Z",
       "licenseInfo": null
     },
     {
       "key": "superclaude-org/superclaude_framework",
       "state": "active",
       "url": "https://github.com/SuperClaude-Org/SuperClaude_Framework",
-      "pushedAt": "2026-07-22T06:02:09Z",
-      "updatedAt": "2026-08-16T16:52:55Z",
+      "pushedAt": "2026-08-21T04:13:47Z",
+      "updatedAt": "2026-08-24T01:21:23Z",
       "licenseInfo": {
         "name": "MIT License",
         "spdxId": "MIT",
@@ -3366,7 +3646,7 @@
       "state": "active",
       "url": "https://github.com/supertone-inc/supertonic",
       "pushedAt": "2026-07-24T04:00:17Z",
-      "updatedAt": "2026-08-17T02:43:44Z",
+      "updatedAt": "2026-08-24T02:14:36Z",
       "licenseInfo": {
         "name": "MIT License",
         "spdxId": "MIT",
@@ -3377,8 +3657,8 @@
       "key": "sx4im/skillcheck",
       "state": "active",
       "url": "https://github.com/sx4im/skillcheck",
-      "pushedAt": "2026-08-16T07:16:32Z",
-      "updatedAt": "2026-08-16T07:17:01Z",
+      "pushedAt": "2026-08-18T16:47:07Z",
+      "updatedAt": "2026-08-23T02:18:11Z",
       "licenseInfo": {
         "name": "MIT License",
         "spdxId": "MIT",
@@ -3390,7 +3670,7 @@
       "state": "active",
       "url": "https://github.com/syabro/rejudge",
       "pushedAt": "2026-08-12T09:59:25Z",
-      "updatedAt": "2026-08-16T21:07:46Z",
+      "updatedAt": "2026-08-23T17:52:05Z",
       "licenseInfo": {
         "name": "MIT License",
         "spdxId": "MIT",
@@ -3401,8 +3681,8 @@
       "key": "tashfeenahmed/freellmapi",
       "state": "active",
       "url": "https://github.com/tashfeenahmed/freellmapi",
-      "pushedAt": "2026-08-16T11:31:01Z",
-      "updatedAt": "2026-08-17T04:49:42Z",
+      "pushedAt": "2026-08-23T22:05:39Z",
+      "updatedAt": "2026-08-24T04:53:09Z",
       "licenseInfo": {
         "name": "MIT License",
         "spdxId": "MIT",
@@ -3413,8 +3693,8 @@
       "key": "teamchong/pxpipe",
       "state": "active",
       "url": "https://github.com/teamchong/pxpipe",
-      "pushedAt": "2026-08-12T17:48:00Z",
-      "updatedAt": "2026-08-16T21:01:28Z",
+      "pushedAt": "2026-08-22T17:43:10Z",
+      "updatedAt": "2026-08-24T04:43:10Z",
       "licenseInfo": {
         "name": "MIT License",
         "spdxId": "MIT",
@@ -3426,7 +3706,7 @@
       "state": "active",
       "url": "https://github.com/tech-leads-club/agent-skills",
       "pushedAt": "2026-08-06T19:57:06Z",
-      "updatedAt": "2026-08-17T01:30:48Z",
+      "updatedAt": "2026-08-23T16:21:43Z",
       "licenseInfo": {
         "name": "Other",
         "spdxId": "NOASSERTION",
@@ -3434,11 +3714,23 @@
       }
     },
     {
+      "key": "tejaswigowda/ffmpeg-webcli",
+      "state": "active",
+      "url": "https://github.com/tejaswigowda/ffmpeg-webCLI",
+      "pushedAt": "2026-06-28T16:58:33Z",
+      "updatedAt": "2026-08-24T04:20:27Z",
+      "licenseInfo": {
+        "name": "GNU General Public License v3.0",
+        "spdxId": "GPL-3.0",
+        "url": "https://api.github.com/repos/tejaswigowda/ffmpeg-webcli/license"
+      }
+    },
+    {
       "key": "tencent-hunyuan/hy-world-2.0",
       "state": "active",
       "url": "https://github.com/Tencent-Hunyuan/HY-World-2.0",
       "pushedAt": "2026-08-12T16:15:12Z",
-      "updatedAt": "2026-08-17T02:40:57Z",
+      "updatedAt": "2026-08-24T03:37:50Z",
       "licenseInfo": {
         "name": "Other",
         "spdxId": "NOASSERTION",
@@ -3450,7 +3742,7 @@
       "state": "active",
       "url": "https://github.com/TencentCloud/TencentDB-Agent-Memory",
       "pushedAt": "2026-08-15T10:06:58Z",
-      "updatedAt": "2026-08-17T04:57:12Z",
+      "updatedAt": "2026-08-24T05:00:34Z",
       "licenseInfo": {
         "name": "Other",
         "spdxId": "NOASSERTION",
@@ -3462,7 +3754,7 @@
       "state": "active",
       "url": "https://github.com/theaiautomators/insights-lm-public",
       "pushedAt": "2026-01-16T13:45:31Z",
-      "updatedAt": "2026-08-13T15:10:11Z",
+      "updatedAt": "2026-08-17T11:46:04Z",
       "licenseInfo": {
         "name": "MIT License",
         "spdxId": "MIT",
@@ -3473,8 +3765,8 @@
       "key": "thedotmack/claude-mem",
       "state": "active",
       "url": "https://github.com/thedotmack/claude-mem",
-      "pushedAt": "2026-08-17T03:23:16Z",
-      "updatedAt": "2026-08-17T04:59:06Z",
+      "pushedAt": "2026-08-23T22:58:45Z",
+      "updatedAt": "2026-08-24T04:54:22Z",
       "licenseInfo": {
         "name": "Apache License 2.0",
         "spdxId": "Apache-2.0",
@@ -3485,8 +3777,8 @@
       "key": "thejoefin/text-grab",
       "state": "active",
       "url": "https://github.com/TheJoeFin/Text-Grab",
-      "pushedAt": "2026-08-12T01:12:39Z",
-      "updatedAt": "2026-08-18T03:31:40Z",
+      "pushedAt": "2026-08-24T02:29:36Z",
+      "updatedAt": "2026-08-23T17:39:23Z",
       "licenseInfo": {
         "name": "MIT License",
         "spdxId": "MIT",
@@ -3497,8 +3789,8 @@
       "key": "thisal-d/pytube-downloader",
       "state": "active",
       "url": "https://github.com/thisal-d/pytube-downloader",
-      "pushedAt": "2026-08-11T03:34:24Z",
-      "updatedAt": "2026-08-16T12:29:45Z",
+      "pushedAt": "2026-08-18T06:29:19Z",
+      "updatedAt": "2026-08-23T13:34:38Z",
       "licenseInfo": {
         "name": "MIT License",
         "spdxId": "MIT",
@@ -3517,8 +3809,8 @@
       "key": "tinyhumansai/openhuman",
       "state": "active",
       "url": "https://github.com/tinyhumansai/openhuman",
-      "pushedAt": "2026-08-16T18:51:09Z",
-      "updatedAt": "2026-08-17T04:23:20Z",
+      "pushedAt": "2026-08-24T01:48:45Z",
+      "updatedAt": "2026-08-24T04:53:02Z",
       "licenseInfo": {
         "name": "GNU General Public License v3.0",
         "spdxId": "GPL-3.0",
@@ -3530,7 +3822,7 @@
       "state": "active",
       "url": "https://github.com/truelockmc/streambert",
       "pushedAt": "2026-08-06T13:06:09Z",
-      "updatedAt": "2026-08-16T18:04:41Z",
+      "updatedAt": "2026-08-23T07:39:37Z",
       "licenseInfo": {
         "name": "GNU General Public License v3.0",
         "spdxId": "GPL-3.0",
@@ -3541,8 +3833,8 @@
       "key": "trycua/cua",
       "state": "active",
       "url": "https://github.com/trycua/cua",
-      "pushedAt": "2026-08-17T04:53:03Z",
-      "updatedAt": "2026-08-17T04:45:55Z",
+      "pushedAt": "2026-08-24T04:33:09Z",
+      "updatedAt": "2026-08-24T04:46:27Z",
       "licenseInfo": {
         "name": "MIT License",
         "spdxId": "MIT",
@@ -3553,8 +3845,8 @@
       "key": "tw93/pake",
       "state": "active",
       "url": "https://github.com/tw93/Pake",
-      "pushedAt": "2026-08-15T14:51:04Z",
-      "updatedAt": "2026-08-17T04:55:21Z",
+      "pushedAt": "2026-08-23T13:43:54Z",
+      "updatedAt": "2026-08-24T04:51:13Z",
       "licenseInfo": {
         "name": "GNU General Public License v3.0",
         "spdxId": "GPL-3.0",
@@ -3562,11 +3854,23 @@
       }
     },
     {
+      "key": "twentyhq/twenty",
+      "state": "active",
+      "url": "https://github.com/twentyhq/twenty",
+      "pushedAt": "2026-08-24T03:58:50Z",
+      "updatedAt": "2026-08-24T05:00:43Z",
+      "licenseInfo": {
+        "name": "Other",
+        "spdxId": "NOASSERTION",
+        "url": "https://api.github.com/repos/twentyhq/twenty/license"
+      }
+    },
+    {
       "key": "unclecode/crawl4ai",
       "state": "active",
       "url": "https://github.com/unclecode/crawl4ai",
-      "pushedAt": "2026-08-15T12:21:30Z",
-      "updatedAt": "2026-08-17T04:40:49Z",
+      "pushedAt": "2026-08-20T09:23:36Z",
+      "updatedAt": "2026-08-24T05:02:07Z",
       "licenseInfo": {
         "name": "Apache License 2.0",
         "spdxId": "Apache-2.0",
@@ -3577,8 +3881,8 @@
       "key": "universal-debloater-alliance/universal-android-debloater-next-generation",
       "state": "active",
       "url": "https://github.com/Universal-Debloater-Alliance/universal-android-debloater-next-generation",
-      "pushedAt": "2026-08-13T14:54:01Z",
-      "updatedAt": "2026-08-16T19:11:33Z",
+      "pushedAt": "2026-08-21T15:28:42Z",
+      "updatedAt": "2026-08-23T23:38:24Z",
       "licenseInfo": {
         "name": "GNU General Public License v3.0",
         "spdxId": "GPL-3.0",
@@ -3589,8 +3893,8 @@
       "key": "upstash/context7",
       "state": "active",
       "url": "https://github.com/upstash/context7",
-      "pushedAt": "2026-08-16T14:10:00Z",
-      "updatedAt": "2026-08-17T04:08:25Z",
+      "pushedAt": "2026-08-21T08:01:35Z",
+      "updatedAt": "2026-08-24T03:32:31Z",
       "licenseInfo": {
         "name": "MIT License",
         "spdxId": "MIT",
@@ -3601,8 +3905,8 @@
       "key": "usestrix/strix",
       "state": "active",
       "url": "https://github.com/usestrix/strix",
-      "pushedAt": "2026-08-14T20:43:08Z",
-      "updatedAt": "2026-08-17T04:58:58Z",
+      "pushedAt": "2026-08-21T21:38:06Z",
+      "updatedAt": "2026-08-24T04:58:54Z",
       "licenseInfo": {
         "name": "Apache License 2.0",
         "spdxId": "Apache-2.0",
@@ -3614,7 +3918,7 @@
       "state": "active",
       "url": "https://github.com/valleyofdoom/PC-Tuning",
       "pushedAt": "2026-08-16T22:20:09Z",
-      "updatedAt": "2026-08-18T15:16:38Z",
+      "updatedAt": "2026-08-23T11:10:03Z",
       "licenseInfo": {
         "name": "GNU General Public License v3.0",
         "spdxId": "GPL-3.0",
@@ -3622,11 +3926,19 @@
       }
     },
     {
+      "key": "vercel-labs/agent-skills",
+      "state": "active",
+      "url": "https://github.com/vercel-labs/agent-skills",
+      "pushedAt": "2026-08-21T18:55:51Z",
+      "updatedAt": "2026-08-24T03:59:10Z",
+      "licenseInfo": null
+    },
+    {
       "key": "vercel/commerce",
       "state": "active",
       "url": "https://github.com/vercel/commerce",
       "pushedAt": "2026-08-13T01:06:36Z",
-      "updatedAt": "2026-08-16T22:11:55Z",
+      "updatedAt": "2026-08-23T15:06:52Z",
       "licenseInfo": {
         "name": "MIT License",
         "spdxId": "MIT",
@@ -3638,7 +3950,7 @@
       "state": "active",
       "url": "https://github.com/virattt/dexter",
       "pushedAt": "2026-08-04T15:20:42Z",
-      "updatedAt": "2026-08-17T02:53:12Z",
+      "updatedAt": "2026-08-23T17:39:01Z",
       "licenseInfo": null
     },
     {
@@ -3646,7 +3958,7 @@
       "state": "active",
       "url": "https://github.com/viveknaskar/everything-ai-ml",
       "pushedAt": "2026-08-16T22:48:42Z",
-      "updatedAt": "2026-08-17T01:48:11Z",
+      "updatedAt": "2026-08-21T08:39:12Z",
       "licenseInfo": {
         "name": "MIT License",
         "spdxId": "MIT",
@@ -3658,7 +3970,7 @@
       "state": "active",
       "url": "https://github.com/VoltAgent/awesome-claude-code-subagents",
       "pushedAt": "2026-08-12T13:34:46Z",
-      "updatedAt": "2026-08-17T04:41:01Z",
+      "updatedAt": "2026-08-24T03:44:01Z",
       "licenseInfo": {
         "name": "MIT License",
         "spdxId": "MIT",
@@ -3669,8 +3981,8 @@
       "key": "voltagent/awesome-openclaw-skills",
       "state": "active",
       "url": "https://github.com/VoltAgent/awesome-openclaw-skills",
-      "pushedAt": "2026-08-13T09:16:42Z",
-      "updatedAt": "2026-08-17T04:50:11Z",
+      "pushedAt": "2026-08-23T08:45:20Z",
+      "updatedAt": "2026-08-24T04:28:59Z",
       "licenseInfo": {
         "name": "MIT License",
         "spdxId": "MIT",
@@ -3678,11 +3990,23 @@
       }
     },
     {
+      "key": "wan-video/wan2.1",
+      "state": "active",
+      "url": "https://github.com/Wan-Video/Wan2.1",
+      "pushedAt": "2026-03-05T09:38:07Z",
+      "updatedAt": "2026-08-23T23:11:37Z",
+      "licenseInfo": {
+        "name": "Apache License 2.0",
+        "spdxId": "Apache-2.0",
+        "url": "https://api.github.com/repos/wan-video/wan2.1/license"
+      }
+    },
+    {
       "key": "whiskeycoder/qwen3-audiobook-converter",
       "state": "active",
       "url": "https://github.com/WhiskeyCoder/Qwen3-Audiobook-Converter",
       "pushedAt": "2026-04-07T14:35:15Z",
-      "updatedAt": "2026-08-16T12:31:45Z",
+      "updatedAt": "2026-08-23T17:32:10Z",
       "licenseInfo": {
         "name": "MIT License",
         "spdxId": "MIT",
@@ -3693,8 +4017,8 @@
       "key": "withastro/astro",
       "state": "active",
       "url": "https://github.com/withastro/astro",
-      "pushedAt": "2026-08-16T20:15:17Z",
-      "updatedAt": "2026-08-17T03:36:36Z",
+      "pushedAt": "2026-08-24T01:15:15Z",
+      "updatedAt": "2026-08-24T04:26:05Z",
       "licenseInfo": {
         "name": "Other",
         "spdxId": "NOASSERTION",
@@ -3706,7 +4030,7 @@
       "state": "active",
       "url": "https://github.com/WorldFlowAI/everything-claude-code",
       "pushedAt": "2026-01-23T12:42:00Z",
-      "updatedAt": "2026-08-17T04:35:45Z",
+      "updatedAt": "2026-08-24T04:31:55Z",
       "licenseInfo": null
     },
     {
@@ -3714,15 +4038,15 @@
       "state": "active",
       "url": "https://github.com/wshuyi/remotion-video-skill",
       "pushedAt": "2026-01-25T02:21:58Z",
-      "updatedAt": "2026-08-17T03:28:46Z",
+      "updatedAt": "2026-08-23T12:26:56Z",
       "licenseInfo": null
     },
     {
       "key": "xiaoyouchr/ghost-downloader-3",
       "state": "active",
       "url": "https://github.com/XiaoYouChR/Ghost-Downloader-3",
-      "pushedAt": "2026-08-16T10:17:35Z",
-      "updatedAt": "2026-08-17T04:53:11Z",
+      "pushedAt": "2026-08-23T06:53:28Z",
+      "updatedAt": "2026-08-24T03:09:07Z",
       "licenseInfo": {
         "name": "GNU General Public License v3.0",
         "spdxId": "GPL-3.0",
@@ -3734,7 +4058,7 @@
       "state": "active",
       "url": "https://github.com/xoureldeen/Vectras-VM-Android",
       "pushedAt": "2026-07-29T08:08:42Z",
-      "updatedAt": "2026-08-16T20:07:53Z",
+      "updatedAt": "2026-08-23T16:07:11Z",
       "licenseInfo": {
         "name": "GNU General Public License v2.0",
         "spdxId": "GPL-2.0",
@@ -3745,8 +4069,8 @@
       "key": "yamadashy/repomix",
       "state": "active",
       "url": "https://github.com/yamadashy/repomix",
-      "pushedAt": "2026-08-16T15:32:59Z",
-      "updatedAt": "2026-08-17T03:19:16Z",
+      "pushedAt": "2026-08-23T08:58:26Z",
+      "updatedAt": "2026-08-24T02:15:39Z",
       "licenseInfo": {
         "name": "MIT License",
         "spdxId": "MIT",
@@ -3757,8 +4081,8 @@
       "key": "yashab-cyber/opendroid",
       "state": "active",
       "url": "https://github.com/yashab-cyber/opendroid",
-      "pushedAt": "2026-08-15T15:31:24Z",
-      "updatedAt": "2026-08-17T04:58:10Z",
+      "pushedAt": "2026-08-23T15:41:38Z",
+      "updatedAt": "2026-08-24T03:16:35Z",
       "licenseInfo": {
         "name": "Other",
         "spdxId": "NOASSERTION",
@@ -3770,7 +4094,7 @@
       "state": "active",
       "url": "https://github.com/yetone/kill-ai-slop",
       "pushedAt": "2026-07-26T14:12:11Z",
-      "updatedAt": "2026-08-17T02:36:53Z",
+      "updatedAt": "2026-08-24T01:02:14Z",
       "licenseInfo": {
         "name": "Apache License 2.0",
         "spdxId": "Apache-2.0",
@@ -3782,7 +4106,7 @@
       "state": "active",
       "url": "https://github.com/yossdotpro/removerized",
       "pushedAt": "2026-07-09T17:26:34Z",
-      "updatedAt": "2026-08-17T02:55:28Z",
+      "updatedAt": "2026-08-22T17:40:29Z",
       "licenseInfo": {
         "name": "GNU General Public License v3.0",
         "spdxId": "GPL-3.0",
@@ -3793,8 +4117,8 @@
       "key": "z4nzu/hackingtool",
       "state": "active",
       "url": "https://github.com/Z4nzu/hackingtool",
-      "pushedAt": "2026-08-02T16:54:01Z",
-      "updatedAt": "2026-08-17T04:53:29Z",
+      "pushedAt": "2026-08-23T16:54:04Z",
+      "updatedAt": "2026-08-24T04:24:44Z",
       "licenseInfo": {
         "name": "MIT License",
         "spdxId": "MIT",
@@ -3805,8 +4129,8 @@
       "key": "zeropointrepo/awesome-hermes-skills",
       "state": "active",
       "url": "https://github.com/ZeroPointRepo/awesome-hermes-skills",
-      "pushedAt": "2026-08-12T13:42:42Z",
-      "updatedAt": "2026-08-16T11:38:57Z",
+      "pushedAt": "2026-08-23T07:08:32Z",
+      "updatedAt": "2026-08-23T19:01:38Z",
       "licenseInfo": {
         "name": "MIT License",
         "spdxId": "MIT",
@@ -3817,8 +4141,8 @@
       "key": "zhom/donutbrowser",
       "state": "active",
       "url": "https://github.com/zhom/donutbrowser",
-      "pushedAt": "2026-08-16T21:44:56Z",
-      "updatedAt": "2026-08-17T02:38:55Z",
+      "pushedAt": "2026-08-24T00:35:04Z",
+      "updatedAt": "2026-08-24T01:41:09Z",
       "licenseInfo": {
         "name": "GNU Affero General Public License v3.0",
         "spdxId": "AGPL-3.0",
@@ -3829,8 +4153,8 @@
       "key": "zubair-trabzada/geo-seo-claude",
       "state": "active",
       "url": "https://github.com/zubair-trabzada/geo-seo-claude",
-      "pushedAt": "2026-08-16T06:27:33Z",
-      "updatedAt": "2026-08-17T01:41:52Z",
+      "pushedAt": "2026-08-23T06:27:27Z",
+      "updatedAt": "2026-08-24T04:56:24Z",
       "licenseInfo": {
         "name": "MIT License",
         "spdxId": "MIT",
