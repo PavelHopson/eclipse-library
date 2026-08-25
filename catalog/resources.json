@@ -37205,11 +37205,11 @@
       "type": "skill",
       "category": "Агенты",
       "subcategory": "Specialist agent templates",
-      "simpleDescription": "Agency Agents — MIT-набор персонажей и workflow templates для специализированных агентов. Используем как reference для ролей и deliverables, но не как «готовых сотрудников»: каждый prompt проходит проверку полномочий, данных, инструментов и measurable acceptance criteria.",
+      "simpleDescription": "Agency Agents — MIT-набор из более чем 230 специализированных role и workflow templates. Используем как reference для ролей, входов, deliverables и acceptance criteria AI Office, но не как готовых автономных сотрудников: каждый template проходит проверку полномочий, данных и инструментов.",
       "useCases": [
-        "Спроектировать команды specialist agents",
-        "Сравнить role templates",
-        "Добавить deliverable checklists"
+        "Спроектировать отделы и роли AI Office",
+        "Сравнить specialist agent templates",
+        "Добавить deliverable checklists и review roles"
       ],
       "platforms": [
         "Markdown",
@@ -37236,23 +37236,25 @@
         "runtime": "local"
       },
       "trust": "community",
-      "trustReason": "Canonical repository and MIT license checked on 22.08.2026. Template quality is not proof of safe autonomous execution.",
+      "trustReason": "Canonical repository, MIT license и актуальная формулировка 230+ templates проверены 25.08.2026. Заявления о production readiness являются self-claims и не заменяют runtime/security evaluation.",
       "projects": [
+        "Eclipse AI Office",
         "Eclipse AI Hub",
         "Eclipse Growth OS",
+        "Eclipse Chat",
         "Eclipse Library"
       ],
       "decision": "roadmap",
       "riskLevel": "medium",
       "risks": [
-        "Role prompts can overstate competence",
-        "Tool access can exceed the role",
-        "Outputs need domain review"
+        "Role prompts могут преувеличивать компетентность",
+        "Tool access может выйти за границы роли",
+        "Шаблон не даёт runtime isolation, approvals или гарантий качества"
       ],
       "quickStart": [
-        "Import one role as reference, not executable policy",
-        "Replace personality claims with capabilities and acceptance tests",
-        "Keep external actions behind approval"
+        "Импортировать одну роль как reference, а не policy",
+        "Заменить personality claims на capabilities и acceptance tests",
+        "Оставить внешние действия за approval gate"
       ],
       "description": "Large collection of specialized agent-role templates for planning, delivery and review workflows.",
       "features": [
@@ -37274,15 +37276,15 @@
         "Prompts",
         "Orchestration"
       ],
-      "verifiedAt": "2026-08-22",
+      "verifiedAt": "2026-08-25",
       "reviewStatus": "verified",
       "source": {
-        "file": "User community materials intake 2026-08-22",
-        "line": null,
-        "category": "Community prompt and replacement pack",
-        "subcategory": "Specialist agent templates"
+        "file": "guides/august-2026-sovereign-agents-media-radar.md",
+        "line": 1,
+        "category": "News verification",
+        "subcategory": "Agents, local tools and media production"
       },
-      "guide": "community-agent-prompt-library-review-2026-08-22",
+      "guide": "august-2026-sovereign-agents-media-radar",
       "addedAt": "2026-08-22"
     },
     {
@@ -38637,6 +38639,1584 @@
         "line": 1,
         "category": "AI Agents & Production",
         "subcategory": "Проверенные источники и Eclipse rollout"
+      }
+    },
+    {
+      "id": "block-buzz-agent-workspace",
+      "url": "https://github.com/block/buzz",
+      "title": "Buzz by Block",
+      "type": "tool",
+      "category": "AI Office & Collaboration",
+      "subcategory": "Human-agent workspace and signed event log",
+      "simpleDescription": "Self-hostable workspace от Block, где люди и AI-агенты общаются в каналах, работают с Git-событиями, workflows и общим audit log. Для Eclipse Chat и AI Office ценны подписанный event stream, отдельные agent identities и поиск по сообщениям, коду и действиям — не обещание установки за пять минут.",
+      "useCases": [
+        "Спроектировать единый event contract Eclipse Chat и AI Office",
+        "Добавить комнаты, memberships и аудит действий агентов",
+        "Связать Git-ветку, обсуждение, workflow и approvals"
+      ],
+      "features": [
+        "Nostr signed event log",
+        "Channels, threads and DMs",
+        "Agent CLI and ACP harness",
+        "Git events and workflows",
+        "Search and audit log"
+      ],
+      "platforms": [
+        "Self-host",
+        "Docker",
+        "Rust",
+        "Node.js",
+        "Desktop"
+      ],
+      "license": "Apache-2.0",
+      "licenseEvidence": [
+        {
+          "kind": "license",
+          "label": "Official Apache-2.0 license",
+          "url": "https://github.com/block/buzz/blob/main/LICENSE"
+        },
+        {
+          "kind": "source",
+          "label": "Official repository",
+          "url": "https://github.com/block/buzz"
+        }
+      ],
+      "pricing": "Open-source software; infrastructure, storage and connected model providers have separate costs.",
+      "access": {
+        "cost": "free",
+        "signup": "none",
+        "runtime": "self-host"
+      },
+      "trust": "official",
+      "trustReason": "Проверены repository, README, license и архитектурная документация 25.08.2026. Проект выпущен Block; персональное авторство Джека Дорси и обещание настройки за пять минут не подтверждены.",
+      "projects": [
+        "Eclipse Chat",
+        "Eclipse AI Office",
+        "Hopson Sentinel",
+        "Eclipse Library"
+      ],
+      "decision": "roadmap",
+      "riskLevel": "high",
+      "risks": [
+        "Ключи agent identities и журнал событий требуют строгого server-side хранения",
+        "Часть mobile/approval функций ещё развивается",
+        "Self-hosted relay, search, storage и Git integration расширяют attack surface"
+      ],
+      "quickStart": [
+        "Изучить event schemas и identity boundaries без установки полного стека",
+        "Собрать минимальный Eclipse event contract с signed receipts",
+        "Проверить room membership, replay, revocation и search isolation"
+      ],
+      "limitations": [
+        "Требует Docker и современный Rust/Node/pnpm toolchain",
+        "Не использовать 3D/UI слой как источник состояния"
+      ],
+      "audience": [
+        "Agent platform architects",
+        "Collaboration product teams"
+      ],
+      "relatedTechnologies": [
+        "Nostr",
+        "Event sourcing",
+        "ACP",
+        "Git workflows"
+      ],
+      "verifiedAt": "2026-08-25",
+      "addedAt": "2026-08-25",
+      "reviewStatus": "verified",
+      "guide": "august-2026-sovereign-agents-media-radar",
+      "source": {
+        "file": "guides/august-2026-sovereign-agents-media-radar.md",
+        "line": 1,
+        "category": "News verification",
+        "subcategory": "Agents, local tools and media production"
+      }
+    },
+    {
+      "id": "phone-number-osint-claims-warning",
+      "url": "https://github.com/spider863644/PhoneNumber-OSINT",
+      "title": "PhoneNumber-OSINT — проверка заявлений",
+      "type": "grey",
+      "category": "Security & Privacy",
+      "subcategory": "OSINT claims and doxxing risk",
+      "simpleDescription": "Небольшой MIT-скрипт на Python использует пакет phonenumbers для региона, оператора и часового пояса, а также извлекает номера из локального файла. В репозитории нет заявленного поиска по соцсетям, магазинам и мессенджерам; карточка сохранена как предупреждение о недостоверном описании и риске доксинга.",
+      "useCases": [
+        "Проверять завышенные OSINT-обещания по исходному коду",
+        "Обучать defensive privacy review",
+        "Показывать границу между metadata lookup и расследованием"
+      ],
+      "features": [
+        "phonenumbers geocoder",
+        "Carrier and timezone lookup",
+        "Phone extraction from local text"
+      ],
+      "platforms": [
+        "Python",
+        "CLI",
+        "Local"
+      ],
+      "license": "MIT",
+      "licenseEvidence": [
+        {
+          "kind": "license",
+          "label": "Official MIT license",
+          "url": "https://github.com/spider863644/PhoneNumber-OSINT/blob/main/LICENSE"
+        },
+        {
+          "kind": "source",
+          "label": "Official source code",
+          "url": "https://github.com/spider863644/PhoneNumber-OSINT"
+        }
+      ],
+      "pricing": "Repository is free; privacy, legal and platform-compliance costs are not removed by the license.",
+      "access": {
+        "cost": "free",
+        "signup": "none",
+        "runtime": "local"
+      },
+      "trust": "caution",
+      "trustReason": "Исходный код и зависимости проверены 25.08.2026. Telegram-описание существенно шире фактической реализации.",
+      "projects": [
+        "Eclipse Library",
+        "Hopson Sentinel"
+      ],
+      "decision": "no",
+      "riskLevel": "high",
+      "risks": [
+        "Доксинг, преследование и нарушение приватности",
+        "Ложное ожидание поиска по внешним платформам",
+        "README предлагает небезопасную системную установку зависимостей через sudo pip"
+      ],
+      "quickStart": [
+        "Не устанавливать в продукты",
+        "Для учебного анализа читать код без персональных номеров",
+        "Использовать только synthetic test data"
+      ],
+      "limitations": [
+        "Нет социального или messenger crawling",
+        "Не допущен к автоматическим рекомендациям и tools"
+      ],
+      "audience": [
+        "Security reviewers",
+        "Privacy educators"
+      ],
+      "relatedTechnologies": [
+        "phonenumbers",
+        "OSINT ethics",
+        "Privacy"
+      ],
+      "verifiedAt": "2026-08-25",
+      "addedAt": "2026-08-25",
+      "reviewStatus": "verified",
+      "guide": "august-2026-sovereign-agents-media-radar",
+      "source": {
+        "file": "guides/august-2026-sovereign-agents-media-radar.md",
+        "line": 1,
+        "category": "News verification",
+        "subcategory": "Agents, local tools and media production"
+      }
+    },
+    {
+      "id": "threeui-community-components",
+      "url": "https://github.com/MengTo/threeui",
+      "title": "ThreeUI Community",
+      "type": "tool",
+      "category": "Design & Frontend",
+      "subcategory": "Three.js components and motion references",
+      "simpleDescription": "MIT-набор Three.js/React-компонентов с 50 parent components, 111 routes и 164 бесплатными browse-results. Подходит как референс для Eclipse Library Animation Lab, landing и лёгкого Jarvis Presence, но не для плотных CRM/админ-интерфейсов; удалённые previews и Pro/Beta assets не покрываются лицензией community-кода.",
+      "useCases": [
+        "Расширить Animation Lab проверяемыми 3D-паттернами",
+        "Создать выразительные hero и case transitions",
+        "Добавить лёгкое ambient-присутствие Jarvis"
+      ],
+      "features": [
+        "Three.js components",
+        "React routes",
+        "Shaders and 3D scenes",
+        "Community source code"
+      ],
+      "platforms": [
+        "Web",
+        "React",
+        "Three.js",
+        "Next.js"
+      ],
+      "license": "MIT for Community code; OFL fonts; remote catalog media and Pro/Beta assets excluded",
+      "licenseEvidence": [
+        {
+          "kind": "license",
+          "label": "Official MIT license",
+          "url": "https://github.com/MengTo/threeui/blob/main/LICENSE"
+        },
+        {
+          "kind": "license",
+          "label": "Official asset license notes",
+          "url": "https://github.com/MengTo/threeui/blob/main/ASSET-LICENSES.md"
+        }
+      ],
+      "pricing": "Community source is free; Pro/Beta products, remote assets and hosting have separate terms.",
+      "access": {
+        "cost": "freemium",
+        "signup": "none",
+        "runtime": "local"
+      },
+      "trust": "official",
+      "trustReason": "README, license and asset provenance notes проверены 25.08.2026; количество относится к community browse-results, а не ко всем коммерческим компонентам.",
+      "projects": [
+        "Eclipse Library",
+        "Eclipse Forge Website",
+        "Eclipse Chat",
+        "Jarvis Presence"
+      ],
+      "decision": "roadmap",
+      "riskLevel": "medium",
+      "risks": [
+        "GPU cost и jank на слабых устройствах",
+        "Motion может мешать accessibility и reduced-motion",
+        "Remote thumbnails/previews нельзя автоматически перераспространять"
+      ],
+      "quickStart": [
+        "Выбрать один паттерн без внешних assets",
+        "Проверить mobile fallback, focus и reduced-motion",
+        "Измерить FPS, bundle size и GPU memory перед переносом"
+      ],
+      "limitations": [
+        "Не использовать для dense operational UI",
+        "Pro/Beta и remote assets требуют отдельного разрешения"
+      ],
+      "audience": [
+        "Frontend teams",
+        "Motion designers"
+      ],
+      "relatedTechnologies": [
+        "Three.js",
+        "React Three Fiber",
+        "Shaders",
+        "WebGL"
+      ],
+      "verifiedAt": "2026-08-25",
+      "addedAt": "2026-08-25",
+      "reviewStatus": "verified",
+      "guide": "august-2026-sovereign-agents-media-radar",
+      "source": {
+        "file": "guides/august-2026-sovereign-agents-media-radar.md",
+        "line": 1,
+        "category": "News verification",
+        "subcategory": "Agents, local tools and media production"
+      }
+    },
+    {
+      "id": "rampstack-claude-skills-catalog",
+      "url": "https://github.com/rampstackco/claude-skills",
+      "title": "Rampstack Claude Skills",
+      "type": "skill",
+      "category": "Skills & Agents",
+      "subcategory": "Curated skill catalog",
+      "simpleDescription": "MIT-каталог из 103 заявленных Claude skills, где каждый навык оформлен через SKILL.md и справочные материалы. Для Eclipse полезен как источник кандидатов в Capability Registry, но полный каталог нельзя устанавливать автоматически: каждый skill требует pin, permission review, dependency scan и sandbox test.",
+      "useCases": [
+        "Пополнить проверяемый каталог навыков Eclipse Library",
+        "Сформировать capability registry Eclipse AI Hub",
+        "Сравнить skill contracts и dependency declarations"
+      ],
+      "features": [
+        "103 documented skills",
+        "SKILL.md contracts",
+        "Curated subsets",
+        "Claude plugin marketplace"
+      ],
+      "platforms": [
+        "Claude Code",
+        "Markdown",
+        "GitHub"
+      ],
+      "license": "MIT",
+      "licenseEvidence": [
+        {
+          "kind": "license",
+          "label": "Official MIT license",
+          "url": "https://github.com/rampstackco/claude-skills/blob/main/LICENSE"
+        },
+        {
+          "kind": "source",
+          "label": "Official repository",
+          "url": "https://github.com/rampstackco/claude-skills"
+        }
+      ],
+      "pricing": "Repository is free; model calls, APIs and tools invoked by individual skills have separate costs.",
+      "access": {
+        "cost": "free",
+        "signup": "none",
+        "runtime": "local"
+      },
+      "trust": "community",
+      "trustReason": "Canonical repository, catalog claims and MIT license checked 25.08.2026. Presence in the catalog is not a security audit of every skill.",
+      "projects": [
+        "Eclipse Library",
+        "Eclipse AI Hub",
+        "Eclipse Chat",
+        "Hopson Sentinel"
+      ],
+      "decision": "roadmap",
+      "riskLevel": "high",
+      "risks": [
+        "Skills may request network, secrets or broad filesystem access",
+        "Remote instructions and install scripts can change",
+        "Bulk installation hides transitive dependencies and privilege overlap"
+      ],
+      "quickStart": [
+        "Select one skill for a concrete gap",
+        "Pin commit and inspect all referenced files",
+        "Run with synthetic data and deny-by-default permissions"
+      ],
+      "limitations": [
+        "No bulk auto-install",
+        "No production credentials during evaluation"
+      ],
+      "audience": [
+        "Agent platform teams",
+        "Skill reviewers"
+      ],
+      "relatedTechnologies": [
+        "Claude Code",
+        "SKILL.md",
+        "Capability registry"
+      ],
+      "verifiedAt": "2026-08-25",
+      "addedAt": "2026-08-25",
+      "reviewStatus": "verified",
+      "guide": "august-2026-sovereign-agents-media-radar",
+      "source": {
+        "file": "guides/august-2026-sovereign-agents-media-radar.md",
+        "line": 1,
+        "category": "News verification",
+        "subcategory": "Agents, local tools and media production"
+      }
+    },
+    {
+      "id": "robotics-coursework-learning-index",
+      "url": "https://github.com/mithi/robotics-coursework",
+      "title": "Robotics Coursework",
+      "type": "learn",
+      "category": "Learning & Robotics",
+      "subcategory": "Curated robotics curriculum",
+      "simpleDescription": "Unlicense-индекс ссылок на университетские курсы, лекции, симуляторы, книги и DIY-проекты по робототехнике. Это не архив всех материалов MIT, Stanford и CMU: linked courses живут на внешних площадках и имеют собственные лицензии, цены и доступность.",
+      "useCases": [
+        "Собрать curriculum map для Educator-AI",
+        "Подготовить simulation и robotics backlog Jarvis",
+        "Выбрать последовательность SLAM, control и manipulation topics"
+      ],
+      "features": [
+        "University course index",
+        "Video lectures",
+        "Books and simulators",
+        "DIY and prototyping links"
+      ],
+      "platforms": [
+        "Web",
+        "GitHub",
+        "External learning platforms"
+      ],
+      "license": "Unlicense for the index; linked resources have separate terms",
+      "licenseEvidence": [
+        {
+          "kind": "license",
+          "label": "Repository Unlicense",
+          "url": "https://github.com/mithi/robotics-coursework/blob/master/LICENSE"
+        },
+        {
+          "kind": "source",
+          "label": "Official repository",
+          "url": "https://github.com/mithi/robotics-coursework"
+        }
+      ],
+      "pricing": "The index is free; external courses, books, hardware and platforms may be paid or unavailable by region.",
+      "access": {
+        "cost": "free",
+        "signup": "optional",
+        "runtime": "cloud"
+      },
+      "trust": "community",
+      "trustReason": "Repository structure and license checked 25.08.2026. Each linked course remains an independent source requiring a current availability and license check.",
+      "projects": [
+        "Educator-AI",
+        "Hopson Sentinel",
+        "Eclipse Library"
+      ],
+      "decision": "reference",
+      "riskLevel": "low",
+      "risks": [
+        "External links can disappear or change terms",
+        "Course order is curated opinion, not accreditation",
+        "Hardware projects carry physical and electrical risks"
+      ],
+      "quickStart": [
+        "Choose a learning goal and prerequisites",
+        "Verify each external source and license",
+        "Use simulation before physical hardware"
+      ],
+      "limitations": [
+        "No bundled university course files",
+        "No runtime component for Eclipse products"
+      ],
+      "audience": [
+        "Learners",
+        "Educator-AI authors",
+        "Robotics researchers"
+      ],
+      "relatedTechnologies": [
+        "SLAM",
+        "Control systems",
+        "ROS",
+        "Simulation"
+      ],
+      "verifiedAt": "2026-08-25",
+      "addedAt": "2026-08-25",
+      "reviewStatus": "verified",
+      "guide": "august-2026-sovereign-agents-media-radar",
+      "source": {
+        "file": "guides/august-2026-sovereign-agents-media-radar.md",
+        "line": 1,
+        "category": "News verification",
+        "subcategory": "Agents, local tools and media production"
+      }
+    },
+    {
+      "id": "wangp-local-media-worker",
+      "url": "https://github.com/deepbeepmeep/Wan2GP",
+      "title": "WanGP (formerly Wan2GP)",
+      "type": "media",
+      "category": "AI Media",
+      "subcategory": "Local video and image generation worker",
+      "simpleDescription": "Локальный web/headless worker для video, image и audio pipelines: очереди, API, LoRA, mask tools и несколько model families. Формулировка «работает на 6 ГБ ОЗУ» неверна — для некоторых конфигураций заявлено 6 ГБ VRAM; коммерческое embedding, SaaS, API и white-label ограничены отдельной WanGP Community License.",
+      "useCases": [
+        "Пилот локальной генерации для Eclipse Media",
+        "Headless worker для Shotforge в изолированной среде",
+        "Сравнить video models и VRAM profiles"
+      ],
+      "features": [
+        "Text-to-video and image-to-video",
+        "Queue and web UI",
+        "Headless mode and API",
+        "LoRA",
+        "Prompt and mask tools"
+      ],
+      "platforms": [
+        "Python",
+        "Web UI",
+        "NVIDIA GPU",
+        "Local"
+      ],
+      "license": "WanGP Community License 2.0; third-party models and weights have separate licenses",
+      "licenseEvidence": [
+        {
+          "kind": "license",
+          "label": "Official WanGP Community License 2.0",
+          "url": "https://github.com/deepbeepmeep/Wan2GP/blob/main/LICENSE.txt"
+        },
+        {
+          "kind": "source",
+          "label": "Official repository",
+          "url": "https://github.com/deepbeepmeep/Wan2GP"
+        }
+      ],
+      "pricing": "Free for permitted local use; infrastructure, model downloads and commercial product embedding may require separate licenses and costs.",
+      "access": {
+        "cost": "freemium",
+        "signup": "none",
+        "runtime": "local"
+      },
+      "trust": "official",
+      "trustReason": "Canonical repository, current WanGP branding and custom license checked 25.08.2026. Hardware claims are model-specific, not a universal minimum.",
+      "projects": [
+        "Eclipse Media",
+        "Shotforge",
+        "Eclipse AI Hub",
+        "Eclipse Library"
+      ],
+      "decision": "roadmap",
+      "riskLevel": "high",
+      "risks": [
+        "Commercial embedding and hosted use require separate permission",
+        "Large model weights and GPU workloads create supply-chain and resource risks",
+        "Generated media needs provenance, rights and safety review"
+      ],
+      "quickStart": [
+        "Confirm product use against the custom license",
+        "Select one model and pin all weights/checksums",
+        "Run offline with synthetic inputs and explicit VRAM/disk limits"
+      ],
+      "limitations": [
+        "6 GB refers to select VRAM configurations, not all pipelines",
+        "Do not ship as paid service without commercial permission"
+      ],
+      "audience": [
+        "Local AI media teams",
+        "GPU workflow evaluators"
+      ],
+      "relatedTechnologies": [
+        "Wan",
+        "LTX",
+        "Hunyuan Video",
+        "Flux",
+        "LoRA"
+      ],
+      "verifiedAt": "2026-08-25",
+      "addedAt": "2026-08-25",
+      "reviewStatus": "verified",
+      "guide": "august-2026-sovereign-agents-media-radar",
+      "source": {
+        "file": "guides/august-2026-sovereign-agents-media-radar.md",
+        "line": 1,
+        "category": "News verification",
+        "subcategory": "Agents, local tools and media production"
+      }
+    },
+    {
+      "id": "opengym-local-first-fitness",
+      "url": "https://opengym.duarte-santos.ch/",
+      "title": "openGym",
+      "type": "oss",
+      "category": "Personal Data & Health",
+      "subcategory": "Local-first fitness tracking",
+      "simpleDescription": "AGPL-3.0 fitness application с 1 324 упражнениями, Android client, self-hosted Docker, passkeys, export/import и offline-first data model. Для Jarvis интересны владение персональными данными и read-only MCP, но health records нельзя смешивать с общими чат-логами или превращать аналитику в медицинский диагноз.",
+      "useCases": [
+        "Спроектировать local-first Personal Health модуль",
+        "Добавить read-only fitness connector Jarvis",
+        "Изучить passkeys, export/import и offline sync"
+      ],
+      "features": [
+        "1,324 exercises",
+        "Self-hosted Docker",
+        "Android app",
+        "Passkeys",
+        "Export and import",
+        "Optional read-only MCP"
+      ],
+      "platforms": [
+        "Web",
+        "Android",
+        "Docker",
+        "Self-host"
+      ],
+      "license": "AGPL-3.0; linked data and platform components may have separate terms",
+      "licenseEvidence": [
+        {
+          "kind": "source",
+          "label": "Official project site and canonical GitLab link",
+          "url": "https://opengym.duarte-santos.ch/"
+        },
+        {
+          "kind": "license",
+          "label": "Canonical GitLab repository",
+          "url": "https://gitlab.com/DuarteSantos8/opengym"
+        }
+      ],
+      "pricing": "Self-hosted software is free; hosting, backups, app distribution and optional providers have separate costs.",
+      "access": {
+        "cost": "free",
+        "signup": "optional",
+        "runtime": "hybrid"
+      },
+      "trust": "official",
+      "trustReason": "Official site, replacement GitLab repository, feature list and AGPL license checked 25.08.2026 after the original GitHub account suspension.",
+      "projects": [
+        "Hopson Sentinel",
+        "Jarvis Presence",
+        "Eclipse Library"
+      ],
+      "decision": "reference",
+      "riskLevel": "high",
+      "risks": [
+        "Fitness history is sensitive personal data",
+        "AGPL network copyleft affects product integration",
+        "Training analytics can be mistaken for medical guidance"
+      ],
+      "quickStart": [
+        "Study export schema and read-only MCP boundaries",
+        "Design separate encrypted health vault and consent",
+        "Use synthetic data for all prototypes"
+      ],
+      "limitations": [
+        "No medical diagnosis",
+        "Do not place health data in shared Office or Chat telemetry"
+      ],
+      "audience": [
+        "Local-first product teams",
+        "Privacy architects"
+      ],
+      "relatedTechnologies": [
+        "PWA",
+        "Passkeys",
+        "Docker",
+        "MCP"
+      ],
+      "verifiedAt": "2026-08-25",
+      "addedAt": "2026-08-25",
+      "reviewStatus": "verified",
+      "guide": "august-2026-sovereign-agents-media-radar",
+      "source": {
+        "file": "guides/august-2026-sovereign-agents-media-radar.md",
+        "line": 1,
+        "category": "News verification",
+        "subcategory": "Agents, local tools and media production"
+      }
+    },
+    {
+      "id": "render-free-demo-hosting",
+      "url": "https://render.com/",
+      "title": "Render Free Resources",
+      "type": "tool",
+      "category": "Infrastructure",
+      "subcategory": "Disposable demos and previews",
+      "simpleDescription": "Cloud hosting с бесплатными ресурсами для demos и учебных приложений: в Hobby workspace заявлены до 25 services, 5 GB outbound bandwidth, 500 build minutes и 2 custom domains. Free web services засыпают после 15 минут простоя, filesystem временный, а free Postgres удаляется через 30 дней, поэтому это не production-платформа Eclipse.",
+      "useCases": [
+        "Публиковать disposable demos Educator-AI",
+        "Создавать временные preview environments",
+        "Проверять небольшой stateless MVP без карты"
+      ],
+      "features": [
+        "Free web services",
+        "Preview deployments",
+        "Custom domains",
+        "Managed databases with strict free limits"
+      ],
+      "platforms": [
+        "Cloud",
+        "Docker",
+        "Web services",
+        "Static sites"
+      ],
+      "license": "Proprietary hosted service governed by Render terms",
+      "licenseEvidence": [
+        {
+          "kind": "source",
+          "label": "Official free resources documentation",
+          "url": "https://render.com/docs/free"
+        },
+        {
+          "kind": "terms",
+          "label": "Official workspace plan limits",
+          "url": "https://render.com/docs/new-workspace-plans"
+        }
+      ],
+      "pricing": "Free resources have strict limits; paid usage begins when resources, bandwidth or features exceed the free plan.",
+      "access": {
+        "cost": "freemium",
+        "signup": "required",
+        "runtime": "cloud"
+      },
+      "trust": "official",
+      "trustReason": "Official free-resource and workspace-limit documentation checked 25.08.2026. Render explicitly says free instances are not for production applications.",
+      "projects": [
+        "Educator-AI",
+        "Eclipse Library",
+        "Eclipse Forge Website"
+      ],
+      "decision": "reference",
+      "riskLevel": "medium",
+      "risks": [
+        "Cold starts and sleep break latency expectations",
+        "Ephemeral storage can lose local data",
+        "Free Postgres expires after 30 days",
+        "Cloud deployment can expose test data or secrets"
+      ],
+      "quickStart": [
+        "Use only stateless demo with synthetic data",
+        "Store no production secrets or customer records",
+        "Set teardown date and export path before deploy"
+      ],
+      "limitations": [
+        "Not for production workloads",
+        "No durable filesystem on free web service"
+      ],
+      "audience": [
+        "Educators",
+        "Prototype teams"
+      ],
+      "relatedTechnologies": [
+        "PaaS",
+        "Preview environments",
+        "Docker"
+      ],
+      "verifiedAt": "2026-08-25",
+      "addedAt": "2026-08-25",
+      "reviewStatus": "verified",
+      "guide": "august-2026-sovereign-agents-media-radar",
+      "source": {
+        "file": "guides/august-2026-sovereign-agents-media-radar.md",
+        "line": 1,
+        "category": "News verification",
+        "subcategory": "Agents, local tools and media production"
+      }
+    },
+    {
+      "id": "graft-code-context-engine",
+      "url": "https://github.com/trailhq/Graft",
+      "title": "Graft",
+      "type": "tool",
+      "category": "Developer Agents",
+      "subcategory": "Local code architecture and semantic cache",
+      "simpleDescription": "MIT-инструмент, который строит локальную архитектурную и символьную карту репозитория и подключается к coding agents. Заявления о скорости и экономии — собственный benchmark проекта, а не независимое подтверждение; для Eclipse нужен head-to-head пилот с Codebase Memory MCP и baseline.",
+      "useCases": [
+        "Уменьшить повторное чтение репозитория агентами",
+        "Дать Jarvis архитектурную карту кода",
+        "Сравнить impact analysis и navigation quality"
+      ],
+      "features": [
+        "Local code graph",
+        "Agent configuration and hooks",
+        "Dry-run mode",
+        "Regenerable cache"
+      ],
+      "platforms": [
+        "CLI",
+        "Local",
+        "Coding agents",
+        "Git repositories"
+      ],
+      "license": "MIT",
+      "licenseEvidence": [
+        {
+          "kind": "license",
+          "label": "Official MIT license",
+          "url": "https://github.com/trailhq/Graft/blob/main/LICENSE"
+        },
+        {
+          "kind": "source",
+          "label": "Canonical repository after redirect",
+          "url": "https://github.com/trailhq/Graft"
+        }
+      ],
+      "pricing": "Open-source repository is free; connected model providers and development infrastructure have separate costs.",
+      "access": {
+        "cost": "free",
+        "signup": "optional",
+        "runtime": "local"
+      },
+      "trust": "community",
+      "trustReason": "Canonical redirect, README, license and benchmark wording checked 25.08.2026. Performance numbers are publisher-produced and require reproduction on Eclipse repositories.",
+      "projects": [
+        "Eclipse Chat",
+        "Eclipse AI Office",
+        "Hopson Sentinel",
+        "Eclipse AI Hub"
+      ],
+      "decision": "roadmap",
+      "riskLevel": "high",
+      "risks": [
+        "Tool reads code and may write agent configuration/hooks",
+        "Telemetry and generated summaries require privacy review",
+        "Index may include secrets, dumps or proprietary code without an allowlist"
+      ],
+      "quickStart": [
+        "Pin a revision and run dry-run on a synthetic repository",
+        "Exclude secrets, generated files and user uploads",
+        "Benchmark 20 versioned tasks against baseline and Codebase Memory MCP"
+      ],
+      "limitations": [
+        "Publisher benchmarks are not independent",
+        "Generated summaries are cache, not source of truth"
+      ],
+      "audience": [
+        "Developer-tool teams",
+        "Agent runtime architects"
+      ],
+      "relatedTechnologies": [
+        "Code graph",
+        "Semantic cache",
+        "Agent hooks"
+      ],
+      "verifiedAt": "2026-08-25",
+      "addedAt": "2026-08-25",
+      "reviewStatus": "verified",
+      "guide": "august-2026-sovereign-agents-media-radar",
+      "source": {
+        "file": "guides/august-2026-sovereign-agents-media-radar.md",
+        "line": 1,
+        "category": "News verification",
+        "subcategory": "Agents, local tools and media production"
+      }
+    },
+    {
+      "id": "codebase-memory-mcp-local-graph",
+      "url": "https://github.com/DeusData/codebase-memory-mcp",
+      "title": "Codebase Memory MCP",
+      "type": "tool",
+      "category": "Developer Agents",
+      "subcategory": "Deterministic local code graph",
+      "simpleDescription": "MIT single-binary MCP server, который индексирует код локально через tree-sitter и предоставляет 15 структурных tools. Поддержка 158 языков относится к programming grammars, а заявления о 99%, 120× и 10× экономии конфликтуют между материалами проекта, поэтому Eclipse должен проверить accuracy, latency и tokens самостоятельно.",
+      "useCases": [
+        "Структурный context adapter Eclipse Chat",
+        "Code knowledge graph для AI Office engineering",
+        "Impact analysis и навигация Jarvis"
+      ],
+      "features": [
+        "158 tree-sitter grammars",
+        "15 MCP tools",
+        "Local single binary",
+        "Optional LSP hybrid",
+        "No API key required"
+      ],
+      "platforms": [
+        "MCP",
+        "Local",
+        "Native binary",
+        "Coding agents"
+      ],
+      "license": "MIT",
+      "licenseEvidence": [
+        {
+          "kind": "license",
+          "label": "Official MIT license",
+          "url": "https://github.com/DeusData/codebase-memory-mcp/blob/main/LICENSE"
+        },
+        {
+          "kind": "source",
+          "label": "Official repository",
+          "url": "https://github.com/DeusData/codebase-memory-mcp"
+        }
+      ],
+      "pricing": "Open-source binary is free; local compute, storage and connected agents have separate costs.",
+      "access": {
+        "cost": "free",
+        "signup": "none",
+        "runtime": "local"
+      },
+      "trust": "community",
+      "trustReason": "Repository, license, tool list and supply-chain claims checked 25.08.2026. Claimed token reductions are inconsistent and treated only as publisher benchmarks.",
+      "projects": [
+        "Eclipse Chat",
+        "Eclipse AI Office",
+        "Hopson Sentinel",
+        "Eclipse AI Hub"
+      ],
+      "decision": "roadmap",
+      "riskLevel": "high",
+      "risks": [
+        "Prebuilt binary requires checksum, signature and provenance verification",
+        "Repository index can expose secrets or user data",
+        "Language coverage is parsing coverage, not equal semantic quality"
+      ],
+      "quickStart": [
+        "Pin release and verify checksum/attestation",
+        "Index a synthetic repository in an isolated directory",
+        "Run the same benchmark suite as Graft and baseline"
+      ],
+      "limitations": [
+        "LSP depth exists only for supported subsets",
+        "Marketing reduction numbers are not accepted as fact"
+      ],
+      "audience": [
+        "Developer-agent teams",
+        "MCP security reviewers"
+      ],
+      "relatedTechnologies": [
+        "tree-sitter",
+        "MCP",
+        "LSP",
+        "Knowledge graph"
+      ],
+      "verifiedAt": "2026-08-25",
+      "addedAt": "2026-08-25",
+      "reviewStatus": "verified",
+      "guide": "august-2026-sovereign-agents-media-radar",
+      "source": {
+        "file": "guides/august-2026-sovereign-agents-media-radar.md",
+        "line": 1,
+        "category": "News verification",
+        "subcategory": "Agents, local tools and media production"
+      }
+    },
+    {
+      "id": "openmontage-agent-video-studio",
+      "url": "https://github.com/calesthio/OpenMontage",
+      "title": "OpenMontage",
+      "type": "media",
+      "category": "AI Media",
+      "subcategory": "Agent-driven video workflow",
+      "simpleDescription": "AGPL-3.0 конвейер для research, сценариев, ассетов, монтажа и рендеринга с большим набором tools и skills. Для Eclipse Media это сильный архитектурный reference по состояниям pipeline и provenance, но прямое серверное или закрытое встраивание требует AGPL/commercial review и проверки прав на каждый источник медиа.",
+      "useCases": [
+        "Спроектировать pipeline state Eclipse Media",
+        "Собрать Shotforge storyboard-to-render workflow",
+        "Ввести provenance и rights receipts для ассетов"
+      ],
+      "features": [
+        "Research-to-render pipelines",
+        "Script and storyboard",
+        "Asset discovery and generation",
+        "Editing and rendering",
+        "Agent skills"
+      ],
+      "platforms": [
+        "CLI",
+        "Python",
+        "FFmpeg",
+        "Cloud APIs"
+      ],
+      "license": "AGPL-3.0; media providers and generated assets have separate terms",
+      "licenseEvidence": [
+        {
+          "kind": "license",
+          "label": "Official AGPL-3.0 license",
+          "url": "https://github.com/calesthio/OpenMontage/blob/main/LICENSE"
+        },
+        {
+          "kind": "source",
+          "label": "Official repository",
+          "url": "https://github.com/calesthio/OpenMontage"
+        }
+      ],
+      "pricing": "Repository is free; stock, model providers, storage and rendering have separate costs. Cost claims in the README are publisher estimates.",
+      "access": {
+        "cost": "freemium",
+        "signup": "optional",
+        "runtime": "hybrid"
+      },
+      "trust": "community",
+      "trustReason": "Canonical repository and AGPL license checked 25.08.2026. Quality and cost claims remain project-produced and depend on providers and source rights.",
+      "projects": [
+        "Eclipse Media",
+        "Shotforge",
+        "Eclipse Library"
+      ],
+      "decision": "reference",
+      "riskLevel": "high",
+      "risks": [
+        "AGPL network copyleft affects product architecture",
+        "Downloaded/generated media may lack redistribution rights",
+        "Provider keys and remote content expand SSRF and supply-chain risk"
+      ],
+      "quickStart": [
+        "Model only the pipeline state machine first",
+        "Require provenance and license evidence for every asset",
+        "Run provider integrations in a quota-limited sandbox"
+      ],
+      "limitations": [
+        "No direct closed-source embedding without license review",
+        "Publisher quality/cost estimates are not guarantees"
+      ],
+      "audience": [
+        "AI media platform teams",
+        "Video workflow architects"
+      ],
+      "relatedTechnologies": [
+        "FFmpeg",
+        "Agents",
+        "Storyboards",
+        "Media provenance"
+      ],
+      "verifiedAt": "2026-08-25",
+      "addedAt": "2026-08-25",
+      "reviewStatus": "verified",
+      "guide": "august-2026-sovereign-agents-media-radar",
+      "source": {
+        "file": "guides/august-2026-sovereign-agents-media-radar.md",
+        "line": 1,
+        "category": "News verification",
+        "subcategory": "Agents, local tools and media production"
+      }
+    },
+    {
+      "id": "orca-multi-agent-development-environment",
+      "url": "https://github.com/stablyai/orca",
+      "title": "Orca",
+      "type": "tool",
+      "category": "Developer Agents",
+      "subcategory": "Parallel agent worktrees and review",
+      "simpleDescription": "MIT agentic development environment для параллельной работы Codex, Claude, OpenCode и Pi в изолированных Git worktrees, с diff review, follow-up и mobile/remote наблюдением. Для AI Office особенно ценна понятная модель «задача → worktree → проверка → выбор → merge», но shell, SSH, sessions и secrets требуют отдельного аудита.",
+      "useCases": [
+        "Изолировать задачи AI Office engineering agents",
+        "Сравнивать несколько решений одной задачи",
+        "Показывать progress, diff и approvals в Jarvis Control"
+      ],
+      "features": [
+        "Parallel coding agents",
+        "Git worktrees",
+        "Diff annotations",
+        "Mobile companion",
+        "SSH worktrees",
+        "Design mode"
+      ],
+      "platforms": [
+        "Desktop",
+        "Mobile",
+        "VPS",
+        "Git",
+        "SSH"
+      ],
+      "license": "MIT",
+      "licenseEvidence": [
+        {
+          "kind": "license",
+          "label": "Official MIT license",
+          "url": "https://github.com/stablyai/orca/blob/main/LICENSE"
+        },
+        {
+          "kind": "source",
+          "label": "Official repository",
+          "url": "https://github.com/stablyai/orca"
+        }
+      ],
+      "pricing": "Open-source application is free; model subscriptions, remote hosts and connected services have separate costs.",
+      "access": {
+        "cost": "free",
+        "signup": "optional",
+        "runtime": "hybrid"
+      },
+      "trust": "community",
+      "trustReason": "Canonical repository, README and MIT license checked 25.08.2026. Agent isolation claims need runtime validation around filesystem, shell, SSH and account sessions.",
+      "projects": [
+        "Eclipse AI Office",
+        "Eclipse Chat",
+        "Hopson Sentinel",
+        "Eclipse AI Hub"
+      ],
+      "decision": "roadmap",
+      "riskLevel": "high",
+      "risks": [
+        "Shell and SSH access can exceed task scope",
+        "Worktree isolation does not isolate credentials or network by itself",
+        "Parallel agents can race on shared services and budgets"
+      ],
+      "quickStart": [
+        "Prototype one task per worktree with read-only default",
+        "Add diff checks and explicit merge approval",
+        "Separate credentials and network policy per worker"
+      ],
+      "limitations": [
+        "Worktree is not a security sandbox",
+        "Do not copy account/session handling without audit"
+      ],
+      "audience": [
+        "AI Office teams",
+        "Developer experience architects"
+      ],
+      "relatedTechnologies": [
+        "Git worktrees",
+        "Coding agents",
+        "SSH",
+        "Diff review"
+      ],
+      "verifiedAt": "2026-08-25",
+      "addedAt": "2026-08-25",
+      "reviewStatus": "verified",
+      "guide": "august-2026-sovereign-agents-media-radar",
+      "source": {
+        "file": "guides/august-2026-sovereign-agents-media-radar.md",
+        "line": 1,
+        "category": "News verification",
+        "subcategory": "Agents, local tools and media production"
+      }
+    },
+    {
+      "id": "fakecam-deceptive-presence-warning",
+      "url": "https://www.fakecam.net/",
+      "title": "FakeCam — deceptive presence warning",
+      "type": "grey",
+      "category": "Ethics & Privacy",
+      "subcategory": "Virtual camera misuse",
+      "simpleDescription": "Проприетарная virtual camera utility для Windows, продвигаемая в новости как способ скрытно покинуть встречу. Такой сценарий имитирует присутствие и вводит участников в заблуждение, поэтому Eclipse не интегрирует продукт; безопасная альтернатива — честный статус перерыва или недоступности.",
+      "useCases": [
+        "Обучать product ethics review",
+        "Спроектировать прозрачный break/status режим",
+        "Фиксировать rejected patterns в библиотеке"
+      ],
+      "features": [
+        "Virtual camera",
+        "Looped camera media",
+        "Windows application"
+      ],
+      "platforms": [
+        "Windows",
+        "Video meeting apps"
+      ],
+      "license": "Proprietary; website terms and third-party meeting policies apply",
+      "licenseEvidence": [
+        {
+          "kind": "terms",
+          "label": "Official website",
+          "url": "https://www.fakecam.net/"
+        }
+      ],
+      "pricing": "Proprietary product; current pricing and availability are controlled by the vendor.",
+      "access": {
+        "cost": "unknown",
+        "signup": "unknown",
+        "runtime": "local"
+      },
+      "trust": "caution",
+      "trustReason": "Official website checked 25.08.2026. It is not an open-source repository, and the deceptive meeting scenario comes from the news post rather than an acceptable Eclipse use case.",
+      "projects": [
+        "Eclipse Library",
+        "Eclipse Chat"
+      ],
+      "decision": "no",
+      "riskLevel": "high",
+      "risks": [
+        "Deception of coworkers or customers",
+        "Violation of employer and platform policies",
+        "Camera access and local video privacy"
+      ],
+      "quickStart": [
+        "Do not install for Eclipse workflows",
+        "Use a visible availability status instead",
+        "Require explicit disclosure for any prerecorded presence"
+      ],
+      "limitations": [
+        "Not open source",
+        "Blocked from agent recommendations"
+      ],
+      "audience": [
+        "Product ethics reviewers",
+        "Collaboration teams"
+      ],
+      "relatedTechnologies": [
+        "Virtual camera",
+        "Meeting transparency"
+      ],
+      "verifiedAt": "2026-08-25",
+      "addedAt": "2026-08-25",
+      "reviewStatus": "verified",
+      "guide": "august-2026-sovereign-agents-media-radar",
+      "source": {
+        "file": "guides/august-2026-sovereign-agents-media-radar.md",
+        "line": 1,
+        "category": "News verification",
+        "subcategory": "Agents, local tools and media production"
+      }
+    },
+    {
+      "id": "camloop-deceptive-presence-warning",
+      "url": "https://camloop.app/",
+      "title": "CamLoop — disclosure required",
+      "type": "grey",
+      "category": "Ethics & Privacy",
+      "subcategory": "Virtual camera misuse",
+      "simpleDescription": "Проприетарная macOS virtual camera utility для loops и prerecorded video. Новостной сценарий «незаметно сбежать с созвона» неприемлем: условия CamLoop возлагают на пользователя ответственность за раскрытие и соблюдение правил организации и платформы, поэтому Eclipse сохраняет только предупреждающую карточку.",
+      "useCases": [
+        "Обучать disclosure и consent review",
+        "Проектировать честный availability workflow",
+        "Сравнивать marketing claim с official terms"
+      ],
+      "features": [
+        "Virtual camera",
+        "Prerecorded loops",
+        "macOS application"
+      ],
+      "platforms": [
+        "macOS",
+        "Video meeting apps"
+      ],
+      "license": "Proprietary; CamLoop terms and privacy policy apply",
+      "licenseEvidence": [
+        {
+          "kind": "terms",
+          "label": "Official terms",
+          "url": "https://camloop.app/terms"
+        },
+        {
+          "kind": "privacy",
+          "label": "Official privacy policy",
+          "url": "https://camloop.app/privacy"
+        }
+      ],
+      "pricing": "Proprietary product; current pricing and availability are controlled by the vendor.",
+      "access": {
+        "cost": "unknown",
+        "signup": "unknown",
+        "runtime": "local"
+      },
+      "trust": "caution",
+      "trustReason": "Official website, terms and privacy policy checked 25.08.2026. The tool is not open source and its terms do not remove disclosure obligations.",
+      "projects": [
+        "Eclipse Library",
+        "Eclipse Chat"
+      ],
+      "decision": "no",
+      "riskLevel": "high",
+      "risks": [
+        "Deceptive presence and consent violations",
+        "Platform or workplace policy violations",
+        "Sensitive camera media handling"
+      ],
+      "quickStart": [
+        "Do not integrate",
+        "Use explicit status and scheduled break features",
+        "Disclose prerecorded media where legitimate use is allowed"
+      ],
+      "limitations": [
+        "Not open source",
+        "Blocked from automated recommendations"
+      ],
+      "audience": [
+        "Product ethics reviewers",
+        "Privacy teams"
+      ],
+      "relatedTechnologies": [
+        "Virtual camera",
+        "Consent",
+        "Workplace policy"
+      ],
+      "verifiedAt": "2026-08-25",
+      "addedAt": "2026-08-25",
+      "reviewStatus": "verified",
+      "guide": "august-2026-sovereign-agents-media-radar",
+      "source": {
+        "file": "guides/august-2026-sovereign-agents-media-radar.md",
+        "line": 1,
+        "category": "News verification",
+        "subcategory": "Agents, local tools and media production"
+      }
+    },
+    {
+      "id": "cliply-rights-safe-video-import",
+      "url": "https://github.com/Cliply/Cliply",
+      "title": "Cliply",
+      "type": "media",
+      "category": "AI Media",
+      "subcategory": "Local video download and trim reference",
+      "simpleDescription": "GPL-3.0 desktop-приложение на Electron, React, FastAPI, yt-dlp и FFmpeg для выбора качества, audio-only, playlists и trimming. Официальный сайт поддерживает Windows и macOS, а Linux пока заявлен как будущий; для Eclipse допустим только rights-safe import собственных или лицензированных материалов без DRM bypass.",
+      "useCases": [
+        "Спроектировать локальный trim UX Eclipse Media",
+        "Импортировать разрешённые медиа в Shotforge",
+        "Изолировать yt-dlp и FFmpeg processing"
+      ],
+      "features": [
+        "144p to 4K selection",
+        "Audio-only",
+        "Trimming",
+        "Playlist support",
+        "Electron and FastAPI architecture"
+      ],
+      "platforms": [
+        "Windows",
+        "macOS",
+        "Electron",
+        "Python",
+        "FFmpeg"
+      ],
+      "license": "GPL-3.0; downloaded media and platforms have separate rights and terms",
+      "licenseEvidence": [
+        {
+          "kind": "license",
+          "label": "Official GPL-3.0 license",
+          "url": "https://github.com/Cliply/Cliply/blob/main/LICENSE"
+        },
+        {
+          "kind": "source",
+          "label": "Official repository",
+          "url": "https://github.com/Cliply/Cliply"
+        }
+      ],
+      "pricing": "Open-source application is free; media rights, storage and distribution costs remain separate.",
+      "access": {
+        "cost": "free",
+        "signup": "none",
+        "runtime": "local"
+      },
+      "trust": "community",
+      "trustReason": "Canonical repository, license, stack and official platform claims checked 25.08.2026. The claim that it runs on every OS is not supported by the project site.",
+      "projects": [
+        "Eclipse Media",
+        "Shotforge",
+        "Eclipse Library"
+      ],
+      "decision": "reference",
+      "riskLevel": "high",
+      "risks": [
+        "Downloads can violate copyright or platform terms",
+        "yt-dlp and FFmpeg process untrusted URLs/files",
+        "GPL copyleft affects direct closed-source embedding"
+      ],
+      "quickStart": [
+        "Accept only owned or explicitly licensed media",
+        "Run downloader/transcoder in a sandbox with URL and size limits",
+        "Store provenance and scan MIME/codec before processing"
+      ],
+      "limitations": [
+        "No DRM or paywall bypass",
+        "Linux support is not currently promised as released"
+      ],
+      "audience": [
+        "Media workflow teams",
+        "Rights and provenance reviewers"
+      ],
+      "relatedTechnologies": [
+        "yt-dlp",
+        "FFmpeg",
+        "Electron",
+        "FastAPI"
+      ],
+      "verifiedAt": "2026-08-25",
+      "addedAt": "2026-08-25",
+      "reviewStatus": "verified",
+      "guide": "august-2026-sovereign-agents-media-radar",
+      "source": {
+        "file": "guides/august-2026-sovereign-agents-media-radar.md",
+        "line": 1,
+        "category": "News verification",
+        "subcategory": "Agents, local tools and media production"
+      }
+    },
+    {
+      "id": "vercel-ai-agent-harness-course",
+      "url": "https://vercel.com/academy/build-ai-agent-harness",
+      "title": "Build an AI Agent Harness",
+      "type": "learn",
+      "category": "AI Agents & Production",
+      "subcategory": "Tool loop, sandbox and approvals",
+      "simpleDescription": "Официальный практический курс Vercel по ToolLoopAgent, typed tools, sandbox abstraction, context pruning, subagents, human-in-the-loop, state lifecycle, verification, event bus и progressive skills. Для Sentinel/Jarvis и AI Office это лучший источник архитектурных принципов из подборки, но реализацию делаем через собственные contracts без обязательной привязки к Vercel cloud.",
+      "useCases": [
+        "Построить safe tool loop Sentinel/Jarvis",
+        "Ввести approvals и verification в Office Core",
+        "Проектировать sandbox adapters и progressive skills"
+      ],
+      "features": [
+        "ToolLoopAgent",
+        "Read/grep/write/edit/bash tools",
+        "Sandbox interface",
+        "Subagents",
+        "Human-in-the-loop",
+        "Verification and event bus"
+      ],
+      "platforms": [
+        "TypeScript",
+        "Node.js",
+        "Bun",
+        "Vercel AI SDK",
+        "Vercel Sandbox"
+      ],
+      "license": "Vercel Academy content and service terms; referenced SDK packages have their own licenses",
+      "licenseEvidence": [
+        {
+          "kind": "source",
+          "label": "Official Vercel Academy course",
+          "url": "https://vercel.com/academy/build-ai-agent-harness"
+        },
+        {
+          "kind": "terms",
+          "label": "Vercel legal terms",
+          "url": "https://vercel.com/legal/terms"
+        }
+      ],
+      "pricing": "Course content is publicly accessible; AI Gateway, models and sandbox infrastructure can incur separate costs.",
+      "access": {
+        "cost": "freemium",
+        "signup": "optional",
+        "runtime": "hybrid"
+      },
+      "trust": "official",
+      "trustReason": "Official course modules and requirements checked 25.08.2026. Architecture is treated as reference; code and service terms are reviewed separately before reuse.",
+      "projects": [
+        "Hopson Sentinel",
+        "Eclipse AI Office",
+        "Eclipse Chat",
+        "Eclipse AI Hub",
+        "Educator-AI"
+      ],
+      "decision": "now",
+      "riskLevel": "high",
+      "risks": [
+        "Bash and write tools can escape task intent without execution-level policy",
+        "Cloud sandbox and AI Gateway introduce data residency and cost dependencies",
+        "Subagents multiply permissions, budget and failure modes"
+      ],
+      "quickStart": [
+        "Map each course concept to an Eclipse typed contract",
+        "Implement deny-by-default sandbox and approval fixtures",
+        "Require verification before task completion"
+      ],
+      "limitations": [
+        "Do not copy cloud coupling blindly",
+        "Course completion is not a production security certification"
+      ],
+      "audience": [
+        "Agent runtime engineers",
+        "AI Office architects"
+      ],
+      "relatedTechnologies": [
+        "Vercel AI SDK",
+        "Tool loops",
+        "Sandbox",
+        "HITL"
+      ],
+      "verifiedAt": "2026-08-25",
+      "addedAt": "2026-08-25",
+      "reviewStatus": "verified",
+      "guide": "august-2026-sovereign-agents-media-radar",
+      "source": {
+        "file": "guides/august-2026-sovereign-agents-media-radar.md",
+        "line": 1,
+        "category": "News verification",
+        "subcategory": "Agents, local tools and media production"
+      }
+    },
+    {
+      "id": "aeon-qwen38-27b-safety-reduced-bf16",
+      "url": "https://huggingface.co/AEON-7/Qwen3.8-27B-AEON-ULTIMATE-UNCENSORED-BF16",
+      "title": "AEON Qwen3.8-27B safety-reduced BF16",
+      "type": "grey",
+      "category": "Model Safety",
+      "subcategory": "Third-party safety-reduced derivative",
+      "simpleDescription": "Сторонний BF16 derivative Qwen3.8-27B с намеренно ослабленным refusal layer. Model card прямо предупреждает об early draft, повторениях, длинных циклах, ограниченной long-context проверке и небезопасности production без downstream controls; в Eclipse он не допускается к пользователям, сети, инструментам и секретам.",
+      "useCases": [
+        "Изучать safety regression только на synthetic fixtures",
+        "Проверять model-card claims и downstream guardrails",
+        "Обучать различию между capability и безопасностью"
+      ],
+      "features": [
+        "27B BF16 derivative",
+        "Vision tower retained",
+        "262K context claim",
+        "Reduced refusal behavior"
+      ],
+      "platforms": [
+        "Hugging Face",
+        "GPU",
+        "Local inference"
+      ],
+      "license": "Apache-2.0 tag inherited from the base model; derivative behavior and deployment remain user responsibility",
+      "licenseEvidence": [
+        {
+          "kind": "model-card",
+          "label": "Derivative model card and warnings",
+          "url": "https://huggingface.co/AEON-7/Qwen3.8-27B-AEON-ULTIMATE-UNCENSORED-BF16"
+        },
+        {
+          "kind": "source",
+          "label": "Official Qwen3.8-27B base model",
+          "url": "https://huggingface.co/Qwen/Qwen3.8-27B"
+        }
+      ],
+      "pricing": "Weights may be downloaded under their stated terms; GPU memory, storage, evaluation and safety controls are costly.",
+      "access": {
+        "cost": "free",
+        "signup": "optional",
+        "runtime": "local"
+      },
+      "trust": "caution",
+      "trustReason": "Derivative model card and explicit warnings checked 25.08.2026. Capability, quality and safety claims are author statements and are not endorsements by Qwen.",
+      "projects": [
+        "Eclipse Library",
+        "Hopson Sentinel"
+      ],
+      "decision": "no",
+      "riskLevel": "high",
+      "risks": [
+        "Produces harmful or illegal instructions without reliable refusal",
+        "Early draft can loop or repeat",
+        "Full context reportedly requires about 140 GB GPU memory",
+        "Third-party weights increase supply-chain risk"
+      ],
+      "quickStart": [
+        "Do not deploy or connect tools",
+        "If research is approved, use offline synthetic corpus and no network",
+        "Require manual access, immutable logs and deletion plan"
+      ],
+      "limitations": [
+        "No production or end-user use",
+        "No secrets, personal data, network or actions"
+      ],
+      "audience": [
+        "Authorized model safety researchers"
+      ],
+      "relatedTechnologies": [
+        "Qwen3.8",
+        "Red teaming",
+        "Model safety"
+      ],
+      "verifiedAt": "2026-08-25",
+      "addedAt": "2026-08-25",
+      "reviewStatus": "verified",
+      "guide": "august-2026-sovereign-agents-media-radar",
+      "source": {
+        "file": "guides/august-2026-sovereign-agents-media-radar.md",
+        "line": 1,
+        "category": "News verification",
+        "subcategory": "Agents, local tools and media production"
+      }
+    },
+    {
+      "id": "orcarouter-qwen38-27b-safety-reduced-fp8",
+      "url": "https://huggingface.co/orcarouter/Qwen3.8-27B-Uncensored-FP8",
+      "title": "orcarouter Qwen3.8-27B safety-reduced FP8",
+      "type": "grey",
+      "category": "Model Safety",
+      "subcategory": "Third-party safety-reduced derivative",
+      "simpleDescription": "Сторонний FP8 derivative Qwen3.8-27B, продвигаемый как версия с минимальными тематическими ограничениями. Отсутствие отказов не является показателем качества: модель не допускается в публичный runtime Eclipse и может рассматриваться только как изолированный red-team artifact без сети, tools, secrets и персональных данных.",
+      "useCases": [
+        "Проверять safety regression на синтетических наборах",
+        "Сравнивать quantized derivative с официальной базовой моделью",
+        "Документировать запрет на модель по умолчанию"
+      ],
+      "features": [
+        "27B FP8 derivative",
+        "Reduced refusal behavior",
+        "Hugging Face distribution"
+      ],
+      "platforms": [
+        "Hugging Face",
+        "GPU",
+        "Local inference"
+      ],
+      "license": "Apache-2.0 tag inherited from the base model; derivative behavior and deployment remain user responsibility",
+      "licenseEvidence": [
+        {
+          "kind": "model-card",
+          "label": "Derivative model page",
+          "url": "https://huggingface.co/orcarouter/Qwen3.8-27B-Uncensored-FP8"
+        },
+        {
+          "kind": "source",
+          "label": "Official Qwen3.8-27B base model",
+          "url": "https://huggingface.co/Qwen/Qwen3.8-27B"
+        }
+      ],
+      "pricing": "Weights may be downloadable under stated terms; compute, validation and safety isolation have separate costs.",
+      "access": {
+        "cost": "free",
+        "signup": "optional",
+        "runtime": "local"
+      },
+      "trust": "caution",
+      "trustReason": "Derivative page and official base model checked 25.08.2026. Behavioral promises come from the derivative publisher and have not been independently validated.",
+      "projects": [
+        "Eclipse Library",
+        "Hopson Sentinel"
+      ],
+      "decision": "no",
+      "riskLevel": "high",
+      "risks": [
+        "Reduced refusals enable harmful outputs",
+        "Quantization and modification can degrade reliability",
+        "Third-party weights and model code require provenance checks"
+      ],
+      "quickStart": [
+        "Do not install in production",
+        "Use only with explicit model-safety authorization",
+        "Keep offline, tool-free and limited to synthetic evaluation"
+      ],
+      "limitations": [
+        "No customer, employee or public use",
+        "No automatic routing or recommendations"
+      ],
+      "audience": [
+        "Authorized model safety researchers"
+      ],
+      "relatedTechnologies": [
+        "Qwen3.8",
+        "FP8",
+        "Model safety"
+      ],
+      "verifiedAt": "2026-08-25",
+      "addedAt": "2026-08-25",
+      "reviewStatus": "verified",
+      "guide": "august-2026-sovereign-agents-media-radar",
+      "source": {
+        "file": "guides/august-2026-sovereign-agents-media-radar.md",
+        "line": 1,
+        "category": "News verification",
+        "subcategory": "Agents, local tools and media production"
       }
     }
   ]

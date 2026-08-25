@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "consumer": "generic-agent",
-  "catalogVersion": "51ce969bead0457f03cf53c42f475bb3adc6c15bfe7b0712bcd5b1ba3fe1c636",
+  "catalogVersion": "6a5e1c3cea38637a4958e5191f5efe79948117be4d91e9fbc6c80b3443cca05b",
   "generatedAt": null,
   "policy": {
     "greyResourcesExcluded": true,
@@ -9,7 +9,7 @@
     "externalMutationsRequireHumanApproval": true
   },
   "totals": {
-    "items": 615
+    "items": 628
   },
   "items": [
     {
@@ -173,6 +173,88 @@
           "kind": "source",
           "label": "Official AppLLM product page",
           "url": "https://appllm.abacus.ai/"
+        }
+      ],
+      "actions": {
+        "openOfficialSource": true,
+        "installFromCatalog": false,
+        "mutateExternalSystems": false
+      }
+    },
+    {
+      "id": "agency-agents-template-collection",
+      "title": "Agency Agents",
+      "url": "https://github.com/msitarzewski/agency-agents",
+      "type": "skill",
+      "category": "Агенты",
+      "subcategory": "Specialist agent templates",
+      "addedAt": "2026-08-22",
+      "description": "Agency Agents — MIT-набор из более чем 230 специализированных role и workflow templates. Используем как reference для ролей, входов, deliverables и acceptance criteria AI Office, но не как готовых автономных сотрудников: каждый template проходит проверку полномочий, данных и инструментов.",
+      "useCases": [
+        "Спроектировать отделы и роли AI Office",
+        "Сравнить specialist agent templates",
+        "Добавить deliverable checklists и review roles"
+      ],
+      "platforms": [
+        "Markdown",
+        "Agent runtimes",
+        "GitHub"
+      ],
+      "license": {
+        "label": "MIT",
+        "original": "MIT",
+        "spdx": "MIT",
+        "kind": "open-source",
+        "status": "source-declared",
+        "requiresReview": false,
+        "evidence": [
+          {
+            "kind": "license",
+            "label": "MIT license",
+            "url": "https://api.github.com/repos/msitarzewski/agency-agents/license"
+          },
+          {
+            "kind": "license",
+            "label": "Official MIT license",
+            "url": "https://github.com/msitarzewski/agency-agents/blob/main/LICENSE"
+          },
+          {
+            "kind": "source",
+            "label": "Official repository",
+            "url": "https://github.com/msitarzewski/agency-agents"
+          }
+        ]
+      },
+      "access": {
+        "cost": "free",
+        "signup": "none",
+        "runtime": "local"
+      },
+      "trust": "community",
+      "decision": "roadmap",
+      "riskLevel": "medium",
+      "projects": [
+        "Eclipse AI Office",
+        "Eclipse AI Hub",
+        "Eclipse Growth OS",
+        "Eclipse Chat",
+        "Eclipse Library"
+      ],
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://github.com/msitarzewski/agency-agents"
+        },
+        {
+          "kind": "license",
+          "label": "MIT license",
+          "url": "https://api.github.com/repos/msitarzewski/agency-agents/license"
+        },
+        {
+          "kind": "license",
+          "label": "Official MIT license",
+          "url": "https://github.com/msitarzewski/agency-agents/blob/main/LICENSE"
         }
       ],
       "actions": {
@@ -466,6 +548,79 @@
       }
     },
     {
+      "id": "block-buzz-agent-workspace",
+      "title": "Buzz by Block",
+      "url": "https://github.com/block/buzz",
+      "type": "tool",
+      "category": "AI Office & Collaboration",
+      "subcategory": "Human-agent workspace and signed event log",
+      "addedAt": "2026-08-25",
+      "description": "Self-hostable workspace от Block, где люди и AI-агенты общаются в каналах, работают с Git-событиями, workflows и общим audit log. Для Eclipse Chat и AI Office ценны подписанный event stream, отдельные agent identities и поиск по сообщениям, коду и действиям — не обещание установки за пять минут.",
+      "useCases": [
+        "Спроектировать единый event contract Eclipse Chat и AI Office",
+        "Добавить комнаты, memberships и аудит действий агентов",
+        "Связать Git-ветку, обсуждение, workflow и approvals"
+      ],
+      "platforms": [
+        "Self-host",
+        "Docker",
+        "Rust",
+        "Node.js",
+        "Desktop"
+      ],
+      "license": {
+        "label": "Apache-2.0",
+        "original": "Apache-2.0",
+        "spdx": "Apache-2.0",
+        "kind": "open-source",
+        "status": "editor-reviewed",
+        "requiresReview": false,
+        "evidence": [
+          {
+            "kind": "license",
+            "label": "Official Apache-2.0 license",
+            "url": "https://github.com/block/buzz/blob/main/LICENSE"
+          },
+          {
+            "kind": "source",
+            "label": "Official repository",
+            "url": "https://github.com/block/buzz"
+          }
+        ]
+      },
+      "access": {
+        "cost": "free",
+        "signup": "none",
+        "runtime": "self-host"
+      },
+      "trust": "official",
+      "decision": "roadmap",
+      "riskLevel": "high",
+      "projects": [
+        "Eclipse Chat",
+        "Eclipse AI Office",
+        "Hopson Sentinel",
+        "Eclipse Library"
+      ],
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://github.com/block/buzz"
+        },
+        {
+          "kind": "license",
+          "label": "Official Apache-2.0 license",
+          "url": "https://github.com/block/buzz/blob/main/LICENSE"
+        }
+      ],
+      "actions": {
+        "openOfficialSource": true,
+        "installFromCatalog": false,
+        "mutateExternalSystems": false
+      }
+    },
+    {
       "id": "chatgpt-images-transparent-background",
       "title": "ChatGPT Images: transparent backgrounds",
       "url": "https://help.openai.com/en/articles/11084440",
@@ -578,6 +733,150 @@
           "kind": "official-source",
           "label": "Официальный источник",
           "url": "https://academy.claude.com/"
+        }
+      ],
+      "actions": {
+        "openOfficialSource": true,
+        "installFromCatalog": false,
+        "mutateExternalSystems": false
+      }
+    },
+    {
+      "id": "cliply-rights-safe-video-import",
+      "title": "Cliply",
+      "url": "https://github.com/Cliply/Cliply",
+      "type": "media",
+      "category": "AI Media",
+      "subcategory": "Local video download and trim reference",
+      "addedAt": "2026-08-25",
+      "description": "GPL-3.0 desktop-приложение на Electron, React, FastAPI, yt-dlp и FFmpeg для выбора качества, audio-only, playlists и trimming. Официальный сайт поддерживает Windows и macOS, а Linux пока заявлен как будущий; для Eclipse допустим только rights-safe import собственных или лицензированных материалов без DRM bypass.",
+      "useCases": [
+        "Спроектировать локальный trim UX Eclipse Media",
+        "Импортировать разрешённые медиа в Shotforge",
+        "Изолировать yt-dlp и FFmpeg processing"
+      ],
+      "platforms": [
+        "Windows",
+        "macOS",
+        "Electron",
+        "Python",
+        "FFmpeg"
+      ],
+      "license": {
+        "label": "GPL-3.0",
+        "original": "GPL-3.0; downloaded media and platforms have separate rights and terms",
+        "spdx": "GPL-3.0",
+        "kind": "open-source",
+        "status": "editor-reviewed",
+        "requiresReview": false,
+        "evidence": [
+          {
+            "kind": "license",
+            "label": "Official GPL-3.0 license",
+            "url": "https://github.com/Cliply/Cliply/blob/main/LICENSE"
+          },
+          {
+            "kind": "source",
+            "label": "Official repository",
+            "url": "https://github.com/Cliply/Cliply"
+          }
+        ]
+      },
+      "access": {
+        "cost": "free",
+        "signup": "none",
+        "runtime": "local"
+      },
+      "trust": "community",
+      "decision": "reference",
+      "riskLevel": "high",
+      "projects": [
+        "Eclipse Media",
+        "Shotforge",
+        "Eclipse Library"
+      ],
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://github.com/Cliply/Cliply"
+        },
+        {
+          "kind": "license",
+          "label": "Official GPL-3.0 license",
+          "url": "https://github.com/Cliply/Cliply/blob/main/LICENSE"
+        }
+      ],
+      "actions": {
+        "openOfficialSource": true,
+        "installFromCatalog": false,
+        "mutateExternalSystems": false
+      }
+    },
+    {
+      "id": "codebase-memory-mcp-local-graph",
+      "title": "Codebase Memory MCP",
+      "url": "https://github.com/DeusData/codebase-memory-mcp",
+      "type": "tool",
+      "category": "Developer Agents",
+      "subcategory": "Deterministic local code graph",
+      "addedAt": "2026-08-25",
+      "description": "MIT single-binary MCP server, который индексирует код локально через tree-sitter и предоставляет 15 структурных tools. Поддержка 158 языков относится к programming grammars, а заявления о 99%, 120× и 10× экономии конфликтуют между материалами проекта, поэтому Eclipse должен проверить accuracy, latency и tokens самостоятельно.",
+      "useCases": [
+        "Структурный context adapter Eclipse Chat",
+        "Code knowledge graph для AI Office engineering",
+        "Impact analysis и навигация Jarvis"
+      ],
+      "platforms": [
+        "MCP",
+        "Local",
+        "Native binary",
+        "Coding agents"
+      ],
+      "license": {
+        "label": "MIT",
+        "original": "MIT",
+        "spdx": "MIT",
+        "kind": "open-source",
+        "status": "editor-reviewed",
+        "requiresReview": false,
+        "evidence": [
+          {
+            "kind": "license",
+            "label": "Official MIT license",
+            "url": "https://github.com/DeusData/codebase-memory-mcp/blob/main/LICENSE"
+          },
+          {
+            "kind": "source",
+            "label": "Official repository",
+            "url": "https://github.com/DeusData/codebase-memory-mcp"
+          }
+        ]
+      },
+      "access": {
+        "cost": "free",
+        "signup": "none",
+        "runtime": "local"
+      },
+      "trust": "community",
+      "decision": "roadmap",
+      "riskLevel": "high",
+      "projects": [
+        "Eclipse Chat",
+        "Eclipse AI Office",
+        "Hopson Sentinel",
+        "Eclipse AI Hub"
+      ],
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://github.com/DeusData/codebase-memory-mcp"
+        },
+        {
+          "kind": "license",
+          "label": "Official MIT license",
+          "url": "https://github.com/DeusData/codebase-memory-mcp/blob/main/LICENSE"
         }
       ],
       "actions": {
@@ -1058,6 +1357,78 @@
           "kind": "official-source",
           "label": "Официальный источник",
           "url": "https://blog.google/innovation-and-ai/products/gemini-app/gemini-study-notebooks/"
+        }
+      ],
+      "actions": {
+        "openOfficialSource": true,
+        "installFromCatalog": false,
+        "mutateExternalSystems": false
+      }
+    },
+    {
+      "id": "graft-code-context-engine",
+      "title": "Graft",
+      "url": "https://github.com/trailhq/Graft",
+      "type": "tool",
+      "category": "Developer Agents",
+      "subcategory": "Local code architecture and semantic cache",
+      "addedAt": "2026-08-25",
+      "description": "MIT-инструмент, который строит локальную архитектурную и символьную карту репозитория и подключается к coding agents. Заявления о скорости и экономии — собственный benchmark проекта, а не независимое подтверждение; для Eclipse нужен head-to-head пилот с Codebase Memory MCP и baseline.",
+      "useCases": [
+        "Уменьшить повторное чтение репозитория агентами",
+        "Дать Jarvis архитектурную карту кода",
+        "Сравнить impact analysis и navigation quality"
+      ],
+      "platforms": [
+        "CLI",
+        "Local",
+        "Coding agents",
+        "Git repositories"
+      ],
+      "license": {
+        "label": "MIT",
+        "original": "MIT",
+        "spdx": "MIT",
+        "kind": "open-source",
+        "status": "editor-reviewed",
+        "requiresReview": false,
+        "evidence": [
+          {
+            "kind": "license",
+            "label": "Official MIT license",
+            "url": "https://github.com/trailhq/Graft/blob/main/LICENSE"
+          },
+          {
+            "kind": "source",
+            "label": "Canonical repository after redirect",
+            "url": "https://github.com/trailhq/Graft"
+          }
+        ]
+      },
+      "access": {
+        "cost": "free",
+        "signup": "optional",
+        "runtime": "local"
+      },
+      "trust": "community",
+      "decision": "roadmap",
+      "riskLevel": "high",
+      "projects": [
+        "Eclipse Chat",
+        "Eclipse AI Office",
+        "Hopson Sentinel",
+        "Eclipse AI Hub"
+      ],
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://github.com/trailhq/Graft"
+        },
+        {
+          "kind": "license",
+          "label": "Official MIT license",
+          "url": "https://github.com/trailhq/Graft/blob/main/LICENSE"
         }
       ],
       "actions": {
@@ -1703,6 +2074,221 @@
       }
     },
     {
+      "id": "opengym-local-first-fitness",
+      "title": "openGym",
+      "url": "https://opengym.duarte-santos.ch/",
+      "type": "oss",
+      "category": "Personal Data & Health",
+      "subcategory": "Local-first fitness tracking",
+      "addedAt": "2026-08-25",
+      "description": "AGPL-3.0 fitness application с 1 324 упражнениями, Android client, self-hosted Docker, passkeys, export/import и offline-first data model. Для Jarvis интересны владение персональными данными и read-only MCP, но health records нельзя смешивать с общими чат-логами или превращать аналитику в медицинский диагноз.",
+      "useCases": [
+        "Спроектировать local-first Personal Health модуль",
+        "Добавить read-only fitness connector Jarvis",
+        "Изучить passkeys, export/import и offline sync"
+      ],
+      "platforms": [
+        "Web",
+        "Android",
+        "Docker",
+        "Self-host"
+      ],
+      "license": {
+        "label": "AGPL-3.0",
+        "original": "AGPL-3.0; linked data and platform components may have separate terms",
+        "spdx": "AGPL-3.0",
+        "kind": "open-source",
+        "status": "editor-reviewed",
+        "requiresReview": false,
+        "evidence": [
+          {
+            "kind": "source",
+            "label": "Official project site and canonical GitLab link",
+            "url": "https://opengym.duarte-santos.ch/"
+          },
+          {
+            "kind": "license",
+            "label": "Canonical GitLab repository",
+            "url": "https://gitlab.com/DuarteSantos8/opengym"
+          }
+        ]
+      },
+      "access": {
+        "cost": "free",
+        "signup": "optional",
+        "runtime": "hybrid"
+      },
+      "trust": "official",
+      "decision": "reference",
+      "riskLevel": "high",
+      "projects": [
+        "Hopson Sentinel",
+        "Jarvis Presence",
+        "Eclipse Library"
+      ],
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://opengym.duarte-santos.ch/"
+        },
+        {
+          "kind": "license",
+          "label": "Canonical GitLab repository",
+          "url": "https://gitlab.com/DuarteSantos8/opengym"
+        }
+      ],
+      "actions": {
+        "openOfficialSource": true,
+        "installFromCatalog": false,
+        "mutateExternalSystems": false
+      }
+    },
+    {
+      "id": "openmontage-agent-video-studio",
+      "title": "OpenMontage",
+      "url": "https://github.com/calesthio/OpenMontage",
+      "type": "media",
+      "category": "AI Media",
+      "subcategory": "Agent-driven video workflow",
+      "addedAt": "2026-08-25",
+      "description": "AGPL-3.0 конвейер для research, сценариев, ассетов, монтажа и рендеринга с большим набором tools и skills. Для Eclipse Media это сильный архитектурный reference по состояниям pipeline и provenance, но прямое серверное или закрытое встраивание требует AGPL/commercial review и проверки прав на каждый источник медиа.",
+      "useCases": [
+        "Спроектировать pipeline state Eclipse Media",
+        "Собрать Shotforge storyboard-to-render workflow",
+        "Ввести provenance и rights receipts для ассетов"
+      ],
+      "platforms": [
+        "CLI",
+        "Python",
+        "FFmpeg",
+        "Cloud APIs"
+      ],
+      "license": {
+        "label": "AGPL-3.0",
+        "original": "AGPL-3.0; media providers and generated assets have separate terms",
+        "spdx": "AGPL-3.0",
+        "kind": "open-source",
+        "status": "editor-reviewed",
+        "requiresReview": false,
+        "evidence": [
+          {
+            "kind": "license",
+            "label": "Official AGPL-3.0 license",
+            "url": "https://github.com/calesthio/OpenMontage/blob/main/LICENSE"
+          },
+          {
+            "kind": "source",
+            "label": "Official repository",
+            "url": "https://github.com/calesthio/OpenMontage"
+          }
+        ]
+      },
+      "access": {
+        "cost": "freemium",
+        "signup": "optional",
+        "runtime": "hybrid"
+      },
+      "trust": "community",
+      "decision": "reference",
+      "riskLevel": "high",
+      "projects": [
+        "Eclipse Media",
+        "Shotforge",
+        "Eclipse Library"
+      ],
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://github.com/calesthio/OpenMontage"
+        },
+        {
+          "kind": "license",
+          "label": "Official AGPL-3.0 license",
+          "url": "https://github.com/calesthio/OpenMontage/blob/main/LICENSE"
+        }
+      ],
+      "actions": {
+        "openOfficialSource": true,
+        "installFromCatalog": false,
+        "mutateExternalSystems": false
+      }
+    },
+    {
+      "id": "orca-multi-agent-development-environment",
+      "title": "Orca",
+      "url": "https://github.com/stablyai/orca",
+      "type": "tool",
+      "category": "Developer Agents",
+      "subcategory": "Parallel agent worktrees and review",
+      "addedAt": "2026-08-25",
+      "description": "MIT agentic development environment для параллельной работы Codex, Claude, OpenCode и Pi в изолированных Git worktrees, с diff review, follow-up и mobile/remote наблюдением. Для AI Office особенно ценна понятная модель «задача → worktree → проверка → выбор → merge», но shell, SSH, sessions и secrets требуют отдельного аудита.",
+      "useCases": [
+        "Изолировать задачи AI Office engineering agents",
+        "Сравнивать несколько решений одной задачи",
+        "Показывать progress, diff и approvals в Jarvis Control"
+      ],
+      "platforms": [
+        "Desktop",
+        "Mobile",
+        "VPS",
+        "Git",
+        "SSH"
+      ],
+      "license": {
+        "label": "MIT",
+        "original": "MIT",
+        "spdx": "MIT",
+        "kind": "open-source",
+        "status": "editor-reviewed",
+        "requiresReview": false,
+        "evidence": [
+          {
+            "kind": "license",
+            "label": "Official MIT license",
+            "url": "https://github.com/stablyai/orca/blob/main/LICENSE"
+          },
+          {
+            "kind": "source",
+            "label": "Official repository",
+            "url": "https://github.com/stablyai/orca"
+          }
+        ]
+      },
+      "access": {
+        "cost": "free",
+        "signup": "optional",
+        "runtime": "hybrid"
+      },
+      "trust": "community",
+      "decision": "roadmap",
+      "riskLevel": "high",
+      "projects": [
+        "Eclipse AI Office",
+        "Eclipse Chat",
+        "Hopson Sentinel",
+        "Eclipse AI Hub"
+      ],
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://github.com/stablyai/orca"
+        },
+        {
+          "kind": "license",
+          "label": "Official MIT license",
+          "url": "https://github.com/stablyai/orca/blob/main/LICENSE"
+        }
+      ],
+      "actions": {
+        "openOfficialSource": true,
+        "installFromCatalog": false,
+        "mutateExternalSystems": false
+      }
+    },
+    {
       "id": "ornith-1-5-9b-gguf",
       "title": "Ornith 1.5 9B GGUF",
       "url": "https://huggingface.co/ornith-ai/Ornith-1.5-9B-GGUF",
@@ -1992,6 +2578,223 @@
       }
     },
     {
+      "id": "rampstack-claude-skills-catalog",
+      "title": "Rampstack Claude Skills",
+      "url": "https://github.com/rampstackco/claude-skills",
+      "type": "skill",
+      "category": "Skills & Agents",
+      "subcategory": "Curated skill catalog",
+      "addedAt": "2026-08-25",
+      "description": "MIT-каталог из 103 заявленных Claude skills, где каждый навык оформлен через SKILL.md и справочные материалы. Для Eclipse полезен как источник кандидатов в Capability Registry, но полный каталог нельзя устанавливать автоматически: каждый skill требует pin, permission review, dependency scan и sandbox test.",
+      "useCases": [
+        "Пополнить проверяемый каталог навыков Eclipse Library",
+        "Сформировать capability registry Eclipse AI Hub",
+        "Сравнить skill contracts и dependency declarations"
+      ],
+      "platforms": [
+        "Claude Code",
+        "Markdown",
+        "GitHub"
+      ],
+      "license": {
+        "label": "MIT",
+        "original": "MIT",
+        "spdx": "MIT",
+        "kind": "open-source",
+        "status": "editor-reviewed",
+        "requiresReview": false,
+        "evidence": [
+          {
+            "kind": "license",
+            "label": "Official MIT license",
+            "url": "https://github.com/rampstackco/claude-skills/blob/main/LICENSE"
+          },
+          {
+            "kind": "source",
+            "label": "Official repository",
+            "url": "https://github.com/rampstackco/claude-skills"
+          }
+        ]
+      },
+      "access": {
+        "cost": "free",
+        "signup": "none",
+        "runtime": "local"
+      },
+      "trust": "community",
+      "decision": "roadmap",
+      "riskLevel": "high",
+      "projects": [
+        "Eclipse Library",
+        "Eclipse AI Hub",
+        "Eclipse Chat",
+        "Hopson Sentinel"
+      ],
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://github.com/rampstackco/claude-skills"
+        },
+        {
+          "kind": "license",
+          "label": "Official MIT license",
+          "url": "https://github.com/rampstackco/claude-skills/blob/main/LICENSE"
+        }
+      ],
+      "actions": {
+        "openOfficialSource": true,
+        "installFromCatalog": false,
+        "mutateExternalSystems": false
+      }
+    },
+    {
+      "id": "render-free-demo-hosting",
+      "title": "Render Free Resources",
+      "url": "https://render.com/",
+      "type": "tool",
+      "category": "Infrastructure",
+      "subcategory": "Disposable demos and previews",
+      "addedAt": "2026-08-25",
+      "description": "Cloud hosting с бесплатными ресурсами для demos и учебных приложений: в Hobby workspace заявлены до 25 services, 5 GB outbound bandwidth, 500 build minutes и 2 custom domains. Free web services засыпают после 15 минут простоя, filesystem временный, а free Postgres удаляется через 30 дней, поэтому это не production-платформа Eclipse.",
+      "useCases": [
+        "Публиковать disposable demos Educator-AI",
+        "Создавать временные preview environments",
+        "Проверять небольшой stateless MVP без карты"
+      ],
+      "platforms": [
+        "Cloud",
+        "Docker",
+        "Web services",
+        "Static sites"
+      ],
+      "license": {
+        "label": "Proprietary hosted service governed by Render terms",
+        "original": "Proprietary hosted service governed by Render terms",
+        "spdx": null,
+        "kind": "service-terms",
+        "status": "editor-reviewed",
+        "requiresReview": false,
+        "evidence": [
+          {
+            "kind": "source",
+            "label": "Official free resources documentation",
+            "url": "https://render.com/docs/free"
+          },
+          {
+            "kind": "terms",
+            "label": "Official workspace plan limits",
+            "url": "https://render.com/docs/new-workspace-plans"
+          }
+        ]
+      },
+      "access": {
+        "cost": "freemium",
+        "signup": "required",
+        "runtime": "cloud"
+      },
+      "trust": "official",
+      "decision": "reference",
+      "riskLevel": "medium",
+      "projects": [
+        "Educator-AI",
+        "Eclipse Library",
+        "Eclipse Forge Website"
+      ],
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://render.com/"
+        },
+        {
+          "kind": "source",
+          "label": "Official free resources documentation",
+          "url": "https://render.com/docs/free"
+        },
+        {
+          "kind": "terms",
+          "label": "Official workspace plan limits",
+          "url": "https://render.com/docs/new-workspace-plans"
+        }
+      ],
+      "actions": {
+        "openOfficialSource": true,
+        "installFromCatalog": false,
+        "mutateExternalSystems": false
+      }
+    },
+    {
+      "id": "robotics-coursework-learning-index",
+      "title": "Robotics Coursework",
+      "url": "https://github.com/mithi/robotics-coursework",
+      "type": "learn",
+      "category": "Learning & Robotics",
+      "subcategory": "Curated robotics curriculum",
+      "addedAt": "2026-08-25",
+      "description": "Unlicense-индекс ссылок на университетские курсы, лекции, симуляторы, книги и DIY-проекты по робототехнике. Это не архив всех материалов MIT, Stanford и CMU: linked courses живут на внешних площадках и имеют собственные лицензии, цены и доступность.",
+      "useCases": [
+        "Собрать curriculum map для Educator-AI",
+        "Подготовить simulation и robotics backlog Jarvis",
+        "Выбрать последовательность SLAM, control и manipulation topics"
+      ],
+      "platforms": [
+        "Web",
+        "GitHub",
+        "External learning platforms"
+      ],
+      "license": {
+        "label": "Unlicense for the index; linked resources have separate terms",
+        "original": "Unlicense for the index; linked resources have separate terms",
+        "spdx": null,
+        "kind": "service-terms",
+        "status": "editor-reviewed",
+        "requiresReview": false,
+        "evidence": [
+          {
+            "kind": "license",
+            "label": "Repository Unlicense",
+            "url": "https://github.com/mithi/robotics-coursework/blob/master/LICENSE"
+          },
+          {
+            "kind": "source",
+            "label": "Official repository",
+            "url": "https://github.com/mithi/robotics-coursework"
+          }
+        ]
+      },
+      "access": {
+        "cost": "free",
+        "signup": "optional",
+        "runtime": "cloud"
+      },
+      "trust": "community",
+      "decision": "reference",
+      "riskLevel": "low",
+      "projects": [
+        "Educator-AI",
+        "Hopson Sentinel",
+        "Eclipse Library"
+      ],
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://github.com/mithi/robotics-coursework"
+        },
+        {
+          "kind": "license",
+          "label": "Repository Unlicense",
+          "url": "https://github.com/mithi/robotics-coursework/blob/master/LICENSE"
+        }
+      ],
+      "actions": {
+        "openOfficialSource": true,
+        "installFromCatalog": false,
+        "mutateExternalSystems": false
+      }
+    },
+    {
       "id": "teamspeak-6",
       "title": "TeamSpeak 6",
       "url": "https://teamspeak.com/en/",
@@ -2042,6 +2845,157 @@
           "kind": "official-source",
           "label": "Официальный источник",
           "url": "https://teamspeak.com/en/"
+        }
+      ],
+      "actions": {
+        "openOfficialSource": true,
+        "installFromCatalog": false,
+        "mutateExternalSystems": false
+      }
+    },
+    {
+      "id": "threeui-community-components",
+      "title": "ThreeUI Community",
+      "url": "https://github.com/MengTo/threeui",
+      "type": "tool",
+      "category": "Design & Frontend",
+      "subcategory": "Three.js components and motion references",
+      "addedAt": "2026-08-25",
+      "description": "MIT-набор Three.js/React-компонентов с 50 parent components, 111 routes и 164 бесплатными browse-results. Подходит как референс для Eclipse Library Animation Lab, landing и лёгкого Jarvis Presence, но не для плотных CRM/админ-интерфейсов; удалённые previews и Pro/Beta assets не покрываются лицензией community-кода.",
+      "useCases": [
+        "Расширить Animation Lab проверяемыми 3D-паттернами",
+        "Создать выразительные hero и case transitions",
+        "Добавить лёгкое ambient-присутствие Jarvis"
+      ],
+      "platforms": [
+        "Web",
+        "React",
+        "Three.js",
+        "Next.js"
+      ],
+      "license": {
+        "label": "MIT",
+        "original": "MIT for Community code; OFL fonts; remote catalog media and Pro/Beta assets excluded",
+        "spdx": "MIT",
+        "kind": "open-source",
+        "status": "editor-reviewed",
+        "requiresReview": false,
+        "evidence": [
+          {
+            "kind": "license",
+            "label": "Official MIT license",
+            "url": "https://github.com/MengTo/threeui/blob/main/LICENSE"
+          },
+          {
+            "kind": "license",
+            "label": "Official asset license notes",
+            "url": "https://github.com/MengTo/threeui/blob/main/ASSET-LICENSES.md"
+          }
+        ]
+      },
+      "access": {
+        "cost": "freemium",
+        "signup": "none",
+        "runtime": "local"
+      },
+      "trust": "official",
+      "decision": "roadmap",
+      "riskLevel": "medium",
+      "projects": [
+        "Eclipse Library",
+        "Eclipse Forge Website",
+        "Eclipse Chat",
+        "Jarvis Presence"
+      ],
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://github.com/MengTo/threeui"
+        },
+        {
+          "kind": "license",
+          "label": "Official MIT license",
+          "url": "https://github.com/MengTo/threeui/blob/main/LICENSE"
+        },
+        {
+          "kind": "license",
+          "label": "Official asset license notes",
+          "url": "https://github.com/MengTo/threeui/blob/main/ASSET-LICENSES.md"
+        }
+      ],
+      "actions": {
+        "openOfficialSource": true,
+        "installFromCatalog": false,
+        "mutateExternalSystems": false
+      }
+    },
+    {
+      "id": "vercel-ai-agent-harness-course",
+      "title": "Build an AI Agent Harness",
+      "url": "https://vercel.com/academy/build-ai-agent-harness",
+      "type": "learn",
+      "category": "AI Agents & Production",
+      "subcategory": "Tool loop, sandbox and approvals",
+      "addedAt": "2026-08-25",
+      "description": "Официальный практический курс Vercel по ToolLoopAgent, typed tools, sandbox abstraction, context pruning, subagents, human-in-the-loop, state lifecycle, verification, event bus и progressive skills. Для Sentinel/Jarvis и AI Office это лучший источник архитектурных принципов из подборки, но реализацию делаем через собственные contracts без обязательной привязки к Vercel cloud.",
+      "useCases": [
+        "Построить safe tool loop Sentinel/Jarvis",
+        "Ввести approvals и verification в Office Core",
+        "Проектировать sandbox adapters и progressive skills"
+      ],
+      "platforms": [
+        "TypeScript",
+        "Node.js",
+        "Bun",
+        "Vercel AI SDK",
+        "Vercel Sandbox"
+      ],
+      "license": {
+        "label": "Vercel Academy content and service terms; referenced SDK packages have their own licenses",
+        "original": "Vercel Academy content and service terms; referenced SDK packages have their own licenses",
+        "spdx": null,
+        "kind": "service-terms",
+        "status": "editor-reviewed",
+        "requiresReview": false,
+        "evidence": [
+          {
+            "kind": "source",
+            "label": "Official Vercel Academy course",
+            "url": "https://vercel.com/academy/build-ai-agent-harness"
+          },
+          {
+            "kind": "terms",
+            "label": "Vercel legal terms",
+            "url": "https://vercel.com/legal/terms"
+          }
+        ]
+      },
+      "access": {
+        "cost": "freemium",
+        "signup": "optional",
+        "runtime": "hybrid"
+      },
+      "trust": "official",
+      "decision": "now",
+      "riskLevel": "high",
+      "projects": [
+        "Hopson Sentinel",
+        "Eclipse AI Office",
+        "Eclipse Chat",
+        "Eclipse AI Hub",
+        "Educator-AI"
+      ],
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://vercel.com/academy/build-ai-agent-harness"
+        },
+        {
+          "kind": "terms",
+          "label": "Vercel legal terms",
+          "url": "https://vercel.com/legal/terms"
         }
       ],
       "actions": {
@@ -2189,6 +3143,78 @@
           "kind": "terms",
           "label": "Vivid Sites Terms",
           "url": "https://www.vividsites.app/terms"
+        }
+      ],
+      "actions": {
+        "openOfficialSource": true,
+        "installFromCatalog": false,
+        "mutateExternalSystems": false
+      }
+    },
+    {
+      "id": "wangp-local-media-worker",
+      "title": "WanGP (formerly Wan2GP)",
+      "url": "https://github.com/deepbeepmeep/Wan2GP",
+      "type": "media",
+      "category": "AI Media",
+      "subcategory": "Local video and image generation worker",
+      "addedAt": "2026-08-25",
+      "description": "Локальный web/headless worker для video, image и audio pipelines: очереди, API, LoRA, mask tools и несколько model families. Формулировка «работает на 6 ГБ ОЗУ» неверна — для некоторых конфигураций заявлено 6 ГБ VRAM; коммерческое embedding, SaaS, API и white-label ограничены отдельной WanGP Community License.",
+      "useCases": [
+        "Пилот локальной генерации для Eclipse Media",
+        "Headless worker для Shotforge в изолированной среде",
+        "Сравнить video models и VRAM profiles"
+      ],
+      "platforms": [
+        "Python",
+        "Web UI",
+        "NVIDIA GPU",
+        "Local"
+      ],
+      "license": {
+        "label": "WanGP Community License 2.0; third-party models and weights have separate licenses",
+        "original": "WanGP Community License 2.0; third-party models and weights have separate licenses",
+        "spdx": null,
+        "kind": "custom",
+        "status": "editor-reviewed",
+        "requiresReview": false,
+        "evidence": [
+          {
+            "kind": "license",
+            "label": "Official WanGP Community License 2.0",
+            "url": "https://github.com/deepbeepmeep/Wan2GP/blob/main/LICENSE.txt"
+          },
+          {
+            "kind": "source",
+            "label": "Official repository",
+            "url": "https://github.com/deepbeepmeep/Wan2GP"
+          }
+        ]
+      },
+      "access": {
+        "cost": "freemium",
+        "signup": "none",
+        "runtime": "local"
+      },
+      "trust": "official",
+      "decision": "roadmap",
+      "riskLevel": "high",
+      "projects": [
+        "Eclipse Media",
+        "Shotforge",
+        "Eclipse AI Hub",
+        "Eclipse Library"
+      ],
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://github.com/deepbeepmeep/Wan2GP"
+        },
+        {
+          "kind": "license",
+          "label": "Official WanGP Community License 2.0",
+          "url": "https://github.com/deepbeepmeep/Wan2GP/blob/main/LICENSE.txt"
         }
       ],
       "actions": {
@@ -15622,86 +16648,6 @@
           "kind": "license",
           "label": "Official MIT license",
           "url": "https://github.com/jamiepine/voicebox/blob/main/LICENSE"
-        }
-      ],
-      "actions": {
-        "openOfficialSource": true,
-        "installFromCatalog": false,
-        "mutateExternalSystems": false
-      }
-    },
-    {
-      "id": "agency-agents-template-collection",
-      "title": "Agency Agents",
-      "url": "https://github.com/msitarzewski/agency-agents",
-      "type": "skill",
-      "category": "Агенты",
-      "subcategory": "Specialist agent templates",
-      "addedAt": "2026-08-22",
-      "description": "Agency Agents — MIT-набор персонажей и workflow templates для специализированных агентов. Используем как reference для ролей и deliverables, но не как «готовых сотрудников»: каждый prompt проходит проверку полномочий, данных, инструментов и measurable acceptance criteria.",
-      "useCases": [
-        "Спроектировать команды specialist agents",
-        "Сравнить role templates",
-        "Добавить deliverable checklists"
-      ],
-      "platforms": [
-        "Markdown",
-        "Agent runtimes",
-        "GitHub"
-      ],
-      "license": {
-        "label": "MIT",
-        "original": "MIT",
-        "spdx": "MIT",
-        "kind": "open-source",
-        "status": "source-declared",
-        "requiresReview": false,
-        "evidence": [
-          {
-            "kind": "license",
-            "label": "MIT license",
-            "url": "https://api.github.com/repos/msitarzewski/agency-agents/license"
-          },
-          {
-            "kind": "license",
-            "label": "Official MIT license",
-            "url": "https://github.com/msitarzewski/agency-agents/blob/main/LICENSE"
-          },
-          {
-            "kind": "source",
-            "label": "Official repository",
-            "url": "https://github.com/msitarzewski/agency-agents"
-          }
-        ]
-      },
-      "access": {
-        "cost": "free",
-        "signup": "none",
-        "runtime": "local"
-      },
-      "trust": "community",
-      "decision": "roadmap",
-      "riskLevel": "medium",
-      "projects": [
-        "Eclipse AI Hub",
-        "Eclipse Growth OS",
-        "Eclipse Library"
-      ],
-      "evidence": [
-        {
-          "kind": "official-source",
-          "label": "Официальный источник",
-          "url": "https://github.com/msitarzewski/agency-agents"
-        },
-        {
-          "kind": "license",
-          "label": "MIT license",
-          "url": "https://api.github.com/repos/msitarzewski/agency-agents/license"
-        },
-        {
-          "kind": "license",
-          "label": "Official MIT license",
-          "url": "https://github.com/msitarzewski/agency-agents/blob/main/LICENSE"
         }
       ],
       "actions": {

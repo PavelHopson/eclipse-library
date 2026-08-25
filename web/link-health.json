@@ -1,15 +1,15 @@
 {
   "schemaVersion": 1,
-  "checkedAt": "2026-08-24T05:03:30.022Z",
+  "checkedAt": "2026-08-25T15:45:44.953Z",
   "totals": {
-    "extracted": 726,
-    "unique": 721,
-    "checked": 721,
-    "ok": 682,
-    "restricted": 32,
+    "extracted": 749,
+    "unique": 744,
+    "checked": 744,
+    "ok": 685,
+    "restricted": 34,
     "broken": 0,
-    "unavailable": 2,
-    "unknown": 5,
+    "unavailable": 1,
+    "unknown": 24,
     "blocked": 0,
     "skipped": 0
   },
@@ -46,8 +46,8 @@
     },
     {
       "url": "https://www.adventuregen.ai/dashboard/upscaler",
-      "status": "ok",
-      "httpStatus": 200
+      "status": "unknown",
+      "httpStatus": null
     },
     {
       "url": "https://github.com/ComposioHQ/agent-orchestrator",
@@ -186,8 +186,8 @@
     },
     {
       "url": "https://play.google.com/store/apps/details?id=com.katkrasner.ao3_reader",
-      "status": "ok",
-      "httpStatus": 200
+      "status": "unknown",
+      "httpStatus": null
     },
     {
       "url": "https://michalsnik.github.io/aos/",
@@ -371,8 +371,8 @@
     },
     {
       "url": "https://bookracy.com/",
-      "status": "restricted",
-      "httpStatus": 403
+      "status": "ok",
+      "httpStatus": 200
     },
     {
       "url": "https://github.com/aghyad97/browserytools",
@@ -441,8 +441,8 @@
     },
     {
       "url": "https://cloud.cerebras.ai/",
-      "status": "ok",
-      "httpStatus": 200
+      "status": "restricted",
+      "httpStatus": 403
     },
     {
       "url": "https://chatcut.io/",
@@ -731,8 +731,8 @@
     },
     {
       "url": "https://deeplearning.ai/",
-      "status": "restricted",
-      "httpStatus": 403
+      "status": "ok",
+      "httpStatus": 200
     },
     {
       "url": "https://chat.deepseek.com/",
@@ -756,8 +756,8 @@
     },
     {
       "url": "http://designdotmd.directory/",
-      "status": "ok",
-      "httpStatus": 200
+      "status": "unknown",
+      "httpStatus": null
     },
     {
       "url": "https://github.com/Owl-Listener/designer-skills",
@@ -886,8 +886,8 @@
     },
     {
       "url": "http://engoo.com/",
-      "status": "ok",
-      "httpStatus": 200
+      "status": "unknown",
+      "httpStatus": null
     },
     {
       "url": "https://entryconditions.com/",
@@ -1031,8 +1031,8 @@
     },
     {
       "url": "https://gemini.google/",
-      "status": "unknown",
-      "httpStatus": null
+      "status": "ok",
+      "httpStatus": 200
     },
     {
       "url": "https://gemini.google.com/",
@@ -1156,8 +1156,8 @@
     },
     {
       "url": "https://console.groq.com/keys",
-      "status": "ok",
-      "httpStatus": 200
+      "status": "restricted",
+      "httpStatus": 403
     },
     {
       "url": "https://gsap.com",
@@ -1231,8 +1231,8 @@
     },
     {
       "url": "https://ruben.substack.com/archive?sort=new",
-      "status": "restricted",
-      "httpStatus": 403
+      "status": "ok",
+      "httpStatus": 200
     },
     {
       "url": "https://huggingface.co/settings/tokens",
@@ -1271,8 +1271,8 @@
     },
     {
       "url": "https://www.hyperui.dev",
-      "status": "restricted",
-      "httpStatus": 403
+      "status": "ok",
+      "httpStatus": 200
     },
     {
       "url": "https://i-want-fable.vercel.app/",
@@ -1411,8 +1411,8 @@
     },
     {
       "url": "https://www.lazyweb.com/",
-      "status": "ok",
-      "httpStatus": 200
+      "status": "unknown",
+      "httpStatus": null
     },
     {
       "url": "https://learngitbranching.js.org/?locale=ru_RU",
@@ -1696,13 +1696,13 @@
     },
     {
       "url": "https://build.nvidia.com/models",
-      "status": "ok",
-      "httpStatus": 200
+      "status": "unknown",
+      "httpStatus": null
     },
     {
       "url": "https://www.nvidia.com/en-us/training/",
-      "status": "ok",
-      "httpStatus": 200
+      "status": "unknown",
+      "httpStatus": null
     },
     {
       "url": "https://github.com/NVIDIA/SkillSpector",
@@ -1761,8 +1761,8 @@
     },
     {
       "url": "https://www.openculture.com/freeonlinecourses",
-      "status": "ok",
-      "httpStatus": 200
+      "status": "restricted",
+      "httpStatus": 405
     },
     {
       "url": "https://github.com/PavelHopson/eclipse-library/blob/master/guides/open-design-codex-workflow.md",
@@ -1991,8 +1991,8 @@
     },
     {
       "url": "https://qclawsg.qq.com/",
-      "status": "ok",
-      "httpStatus": 200
+      "status": "unknown",
+      "httpStatus": null
     },
     {
       "url": "https://huggingface.co/DavidAU/Qwen3.5-9B-Claude-4.6-HighIQ-THINKING-HERETIC-UNCENSORED",
@@ -2026,8 +2026,8 @@
     },
     {
       "url": "https://refactoring.guru",
-      "status": "ok",
-      "httpStatus": 200
+      "status": "unknown",
+      "httpStatus": null
     },
     {
       "url": "https://styles.refero.design/",
@@ -2131,8 +2131,8 @@
     },
     {
       "url": "https://sci-bot.ru/",
-      "status": "unavailable",
-      "httpStatus": 502
+      "status": "ok",
+      "httpStatus": 200
     },
     {
       "url": "https://github.com/ScrapeGraphAI/Scrapegraph-ai",
@@ -2256,13 +2256,13 @@
     },
     {
       "url": "https://spreecommerce.org",
-      "status": "ok",
-      "httpStatus": 200
+      "status": "restricted",
+      "httpStatus": 403
     },
     {
       "url": "https://squareup.com/online-store",
-      "status": "ok",
-      "httpStatus": 200
+      "status": "restricted",
+      "httpStatus": 403
     },
     {
       "url": "https://github.com/ojuschugh1/sqz",
@@ -2271,13 +2271,13 @@
     },
     {
       "url": "https://pinokio.co/posts/01kty98bwb20619q6274768kcm",
-      "status": "ok",
-      "httpStatus": 200
+      "status": "unknown",
+      "httpStatus": null
     },
     {
       "url": "https://www.stackai.com/",
-      "status": "ok",
-      "httpStatus": 200
+      "status": "restricted",
+      "httpStatus": 403
     },
     {
       "url": "https://github.com/hardikpandya/stop-slop",
@@ -2491,8 +2491,8 @@
     },
     {
       "url": "https://unsplash.com",
-      "status": "restricted",
-      "httpStatus": 401
+      "status": "unknown",
+      "httpStatus": null
     },
     {
       "url": "https://www.untitledui.com",
@@ -2591,8 +2591,8 @@
     },
     {
       "url": "https://whatismy-ipaddress.com/learn-more-security.html#term-privacy",
-      "status": "restricted",
-      "httpStatus": 403
+      "status": "ok",
+      "httpStatus": 200
     },
     {
       "url": "https://github.com/QuentinFuxa/WhisperLiveKit",
@@ -2621,8 +2621,8 @@
     },
     {
       "url": "https://work-in-progress.openai.chatgpt.site/",
-      "status": "ok",
-      "httpStatus": 200
+      "status": "restricted",
+      "httpStatus": 403
     },
     {
       "url": "https://yournextstore.com",
@@ -2631,8 +2631,8 @@
     },
     {
       "url": "https://youtu.be/QkyTCTH2kWY",
-      "status": "ok",
-      "httpStatus": 200
+      "status": "unknown",
+      "httpStatus": null
     },
     {
       "url": "https://zcode.z.ai/en",
@@ -2776,8 +2776,8 @@
     },
     {
       "url": "https://www.curseforge.com/minecraft/mc-mods/e4steam",
-      "status": "ok",
-      "httpStatus": 200
+      "status": "restricted",
+      "httpStatus": 403
     },
     {
       "url": "https://github.com/repowise-dev/repowise",
@@ -2816,8 +2816,8 @@
     },
     {
       "url": "https://hermes-agent.nousresearch.com/docs/skills",
-      "status": "ok",
-      "httpStatus": 200
+      "status": "restricted",
+      "httpStatus": 403
     },
     {
       "url": "https://github.com/NVIDIA-NeMo/Speech/tree/nemotron-labs-voicechat",
@@ -2941,8 +2941,8 @@
     },
     {
       "url": "https://www.krea.ai/",
-      "status": "ok",
-      "httpStatus": 200
+      "status": "unknown",
+      "httpStatus": null
     },
     {
       "url": "https://ai.google.dev/gemini-api/docs/models/gemini-3-pro-image",
@@ -2966,8 +2966,8 @@
     },
     {
       "url": "https://about.fb.com/news/2025/09/oakley-meta-vanguard-performance-ai-glasses-sports/",
-      "status": "ok",
-      "httpStatus": 200
+      "status": "unknown",
+      "httpStatus": null
     },
     {
       "url": "https://skillui.com/en",
@@ -3066,8 +3066,8 @@
     },
     {
       "url": "https://tabitoken.com/",
-      "status": "restricted",
-      "httpStatus": 403
+      "status": "ok",
+      "httpStatus": 200
     },
     {
       "url": "https://github.com/petergyang/human-review",
@@ -3121,8 +3121,8 @@
     },
     {
       "url": "https://www.coursera.org/learn/google-ai-for-app-building",
-      "status": "ok",
-      "httpStatus": 200
+      "status": "restricted",
+      "httpStatus": null
     },
     {
       "url": "https://walkinglabs.github.io/learn-harness-engineering/en/",
@@ -3241,8 +3241,8 @@
     },
     {
       "url": "https://oceon.io/ui/form-vault-password",
-      "status": "ok",
-      "httpStatus": 200
+      "status": "restricted",
+      "httpStatus": 403
     },
     {
       "url": "https://vibehub.academy/",
@@ -3261,13 +3261,13 @@
     },
     {
       "url": "https://www.instagram.com/prozavlly/",
-      "status": "restricted",
-      "httpStatus": 429
+      "status": "unknown",
+      "httpStatus": null
     },
     {
       "url": "https://www.instagram.com/frontendjoe/",
-      "status": "restricted",
-      "httpStatus": 429
+      "status": "unknown",
+      "httpStatus": null
     },
     {
       "url": "https://github.com/vercel-labs/agent-skills/tree/main/skills/web-design-guidelines",
@@ -3376,8 +3376,8 @@
     },
     {
       "url": "https://www.youtube.com/watch?v=Uk7HHfF9n2Q",
-      "status": "ok",
-      "httpStatus": 200
+      "status": "unknown",
+      "httpStatus": null
     },
     {
       "url": "https://abacus.ai/pricing",
@@ -3476,6 +3476,121 @@
     },
     {
       "url": "https://github.com/plausible/analytics",
+      "status": "ok",
+      "httpStatus": 200
+    },
+    {
+      "url": "https://github.com/NirDiamant/agents-towards-production",
+      "status": "ok",
+      "httpStatus": 200
+    },
+    {
+      "url": "https://github.com/dair-ai/Prompt-Engineering-Guide",
+      "status": "ok",
+      "httpStatus": 200
+    },
+    {
+      "url": "https://github.com/Shubhamsaboo/awesome-llm-apps",
+      "status": "ok",
+      "httpStatus": 200
+    },
+    {
+      "url": "https://library.eclipse-forge.ru/prompts/eclipse-command-presets.md",
+      "status": "ok",
+      "httpStatus": 200
+    },
+    {
+      "url": "https://library.eclipse-forge.ru/guides/anti-vibe-design-review-2026-08-23.md",
+      "status": "ok",
+      "httpStatus": 200
+    },
+    {
+      "url": "https://github.com/block/buzz",
+      "status": "ok",
+      "httpStatus": 200
+    },
+    {
+      "url": "https://github.com/spider863644/PhoneNumber-OSINT",
+      "status": "ok",
+      "httpStatus": 200
+    },
+    {
+      "url": "https://github.com/MengTo/threeui",
+      "status": "ok",
+      "httpStatus": 200
+    },
+    {
+      "url": "https://github.com/rampstackco/claude-skills",
+      "status": "ok",
+      "httpStatus": 200
+    },
+    {
+      "url": "https://github.com/mithi/robotics-coursework",
+      "status": "ok",
+      "httpStatus": 200
+    },
+    {
+      "url": "https://github.com/deepbeepmeep/Wan2GP",
+      "status": "ok",
+      "httpStatus": 200
+    },
+    {
+      "url": "https://opengym.duarte-santos.ch/",
+      "status": "ok",
+      "httpStatus": 200
+    },
+    {
+      "url": "https://render.com/",
+      "status": "unknown",
+      "httpStatus": null
+    },
+    {
+      "url": "https://github.com/trailhq/Graft",
+      "status": "ok",
+      "httpStatus": 200
+    },
+    {
+      "url": "https://github.com/DeusData/codebase-memory-mcp",
+      "status": "ok",
+      "httpStatus": 200
+    },
+    {
+      "url": "https://github.com/calesthio/OpenMontage",
+      "status": "ok",
+      "httpStatus": 200
+    },
+    {
+      "url": "https://github.com/stablyai/orca",
+      "status": "ok",
+      "httpStatus": 200
+    },
+    {
+      "url": "https://www.fakecam.net/",
+      "status": "ok",
+      "httpStatus": 200
+    },
+    {
+      "url": "https://camloop.app/",
+      "status": "ok",
+      "httpStatus": 200
+    },
+    {
+      "url": "https://github.com/Cliply/Cliply",
+      "status": "ok",
+      "httpStatus": 200
+    },
+    {
+      "url": "https://vercel.com/academy/build-ai-agent-harness",
+      "status": "ok",
+      "httpStatus": 200
+    },
+    {
+      "url": "https://huggingface.co/AEON-7/Qwen3.8-27B-AEON-ULTIMATE-UNCENSORED-BF16",
+      "status": "ok",
+      "httpStatus": 200
+    },
+    {
+      "url": "https://huggingface.co/orcarouter/Qwen3.8-27B-Uncensored-FP8",
       "status": "ok",
       "httpStatus": 200
     },
@@ -3591,8 +3706,8 @@
     },
     {
       "url": "https://task-manager-eclipse.pages.dev",
-      "status": "ok",
-      "httpStatus": 200
+      "status": "unknown",
+      "httpStatus": null
     },
     {
       "url": "https://github.com/PavelHopson/task-manager",
@@ -3601,8 +3716,8 @@
     },
     {
       "url": "https://eclipse-media.pages.dev",
-      "status": "ok",
-      "httpStatus": 200
+      "status": "unknown",
+      "httpStatus": null
     },
     {
       "url": "https://github.com/PavelHopson/retry-http",
