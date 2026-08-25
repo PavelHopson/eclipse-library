@@ -96,9 +96,11 @@ async function fetchText(url) {
 export async function smokeProduction(baseValue, deploySha = '') {
   const base = validateBaseUrl(baseValue);
   const cacheKey = encodeURIComponent(deploySha || Date.now().toString());
-  const [localIndex, localApp, localRuntime, localReview, localReviewStyle, localCatalog, localMetadata, localProjects, localMcpAudit, localGuides, localAgentExport, localRegistryPage, localRegistryScript, localRegistryStyle, localRegistry] = await Promise.all([
+  const [localIndex, localApp, localShell, localLibraryStyle, localRuntime, localReview, localReviewStyle, localCatalog, localMetadata, localProjects, localMcpAudit, localGuides, localAgentExport, localRegistryPage, localRegistryScript, localRegistryStyle, localRegistry, localPromptPack, localAntiVibeGuide] = await Promise.all([
     readFile(new URL('web/index.html', repoRoot), 'utf8').then(normalizeTextPayload),
     readFile(new URL('web/app.js', repoRoot), 'utf8').then(normalizeTextPayload),
+    readFile(new URL('web/library-shell.js', repoRoot), 'utf8').then(normalizeTextPayload),
+    readFile(new URL('web/library-v2.css', repoRoot), 'utf8').then(normalizeTextPayload),
     readFile(new URL('web/catalog-runtime.js', repoRoot), 'utf8').then(normalizeTextPayload),
     readFile(new URL('web/catalog-review.js', repoRoot), 'utf8').then(normalizeTextPayload),
     readFile(new URL('web/review.css', repoRoot), 'utf8').then(normalizeTextPayload),
@@ -112,6 +114,8 @@ export async function smokeProduction(baseValue, deploySha = '') {
     readFile(new URL('web/registry.js', repoRoot), 'utf8').then(normalizeTextPayload),
     readFile(new URL('web/registry.css', repoRoot), 'utf8').then(normalizeTextPayload),
     readFile(new URL('web/star-technology-registry.json', repoRoot), 'utf8').then(JSON.parse),
+    readFile(new URL('prompts/eclipse-command-presets.md', repoRoot), 'utf8').then(normalizeTextPayload),
+    readFile(new URL('guides/anti-vibe-design-review-2026-08-23.md', repoRoot), 'utf8').then(normalizeTextPayload),
   ]);
   const [localSummary, localDetailShard] = await Promise.all([
     readFile(new URL('web/catalog-summary.json', repoRoot), 'utf8').then(JSON.parse),
@@ -126,6 +130,16 @@ export async function smokeProduction(baseValue, deploySha = '') {
   appUrl.searchParams.set('deploy', cacheKey);
   const liveApp = await fetchText(appUrl);
   assert.equal(liveApp, localApp, 'Production app.js does not match the deployed commit.');
+  const localShellAsset = extractVersionedAsset(localIndex, 'library-shell.js');
+  assert.equal(extractVersionedAsset(liveIndex, 'library-shell.js'), localShellAsset, 'Production index references an unexpected library shell version.');
+  const shellUrl = new URL(localShellAsset, base);
+  shellUrl.searchParams.set('deploy', cacheKey);
+  assert.equal(await fetchText(shellUrl), localShell, 'Production library-shell.js does not match the deployed commit.');
+  const localLibraryStyleAsset = extractVersionedAsset(localIndex, 'library-v2.css');
+  assert.equal(extractVersionedAsset(liveIndex, 'library-v2.css'), localLibraryStyleAsset, 'Production index references an unexpected Library style version.');
+  const libraryStyleUrl = new URL(localLibraryStyleAsset, base);
+  libraryStyleUrl.searchParams.set('deploy', cacheKey);
+  assert.equal(await fetchText(libraryStyleUrl), localLibraryStyle, 'Production library-v2.css does not match the deployed commit.');
   const localRuntimeAsset = extractVersionedAsset(localIndex, 'catalog-runtime.js');
   const liveRuntimeAsset = extractVersionedAsset(liveIndex, 'catalog-runtime.js');
   assert.equal(liveRuntimeAsset, localRuntimeAsset, 'Production index references an unexpected catalog runtime version.');
@@ -149,6 +163,13 @@ export async function smokeProduction(baseValue, deploySha = '') {
   assertMobileGuideTocGuard(liveApp);
   assertTopicRouteResetOrder(localApp);
   assertTopicRouteResetOrder(liveApp);
+
+  const [livePromptPack, liveAntiVibeGuide] = await Promise.all([
+    fetchText(new URL(`prompts/eclipse-command-presets.md?deploy=${cacheKey}`, base)),
+    fetchText(new URL(`guides/anti-vibe-design-review-2026-08-23.md?deploy=${cacheKey}`, base)),
+  ]);
+  assert.equal(livePromptPack, localPromptPack, 'Production prompt pack does not match the deployed commit.');
+  assert.equal(liveAntiVibeGuide, localAntiVibeGuide, 'Production Anti-vibe guide does not match the deployed commit.');
 
   const registryPageUrl = new URL(`registry.html?deploy=${cacheKey}`, base);
   const liveRegistryPage = await fetchText(registryPageUrl);

@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "totals": {
-    "guides": 68
+    "guides": 70
   },
   "guides": [
     {
@@ -105,13 +105,20 @@
     {
       "name": "agent-systems-roadmap-2026-08-22",
       "title": "Agent Systems: дорожная карта Eclipse Forge",
-      "description": "Видимый индекс всей подборки: 10 самостоятельных направлений, владельцы проектов, приоритеты и обязательные approval gates.",
+      "description": "Видимый индекс всей подборки: 11 самостоятельных направлений, владельцы проектов, приоритеты и обязательные approval gates.",
       "modules": 0,
       "lessons": 0
     },
     {
       "name": "august-2026-agent-learning-media-radar",
       "title": "Agent, learning и media radar — 21 августа 2026",
+      "description": "",
+      "modules": 0,
+      "lessons": 0
+    },
+    {
+      "name": "anti-vibe-design-review-2026-08-23",
+      "title": "Anti-vibe Design Review: как отличить шаблонный AI UI от рабочего продукта",
       "description": "",
       "modules": 0,
       "lessons": 0
@@ -358,6 +365,13 @@
       "name": "august-2026-operational-agent-stack",
       "title": "Operational Agent Stack: от сигнала до результата",
       "description": "Проверка от 03.08.2026. Цель этого набора не установить шесть случайных инструментов, а собрать управляемый pipeline: анализ - решение - выполнение - артефакт - review.",
+      "modules": 0,
+      "lessons": 0
+    },
+    {
+      "name": "production-agent-references-2026-08-23",
+      "title": "Production Agent References: разбор и применение в Eclipse Forge",
+      "description": "",
       "modules": 0,
       "lessons": 0
     },

@@ -17,6 +17,7 @@
   <link rel="stylesheet" href="styles.css?v=29" />
   <link rel="stylesheet" href="navigator.css?v=3" />
   <link rel="stylesheet" href="review.css?v=2" />
+  <link rel="stylesheet" href="library-v2.css?v=1" />
 </head>
 <body data-visual-profile="knowledge-bento">
   <a class="skip" href="#results">Перейти к каталогу</a>
@@ -30,28 +31,37 @@
           <small>Проверенные решения для Eclipse Forge</small>
         </span>
       </a>
+      <button id="sectionsOpen" class="sections-open" type="button" aria-controls="librarySidebar" aria-expanded="false">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h10" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+        <span>Разделы</span>
+      </button>
       <nav class="primary-nav" aria-label="Главная навигация">
-        <a href="#catalog" data-view-link="catalog">Каталог</a>
-        <a href="#projects" data-view-link="projects">Проекты</a>
-        <a href="registry.html">Eclipse Registry</a>
-        <a href="animations.html">Анимации</a>
+        <a href="#catalogStart" data-view-link="catalog">Каталог</a>
         <a href="#guidesFeat">Гайды</a>
+        <a href="#projects" data-view-link="projects">Проекты</a>
       </nav>
       <div class="search-wrap">
         <svg class="search-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 21l-4.3-4.3M11 19a8 8 0 1 1 0-16 8 8 0 0 1 0 16z" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
         <input id="search" type="search" placeholder="Найти инструмент, модель, skill или гайд…" autocomplete="off" spellcheck="false" aria-label="Поиск по библиотеке" />
         <kbd aria-hidden="true">Ctrl K</kbd>
       </div>
-      <a class="gh-link" href="https://github.com/PavelHopson/eclipse-library" target="_blank" rel="noopener" title="Репозиторий на GitHub" aria-label="GitHub">
-        <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path fill="currentColor" d="M12 .5C5.7.5.5 5.7.5 12c0 5.1 3.3 9.4 7.9 10.9.6.1.8-.2.8-.5v-2c-3.2.7-3.9-1.4-3.9-1.4-.5-1.3-1.3-1.7-1.3-1.7-1.1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.7 1.3 3.4 1 .1-.8.4-1.3.7-1.6-2.6-.3-5.3-1.3-5.3-5.7 0-1.3.4-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0C17 4.6 18 4.9 18 4.9c.6 1.6.2 2.8.1 3.1.8.8 1.2 1.8 1.2 3.1 0 4.4-2.7 5.4-5.3 5.7.4.4.8 1.1.8 2.2v3.3c0 .3.2.6.8.5 4.6-1.5 7.9-5.8 7.9-10.9C23.5 5.7 18.3.5 12 .5z"/></svg>
-      </a>
-      <a class="forge-link" href="https://eclipse-forge.ru/" target="_blank" rel="noopener">Eclipse Forge ↗</a>
+      <button class="guide-open" type="button" data-library-guide-open>Как пользоваться</button>
     </div>
   </header>
 
+  <button id="sidebarScrim" class="sidebar-scrim" type="button" aria-label="Закрыть разделы" hidden></button>
+
   <div id="top" class="layout">
-    <aside class="sidebar" aria-label="Категории">
-      <div class="side-label">Навигация</div>
+    <aside id="librarySidebar" class="sidebar" aria-label="Разделы библиотеки" aria-hidden="true">
+      <div class="sidebar-head">
+        <div><span>Навигация</span><b>Все разделы</b></div>
+        <button id="sectionsClose" type="button" aria-label="Закрыть разделы">×</button>
+      </div>
+      <nav class="sidebar-primary" aria-label="Основные разделы">
+        <a href="#catalogStart" data-view-link="catalog">Каталог</a>
+        <a href="#guidesFeat">Гайды</a>
+        <a href="#projects" data-view-link="projects">Проекты</a>
+      </nav>
       <div class="side-tools">
         <input id="navSearch" type="search" placeholder="Найти раздел..." autocomplete="off" spellcheck="false" aria-label="Поиск по разделам" />
         <button id="navClear" class="side-clear" type="button" hidden>Сбросить</button>
@@ -61,31 +71,22 @@
     </aside>
 
     <main class="content">
-      <nav class="view-switcher" aria-label="Что открыть">
-        <span class="view-switcher-indicator" aria-hidden="true"></span>
-        <a href="#catalog" data-view-link="catalog"><span>Каталог</span><small>проверенные находки</small></a>
-        <a href="#projects" data-view-link="projects"><span>Проекты</span><small>продукты Eclipse Forge</small></a>
-        <a href="registry.html"><span>Eclipse Registry</span><small>решения трёх продуктов</small></a>
-        <a href="animations.html"><span>Animation Lab</span><small>живые демо и HTML-файлы</small></a>
-        <a href="#guidesFeat"><span>Гайды</span><small>пошаговое обучение</small></a>
-      </nav>
-
       <section id="hero" class="hero" aria-labelledby="hero-h1">
         <div class="hero-grid">
           <div class="hero-copy">
-            <div class="eyebrow">Eclipse Forge Knowledge Navigator</div>
-            <h1 id="hero-h1">Найдите инструмент <span>под задачу</span></h1>
-            <p class="hero-sub">Сразу увидите назначение, условия, доверие, риски и применение в проектах Eclipse Forge.</p>
+            <div class="eyebrow">Eclipse Library</div>
+            <h1 id="hero-h1">Найдите решение <span>для своей задачи</span></h1>
+            <p class="hero-sub">Опишите, что хотите сделать. Библиотека покажет подходящие инструменты и гайды — вместе с ценой, ограничениями и рисками.</p>
             <form id="heroCommand" class="hero-command" role="search">
-              <label for="heroSearch">Что хотите сделать?</label>
+              <label for="heroSearch">Поиск по библиотеке</label>
               <div class="hero-command-field">
-                <input id="heroSearch" type="search" placeholder="Например: локальная модель для изображений" autocomplete="off" spellcheck="false" />
-                <button type="submit">Найти</button>
+                <input id="heroSearch" type="search" placeholder="Например: сделать видео, запустить AI локально или проверить сайт" autocomplete="off" spellcheck="false" />
+                <button type="submit">Показать решения</button>
               </div>
             </form>
             <div class="hero-task-shortcuts" aria-label="Популярные задачи">
               <button type="button" data-hero-task="local-ai">Локальный AI</button>
-              <button type="button" data-hero-task="growth">Продвижение</button>
+              <button type="button" data-hero-task="automation">Автоматизация</button>
               <button type="button" data-hero-task="media">Медиа</button>
               <button type="button" data-hero-task="security">Безопасность</button>
             </div>
@@ -99,11 +100,31 @@
             </div>
           </aside>
         </div>
-        <div id="quickRoutes" class="quick-routes" aria-label="Быстрые сценарии"></div>
+        <div class="task-launcher-head">
+          <div><span>Быстрый выбор</span><h2>Что вы хотите сделать?</h2></div>
+          <button type="button" data-library-guide-open>Не знаете, с чего начать?</button>
+        </div>
+        <div id="quickRoutes" class="quick-routes" aria-label="Задачи"></div>
         <details class="cat-browser">
           <summary>Все разделы <span id="catBrowserCount"></span></summary>
           <nav id="catgrid" class="cat-grid" aria-label="Быстрый переход к категориям"></nav>
         </details>
+      </section>
+
+      <section id="orientationPanel" class="orientation-panel" aria-labelledby="orientationTitle">
+        <header>
+          <div><span>Старт здесь</span><h2 id="orientationTitle">Три шага до полезного результата</h2></div>
+          <button type="button" data-library-guide-open>Открыть путеводитель</button>
+        </header>
+        <ol class="orientation-steps">
+          <li><b>1</b><div><strong>Выберите задачу</strong><span>Не нужно знать название инструмента — начните с того, что хотите получить.</span></div></li>
+          <li><b>2</b><div><strong>Сравните варианты</strong><span>Сохраните два материала и сопоставьте цену, условия, доверие и риски.</span></div></li>
+          <li><b>3</b><div><strong>Начните безопасно</strong><span>Откройте полный разбор и выполните первый проверенный шаг.</span></div></li>
+        </ol>
+      </section>
+
+      <section id="guidesFeat" class="guides-feat" aria-label="Гайды и курсы">
+        <div class="guides-loading" role="status">Загружаю гайды…</div>
       </section>
 
       <section id="personalPanel" class="personal-panel" hidden aria-labelledby="personalTitle">
@@ -139,6 +160,11 @@
         <div><span id="topicEyebrow">Тематическая подборка</span><b id="topicTitle"></b><p id="topicDescription"></p></div>
         <button id="topicClear" type="button">Показать весь каталог</button>
       </aside>
+
+      <section id="catalogStart" class="catalog-start" aria-labelledby="catalogStartTitle">
+        <div><span>Каталог</span><h2 id="catalogStartTitle">Подходящие материалы</h2></div>
+        <p>Сначала выберите задачу. Дополнительные условия можно уточнить позже.</p>
+      </section>
 
       <section id="filters" class="filters" aria-label="Фильтры каталога" hidden>
         <div class="filter-head">
@@ -313,6 +339,29 @@
 
   <section id="reviewView" class="review-overlay" hidden role="dialog" aria-modal="true" aria-label="Локальная проверка карточки"></section>
 
+  <dialog id="libraryGuideDialog" class="library-guide-dialog" aria-labelledby="libraryGuideTitle">
+    <div class="library-guide-shell">
+      <header>
+        <div><span>Путеводитель</span><h2 id="libraryGuideTitle">Как быстро найти нужное</h2></div>
+        <button id="libraryGuideClose" type="button" aria-label="Закрыть путеводитель">×</button>
+      </header>
+      <div class="library-guide-intro">
+        <p>Начинайте не с названия сервиса, а с результата. Библиотека уже собрала назначение, условия, ограничения и безопасный первый шаг.</p>
+      </div>
+      <ol class="library-guide-path">
+        <li><b>01</b><div><strong>Опишите результат</strong><span>Например: «создать ролик», «найти локальную модель» или «проверить безопасность проекта».</span></div></li>
+        <li><b>02</b><div><strong>Сузьте подборку</strong><span>Выберите задачу. Стоимость, платформа и лицензия спрятаны в дополнительных фильтрах и не мешают на старте.</span></div></li>
+        <li><b>03</b><div><strong>Откройте быстрый обзор</strong><span>Смотрите решение редакции, главный риск и следующий шаг до перехода на внешний сайт.</span></div></li>
+        <li><b>04</b><div><strong>Сравните и сохраните</strong><span>Добавьте два варианта в сравнение или сохраните материал, чтобы вернуться к нему позже.</span></div></li>
+      </ol>
+      <div class="library-guide-actions">
+        <button type="button" data-guide-action="search">Начать с поиска</button>
+        <button type="button" data-guide-action="tasks">Выбрать задачу</button>
+      </div>
+      <p class="library-guide-note">Каталог ничего не устанавливает и не запускает без вашего решения.</p>
+    </div>
+  </dialog>
+
   <button id="toTop" class="to-top" type="button" hidden aria-label="Наверх">↑</button>
 
   <footer class="footer">
@@ -327,6 +376,7 @@
   <script src="catalog-review.js?v=2"></script>
   <script src="catalog-search.js?v=1"></script>
   <script src="cursor-light.js?v=1"></script>
-  <script src="app.js?v=42"></script>
+  <script src="app.js?v=43"></script>
+  <script src="library-shell.js?v=1"></script>
 </body>
 </html>

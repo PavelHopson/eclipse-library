@@ -8,6 +8,7 @@ on:
       - 'README.md'
       - 'catalog/**'
       - 'guides/**'
+      - 'prompts/**'
       - 'web/**'
       - 'scripts/**'
       - '.github/workflows/quality.yml'
@@ -33,6 +34,7 @@ jobs:
           node --check web/catalog-progressive.js
           node --check web/catalog-review.js
           node --check web/app.js
+          node --check web/library-shell.js
           node --check web/animation-lab.js
           node --check web/registry.js
           node --check scripts/review-preview-policy.mjs
@@ -48,6 +50,7 @@ jobs:
           node scripts/validate-catalog.mjs
           node --test scripts/catalog-runtime-build.test.mjs
           node --test scripts/catalog-client-contract.test.mjs
+          node scripts/library-navigation.test.mjs
           node --test scripts/catalog-policy.test.mjs
           node --test scripts/catalog-progressive.test.mjs
           node --test scripts/diagram-contract.test.mjs

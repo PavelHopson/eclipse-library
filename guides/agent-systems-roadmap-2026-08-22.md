@@ -1,6 +1,6 @@
 # Agent Systems: дорожная карта Eclipse Forge
 
-> Видимый индекс всей подборки: 10 самостоятельных направлений, владельцы проектов, приоритеты и обязательные approval gates.
+> Видимый индекс всей подборки: 11 самостоятельных направлений, владельцы проектов, приоритеты и обязательные approval gates.
 
 ## Общий контракт
 
@@ -20,6 +20,7 @@
 8. [Defensive Security Pipeline](./defensive-security-pipeline.md) — Sentinel и CI.
 9. [Open-source Replacement Matrix](./open-source-replacement-matrix.md) — TCO и migration reality.
 10. [Skills, Connectors & Agent Teams](./skills-connectors-and-agent-teams.md) — Skill Intake и capability registry.
+11. [Production Agent References & AI Office](./production-agent-references-2026-08-23.md) — clean-room patterns, live state projection и rollout.
 
 ## Сквозные P0 epic’и
 
@@ -34,7 +35,7 @@
 
 ## Статус intake
 
-Добавлены карточки OpenReply, Awesome Claude Skills, Screenpipe, Twenty, NocoDB, Voicebox, Agency Agents, Arcads Skills, Wan 2.1, ScrapeGraph MCP и community collection. Open-Higgsfield-AI помещён в quarantine.
+Добавлены карточки OpenReply, Awesome Claude Skills, Screenpipe, Twenty, NocoDB, Voicebox, Agency Agents, Arcads Skills, Wan 2.1, ScrapeGraph MCP и community collection. Open-Higgsfield-AI помещён в quarantine. 23.08.2026 добавлены Agents Towards Production (reference-only из-за non-commercial license), MIT Prompt Engineering Guide, Apache-2.0 Awesome LLM Apps, owned command presets и Anti-vibe Design Review.
 
 Fable 5, Opus 5/4.8, Kimi K3, DeepSeek V4, GLM-5.2, Gemma 4, Qwen3.8-Max и рекламные benchmark/price claims не считаются фактами без первичного источника.
 

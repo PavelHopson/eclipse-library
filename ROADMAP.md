@@ -1,6 +1,25 @@
 # Eclipse Library Roadmap
 
-Последнее обновление: **22.08.2026**
+Последнее обновление: **25.08.2026**
+
+### 2026-08-25 — task-first navigation and library guide
+
+- [x] Главный экран перестроен вокруг понятных задач вместо типов ресурсов и внутренней терминологии.
+- [x] Верхний уровень сокращён до трёх направлений: каталог, гайды и проекты; полный список разделов перенесён в доступную выдвижную панель.
+- [x] Добавлен встроенный путеводитель с выбором маршрута, прямым переходом к поиску или задачам и возвратом фокуса после закрытия.
+- [x] Гайды сгруппированы по темам, получили собственный поиск, пустое состояние и progressive disclosure по девять карточек.
+- [x] Анимации ограничены `transform`/`opacity`, отключаются через `prefers-reduced-motion`; mobile viewport проверен без горизонтального скролла.
+- [ ] После production deploy проверить реальные Web Vitals и поисковые формулировки, которые не дали результата, без сбора текста запросов или персональных данных.
+
+### 2026-08-23 — production agent references, command presets and AI Office
+
+- [x] Проверены official repositories Agents Towards Production, Prompt Engineering Guide и Awesome LLM Apps; добавлены evidence, license, risk и project mapping.
+- [x] Community slash-like labels оформлены как 49 Eclipse presets, а не как выдуманные native-команды моделей; /blueprint, /stickynotes и /cutaway имеют rights/evidence gates.
+- [x] Опубликован Anti-vibe Design Review: fake testimonials, отсутствие states/privacy и instruction-dependent flow отделены от нейтральных приёмов вроде Lucide, Bento или Inter.
+- [x] Зафиксирована AI Office architecture: runtime остаётся source of truth, 2D/3D — только projection; secrets server-side, tools deny-by-default, actions через approval receipt.
+- [ ] P1: подключить к Agent Office bounded Research, Build, QA/Security и Content rooms; каждая роль получает scope, budget, timeout и stop.
+- [ ] P2: lightweight 3D floor как опциональный обзор после accessibility/performance QA; очередь и approvals всегда остаются доступной primary surface.
+- Agents Towards Production имеет custom non-commercial license: только reference/clean-room design до письменного разрешения на коммерческий reuse.
 
 ### 2026-08-22 — community prompt library review and safe rollout
 
@@ -35,7 +54,7 @@
   exact 5-scene/15-second contract и ручными render/publish boundaries. Обе схемы static-only,
   используют локальные шрифты и отдельные desktop/mobile SVG без выдуманной автоматизации.
 
-- `catalog/resources.json` — канонический structured catalog из 674 уникальных записей;
+- `catalog/resources.json` — канонический structured catalog из 698 уникальных записей;
   `README.md` сокращён до документации и больше не является runtime-источником данных.
 - `web/catalog-review.js` и `web/review.css` — собственный локальный editorial review-flow:
   четыре evidence gates, явный итог, bounded draft, clipboard fallback и downloadable v2 JSON packet.
@@ -48,12 +67,12 @@
   initial JSON на 31% меньше compact index и примерно на 44% меньше прежнего pretty payload.
   Полные evidence, ограничения и исходное описание распределены по 16 deterministic shards;
   detail view имеет честные loading, error и retry состояния.
-- `web/catalog-index.json` — production schema v2: 305 записей редакторски проверены,
-  369 честно помечены `inferred`, 392 имеют отдельный `addedAt`, даты удалены из category.
-- License layer: у 458 записей лицензия или условия нормализованы с evidence URL;
-  214 остаются в детерминированной manual-review очереди.
-- Agent policy: 592 записи доступны автоматическим consumers, 82 исключены fail closed;
-  все 74 grey-ресурса скрыты от recommendations, direct install запрещён для всех записей.
+- `web/catalog-index.json` — production schema v2: 329 записей редакторски проверены,
+  369 честно помечены `inferred`; даты хранятся отдельно от category.
+- License layer: у 483 записей лицензия или условия нормализованы с evidence URL;
+  215 остаются в детерминированной manual-review очереди.
+- Agent policy: 615 записей доступны автоматическим consumers, 83 исключены fail closed;
+  все 75 grey-ресурсов скрыты от recommendations, direct install запрещён для всех записей.
 - `web/api/v1/` — versioned static exports для full catalog, agents, Eclipse CRM и Eclipse AI;
   consumers больше не должны читать README.
 - `web/star-technology-registry.json` и `web/registry.html` — отдельный read-only decision
@@ -395,6 +414,13 @@
       self-check, EN/RU copy и без обязательного API key.
 
 ## Changelog
+
+### 2026-08-23 — Production agents and AI Office intake
+
+- Каталог расширен до 698 записей: три проверенных external references и два owned editorial assets — command presets и Anti-vibe Design Review.
+- Добавлен production guide с clean-room license boundary, threat model и rollout по проектам.
+- Runtime/index/API exports пересобраны; blocking validators и 21 catalog tests прошли.
+- В Eclipse Chat начат first-party AI Office projection: пять Growth-ролей показывают фактические states и provider/model, но не получают новых tools или external actions.
 
 ### 2026-08-22 — Animation Lab navigation and conversion pack
 

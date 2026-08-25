@@ -11,6 +11,7 @@ on:
       - 'catalog/**'
       - 'scripts/**'
       - 'guides/**'
+      - 'prompts/**'
       - '.github/workflows/deploy-vps.yml'
   workflow_run:
     workflows: ['Audit catalog links']
@@ -45,8 +46,10 @@ jobs:
           node scripts/validate-star-technology-registry.mjs
           node --test scripts/catalog-runtime-build.test.mjs
           node --test scripts/catalog-client-contract.test.mjs
+          node scripts/library-navigation.test.mjs
           node --test scripts/diagram-contract.test.mjs
           node --test scripts/brand-assets.test.mjs
+          node --check web/library-shell.js
           node --check web/catalog-review.js
           node --check web/registry.js
           node --check scripts/review-preview-policy.mjs
@@ -57,6 +60,7 @@ jobs:
           mkdir -p _site
           cp -r web/. _site/
           cp -r guides _site/guides
+          cp -r prompts _site/prompts
           rm -f _site/.gitignore _site/_*.png _site/_edge.log
 
       - name: Setup SSH

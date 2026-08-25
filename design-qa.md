@@ -173,3 +173,34 @@ The source hierarchy and unique 3D metaphors remain intact. The correction only 
 ## Final result
 
 Passed. No P0/P1/P2 containment mismatch remains across the four previously omitted demos.
+
+---
+
+# Design QA — Task-first Library navigation
+
+- Date: 2026-08-25
+- Scope: `web/index.html`, `web/app.js`, `web/library-v2.css`, `web/library-shell.js`
+- Desktop capture: `.artifacts/design-qa/library-v2-desktop-ready.png`
+- Mobile capture: `.artifacts/design-qa/library-v2-mobile-final.png`
+
+## Problem and correction
+
+The previous landing page exposed navigation, view modes, categories, filters, health data and
+guides at the same hierarchy. The replacement starts with one search, six outcome-oriented tasks
+and one short guide. Technical categories remain available in an off-canvas section instead of
+occupying the permanent reading path.
+
+## Functional acceptance
+
+- catalog, guides and projects are the only top-level destinations;
+- task routes set the existing filters and move focus to the catalog without changing the data contract;
+- the guide dialog restores focus, closes on Escape and supports direct search/task actions;
+- the guide directory provides topic filters, local search, a useful empty state and progressive disclosure;
+- the 390 px probe reports no page-level horizontal scroll; intentional chip rows scroll inside their owners;
+- reduced motion removes spatial movement and keeps only a short opacity transition;
+- new shell code contains no remote origins, `innerHTML`, `eval`, storage of secrets or external mutation.
+
+## Final result
+
+Passed for the implemented static navigation surface. Production analytics and Web Vitals remain a
+post-deploy observation step and are not claimed by local QA.

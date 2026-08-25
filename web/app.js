@@ -704,7 +704,7 @@
     renderHealthSummary();
 
     buildFilters(typeCounts);
-    buildQuickRoutes(cats, typeCounts);
+    buildQuickRoutes();
     editorialRuntime.renderEditorialRecent({
       cards, $, el, esc, escAttr, formatAddedAt, decisions: DECISIONS, risks: RISK,
     });
@@ -766,30 +766,31 @@
     return cats.find((c) => re.test(c.label.toLowerCase()));
   }
 
-  function buildQuickRoutes(cats, typeCounts) {
+  function buildQuickRoutes() {
     const box = $('#quickRoutes');
     if (!box) return;
-    const ai = findCat(cats, /ai & claude/);
-    const ecommerce = findCat(cats, /интернет-магазин/);
-    const projects = findCat(cats, /наши проекты/);
-    const latestDrop = [...cats].reverse().find((c) => /подборка eclipse/.test(c.label.toLowerCase()));
-    const routes = [
-      { label: 'Новое', hint: 'последние редакционные разборы', href: '#browse/recent', count: cards.filter(TOPIC_ROUTES.recent.match).length },
-      { label: 'Проверено', hint: 'полный редакторский разбор', href: '#browse/verified', count: cards.filter(TOPIC_ROUTES.verified.match).length },
-      { label: 'Skills', hint: 'готовые роли и workflows', href: '#browse/skills', count: typeCounts.skill || 0 },
-      { label: 'MCP', hint: 'данные и внешние действия', href: '#browse/mcp', count: cards.filter(TOPIC_ROUTES.mcp.match).length },
-      { label: 'AI-модели', hint: 'local и cloud inference', href: '#browse/models', count: typeCounts.model || 0 },
-      { label: 'Промпты', hint: 'готовые сценарии запросов', href: '#browse/prompts', count: typeCounts.prompt || 0 },
-      { label: 'Security', hint: 'риски, privacy и защита', href: '#browse/security', count: cards.filter(TOPIC_ROUTES.security.match).length },
-      { label: 'Курсы', hint: 'обучение по шагам', href: '#browse/courses', count: typeCounts.learn || 0 },
-      latestDrop && { label: 'Свежая подборка', hint: latestDrop.label.replace(/^Подборка Eclipse\s*/i, ''), href: `#${latestDrop.id}`, count: latestDrop.subs.reduce((a, s) => a + s.resources.length, 0) },
-      ecommerce && { label: 'E-commerce', hint: 'магазины, платежи, storefront', href: `#${ecommerce.id}`, count: ecommerce.subs.reduce((a, s) => a + s.resources.length, 0) },
-      projects && { label: 'Наши проекты', hint: 'куда внедрять находки', href: `#${projects.id}`, count: projects.subs.reduce((a, s) => a + s.resources.length, 0) },
-    ].filter(Boolean).slice(0, 6);
-    box.innerHTML = routes.map((r) => {
-      const meta = typeof r.count === 'number' ? `${r.count} ${plural(r.count)}` : 'гайды';
-      return `<a href="${r.href}" class="quick-route"><span><b>${esc(r.label)}</b><small>${esc(r.hint)}</small></span><i>${esc(meta)}</i></a>`;
+    const routeOrder = ['local-ai', 'automation', 'research', 'media', 'growth', 'security'];
+    const routes = routeOrder.map((id) => {
+      const task = TASK_ROUTES[id];
+      return { id, ...task, count: cards.filter(task.match).length };
+    });
+    box.innerHTML = routes.map((route) => {
+      return `<button type="button" class="quick-route" data-quick-task="${route.id}" aria-pressed="false">` +
+        `<span><b>${esc(route.label)}</b><small>${esc(route.hint)}</small></span>` +
+        `<i>${route.count} ${plural(route.count)}</i></button>`;
     }).join('');
+    box.addEventListener('click', (event) => {
+      const button = event.target.closest('[data-quick-task]');
+      if (!button || !TASK_ROUTES[button.dataset.quickTask]) return;
+      clearTopicRoute();
+      activeTask = activeTask === button.dataset.quickTask ? '' : button.dataset.quickTask;
+      updateTaskState();
+      applyFilters();
+      $('#catalogStart')?.scrollIntoView({
+        behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth',
+        block: 'start',
+      });
+    });
   }
 
   const plural = (n) => (n % 10 === 1 && n % 100 !== 11) ? 'находка' : (n % 10 >= 2 && n % 10 <= 4 && (n % 100 < 10 || n % 100 >= 20)) ? 'находки' : 'находок';
@@ -877,6 +878,9 @@
     });
     document.querySelectorAll('[data-hero-task]').forEach((button) => {
       button.setAttribute('aria-pressed', String(button.dataset.heroTask === activeTask));
+    });
+    document.querySelectorAll('[data-quick-task]').forEach((button) => {
+      button.setAttribute('aria-pressed', String(button.dataset.quickTask === activeTask));
     });
   }
 
@@ -1048,6 +1052,10 @@
     if (!sortedMode) updateNavVisibility();
     const filtering = !!(q || activeTask || activeType || activeCost || activeSignup || activeRuntime || activePlatform || activeLicense || activeTrust || activeProject || activeFreshness || activeRepositoryState || activeTopic || activeFavorites);
     $('#hero').classList.toggle('dim', filtering);
+    const orientationPanel = $('#orientationPanel');
+    if (orientationPanel) orientationPanel.hidden = filtering || currentView !== 'catalog';
+    const guideDirectory = $('#guidesFeat');
+    if (guideDirectory) guideDirectory.hidden = currentView !== 'catalog' || (filtering && activeTopic !== 'courses');
     const recentEditorial = $('#recentEditorial');
     if (recentEditorial) recentEditorial.hidden = filtering || currentView !== 'catalog';
     const shown = Math.min(matched, visibleLimit);
@@ -1159,6 +1167,12 @@
     $('#catalogInspector').hidden = projectMode;
     $('#projectsView').hidden = !projectMode;
     $('#hero').hidden = projectMode;
+    const orientationPanel = $('#orientationPanel');
+    if (orientationPanel) orientationPanel.hidden = projectMode;
+    const guideDirectory = $('#guidesFeat');
+    if (guideDirectory) guideDirectory.hidden = projectMode || (activeTopic && activeTopic !== 'courses');
+    const catalogStart = $('#catalogStart');
+    if (catalogStart) catalogStart.hidden = projectMode;
     const recentEditorial = $('#recentEditorial');
     if (recentEditorial) recentEditorial.hidden = projectMode;
     $('#topicContext').hidden = projectMode || !activeTopic;
@@ -1286,7 +1300,25 @@
   }
 
 
-  // ---- courses & guides feature band (structured manifest) ----
+  // ---- courses & guides directory (structured manifest) ----
+  const GUIDE_GROUPS = {
+    featured: { label: 'С чего начать' },
+    agents: { label: 'AI и агенты' },
+    build: { label: 'Сайты и дизайн' },
+    content: { label: 'Контент и медиа' },
+    security: { label: 'Безопасность' },
+    operations: { label: 'Разработка и процессы' },
+  };
+
+  function guideGroup(guide) {
+    const text = `${guide.name} ${guide.title} ${guide.description || ''}`.toLocaleLowerCase('ru');
+    if (/security|privacy|audit|risk|shield|безопас|защит|уязвим/.test(text)) return 'security';
+    if (/content|media|video|audio|growth|marketing|brand|creator|higgsfield|стилист|контент|медиа|ролик/.test(text)) return 'content';
+    if (/webgl|landing|ecommerce|design|frontend|motion|animation|website|сайт|лендинг|магазин|дизайн|интерфейс/.test(text)) return 'build';
+    if (/agent|claude|codex|prompt|mcp|model|rag|llm|automation|агент|модел|промпт|автоматизац/.test(text)) return 'agents';
+    return 'operations';
+  }
+
   function renderGuides(guides) {
     if (!guides.length) return;
     const pl = (n, a, b, c) => (n % 10 === 1 && n % 100 !== 11) ? a : (n % 10 >= 2 && n % 10 <= 4 && (n % 100 < 10 || n % 100 >= 20)) ? b : c;
@@ -1299,22 +1331,88 @@
       ($('#results') || hero).insertAdjacentElement('afterend', band);
     }
     band.innerHTML =
-      `<div class="gf-head"><h2>Курсы и гайды</h2>` +
-      `<span class="gf-sub">учебные материалы — открываются прямо на сайте</span></div>` +
-      `<div class="gf-grid">` + guides.map((g) => {
+      `<div class="gf-head"><div><span>Учебный раздел</span><h2>Гайды и курсы</h2><p>Выберите тему или найдите инструкцию по названию. На старте показываем только главное.</p></div><b>${guides.length} материалов</b></div>` +
+      `<div class="guide-directory-toolbar"><label><span>Найти гайд</span><input id="guideDirectorySearch" type="search" placeholder="Например: агенты, видео или безопасность" autocomplete="off" spellcheck="false"></label>` +
+      `<div id="guideDirectoryFilters" class="guide-directory-filters" role="toolbar" aria-label="Темы гайдов">` +
+      Object.entries(GUIDE_GROUPS).map(([id, group], index) => `<button type="button" data-guide-group="${id}" aria-pressed="${index === 0}">${group.label}</button>`).join('') +
+      `</div></div>` +
+      `<div class="guide-directory-summary"><span id="guideDirectoryCount" aria-live="polite"></span><button id="guideDirectoryReset" type="button" hidden>Сбросить поиск</button></div>` +
+      `<div id="guideDirectoryGrid" class="gf-grid"></div>` +
+      `<div id="guideDirectoryEmpty" class="guide-directory-empty" hidden><b>Гайд не найден</b><span>Попробуйте другое слово или откройте соседнюю тему.</span></div>` +
+      `<button id="guideDirectoryMore" class="guide-directory-more" type="button" hidden></button>` +
+      `<div class="guide-directory-secondary"><span>Специализированные разделы</span><a href="registry.html">Реестр решений</a><a href="animations.html">Лаборатория анимаций</a></div>`;
+
+    const search = $('#guideDirectorySearch');
+    const grid = $('#guideDirectoryGrid');
+    const count = $('#guideDirectoryCount');
+    const empty = $('#guideDirectoryEmpty');
+    const more = $('#guideDirectoryMore');
+    const reset = $('#guideDirectoryReset');
+    let activeGroup = 'featured';
+    let query = '';
+    let limit = 9;
+
+    const card = (g) => {
         const course = g.modules > 0;
         const meta = course
           ? `<div class="cc-meta"><span><b>${g.modules}</b> ${pl(g.modules, 'модуль', 'модуля', 'модулей')}</span>` +
             (g.lessons ? `<span><b>${g.lessons}</b> ${pl(g.lessons, 'урок', 'урока', 'уроков')}</span>` : '') + `</div>`
           : '';
-        return `<a class="course-card" href="#guide/${g.name}">` +
-          `<span class="cc-kicker">${course ? 'Курс' : 'Гайд'}</span>` +
+        return `<a class="course-card" href="#guide/${encodeURIComponent(g.name)}">` +
+          `<span class="cc-kicker">${course ? 'Курс' : GUIDE_GROUPS[guideGroup(g)].label}</span>` +
           `<h3 class="cc-title">${esc(g.title)}</h3>` +
           (g.description ? `<p class="cc-blurb">${esc(g.description)}</p>` : '') +
           meta +
-          `<span class="cc-cta">Открыть →</span>` +
+          `<span class="cc-cta">Читать гайд <i aria-hidden="true">→</i></span>` +
         `</a>`;
-      }).join('') + `</div>`;
+    };
+
+    const update = () => {
+      const needle = query.trim().toLocaleLowerCase('ru');
+      let filtered = needle
+        ? guides.filter((guide) => `${guide.title} ${guide.description || ''} ${guide.name} ${GUIDE_GROUPS[guideGroup(guide)].label}`.toLocaleLowerCase('ru').includes(needle))
+        : activeGroup === 'featured'
+          ? guides.slice(0, 12)
+          : guides.filter((guide) => guideGroup(guide) === activeGroup);
+      const shown = filtered.slice(0, limit);
+      grid.innerHTML = shown.map(card).join('');
+      count.textContent = needle
+        ? `Найдено: ${filtered.length}`
+        : `${GUIDE_GROUPS[activeGroup].label}: ${filtered.length}`;
+      empty.hidden = filtered.length > 0;
+      more.hidden = shown.length >= filtered.length;
+      more.textContent = more.hidden ? '' : `Показать ещё ${Math.min(9, filtered.length - shown.length)}`;
+      reset.hidden = !needle;
+    };
+
+    $('#guideDirectoryFilters').addEventListener('click', (event) => {
+      const button = event.target.closest('[data-guide-group]');
+      if (!button || !GUIDE_GROUPS[button.dataset.guideGroup]) return;
+      activeGroup = button.dataset.guideGroup;
+      query = '';
+      search.value = '';
+      limit = 9;
+      document.querySelectorAll('[data-guide-group]').forEach((item) => {
+        item.setAttribute('aria-pressed', String(item === button));
+      });
+      update();
+    });
+    search.addEventListener('input', () => {
+      query = search.value.slice(0, 120);
+      limit = 9;
+      update();
+    });
+    reset.addEventListener('click', () => {
+      query = '';
+      search.value = '';
+      search.focus();
+      update();
+    });
+    more.addEventListener('click', () => {
+      limit += 9;
+      update();
+    });
+    update();
     if (activeTopic) band.hidden = activeTopic !== 'courses';
 
     const nav = $('#nav');

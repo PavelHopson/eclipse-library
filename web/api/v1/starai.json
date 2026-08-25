@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "consumer": "Eclipse AI",
-  "catalogVersion": "02c42e5a4927850ea70ad6980a54fc7d889ebc22792049ec5609045e9b787ed9",
+  "catalogVersion": "51ce969bead0457f03cf53c42f475bb3adc6c15bfe7b0712bcd5b1ba3fe1c636",
   "generatedAt": null,
   "policy": {
     "greyResourcesExcluded": true,
@@ -9,7 +9,7 @@
     "externalMutationsRequireHumanApproval": true
   },
   "totals": {
-    "items": 610
+    "items": 615
   },
   "items": [
     {
@@ -38,9 +38,14 @@
         "original": "Apache-2.0 для skill repository; marketplace-компоненты имеют отдельные условия авторов и 21st.dev Terms",
         "spdx": "Apache-2.0",
         "kind": "open-source",
-        "status": "editor-reviewed",
+        "status": "source-declared",
         "requiresReview": false,
         "evidence": [
+          {
+            "kind": "license",
+            "label": "Apache-2.0 license",
+            "url": "https://api.github.com/repos/21st-dev/skill/license"
+          },
           {
             "kind": "license",
             "label": "Skill Apache-2.0 license",
@@ -72,6 +77,11 @@
           "kind": "official-source",
           "label": "Официальный источник",
           "url": "https://github.com/21st-dev/skill"
+        },
+        {
+          "kind": "license",
+          "label": "Apache-2.0 license",
+          "url": "https://api.github.com/repos/21st-dev/skill/license"
         },
         {
           "kind": "license",
@@ -172,6 +182,81 @@
       }
     },
     {
+      "id": "agents-towards-production-playbook",
+      "title": "Agents Towards Production",
+      "url": "https://github.com/NirDiamant/agents-towards-production",
+      "type": "learn",
+      "category": "AI Agents & Production",
+      "subcategory": "Production tutorials",
+      "addedAt": "2026-08-23",
+      "description": "Практический набор code-first tutorials о переходе от прототипа агента к Docker/FastAPI, памяти, наблюдаемости, evaluation, security guardrails и multi-agent orchestration. Для Eclipse это учебный checklist и источник тестовых гипотез, а не библиотека для прямого переноса кода.",
+      "useCases": [
+        "Сверить production-readiness Eclipse AI Hub и Agent Office",
+        "Сформировать учебные лабораторные работы для Educator-AI",
+        "Собрать eval, tracing и security backlog для agent runtime",
+        "Проверить Docker/FastAPI deployment patterns на изолированном прототипе"
+      ],
+      "platforms": [
+        "Python",
+        "Jupyter",
+        "Docker",
+        "FastAPI",
+        "Cloud"
+      ],
+      "license": {
+        "label": "Custom non-commercial license; attribution required; commercial use requires written permission",
+        "original": "Custom non-commercial license; attribution required; commercial use requires written permission",
+        "spdx": null,
+        "kind": "service-terms",
+        "status": "editor-reviewed",
+        "requiresReview": false,
+        "evidence": [
+          {
+            "kind": "license",
+            "label": "Official custom license",
+            "url": "https://github.com/NirDiamant/agents-towards-production/blob/main/LICENSE"
+          },
+          {
+            "kind": "source",
+            "label": "Official repository",
+            "url": "https://github.com/NirDiamant/agents-towards-production"
+          }
+        ]
+      },
+      "access": {
+        "cost": "freemium",
+        "signup": "none",
+        "runtime": "hybrid"
+      },
+      "trust": "official",
+      "decision": "reference",
+      "riskLevel": "medium",
+      "projects": [
+        "Eclipse AI Hub",
+        "Eclipse Chat",
+        "Hopson Sentinel",
+        "Educator-AI",
+        "Eclipse Library"
+      ],
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://github.com/NirDiamant/agents-towards-production"
+        },
+        {
+          "kind": "license",
+          "label": "Official custom license",
+          "url": "https://github.com/NirDiamant/agents-towards-production/blob/main/LICENSE"
+        }
+      ],
+      "actions": {
+        "openOfficialSource": true,
+        "installFromCatalog": false,
+        "mutateExternalSystems": false
+      }
+    },
+    {
       "id": "ai-copywriter-mikiarlo3",
       "title": "AI Copywriter",
       "url": "https://github.com/mikiarlo3/ai-copywriter",
@@ -195,9 +280,14 @@
         "original": "MIT",
         "spdx": "MIT",
         "kind": "open-source",
-        "status": "editor-reviewed",
+        "status": "source-declared",
         "requiresReview": false,
         "evidence": [
+          {
+            "kind": "license",
+            "label": "MIT license",
+            "url": "https://api.github.com/repos/mikiarlo3/ai-copywriter/license"
+          },
           {
             "kind": "source",
             "label": "Official repository and MIT metadata",
@@ -223,6 +313,150 @@
           "kind": "official-source",
           "label": "Официальный источник",
           "url": "https://github.com/mikiarlo3/ai-copywriter"
+        },
+        {
+          "kind": "license",
+          "label": "MIT license",
+          "url": "https://api.github.com/repos/mikiarlo3/ai-copywriter/license"
+        }
+      ],
+      "actions": {
+        "openOfficialSource": true,
+        "installFromCatalog": false,
+        "mutateExternalSystems": false
+      }
+    },
+    {
+      "id": "anti-vibe-design-review-eclipse",
+      "title": "Anti-vibe Design Review",
+      "url": "https://library.eclipse-forge.ru/guides/anti-vibe-design-review-2026-08-23.md",
+      "type": "learn",
+      "category": "Design & UI",
+      "subcategory": "Контекстная проверка AI-generated UI",
+      "addedAt": "2026-08-23",
+      "description": "Контекстный QA-чеклист против шаблонного AI-дизайна. Он отделяет реальные дефекты — выдуманные отзывы, отсутствие product states, слабую доступность и доказательства — от нейтральных приёмов вроде Lucide, белого фона, Bento, glass или Inter, которые допустимы при осознанной системе.",
+      "useCases": [
+        "UI review Eclipse Chat и Library",
+        "QA generated landing pages",
+        "Проверка 3-second test и primary flow",
+        "Согласование design direction до кода"
+      ],
+      "platforms": [
+        "Web",
+        "Mobile Web",
+        "Desktop",
+        "Design systems"
+      ],
+      "license": {
+        "label": "Eclipse Forge editorial material",
+        "original": "Eclipse Forge editorial material",
+        "spdx": null,
+        "kind": "custom",
+        "status": "editor-reviewed",
+        "requiresReview": false,
+        "evidence": [
+          {
+            "kind": "source",
+            "label": "Canonical Eclipse Library guide",
+            "url": "https://library.eclipse-forge.ru/guides/anti-vibe-design-review-2026-08-23.md"
+          }
+        ]
+      },
+      "access": {
+        "cost": "free",
+        "signup": "none",
+        "runtime": "local"
+      },
+      "trust": "verified",
+      "decision": "now",
+      "riskLevel": "low",
+      "projects": [
+        "Eclipse Chat",
+        "Eclipse Library",
+        "Eclipse Forge Landing",
+        "StarCRM",
+        "StarMarket"
+      ],
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://library.eclipse-forge.ru/guides/anti-vibe-design-review-2026-08-23.md"
+        }
+      ],
+      "actions": {
+        "openOfficialSource": true,
+        "installFromCatalog": false,
+        "mutateExternalSystems": false
+      }
+    },
+    {
+      "id": "awesome-llm-apps-working-examples",
+      "title": "Awesome LLM Apps",
+      "url": "https://github.com/Shubhamsaboo/awesome-llm-apps",
+      "type": "learn",
+      "category": "AI Agents & Production",
+      "subcategory": "Runnable agent and RAG examples",
+      "addedAt": "2026-08-23",
+      "description": "Apache-2.0 collection из 100+ runnable LLM, RAG и agent examples с README и requirements внутри проектов. Ценность для Eclipse — быстро проверять product patterns и tool boundaries; каждый пример остаётся отдельным demo со своими зависимостями, ключами и security debt.",
+      "useCases": [
+        "Сравнить multi-agent team patterns для AI Office",
+        "Выбрать минимальный RAG prototype для Eclipse Library",
+        "Собрать synthetic fixtures для model/capability registry",
+        "Проверить local Ollama variants до cloud pilot"
+      ],
+      "platforms": [
+        "Python",
+        "Streamlit",
+        "Ollama",
+        "Cloud APIs",
+        "Docker"
+      ],
+      "license": {
+        "label": "Apache-2.0",
+        "original": "Apache-2.0",
+        "spdx": "Apache-2.0",
+        "kind": "open-source",
+        "status": "editor-reviewed",
+        "requiresReview": false,
+        "evidence": [
+          {
+            "kind": "license",
+            "label": "Official Apache-2.0 license",
+            "url": "https://github.com/Shubhamsaboo/awesome-llm-apps/blob/main/LICENSE"
+          },
+          {
+            "kind": "source",
+            "label": "Official repository",
+            "url": "https://github.com/Shubhamsaboo/awesome-llm-apps"
+          }
+        ]
+      },
+      "access": {
+        "cost": "free",
+        "signup": "optional",
+        "runtime": "hybrid"
+      },
+      "trust": "community",
+      "decision": "reference",
+      "riskLevel": "medium",
+      "projects": [
+        "Eclipse AI Hub",
+        "Eclipse Chat",
+        "Eclipse Library",
+        "Educator-AI",
+        "DnD / Living World"
+      ],
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://github.com/Shubhamsaboo/awesome-llm-apps"
+        },
+        {
+          "kind": "license",
+          "label": "Official Apache-2.0 license",
+          "url": "https://github.com/Shubhamsaboo/awesome-llm-apps/blob/main/LICENSE"
         }
       ],
       "actions": {
@@ -434,9 +668,14 @@
         "original": "MIT",
         "spdx": "MIT",
         "kind": "open-source",
-        "status": "editor-reviewed",
+        "status": "source-declared",
         "requiresReview": false,
         "evidence": [
+          {
+            "kind": "license",
+            "label": "MIT license",
+            "url": "https://api.github.com/repos/nicepkg/ctxport/license"
+          },
           {
             "kind": "source",
             "label": "Official repository and MIT metadata",
@@ -462,6 +701,85 @@
           "kind": "official-source",
           "label": "Официальный источник",
           "url": "https://github.com/nicepkg/ctxport"
+        },
+        {
+          "kind": "license",
+          "label": "MIT license",
+          "url": "https://api.github.com/repos/nicepkg/ctxport/license"
+        }
+      ],
+      "actions": {
+        "openOfficialSource": true,
+        "installFromCatalog": false,
+        "mutateExternalSystems": false
+      }
+    },
+    {
+      "id": "dair-prompt-engineering-guide",
+      "title": "Prompt Engineering Guide",
+      "url": "https://github.com/dair-ai/Prompt-Engineering-Guide",
+      "type": "learn",
+      "category": "Prompts & Context",
+      "subcategory": "Prompt, RAG и agent fundamentals",
+      "addedAt": "2026-08-23",
+      "description": "MIT-руководство по prompt/context engineering: zero/few-shot, chain-of-thought, RAG, agents, reliability и research references. В Eclipse полезно как учебная база и словарь техник, но не как обещание, что один шаблон заменяет eval, данные и продуктовые ограничения.",
+      "useCases": [
+        "Собрать русскоязычный curriculum Educator-AI",
+        "Улучшить prompt contracts Growth OS и Eclipse Chat",
+        "Проектировать RAG/evidence prompts с citations и abstention",
+        "Создать regression fixtures вместо субъективной оценки prompt"
+      ],
+      "platforms": [
+        "Web",
+        "Markdown",
+        "Jupyter",
+        "LLM-agnostic"
+      ],
+      "license": {
+        "label": "MIT",
+        "original": "MIT",
+        "spdx": "MIT",
+        "kind": "open-source",
+        "status": "editor-reviewed",
+        "requiresReview": false,
+        "evidence": [
+          {
+            "kind": "license",
+            "label": "Official MIT license",
+            "url": "https://github.com/dair-ai/Prompt-Engineering-Guide/blob/main/LICENSE.md"
+          },
+          {
+            "kind": "source",
+            "label": "Official repository",
+            "url": "https://github.com/dair-ai/Prompt-Engineering-Guide"
+          }
+        ]
+      },
+      "access": {
+        "cost": "free",
+        "signup": "none",
+        "runtime": "local"
+      },
+      "trust": "official",
+      "decision": "now",
+      "riskLevel": "low",
+      "projects": [
+        "Educator-AI",
+        "Eclipse AI Hub",
+        "Eclipse Chat",
+        "Eclipse Growth OS",
+        "Eclipse Library"
+      ],
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://github.com/dair-ai/Prompt-Engineering-Guide"
+        },
+        {
+          "kind": "license",
+          "label": "Official MIT license",
+          "url": "https://github.com/dair-ai/Prompt-Engineering-Guide/blob/main/LICENSE.md"
         }
       ],
       "actions": {
@@ -496,9 +814,14 @@
         "original": "Преимущественно MIT; каталог proprietary/ и сторонние компоненты имеют отдельные условия",
         "spdx": "MIT",
         "kind": "open-source",
-        "status": "editor-reviewed",
+        "status": "source-declared",
         "requiresReview": false,
         "evidence": [
+          {
+            "kind": "license",
+            "label": "Other license",
+            "url": "https://api.github.com/repos/duplicati/duplicati/license"
+          },
           {
             "kind": "license",
             "label": "Official mixed license notice",
@@ -529,8 +852,78 @@
         },
         {
           "kind": "license",
+          "label": "Other license",
+          "url": "https://api.github.com/repos/duplicati/duplicati/license"
+        },
+        {
+          "kind": "license",
           "label": "Official mixed license notice",
           "url": "https://github.com/duplicati/duplicati/blob/master/LICENSE"
+        }
+      ],
+      "actions": {
+        "openOfficialSource": true,
+        "installFromCatalog": false,
+        "mutateExternalSystems": false
+      }
+    },
+    {
+      "id": "eclipse-command-presets-pack",
+      "title": "Eclipse Command Presets",
+      "url": "https://library.eclipse-forge.ru/prompts/eclipse-command-presets.md",
+      "type": "prompt",
+      "category": "Prompts & Context",
+      "subcategory": "Проверяемые prompt aliases",
+      "addedAt": "2026-08-23",
+      "description": "Редакционный набор коротких alias-команд для исследования, письма, решений, обучения и визуальных преобразований. Это пресеты Eclipse Library, а не встроенные slash-команды ChatGPT: каждый раскрывается в явный prompt contract с источниками, ограничениями и форматом ответа.",
+      "useCases": [
+        "Быстро выбрать режим ответа в Eclipse Chat",
+        "Использовать /blueprint, /stickynotes и /cutaway для owned изображений",
+        "Создавать reusable prompt templates без скрытых инструкций",
+        "Добавить безопасные health/finance/marketing guardrails"
+      ],
+      "platforms": [
+        "Eclipse Chat",
+        "ChatGPT",
+        "Claude",
+        "Gemini",
+        "Any LLM"
+      ],
+      "license": {
+        "label": "Eclipse Forge editorial material; external model and image terms still apply",
+        "original": "Eclipse Forge editorial material; external model and image terms still apply",
+        "spdx": null,
+        "kind": "service-terms",
+        "status": "editor-reviewed",
+        "requiresReview": false,
+        "evidence": [
+          {
+            "kind": "source",
+            "label": "Canonical Eclipse Library prompt pack",
+            "url": "https://library.eclipse-forge.ru/prompts/eclipse-command-presets.md"
+          }
+        ]
+      },
+      "access": {
+        "cost": "free",
+        "signup": "none",
+        "runtime": "local"
+      },
+      "trust": "verified",
+      "decision": "now",
+      "riskLevel": "medium",
+      "projects": [
+        "Eclipse Library",
+        "Eclipse Chat",
+        "Eclipse AI Hub",
+        "Educator-AI",
+        "Eclipse Growth OS"
+      ],
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://library.eclipse-forge.ru/prompts/eclipse-command-presets.md"
         }
       ],
       "actions": {
@@ -564,9 +957,14 @@
         "original": "GPL-3.0; ffmpeg.wasm dependencies retain their own terms",
         "spdx": "GPL-3.0",
         "kind": "open-source",
-        "status": "editor-reviewed",
+        "status": "source-declared",
         "requiresReview": false,
         "evidence": [
+          {
+            "kind": "license",
+            "label": "GPL-3.0 license",
+            "url": "https://api.github.com/repos/tejaswigowda/ffmpeg-webcli/license"
+          },
           {
             "kind": "license",
             "label": "Official GPL-3.0 license",
@@ -591,6 +989,11 @@
           "kind": "official-source",
           "label": "Официальный источник",
           "url": "https://github.com/tejaswigowda/ffmpeg-webCLI"
+        },
+        {
+          "kind": "license",
+          "label": "GPL-3.0 license",
+          "url": "https://api.github.com/repos/tejaswigowda/ffmpeg-webcli/license"
         },
         {
           "kind": "license",
@@ -887,9 +1290,14 @@
         "original": "MIT",
         "spdx": "MIT",
         "kind": "open-source",
-        "status": "editor-reviewed",
+        "status": "source-declared",
         "requiresReview": false,
         "evidence": [
+          {
+            "kind": "license",
+            "label": "MIT license",
+            "url": "https://api.github.com/repos/sissbruecker/linkding/license"
+          },
           {
             "kind": "license",
             "label": "Official MIT license",
@@ -915,6 +1323,11 @@
           "kind": "official-source",
           "label": "Официальный источник",
           "url": "https://github.com/sissbruecker/linkding"
+        },
+        {
+          "kind": "license",
+          "label": "MIT license",
+          "url": "https://api.github.com/repos/sissbruecker/linkding/license"
         },
         {
           "kind": "license",
@@ -953,9 +1366,14 @@
         "original": "GNU Affero General Public License v3.0 (AGPL-3.0)",
         "spdx": "AGPL-3.0",
         "kind": "open-source",
-        "status": "editor-reviewed",
+        "status": "source-declared",
         "requiresReview": false,
         "evidence": [
+          {
+            "kind": "license",
+            "label": "AGPL-3.0 license",
+            "url": "https://api.github.com/repos/knadh/listmonk/license"
+          },
           {
             "kind": "license",
             "label": "Official AGPL-3.0 license",
@@ -981,6 +1399,11 @@
           "kind": "official-source",
           "label": "Официальный источник",
           "url": "https://github.com/knadh/listmonk"
+        },
+        {
+          "kind": "license",
+          "label": "AGPL-3.0 license",
+          "url": "https://api.github.com/repos/knadh/listmonk/license"
         },
         {
           "kind": "license",
@@ -1018,9 +1441,14 @@
         "original": "MIT",
         "spdx": "MIT",
         "kind": "open-source",
-        "status": "editor-reviewed",
+        "status": "source-declared",
         "requiresReview": false,
         "evidence": [
+          {
+            "kind": "license",
+            "label": "MIT license",
+            "url": "https://api.github.com/repos/llm-as-a-verifier/llm-as-a-verifier/license"
+          },
           {
             "kind": "license",
             "label": "Official MIT license",
@@ -1046,6 +1474,11 @@
           "kind": "official-source",
           "label": "Официальный источник",
           "url": "https://github.com/llm-as-a-verifier/llm-as-a-verifier"
+        },
+        {
+          "kind": "license",
+          "label": "MIT license",
+          "url": "https://api.github.com/repos/llm-as-a-verifier/llm-as-a-verifier/license"
         },
         {
           "kind": "license",
@@ -1084,9 +1517,14 @@
         "original": "Apache-2.0",
         "spdx": "Apache-2.0",
         "kind": "open-source",
-        "status": "editor-reviewed",
+        "status": "source-declared",
         "requiresReview": false,
         "evidence": [
+          {
+            "kind": "license",
+            "label": "Apache-2.0 license",
+            "url": "https://api.github.com/repos/magnitudedev/magnitude/license"
+          },
           {
             "kind": "license",
             "label": "Official Apache-2.0 license",
@@ -1111,6 +1549,11 @@
           "kind": "official-source",
           "label": "Официальный источник",
           "url": "https://github.com/magnitudedev/magnitude"
+        },
+        {
+          "kind": "license",
+          "label": "Apache-2.0 license",
+          "url": "https://api.github.com/repos/magnitudedev/magnitude/license"
         },
         {
           "kind": "license",
@@ -1207,9 +1650,14 @@
         "original": "GNU General Public License v3.0 (GPL-3.0)",
         "spdx": "GPL-3.0",
         "kind": "open-source",
-        "status": "editor-reviewed",
+        "status": "source-declared",
         "requiresReview": false,
         "evidence": [
+          {
+            "kind": "license",
+            "label": "GPL-3.0 license",
+            "url": "https://api.github.com/repos/niri-wm/niri/license"
+          },
           {
             "kind": "license",
             "label": "Official GPL-3.0 license",
@@ -1236,6 +1684,11 @@
           "kind": "official-source",
           "label": "Официальный источник",
           "url": "https://github.com/niri-wm/niri"
+        },
+        {
+          "kind": "license",
+          "label": "GPL-3.0 license",
+          "url": "https://api.github.com/repos/niri-wm/niri/license"
         },
         {
           "kind": "license",
@@ -1334,9 +1787,14 @@
         "original": "Mozilla Public License 2.0 (MPL-2.0)",
         "spdx": "MPL-2.0",
         "kind": "open-source",
-        "status": "editor-reviewed",
+        "status": "source-declared",
         "requiresReview": false,
         "evidence": [
+          {
+            "kind": "license",
+            "label": "MPL-2.0 license",
+            "url": "https://api.github.com/repos/penpot/penpot/license"
+          },
           {
             "kind": "license",
             "label": "Official MPL-2.0 license",
@@ -1363,6 +1821,11 @@
           "kind": "official-source",
           "label": "Официальный источник",
           "url": "https://github.com/penpot/penpot"
+        },
+        {
+          "kind": "license",
+          "label": "MPL-2.0 license",
+          "url": "https://api.github.com/repos/penpot/penpot/license"
         },
         {
           "kind": "license",
@@ -1401,9 +1864,14 @@
         "original": "GNU Affero General Public License v3.0 (AGPL-3.0)",
         "spdx": "AGPL-3.0",
         "kind": "open-source",
-        "status": "editor-reviewed",
+        "status": "source-declared",
         "requiresReview": false,
         "evidence": [
+          {
+            "kind": "license",
+            "label": "AGPL-3.0 license",
+            "url": "https://api.github.com/repos/plausible/analytics/license"
+          },
           {
             "kind": "license",
             "label": "Official AGPL-3.0 license",
@@ -1429,6 +1897,11 @@
           "kind": "official-source",
           "label": "Официальный источник",
           "url": "https://github.com/plausible/analytics"
+        },
+        {
+          "kind": "license",
+          "label": "AGPL-3.0 license",
+          "url": "https://api.github.com/repos/plausible/analytics/license"
         },
         {
           "kind": "license",
@@ -1463,13 +1936,18 @@
         "Web"
       ],
       "license": {
-        "label": "zlib License для Community Edition repository; Business Edition имеет отдельные коммерческие условия",
+        "label": "Zlib",
         "original": "zlib License для Community Edition repository; Business Edition имеет отдельные коммерческие условия",
-        "spdx": null,
-        "kind": "custom",
-        "status": "editor-reviewed",
+        "spdx": "Zlib",
+        "kind": "open-source",
+        "status": "source-declared",
         "requiresReview": false,
         "evidence": [
+          {
+            "kind": "license",
+            "label": "Zlib license",
+            "url": "https://api.github.com/repos/portainer/portainer/license"
+          },
           {
             "kind": "license",
             "label": "Official zlib license",
@@ -1495,6 +1973,11 @@
           "kind": "official-source",
           "label": "Официальный источник",
           "url": "https://github.com/portainer/portainer"
+        },
+        {
+          "kind": "license",
+          "label": "Zlib license",
+          "url": "https://api.github.com/repos/portainer/portainer/license"
         },
         {
           "kind": "license",
@@ -12476,9 +12959,14 @@
         "original": "MIT",
         "spdx": "MIT",
         "kind": "open-source",
-        "status": "editor-reviewed",
+        "status": "source-declared",
         "requiresReview": false,
         "evidence": [
+          {
+            "kind": "license",
+            "label": "MIT license",
+            "url": "https://api.github.com/repos/ashutoshx7/vengeanceui/license"
+          },
           {
             "kind": "license",
             "label": "Official MIT repository license",
@@ -12509,6 +12997,11 @@
           "kind": "official-source",
           "label": "Официальный источник",
           "url": "https://github.com/Ashutoshx7/VengeanceUI"
+        },
+        {
+          "kind": "license",
+          "label": "MIT license",
+          "url": "https://api.github.com/repos/ashutoshx7/vengeanceui/license"
         },
         {
           "kind": "license",
@@ -14326,9 +14819,14 @@
         "original": "MIT",
         "spdx": "MIT",
         "kind": "open-source",
-        "status": "editor-reviewed",
+        "status": "source-declared",
         "requiresReview": false,
         "evidence": [
+          {
+            "kind": "license",
+            "label": "MIT license",
+            "url": "https://api.github.com/repos/diwenne/openreply/license"
+          },
           {
             "kind": "license",
             "label": "Official MIT license",
@@ -14359,6 +14857,11 @@
           "kind": "official-source",
           "label": "Официальный источник",
           "url": "https://github.com/diwenne/openreply"
+        },
+        {
+          "kind": "license",
+          "label": "MIT license",
+          "url": "https://api.github.com/repos/diwenne/openreply/license"
         },
         {
           "kind": "license",
@@ -14663,6 +15166,11 @@
         "evidence": [
           {
             "kind": "license",
+            "label": "Other license",
+            "url": "https://api.github.com/repos/screenpipe/screenpipe/license"
+          },
+          {
+            "kind": "license",
             "label": "Official current license",
             "url": "https://github.com/screenpipe/screenpipe/blob/main/LICENSE.md"
           },
@@ -14690,6 +15198,11 @@
           "kind": "official-source",
           "label": "Официальный источник",
           "url": "https://github.com/screenpipe/screenpipe"
+        },
+        {
+          "kind": "license",
+          "label": "Other license",
+          "url": "https://api.github.com/repos/screenpipe/screenpipe/license"
         },
         {
           "kind": "license",
@@ -14788,6 +15301,11 @@
         "evidence": [
           {
             "kind": "license",
+            "label": "Other license",
+            "url": "https://api.github.com/repos/twentyhq/twenty/license"
+          },
+          {
+            "kind": "license",
             "label": "Official mixed license",
             "url": "https://github.com/twentyhq/twenty/blob/main/LICENSE"
           },
@@ -14815,6 +15333,11 @@
           "kind": "official-source",
           "label": "Официальный источник",
           "url": "https://github.com/twentyhq/twenty"
+        },
+        {
+          "kind": "license",
+          "label": "Other license",
+          "url": "https://api.github.com/repos/twentyhq/twenty/license"
         },
         {
           "kind": "license",
@@ -14916,6 +15439,11 @@
         "evidence": [
           {
             "kind": "license",
+            "label": "Other license",
+            "url": "https://api.github.com/repos/nocodb/nocodb/license"
+          },
+          {
+            "kind": "license",
             "label": "Official current license",
             "url": "https://github.com/nocodb/nocodb/blob/develop/LICENSE.md"
           },
@@ -14945,6 +15473,11 @@
           "kind": "official-source",
           "label": "Официальный источник",
           "url": "https://github.com/nocodb/nocodb"
+        },
+        {
+          "kind": "license",
+          "label": "Other license",
+          "url": "https://api.github.com/repos/nocodb/nocodb/license"
         },
         {
           "kind": "license",
@@ -15041,9 +15574,14 @@
         "original": "MIT",
         "spdx": "MIT",
         "kind": "open-source",
-        "status": "editor-reviewed",
+        "status": "source-declared",
         "requiresReview": false,
         "evidence": [
+          {
+            "kind": "license",
+            "label": "MIT license",
+            "url": "https://api.github.com/repos/jamiepine/voicebox/license"
+          },
           {
             "kind": "license",
             "label": "Official MIT license",
@@ -15074,6 +15612,11 @@
           "kind": "official-source",
           "label": "Официальный источник",
           "url": "https://github.com/jamiepine/voicebox"
+        },
+        {
+          "kind": "license",
+          "label": "MIT license",
+          "url": "https://api.github.com/repos/jamiepine/voicebox/license"
         },
         {
           "kind": "license",
@@ -15111,9 +15654,14 @@
         "original": "MIT",
         "spdx": "MIT",
         "kind": "open-source",
-        "status": "editor-reviewed",
+        "status": "source-declared",
         "requiresReview": false,
         "evidence": [
+          {
+            "kind": "license",
+            "label": "MIT license",
+            "url": "https://api.github.com/repos/msitarzewski/agency-agents/license"
+          },
           {
             "kind": "license",
             "label": "Official MIT license",
@@ -15144,6 +15692,11 @@
           "kind": "official-source",
           "label": "Официальный источник",
           "url": "https://github.com/msitarzewski/agency-agents"
+        },
+        {
+          "kind": "license",
+          "label": "MIT license",
+          "url": "https://api.github.com/repos/msitarzewski/agency-agents/license"
         },
         {
           "kind": "license",
@@ -15430,6 +15983,11 @@
         "evidence": [
           {
             "kind": "license",
+            "label": "Apache-2.0 license",
+            "url": "https://api.github.com/repos/wan-video/wan2.1/license"
+          },
+          {
+            "kind": "license",
             "label": "Official Apache-2.0 license",
             "url": "https://github.com/Wan-Video/Wan2.1/blob/main/LICENSE.txt"
           },
@@ -15458,6 +16016,11 @@
           "kind": "official-source",
           "label": "Официальный источник",
           "url": "https://github.com/Wan-Video/Wan2.1"
+        },
+        {
+          "kind": "license",
+          "label": "Apache-2.0 license",
+          "url": "https://api.github.com/repos/wan-video/wan2.1/license"
         },
         {
           "kind": "license",
@@ -15553,9 +16116,14 @@
         "original": "MIT",
         "spdx": "MIT",
         "kind": "open-source",
-        "status": "editor-reviewed",
+        "status": "source-declared",
         "requiresReview": false,
         "evidence": [
+          {
+            "kind": "license",
+            "label": "MIT license",
+            "url": "https://api.github.com/repos/scrapegraphai/scrapegraph-mcp/license"
+          },
           {
             "kind": "license",
             "label": "Official MIT license",
@@ -15586,6 +16154,11 @@
           "kind": "official-source",
           "label": "Официальный источник",
           "url": "https://github.com/ScrapeGraphAI/scrapegraph-mcp"
+        },
+        {
+          "kind": "license",
+          "label": "MIT license",
+          "url": "https://api.github.com/repos/scrapegraphai/scrapegraph-mcp/license"
         },
         {
           "kind": "license",
@@ -38290,9 +38863,14 @@
         "original": "GPL-3.0",
         "spdx": "GPL-3.0",
         "kind": "open-source",
-        "status": "editor-reviewed",
+        "status": "source-declared",
         "requiresReview": false,
         "evidence": [
+          {
+            "kind": "license",
+            "label": "GPL-3.0 license",
+            "url": "https://api.github.com/repos/database64128/youtube-dl-wpf/license"
+          },
           {
             "kind": "license",
             "label": "Official GPL-3.0 license",
@@ -38324,6 +38902,11 @@
           "kind": "official-source",
           "label": "Официальный источник",
           "url": "https://github.com/database64128/youtube-dl-wpf"
+        },
+        {
+          "kind": "license",
+          "label": "GPL-3.0 license",
+          "url": "https://api.github.com/repos/database64128/youtube-dl-wpf/license"
         },
         {
           "kind": "license",
@@ -38364,9 +38947,14 @@
         "original": "MIT",
         "spdx": "MIT",
         "kind": "open-source",
-        "status": "editor-reviewed",
+        "status": "source-declared",
         "requiresReview": false,
         "evidence": [
+          {
+            "kind": "license",
+            "label": "MIT license",
+            "url": "https://api.github.com/repos/deepseek-ai/deepseek-harness/license"
+          },
           {
             "kind": "license",
             "label": "Official MIT license",
@@ -38404,6 +38992,11 @@
           "kind": "official-source",
           "label": "Официальный источник",
           "url": "https://github.com/deepseek-ai/deepseek-harness"
+        },
+        {
+          "kind": "license",
+          "label": "MIT license",
+          "url": "https://api.github.com/repos/deepseek-ai/deepseek-harness/license"
         },
         {
           "kind": "license",
