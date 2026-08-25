@@ -204,3 +204,42 @@ occupying the permanent reading path.
 
 Passed for the implemented static navigation surface. Production analytics and Web Vitals remain a
 post-deploy observation step and are not claimed by local QA.
+
+---
+
+# Animation Lab — design QA
+
+Дата: 25 августа 2026
+
+## Источники сравнения
+
+- `codex-clipboard-4590c04b-5b82-46f3-94b9-6f649618902f.png` — общий экран лаборатории и Hologram CTA.
+- `codex-clipboard-75caf9b9-393e-4257-9a14-7194c4fdb13e.png` — сцена навигации с заметным размытием текста и поверхностей.
+
+## Что исправлено
+
+- В основной и мобильной навигации Eclipse Library добавлена отдельная кнопка «Анимации».
+- Во всех 11 сценах запрещены `backdrop-filter: blur`, `filter: blur`, `drop-shadow` и размытые `box-shadow`.
+- Текстовые слои отделены от 3D-преобразований; механическое движение сохранено только там, где оно является сутью сцены.
+- Все видимые надписи используют локальные Manrope и JetBrains Mono с кириллицей; синтетические начертания отключены.
+- Интерфейс лаборатории русифицирован, названия состояний и готовности стали понятнее.
+- Сохранены клавиатурный фокус, reduced-motion, состояния ошибки/успеха/повтора и изолированный `iframe sandbox="allow-scripts"`.
+
+## Проверки
+
+| Область | Статус | Подтверждение |
+| --- | --- | --- |
+| Навигация | PASS | Отдельная ссылка присутствует в верхней и боковой навигации; контракт навигации проходит. |
+| 11 сцен | PASS | Manifest содержит 11 уникальных сцен; все проходят crisp-motion contract. |
+| Шрифты | PASS | Локальные кириллические WOFF2 присутствуют; глобальный font contract применяется ко всему видимому тексту. |
+| Размытие и тени | PASS | В лаборатории и сценах нет blur, drop-shadow и box-shadow деклараций. |
+| Доступность | PASS | Reduced-motion, видимый focus, клавиатурные сценарии и минимальные размеры действий сохранены. |
+| Безопасность | PASS | Нет удалённых скриптов, `eval`/`document.write`; параметры ограничены типами, имена файлов кодируются, iframe не получает same-origin/forms/popups. |
+| Desktop screenshot | PASS | Playwright: `1440 × 900`, 11 сцен, без горизонтального переполнения, локальные Manrope/JetBrains загружены. |
+| Mobile screenshot | PASS | Playwright: `390 × 844`, 11 сцен и отдельная кнопка «Анимации», без горизонтального переполнения. |
+| Reduced motion | PASS | Playwright: `1280 × 800`; состояния и обратная связь сохранены без пространственного движения. |
+| Browser runtime | PASS | 25 снимков, ноль console/page errors, ноль визуальных контрактных нарушений; отчёт `.artifacts/animation-lab-v5/report.json`. |
+
+## Результат
+
+Полный статический и браузерный QA пройден. Визуальный прогон выявил CORS-ошибку локальных шрифтов внутри sandboxed iframe: она исправлена встраиванием четырёх локальных font subsets в каждую автономную сцену без выдачи iframe дополнительных полномочий. Desktop, mobile и reduced-motion прошли повторную проверку; сборка готова к production.

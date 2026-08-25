@@ -872,3 +872,11 @@ body.library-nav-open { overflow: hidden; }
   }
   .library-nav-open .sidebar { transform: none !important; }
 }
+
+.primary-nav .animation-nav-link,
+.sidebar-primary .animation-nav-link {
+  border: 1px solid var(--library-line-strong);
+  background: var(--library-accent-soft);
+  color: var(--library-text);
+}
+.sidebar-primary { grid-template-columns: repeat(2, minmax(0, 1fr)); }

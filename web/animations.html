@@ -7,34 +7,34 @@
   <meta name="description" content="Eclipse Animation Lab — проверяемые motion-паттерны, состояния и автономные HTML-компоненты для Eclipse Forge.">
   <title>Animation Lab — Eclipse Library</title>
   <link rel="icon" href="assets/brand/eclipse-library-favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="animation-lab.css?v=4">
+  <link rel="stylesheet" href="animation-lab.css?v=5">
 </head>
 <body>
   <a class="skip-link" href="#motion-stage">К активной анимации</a>
   <header class="topbar">
     <a class="brand" href="index.html" aria-label="Eclipse Library — на главную"><span class="brand-mark" aria-hidden="true"></span><span><strong>Eclipse Library</strong><small>Animation Lab</small></span></a>
-    <nav aria-label="Основная навигация"><a href="index.html">Каталог</a><a href="index.html#projects">Проекты</a><a href="animations.html" aria-current="page">Анимации</a></nav>
-    <div class="top-actions"><span class="lab-health"><i aria-hidden="true"></i>11 patterns ready</span><button class="motion-toggle" type="button" aria-pressed="false"><span class="toggle-dot" aria-hidden="true"></span><span>Motion: full</span></button></div>
+    <nav aria-label="Основная навигация"><a href="index.html">Каталог</a><a href="index.html#guidesFeat">Гайды</a><a href="index.html#projects">Проекты</a><a href="animations.html" aria-current="page">Анимации</a></nav>
+    <div class="top-actions"><span class="lab-health"><i aria-hidden="true"></i>11 сцен готовы</span><button class="motion-toggle" type="button" aria-pressed="false"><span class="toggle-dot" aria-hidden="true"></span><span>Анимация: полная</span></button></div>
   </header>
 
   <main class="lab-shell">
     <aside class="lab-rail" aria-label="Коллекция анимаций">
-      <div class="rail-heading"><p>Motion patterns</p><span id="demo-count">11</span></div>
+      <div class="rail-heading"><p>Все анимации</p><span id="demo-count">11</span></div>
       <div class="demo-list" id="demo-list"></div>
-      <div class="rail-note"><span class="status-light" aria-hidden="true"></span><div><strong>First-party source</strong><small>Без внешнего JS и сетевых запросов</small></div></div>
+      <div class="rail-note"><span class="status-light" aria-hidden="true"></span><div><strong>Собственные исходники</strong><small>Без внешнего JS и сетевых запросов</small></div></div>
     </aside>
 
     <section class="workbench" aria-labelledby="lab-title">
       <header class="workbench-header">
-        <div><p class="eyebrow">Eclipse Motion System · Workbench</p><h1 id="lab-title">Проверьте паттерн до внедрения</h1><p>Переключите состояние, размер экрана и доступность. Сцена сразу покажет поведение компонента.</p></div>
+        <div><p class="eyebrow">Eclipse Motion System · Лаборатория</p><h1 id="lab-title">Проверьте анимацию до внедрения</h1><p>Выберите сцену слева, затем переключите состояние и размер экрана. Каждый пример можно открыть отдельно или скачать.</p></div>
         <div class="stage-actions"><button type="button" data-action="replay">Повторить</button><button type="button" data-action="focus">Фокус-режим</button><a class="primary" data-action="download" download>Скачать HTML</a></div>
       </header>
 
       <div class="viewport-toolbar" aria-label="Настройки предпросмотра">
         <div class="segmented" role="group" aria-label="Размер экрана">
-          <button type="button" data-viewport="desktop" aria-pressed="true">Desktop</button>
-          <button type="button" data-viewport="tablet" aria-pressed="false">Tablet</button>
-          <button type="button" data-viewport="mobile" aria-pressed="false">Mobile</button>
+          <button type="button" data-viewport="desktop" aria-pressed="true">Компьютер</button>
+          <button type="button" data-viewport="tablet" aria-pressed="false">Планшет</button>
+          <button type="button" data-viewport="mobile" aria-pressed="false">Телефон</button>
         </div>
         <label class="state-control"><span>Состояние</span><select id="state-select" aria-label="Состояние демонстрации"></select></label>
         <label class="state-control"><span>Скорость</span><select id="speed-select" aria-label="Скорость анимации"><option value="0.5">0.5×</option><option value="1" selected>1×</option><option value="1.5">1.5×</option><option value="2">2×</option></select></label>
@@ -44,32 +44,32 @@
       <div class="stage-and-inspector">
         <div class="stage-column">
           <div class="stage-wrap" id="motion-stage" data-viewport="desktop">
-            <div class="stage-chrome" aria-hidden="true"><span></span><span></span><span></span><b id="stage-file">animation.html</b><em id="stage-status">LIVE</em></div>
+            <div class="stage-chrome" aria-hidden="true"><span></span><span></span><span></span><b id="stage-file">animation.html</b><em id="stage-status">АКТИВНО</em></div>
             <div class="device-frame"><iframe id="stage-frame" title="Интерактивная демонстрация анимации" sandbox="allow-scripts"></iframe></div>
             <div class="stage-loading" id="stage-loading" role="status"><span></span>Загружаем сцену</div>
           </div>
           <div class="timeline">
-            <button type="button" id="timeline-mode" aria-pressed="false">Live</button>
+            <button type="button" id="timeline-mode" aria-pressed="false">Авто</button>
             <label><span>Кадр</span><input id="timeline-range" type="range" min="0" max="24" step="0.5" value="0" disabled><output id="timeline-output">live</output></label>
           </div>
           <footer class="workbench-meta"><div><span id="active-index">01</span><b id="active-title">Upload Queue</b></div><p id="active-description"></p><ul id="active-tags" aria-label="Свойства анимации"></ul></footer>
         </div>
 
         <aside class="inspector" id="lab-inspector" aria-label="Конфигуратор анимации">
-          <header><div><span>Inspector</span><strong>Motion tokens</strong></div><button type="button" data-action="reset">Reset</button></header>
+          <header><div><span>Настройки</span><strong>Параметры анимации</strong></div><button type="button" data-action="reset">Сбросить</button></header>
           <div class="inspector-section">
-            <label><span>Accent <output id="accent-output">#6BA3FF</output></span><input id="accent-input" type="color" value="#6ba3ff"></label>
-            <label><span>Glow <output id="glow-output">55%</output></span><input id="glow-input" type="range" min="0" max="100" value="55"></label>
-            <label><span>Density <output id="density-output">Comfortable</output></span><input id="density-input" type="range" min="0" max="2" step="1" value="1"></label>
+            <label><span>Акцент <output id="accent-output">#6BA3FF</output></span><input id="accent-input" type="color" value="#6ba3ff"></label>
+            <label><span>Свечение <output id="glow-output">18%</output></span><input id="glow-input" type="range" min="0" max="60" value="18"></label>
+            <label><span>Плотность <output id="density-output">Обычно</output></span><input id="density-input" type="range" min="0" max="2" step="1" value="1"></label>
           </div>
           <div class="inspector-section compact">
             <span class="section-label">Accessibility</span>
-            <button class="preference-row" type="button" data-preference="reduce" aria-pressed="false"><span><b>Reduced motion</b><small>Убирает displacement, сохраняет feedback</small></span><i aria-hidden="true"></i></button>
-            <button class="preference-row" type="button" data-preference="contrast" aria-pressed="false"><span><b>High contrast</b><small>Усиливает границы и статусы</small></span><i aria-hidden="true"></i></button>
+            <button class="preference-row" type="button" data-preference="reduce" aria-pressed="false"><span><b>Уменьшить движение</b><small>Убирает перемещения, сохраняет обратную связь</small></span><i aria-hidden="true"></i></button>
+            <button class="preference-row" type="button" data-preference="contrast" aria-pressed="false"><span><b>Высокий контраст</b><small>Усиливает границы и состояния</small></span><i aria-hidden="true"></i></button>
           </div>
           <div class="inspector-section compact">
-            <span class="section-label">Delivery</span>
-            <dl><div><dt>Статус</dt><dd id="readiness-value">Production ready</dd></div><div><dt>Лучше всего</dt><dd id="project-value">Eclipse Media</dd></div><div><dt>Motion budget</dt><dd>transform + opacity</dd></div></dl>
+            <span class="section-label">Готовность</span>
+            <dl><div><dt>Статус</dt><dd id="readiness-value">Готово к внедрению</dd></div><div><dt>Лучше всего</dt><dd id="project-value">Eclipse Media</dd></div><div><dt>Бюджет движения</dt><dd>transform + opacity</dd></div></dl>
           </div>
           <button class="export-button" type="button" data-action="export">Открыть export kit <span>Ctrl E</span></button>
         </aside>
@@ -77,16 +77,16 @@
     </section>
   </main>
 
-  <section class="pattern-notes" aria-labelledby="notes-title"><div><p class="eyebrow">Production checklist</p><h2 id="notes-title">Что проверить перед ship</h2></div><ol><li><span>01</span><b>Реальные состояния</b><small>Loading, empty, error, success, cancel и retry.</small></li><li><span>02</span><b>Input parity</b><small>Mouse, touch, keyboard и focus-visible.</small></li><li><span>03</span><b>Motion safety</b><small>Reduced motion, стабильный layout и mobile FPS.</small></li></ol></section>
+  <section class="pattern-notes" aria-labelledby="notes-title"><div><p class="eyebrow">Проверка перед внедрением</p><h2 id="notes-title">Что проверить в проекте</h2></div><ol><li><span>01</span><b>Реальные состояния</b><small>Загрузка, пустой результат, ошибка, успех, отмена и повтор.</small></li><li><span>02</span><b>Все способы управления</b><small>Мышь, касание, клавиатура и заметный фокус.</small></li><li><span>03</span><b>Безопасное движение</b><small>Уменьшение движения, стабильная вёрстка и плавность на мобильных.</small></li></ol></section>
 
   <dialog class="export-dialog" id="export-dialog" aria-labelledby="export-title">
-    <div class="dialog-head"><div><span>Export kit</span><h2 id="export-title">Передайте паттерн в проект</h2></div><button type="button" data-action="close-export" aria-label="Закрыть">×</button></div>
-    <div class="export-tabs" role="tablist" aria-label="Формат экспорта"><button role="tab" aria-selected="true" data-export-tab="html">HTML</button><button role="tab" aria-selected="false" data-export-tab="react">React contract</button><button role="tab" aria-selected="false" data-export-tab="tokens">Tokens</button><button role="tab" aria-selected="false" data-export-tab="qa">QA checklist</button></div>
+    <div class="dialog-head"><div><span>Внедрение</span><h2 id="export-title">Передайте анимацию в проект</h2></div><button type="button" data-action="close-export" aria-label="Закрыть">×</button></div>
+    <div class="export-tabs" role="tablist" aria-label="Формат экспорта"><button role="tab" aria-selected="true" data-export-tab="html">HTML</button><button role="tab" aria-selected="false" data-export-tab="react">Контракт React</button><button role="tab" aria-selected="false" data-export-tab="tokens">Параметры</button><button role="tab" aria-selected="false" data-export-tab="qa">Проверка</button></div>
     <p id="export-help">Автономный файл открывается без build step и внешних зависимостей.</p>
     <pre><code id="export-code"></code></pre>
     <div class="dialog-actions"><button type="button" data-action="copy-export">Скопировать</button><a data-action="open" target="_blank" rel="noopener">Открыть отдельно</a><a class="primary" data-action="download" download>Скачать HTML</a></div>
     <p class="copy-status" id="copy-status" role="status"></p>
   </dialog>
-  <script src="animation-lab.js?v=4" defer></script>
+  <script src="animation-lab.js?v=5" defer></script>
 </body>
 </html>

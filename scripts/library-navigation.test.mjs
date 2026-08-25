@@ -29,7 +29,8 @@ const primaryNav = html.match(/<nav class="primary-nav"[\s\S]*?<\/nav>/)?.[0] ||
 assert.match(primaryNav, />Каталог</);
 assert.match(primaryNav, />Гайды</);
 assert.match(primaryNav, />Проекты</);
-assert.doesNotMatch(primaryNav, /Registry|Анимации/);
+assert.match(primaryNav, /href="animations\.html"[^>]*>Анимации/);
+assert.doesNotMatch(primaryNav, /Registry/);
 
 assert.match(app, /const GUIDE_GROUPS = \{/);
 assert.match(app, /guideDirectorySearch/);
