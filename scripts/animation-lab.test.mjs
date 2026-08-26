@@ -6,8 +6,8 @@ import { fileURLToPath } from 'node:url';
 const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
 const web=path.join(root,'web');
 const manifest=JSON.parse(fs.readFileSync(path.join(web,'animation-lab-manifest.json'),'utf8'));
-assert.equal(manifest.version,5,'Animation Lab manifest must use the crisp workbench contract');
-assert.equal(manifest.demos.length,11,'All eleven product patterns must be present');
+assert.equal(manifest.version,6,'Animation Lab manifest must use the expanded crisp workbench contract');
+assert.equal(manifest.demos.length,29,'All twenty-nine product patterns must be present');
 assert.equal(new Set(manifest.demos.map(item=>item.id)).size,manifest.demos.length,'Demo ids must be unique');
 for(const demo of manifest.demos){
   const source=fs.readFileSync(path.join(web,demo.file),'utf8');
@@ -60,12 +60,25 @@ for(const source of [upload,progress,otp,otpLight]){
 }
 const page=fs.readFileSync(path.join(web,'animations.html'),'utf8');
 const app=fs.readFileSync(path.join(web,'animation-lab.js'),'utf8');
+const demoCatalog=fs.readFileSync(path.join(web,'animation-demos.js'),'utf8');
 const css=fs.readFileSync(path.join(web,'animation-lab.css'),'utf8');
 assert.match(page,/sandbox="allow-scripts"/,'Preview iframe must be sandboxed');
 assert.doesNotMatch(page,/allow-same-origin|allow-forms|allow-popups/,'Preview sandbox must stay minimal');
 assert.match(page,/Проверьте анимацию до внедрения/);
 assert.match(page,/Компьютер/);
 assert.match(page,/Параметры анимации/);
+assert.match(page,/id="demo-search"/,'Animation search is required');
+assert.match(page,/id="demo-filters"/,'Animation category filters are required');
+assert.match(page,/animation-demos\.js\?v=6/,'Versioned demo catalog must load before the workbench');
+assert.match(page,/id="demo-search"/,'Animation search is required');
+assert.match(page,/id="demo-filters"/,'Animation category filters are required');
+assert.match(page,/animation-demos\.js\?v=6/,'Versioned demo catalog must load before the workbench');
+assert.match(page,/id="demo-search"/,'Animation search is required');
+assert.match(page,/id="demo-filters"/,'Animation category filters are required');
+assert.match(page,/animation-demos\.js\?v=6/,'Versioned demo catalog must load before the workbench');
+assert.match(page,/id="demo-search"/,'Animation search is required');
+assert.match(page,/id="demo-filters"/,'Animation category filters are required');
+assert.match(page,/animation-demos\.js\?v=6/,'Versioned demo catalog must load before the workbench');
 assert.doesNotMatch(css,/backdrop-filter:\s*blur|box-shadow:/i,'Animation Lab shell must stay crisp');
 assert.match(page,/aria-label="Размер экрана"/);
 assert.match(page,/id="export-dialog"/);
@@ -75,5 +88,19 @@ assert.match(app,/navigator\.clipboard/,'Export must support copy');
 assert.match(app,/download/,'Export must support safe local download');
 assert.match(css,/\.lab-shell\{grid-template-columns:minmax\(0,1fr\);width:100%\}/,'Mobile grid must not expand to the demo rail min-content width');
 assert.match(css,/\.lab-shell>\*\{min-width:0\}/,'Workbench children must be allowed to shrink without horizontal overflow');
-for(const demo of manifest.demos){assert.ok(app.includes(demo.file),demo.file+' must be wired into the stage')}
+for(const demo of manifest.demos){assert.ok((app+demoCatalog).includes(demo.file),demo.file+' must be wired into the stage')}
+const blade=fs.readFileSync(path.join(web,'animation-auth-blade.html'),'utf8');
+assert.match(blade,/translateX/,'Auth blade must use a single horizontal translation');
+assert.doesNotMatch(blade,/auth-blade[^}]*rotate/i,'Auth blade must never rotate');
+const panda=fs.readFileSync(path.join(web,'animation-panda-lamp-login.html'),'utf8');
+assert.match(panda,/data-gated[^>]*aria-hidden="true"[^>]*inert/,'Dark panda form must start outside the accessibility tree');
+const safeUpload=fs.readFileSync(path.join(web,'animation-file-upload.html'),'utf8');
+assert.match(safeUpload,/name\.textContent=file\.name/,'File names must be rendered with textContent');
+const fly=fs.readFileSync(path.join(web,'animation-fly-to-cart.html'),'utf8');
+assert.match(fly,/\.animate\(\[\{transform:/,'Fly-to-cart must use compositor transforms');
+for(const demo of manifest.demos.slice(11)){
+ const source=fs.readFileSync(path.join(web,demo.file),'utf8');
+ assert.doesNotMatch(source,/\bfetch\s*\(|XMLHttpRequest|WebSocket|localStorage|sessionStorage/,'Product motion demos must not submit or persist data: '+demo.file);
+ assert.doesNotMatch(source,/@keyframes[^}]*\{[^}]*(?:width|height|top|left|margin|padding|filter|box-shadow)\s*:/is,'Keyframes must stay compositor-only: '+demo.file);
+}
 console.log('Animation Lab checks passed for '+manifest.demos.length+' demos.');

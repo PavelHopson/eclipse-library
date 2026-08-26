@@ -1,88 +1,216 @@
 {
-  "version": 5,
-  "license": "Original Eclipse Forge motion demos. Adapt validation, product state and backend integration before production use.",
+  "version": 6,
+  "license": "Original Eclipse Forge clean-room motion demos. Local reference folders were used only to identify interaction ideas; no remote assets or third-party runtime code are redistributed.",
+  "verifiedAt": "2026-08-26",
   "safety": {
     "execution": "sandboxed iframe with scripts only",
     "network": "standalone demos make no remote requests",
-    "install": "catalog never installs code"
+    "install": "catalog never installs code",
+    "data": "auth, payment and upload scenes are visual state machines and never submit or persist entered data"
   },
   "demos": [
     {
       "id": "upload-queue",
       "file": "animation-upload-queue.html",
-      "category": "upload",
-      "readiness": "production-ready",
+      "category": "files",
+      "readiness": "Готово к внедрению",
       "project": "Eclipse Media"
     },
     {
       "id": "ai-progress",
       "file": "animation-ai-progress.html",
-      "category": "ai-status",
-      "readiness": "production-ready",
-      "project": "Eclipse AI Hub / Shotforge"
+      "category": "feedback",
+      "readiness": "Готово к внедрению",
+      "project": "AI Hub · Shotforge"
     },
     {
       "id": "otp-input",
       "file": "animation-otp-input.html",
       "category": "auth",
-      "readiness": "production-ready",
+      "readiness": "Готово к внедрению",
       "project": "Eclipse Chat"
     },
     {
       "id": "reactive-login",
       "file": "animation-reactive-login.html",
       "category": "auth",
-      "readiness": "needs-backend",
+      "readiness": "Нужен сервер",
       "project": "Eclipse Chat"
     },
     {
       "id": "orbit-upload",
       "file": "animation-orbit-upload.html",
-      "category": "upload",
-      "readiness": "production-ready",
+      "category": "files",
+      "readiness": "Готово к внедрению",
       "project": "Eclipse Media"
     },
     {
       "id": "vault-dial",
       "file": "animation-vault-dial.html",
-      "category": "security-concept",
-      "readiness": "concept-only",
+      "category": "auth",
+      "readiness": "Концепт",
       "project": "Sentinel"
     },
     {
       "id": "otp-light",
       "file": "animation-otp-light.html",
       "category": "auth",
-      "readiness": "production-ready",
+      "readiness": "Готово к внедрению",
       "project": "Eclipse Forge Landing"
     },
     {
       "id": "glass-navigation",
       "file": "animation-glass-navigation.html",
       "category": "navigation",
-      "readiness": "production-ready",
-      "project": "Eclipse Library / Eclipse Chat"
+      "readiness": "Готово к внедрению",
+      "project": "Eclipse Library · Chat"
     },
     {
       "id": "hologram-cta",
       "file": "animation-hologram-cta.html",
-      "category": "conversion",
-      "readiness": "production-ready",
-      "project": "Eclipse Forge Landing / Growth OS"
+      "category": "commerce",
+      "readiness": "Готово к внедрению",
+      "project": "Forge Landing · Growth OS"
     },
     {
       "id": "spatial-sidebar",
       "file": "animation-spatial-sidebar.html",
       "category": "navigation",
-      "readiness": "production-ready",
-      "project": "Eclipse Chat / Eclipse AI Hub"
+      "readiness": "Готово к внедрению",
+      "project": "Eclipse Chat · AI Hub"
     },
     {
       "id": "destination-card",
       "file": "animation-destination-card.html",
-      "category": "content-card",
-      "readiness": "production-ready",
-      "project": "Eclipse Forge Landing / Eclipse DnD Forge"
+      "category": "commerce",
+      "readiness": "Готово к внедрению",
+      "project": "Forge Landing · DnD Forge"
+    },
+    {
+      "id": "light-tabs",
+      "file": "animation-light-tabs.html",
+      "category": "navigation",
+      "readiness": "Готово к адаптации",
+      "project": "Eclipse Chat · Library"
+    },
+    {
+      "id": "order-street",
+      "file": "animation-order-street.html",
+      "category": "commerce",
+      "readiness": "Нужен сервер",
+      "project": "StarMarket · Growth OS"
+    },
+    {
+      "id": "auth-blade",
+      "file": "animation-auth-blade.html",
+      "category": "auth",
+      "readiness": "Нужен сервер",
+      "project": "Eclipse Chat"
+    },
+    {
+      "id": "payment-delight",
+      "file": "animation-payment-delight.html",
+      "category": "payment",
+      "readiness": "Нужен платёжный сервер",
+      "project": "StarMarket"
+    },
+    {
+      "id": "panda-lamp-login",
+      "file": "animation-panda-lamp-login.html",
+      "category": "auth",
+      "readiness": "Нужен сервер",
+      "project": "Eclipse Chat · Jarvis Presence"
+    },
+    {
+      "id": "kinetic-delete",
+      "file": "animation-kinetic-delete.html",
+      "category": "files",
+      "readiness": "Готово к адаптации",
+      "project": "Eclipse Media · Library"
+    },
+    {
+      "id": "orbital-playground",
+      "file": "animation-orbital-playground.html",
+      "category": "feedback",
+      "readiness": "Эксперимент",
+      "project": "Eclipse Forge Website"
+    },
+    {
+      "id": "interactive-checkout",
+      "file": "animation-interactive-checkout.html",
+      "category": "payment",
+      "readiness": "Нужен платёжный сервер",
+      "project": "StarMarket"
+    },
+    {
+      "id": "lamp-login",
+      "file": "animation-lamp-login.html",
+      "category": "auth",
+      "readiness": "Нужен сервер",
+      "project": "Eclipse Chat"
+    },
+    {
+      "id": "login-v5",
+      "file": "animation-login-v5.html",
+      "category": "auth",
+      "readiness": "Нужен сервер",
+      "project": "Eclipse Chat"
+    },
+    {
+      "id": "card-to-receipt",
+      "file": "animation-card-to-receipt.html",
+      "category": "payment",
+      "readiness": "Нужен платёжный сервер",
+      "project": "StarMarket · StarCRM"
+    },
+    {
+      "id": "mascot-otp",
+      "file": "animation-mascot-otp.html",
+      "category": "auth",
+      "readiness": "Нужен сервер и rate limit",
+      "project": "Eclipse Chat"
+    },
+    {
+      "id": "payment-v3",
+      "file": "animation-payment-v3.html",
+      "category": "payment",
+      "readiness": "Нужен PCI-провайдер",
+      "project": "StarMarket"
+    },
+    {
+      "id": "cloud-auth",
+      "file": "animation-cloud-auth.html",
+      "category": "auth",
+      "readiness": "Нужен сервер",
+      "project": "Eclipse Forge Landing · Chat"
+    },
+    {
+      "id": "animated-cart",
+      "file": "animation-animated-cart.html",
+      "category": "commerce",
+      "readiness": "Нужен сервер",
+      "project": "StarMarket"
+    },
+    {
+      "id": "svg-hover-kit",
+      "file": "animation-svg-hover-kit.html",
+      "category": "navigation",
+      "readiness": "Готово к внедрению",
+      "project": "Все продукты Eclipse"
+    },
+    {
+      "id": "file-upload-dropzone",
+      "file": "animation-file-upload.html",
+      "category": "files",
+      "readiness": "Нужен upload API",
+      "project": "Eclipse Media · Chat"
+    },
+    {
+      "id": "fly-to-cart",
+      "file": "animation-fly-to-cart.html",
+      "category": "commerce",
+      "readiness": "Нужен сервер",
+      "project": "StarMarket"
     }
   ]
 }
