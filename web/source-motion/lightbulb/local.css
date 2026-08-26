@@ -1,1 +1,175 @@
-@property --on{syntax:"<number>";inherits:true;initial-value:0}:root{transition:--on .35s ease}body{margin:0}.toggle-scene__hit-spot{cursor:pointer}.toggle-scene__dummy-cord{transform-origin:98.7255px 250.5405px;transition:transform .18s cubic-bezier(.2,.8,.2,1)}body.is-pulling .toggle-scene__dummy-cord{transform:scaleY(1.24)}.door{transition:transform .28s cubic-bezier(.2,.8,.2,1)}.bear{display:block;transform:translateX(140%);transition:transform .38s cubic-bezier(.2,.85,.25,1)}.bear__arm{display:block;transform-origin:center;transition:transform .24s ease}body.is-awake .door{transform:rotateY(-92deg)}body.is-awake .bear{transform:translateX(-55%)}body.is-awake .bear__arm--front{transform:rotate(-12deg)}@media(prefers-reduced-motion:reduce){:root,.door,.bear,.bear__arm,.toggle-scene__dummy-cord{transition-duration:.001ms!important}}
+@property --on {
+  syntax: "<number>";
+  inherits: true;
+  initial-value: 0;
+}
+
+:root {
+  transition: --on .35s ease;
+}
+
+body {
+  margin: 0;
+  min-height: 100svh;
+  isolation: isolate;
+}
+
+body::after {
+  content: "";
+  position: fixed;
+  z-index: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 32%;
+  border-top: 1px solid hsl(35 28% calc(24% + var(--on) * 42%));
+  background:
+    linear-gradient(90deg, transparent 49.8%, hsl(35 18% calc(18% + var(--on) * 36%)) 50%, transparent 50.2%),
+    hsl(35 20% calc(12% + var(--on) * 48%));
+  pointer-events: none;
+}
+
+.room-atmosphere {
+  position: fixed;
+  z-index: 0;
+  inset: 0;
+  opacity: calc(.08 + var(--on) * .8);
+  background: radial-gradient(circle at 61% 42%, rgba(255, 234, 160, .88), rgba(255, 218, 126, .28) 22%, transparent 52%);
+  transition: opacity .35s ease;
+  pointer-events: none;
+}
+
+.scene-guide {
+  position: fixed;
+  z-index: 6;
+  top: 50%;
+  left: clamp(24px, 6vw, 86px);
+  width: min(34vw, 390px);
+  transform: translateY(-50%);
+  color: hsl(210 25% calc(88% + var(--on) * 8%));
+}
+
+.scene-guide > span {
+  display: block;
+  margin-bottom: 12px;
+  color: hsl(188 86% calc(66% + var(--on) * 12%));
+  font: 800 11px/1.2 Inter, ui-sans-serif, system-ui, sans-serif;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+}
+
+.scene-guide h1 {
+  max-width: 12ch;
+  margin: 0;
+  font: 850 clamp(2rem, 4.4vw, 4.5rem)/.95 Inter, ui-sans-serif, system-ui, sans-serif;
+  letter-spacing: -.05em;
+  text-wrap: balance;
+}
+
+.scene-guide p {
+  max-width: 38ch;
+  margin: 20px 0 0;
+  color: hsl(205 18% calc(68% + var(--on) * 16%));
+  font: 500 clamp(.92rem, 1.4vw, 1.05rem)/1.55 Inter, ui-sans-serif, system-ui, sans-serif;
+  text-wrap: pretty;
+}
+
+.light-action {
+  min-height: 46px;
+  margin-top: 24px;
+  padding: 0 18px;
+  border: 1px solid hsl(190 68% calc(56% + var(--on) * 14%));
+  border-radius: 12px;
+  background: hsl(200 26% calc(12% + var(--on) * 76%));
+  color: hsl(195 45% calc(92% - var(--on) * 80%));
+  cursor: pointer;
+  font: 800 14px/1 Inter, ui-sans-serif, system-ui, sans-serif;
+  transition: transform 150ms ease, background-color 200ms ease, color 200ms ease;
+}
+
+.light-action:hover {
+  transform: translateY(-2px);
+}
+
+.light-action:active {
+  transform: translateY(1px);
+}
+
+input#light-mode {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+.toggle {
+  left: 58%;
+  top: 48%;
+}
+
+.doorway {
+  top: 50%;
+  left: calc(58% + (var(--size) * .52));
+  height: min(calc(var(--size) * 3.4), 82svh);
+  transform: translate(0, -50%);
+}
+
+.doorway__opening {
+  border: 1px solid hsl(35 18% calc(22% + var(--on) * 34%));
+  box-shadow: 0 0 0 10px rgba(0, 0, 0, .14);
+}
+
+.toggle-scene__hit-spot {
+  cursor: pointer;
+}
+
+.toggle-scene__dummy-cord {
+  transform-origin: 98.7255px 250.5405px;
+  transition: transform .18s cubic-bezier(.2, .8, .2, 1);
+}
+
+body.is-pulling .toggle-scene__dummy-cord {
+  transform: scaleY(1.24);
+}
+
+.door {
+  transition: transform .28s cubic-bezier(.2, .8, .2, 1);
+}
+
+.bear {
+  display: block;
+  transform: translateX(140%);
+  transition: transform .38s cubic-bezier(.2, .85, .25, 1);
+}
+
+.bear__arm {
+  display: block;
+  transform-origin: center;
+  transition: transform .24s ease;
+}
+
+body.is-awake .door {
+  transform: rotateY(-92deg);
+}
+
+body.is-awake .bear {
+  transform: translateX(-55%);
+}
+
+body.is-awake .bear__arm--front {
+  transform: rotate(-12deg);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root,
+  .door,
+  .bear,
+  .bear__arm,
+  .toggle-scene__dummy-cord,
+  .room-atmosphere {
+    transition-duration: .01ms !important;
+  }
+}

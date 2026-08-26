@@ -74,6 +74,30 @@ test('localized interactive controls expose keyboard and assistive state', () =>
   assert.match(blackHole, /id="triggerEffectButton"[^>]+type="button"/);
 });
 
+test('repaired showcase scenes expose clear controls and viewport-safe layouts', () => {
+  const animated404 = readFileSync(resolve(web, 'source-motion/animated-404/responsive.css'), 'utf8');
+  const submitHtml = readFileSync(resolve(web, 'source-motion/submit-button/index.html'), 'utf8');
+  const submitScript = readFileSync(resolve(web, 'source-motion/submit-button/script.local.js'), 'utf8');
+  const lightHtml = readFileSync(resolve(web, 'source-motion/lightbulb/index.html'), 'utf8');
+  const lightScript = readFileSync(resolve(web, 'source-motion/lightbulb/script.local.js'), 'utf8');
+  const receiptHtml = readFileSync(resolve(web, 'source-motion/receipt-printer/index.html'), 'utf8');
+  const receiptCss = readFileSync(resolve(web, 'source-motion/receipt-printer/style.css'), 'utf8');
+
+  assert.match(animated404, /height:\s*100svh/);
+  assert.match(animated404, /overflow:\s*hidden/);
+  assert.match(submitHtml, /class="btn8"[^>]+type="button"/);
+  assert.match(submitHtml, /id="send-status"[^>]+aria-live="polite"/);
+  assert.match(submitScript, /aria-busy/);
+  assert.match(lightHtml, /id="light-action"[^>]+type="button"[^>]+aria-pressed="false"/);
+  assert.match(lightHtml, /id="light-status"[^>]+aria-live="polite"/);
+  assert.match(lightScript, /aria-pressed/);
+  assert.match(receiptHtml, /class="printer"[^>]+aria-busy="false"[^>]+data-stage="ready"/);
+  assert.match(receiptHtml, /id="start"[^>]+type="button"/);
+  assert.match(receiptHtml, /id="reset"[^>]+type="button"[^>]+disabled/);
+  assert.match(receiptCss, /height:\s*100svh/);
+  assert.match(receiptCss, /overflow:\s*hidden/);
+});
+
 test('styles and active scripts do not initiate remote runtime traffic', () => {
   const forbidden = [
     /@import\s+(?:url\()?\s*["']?(?:https?:)?\/\//i,

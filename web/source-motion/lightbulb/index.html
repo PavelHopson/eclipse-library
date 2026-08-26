@@ -11,6 +11,14 @@
   <link rel="stylesheet" href="../common.css">
 </head>
 <body>
+  <div class="room-atmosphere" aria-hidden="true"></div>
+  <section class="scene-guide" aria-labelledby="light-title">
+    <span>Интерактивная сцена</span>
+    <h1 id="light-title">Разбудите комнату светом</h1>
+    <p id="light-status" aria-live="polite">Свет выключен. Потяните за шнур или нажмите кнопку.</p>
+    <button id="light-action" class="light-action" type="button" aria-pressed="false">Потянуть за шнур</button>
+  </section>
+
 
 <div class="toggle">
   <input id="light-mode" type="checkbox" aria-label="Включить свет"/>

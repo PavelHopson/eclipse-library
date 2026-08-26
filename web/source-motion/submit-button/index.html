@@ -1,27 +1,30 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ru">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Креативная отправка</title>
-<link rel="stylesheet" href="./style.css">
-<link rel="stylesheet" href="./local.css">
-
+  <link rel="stylesheet" href="./style.css">
+  <link rel="stylesheet" href="./local.css">
   <link rel="stylesheet" href="../common.css">
 </head>
 <body>
-<button class="btn8" type="button" aria-label="Отправить форму">
-  <div class="btn8-first">
-    <div class="top">
-      <div class="dome"></div>
-    </div>
-    <div class="bottom"></div>
-    <p class='sub'>От</p>
-    <p class='mit'>править</p>
-    <p class='thank'>Готово</p>
-  </div>
-</button>
-<!-- partial -->
-
+  <main class="send-stage">
+    <header class="send-copy">
+      <span>Микровзаимодействие</span>
+      <h1>Сообщение готово к отправке</h1>
+      <p>Нажмите кнопку — корабль заберёт сообщение и подтвердит доставку.</p>
+    </header>
+    <button class="btn8" type="button" aria-describedby="send-status">
+      <span class="btn8-first">
+        <span class="top" aria-hidden="true"><span class="dome"></span></span>
+        <span class="bottom" aria-hidden="true"></span>
+        <span class="label"><span class="sub">От</span><span class="mit">править</span></span>
+        <span class="thank">Отправлено</span>
+      </span>
+    </button>
+    <p id="send-status" class="send-status" aria-live="polite">Готово к отправке</p>
+  </main>
+  <script src="./script.local.js"></script>
 </body>
 </html>
