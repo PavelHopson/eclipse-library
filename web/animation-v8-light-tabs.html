@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="color-scheme" content="dark">
+  <meta name="description" content="Световой индикатор физически следует к выбранной вкладке без размытых эффектов.">
+  <title>Световая навигация — Motion v8</title>
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="animation-v8-preview.css?v=8">
+</head>
+<body data-demo="light-tabs">
+  <main class="demo-shell">
+    <section class="light-demo" aria-labelledby="light-title">
+      <header>
+        <p class="light-demo__eyebrow">Motion pattern 01 · navigation</p>
+        <h1 class="light-demo__title" id="light-title">Свет не подсвечивает выбор. Он следует за ним.</h1>
+      </header>
+      <nav class="light-nav" data-light-nav role="tablist" aria-label="Разделы продукта">
+        <button role="tab" aria-selected="true" aria-controls="light-panel" tabindex="0">Обзор</button>
+        <button role="tab" aria-selected="false" aria-controls="light-panel" tabindex="-1">Проекты</button>
+        <button role="tab" aria-selected="false" aria-controls="light-panel" tabindex="-1">Команда</button>
+        <button role="tab" aria-selected="false" aria-controls="light-panel" tabindex="-1">Доступ</button>
+        <div class="light-track" aria-hidden="true">
+          <div class="light-track__base"></div>
+          <div class="light-core"></div>
+          <svg class="light-energy" viewBox="0 0 240 24" preserveAspectRatio="none">
+            <path class="wide" d="M3 13 C42 5 55 20 91 11 S155 2 237 12"/>
+            <path class="sharp" d="M3 13 C42 5 55 20 91 11 S155 2 237 12"/>
+            <path class="sharp" d="M14 15 L48 10 L77 16 L112 9 L153 14 L211 8" opacity=".58"/>
+          </svg>
+        </div>
+      </nav>
+      <section class="light-content" id="light-panel" role="tabpanel" tabindex="0">
+        <div>
+          <h2 data-tab-title>Обзор</h2>
+          <p data-tab-copy>Все важные события, решения и статусы собраны в одном спокойном экране.</p>
+        </div>
+        <span class="light-content__index" data-tab-index aria-hidden="true">01</span>
+      </section>
+    </section>
+  </main>
+  <p class="demo-status" data-status role="status" aria-live="polite">Готово</p>
+  <script src="animation-v8-preview.js?v=8"></script>
+</body>
+</html>

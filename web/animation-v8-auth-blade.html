@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="color-scheme" content="dark">
+  <meta name="description" content="Вход и регистрация меняются под одним прямоугольником, который движется только через translateX.">
+  <title>Вход и регистрация — Motion v8</title>
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="animation-v8-preview.css?v=8">
+</head>
+<body data-demo="auth">
+  <main class="demo-shell">
+    <section class="auth-demo" aria-labelledby="auth-demo-title">
+      <header class="auth-demo__meta"><span id="auth-demo-title">Motion pattern 03 · authentication</span><span>Один прямоугольник · один translateX</span></header>
+      <div class="auth-card-v8" data-auth-card data-mode="signin">
+        <div class="auth-forms">
+          <section class="auth-pane-v8" data-pane="signin" aria-labelledby="signin-title">
+            <h1 id="signin-title">Вход</h1>
+            <p>Продолжите с того места, где остановились.</p>
+            <label class="field-v8">Email<input type="email" autocomplete="email" required placeholder="name@mail.ru"></label>
+            <label class="field-v8">Пароль<input type="password" autocomplete="current-password" minlength="8" required placeholder="Не менее 8 символов"></label>
+            <button data-primary data-auth-submit type="button">Войти</button>
+            <button class="auth-switch" data-auth-switch="signup" type="button">Создать аккаунт →</button>
+          </section>
+          <section class="auth-pane-v8" data-pane="signup" aria-labelledby="signup-title" aria-hidden="true" inert>
+            <h1 id="signup-title">Регистрация</h1>
+            <p>Создайте пространство для своей команды.</p>
+            <label class="field-v8">Имя<input autocomplete="name" required minlength="2" placeholder="Ваше имя"></label>
+            <label class="field-v8">Email<input type="email" autocomplete="email" required placeholder="name@mail.ru"></label>
+            <button data-primary data-auth-submit type="button">Продолжить</button>
+            <button class="auth-switch" data-auth-switch="signin" type="button">← Уже есть аккаунт</button>
+          </section>
+        </div>
+        <div class="auth-blade-v8" aria-hidden="true">
+          <span class="auth-blade-v8__brand">VERSO / ECLIPSE</span>
+          <div class="auth-blade-v8__signin-copy"><h2>Welcome<em>back.</em></h2><p>Ваши проекты, люди и решения находятся там же, где вы их оставили.</p></div>
+          <div class="auth-blade-v8__signup-copy"><h2>Начнём<em>вместе.</em></h2><p>Одно рабочее пространство для задач, материалов и команды.</p></div>
+        </div>
+        <p class="auth-feedback" data-auth-feedback role="status" aria-live="polite"></p>
+      </div>
+    </section>
+  </main>
+  <p class="demo-status" data-status role="status" aria-live="polite">Готово</p>
+  <script src="animation-v8-preview.js?v=8"></script>
+</body>
+</html>

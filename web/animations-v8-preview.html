@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="color-scheme" content="dark">
+  <meta name="description" content="Отдельный предпросмотр нового направления Eclipse Motion v8.">
+  <title>Motion v8 Preview — Eclipse Library</title>
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="animation-v8-preview.css?v=8">
+</head>
+<body data-page="preview">
+  <main class="preview-app">
+    <header class="preview-header">
+      <div class="preview-brand"><span class="preview-mark" aria-hidden="true"></span><div><b>Eclipse Motion</b><span>Preview v8 · основной каталог не изменён</span></div></div>
+      <span class="preview-badge">3 сцены для проверки</span>
+    </header>
+    <div class="preview-layout">
+      <aside class="preview-sidebar">
+        <h1>Новое направление</h1>
+        <p>Три законченных взаимодействия. Выберите сцену и попробуйте её без инструкции.</p>
+        <div class="preview-tabs" role="tablist" aria-label="Сцены предпросмотра">
+          <button class="preview-tab" data-preview-tab role="tab" aria-selected="true"><i>01</i><span><b>Световая навигация</b><small>Свет следует за выбором</small></span></button>
+          <button class="preview-tab" data-preview-tab role="tab" aria-selected="false" tabindex="-1"><i>02</i><span><b>Заказ</b><small>Ворота → машина → результат</small></span></button>
+          <button class="preview-tab" data-preview-tab role="tab" aria-selected="false" tabindex="-1"><i>03</i><span><b>Авторизация</b><small>Одно лезвие, две формы</small></span></button>
+        </div>
+        <p class="preview-note">Это отдельный preview. Текущий раздел «Анимации» останется доступен, пока новое направление не будет принято.</p>
+      </aside>
+      <section class="preview-main" aria-labelledby="preview-title">
+        <header class="preview-toolbar">
+          <h2 id="preview-title" data-preview-title>Световая навигация</h2>
+          <div class="preview-actions">
+            <button data-preview-replay type="button">Повторить</button>
+            <button data-preview-reduce type="button" aria-pressed="false">Меньше движения</button>
+            <a data-preview-open href="animation-v8-light-tabs.html?preview=8" target="_blank" rel="noopener">Открыть отдельно ↗</a>
+          </div>
+        </header>
+        <div class="preview-frame-wrap">
+          <iframe class="preview-frame" data-preview-frame title="Предпросмотр анимации" sandbox="allow-scripts"></iframe>
+          <div class="preview-progress" aria-hidden="true"></div>
+        </div>
+      </section>
+    </div>
+  </main>
+  <script src="animation-v8-preview.js?v=8"></script>
+</body>
+</html>

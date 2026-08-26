@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="color-scheme" content="dark">
+  <meta name="description" content="Подтверждение заказа открывает ворота склада, загружает посылку и отправляет машину.">
+  <title>Подтверждение заказа — Motion v8</title>
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="animation-v8-preview.css?v=8">
+</head>
+<body data-demo="order">
+  <main class="demo-shell">
+    <section class="order-demo" aria-labelledby="order-title">
+      <header class="order-demo__header">
+        <div><span>Motion pattern 02 · confirmation</span><h1 id="order-title">Заказ становится отправкой.</h1></div>
+        <p>Нажатие запускает понятную историю: ворота, загрузка, дорога и подтверждённый результат.</p>
+      </header>
+      <div class="delivery-card">
+        <div class="delivery-road" data-road data-state="idle" aria-label="Маршрут доставки">
+          <div class="road-lines" aria-hidden="true"></div>
+          <div class="road-skyline" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span></div>
+          <div class="depot" aria-hidden="true">
+            <div class="depot__building"><div class="depot__door"></div></div><div class="gate"></div>
+          </div>
+          <div class="package" aria-hidden="true"></div>
+          <div class="truck" aria-hidden="true">
+            <svg viewBox="0 0 260 120" role="img" aria-label="Машина доставки">
+              <path d="M18 22h135v67H18z" fill="#f2eadb" stroke="#241f18" stroke-width="3"/>
+              <path d="M153 44h48l35 34v11h-83z" fill="#f2eadb" stroke="#241f18" stroke-width="3"/>
+              <path d="M166 51h31l21 24h-52z" fill="#8fc1bd" stroke="#241f18" stroke-width="3"/>
+              <path d="M20 33h132v18H20z" fill="#db8b35"/>
+              <path d="M55 44h58" stroke="#241f18" stroke-width="3"/>
+              <path d="M77 24v64M119 24v64" stroke="#c4b9a6" stroke-width="2"/>
+              <path d="M14 89h231v10H14z" fill="#27221b"/>
+              <g class="truck__wheel"><circle cx="61" cy="96" r="17" fill="#14120f" stroke="#f2eadb" stroke-width="4"/><path d="M61 82v28M47 96h28" stroke="#8e897f" stroke-width="3"/></g>
+              <g class="truck__wheel"><circle cx="201" cy="96" r="17" fill="#14120f" stroke="#f2eadb" stroke-width="4"/><path d="M201 82v28M187 96h28" stroke="#8e897f" stroke-width="3"/></g>
+              <path d="M5 29h13M0 44h18M8 59h10" stroke="#f2a33b" stroke-width="3"/>
+            </svg>
+          </div>
+          <div class="order-check" aria-hidden="true"><div class="order-check__mark">✓</div></div>
+        </div>
+        <div class="order-controls">
+          <div class="order-summary"><span>Заказ <b>EF-2048</b></span><span>·</span><span>Доставка сегодня</span><span>·</span><b>4 290 ₽</b></div>
+          <button class="order-action" data-order-action type="button"><span>Подтвердить заказ</span> →</button>
+        </div>
+      </div>
+    </section>
+  </main>
+  <p class="demo-status" data-status role="status" aria-live="polite">Готово</p>
+  <script src="animation-v8-preview.js?v=8"></script>
+</body>
+</html>
