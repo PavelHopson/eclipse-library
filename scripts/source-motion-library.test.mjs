@@ -79,6 +79,7 @@ test('repaired showcase scenes expose clear controls and viewport-safe layouts',
   const submitHtml = readFileSync(resolve(web, 'source-motion/submit-button/index.html'), 'utf8');
   const submitScript = readFileSync(resolve(web, 'source-motion/submit-button/script.local.js'), 'utf8');
   const lightHtml = readFileSync(resolve(web, 'source-motion/lightbulb/index.html'), 'utf8');
+  const lightCss = readFileSync(resolve(web, 'source-motion/lightbulb/local.css'), 'utf8');
   const lightScript = readFileSync(resolve(web, 'source-motion/lightbulb/script.local.js'), 'utf8');
   const receiptHtml = readFileSync(resolve(web, 'source-motion/receipt-printer/index.html'), 'utf8');
   const receiptCss = readFileSync(resolve(web, 'source-motion/receipt-printer/style.css'), 'utf8');
@@ -90,7 +91,13 @@ test('repaired showcase scenes expose clear controls and viewport-safe layouts',
   assert.match(submitScript, /aria-busy/);
   assert.match(lightHtml, /id="light-action"[^>]+type="button"[^>]+aria-pressed="false"/);
   assert.match(lightHtml, /id="light-status"[^>]+aria-live="polite"/);
+  assert.match(lightHtml, /room-atmosphere--night/);
+  assert.match(lightHtml, /room-atmosphere--lit/);
+  assert.match(lightCss, /\.toggle-scene__arm\s*\{[^}]*display:\s*none\s*!important/s);
+  assert.doesNotMatch(lightCss, /@property\s+--on/);
+  assert.doesNotMatch(lightCss, /\.toggle-scene__dummy-cord\s*\{[^}]*transition:/s);
   assert.match(lightScript, /aria-pressed/);
+  assert.match(lightScript, /Комната проснулась/);
   assert.match(receiptHtml, /class="printer"[^>]+aria-busy="false"[^>]+data-stage="ready"/);
   assert.match(receiptHtml, /id="start"[^>]+type="button"/);
   assert.match(receiptHtml, /id="reset"[^>]+type="button"[^>]+disabled/);

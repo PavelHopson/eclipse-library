@@ -11,14 +11,32 @@
   <link rel="stylesheet" href="../common.css">
 </head>
 <body>
-  <div class="room-atmosphere" aria-hidden="true"></div>
+  <div class="room-atmosphere room-atmosphere--night" aria-hidden="true"></div>
+  <div class="room-atmosphere room-atmosphere--lit" aria-hidden="true"></div>
+  <div class="room-set" aria-hidden="true">
+    <div class="window">
+      <span class="moon"></span>
+      <i></i><i></i><i></i><i></i>
+    </div>
+    <div class="wall-frame"><span>НЕ БУДИТЬ</span></div>
+    <div class="rug"></div>
+  </div>
   <section class="scene-guide" aria-labelledby="light-title">
-    <span>Интерактивная сцена</span>
-    <h1 id="light-title">Разбудите комнату светом</h1>
-    <p id="light-status" aria-live="polite">Свет выключен. Потяните за шнур или нажмите кнопку.</p>
-    <button id="light-action" class="light-action" type="button" aria-pressed="false">Потянуть за шнур</button>
+    <span class="scene-eyebrow">
+      <i aria-hidden="true"></i>
+      <span>Спальня 02</span>
+      <b id="room-state">Свет выключен</b>
+    </span>
+    <h1 id="light-title">Потяните<br>за шнур.</h1>
+    <p>Комната проснётся, дверь откроется, и сонный медведь выйдет проверить свет.</p>
+    <div class="scene-actions">
+      <button id="light-action" class="light-action" type="button" aria-pressed="false">
+        <span class="light-action__icon" aria-hidden="true"></span>
+        <span class="light-action__label">Включить свет</span>
+      </button>
+      <span id="light-status" class="scene-status" aria-live="polite">Сейчас темно</span>
+    </div>
   </section>
-
 
 <div class="toggle">
   <input id="light-mode" type="checkbox" aria-label="Включить свет"/>

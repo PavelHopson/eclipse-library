@@ -1,21 +1,11 @@
-html,
-body {
-  width: 100%;
-  max-width: 100%;
-  overflow: hidden;
-}
-
-body {
-  contain: paint;
-}
-
 @media (max-width: 760px) {
   :root {
-    --size: min(23vmin, 128px);
+    --size: min(27vmin, 112px);
+    --light-x: 32%;
   }
 
   .scene-guide {
-    top: 22px;
+    top: 24px;
     left: 20px;
     right: 20px;
     width: auto;
@@ -23,43 +13,94 @@ body {
     text-align: center;
   }
 
+  .scene-eyebrow {
+    justify-content: center;
+    margin-bottom: 12px;
+  }
+
   .scene-guide h1 {
-    max-width: 18ch;
-    margin-inline: auto;
-    font-size: clamp(1.85rem, 9vw, 2.8rem);
+    max-width: none;
+    font-size: clamp(2.1rem, 10vw, 3.15rem);
+    line-height: .94;
   }
 
   .scene-guide p {
-    max-width: 36ch;
-    margin: 12px auto 0;
+    max-width: 35ch;
+    margin: 14px auto 0;
+    font-size: .86rem;
+  }
+
+  .scene-actions {
+    margin-top: 16px;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 11px 14px;
   }
 
   .light-action {
-    margin-top: 16px;
+    min-height: 44px;
+  }
+
+  .window {
+    top: 46%;
+    left: 7%;
+    width: 24vw;
+    border-width: 6px;
+  }
+
+  .wall-frame {
+    display: none;
   }
 
   .toggle {
-    top: 61%;
-    left: 50%;
+    top: 68%;
+    left: 32%;
   }
 
   .doorway {
-    top: 61%;
-    left: calc(50% + (var(--size) * .52));
+    top: 68%;
+    left: 64%;
+    width: calc(var(--size) * 1.36);
+    height: min(calc(var(--size) * 3.18), 48svh);
+  }
+
+  .rug {
+    right: -12%;
+    bottom: 2%;
+    width: 82vw;
+    height: 14%;
   }
 
   .bear {
-    transform: translateX(42%);
+    transform: translateX(190%) rotate(2deg);
   }
 
   body.is-awake .bear {
-    transform: translateX(-55%);
+    transform: translateX(-46%);
   }
 }
 
-@media (max-height: 560px) and (min-width: 761px) {
+@media (max-width: 420px) {
+  .scene-eyebrow > b {
+    display: none;
+  }
+
+  .scene-guide p {
+    max-width: 31ch;
+  }
+
+  .scene-status {
+    width: 100%;
+  }
+
+  .window {
+    opacity: .62;
+  }
+}
+
+@media (max-height: 600px) and (min-width: 761px) {
   :root {
-    --size: min(22vmin, 120px);
+    --size: min(22vmin, 124px);
   }
 
   .scene-guide {
@@ -67,6 +108,50 @@ body {
   }
 
   .scene-guide h1 {
-    font-size: clamp(2rem, 4vw, 3.2rem);
+    font-size: clamp(2.4rem, 4.6vw, 3.7rem);
+  }
+
+  .scene-guide p {
+    margin-top: 16px;
+  }
+
+  .scene-actions {
+    margin-top: 18px;
+  }
+
+  .doorway {
+    height: min(calc(var(--size) * 3.3), 76svh);
+  }
+}
+
+@media (max-height: 690px) and (max-width: 760px) {
+  :root {
+    --size: min(22vmin, 92px);
+  }
+
+  .scene-guide {
+    top: 14px;
+  }
+
+  .scene-eyebrow {
+    margin-bottom: 8px;
+  }
+
+  .scene-guide h1 {
+    font-size: clamp(1.9rem, 8vw, 2.5rem);
+  }
+
+  .scene-guide p {
+    margin-top: 9px;
+    line-height: 1.4;
+  }
+
+  .scene-actions {
+    margin-top: 10px;
+  }
+
+  .toggle,
+  .doorway {
+    top: 72%;
   }
 }
