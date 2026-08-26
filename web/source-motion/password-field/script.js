@@ -1,18 +1,21 @@
-var btn = document.getElementById('reveal');
-var box = document.getElementById('pass');
-var fak = document.getElementById('fakepass');
-const isEmpty = str => !str.trim().length;
+const button = document.getElementById('reveal');
+const input = document.getElementById('pass');
+const mask = document.getElementById('fakepass');
 
-btn.addEventListener('click', function() {
-	fak.innerHTML='';
-	var x = box.value.length;
-	for(var i=0; i<x; i++ ){fak.innerHTML=fak.innerHTML+'&bullet;';}
-	fak.classList.toggle('scan');
-	this.classList.toggle('open');
-	box.classList.toggle('active');
-	(box.type=='password') ? box.type='text' : setTimeout(function(){ box.type='password' }, 500);;
+function syncMask() {
+  mask.textContent = input.value ? '•'.repeat(input.value.length) : 'Пароль';
+  button.disabled = input.value.trim().length === 0;
+}
+
+button.addEventListener('click', () => {
+  const reveal = input.type === 'password';
+  input.type = reveal ? 'text' : 'password';
+  mask.classList.toggle('scan', reveal);
+  button.classList.toggle('open', reveal);
+  input.classList.toggle('active', reveal);
+  button.setAttribute('aria-pressed', String(reveal));
+  button.setAttribute('aria-label', reveal ? 'Скрыть пароль' : 'Показать пароль');
 });
 
-box.addEventListener("input", function() {
-  if(!isEmpty(this.value)) btn.removeAttribute('disabled'); else btn.setAttribute('disabled', 'disabled');
-});
+input.addEventListener('input', syncMask);
+syncMask();

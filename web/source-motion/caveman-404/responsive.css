@@ -1,0 +1,25 @@
+html,
+body {
+  width: 100%;
+  max-width: 100%;
+  overflow: hidden;
+}
+
+@media (max-width: 600px) {
+  html {
+    contain: strict;
+  }
+  body {
+    position: fixed;
+    inset: 0;
+    contain: layout paint size;
+  }
+  .text {
+    width: 100vw;
+    font-size: 32vw;
+  }
+
+  .container {
+    transform: translate(-50%, -50%) scale(.5);
+  }
+}

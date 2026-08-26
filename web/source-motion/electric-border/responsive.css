@@ -1,0 +1,43 @@
+html,
+body {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+.svg-container,
+.svg-container1 {
+  pointer-events: none;
+}
+
+@media (max-width: 720px) {
+  body {
+    height: auto;
+    min-height: 100svh;
+    overflow-y: auto;
+  }
+
+  .main-container {
+    min-height: 100svh;
+    height: auto;
+    flex-direction: column;
+    gap: 18px;
+    padding: 18px 0;
+  }
+
+  .main-card,
+  .main-card1 {
+    width: min(350px, calc(100vw - 48px));
+    height: min(360px, calc(50svh - 42px));
+  }
+
+  .content-top,
+  .content-top1 {
+    padding: 28px 28px 12px;
+  }
+
+  .content-bottom,
+  .content-bottom1 {
+    padding: 20px 28px 28px;
+  }
+}

@@ -1,40 +1,36 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 
   <head>
     <meta charset="UTF-8">
-    <title>Black Hole Simulation</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Симуляция чёрной дыры</title>
     <link rel="stylesheet" href="./style.css">
 
     <link rel="stylesheet" href="../common.css">
 </head>
 
   <body>
-  <body>
   <div id="info">
-    Galactic Black Hole<br>
-    <span style="font-size: 14px; opacity: 0.8;">Click core or button for Disk Echo. Drag to rotate.</span>
+    Галактическая чёрная дыра<br>
+    <span style="font-size: 14px; opacity: 0.8;">Нажмите на ядро или кнопку, чтобы запустить импульс. Потяните мышью для вращения.</span>
   </div>
 
-  <div id="controls" class="ui-panel">
-    <div id="autoRotateToggle" class="control-item" title="Toggle automatic rotation">
-    </div>
-    <div id="triggerEffectButton" class="control-item" title="Trigger Disk Echo">
-    </div>
+  <div id="controls" class="ui-panel" aria-label="Управление сценой">
+    <button id="autoRotateToggle" class="control-item" type="button" aria-pressed="true">Автовращение: включено</button>
+    <button id="triggerEffectButton" class="control-item" type="button">Запустить импульс</button>
   </div>
 
   <div id="theme-changer" class="ui-panel">
-    <h4>Color Theme</h4>
+    <h4>Цветовая тема</h4>
     <div id="theme-buttons">
-      <button class="theme-button active" data-theme="inferno">Inferno</button>
-      <button class="theme-button" data-theme="ruby">Ruby</button>
-      <button class="theme-button" data-theme="plasma">Plasma</button>
-      <button class="theme-button" data-theme="void">Void</button>
+      <button type="button" class="theme-button active" data-theme="inferno">Инферно</button>
+      <button type="button" class="theme-button" data-theme="ruby">Рубин</button>
+      <button type="button" class="theme-button" data-theme="plasma">Плазма</button>
+      <button type="button" class="theme-button" data-theme="void">Бездна</button>
     </div>
   </div>
-</body>
-    <script src="./script.local.js"></script>
-
+<script src="./script.local.js"></script>
   </body>
 
 </html>

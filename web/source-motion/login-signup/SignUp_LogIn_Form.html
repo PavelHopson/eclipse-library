@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login/Signup Form</title>
+    <title>Вход и регистрация</title>
     <link rel="stylesheet" href="SignUp_LogIn_Form.css">
     <link rel="stylesheet" href="local.css">
   <link rel="stylesheet" href="../common.css">
@@ -14,66 +14,66 @@
       <div class="container">
           <div class="form-box login">
               <form action="#">
-                  <h1>Login</h1>
+                  <h1>Войти</h1>
                   <div class="input-box">
-                      <input type="text" placeholder="Username" required>
+                      <input type="text" placeholder="Имя пользователя" autocomplete="username" aria-label="Имя пользователя" required>
                       <i class='bx bxs-user'></i>
                   </div>
                   <div class="input-box">
-                      <input type="password" placeholder="Password" required>
+                      <input type="password" placeholder="Пароль" autocomplete="current-password" aria-label="Пароль" required>
                       <i class='bx bxs-lock-alt' ></i>
                   </div>
                   <div class="forgot-link">
-                      <a href="#">Forgot Password?</a>
+                      <a href="#">Забыли пароль?</a>
                   </div>
-                  <button type="submit" class="btn">Login</button>
-                  <p>or login with social platforms</p>
+                  <button type="submit" class="btn">Войти</button>
+                  <p>или войдите через социальную сеть</p>
                   <div class="social-icons">
-                      <a href="#"><i class='bx bxl-google' ></i></a>
-                      <a href="#"><i class='bx bxl-facebook' ></i></a>
-                      <a href="#"><i class='bx bxl-github' ></i></a>
-                      <a href="#"><i class='bx bxl-linkedin' ></i></a>
+                      <a href="#" aria-label="Продолжить через Google"><i class='bx bxl-google' aria-hidden="true"></i></a>
+                      <a href="#" aria-label="Продолжить через Facebook"><i class='bx bxl-facebook' aria-hidden="true"></i></a>
+                      <a href="#" aria-label="Продолжить через GitHub"><i class='bx bxl-github' aria-hidden="true"></i></a>
+                      <a href="#" aria-label="Продолжить через LinkedIn"><i class='bx bxl-linkedin' aria-hidden="true"></i></a>
                   </div>
               </form>
           </div>
 
           <div class="form-box register">
               <form action="#">
-                  <h1>Registration</h1>
+                  <h1>Регистрация</h1>
                   <div class="input-box">
-                      <input type="text" placeholder="Username" required>
+                      <input type="text" placeholder="Имя пользователя" autocomplete="username" aria-label="Имя пользователя" required>
                       <i class='bx bxs-user'></i>
                   </div>
                   <div class="input-box">
-                      <input type="email" placeholder="Email" required>
+                      <input type="email" placeholder="Электронная почта" autocomplete="email" aria-label="Электронная почта" required>
                       <i class='bx bxs-envelope' ></i>
                   </div>
                   <div class="input-box">
-                      <input type="password" placeholder="Password" required>
+                      <input type="password" placeholder="Пароль" autocomplete="current-password" aria-label="Пароль" required>
                       <i class='bx bxs-lock-alt' ></i>
                   </div>
-                  <button type="submit" class="btn">Register</button>
-                  <p>or register with social platforms</p>
+                  <button type="submit" class="btn">Создать аккаунт</button>
+                  <p>или зарегистрируйтесь через социальную сеть</p>
                   <div class="social-icons">
-                      <a href="#"><i class='bx bxl-google' ></i></a>
-                      <a href="#"><i class='bx bxl-facebook' ></i></a>
-                      <a href="#"><i class='bx bxl-github' ></i></a>
-                      <a href="#"><i class='bx bxl-linkedin' ></i></a>
+                      <a href="#" aria-label="Продолжить через Google"><i class='bx bxl-google' aria-hidden="true"></i></a>
+                      <a href="#" aria-label="Продолжить через Facebook"><i class='bx bxl-facebook' aria-hidden="true"></i></a>
+                      <a href="#" aria-label="Продолжить через GitHub"><i class='bx bxl-github' aria-hidden="true"></i></a>
+                      <a href="#" aria-label="Продолжить через LinkedIn"><i class='bx bxl-linkedin' aria-hidden="true"></i></a>
                   </div>
               </form>
           </div>
 
           <div class="toggle-box">
               <div class="toggle-panel toggle-left">
-                  <h1>Hello, Welcome!</h1>
-                  <p>Don't have an account?</p>
-                  <button class="btn register-btn">Register</button>
+                  <h1>Здравствуйте!</h1>
+                  <p>Нет аккаунта?</p>
+                  <button class="btn register-btn" type="button">Создать аккаунт</button>
               </div>
 
               <div class="toggle-panel toggle-right">
-                  <h1>Welcome Back!</h1>
-                  <p>Already have an account?</p>
-                  <button class="btn login-btn">Login</button>
+                  <h1>С возвращением!</h1>
+                  <p>Уже есть аккаунт?</p>
+                  <button class="btn login-btn" type="button">Войти</button>
               </div>
           </div>
       </div>

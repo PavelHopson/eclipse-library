@@ -1,0 +1,4 @@
+.bb8-toggle[role="switch"]:focus-visible {
+  outline: 3px solid #6ee7ff;
+  outline-offset: 8px;
+}

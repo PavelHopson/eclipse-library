@@ -1,8 +1,9 @@
 <!DOCTYPE html>
-<html lang="en" >
+<html lang="ru">
 <head>
   <meta charset="UTF-8">
-  <title>Animated Border Login Form</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Вход с движущейся рамкой</title>
   <link rel="stylesheet" href="./style.css">
   <link rel="stylesheet" href="./local.css">
 
@@ -15,15 +16,15 @@
     <div class="loginBx">
       <h2>
         <i class="fa-solid fa-right-to-bracket"></i>
-        Login
+        Вход
         <i class="fa-solid fa-heart"></i>
       </h2>
-      <input type="text" placeholder="Username">
-      <input type="password" placeholder="Password">
-      <input type="submit" value="Sign in" />
+      <input type="text" placeholder="Имя пользователя" autocomplete="username" aria-label="Имя пользователя">
+      <input type="password" placeholder="Пароль" autocomplete="current-password" aria-label="Пароль">
+      <input type="submit" value="Войти" />
       <div class="group">
-        <a href="#">Forgot Password</a>
-        <a href="#">Sign up</a>
+        <a href="#">Забыли пароль?</a>
+        <a href="#">Регистрация</a>
       </div>
     </div>
   </div>

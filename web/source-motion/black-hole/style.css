@@ -198,3 +198,24 @@ canvas {
     justify-content: center;
   }
 }
+
+
+/* Local accessibility and translated-control refinements. */
+#controls {
+  display: flex;
+  gap: 4px;
+}
+
+.control-item {
+  appearance: none;
+  border: 0;
+  background: transparent;
+  color: rgba(255, 255, 255, .78);
+  font: inherit;
+  text-align: left;
+}
+
+.control-item[aria-pressed="true"],
+.control-item:focus-visible {
+  color: #fff;
+}

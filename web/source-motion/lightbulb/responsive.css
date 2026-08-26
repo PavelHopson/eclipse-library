@@ -1,0 +1,24 @@
+html,
+body {
+  width: 100%;
+  max-width: 100%;
+  overflow: hidden;
+}
+
+body {
+  contain: paint;
+}
+
+@media (max-width: 560px) {
+  :root {
+    --size: min(25vmin, 92px);
+  }
+
+  .bear {
+    transform: translateX(42%);
+  }
+
+  body.is-awake .bear {
+    transform: translateX(-55%);
+  }
+}

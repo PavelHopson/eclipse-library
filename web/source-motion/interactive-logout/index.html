@@ -1,15 +1,15 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Interactive logout button</title>
+    <title>Интерактивный выход</title>
     <link rel="stylesheet" href="./style.css">
   <link rel="stylesheet" href="../common.css">
 </head>
 <body>
   <div class="background background--light">
-  <button class="logoutButton logoutButton--dark">
+  <button type="button" aria-label="Выйти из системы" class="logoutButton logoutButton--dark">
     <svg class="doorway" viewBox="0 0 100 100">
       <path d="M93.4 86.3H58.6c-1.9 0-3.4-1.5-3.4-3.4V17.1c0-1.9 1.5-3.4 3.4-3.4h34.8c1.9 0 3.4 1.5 3.4 3.4v65.8c0 1.9-1.5 3.4-3.4 3.4z" />
       <path class="bang" d="M40.5 43.7L26.6 31.4l-2.5 6.7zM41.9 50.4l-19.5-4-1.4 6.3zM40 57.4l-17.7 3.9 3.9 5.7z" />
@@ -38,12 +38,12 @@
       <path d="M93.4 86.3H58.6c-1.9 0-3.4-1.5-3.4-3.4V17.1c0-1.9 1.5-3.4 3.4-3.4h34.8c1.9 0 3.4 1.5 3.4 3.4v65.8c0 1.9-1.5 3.4-3.4 3.4z" />
       <circle cx="66" cy="50" r="3.7" />
     </svg>
-    <span class="button-text">Log Out</span>
+    <span class="button-text">Выйти</span>
   </button>
 </div>
 
 <div class="background background--dark">
-  <button class="logoutButton logoutButton--light">
+  <button type="button" aria-label="Выйти из системы" class="logoutButton logoutButton--light">
     <svg class="doorway" viewBox="0 0 100 100">
       <path d="M93.4 86.3H58.6c-1.9 0-3.4-1.5-3.4-3.4V17.1c0-1.9 1.5-3.4 3.4-3.4h34.8c1.9 0 3.4 1.5 3.4 3.4v65.8c0 1.9-1.5 3.4-3.4 3.4z" />
       <path class="bang" d="M40.5 43.7L26.6 31.4l-2.5 6.7zM41.9 50.4l-19.5-4-1.4 6.3zM40 57.4l-17.7 3.9 3.9 5.7z" />
@@ -72,7 +72,7 @@
       <path d="M93.4 86.3H58.6c-1.9 0-3.4-1.5-3.4-3.4V17.1c0-1.9 1.5-3.4 3.4-3.4h34.8c1.9 0 3.4 1.5 3.4 3.4v65.8c0 1.9-1.5 3.4-3.4 3.4z" />
       <circle cx="66" cy="50" r="3.7" />
     </svg>
-    <span class="button-text">Log Out</span>
+    <span class="button-text">Выйти</span>
   </button>
 </div>
       <script src="./script.js"></script>

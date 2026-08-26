@@ -1,0 +1,32 @@
+html,
+body {
+  width: 100%;
+  max-width: 100%;
+  overflow: hidden;
+}
+
+body::before {
+  display: none;
+}
+
+nav {
+  max-width: calc(100vw - 32px);
+}
+
+nav ul {
+  gap: clamp(10px, 4vw, 80px);
+}
+
+nav ul li button {
+  white-space: nowrap;
+}
+
+@media (max-width: 520px) {
+  nav ul {
+    gap: 10px;
+  }
+
+  nav ul li button {
+    font-size: 12px;
+  }
+}

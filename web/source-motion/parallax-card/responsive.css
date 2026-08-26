@@ -1,0 +1,17 @@
+html,
+body {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+@media (max-width: 520px) {
+  .container {
+    width: 100%;
+  }
+
+  .container .box {
+    width: min(300px, calc(100vw - 32px));
+    margin: 28px 16px;
+  }
+}

@@ -1,16 +1,16 @@
 <!DOCTYPE html>
-<html lang="en" >
+<html lang="ru">
 <head>
   <meta charset="UTF-8">
-  <title>Order Button Animation
-  </title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Подтверждение заказа</title>
   <link rel="stylesheet" href="./style.css">
 
   <link rel="stylesheet" href="../common.css">
 </head>
 <body>
 <!-- partial:index.partial.html -->
-<div class="demo">
+<div class="demo" role="button" tabindex="0" aria-label="Оформить заказ">
   <div class="demo__drone-cont demo__drone-cont--takeoff">
     <div class="demo__drone-cont demo__drone-cont--shift-x">
       <div class="demo__drone-cont demo__drone-cont--landing">
@@ -42,17 +42,17 @@
     </svg>
   </div>
   <div class="demo__text-fields">
-    <div class="demo__text demo__text--step-0">Checkout</div>
+    <div class="demo__text demo__text--step-0">Оформить заказ</div>
     <div class="demo__text demo__text--step-1">
-      Processing
+      Обрабатываем
       <span class="demo__text-dots"><span>.</span></span>
     </div>
     <div class="demo__text demo__text--step-2">
-      Delivering
+      Передаём курьеру
       <span class="demo__text-dots"><span>.</span></span>
     </div>
-    <div class="demo__text demo__text--step-3">It's on the way</div>
-    <div class="demo__text demo__text--step-4">Delivered</div>
+    <div class="demo__text demo__text--step-3">Заказ уже в пути</div>
+    <div class="demo__text demo__text--step-4">Доставлено</div>
   </div>
   <div class="demo__revert-line"></div>
 </div>

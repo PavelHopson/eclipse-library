@@ -47,6 +47,33 @@ test('active demo documents are self-contained and reduced-motion aware', () => 
   assert.match(common, /:focus-visible/);
 });
 
+test('active demo documents are complete Russian interfaces', () => {
+  const untranslatedCopy = />\s*(?:Home|About|Service|Contact|Add to cart|Delete Item|Forgot Password\??|Sign up|Log Out|Checkout|Processing|Delivering|Delivered|Registration|or register with social platforms|Electric Border|Thank You|Auto-Rotate(?::[^<]*)?|Disk Echo)\s*</i;
+  for (const item of items) {
+    const html = readFileSync(resolve(web, item.path), 'utf8');
+    assert.match(html, /<html\s+lang=["']ru["']/i, `Russian lang missing in ${item.path}`);
+    assert.match(html, /<meta\s+charset=["']?utf-8["']?/i, `UTF-8 missing in ${item.path}`);
+    assert.match(html, /<meta\s+name=["']viewport["']/i, `Viewport missing in ${item.path}`);
+    assert.equal((html.match(/<body\b/gi) || []).length, 1, `Invalid body opening tag count in ${item.path}`);
+    assert.equal((html.match(/<\/body>/gi) || []).length, 1, `Invalid body closing tag count in ${item.path}`);
+    assert.doesNotMatch(html, /<title>\s*(?:Document|Navbar|galaxy)\s*<\/title>/i, `Placeholder title in ${item.path}`);
+    assert.doesNotMatch(html, untranslatedCopy, `Untranslated interface copy in ${item.path}`);
+  }
+});
+
+test('localized interactive controls expose keyboard and assistive state', () => {
+  const navbar = readFileSync(resolve(web, 'source-motion/active-navbar/script.local.js'), 'utf8');
+  const password = readFileSync(resolve(web, 'source-motion/password-field/script.js'), 'utf8');
+  const order = readFileSync(resolve(web, 'source-motion/order-button/script.js'), 'utf8');
+  const blackHole = readFileSync(resolve(web, 'source-motion/black-hole/index.html'), 'utf8');
+  assert.match(navbar, /aria-current/);
+  assert.match(password, /aria-pressed/);
+  assert.match(order, /keydown/);
+  assert.match(order, /aria-busy/);
+  assert.match(blackHole, /id="autoRotateToggle"[^>]+type="button"/);
+  assert.match(blackHole, /id="triggerEffectButton"[^>]+type="button"/);
+});
+
 test('styles and active scripts do not initiate remote runtime traffic', () => {
   const forbidden = [
     /@import\s+(?:url\()?\s*["']?(?:https?:)?\/\//i,

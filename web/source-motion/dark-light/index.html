@@ -1,16 +1,17 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Переключатель света</title>
     <link rel="stylesheet" href="sty.css">
+  <link rel="stylesheet" href="a11y.css">
   <link rel="stylesheet" href="../common.css">
 </head>
 <body>
 
-    <label class="bb8-toggle">
-      <input class="bb8-toggle__checkbox" type="checkbox">
+    <label class="bb8-toggle" role="switch" tabindex="0" aria-checked="false" aria-label="Переключить день и ночь">
+      <input class="bb8-toggle__checkbox" type="checkbox" aria-label="Переключить день и ночь">
       <div class="bb8-toggle__container">
         <div class="bb8-toggle__scenery">
           <div class="bb8-toggle__star"></div>
