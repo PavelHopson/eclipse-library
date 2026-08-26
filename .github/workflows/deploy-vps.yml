@@ -49,6 +49,7 @@ jobs:
           node scripts/library-navigation.test.mjs
           node --test scripts/diagram-contract.test.mjs
           node --test scripts/brand-assets.test.mjs
+          node --test scripts/source-motion-library.test.mjs
           node --check web/library-shell.js
           node --check web/catalog-review.js
           node --check web/registry.js

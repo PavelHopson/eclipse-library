@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self'; script-src 'self'; frame-src 'self'; img-src 'self' data:; font-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'">
+  <meta name="description" content="24 готовых интерактивных примера из локальной коллекции Eclipse Library.">
+  <title>Готовые анимации — Eclipse Library</title>
+  <link rel="icon" href="assets/brand/eclipse-library-favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="source-motion.css?v=1">
+</head>
+<body>
+  <a class="skip-link" href="#preview">К выбранной анимации</a>
+  <header class="topbar">
+    <a class="brand" href="index.html" aria-label="Eclipse Library — на главную">
+      <span class="brand-mark" aria-hidden="true"></span>
+      <span><strong>Eclipse Library</strong><small>Готовые оригиналы</small></span>
+    </a>
+    <nav aria-label="Основная навигация">
+      <a href="index.html">Каталог</a><a href="index.html#guidesFeat">Гайды</a><a href="index.html#projects">Проекты</a><a href="animations.html">Анимации</a>
+    </nav>
+    <a class="back-link" href="animations.html">← В лабораторию</a>
+  </header>
+
+  <main class="workspace">
+    <aside class="catalog" aria-label="Каталог готовых анимаций">
+      <div class="catalog-head">
+        <p>Локальная коллекция</p><strong><span id="visible-count">24</span> / 24</strong>
+      </div>
+      <label class="search"><span class="sr-only">Найти анимацию</span><input id="search" type="search" placeholder="Найти эффект или сценарий" autocomplete="off"></label>
+      <div class="filters" id="filters" aria-label="Фильтр по категории"></div>
+      <div class="items" id="items"></div>
+    </aside>
+
+    <section class="stage" id="preview" tabindex="-1">
+      <div class="stage-head">
+        <div>
+          <p class="eyebrow" id="item-category">Навигация</p>
+          <h1 id="item-title">Световой индикатор вкладок</h1>
+          <p class="description" id="item-hint">Нажмите на пункт меню — световая линия переместится к активной вкладке.</p>
+        </div>
+        <div class="actions">
+          <button id="replay" type="button">Перезапустить</button>
+          <a id="open-demo" class="primary" href="#" target="_blank" rel="noopener">Открыть отдельно ↗</a>
+        </div>
+      </div>
+
+      <div class="notice" role="note"><strong>Это исходные готовые варианты.</strong><span>Они воспроизводятся из вашей локальной папки без переосмысления композиции.</span></div>
+
+      <div class="browser-frame">
+        <div class="browser-bar" aria-hidden="true"><i></i><i></i><i></i><span id="file-name">active-navbar / index.html</span><b>ИНТЕРАКТИВНО</b></div>
+        <div class="loading" id="loading" role="status"><span></span>Загрузка сцены…</div>
+        <iframe id="demo-frame" title="Предпросмотр анимации" sandbox="allow-scripts" loading="eager"></iframe>
+      </div>
+
+      <footer class="stage-foot">
+        <div><span>Как проверить</span><strong id="interaction-label">Нажмите внутри сцены</strong></div>
+        <div><span>Источник</span><strong>Локальная папка пользователя</strong></div>
+        <div><span>Режим</span><strong>Изолированный предпросмотр</strong></div>
+      </footer>
+    </section>
+  </main>
+  <script src="source-motion-manifest.js?v=1"></script>
+  <script src="source-motion.js?v=1"></script>
+</body>
+</html>

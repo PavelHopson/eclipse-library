@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Runaway Login — Component 95</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="../common.css">
+</head>
+<body>
+  <div class="noise"></div>
+  <main class="page-shell">
+    <header class="hero">
+      <div class="eyebrow">КОМПОНЕНТ · 95</div>
+      <h1><span>Убегающий</span><br><strong>Логин</strong></h1>
+      <p class="hero-copy">Кнопка «Войти» убегает, пока вы её не заслужите. Но только от курсора — клавиатура всегда побеждает.</p>
+    </header>
+
+    <section class="card login-card">
+      <div class="brand-row">
+        <div class="brand-mark" aria-hidden="true"></div>
+        <div class="brand-name">TETHER</div>
+        <div class="status-chip" id="progressChip">0/2 полей заполнено</div>
+      </div>
+
+      <div class="title-wrap">
+        <h2>Войти</h2>
+        <p id="leadCopy">Пустая форма? Кнопка уходит от курсора на полной скорости.</p>
+      </div>
+
+      <form id="loginForm" autocomplete="off" novalidate>
+        <div class="field-group">
+          <label for="email">Email</label>
+          <div class="field-shell" id="emailShell">
+            <span class="field-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M4 6.75A2.75 2.75 0 0 1 6.75 4h10.5A2.75 2.75 0 0 1 20 6.75v10.5A2.75 2.75 0 0 1 17.25 20H6.75A2.75 2.75 0 0 1 4 17.25zm2.2-.55 5.08 4.4a1.1 1.1 0 0 0 1.44 0l5.08-4.4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
+            <input id="email" name="email" type="email" placeholder="you@studio.com" inputmode="email" />
+          </div>
+        </div>
+
+        <div class="field-group">
+          <div class="field-row">
+            <label for="password">Пароль</label>
+            <button class="link-inline" type="button" id="forgotBtn">Забыли?</button>
+          </div>
+          <div class="field-shell" id="passwordShell">
+            <span class="field-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M7.75 10V8.25a4.25 4.25 0 1 1 8.5 0V10m-9.25 0h10.5A1.75 1.75 0 0 1 19.25 11.75v6.5A1.75 1.75 0 0 1 17.5 20h-11A1.75 1.75 0 0 1 4.75 18.25v-6.5A1.75 1.75 0 0 1 6.5 10Z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
+            <input id="password" name="password" type="password" placeholder="Минимум 8 символов" minlength="8" />
+            <button class="ghost-icon" id="togglePassword" type="button" aria-label="Показать или скрыть пароль">
+              <svg id="eyeOpen" viewBox="0 0 24 24"><path d="M2.5 12S6 5.5 12 5.5 21.5 12 21.5 12 18 18.5 12 18.5 2.5 12 2.5 12Z" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="12" cy="12" r="2.6" fill="none" stroke="currentColor" stroke-width="1.6"/></svg>
+            </button>
+          </div>
+        </div>
+
+        <div class="runaway-section">
+          <div class="runway" id="runway" aria-hidden="true">
+            <div class="runway-outline"></div>
+            <div class="cursor-door">У курсора всегда есть дверь</div>
+            <button type="submit" id="submitBtn" class="submit-btn">
+              <span class="btn-text">Войти</span>
+              <span class="btn-ready">Ready</span>
+            </button>
+            <div class="trail" id="trail"></div>
+          </div>
+          <div class="runway-glow"></div>
+        </div>
+
+        <div class="info-box" id="infoBox">
+          <div class="info-icon">i</div>
+          <div>
+            <p id="statusLine1">Пустая форма — кнопка убегает.</p>
+            <p id="statusLine2">Одно поле — вдвое медленнее.</p>
+            <p id="statusLine3">Два поля — кнопка фиксируется навсегда.</p>
+          </div>
+        </div>
+
+        <div class="kbd-row">
+          <div class="kbd-pair"><span class="kbd">Tab</span><span>всегда достигает её.</span></div>
+          <div class="kbd-pair"><span class="kbd">Enter</span><span>всегда отправляет.</span></div>
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="footer-cta">Нет аккаунта? <a href="#" id="createLink">Создать</a></div>
+      </form>
+    </section>
+
+    <section class="code-grid">
+      <article class="code-card">
+        <div class="code-head"><span class="dot pink"></span><strong>index.html</strong></div>
+        <pre><code>&lt;form&gt;
+  &lt;input type="email" /&gt;
+  &lt;input type="password" /&gt;
+  &lt;button&gt;Войти&lt;/button&gt;
+&lt;/form&gt;</code></pre>
+      </article>
+      <article class="code-card">
+        <div class="code-head"><span class="dot blue"></span><strong>style.css</strong></div>
+        <pre><code>.btn {
+  transition: transform .18s linear;
+  box-shadow: 0 0 36px rgba(0,229,255,.16);
+}</code></pre>
+      </article>
+      <article class="code-card">
+        <div class="code-head"><span class="dot yellow"></span><strong>app.js</strong></div>
+        <pre><code>filled === 0 ? fast()
+: filled === 1 ? slower()
+: lockForever();</code></pre>
+      </article>
+    </section>
+
+    <footer class="micro-footer">Только курсор · Tab + Enter всегда работают · Нулевые зависимости</footer>
+  </main>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script src="app.js"></script>
+</body>
+</html>
