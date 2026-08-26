@@ -6,6 +6,7 @@ import { join } from 'node:path';
 const root = new URL('../', import.meta.url).pathname.replace(/^\/(?:([A-Za-z]:))/, '$1');
 const web = join(root, 'web');
 const html = await readFile(join(web, 'animations-v9-preview.html'), 'utf8');
+const labHtml = await readFile(join(web, 'animations.html'), 'utf8');
 const css = await readFile(join(web, 'animation-v9-preview.css'), 'utf8');
 const js = await readFile(join(web, 'animation-v9-preview.js'), 'utf8');
 const all = `${html}\n${css}\n${js}`;
@@ -27,6 +28,7 @@ test('v9 contains 18 custom, directly addressable scenes', () => {
   }
   assert.match(js, /searchParams\.set\('scene'/);
   assert.match(js, /window\.__ready\s*=\s*true/);
+  assert.match(labHtml, /href="animations-v9-preview\.html\?v=9"[^>]*>Все 18 новых сцен/);
 });
 
 test('the previously static scenes have explicit choreography', () => {
