@@ -6,7 +6,7 @@ import { fileURLToPath } from 'node:url';
 const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
 const web=path.join(root,'web');
 const manifest=JSON.parse(fs.readFileSync(path.join(web,'animation-lab-manifest.json'),'utf8'));
-assert.equal(manifest.version,6,'Animation Lab manifest must use the expanded crisp workbench contract');
+assert.equal(manifest.version,7,'Animation Lab manifest must use the expanded crisp workbench contract');
 assert.equal(manifest.demos.length,29,'All twenty-nine product patterns must be present');
 assert.equal(new Set(manifest.demos.map(item=>item.id)).size,manifest.demos.length,'Demo ids must be unique');
 for(const demo of manifest.demos){
@@ -69,16 +69,22 @@ assert.match(page,/Компьютер/);
 assert.match(page,/Параметры анимации/);
 assert.match(page,/id="demo-search"/,'Animation search is required');
 assert.match(page,/id="demo-filters"/,'Animation category filters are required');
-assert.match(page,/animation-demos\.js\?v=6/,'Versioned demo catalog must load before the workbench');
+assert.match(page,/animation-demos\.js\?v=7/,'Versioned demo catalog must load before the workbench');
 assert.match(page,/id="demo-search"/,'Animation search is required');
 assert.match(page,/id="demo-filters"/,'Animation category filters are required');
-assert.match(page,/animation-demos\.js\?v=6/,'Versioned demo catalog must load before the workbench');
+assert.match(page,/animation-demos\.js\?v=7/,'Versioned demo catalog must load before the workbench');
 assert.match(page,/id="demo-search"/,'Animation search is required');
 assert.match(page,/id="demo-filters"/,'Animation category filters are required');
-assert.match(page,/animation-demos\.js\?v=6/,'Versioned demo catalog must load before the workbench');
+assert.match(page,/animation-demos\.js\?v=7/,'Versioned demo catalog must load before the workbench');
 assert.match(page,/id="demo-search"/,'Animation search is required');
 assert.match(page,/id="demo-filters"/,'Animation category filters are required');
-assert.match(page,/animation-demos\.js\?v=6/,'Versioned demo catalog must load before the workbench');
+assert.match(page,/animation-demos\.js\?v=7/,'Versioned demo catalog must load before the workbench');
+assert.match(page,/id="demo-search"/,'Animation search is required');
+assert.match(page,/id="demo-filters"/,'Animation category filters are required');
+assert.match(page,/animation-demos\.js\?v=7/,'Versioned demo catalog must load before the workbench');
+assert.match(page,/id="demo-search"/,'Animation search is required');
+assert.match(page,/id="demo-filters"/,'Animation category filters are required');
+assert.match(page,/animation-demos\.js\?v=7/,'Versioned demo catalog must load before the workbench');
 assert.doesNotMatch(css,/backdrop-filter:\s*blur|box-shadow:/i,'Animation Lab shell must stay crisp');
 assert.match(page,/aria-label="Размер экрана"/);
 assert.match(page,/id="export-dialog"/);
@@ -104,3 +110,6 @@ for(const demo of manifest.demos.slice(11)){
  assert.doesNotMatch(source,/@keyframes[^}]*\{[^}]*(?:width|height|top|left|margin|padding|filter|box-shadow)\s*:/is,'Keyframes must stay compositor-only: '+demo.file);
 }
 console.log('Animation Lab checks passed for '+manifest.demos.length+' demos.');
+
+assert.equal((app.match(/function visibleDemos\(\)/g)||[]).length,1,"visibleDemos must be declared once");
+assert.match(app,/q\.set\("v","7"\)/,"Demo iframe URLs must carry the v7 cache key");

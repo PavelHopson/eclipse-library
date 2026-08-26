@@ -1,5 +1,5 @@
 {
-  "version": 6,
+  "version": 7,
   "license": "Original Eclipse Forge clean-room motion demos. Local reference folders were used only to identify interaction ideas; no remote assets or third-party runtime code are redistributed.",
   "verifiedAt": "2026-08-26",
   "safety": {
@@ -212,5 +212,6 @@
       "readiness": "Нужен сервер",
       "project": "StarMarket"
     }
-  ]
+  ],
+  "presentation": "Reference-grade immersive scenes: the animation fills the canvas; explanatory copy remains available to assistive technology and the workbench inspector."
 }

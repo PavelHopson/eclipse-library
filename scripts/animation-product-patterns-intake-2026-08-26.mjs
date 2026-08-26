@@ -282,3 +282,5 @@ test=test.replace("for(const demo of manifest.demos){assert.ok(app.includes(demo
 fs.writeFileSync(testPath,test,'utf8');
 
 console.log('Animation product patterns intake complete: '+specs.length+' new demos, '+all.length+' total scenes.');
+
+await import('./animation-reference-rebuild-2026-08-26.mjs');

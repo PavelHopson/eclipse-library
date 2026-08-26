@@ -27,6 +27,7 @@ assert.match(blade, /\.auth-blade\{[^}]*transform:translateX\(100%\)/, 'auth bla
 assert.doesNotMatch(blade, /\.auth-blade\{[^}]*translateY/i, 'auth blade must never rotate into a vertical transition');
 assert.match(blade, /\.pane-signin\{padding:[^}]*50%/, 'mobile sign-in content must stay in the uncovered half');
 assert.match(blade, /\.pane-signup\{padding:[^}]*50%/, 'mobile sign-up content must stay in the uncovered half');
+assert.match(blade, /\.blade-scene\[data-state=signup\] \.auth-blade/, 'auth blade state selector must target the rendered scene');
 
 const panda = fs.readFileSync(path.join(web, 'animation-panda-lamp-login.html'), 'utf8');
 assert.match(panda, /inert/, 'dark panda form must be removed from the interaction tree');
@@ -42,6 +43,6 @@ assert.equal(manifestFiles.size, manifest.demos.length, 'manifest files must be 
 const workbench = fs.readFileSync(path.join(web, 'animations.html'), 'utf8');
 assert.equal((workbench.match(/id="demo-search"/g) || []).length, 1, 'workbench search must be rendered once');
 assert.equal((workbench.match(/id="demo-filters"/g) || []).length, 1, 'workbench filters must be rendered once');
-assert.equal((workbench.match(/animation-demos\.js\?v=6/g) || []).length, 1, 'demo catalog must be loaded once');
+assert.equal((workbench.match(/animation-demos\.js\?v=7/g) || []).length, 1, 'demo catalog must be loaded once');
 
 console.log(`Animation product-pattern checks passed for ${newDemos.length} scenes.`);
