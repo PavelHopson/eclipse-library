@@ -7,7 +7,7 @@ const web = path.join(root, 'web');
 const manifest = JSON.parse(fs.readFileSync(path.join(web, 'animation-lab-manifest.json'), 'utf8'));
 const newDemos = manifest.demos.slice(11);
 
-assert.equal(newDemos.length, 18, 'the product-pattern intake must contain 18 scenes');
+assert.equal(newDemos.length, 19, 'the product-pattern intake must contain 19 scenes');
 
 for (const demo of newDemos) {
   const html = fs.readFileSync(path.join(web, demo.file), 'utf8');

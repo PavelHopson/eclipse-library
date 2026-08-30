@@ -1,0 +1,134 @@
+{
+  "schemaVersion": "eclipse.diagram-evidence.v1",
+  "generatedAt": "2026-08-30",
+  "policy": {
+    "claimRule": "Связь попадает в диаграмму только после проверки указанного локального исходника.",
+    "driftRule": "Изменение snapshotSha256 переводит диаграмму в needs-review до повторной проверки.",
+    "executionBoundary": "Манифест описывает доказательства и ничего не запускает."
+  },
+  "diagrams": [
+    {
+      "id": "catalog-data-flow",
+      "file": "catalog-data-flow.html",
+      "title": "Поток данных Eclipse Library",
+      "status": "verified",
+      "claims": [
+        "catalog/resources.json остаётся каноническим источником",
+        "policy разделяет человеко- и agent-facing выдачу"
+      ],
+      "sources": [
+        {
+          "repository": "eclipse-library",
+          "path": "scripts/catalog-source.mjs",
+          "snapshotSha256": "f21a635836c65a7ebce04c42e7cefe2dfb52375645663295ff55b4faf8a07ea2",
+          "evidence": "canonical source loading"
+        },
+        {
+          "repository": "eclipse-library",
+          "path": "scripts/catalog-policy.mjs",
+          "snapshotSha256": "78edde209d2f25027716013ab4863cc4a2ce9be4db9f7948a1739c011552e3c6",
+          "evidence": "agent recommendation and policy split"
+        }
+      ],
+      "unknowns": [
+        "Отдельные validators сведены в один визуальный gate."
+      ]
+    },
+    {
+      "id": "ai-hub-provider-boundary",
+      "file": "ai-hub-provider-boundary.html",
+      "title": "Граница выбора модели Eclipse AI Hub",
+      "status": "verified",
+      "claims": [
+        "Model Registry фильтрует capability, privacy, license и hardware",
+        "recommendation не является запуском модели"
+      ],
+      "sources": [
+        {
+          "repository": "eclipse-ai-hub",
+          "path": "src/services/modelRegistry.ts",
+          "snapshotSha256": "17d61157730696b53580b110f401e77931e54bee98cca97faeba57e47498e034",
+          "evidence": "registry schema, hardwareStatus and recommendModel"
+        }
+      ],
+      "unknowns": [
+        "Provider execution, server-side secret storage and live health remain separate runtime boundaries."
+      ]
+    },
+    {
+      "id": "sentinel-capability-boundary",
+      "file": "sentinel-capability-boundary.html",
+      "title": "Граница capabilities Hopson Sentinel",
+      "status": "verified",
+      "claims": [
+        "Browser mutation требует отдельного human approval",
+        "BrowserRead выполняется отдельным read-only инструментом"
+      ],
+      "sources": [
+        {
+          "repository": "eclipse-hopson-sentinel",
+          "path": "src/security/browserCapabilityPolicy.ts",
+          "snapshotSha256": "738f18aeb952ae189e8e75a860b7884a29b889be36e9b33047840b6ed0ab697d",
+          "evidence": "browser capability decision gate"
+        },
+        {
+          "repository": "eclipse-hopson-sentinel",
+          "path": "src/tools/BrowserReadTool/BrowserReadTool.ts",
+          "snapshotSha256": "cf57ec7b70a86c9c323b09643e359323b659222e6c37e3983a6f02cda1a654ea",
+          "evidence": "isolated BrowserRead implementation"
+        }
+      ],
+      "unknowns": [
+        "Voice и MCP используют дополнительные capability-specific gates вне этой схемы."
+      ]
+    },
+    {
+      "id": "media-storyboard-handoff",
+      "file": "media-storyboard-handoff.html",
+      "title": "Передача storyboard в Eclipse Media",
+      "status": "verified",
+      "claims": [
+        "Storyboard JSON проверяется до показа preview",
+        "preview не даёт разрешения на render или публикацию"
+      ],
+      "sources": [
+        {
+          "repository": "eclipse-media",
+          "path": "frontend/src/services/storyboardContract.ts",
+          "snapshotSha256": "56fe7b784b6991d26dd41087b5ce05d34ecdbb540f2b744d065eabe116ae81bf",
+          "evidence": "storyboard schema and fixed timeline validation"
+        },
+        {
+          "repository": "eclipse-media",
+          "path": "frontend/src/components/StoryboardImport.tsx",
+          "snapshotSha256": "1f611b756a08c7a349cc0f51503888c3cf2ebb6ce06e2870742e94595a81dce6",
+          "evidence": "manual handoff and approval copy"
+        }
+      ],
+      "unknowns": [
+        "Общая provenance chain и automatic asset sync пока не реализованы."
+      ]
+    },
+    {
+      "id": "dnd-azgaar-import-boundary",
+      "file": "dnd-azgaar-import-boundary.html",
+      "title": "Граница импорта Azgaar в Eclipse DnD Forge",
+      "status": "verified",
+      "claims": [
+        "Импорт ограничен 8 МБ и ожидаемой JSON-структурой",
+        "предпросмотр предшествует ручному импорту"
+      ],
+      "sources": [
+        {
+          "repository": "eclipse-dnd-forge",
+          "path": "src/view/dnd/MapWorkflowPanel.tsx",
+          "snapshotSha256": "b5938d8ed6fcf1e8072ce386b3eafbf950808fe469dbbc0c47295e8b46d722e7",
+          "evidence": "Azgaar Minimal JSON parsing, limits and preview workflow"
+        }
+      ],
+      "unknowns": [
+        "Roads, regions и Campaign Map Asset v1 не показаны, потому что ещё не реализованы."
+      ]
+    }
+  ]
+}

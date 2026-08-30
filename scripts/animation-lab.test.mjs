@@ -7,7 +7,7 @@ const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
 const web=path.join(root,'web');
 const manifest=JSON.parse(fs.readFileSync(path.join(web,'animation-lab-manifest.json'),'utf8'));
 assert.equal(manifest.version,7,'Animation Lab manifest must use the expanded crisp workbench contract');
-assert.equal(manifest.demos.length,29,'All twenty-nine product patterns must be present');
+assert.equal(manifest.demos.length,30,'All thirty product patterns must be present');
 assert.equal(new Set(manifest.demos.map(item=>item.id)).size,manifest.demos.length,'Demo ids must be unique');
 for(const demo of manifest.demos){
   const source=fs.readFileSync(path.join(web,demo.file),'utf8');

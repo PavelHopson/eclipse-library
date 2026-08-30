@@ -623,5 +623,28 @@ window.ECLIPSE_ANIMATION_DEMOS=[
     "readiness": "Нужен сервер",
     "project": "StarMarket",
     "category": "commerce"
+  },
+  {
+    "id": "provider-health-route",
+    "title": "Provider Health Route",
+    "label": "Проверка маршрута модели",
+    "file": "animation-provider-health-route.html",
+    "description": "Короткая проверка показывает основной provider, исчерпание квоты и безопасный fallback. Это локальная демонстрация состояний — сетевых запросов и переключения реальных моделей нет.",
+    "tags": [
+      "provider router",
+      "health-check",
+      "fallback",
+      "квота"
+    ],
+    "states": [
+      "idle",
+      "checking",
+      "fallback",
+      "ready",
+      "error"
+    ],
+    "readiness": "Готово к адаптации",
+    "project": "Eclipse AI Hub · Jarvis",
+    "category": "feedback"
   }
 ];
