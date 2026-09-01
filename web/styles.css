@@ -351,6 +351,17 @@ button.quick-route { appearance: none; }
 .personal-summary button:disabled { opacity: .55; cursor: default; }
 .personal-summary b { color: var(--text); font: 700 14px var(--mono); }
 .personal-summary span { font-size: 10.5px; }
+.workflow-summary { display: flex; flex-wrap: wrap; gap: 7px; margin-bottom: 10px; }
+.workflow-summary button { display: inline-flex; align-items: center; gap: 6px; min-height: 32px; padding: 6px 10px; border: 1px solid var(--line-2); border-radius: 999px; background: rgba(255,255,255,.025); color: var(--muted); font: 700 10px var(--font); cursor: pointer; }
+.workflow-summary button:hover, .workflow-summary button.active { border-color: var(--blue-line); background: var(--blue-soft); color: var(--text); }
+.workflow-summary button:focus-visible, .workflow-select select:focus-visible, .workflow-note textarea:focus-visible, .workflow-note button:focus-visible { outline: 2px solid var(--blue); outline-offset: 2px; }
+.workflow-summary i { color: var(--text); font: 700 10px var(--mono); }
+.workflow-list { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 8px; margin-bottom: 10px; }
+.workflow-list a { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 4px 8px; padding: 10px 11px; border: 1px solid var(--line-2); border-radius: 11px; background: rgba(255,255,255,.022); }
+.workflow-list a:hover { border-color: var(--blue-line); background: var(--blue-soft); }
+.workflow-list b { overflow: hidden; color: var(--text); font-size: 12px; text-overflow: ellipsis; white-space: nowrap; }
+.workflow-list span { color: var(--blue); font: 700 9px var(--mono); text-transform: uppercase; }
+.workflow-list small { grid-column: 1 / -1; overflow: hidden; color: var(--muted-2); font-size: 10px; text-overflow: ellipsis; white-space: nowrap; }
 .recent-list { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 8px; }
 .recent-list a { display: flex; min-width: 0; flex-direction: column; gap: 4px; padding: 10px 11px; border: 1px solid var(--line-2); border-radius: 11px; background: rgba(255,255,255,.022); transition: border-color .18s, background .18s, transform .18s; }
 .recent-list a:hover { border-color: var(--blue-line); background: var(--blue-soft); transform: translateY(-2px); }
@@ -517,6 +528,16 @@ button.quick-route { appearance: none; }
 .meta-chip { display: inline-flex; align-items: center; min-height: 26px; padding: 4px 8px; border-radius: 8px; border: 1px solid var(--line-2); background: rgba(255,255,255,.026); color: var(--muted-2); font-size: 10.5px; line-height: 1.2; }
 .meta-price { color: var(--gold); border-color: rgba(216,181,81,.18); background: rgba(216,181,81,.05); }
 .card-foot { margin-top: auto; padding-top: 11px; border-top: 1px solid var(--line-2); display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+.workflow-select { display: inline-flex; min-width: 0; }
+.workflow-select select { min-width: 108px; height: 31px; padding: 0 26px 0 9px; border: 1px solid var(--line-2); border-radius: 8px; background: var(--surface-2); color: var(--muted); font: 700 9px var(--font); cursor: pointer; }
+.workflow-select select.has-status { border-color: var(--blue-line); color: var(--text); }
+.workflow-note { display: grid; gap: 9px; margin-top: 12px; padding: 14px; border: 1px solid var(--line-2); border-radius: 12px; background: rgba(255,255,255,.018); }
+.workflow-note label { color: var(--text); font-weight: 700; }
+.workflow-note label span { display: block; margin-top: 3px; color: var(--muted-2); font-size: 11px; font-weight: 400; }
+.workflow-note textarea { width: 100%; min-height: 86px; resize: vertical; padding: 10px 12px; border: 1px solid var(--line-2); border-radius: 9px; background: var(--surface-2); color: var(--text); font: 12px/1.5 var(--font); }
+.workflow-note footer { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
+.workflow-note footer span { color: var(--muted-2); font: 9px var(--mono); }
+.workflow-note button { min-height: 34px; padding: 0 13px; border: 1px solid var(--blue-line); border-radius: 8px; background: var(--blue-soft); color: var(--text); font-weight: 700; cursor: pointer; }
 .detail-link { color: #d9eaff; font-size: 12.5px; font-weight: 800; }
 .detail-link:hover { color: #fff; }
 .source-link { max-width: 46%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; color: var(--muted-2); font: 500 10.5px var(--mono); }

@@ -15,17 +15,19 @@
   const PROJECTS_URL = 'projects.json?v=1';
   const PAGE_SIZE = 36;
   const FAVORITES_KEY = 'eclipse-library:favorites:v1';
+  const WORKFLOW_KEY = 'eclipse-library:workflow:v1';
   const RECENT_KEY = 'eclipse-library:recent:v1';
   const LAYOUT_KEY = 'eclipse-library:layout:v1';
   const runtime = window.EclipseCatalogRuntime;
   if (!runtime) throw new Error('catalog-runtime.js is required before app.js');
+  const workflowRuntime = window.EclipseCatalogWorkflow;
   const cardRuntime = window.EclipseCatalogCard;
   const editorialRuntime = window.EclipseCatalogEditorial;
   const progressiveRuntime = window.EclipseCatalogProgressive;
   const inspectorRuntime = window.EclipseCatalogInspector;
   const reviewRuntime = window.EclipseCatalogReview;
   const searchRuntime = window.EclipseCatalogSearch;
-  if (!cardRuntime || !editorialRuntime || !progressiveRuntime || !inspectorRuntime || !reviewRuntime || !searchRuntime) throw new Error('catalog UI modules are required before app.js');
+  if (!workflowRuntime || !cardRuntime || !editorialRuntime || !progressiveRuntime || !inspectorRuntime || !reviewRuntime || !searchRuntime) throw new Error('catalog UI modules are required before app.js');
   const { canonicalUrl, githubRepoKey, groupsFromItems } = runtime;
   const DECISIONS = {
     now: 'Внедрить сейчас',
@@ -138,6 +140,7 @@
   let projectStatus = '';
   let currentView = 'catalog';
   let favorites = loadFavorites();
+  let workflowState = workflowRuntime.load(localStorage, WORKFLOW_KEY);
   let recentKeys = loadRecent();
   const compareKeys = new Set();
   let feedbackTimer = 0;
@@ -198,6 +201,16 @@
     try { localStorage.setItem(RECENT_KEY, JSON.stringify(recentKeys)); } catch (error) {}
   }
 
+  function pruneWorkflow() {
+    const valid = new Set(cards.map((card) => card.favoriteKey));
+    const next = workflowRuntime.empty();
+    workflowRuntime.entries(workflowState).forEach(({ key, status, note, updatedAt }) => {
+      if (valid.has(key)) next.items[key] = { status, note, updatedAt };
+    });
+    workflowState = next;
+    try { workflowState = workflowRuntime.save(localStorage, WORKFLOW_KEY, workflowState); } catch (error) {}
+  }
+
   function favoriteButton(resource, wide = false) {
     const button = el('button', `save-button${wide ? ' save-button-wide' : ''}`);
     button.type = 'button';
@@ -224,6 +237,58 @@
     button.innerHTML = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h14v16H5zM8 8h8M8 12h5M8 16h3"/></svg><span>Проверить карточку</span>';
     button.setAttribute('aria-label', `Проверить карточку: ${resource.title}`);
     return button;
+  }
+
+  function workflowStatusLabel(status) {
+    return workflowRuntime.STATUSES.find((item) => item.id === status)?.label || 'Без статуса';
+  }
+
+  function workflowControl(resource, wide = false) {
+    const key = canonicalUrl(resource.url);
+    const label = el('label', `workflow-select${wide ? ' workflow-select-wide' : ''}`);
+    const select = document.createElement('select');
+    select.dataset.workflowKey = key;
+    select.dataset.workflowTitle = resource.title;
+    select.setAttribute('aria-label', `Рабочий статус: ${resource.title}`);
+    select.innerHTML = `<option value="">Без статуса</option>${workflowRuntime.STATUSES.map(({ id, label: text }) => `<option value="${id}">${text}</option>`).join('')}`;
+    select.value = workflowRuntime.get(workflowState, key).status;
+    select.classList.toggle('has-status', Boolean(select.value));
+    label.appendChild(select);
+    return label;
+  }
+
+  function persistWorkflow() {
+    try { workflowState = workflowRuntime.save(localStorage, WORKFLOW_KEY, workflowState); }
+    catch (error) { showFeedback('Не удалось сохранить рабочий статус в этом браузере.'); }
+  }
+
+  function updateWorkflowUI() {
+    document.querySelectorAll('[data-workflow-key]').forEach((select) => {
+      select.value = workflowRuntime.get(workflowState, select.dataset.workflowKey).status;
+      select.classList.toggle('has-status', Boolean(select.value));
+    });
+    renderPersonalPanel();
+  }
+
+  function setWorkflowStatus(key, status, title) {
+    if (!cards.some((card) => card.favoriteKey === key)) return;
+    workflowState = workflowRuntime.update(workflowState, key, { status });
+    persistWorkflow();
+    if (activeWorkflowStatus && workflowRuntime.counts(workflowState)[activeWorkflowStatus] === 0) activeWorkflowStatus = '';
+    updateWorkflowUI();
+    applyFilters(false);
+    showFeedback(status ? `«${title}»: ${workflowStatusLabel(status)}.` : `Рабочий статус «${title}» очищен.`);
+  }
+
+  function setWorkflowNote(key, note, title) {
+    if (!cards.some((card) => card.favoriteKey === key)) return;
+    const current = workflowRuntime.get(workflowState, key);
+    const clean = typeof note === 'string' ? note.trim() : '';
+    workflowState = workflowRuntime.update(workflowState, key, { note: clean, status: current.status || (clean ? 'backlog' : '') });
+    persistWorkflow();
+    updateWorkflowUI();
+    applyFilters(false);
+    showFeedback(clean ? `Заметка к «${title}» сохранена на этом устройстве.` : `Заметка к «${title}» очищена.`);
   }
 
   function updateFavoritesUI() {
@@ -257,11 +322,23 @@
     const panel = $('#personalPanel');
     if (!panel) return;
     const recent = recentKeys.map((key) => cards.find((card) => card.favoriteKey === key)).filter(Boolean);
-    panel.hidden = recent.length === 0 && favorites.size === 0;
+    const workflowEntries = workflowRuntime.entries(workflowState).map((entry) => ({ ...entry, card: cards.find((card) => card.favoriteKey === entry.key) })).filter((entry) => entry.card);
+    panel.hidden = recent.length === 0 && favorites.size === 0 && workflowEntries.length === 0;
     $('#personalSavedCount').textContent = String(favorites.size);
     $('#personalSaved').disabled = favorites.size === 0;
     $('#personalRecentCount').textContent = String(recent.length);
     $('#clearRecent').hidden = recent.length === 0;
+    const counts = workflowRuntime.counts(workflowState);
+    const summary = $('#workflowSummary');
+    summary.hidden = workflowEntries.length === 0;
+    summary.innerHTML = workflowRuntime.STATUSES.filter(({ id }) => counts[id] > 0).map(({ id, label }) =>
+      `<button type="button" class="${activeWorkflowStatus === id ? 'active' : ''}" data-workflow-filter="${id}" aria-pressed="${activeWorkflowStatus === id}">${esc(label)} <i>${counts[id]}</i></button>`
+    ).join('');
+    const workflowList = $('#workflowList');
+    workflowList.hidden = workflowEntries.length === 0;
+    workflowList.innerHTML = workflowEntries.slice(0, 6).map(({ card, status, note }) =>
+      `<a href="#item/${encodeURIComponent(card.resource.id)}"><b>${esc(card.resource.title)}</b><span>${esc(workflowStatusLabel(status))}</span><small>${esc(note || card.resource.useCases[0] || card.resource.simpleDescription)}</small></a>`
+    ).join('');
     $('#recentList').innerHTML = recent.map((card) =>
       `<a href="#item/${encodeURIComponent(card.resource.id)}"><span>${esc(TYPES[card.type] || card.type)}</span><b>${esc(card.resource.title)}</b><small>${esc(card.resource.useCases[0] || card.resource.simpleDescription)}</small></a>`
     ).join('');
@@ -543,7 +620,7 @@
         el, esc, escAttr, types: TYPES, trust: TRUST, linkHealth: LINK_HEALTH,
         mcpAudit: MCP_AUDIT, decisions: DECISIONS, risks: RISK, runtime: RUNTIME,
         cost: COST, signup: SIGNUP, licenseGroups: LICENSE_GROUPS, licenseGroup,
-        compareButton, favoriteButton,
+        compareButton, favoriteButton, workflowControl,
       });
     }
     return card.node;
@@ -710,7 +787,9 @@
     });
     pruneFavorites();
     pruneRecent();
+    pruneWorkflow();
     updateFavoritesUI();
+    updateWorkflowUI();
     updateCompareUI();
     $('#status').hidden = true;
     requestAnimationFrame(() => { scrollSpy(); entryReveal(); });
@@ -797,7 +876,7 @@
   const stat = (n, l) => `<div class="stat"><b>${n}</b><span>${l}</span></div>`;
 
   // ---- filters (type + platform + license + trust + project + search) ----
-  let activeTask = '', activeType = null, activeCost = '', activeSignup = '', activeRuntime = '', activePlatform = '', activeLicense = '', activeTrust = '', activeProject = '', activeFreshness = '', activeRepositoryState = '', activeTopic = '', activeSort = 'catalog', activeFavorites = false;
+  let activeTask = '', activeType = null, activeCost = '', activeSignup = '', activeRuntime = '', activePlatform = '', activeLicense = '', activeTrust = '', activeProject = '', activeFreshness = '', activeRepositoryState = '', activeTopic = '', activeSort = 'catalog', activeFavorites = false, activeWorkflowStatus = '';
   let query = '', navQuery = '', visibleLimit = PAGE_SIZE;
   let filterStateReady = false;
   function buildFilters(typeCounts) {
@@ -982,6 +1061,7 @@
   function clearLibraryFilters(opts = {}) {
     activeTask = '';
     activeType = null;
+    activeWorkflowStatus = '';
     activeCost = '';
     activeSignup = '';
     activeRuntime = '';
@@ -1033,6 +1113,7 @@
         (!activeFreshness || c.freshness === activeFreshness) &&
         (!activeRepositoryState || c.repositoryState === activeRepositoryState) &&
         (!activeFavorites || favorites.has(c.favoriteKey)) &&
+        (!activeWorkflowStatus || workflowRuntime.get(workflowState, c.favoriteKey).status === activeWorkflowStatus) &&
         (!activeTopic || TOPIC_ROUTES[activeTopic]?.match(c))
     ).sort(sortCards);
     const visibleCards = progressiveRuntime.take(matching, visibleLimit);
@@ -1050,7 +1131,7 @@
     document.querySelectorAll('.sub').forEach((sub) => { sub.hidden = !visibleSubs.has(sub); });
     document.querySelectorAll('.cat').forEach((cat) => { cat.hidden = !visibleCats.has(cat); });
     if (!sortedMode) updateNavVisibility();
-    const filtering = !!(q || activeTask || activeType || activeCost || activeSignup || activeRuntime || activePlatform || activeLicense || activeTrust || activeProject || activeFreshness || activeRepositoryState || activeTopic || activeFavorites);
+    const filtering = !!(q || activeTask || activeType || activeCost || activeSignup || activeRuntime || activePlatform || activeLicense || activeTrust || activeProject || activeFreshness || activeRepositoryState || activeTopic || activeFavorites || activeWorkflowStatus);
     $('#hero').classList.toggle('dim', filtering);
     const orientationPanel = $('#orientationPanel');
     if (orientationPanel) orientationPanel.hidden = filtering || currentView !== 'catalog';
@@ -1083,7 +1164,7 @@
     if (!empty.hidden) {
       const costReason = activeCost === 'free-start' ? 'Можно начать бесплатно' : COST[activeCost] || '';
       const runtimeReason = activeRuntime === 'local-start' ? 'На своём устройстве или сервере' : RUNTIME[activeRuntime] || '';
-      const reason = q || TASK_ROUTES[activeTask]?.label || TOPIC_ROUTES[activeTopic]?.title || costReason || (SIGNUP[activeSignup] || '') || runtimeReason || activeProject || activePlatform || (LICENSE_GROUPS[activeLicense] || '') || (FRESHNESS[activeFreshness] || '') || (REPOSITORY_STATE[activeRepositoryState] || '') || (TRUST[activeTrust] || '') || (TYPE_GROUPS[activeType]?.label || '');
+      const reason = q || TASK_ROUTES[activeTask]?.label || TOPIC_ROUTES[activeTopic]?.title || (activeWorkflowStatus ? workflowStatusLabel(activeWorkflowStatus) : '') || costReason || (SIGNUP[activeSignup] || '') || runtimeReason || activeProject || activePlatform || (LICENSE_GROUPS[activeLicense] || '') || (FRESHNESS[activeFreshness] || '') || (REPOSITORY_STATE[activeRepositoryState] || '') || (TRUST[activeTrust] || '') || (TYPE_GROUPS[activeType]?.label || '');
       $('#emptyMessage').textContent = activeFavorites && favorites.size === 0
         ? 'В избранном пока пусто. Сохраните нужный материал кнопкой-закладкой на карточке.'
         : `По выбранным условиям ничего не найдено${reason ? `: ${reason}` : '.'}`;
@@ -1719,8 +1800,20 @@
     actionSlot.appendChild(reviewButton(r, true));
     actionSlot.appendChild(favoriteButton(r, true));
     actionSlot.appendChild(compareButton(r, true));
+    actionSlot.appendChild(workflowControl(r, true));
+    const workflowKey = canonicalUrl(r.url);
+    const workflowRecord = workflowRuntime.get(workflowState, workflowKey);
+    const workflowNote = el('section', 'workflow-note');
+    workflowNote.dataset.workflowNoteKey = workflowKey;
+    workflowNote.dataset.workflowNoteTitle = r.title;
+    workflowNote.innerHTML = `<label for="workflowNoteInput">Личная заметка<span>Хранится только в этом браузере и не изменяет каталог.</span></label><textarea id="workflowNoteInput" maxlength="${workflowRuntime.MAX_NOTE_LENGTH}" placeholder="Что проверить, куда применить, какой получен результат"></textarea><footer><span data-workflow-note-count>0 / ${workflowRuntime.MAX_NOTE_LENGTH}</span><button type="button" data-workflow-note-save>Сохранить заметку</button></footer>`;
+    const noteInput = workflowNote.querySelector('textarea');
+    noteInput.value = workflowRecord.note;
+    workflowNote.querySelector('[data-workflow-note-count]').textContent = `${noteInput.value.length} / ${workflowRuntime.MAX_NOTE_LENGTH}`;
+    $('#itemBody').querySelector('.catalog-safety-note')?.before(workflowNote);
     renderRelatedItems(entry);
     updateFavoritesUI();
+    updateWorkflowUI();
     updateCompareUI();
     view.scrollTop = 0;
   }
@@ -1974,6 +2067,16 @@
     applyFilters();
     $('#filters').scrollIntoView({ behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth', block: 'start' });
   });
+  $('#workflowSummary').addEventListener('click', (event) => {
+    const button = event.target.closest('[data-workflow-filter]');
+    if (!button) return;
+    activeWorkflowStatus = activeWorkflowStatus === button.dataset.workflowFilter ? '' : button.dataset.workflowFilter;
+    activeFavorites = false;
+    updateFavoritesUI();
+    updateWorkflowUI();
+    applyFilters();
+    $('#filters').scrollIntoView({ behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth', block: 'start' });
+  });
   $('#guideToc').addEventListener('click', (e) => {
     const b = e.target.closest('.gt-link'); if (!b) return;
     const target = document.getElementById(b.dataset.target);
@@ -2003,7 +2106,23 @@
   window.addEventListener('resize', syncFilterSheetState, { passive: true });
   $('#loadMore').addEventListener('click', () => { visibleLimit += PAGE_SIZE; applyFilters(false); });
   window.addEventListener('resize', () => syncActiveNavRail($('#nav a.active')), { passive: true });
+  document.addEventListener('change', (event) => {
+    const select = event.target.closest('[data-workflow-key]');
+    if (select) setWorkflowStatus(select.dataset.workflowKey, select.value, select.dataset.workflowTitle || 'Материал');
+  });
+  document.addEventListener('input', (event) => {
+    const input = event.target.closest('.workflow-note textarea');
+    if (!input) return;
+    const count = input.closest('.workflow-note').querySelector('[data-workflow-note-count]');
+    if (count) count.textContent = `${input.value.length} / ${workflowRuntime.MAX_NOTE_LENGTH}`;
+  });
   document.addEventListener('click', (event) => {
+    const noteSave = event.target.closest('[data-workflow-note-save]');
+    if (noteSave) {
+      const note = noteSave.closest('[data-workflow-note-key]');
+      setWorkflowNote(note.dataset.workflowNoteKey, note.querySelector('textarea').value, note.dataset.workflowNoteTitle || 'Материал');
+      return;
+    }
     const inspectorClose = event.target.closest('[data-inspector-close]');
     if (inspectorClose) { closeInspectorSheet(); return; }
     const inspect = event.target.closest('[data-inspect-id]');

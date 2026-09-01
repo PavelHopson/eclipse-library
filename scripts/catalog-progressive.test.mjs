@@ -105,6 +105,7 @@ test('app wires lazy descriptors and modules before the main bundle', () => {
   assert.match(app, /progressiveRuntime\.mount\(visibleCards/);
   assert.doesNotMatch(app, /c\.node\.hidden/);
 
+  const workflowScript = html.indexOf('catalog-workflow.js');
   const cardScript = html.indexOf('catalog-card.js');
   const editorialScript = html.indexOf('catalog-editorial.js');
   const progressiveScript = html.indexOf('catalog-progressive.js');
@@ -115,7 +116,8 @@ test('app wires lazy descriptors and modules before the main bundle', () => {
   assert.match(html, /review\.css\?v=2/);
   assert.match(reviewSource, /dataset\.reviewDownload/);
   const appScript = html.indexOf('app.js');
-  assert.ok(cardScript > 0 && editorialScript > cardScript && progressiveScript > editorialScript && inspectorScript > progressiveScript && reviewScript > inspectorScript && searchScript > reviewScript && appScript > searchScript);
+  assert.match(html, /catalog-workflow\.js\?v=1/);
+  assert.ok(workflowScript > 0 && cardScript > workflowScript && editorialScript > cardScript && progressiveScript > editorialScript && inspectorScript > progressiveScript && reviewScript > inspectorScript && searchScript > reviewScript && appScript > searchScript);
   const navigatorCss = fs.readFileSync(path.join(root, 'web', 'navigator.css'), 'utf8');
   assert.match(navigatorCss, /\.catalog-inspector::-webkit-scrollbar \{[^}]*display: none;[^}]*\}/);
   assert.match(navigatorCss, /scrollbar-width: none;/);
@@ -130,7 +132,7 @@ test('adopts the versioned Eclipse Forge product visual profile locally', () => 
 
   assert.equal(tokens.schemaVersion, 'eclipse-forge.visual-system.v1');
   assert.ok(tokens.intensityProfiles.includes('product'));
-  assert.match(html, /styles\.css\?v=29/);
+  assert.match(html, /styles\.css\?v=30/);
   assert.match(html, /assets\/fonts\/inter-cyrillic\.woff2/);
   assert.doesNotMatch(html + css, /fonts\.googleapis\.com|fonts\.gstatic\.com/);
   assert.match(css, /--bg: #05070a;/);

@@ -20,7 +20,7 @@ test('publishes the same versioned brand assets on catalog and registry pages', 
   for (const html of [indexHtml, registryHtml]) {
     assert.match(html, /href="assets\/brand\/eclipse-library-favicon\.svg"/);
     assert.match(html, /src="assets\/brand\/eclipse-library-mark\.svg"/);
-    assert.match(html, /href="styles\.css\?v=29"/);
+    assert.match(html, /href="styles\.css\?v=30"/);
     assert.doesNotMatch(html, /brand-orb|brand-spark|>⚡</u);
   }
 });

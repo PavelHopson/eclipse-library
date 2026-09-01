@@ -5,7 +5,7 @@
   function createCatalogCard(resource, context) {
     const {
       el, esc, types, trust, decisions, risks,
-      runtime, cost, licenseGroups, licenseGroup, compareButton, favoriteButton,
+      runtime, cost, licenseGroups, licenseGroup, compareButton, favoriteButton, workflowControl,
     } = context;
     const repositoryInactive = ['archived', 'disabled'].includes(resource.repositoryState);
     const card = el('article', 'card' + (resource.riskLevel === 'high' || resource.trust === 'caution' ? ' risk' : '') + (resource.detail ? ' enriched' : '') + (repositoryInactive ? ' repository-inactive' : ''));
@@ -57,7 +57,7 @@
     inspect.setAttribute('aria-label', 'Показать быстрый обзор: ' + resource.title);
     const detail = el('a', 'detail-link', 'Полный анализ');
     detail.href = '#item/' + encodeURIComponent(resource.id);
-    foot.append(inspect, detail);
+    foot.append(inspect, detail, workflowControl(resource));
     card.appendChild(foot);
     return card;
   }
