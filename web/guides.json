@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "totals": {
-    "guides": 72
+    "guides": 73
   },
   "guides": [
     {
@@ -456,6 +456,13 @@
       "name": "verified-model-routing-and-cost-control",
       "title": "Проверенная маршрутизация моделей и контроль стоимости",
       "description": "Registry-backed router вместо рекламных таблиц: доступность, цена, политика данных, Eclipse benchmark и видимый fallback.",
+      "modules": 0,
+      "lessons": 0
+    },
+    {
+      "name": "september-2026-agent-voice-finance-game-radar",
+      "title": "Радар 1 сентября 2026: агенты, голос, финансы и коллекции",
+      "description": "Проверка пяти GitHub-репозиториев и двух сайтов по официальным README, лицензиям, manifests и условиям.",
       "modules": 0,
       "lessons": 0
     },

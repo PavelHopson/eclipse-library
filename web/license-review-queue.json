@@ -1,16 +1,16 @@
 {
   "schemaVersion": 1,
-  "sourceHash": "d8d363e6813c20d5c6aca0773a52492d2d7fc7064be145c274297519629dd798",
+  "sourceHash": "d6f6e7059236e80f1ad2447952edd0669205974b1e290447b6fed46dc8e100dd",
   "policy": {
     "automaticApprovalForbidden": true,
     "directInstallForbidden": true,
     "missingLicenseMeansNoReusePermission": true
   },
   "totals": {
-    "reviewRequired": 215,
+    "reviewRequired": 214,
     "byPriority": {
       "P1": 0,
-      "P2": 177,
+      "P2": 176,
       "P3": 38
     },
     "byBucket": {
@@ -18,7 +18,7 @@
       "grey-reference": 38,
       "manual-other": 25,
       "repository-license-not-detected": 25,
-      "service-terms": 94
+      "service-terms": 93
     }
   },
   "items": [
@@ -2328,27 +2328,6 @@
           "kind": "official-source",
           "label": "Официальный источник; точные условия ещё нужно сверить",
           "url": "https://flowbite.com"
-        }
-      ]
-    },
-    {
-      "id": "fmhy-privacy-fmhy-net",
-      "title": "FMHY Privacy",
-      "type": "privacy",
-      "url": "https://fmhy.net/privacy",
-      "decision": "reference",
-      "riskLevel": "medium",
-      "currentLicense": "Нужно проверить в официальном источнике",
-      "reviewStatus": "inferred",
-      "bucket": "service-terms",
-      "priority": "P2",
-      "reason": "A service page is not a license grant; current Terms, Privacy/DPA and pricing conditions control use.",
-      "nextStep": "Capture direct Terms and Privacy URLs, retention/subprocessor terms and the exact plan used by Eclipse.",
-      "evidence": [
-        {
-          "kind": "official-source",
-          "label": "Официальный источник; точные условия ещё нужно сверить",
-          "url": "https://fmhy.net/privacy"
         }
       ]
     },
