@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "consumer": "generic-agent",
-  "catalogVersion": "d6f6e7059236e80f1ad2447952edd0669205974b1e290447b6fed46dc8e100dd",
+  "catalogVersion": "f5fca751652e1600272a8b47a1ab83871ddb6722f474ea39bb7566509b396bfc",
   "generatedAt": null,
   "policy": {
     "greyResourcesExcluded": true,
@@ -9,7 +9,7 @@
     "externalMutationsRequireHumanApproval": true
   },
   "totals": {
-    "items": 642
+    "items": 644
   },
   "items": [
     {
@@ -410,6 +410,77 @@
           "kind": "license",
           "label": "MIT license",
           "url": "https://api.github.com/repos/mikiarlo3/ai-copywriter/license"
+        }
+      ],
+      "actions": {
+        "openOfficialSource": true,
+        "installFromCatalog": false,
+        "mutateExternalSystems": false
+      }
+    },
+    {
+      "id": "ai-only-game-release-postmortem-video",
+      "title": "Игра только с нейросетями — release postmortem",
+      "url": "https://www.youtube.com/watch?v=UPWlOvcFSEE",
+      "type": "learn",
+      "category": "Game Development",
+      "subcategory": "AI-assisted release postmortem",
+      "addedAt": "2026-09-01",
+      "description": "Экспериментальный Unity-devlog проходит путь от идеи и генерации до графики, gameplay, меню, звука, недостатков и публикации. Главная ценность — видимый разрыв между созданным агентами прототипом и качественным релизом; Library использует ролик как отрицательный QA-кейс, а не как обещание игры одним промптом.",
+      "useCases": [
+        "Составить release gate для Godogen и GameForge",
+        "Проверить, какие дефекты не видит генеративный агент",
+        "Обучать packaged-build и store-readiness приёмке"
+      ],
+      "platforms": [
+        "YouTube",
+        "Unity",
+        "Google Play"
+      ],
+      "license": {
+        "label": "YouTube video; no license for reusing the creator's code, game, footage, generated assets or audio was established",
+        "original": "YouTube video; no license for reusing the creator's code, game, footage, generated assets or audio was established",
+        "spdx": null,
+        "kind": "custom",
+        "status": "editor-reviewed",
+        "requiresReview": false,
+        "evidence": [
+          {
+            "kind": "source",
+            "label": "Creator's YouTube video",
+            "url": "https://www.youtube.com/watch?v=UPWlOvcFSEE"
+          },
+          {
+            "kind": "source",
+            "label": "Related Godogen reference already reviewed by Eclipse Library",
+            "url": "https://github.com/htdt/godogen"
+          }
+        ]
+      },
+      "access": {
+        "cost": "free",
+        "signup": "optional",
+        "runtime": "cloud"
+      },
+      "trust": "community",
+      "decision": "now",
+      "riskLevel": "medium",
+      "projects": [
+        "Godogen pilot",
+        "GameForge (future)",
+        "Eclipse Valhalla",
+        "Eclipse Library"
+      ],
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://www.youtube.com/watch?v=UPWlOvcFSEE"
+        },
+        {
+          "kind": "source",
+          "label": "Related Godogen reference already reviewed by Eclipse Library",
+          "url": "https://github.com/htdt/godogen"
         }
       ],
       "actions": {
@@ -4079,6 +4150,77 @@
           "kind": "license",
           "label": "Official asset license notes",
           "url": "https://github.com/MengTo/threeui/blob/main/ASSET-LICENSES.md"
+        }
+      ],
+      "actions": {
+        "openOfficialSource": true,
+        "installFromCatalog": false,
+        "mutateExternalSystems": false
+      }
+    },
+    {
+      "id": "unreal-weekly-shooter-vertical-slice-video",
+      "title": "Шутер на Unreal Engine 5 за неделю — vertical slice case",
+      "url": "https://www.youtube.com/watch?v=G_2XOHxOoiY",
+      "type": "learn",
+      "category": "Game Development",
+      "subcategory": "Timeboxed vertical slice",
+      "addedAt": "2026-09-01",
+      "description": "Русскоязычный devlog показывает последовательность недельного vertical slice в Unreal Engine 5: стрельба и анимации, окружение, завершение gameplay loop, меню и настройки. Это полезный planning-case для GameForge, но не актуальная официальная документация и не гарантия production-ready результата.",
+      "useCases": [
+        "Спланировать недельный vertical slice GameForge",
+        "Разделить core loop, окружение, polish и packaging",
+        "Сформировать visual proof и внешний playtest"
+      ],
+      "platforms": [
+        "YouTube",
+        "Unreal Engine 5",
+        "Windows"
+      ],
+      "license": {
+        "label": "YouTube video; no license for reusing the creator's code, project files, footage, music or assets was established",
+        "original": "YouTube video; no license for reusing the creator's code, project files, footage, music or assets was established",
+        "spdx": null,
+        "kind": "custom",
+        "status": "editor-reviewed",
+        "requiresReview": false,
+        "evidence": [
+          {
+            "kind": "source",
+            "label": "Creator's YouTube video",
+            "url": "https://www.youtube.com/watch?v=G_2XOHxOoiY"
+          },
+          {
+            "kind": "official-source",
+            "label": "Current Unreal Engine packaging documentation",
+            "url": "https://dev.epicgames.com/documentation/unreal-engine/packaging-your-project"
+          }
+        ]
+      },
+      "access": {
+        "cost": "free",
+        "signup": "optional",
+        "runtime": "cloud"
+      },
+      "trust": "community",
+      "decision": "reference",
+      "riskLevel": "medium",
+      "projects": [
+        "GameForge (future)",
+        "Eclipse Valhalla",
+        "Eclipse DnD Forge",
+        "Eclipse Library"
+      ],
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://www.youtube.com/watch?v=G_2XOHxOoiY"
+        },
+        {
+          "kind": "official-source",
+          "label": "Current Unreal Engine packaging documentation",
+          "url": "https://dev.epicgames.com/documentation/unreal-engine/packaging-your-project"
         }
       ],
       "actions": {
