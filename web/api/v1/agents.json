@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "consumer": "generic-agent",
-  "catalogVersion": "f5fca751652e1600272a8b47a1ab83871ddb6722f474ea39bb7566509b396bfc",
+  "catalogVersion": "3f8e21552206e40c4579153eea692d70ad5c512d7eb82d1756d0f404ccb5c6d2",
   "generatedAt": null,
   "policy": {
     "greyResourcesExcluded": true,
@@ -9,7 +9,7 @@
     "externalMutationsRequireHumanApproval": true
   },
   "totals": {
-    "items": 644
+    "items": 676
   },
   "items": [
     {
@@ -101,6 +101,80 @@
       }
     },
     {
+      "id": "500-ai-agents-recipe-catalog-reference",
+      "title": "500+ AI Agent Projects: recipe catalog reference",
+      "url": "https://github.com/ashishpatel26/500-AI-Agents-Projects",
+      "type": "oss",
+      "category": "AI Agents",
+      "subcategory": "Agent recipes and framework comparison",
+      "addedAt": "2026-09-01",
+      "description": "MIT-licensed catalog of agent use cases and runnable examples across LangGraph, CrewAI, AutoGen, Agno and LlamaIndex. Eclipse should ingest only reviewed metadata and architecture patterns, then rebuild selected recipes behind its own permission, provenance, evaluation and cost controls instead of installing hundreds of unknown agents.",
+      "useCases": [
+        "Create a curated recipe catalog in Eclipse AI Hub and Jarvis",
+        "Compare framework fit for stateful, collaborative and retrieval workflows",
+        "Seed defensive recipes for PII sanitization, memory guards and agent evaluation"
+      ],
+      "platforms": [
+        "Python",
+        "LangGraph",
+        "CrewAI",
+        "AutoGen",
+        "Agno",
+        "LlamaIndex"
+      ],
+      "license": {
+        "label": "MIT",
+        "original": "MIT for repository content; every linked project, model, dataset and service keeps its own terms",
+        "spdx": "MIT",
+        "kind": "open-source",
+        "status": "editor-reviewed",
+        "requiresReview": false,
+        "evidence": [
+          {
+            "kind": "license",
+            "label": "Repository MIT license",
+            "url": "https://github.com/ashishpatel26/500-AI-Agents-Projects/blob/main/LICENSE"
+          },
+          {
+            "kind": "source",
+            "label": "Official public repository",
+            "url": "https://github.com/ashishpatel26/500-AI-Agents-Projects"
+          }
+        ]
+      },
+      "access": {
+        "cost": "free",
+        "signup": "none",
+        "runtime": "local"
+      },
+      "trust": "community",
+      "decision": "now",
+      "riskLevel": "high",
+      "projects": [
+        "Eclipse AI Hub",
+        "Jarvis",
+        "Growth OS",
+        "Eclipse Library"
+      ],
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://github.com/ashishpatel26/500-AI-Agents-Projects"
+        },
+        {
+          "kind": "license",
+          "label": "Repository MIT license",
+          "url": "https://github.com/ashishpatel26/500-AI-Agents-Projects/blob/main/LICENSE"
+        }
+      ],
+      "actions": {
+        "openOfficialSource": true,
+        "installFromCatalog": false,
+        "mutateExternalSystems": false
+      }
+    },
+    {
       "id": "abacus-ai-agent-appllm",
       "title": "Abacus.AI Agent and AppLLM",
       "url": "https://abacus.ai/pricing",
@@ -173,6 +247,65 @@
           "kind": "source",
           "label": "Official AppLLM product page",
           "url": "https://appllm.abacus.ai/"
+        }
+      ],
+      "actions": {
+        "openOfficialSource": true,
+        "installFromCatalog": false,
+        "mutateExternalSystems": false
+      }
+    },
+    {
+      "id": "adaptive-ai-growth-action-ledger-reference",
+      "title": "Adaptive.ai: Growth OS action-ledger reference",
+      "url": "https://adaptive.ai/",
+      "type": "reference",
+      "category": "Business & Growth",
+      "subcategory": "AI coworkers and scheduled actions",
+      "addedAt": "2026-09-01",
+      "description": "SaaS AI coworkers for research, building, sales, follow-up and scheduled work with integrations. Growth OS should reproduce the safe product mechanics rather than delegate blindly: scoped OAuth, visible schedules, preview of external actions, per-action approval, audit ledger, cancellation and clear ownership.",
+      "useCases": [
+        "Design scheduled-agent UX",
+        "Add approval gates to external actions",
+        "Track OAuth scopes and action history"
+      ],
+      "platforms": [
+        "Web"
+      ],
+      "license": {
+        "label": "Proprietary SaaS; data processing, OAuth scopes and connector terms require contractual and security review",
+        "original": "Proprietary SaaS; data processing, OAuth scopes and connector terms require contractual and security review",
+        "spdx": null,
+        "kind": "service-terms",
+        "status": "editor-reviewed",
+        "requiresReview": false,
+        "evidence": [
+          {
+            "kind": "source",
+            "label": "Official Adaptive AI site",
+            "url": "https://adaptive.ai/"
+          }
+        ]
+      },
+      "access": {
+        "cost": "unknown",
+        "signup": "optional",
+        "runtime": "cloud"
+      },
+      "trust": "official",
+      "decision": "roadmap",
+      "riskLevel": "high",
+      "projects": [
+        "Growth OS",
+        "Eclipse AI Hub",
+        "Jarvis",
+        "Eclipse Library"
+      ],
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://adaptive.ai/"
         }
       ],
       "actions": {
@@ -572,6 +705,82 @@
       }
     },
     {
+      "id": "anti-miner-github-com",
+      "title": "Anti-Miner: quarantined defensive reference",
+      "url": "https://github.com/Daiwv/Anti-Miner",
+      "type": "privacy",
+      "category": "Privacy / OPSEC",
+      "subcategory": "Quarantined endpoint tooling",
+      "addedAt": "2026-09-01",
+      "description": "Windows utility that scans for and deletes suspected hidden miners. Keep as a quarantined defensive reference only: the repository is low-trust for endpoint remediation, performs destructive actions and instructs users to place a VirusTotal API key directly in Program.cs. Eclipse Sentinel should implement detect → explain → isolate → approve → remediate with report-only defaults instead.",
+      "useCases": [
+        "Разобраться, подходит ли Anti-Miner для вашей задачи",
+        "Проверить возможности на небольшом тестовом сценарии до интеграции"
+      ],
+      "platforms": [
+        "Windows"
+      ],
+      "license": {
+        "label": "GPL-3.0",
+        "original": "GPL-3.0; runtime trust, signing, destructive behavior and secret handling remain unresolved",
+        "spdx": "GPL-3.0",
+        "kind": "open-source",
+        "status": "source-declared",
+        "requiresReview": false,
+        "evidence": [
+          {
+            "kind": "license",
+            "label": "GPL-3.0 license",
+            "url": "https://api.github.com/repos/daiwv/anti-miner/license"
+          },
+          {
+            "kind": "source",
+            "label": "Canonical repository",
+            "url": "https://github.com/Daiwv/Anti-Miner"
+          },
+          {
+            "kind": "license",
+            "label": "Repository GPL-3.0 license",
+            "url": "https://github.com/Daiwv/Anti-Miner/blob/main/LICENSE"
+          }
+        ]
+      },
+      "access": {
+        "cost": "free",
+        "signup": "none",
+        "runtime": "local"
+      },
+      "trust": "community",
+      "decision": "reference",
+      "riskLevel": "high",
+      "projects": [
+        "Eclipse Sentinel",
+        "Eclipse Library"
+      ],
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://github.com/Daiwv/Anti-Miner"
+        },
+        {
+          "kind": "license",
+          "label": "GPL-3.0 license",
+          "url": "https://api.github.com/repos/daiwv/anti-miner/license"
+        },
+        {
+          "kind": "license",
+          "label": "Repository GPL-3.0 license",
+          "url": "https://github.com/Daiwv/Anti-Miner/blob/main/LICENSE"
+        }
+      ],
+      "actions": {
+        "openOfficialSource": true,
+        "installFromCatalog": false,
+        "mutateExternalSystems": false
+      }
+    },
+    {
       "id": "anti-vibe-design-review-eclipse",
       "title": "Anti-vibe Design Review",
       "url": "https://library.eclipse-forge.ru/guides/anti-vibe-design-review-2026-08-23.md",
@@ -627,6 +836,77 @@
           "kind": "official-source",
           "label": "Официальный источник",
           "url": "https://library.eclipse-forge.ru/guides/anti-vibe-design-review-2026-08-23.md"
+        }
+      ],
+      "actions": {
+        "openOfficialSource": true,
+        "installFromCatalog": false,
+        "mutateExternalSystems": false
+      }
+    },
+    {
+      "id": "aperant-multisession-agent-architecture-reference",
+      "title": "Aperant: multi-session coding-agent architecture reference",
+      "url": "https://github.com/AndyMik90/Aperant",
+      "type": "oss",
+      "category": "AI Agents",
+      "subcategory": "Multi-session software delivery",
+      "addedAt": "2026-09-01",
+      "description": "Autonomous multi-session coding agent with task/spec workflows and a public 2.x maintenance line while a 3.x rewrite evolves separately. Eclipse Forge/Jarvis should study plan/build/validate, isolated specs, task board and QA loop, but AGPL-3.0 code is not copied into proprietary services without a deliberate compliance decision.",
+      "useCases": [
+        "Design multi-session task board",
+        "Separate plan, build and validation",
+        "Track spec evidence and QA loop"
+      ],
+      "platforms": [
+        "TypeScript",
+        "AI coding agents",
+        "Desktop/Web"
+      ],
+      "license": {
+        "label": "AGPL-3.0",
+        "original": "AGPL-3.0; network use and distribution obligations require legal/compliance review before reuse",
+        "spdx": "AGPL-3.0",
+        "kind": "open-source",
+        "status": "editor-reviewed",
+        "requiresReview": false,
+        "evidence": [
+          {
+            "kind": "source",
+            "label": "Canonical repository",
+            "url": "https://github.com/AndyMik90/Aperant"
+          },
+          {
+            "kind": "license",
+            "label": "Repository AGPL-3.0 license",
+            "url": "https://github.com/AndyMik90/Aperant/blob/main/LICENSE"
+          }
+        ]
+      },
+      "access": {
+        "cost": "free",
+        "signup": "none",
+        "runtime": "local"
+      },
+      "trust": "community",
+      "decision": "roadmap",
+      "riskLevel": "high",
+      "projects": [
+        "Eclipse Forge",
+        "Jarvis",
+        "Eclipse AI Hub",
+        "Eclipse Library"
+      ],
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://github.com/AndyMik90/Aperant"
+        },
+        {
+          "kind": "license",
+          "label": "Repository AGPL-3.0 license",
+          "url": "https://github.com/AndyMik90/Aperant/blob/main/LICENSE"
         }
       ],
       "actions": {
@@ -711,6 +991,222 @@
           "kind": "license",
           "label": "Official MIT license",
           "url": "https://github.com/tt-a1i/archify/blob/main/LICENSE"
+        }
+      ],
+      "actions": {
+        "openOfficialSource": true,
+        "installFromCatalog": false,
+        "mutateExternalSystems": false
+      }
+    },
+    {
+      "id": "arena-ai-model-evaluation-evidence-reference",
+      "title": "Arena.ai: human-preference evaluation evidence",
+      "url": "https://arena.ai/",
+      "type": "reference",
+      "category": "AI Agents",
+      "subcategory": "Model evaluation and leaderboards",
+      "addedAt": "2026-09-01",
+      "description": "Публичная платформа сравнений и human-preference leaderboards для text, code, vision, image, video и agent моделей. Eclipse AI Hub может сохранять снимок rank, дату, category и методику как один сигнал выбора модели, но не должен отправлять чувствительные prompts или маршрутизировать production только по месту в таблице.",
+      "useCases": [
+        "Дополнить model registry внешним evidence",
+        "Составить shortlist для controlled benchmark",
+        "Отслеживать изменение рейтингов по категориям"
+      ],
+      "platforms": [
+        "Web"
+      ],
+      "license": {
+        "label": "Proprietary evaluation service; prompts and votes обрабатываются по действующим Terms и Privacy Policy",
+        "original": "Proprietary evaluation service; prompts and votes обрабатываются по действующим Terms и Privacy Policy",
+        "spdx": null,
+        "kind": "service-terms",
+        "status": "editor-reviewed",
+        "requiresReview": false,
+        "evidence": [
+          {
+            "kind": "source",
+            "label": "Official leaderboard",
+            "url": "https://arena.ai/leaderboard"
+          },
+          {
+            "kind": "source",
+            "label": "Official methodology overview",
+            "url": "https://arena.ai/how-it-works"
+          }
+        ]
+      },
+      "access": {
+        "cost": "unknown",
+        "signup": "optional",
+        "runtime": "cloud"
+      },
+      "trust": "official",
+      "decision": "now",
+      "riskLevel": "high",
+      "projects": [
+        "Eclipse AI Hub",
+        "Jarvis",
+        "Eclipse Library"
+      ],
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://arena.ai/"
+        },
+        {
+          "kind": "source",
+          "label": "Official leaderboard",
+          "url": "https://arena.ai/leaderboard"
+        },
+        {
+          "kind": "source",
+          "label": "Official methodology overview",
+          "url": "https://arena.ai/how-it-works"
+        }
+      ],
+      "actions": {
+        "openOfficialSource": true,
+        "installFromCatalog": false,
+        "mutateExternalSystems": false
+      }
+    },
+    {
+      "id": "artlist-media-rights-receipt-reference",
+      "title": "Artlist: media rights receipt reference",
+      "url": "https://artlist.io/",
+      "type": "reference",
+      "category": "Video & Media",
+      "subcategory": "Licensed asset provenance",
+      "addedAt": "2026-09-01",
+      "description": "Коммерческая библиотека музыки, footage и creative assets с лицензиями, зависящими от плана, канала, клиента и способа использования. Для Eclipse Media главный вывод — права должны храниться рядом с asset: source ID, план, дата, certificate, project/client scope, разрешённые каналы и запреты на standalone redistribution или model training.",
+      "useCases": [
+        "Спроектировать rights receipt",
+        "Вести license evidence для каждого media asset",
+        "Проверять export channel до публикации"
+      ],
+      "platforms": [
+        "Web"
+      ],
+      "license": {
+        "label": "Commercial license varies by plan and use; assets must be integrated into projects and cannot be treated as unrestricted standalone files or training data",
+        "original": "Commercial license varies by plan and use; assets must be integrated into projects and cannot be treated as unrestricted standalone files or training data",
+        "spdx": null,
+        "kind": "service-terms",
+        "status": "editor-reviewed",
+        "requiresReview": false,
+        "evidence": [
+          {
+            "kind": "license",
+            "label": "Official Artlist license",
+            "url": "https://artlist.io/help-center/privacy-terms/artlist-license/"
+          },
+          {
+            "kind": "terms",
+            "label": "Official terms of use",
+            "url": "https://artlist.io/help-center/privacy-terms/terms-of-use"
+          }
+        ]
+      },
+      "access": {
+        "cost": "unknown",
+        "signup": "optional",
+        "runtime": "cloud"
+      },
+      "trust": "official",
+      "decision": "now",
+      "riskLevel": "high",
+      "projects": [
+        "Eclipse Media",
+        "Growth OS",
+        "Eclipse Library"
+      ],
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://artlist.io/"
+        },
+        {
+          "kind": "license",
+          "label": "Official Artlist license",
+          "url": "https://artlist.io/help-center/privacy-terms/artlist-license/"
+        },
+        {
+          "kind": "terms",
+          "label": "Official terms of use",
+          "url": "https://artlist.io/help-center/privacy-terms/terms-of-use"
+        }
+      ],
+      "actions": {
+        "openOfficialSource": true,
+        "installFromCatalog": false,
+        "mutateExternalSystems": false
+      }
+    },
+    {
+      "id": "aura-build-design-handoff-reference",
+      "title": "Aura — design and handoff process reference",
+      "url": "https://www.aura.build/",
+      "type": "tool",
+      "category": "Design & UI",
+      "subcategory": "AI design exploration and handoff",
+      "addedAt": "2026-09-01",
+      "description": "AI design builder is useful as a workflow reference from brief through several directions to Figma or HTML handoff. Eclipse keeps its own design system and treats exported markup as an untrusted draft that still needs semantic implementation, responsive visual QA, accessibility, performance and security review before production.",
+      "useCases": [
+        "Standardize brief-to-direction design exploration",
+        "Improve Figma and HTML handoff for Eclipse landing pages",
+        "Create a responsive and accessibility acceptance gate for generated UI"
+      ],
+      "platforms": [
+        "Web",
+        "Figma workflow",
+        "HTML workflow"
+      ],
+      "license": {
+        "label": "Proprietary service terms; exported code, fonts, images and third-party assets require separate license verification",
+        "original": "Proprietary service terms; exported code, fonts, images and third-party assets require separate license verification",
+        "spdx": null,
+        "kind": "service-terms",
+        "status": "editor-reviewed",
+        "requiresReview": false,
+        "evidence": [
+          {
+            "kind": "source",
+            "label": "Official Aura product",
+            "url": "https://www.aura.build/"
+          },
+          {
+            "kind": "terms",
+            "label": "Official Aura terms surface",
+            "url": "https://www.aura.build/terms"
+          }
+        ]
+      },
+      "access": {
+        "cost": "paid",
+        "signup": "required",
+        "runtime": "cloud"
+      },
+      "trust": "official",
+      "decision": "reference",
+      "riskLevel": "medium",
+      "projects": [
+        "Eclipse Forge",
+        "Eclipse Landing",
+        "Eclipse Library"
+      ],
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://www.aura.build/"
+        },
+        {
+          "kind": "terms",
+          "label": "Official Aura terms surface",
+          "url": "https://www.aura.build/terms"
         }
       ],
       "actions": {
@@ -880,6 +1376,79 @@
       }
     },
     {
+      "id": "base44-controlled-builder-sandbox-reference",
+      "title": "Base44: controlled full-stack builder sandbox",
+      "url": "https://app.base44.com/",
+      "type": "reference",
+      "category": "Developer Tools",
+      "subcategory": "AI application builders",
+      "addedAt": "2026-09-01",
+      "description": "Облачный AI-конструктор приложений с базой данных, authentication, hosting, functions, agents, SDK/CLI и экспортом кода. Для Eclipse это внешний прототипный контур: результат обязан покинуть vendor workspace, попасть в наш Git и пройти security, dependency, license, accessibility и runtime review.",
+      "useCases": [
+        "Быстро проверить продуктовую гипотезу",
+        "Сравнить builder UX с Eclipse Forge",
+        "Экспортировать проверяемый React/Vite prototype"
+      ],
+      "platforms": [
+        "Web"
+      ],
+      "license": {
+        "label": "Proprietary SaaS; экспорт и доступность функций зависят от плана, а зависимости экспортированного приложения сохраняют собственные лицензии",
+        "original": "Proprietary SaaS; экспорт и доступность функций зависят от плана, а зависимости экспортированного приложения сохраняют собственные лицензии",
+        "spdx": null,
+        "kind": "service-terms",
+        "status": "editor-reviewed",
+        "requiresReview": false,
+        "evidence": [
+          {
+            "kind": "source",
+            "label": "Official Base44 quick start",
+            "url": "https://docs.base44.com/Getting-Started/Quick-start-guide"
+          },
+          {
+            "kind": "source",
+            "label": "Official developer platform",
+            "url": "https://base44.com/developers"
+          }
+        ]
+      },
+      "access": {
+        "cost": "unknown",
+        "signup": "optional",
+        "runtime": "cloud"
+      },
+      "trust": "official",
+      "decision": "roadmap",
+      "riskLevel": "high",
+      "projects": [
+        "Eclipse Forge",
+        "Eclipse AI Hub",
+        "Eclipse Library"
+      ],
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://app.base44.com/"
+        },
+        {
+          "kind": "source",
+          "label": "Official Base44 quick start",
+          "url": "https://docs.base44.com/Getting-Started/Quick-start-guide"
+        },
+        {
+          "kind": "source",
+          "label": "Official developer platform",
+          "url": "https://base44.com/developers"
+        }
+      ],
+      "actions": {
+        "openOfficialSource": true,
+        "installFromCatalog": false,
+        "mutateExternalSystems": false
+      }
+    },
+    {
       "id": "block-buzz-agent-workspace",
       "title": "Buzz by Block",
       "url": "https://github.com/block/buzz",
@@ -954,6 +1523,87 @@
           "kind": "license",
           "label": "Official Apache-2.0 license",
           "url": "https://github.com/block/buzz/blob/main/LICENSE"
+        }
+      ],
+      "actions": {
+        "openOfficialSource": true,
+        "installFromCatalog": false,
+        "mutateExternalSystems": false
+      }
+    },
+    {
+      "id": "bolt-new-isolated-builder-reference",
+      "title": "Bolt — isolated builder benchmark",
+      "url": "https://bolt.new/",
+      "type": "tool",
+      "category": "Developer Tools",
+      "subcategory": "Prompt-to-app sandbox",
+      "addedAt": "2026-09-01",
+      "description": "Prompt-to-app cloud builder is useful as a benchmark for fast prototypes, not as a production authority. Eclipse should use a disposable sandbox with no production secrets, require export as a patch or archive, then run dependency, license, security and test gates before importing code into an existing approved repository branch.",
+      "useCases": [
+        "Benchmark prompt-to-preview latency",
+        "Design a disposable prototype sandbox in Eclipse AI Hub",
+        "Standardize export, review and provenance receipts for generated code"
+      ],
+      "platforms": [
+        "Web",
+        "Cloud sandbox",
+        "JavaScript ecosystem"
+      ],
+      "license": {
+        "label": "Proprietary service terms; exported dependencies and generated assets retain their own licenses",
+        "original": "Proprietary service terms; exported dependencies and generated assets retain their own licenses",
+        "spdx": null,
+        "kind": "service-terms",
+        "status": "editor-reviewed",
+        "requiresReview": false,
+        "evidence": [
+          {
+            "kind": "terms",
+            "label": "Official StackBlitz terms",
+            "url": "https://stackblitz.com/terms-of-service"
+          },
+          {
+            "kind": "privacy",
+            "label": "Official StackBlitz privacy policy",
+            "url": "https://stackblitz.com/privacy-policy"
+          },
+          {
+            "kind": "source",
+            "label": "Official Bolt product",
+            "url": "https://bolt.new/"
+          }
+        ]
+      },
+      "access": {
+        "cost": "freemium",
+        "signup": "optional",
+        "runtime": "cloud"
+      },
+      "trust": "official",
+      "decision": "roadmap",
+      "riskLevel": "high",
+      "projects": [
+        "Eclipse AI Hub",
+        "Eclipse Claw",
+        "Eclipse Forge",
+        "Eclipse Library"
+      ],
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://bolt.new/"
+        },
+        {
+          "kind": "terms",
+          "label": "Official StackBlitz terms",
+          "url": "https://stackblitz.com/terms-of-service"
+        },
+        {
+          "kind": "privacy",
+          "label": "Official StackBlitz privacy policy",
+          "url": "https://stackblitz.com/privacy-policy"
         }
       ],
       "actions": {
@@ -1550,6 +2200,154 @@
       }
     },
     {
+      "id": "deevid-ai-video-provider-benchmark",
+      "title": "DeeVid AI: video provider benchmark",
+      "url": "https://deevid.ai/",
+      "type": "reference",
+      "category": "Video & Media",
+      "subcategory": "Cloud AI video suites",
+      "addedAt": "2026-09-01",
+      "description": "Коммерческий AI-video suite для text/image/reference/audio-to-video, video-to-video, motion control, lip sync, avatars, music и editing. Eclipse Media использует его как vendor benchmark для цепочки reference bundle → storyboard → short clip, не как production provider до privacy, DPA, retention и rights review.",
+      "useCases": [
+        "Сравнить video-provider capabilities",
+        "Проверить storyboard-to-clip UX",
+        "Уточнить единый provider contract Eclipse Media"
+      ],
+      "platforms": [
+        "Web"
+      ],
+      "license": {
+        "label": "Proprietary SaaS; private creation, watermark and commercial rights depend on current plan and terms",
+        "original": "Proprietary SaaS; private creation, watermark and commercial rights depend on current plan and terms",
+        "spdx": null,
+        "kind": "service-terms",
+        "status": "editor-reviewed",
+        "requiresReview": false,
+        "evidence": [
+          {
+            "kind": "source",
+            "label": "Official AI video generator",
+            "url": "https://deevid.ai/ai-video-generator"
+          },
+          {
+            "kind": "source",
+            "label": "Official pricing",
+            "url": "https://deevid.ai/pricing"
+          }
+        ]
+      },
+      "access": {
+        "cost": "unknown",
+        "signup": "optional",
+        "runtime": "cloud"
+      },
+      "trust": "official",
+      "decision": "reference",
+      "riskLevel": "high",
+      "projects": [
+        "Eclipse Media",
+        "Eclipse AI Hub",
+        "Eclipse Library"
+      ],
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://deevid.ai/"
+        },
+        {
+          "kind": "source",
+          "label": "Official AI video generator",
+          "url": "https://deevid.ai/ai-video-generator"
+        },
+        {
+          "kind": "source",
+          "label": "Official pricing",
+          "url": "https://deevid.ai/pricing"
+        }
+      ],
+      "actions": {
+        "openOfficialSource": true,
+        "installFromCatalog": false,
+        "mutateExternalSystems": false
+      }
+    },
+    {
+      "id": "devildev-spec-architecture-gate-reference",
+      "title": "DevilDev: spec-driven architecture gate",
+      "url": "https://github.com/lak7/devildev",
+      "type": "oss",
+      "category": "Developer Tools",
+      "subcategory": "Specification and architecture review",
+      "addedAt": "2026-09-01",
+      "description": "Apache-2.0 architecture workspace that turns natural-language specifications and existing repositories into explicit phases, modules and relationships before coding. Eclipse should reproduce the reviewable spec to architecture gate inside Forge and AI Hub, while avoiding DevilDev's large cloud, webhook, authentication and payment integration surface.",
+      "useCases": [
+        "Add an architecture approval gate before AI code generation",
+        "Reverse-map an approved repository into evidence-backed modules and flows",
+        "Keep specifications, decisions and implementation phases reviewable"
+      ],
+      "platforms": [
+        "Next.js",
+        "React",
+        "TypeScript",
+        "PostgreSQL",
+        "Prisma",
+        "LangChain",
+        "Inngest"
+      ],
+      "license": {
+        "label": "Apache-2.0",
+        "original": "Apache-2.0 for the repository; integrated cloud services retain separate terms",
+        "spdx": "Apache-2.0",
+        "kind": "open-source",
+        "status": "editor-reviewed",
+        "requiresReview": false,
+        "evidence": [
+          {
+            "kind": "license",
+            "label": "Repository Apache-2.0 license",
+            "url": "https://github.com/lak7/devildev/blob/main/LICENSE"
+          },
+          {
+            "kind": "source",
+            "label": "Official public repository",
+            "url": "https://github.com/lak7/devildev"
+          }
+        ]
+      },
+      "access": {
+        "cost": "free",
+        "signup": "none",
+        "runtime": "local"
+      },
+      "trust": "community",
+      "decision": "roadmap",
+      "riskLevel": "high",
+      "projects": [
+        "Eclipse Forge",
+        "Eclipse AI Hub",
+        "Jarvis",
+        "Eclipse Library"
+      ],
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://github.com/lak7/devildev"
+        },
+        {
+          "kind": "license",
+          "label": "Repository Apache-2.0 license",
+          "url": "https://github.com/lak7/devildev/blob/main/LICENSE"
+        }
+      ],
+      "actions": {
+        "openOfficialSource": true,
+        "installFromCatalog": false,
+        "mutateExternalSystems": false
+      }
+    },
+    {
       "id": "duplicati-encrypted-backups",
       "title": "Duplicati",
       "url": "https://github.com/duplicati/duplicati",
@@ -1620,6 +2418,79 @@
           "kind": "license",
           "label": "Official mixed license notice",
           "url": "https://github.com/duplicati/duplicati/blob/master/LICENSE"
+        }
+      ],
+      "actions": {
+        "openOfficialSource": true,
+        "installFromCatalog": false,
+        "mutateExternalSystems": false
+      }
+    },
+    {
+      "id": "dyad-local-first-builder-reference",
+      "title": "Dyad: local-first AI application builder reference",
+      "url": "https://www.dyad.sh/",
+      "type": "oss",
+      "category": "Developer Tools",
+      "subcategory": "Local AI application builders",
+      "addedAt": "2026-09-01",
+      "description": "Локальный AI app builder с BYOK, OpenAI/Anthropic/Ollama/LM Studio, видимым кодом, import/export, deployment, integrations и MCP. Это главный продуктовый референс для Eclipse Forge Builder: локальное владение репозиторием, inspectable diff и явные permissions вместо скрытого cloud runtime.",
+      "useCases": [
+        "Спроектировать local-first Eclipse Builder",
+        "Сравнить model adapters и export flow",
+        "Проверить MCP quarantine UX"
+      ],
+      "platforms": [
+        "Desktop",
+        "TypeScript",
+        "Electron",
+        "Ollama",
+        "LM Studio"
+      ],
+      "license": {
+        "label": "Apache-2.0",
+        "original": "Source-split repository: основная открытая часть указывает Apache-2.0, а pro paths имеют отдельные условия; каждый reused path нужно проверять",
+        "spdx": "Apache-2.0",
+        "kind": "open-source",
+        "status": "editor-reviewed",
+        "requiresReview": false,
+        "evidence": [
+          {
+            "kind": "source",
+            "label": "Official Dyad website",
+            "url": "https://www.dyad.sh/"
+          },
+          {
+            "kind": "license",
+            "label": "Canonical repository",
+            "url": "https://github.com/dyad-sh/dyad"
+          }
+        ]
+      },
+      "access": {
+        "cost": "free",
+        "signup": "none",
+        "runtime": "local"
+      },
+      "trust": "community",
+      "decision": "now",
+      "riskLevel": "high",
+      "projects": [
+        "Eclipse Forge",
+        "Eclipse AI Hub",
+        "Jarvis",
+        "Eclipse Library"
+      ],
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://www.dyad.sh/"
+        },
+        {
+          "kind": "license",
+          "label": "Canonical repository",
+          "url": "https://github.com/dyad-sh/dyad"
         }
       ],
       "actions": {
@@ -1769,6 +2640,74 @@
       }
     },
     {
+      "id": "fontspace-gothic-license-gated-discovery",
+      "title": "FontSpace Gothic: license-gated font discovery",
+      "url": "https://www.fontspace.com/category/gothic",
+      "type": "reference",
+      "category": "Design & Frontend",
+      "subcategory": "Font discovery",
+      "addedAt": "2026-09-01",
+      "description": "Большой каталог готических fonts, где условия различаются у каждого файла: встречаются personal-use, commercial и free варианты. Это только discovery source для Eclipse brand work; production font появляется в asset registry лишь вместе с author, original URL, exact license file, file hash, commercial scope и проверкой кириллицы.",
+      "useCases": [
+        "Искать Gothic references",
+        "Проверять Cyrillic coverage",
+        "Вести provenance шрифтов"
+      ],
+      "platforms": [
+        "Web"
+      ],
+      "license": {
+        "label": "Varies per font; category page does not grant one blanket production license",
+        "original": "Varies per font; category page does not grant one blanket production license",
+        "spdx": null,
+        "kind": "custom",
+        "status": "editor-reviewed",
+        "requiresReview": false,
+        "evidence": [
+          {
+            "kind": "source",
+            "label": "Official category",
+            "url": "https://www.fontspace.com/category/gothic"
+          },
+          {
+            "kind": "terms",
+            "label": "Official license FAQ",
+            "url": "https://www.fontspace.com/help#license"
+          }
+        ]
+      },
+      "access": {
+        "cost": "unknown",
+        "signup": "optional",
+        "runtime": "cloud"
+      },
+      "trust": "official",
+      "decision": "reference",
+      "riskLevel": "high",
+      "projects": [
+        "Eclipse Forge",
+        "Animation Lab",
+        "Eclipse Library"
+      ],
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://www.fontspace.com/category/gothic"
+        },
+        {
+          "kind": "terms",
+          "label": "Official license FAQ",
+          "url": "https://www.fontspace.com/help#license"
+        }
+      ],
+      "actions": {
+        "openOfficialSource": true,
+        "installFromCatalog": false,
+        "mutateExternalSystems": false
+      }
+    },
+    {
       "id": "free-claude-code-provider-router",
       "title": "Free Claude Code provider router",
       "url": "https://github.com/Alishahryar1/free-claude-code",
@@ -1845,6 +2784,76 @@
           "kind": "license",
           "label": "Official MIT license",
           "url": "https://github.com/Alishahryar1/free-claude-code/blob/main/LICENSE"
+        }
+      ],
+      "actions": {
+        "openOfficialSource": true,
+        "installFromCatalog": false,
+        "mutateExternalSystems": false
+      }
+    },
+    {
+      "id": "freebeat-media-scene-plan-reference",
+      "title": "Freebeat — beat map and scene plan reference",
+      "url": "https://freebeat.ai/",
+      "type": "tool",
+      "category": "Voice & Audio",
+      "subcategory": "Music-to-video planning",
+      "addedAt": "2026-09-01",
+      "description": "Cloud product reference for converting music into video-oriented structure. Eclipse Media should reproduce only the safe product idea: rights-cleared audio becomes a local beat map, section and energy analysis, then an editable scene plan. It must not add downloaders, DRM bypass or automatic publication.",
+      "useCases": [
+        "Prototype music-to-beat-map analysis in Eclipse Media",
+        "Generate an editable plan of scenes and transitions",
+        "Export a rights-aware montage plan for later rendering"
+      ],
+      "platforms": [
+        "Web",
+        "Cloud AI",
+        "Media generation"
+      ],
+      "license": {
+        "label": "Proprietary service and output terms; user media and generated assets require separate rights verification",
+        "original": "Proprietary service and output terms; user media and generated assets require separate rights verification",
+        "spdx": null,
+        "kind": "service-terms",
+        "status": "editor-reviewed",
+        "requiresReview": false,
+        "evidence": [
+          {
+            "kind": "source",
+            "label": "Official Freebeat product",
+            "url": "https://freebeat.ai/"
+          },
+          {
+            "kind": "privacy",
+            "label": "Official Freebeat privacy policy",
+            "url": "https://freebeat.ai/privacy-policy"
+          }
+        ]
+      },
+      "access": {
+        "cost": "freemium",
+        "signup": "required",
+        "runtime": "cloud"
+      },
+      "trust": "official",
+      "decision": "roadmap",
+      "riskLevel": "high",
+      "projects": [
+        "Eclipse Media",
+        "Eclipse Creative",
+        "Eclipse Library"
+      ],
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://freebeat.ai/"
+        },
+        {
+          "kind": "privacy",
+          "label": "Official Freebeat privacy policy",
+          "url": "https://freebeat.ai/privacy-policy"
         }
       ],
       "actions": {
@@ -2221,6 +3230,79 @@
       }
     },
     {
+      "id": "hailuo-image-to-video-consent-gated-pilot",
+      "title": "Hailuo AI: consent-gated image-to-video pilot",
+      "url": "https://hailuoai.video/create/image-to-video",
+      "type": "reference",
+      "category": "Video & Media",
+      "subcategory": "Cloud image-to-video providers",
+      "addedAt": "2026-09-01",
+      "description": "Облачный image-to-video генератор: принимает изображение и motion/camera prompt, затем выдаёт видео. Для Eclipse Media годится только как необязательный vendor pilot на собственных или явно разрешённых материалах; privacy, retention, commercial rights и условия плана проверяются до каждой рабочей интеграции.",
+      "useCases": [
+        "Сравнить image-to-video providers",
+        "Создать короткий motion study из first-party art",
+        "Проверить provider provenance contract"
+      ],
+      "platforms": [
+        "Web"
+      ],
+      "license": {
+        "label": "Proprietary SaaS; права на inputs/outputs, retention и commercial use определяются действующими Terms, Privacy Policy и планом",
+        "original": "Proprietary SaaS; права на inputs/outputs, retention и commercial use определяются действующими Terms, Privacy Policy и планом",
+        "spdx": null,
+        "kind": "service-terms",
+        "status": "editor-reviewed",
+        "requiresReview": false,
+        "evidence": [
+          {
+            "kind": "source",
+            "label": "Official image-to-video tool",
+            "url": "https://hailuoai.video/tools/image-to-video"
+          },
+          {
+            "kind": "terms",
+            "label": "Official privacy policy",
+            "url": "https://hailuoai.video/doc/privacy-policy.html"
+          }
+        ]
+      },
+      "access": {
+        "cost": "unknown",
+        "signup": "optional",
+        "runtime": "cloud"
+      },
+      "trust": "official",
+      "decision": "roadmap",
+      "riskLevel": "high",
+      "projects": [
+        "Eclipse Media",
+        "Eclipse AI Hub",
+        "Eclipse Library"
+      ],
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://hailuoai.video/create/image-to-video"
+        },
+        {
+          "kind": "source",
+          "label": "Official image-to-video tool",
+          "url": "https://hailuoai.video/tools/image-to-video"
+        },
+        {
+          "kind": "terms",
+          "label": "Official privacy policy",
+          "url": "https://hailuoai.video/doc/privacy-policy.html"
+        }
+      ],
+      "actions": {
+        "openOfficialSource": true,
+        "installFromCatalog": false,
+        "mutateExternalSystems": false
+      }
+    },
+    {
       "id": "hapi-remote-agent-control",
       "title": "HAPI",
       "url": "https://hapi.run/",
@@ -2347,6 +3429,74 @@
           "kind": "official-source",
           "label": "Официальный источник",
           "url": "https://www.happyshrimp.ai/"
+        }
+      ],
+      "actions": {
+        "openOfficialSource": true,
+        "installFromCatalog": false,
+        "mutateExternalSystems": false
+      }
+    },
+    {
+      "id": "heroui-chat-controlled-ui-export-reference",
+      "title": "HeroUI Chat: controlled UI export reference",
+      "url": "https://heroui.chat/",
+      "type": "reference",
+      "category": "Design & Frontend",
+      "subcategory": "Prompt-to-interface builders",
+      "addedAt": "2026-09-01",
+      "description": "Prompt/screenshot-to-React interface builder around HeroUI with live preview and export-oriented workflows. Для Eclipse Forge и Animation Lab это дизайн-песочница: exported files входят в наш repository, используют разрешённые OSS components и проходят dependency, license, accessibility, responsive, reduced-motion и behavior review.",
+      "useCases": [
+        "Прототипировать экран по brief или screenshot",
+        "Сравнить UI variations",
+        "Экспортировать React/Tailwind prototype"
+      ],
+      "platforms": [
+        "Web"
+      ],
+      "license": {
+        "label": "Service and Pro components have separate terms; HeroUI OSS components follow their repository license and every export dependency must be checked",
+        "original": "Service and Pro components have separate terms; HeroUI OSS components follow their repository license and every export dependency must be checked",
+        "spdx": null,
+        "kind": "service-terms",
+        "status": "editor-reviewed",
+        "requiresReview": false,
+        "evidence": [
+          {
+            "kind": "source",
+            "label": "Official HeroUI Chat",
+            "url": "https://heroui.chat/"
+          },
+          {
+            "kind": "source",
+            "label": "Official HeroUI MCP documentation",
+            "url": "https://heroui.pro/docs/react/getting-started/mcp-server"
+          }
+        ]
+      },
+      "access": {
+        "cost": "unknown",
+        "signup": "optional",
+        "runtime": "cloud"
+      },
+      "trust": "official",
+      "decision": "roadmap",
+      "riskLevel": "high",
+      "projects": [
+        "Eclipse Forge",
+        "Animation Lab",
+        "Eclipse Library"
+      ],
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://heroui.chat/"
+        },
+        {
+          "kind": "source",
+          "label": "Official HeroUI MCP documentation",
+          "url": "https://heroui.pro/docs/react/getting-started/mcp-server"
         }
       ],
       "actions": {
@@ -2513,6 +3663,144 @@
           "kind": "license",
           "label": "Official Apache-2.0 license",
           "url": "https://github.com/Intelligent-Internet/ii-agent/blob/main/LICENSE"
+        }
+      ],
+      "actions": {
+        "openOfficialSource": true,
+        "installFromCatalog": false,
+        "mutateExternalSystems": false
+      }
+    },
+    {
+      "id": "kemono-rejected-content-source",
+      "title": "Kemono: rejected creator-content source",
+      "url": "https://kemono.cr/",
+      "type": "reference",
+      "category": "Video & Media",
+      "subcategory": "Rejected content acquisition",
+      "addedAt": "2026-09-01",
+      "description": "Неофициальный агрегатор и зеркало creator/paywalled content. Eclipse не использует его для поиска assets, scraping, downloads, model datasets или media references: наличие файла в публичном интерфейсе не подтверждает авторство, согласие, лицензию или право на повторное использование.",
+      "useCases": [
+        "Зафиксировать deny decision",
+        "Не допустить повторного добавления как media provider"
+      ],
+      "platforms": [
+        "Web"
+      ],
+      "license": {
+        "label": "No reliable rights chain for aggregated content; not approved for Eclipse use",
+        "original": "No reliable rights chain for aggregated content; not approved for Eclipse use",
+        "spdx": null,
+        "kind": "custom",
+        "status": "editor-reviewed",
+        "requiresReview": false,
+        "evidence": [
+          {
+            "kind": "source",
+            "label": "Submitted public site",
+            "url": "https://kemono.cr/"
+          },
+          {
+            "kind": "decision",
+            "label": "Eclipse rights and provenance gate",
+            "url": "https://artlist.io/help-center/privacy-terms/artlist-license/"
+          }
+        ]
+      },
+      "access": {
+        "cost": "unknown",
+        "signup": "optional",
+        "runtime": "cloud"
+      },
+      "trust": "unknown",
+      "decision": "reference",
+      "riskLevel": "high",
+      "projects": [
+        "Eclipse Media",
+        "Eclipse Library"
+      ],
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://kemono.cr/"
+        },
+        {
+          "kind": "decision",
+          "label": "Eclipse rights and provenance gate",
+          "url": "https://artlist.io/help-center/privacy-terms/artlist-license/"
+        }
+      ],
+      "actions": {
+        "openOfficialSource": true,
+        "installFromCatalog": false,
+        "mutateExternalSystems": false
+      }
+    },
+    {
+      "id": "kohya-ss-isolated-gpu-training-reference",
+      "title": "kohya_ss: isolated diffusion training workbench",
+      "url": "https://github.com/bmaltais/kohya_ss",
+      "type": "oss",
+      "category": "AI & Data",
+      "subcategory": "Diffusion training and LoRA",
+      "addedAt": "2026-09-01",
+      "description": "Активный Apache-2.0 GUI/CLI workbench для LoRA, DreamBooth, finetune и других diffusion training flows. Eclipse может использовать его только на отдельном GPU worker с pinned commits/models, first-party или consented dataset manifest, quotas и sample review; текущий малый production VPS для этого не подходит.",
+      "useCases": [
+        "Обучить экспериментальную LoRA на first-party art",
+        "Сравнить dataset captions",
+        "Проверить isolated GPU job contract"
+      ],
+      "platforms": [
+        "Python",
+        "PyTorch",
+        "CUDA",
+        "Windows",
+        "Linux"
+      ],
+      "license": {
+        "label": "Apache-2.0",
+        "original": "Apache-2.0 repository code; base models, datasets, adapters and outputs retain independent licenses and rights",
+        "spdx": "Apache-2.0",
+        "kind": "open-source",
+        "status": "editor-reviewed",
+        "requiresReview": false,
+        "evidence": [
+          {
+            "kind": "source",
+            "label": "Canonical repository",
+            "url": "https://github.com/bmaltais/kohya_ss"
+          },
+          {
+            "kind": "license",
+            "label": "Repository Apache-2.0 license",
+            "url": "https://github.com/bmaltais/kohya_ss/blob/master/LICENSE.md"
+          }
+        ]
+      },
+      "access": {
+        "cost": "free",
+        "signup": "none",
+        "runtime": "local"
+      },
+      "trust": "community",
+      "decision": "roadmap",
+      "riskLevel": "high",
+      "projects": [
+        "Eclipse Media",
+        "Eclipse AI Hub",
+        "Eclipse Library"
+      ],
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://github.com/bmaltais/kohya_ss"
+        },
+        {
+          "kind": "license",
+          "label": "Repository Apache-2.0 license",
+          "url": "https://github.com/bmaltais/kohya_ss/blob/master/LICENSE.md"
         }
       ],
       "actions": {
@@ -2813,6 +4101,72 @@
       }
     },
     {
+      "id": "loki-build-discontinued-design-reference",
+      "title": "Loki Build: discontinued visual-builder reference",
+      "url": "https://app.loki.build/",
+      "type": "reference",
+      "category": "Design & Frontend",
+      "subcategory": "Discontinued AI website builders",
+      "addedAt": "2026-09-01",
+      "description": "AI-native visual website builder for prompt/brief-to-landing, branding, publishing and SEO. The product has been publicly described by its founder as shut down, so Eclipse keeps only historical UX observations; it is not a dependency, integration target or recommended place for new projects.",
+      "useCases": [
+        "Review historical visual-builder UX",
+        "Avoid planning an integration with a discontinued service"
+      ],
+      "platforms": [
+        "Web"
+      ],
+      "license": {
+        "label": "Discontinued proprietary SaaS; no reusable code or asset license established",
+        "original": "Discontinued proprietary SaaS; no reusable code or asset license established",
+        "spdx": null,
+        "kind": "service-terms",
+        "status": "editor-reviewed",
+        "requiresReview": false,
+        "evidence": [
+          {
+            "kind": "source",
+            "label": "Submitted application",
+            "url": "https://app.loki.build/"
+          },
+          {
+            "kind": "status",
+            "label": "Founder shutdown announcement",
+            "url": "https://www.linkedin.com/posts/nikita-sorokin40_introducing-silow-it-shows-you-exactly-where-activity-7481368512872046592-ctw1"
+          }
+        ]
+      },
+      "access": {
+        "cost": "unknown",
+        "signup": "optional",
+        "runtime": "cloud"
+      },
+      "trust": "official",
+      "decision": "reference",
+      "riskLevel": "high",
+      "projects": [
+        "Eclipse Forge",
+        "Eclipse Library"
+      ],
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://app.loki.build/"
+        },
+        {
+          "kind": "status",
+          "label": "Founder shutdown announcement",
+          "url": "https://www.linkedin.com/posts/nikita-sorokin40_introducing-silow-it-shows-you-exactly-where-activity-7481368512872046592-ctw1"
+        }
+      ],
+      "actions": {
+        "openOfficialSource": true,
+        "installFromCatalog": false,
+        "mutateExternalSystems": false
+      }
+    },
+    {
       "id": "magnitude-local-model-agent",
       "title": "Magnitude",
       "url": "https://github.com/magnitudedev/magnitude",
@@ -3023,6 +4377,74 @@
           "kind": "license",
           "label": "Official MIT license",
           "url": "https://github.com/moeru-ai/airi/blob/main/LICENSE"
+        }
+      ],
+      "actions": {
+        "openOfficialSource": true,
+        "installFromCatalog": false,
+        "mutateExternalSystems": false
+      }
+    },
+    {
+      "id": "nekoray-archived-network-tool-reference",
+      "title": "NekoRay: archived network tool reference",
+      "url": "https://github.com/MatsuriDayo/nekoray",
+      "type": "oss",
+      "category": "Infrastructure & Security",
+      "subcategory": "Archived network tooling",
+      "addedAt": "2026-09-01",
+      "description": "Архивированный и не поддерживаемый GUI для proxy configurations. Он остаётся в Library только как отрицательное maintenance-свидетельство: network/security client без обновлений нельзя делать production dependency. Для легитимных задач Eclipse использует поддерживаемые official WireGuard/sing-box paths с review и audit.",
+      "useCases": [
+        "Record archived status",
+        "Prevent use as a production network client"
+      ],
+      "platforms": [
+        "Desktop",
+        "Windows",
+        "Linux"
+      ],
+      "license": {
+        "label": "GPL-3.0",
+        "original": "GPL-3.0 repository, archived and unmaintained",
+        "spdx": "GPL-3.0",
+        "kind": "open-source",
+        "status": "editor-reviewed",
+        "requiresReview": false,
+        "evidence": [
+          {
+            "kind": "source",
+            "label": "Canonical archived repository",
+            "url": "https://github.com/MatsuriDayo/nekoray"
+          },
+          {
+            "kind": "license",
+            "label": "Repository license",
+            "url": "https://github.com/MatsuriDayo/nekoray/blob/main/LICENSE"
+          }
+        ]
+      },
+      "access": {
+        "cost": "free",
+        "signup": "none",
+        "runtime": "local"
+      },
+      "trust": "community",
+      "decision": "reference",
+      "riskLevel": "high",
+      "projects": [
+        "Eclipse Sentinel",
+        "Eclipse Library"
+      ],
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://github.com/MatsuriDayo/nekoray"
+        },
+        {
+          "kind": "license",
+          "label": "Repository license",
+          "url": "https://github.com/MatsuriDayo/nekoray/blob/main/LICENSE"
         }
       ],
       "actions": {
@@ -3251,6 +4673,79 @@
           "kind": "license",
           "label": "Official AGPL-3.0 license",
           "url": "https://github.com/calesthio/OpenMontage/blob/main/LICENSE"
+        }
+      ],
+      "actions": {
+        "openOfficialSource": true,
+        "installFromCatalog": false,
+        "mutateExternalSystems": false
+      }
+    },
+    {
+      "id": "openspot-local-audio-shelf-reference",
+      "title": "OpenSpot: local audio shelf UX reference",
+      "url": "https://github.com/BlackHatDevX/openspot-music-app",
+      "type": "oss",
+      "category": "Voice & Audio",
+      "subcategory": "Local library, queue and offline playback",
+      "addedAt": "2026-09-01",
+      "description": "MIT-licensed React Native and Tauri music application with cross-platform playback, playlists, offline state and a compact player. Eclipse Media can reuse product patterns for a rights-cleared local audio shelf, persistent queue and background job feedback, but must not copy or adopt third-party stream extraction and download behavior.",
+      "useCases": [
+        "Build a local audio shelf for user-owned and licensed media",
+        "Add persistent queue, mini-player and background download state to Eclipse Media",
+        "Improve offline, retry and interrupted-job recovery UX"
+      ],
+      "platforms": [
+        "Android",
+        "iOS",
+        "Windows",
+        "macOS",
+        "Linux",
+        "React Native",
+        "Tauri"
+      ],
+      "license": {
+        "label": "MIT",
+        "original": "MIT for repository code; music, metadata, APIs and source services retain separate rights and terms",
+        "spdx": "MIT",
+        "kind": "open-source",
+        "status": "editor-reviewed",
+        "requiresReview": false,
+        "evidence": [
+          {
+            "kind": "license",
+            "label": "Repository MIT license",
+            "url": "https://github.com/BlackHatDevX/openspot-music-app/blob/main/LICENSE"
+          },
+          {
+            "kind": "source",
+            "label": "Official public repository",
+            "url": "https://github.com/BlackHatDevX/openspot-music-app"
+          }
+        ]
+      },
+      "access": {
+        "cost": "free",
+        "signup": "none",
+        "runtime": "local"
+      },
+      "trust": "community",
+      "decision": "roadmap",
+      "riskLevel": "high",
+      "projects": [
+        "Eclipse Media",
+        "Eclipse Library"
+      ],
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://github.com/BlackHatDevX/openspot-music-app"
+        },
+        {
+          "kind": "license",
+          "label": "Repository MIT license",
+          "url": "https://github.com/BlackHatDevX/openspot-music-app/blob/main/LICENSE"
         }
       ],
       "actions": {
@@ -3564,6 +5059,73 @@
       }
     },
     {
+      "id": "phantombuster-compliance-gated-growth-reference",
+      "title": "PhantomBuster: compliance-gated outreach reference",
+      "url": "https://phantombuster.com/",
+      "type": "reference",
+      "category": "Business & Growth",
+      "subcategory": "Prospecting and outreach automation",
+      "addedAt": "2026-09-01",
+      "description": "Коммерческая prospecting/scraping/outreach automation для социальных и business platforms. Growth OS не превращает её в общий scraper: допустим только отдельный compliance-reviewed experiment с разрешённой интеграцией, lawful basis, data minimization, suppression/unsubscribe, rate limits и human approval перед каждым внешним сообщением.",
+      "useCases": [
+        "Спроектировать outreach approval ledger",
+        "Оценить compliance controls",
+        "Проверить suppression and rate-limit UX"
+      ],
+      "platforms": [
+        "Web"
+      ],
+      "license": {
+        "label": "Proprietary SaaS; platform terms, privacy law, anti-spam rules and data-provider terms all apply independently",
+        "original": "Proprietary SaaS; platform terms, privacy law, anti-spam rules and data-provider terms all apply independently",
+        "spdx": null,
+        "kind": "service-terms",
+        "status": "editor-reviewed",
+        "requiresReview": false,
+        "evidence": [
+          {
+            "kind": "source",
+            "label": "Official PhantomBuster website",
+            "url": "https://phantombuster.com/"
+          },
+          {
+            "kind": "terms",
+            "label": "Official terms",
+            "url": "https://phantombuster.com/terms"
+          }
+        ]
+      },
+      "access": {
+        "cost": "unknown",
+        "signup": "optional",
+        "runtime": "cloud"
+      },
+      "trust": "official",
+      "decision": "reference",
+      "riskLevel": "high",
+      "projects": [
+        "Growth OS",
+        "Eclipse Library"
+      ],
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://phantombuster.com/"
+        },
+        {
+          "kind": "terms",
+          "label": "Official terms",
+          "url": "https://phantombuster.com/terms"
+        }
+      ],
+      "actions": {
+        "openOfficialSource": true,
+        "installFromCatalog": false,
+        "mutateExternalSystems": false
+      }
+    },
+    {
       "id": "plausible-privacy-first-analytics",
       "title": "Plausible Analytics",
       "url": "https://github.com/plausible/analytics",
@@ -3631,6 +5193,75 @@
           "kind": "license",
           "label": "Official AGPL-3.0 license",
           "url": "https://github.com/plausible/analytics/blob/master/LICENSE.md"
+        }
+      ],
+      "actions": {
+        "openOfficialSource": true,
+        "installFromCatalog": false,
+        "mutateExternalSystems": false
+      }
+    },
+    {
+      "id": "playtorrio-rejected-media-source",
+      "title": "PlayTorrio: quarantined source, approved clean-room UX reference",
+      "url": "https://playtorrio.pages.dev/",
+      "type": "reference",
+      "category": "Video & Media",
+      "subcategory": "Rejected content acquisition",
+      "addedAt": "2026-09-01",
+      "description": "PlayTorrio remains a rejected media source, but its generic product mechanics are useful as a clean-room UX reference: searchable local shelf, visible queue, resumable work and progress states. Eclipse Media reimplements those ideas independently for user-owned and licensed files; it does not reuse the source code, torrent, scraper, IPTV or Debrid paths.",
+      "useCases": [
+        "Rebuild a clean-room local media shelf",
+        "Design visible queue, progress and resumable workflow states",
+        "Prevent accidental re-evaluation as an approved content provider"
+      ],
+      "platforms": [
+        "Flutter",
+        "Android",
+        "Windows"
+      ],
+      "license": {
+        "label": "GPL-3.0",
+        "original": "GPL-3.0 repository code; media, streams and third-party services retain independent rights and terms",
+        "spdx": "GPL-3.0",
+        "kind": "open-source",
+        "status": "editor-reviewed",
+        "requiresReview": false,
+        "evidence": [
+          {
+            "kind": "source",
+            "label": "Official project website",
+            "url": "https://playtorrio.pages.dev/"
+          },
+          {
+            "kind": "license",
+            "label": "Canonical repository and GPL-3.0 label",
+            "url": "https://github.com/ayman708-UX/PlayTorrioV3"
+          }
+        ]
+      },
+      "access": {
+        "cost": "free",
+        "signup": "optional",
+        "runtime": "local"
+      },
+      "trust": "community",
+      "decision": "reference",
+      "riskLevel": "high",
+      "projects": [
+        "Eclipse Media",
+        "Eclipse Library"
+      ],
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://playtorrio.pages.dev/"
+        },
+        {
+          "kind": "license",
+          "label": "Canonical repository and GPL-3.0 label",
+          "url": "https://github.com/ayman708-UX/PlayTorrioV3"
         }
       ],
       "actions": {
@@ -3797,6 +5428,77 @@
       }
     },
     {
+      "id": "react-bits-animation-lab-reference",
+      "title": "React Bits — selective Animation Lab reference",
+      "url": "https://github.com/DavidHDev/react-bits",
+      "type": "oss",
+      "category": "Design & UI",
+      "subcategory": "React animation patterns",
+      "addedAt": "2026-09-01",
+      "description": "Большая коллекция React-анимаций полезна как очередь кандидатов для Animation Lab, но не должна перепубликовываться целиком. Каждый эффект проходит отдельную проверку лицензии, accessibility, reduced motion, bundle impact и стабильных 60 FPS; при сомнении поведение реализуется заново в дизайн-системе Eclipse.",
+      "useCases": [
+        "Добавить отдельные showcase в Animation Lab",
+        "Сравнивать text, background и interaction effects",
+        "Создать performance и accessibility gate для UI-анимаций"
+      ],
+      "platforms": [
+        "React",
+        "TypeScript",
+        "JavaScript",
+        "Web"
+      ],
+      "license": {
+        "label": "MIT with Commons Clause restrictions; item-level review required before reuse or redistribution",
+        "original": "MIT with Commons Clause restrictions; item-level review required before reuse or redistribution",
+        "spdx": null,
+        "kind": "custom",
+        "status": "editor-reviewed",
+        "requiresReview": false,
+        "evidence": [
+          {
+            "kind": "license",
+            "label": "Official repository license",
+            "url": "https://github.com/DavidHDev/react-bits/blob/main/LICENSE"
+          },
+          {
+            "kind": "source",
+            "label": "Official repository",
+            "url": "https://github.com/DavidHDev/react-bits"
+          }
+        ]
+      },
+      "access": {
+        "cost": "free",
+        "signup": "none",
+        "runtime": "local"
+      },
+      "trust": "community",
+      "decision": "now",
+      "riskLevel": "medium",
+      "projects": [
+        "Eclipse Animation Lab",
+        "Eclipse Library",
+        "Eclipse Forge"
+      ],
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://github.com/DavidHDev/react-bits"
+        },
+        {
+          "kind": "license",
+          "label": "Official repository license",
+          "url": "https://github.com/DavidHDev/react-bits/blob/main/LICENSE"
+        }
+      ],
+      "actions": {
+        "openOfficialSource": true,
+        "installFromCatalog": false,
+        "mutateExternalSystems": false
+      }
+    },
+    {
       "id": "render-free-demo-hosting",
       "title": "Render Free Resources",
       "url": "https://render.com/",
@@ -3864,6 +5566,148 @@
           "kind": "terms",
           "label": "Official workspace plan limits",
           "url": "https://render.com/docs/new-workspace-plans"
+        }
+      ],
+      "actions": {
+        "openOfficialSource": true,
+        "installFromCatalog": false,
+        "mutateExternalSystems": false
+      }
+    },
+    {
+      "id": "replit-agent-checkpoint-workflow-reference",
+      "title": "Replit Agent: checkpoint and rollback workflow reference",
+      "url": "https://replit.com/",
+      "type": "reference",
+      "category": "Developer Tools",
+      "subcategory": "Cloud AI coding workspaces",
+      "addedAt": "2026-09-01",
+      "description": "Облачная IDE и AI Agent builder с plan/build flow, checkpoints, application history, rollback, imports и security tooling. Eclipse Forge должен забрать видимые checkpoints, selective rollback и budget feedback, но внешний workspace остаётся sandbox: код экспортируется в наш Git и не получает production secrets или customer data.",
+      "useCases": [
+        "Спроектировать checkpoints и rollback",
+        "Показывать plan/build и cost before run",
+        "Импортировать внешний prototype в controlled review"
+      ],
+      "platforms": [
+        "Web"
+      ],
+      "license": {
+        "label": "Proprietary cloud service; exported code and dependencies keep their own licenses",
+        "original": "Proprietary cloud service; exported code and dependencies keep their own licenses",
+        "spdx": null,
+        "kind": "custom",
+        "status": "editor-reviewed",
+        "requiresReview": false,
+        "evidence": [
+          {
+            "kind": "source",
+            "label": "Official Agent documentation",
+            "url": "https://docs.replit.com/learn/build-with-agent"
+          },
+          {
+            "kind": "source",
+            "label": "Official import documentation",
+            "url": "https://docs.replit.com/build/import-from-providers"
+          }
+        ]
+      },
+      "access": {
+        "cost": "unknown",
+        "signup": "optional",
+        "runtime": "cloud"
+      },
+      "trust": "official",
+      "decision": "roadmap",
+      "riskLevel": "high",
+      "projects": [
+        "Eclipse Forge",
+        "Eclipse AI Hub",
+        "Eclipse Library"
+      ],
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://replit.com/"
+        },
+        {
+          "kind": "source",
+          "label": "Official Agent documentation",
+          "url": "https://docs.replit.com/learn/build-with-agent"
+        },
+        {
+          "kind": "source",
+          "label": "Official import documentation",
+          "url": "https://docs.replit.com/build/import-from-providers"
+        }
+      ],
+      "actions": {
+        "openOfficialSource": true,
+        "installFromCatalog": false,
+        "mutateExternalSystems": false
+      }
+    },
+    {
+      "id": "reve-2-0-app-reve-com",
+      "title": "Reve: internal image-provider reference",
+      "url": "https://app.reve.com/",
+      "type": "media",
+      "category": "Подборка Eclipse",
+      "subcategory": "Генерация изображений",
+      "addedAt": "2026-09-01",
+      "description": "Cloud image generator and API with strong layout/editing workflows. Eclipse may evaluate Reve as an internal Media/AI Hub provider under a declared use case, but must not expose one provider credential as a generic third-party gateway, resell or aggregate API access, or send sensitive input without retention and privacy review.",
+      "useCases": [
+        "Разобраться, подходит ли Reve 2.0 для вашей задачи",
+        "Проверить возможности на небольшом тестовом сценарии до интеграции"
+      ],
+      "platforms": [
+        "Web",
+        "API",
+        "Cloud"
+      ],
+      "license": {
+        "label": "Proprietary service and API agreement; credential sharing, resale, aggregation and third-party access are restricted",
+        "original": "Proprietary service and API agreement; credential sharing, resale, aggregation and third-party access are restricted",
+        "spdx": null,
+        "kind": "custom",
+        "status": "editor-reviewed",
+        "requiresReview": false,
+        "evidence": [
+          {
+            "kind": "source",
+            "label": "Official Reve application",
+            "url": "https://app.reve.com/"
+          },
+          {
+            "kind": "terms",
+            "label": "Official API agreement",
+            "url": "https://app.reve.com/terms/api"
+          }
+        ]
+      },
+      "access": {
+        "cost": "paid",
+        "signup": "required",
+        "runtime": "cloud"
+      },
+      "trust": "official",
+      "decision": "roadmap",
+      "riskLevel": "high",
+      "projects": [
+        "Eclipse Media",
+        "Eclipse AI Hub",
+        "Eclipse Library"
+      ],
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://app.reve.com/"
+        },
+        {
+          "kind": "terms",
+          "label": "Official API agreement",
+          "url": "https://app.reve.com/terms/api"
         }
       ],
       "actions": {
@@ -3944,6 +5788,216 @@
           "kind": "license",
           "label": "Repository Unlicense",
           "url": "https://github.com/mithi/robotics-coursework/blob/master/LICENSE"
+        }
+      ],
+      "actions": {
+        "openOfficialSource": true,
+        "installFromCatalog": false,
+        "mutateExternalSystems": false
+      }
+    },
+    {
+      "id": "rocket-new-growth-context-reference",
+      "title": "Rocket — persistent product context reference",
+      "url": "https://www.rocket.new/",
+      "type": "tool",
+      "category": "Growth & Marketing",
+      "subcategory": "Persistent context and competitive monitoring",
+      "addedAt": "2026-09-01",
+      "description": "AI product builder is useful to Growth OS as a product reference for persistent context and long-running work. The Eclipse version must store evidence, decisions, owners and expiry separately, preserve source snapshots, and require human approval before changing offers or messaging; it is not a licence to scrape competitors or trust stale agent memory.",
+      "useCases": [
+        "Build an evidence-backed context ledger in Growth OS",
+        "Maintain a competitor watchlist with dated source snapshots",
+        "Connect hypotheses, decisions and outcomes without losing history"
+      ],
+      "platforms": [
+        "Web",
+        "Cloud AI",
+        "Product development"
+      ],
+      "license": {
+        "label": "Proprietary service terms; generated code, external models and third-party assets retain separate conditions",
+        "original": "Proprietary service terms; generated code, external models and third-party assets retain separate conditions",
+        "spdx": null,
+        "kind": "service-terms",
+        "status": "editor-reviewed",
+        "requiresReview": false,
+        "evidence": [
+          {
+            "kind": "source",
+            "label": "Official Rocket product",
+            "url": "https://www.rocket.new/"
+          },
+          {
+            "kind": "privacy",
+            "label": "Official Rocket privacy policy",
+            "url": "https://www.rocket.new/privacy-policy"
+          }
+        ]
+      },
+      "access": {
+        "cost": "freemium",
+        "signup": "required",
+        "runtime": "cloud"
+      },
+      "trust": "official",
+      "decision": "reference",
+      "riskLevel": "high",
+      "projects": [
+        "Growth OS",
+        "Eclipse AI Hub",
+        "Eclipse Library"
+      ],
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://www.rocket.new/"
+        },
+        {
+          "kind": "privacy",
+          "label": "Official Rocket privacy policy",
+          "url": "https://www.rocket.new/privacy-policy"
+        }
+      ],
+      "actions": {
+        "openOfficialSource": true,
+        "installFromCatalog": false,
+        "mutateExternalSystems": false
+      }
+    },
+    {
+      "id": "seedbox-lite-rejected-torrent-reference",
+      "title": "seedbox-lite: rejected non-commercial torrent stack",
+      "url": "https://github.com/hotheadhacker/seedbox-lite",
+      "type": "oss",
+      "category": "Video & Media",
+      "subcategory": "Rejected content acquisition",
+      "addedAt": "2026-09-01",
+      "description": "Self-hosted torrent media center/seedbox with a custom non-commercial license. It is a poor fit for Eclipse Media both legally and operationally: torrent acquisition is not a rights chain, commercial reuse is restricted, and a network-facing downloader expands storage, malware, abuse and incident-response surface.",
+      "useCases": [
+        "Record exclusion decision",
+        "Prevent accidental production installation"
+      ],
+      "platforms": [
+        "Self-host",
+        "Web",
+        "Docker"
+      ],
+      "license": {
+        "label": "Custom non-commercial license; not approved for commercial Eclipse integration",
+        "original": "Custom non-commercial license; not approved for commercial Eclipse integration",
+        "spdx": null,
+        "kind": "service-terms",
+        "status": "editor-reviewed",
+        "requiresReview": false,
+        "evidence": [
+          {
+            "kind": "source",
+            "label": "Canonical repository",
+            "url": "https://github.com/hotheadhacker/seedbox-lite"
+          },
+          {
+            "kind": "license",
+            "label": "Repository license file",
+            "url": "https://github.com/hotheadhacker/seedbox-lite/blob/main/LICENSE"
+          }
+        ]
+      },
+      "access": {
+        "cost": "free",
+        "signup": "none",
+        "runtime": "self-host"
+      },
+      "trust": "community",
+      "decision": "reference",
+      "riskLevel": "high",
+      "projects": [
+        "Eclipse Media",
+        "Eclipse Library"
+      ],
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://github.com/hotheadhacker/seedbox-lite"
+        },
+        {
+          "kind": "license",
+          "label": "Repository license file",
+          "url": "https://github.com/hotheadhacker/seedbox-lite/blob/main/LICENSE"
+        }
+      ],
+      "actions": {
+        "openOfficialSource": true,
+        "installFromCatalog": false,
+        "mutateExternalSystems": false
+      }
+    },
+    {
+      "id": "taggui-local-dataset-curation-reference",
+      "title": "TagGUI: isolated local dataset curation reference",
+      "url": "https://github.com/jhc13/taggui",
+      "type": "oss",
+      "category": "AI & Data",
+      "subcategory": "Image dataset curation",
+      "addedAt": "2026-09-01",
+      "description": "Cross-platform desktop GUI для local image dataset tagging, captions, batch tag operations и token counting. Полезен как отдельный Eclipse Media Dataset Lab process для собственных или consented assets; GPL-3.0 не позволяет бездумно переносить код в закрытый продукт, а captions и models требуют provenance и review.",
+      "useCases": [
+        "Подготовить captions и tags локально",
+        "Провести batch review image dataset",
+        "Создать dataset manifest для LoRA experiments"
+      ],
+      "platforms": [
+        "Windows",
+        "Linux",
+        "macOS",
+        "Python",
+        "Desktop"
+      ],
+      "license": {
+        "label": "GPL-3.0",
+        "original": "GPL-3.0; keep as a separate process/reference unless a compliance decision approves distribution obligations",
+        "spdx": "GPL-3.0",
+        "kind": "open-source",
+        "status": "editor-reviewed",
+        "requiresReview": false,
+        "evidence": [
+          {
+            "kind": "source",
+            "label": "Canonical repository",
+            "url": "https://github.com/jhc13/taggui"
+          },
+          {
+            "kind": "license",
+            "label": "Repository GPL-3.0 license",
+            "url": "https://github.com/jhc13/taggui/blob/main/LICENSE"
+          }
+        ]
+      },
+      "access": {
+        "cost": "free",
+        "signup": "none",
+        "runtime": "local"
+      },
+      "trust": "community",
+      "decision": "roadmap",
+      "riskLevel": "high",
+      "projects": [
+        "Eclipse Media",
+        "Eclipse AI Hub",
+        "Eclipse Library"
+      ],
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://github.com/jhc13/taggui"
+        },
+        {
+          "kind": "license",
+          "label": "Repository GPL-3.0 license",
+          "url": "https://github.com/jhc13/taggui/blob/main/LICENSE"
         }
       ],
       "actions": {
@@ -4150,6 +6204,207 @@
           "kind": "license",
           "label": "Official asset license notes",
           "url": "https://github.com/MengTo/threeui/blob/main/ASSET-LICENSES.md"
+        }
+      ],
+      "actions": {
+        "openOfficialSource": true,
+        "installFromCatalog": false,
+        "mutateExternalSystems": false
+      }
+    },
+    {
+      "id": "toolfolio-discovery-feed-reference",
+      "title": "Toolfolio: untrusted AI-tool discovery feed",
+      "url": "https://toolfolio.com/ai",
+      "type": "reference",
+      "category": "Research & Discovery",
+      "subcategory": "Tool directories",
+      "addedAt": "2026-09-01",
+      "description": "Каталог AI-инструментов, полезный для первичного обнаружения сервисов, но не являющийся доказательством владельца, лицензии, безопасности, цены или актуальности. Library может принимать из него только candidate URL в карантинную очередь, после чего всё перепроверяется по первичному источнику.",
+      "useCases": [
+        "Находить кандидатов для Library intake",
+        "Собирать темы рынка без автоматической установки"
+      ],
+      "platforms": [
+        "Web"
+      ],
+      "license": {
+        "label": "Directory terms apply; linked tools keep independent licenses, owners and privacy policies",
+        "original": "Directory terms apply; linked tools keep independent licenses, owners and privacy policies",
+        "spdx": null,
+        "kind": "service-terms",
+        "status": "editor-reviewed",
+        "requiresReview": false,
+        "evidence": [
+          {
+            "kind": "source",
+            "label": "Official directory",
+            "url": "https://toolfolio.com/ai"
+          },
+          {
+            "kind": "decision",
+            "label": "Eclipse verification guide",
+            "url": "https://toolfolio.com/"
+          }
+        ]
+      },
+      "access": {
+        "cost": "unknown",
+        "signup": "optional",
+        "runtime": "cloud"
+      },
+      "trust": "community",
+      "decision": "reference",
+      "riskLevel": "high",
+      "projects": [
+        "Eclipse Library",
+        "Growth OS"
+      ],
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://toolfolio.com/ai"
+        },
+        {
+          "kind": "decision",
+          "label": "Eclipse verification guide",
+          "url": "https://toolfolio.com/"
+        }
+      ],
+      "actions": {
+        "openOfficialSource": true,
+        "installFromCatalog": false,
+        "mutateExternalSystems": false
+      }
+    },
+    {
+      "id": "udemy-downloader-gui-rejected-content-tool",
+      "title": "Udemy Downloader GUI: rejected course acquisition tool",
+      "url": "https://github.com/heliomarpm/udemy-downloader-gui/",
+      "type": "oss",
+      "category": "Video & Media",
+      "subcategory": "Rejected content acquisition",
+      "addedAt": "2026-09-01",
+      "description": "GUI/fork для скачивания приобретённых Udemy courses. Даже если repository code имеет permissive license, это не выдаёт право обходить platform controls, DRM, course licensing или хранить чужой educational content в Eclipse Media. Интеграция и download behavior отклонены.",
+      "useCases": [
+        "Record exclusion decision",
+        "Prevent confusion between code license and content rights"
+      ],
+      "platforms": [
+        "Desktop",
+        "Python"
+      ],
+      "license": {
+        "label": "Repository code license does not grant rights to platform content or permission to bypass access controls",
+        "original": "Repository code license does not grant rights to platform content or permission to bypass access controls",
+        "spdx": null,
+        "kind": "custom",
+        "status": "editor-reviewed",
+        "requiresReview": false,
+        "evidence": [
+          {
+            "kind": "source",
+            "label": "Canonical repository",
+            "url": "https://github.com/heliomarpm/udemy-downloader-gui/"
+          },
+          {
+            "kind": "terms",
+            "label": "Udemy terms",
+            "url": "https://www.udemy.com/terms/"
+          }
+        ]
+      },
+      "access": {
+        "cost": "free",
+        "signup": "required",
+        "runtime": "local"
+      },
+      "trust": "community",
+      "decision": "reference",
+      "riskLevel": "high",
+      "projects": [
+        "Eclipse Media",
+        "Eclipse Library"
+      ],
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://github.com/heliomarpm/udemy-downloader-gui/"
+        },
+        {
+          "kind": "terms",
+          "label": "Udemy terms",
+          "url": "https://www.udemy.com/terms/"
+        }
+      ],
+      "actions": {
+        "openOfficialSource": true,
+        "installFromCatalog": false,
+        "mutateExternalSystems": false
+      }
+    },
+    {
+      "id": "unicorn-studio-motion-design-reference",
+      "title": "Unicorn Studio: interactive motion design reference",
+      "url": "https://www.unicorn.studio/",
+      "type": "reference",
+      "category": "Design & Frontend",
+      "subcategory": "Interactive web motion",
+      "addedAt": "2026-09-01",
+      "description": "Веб-редактор интерактивных animated scenes и embeds для сайтов. Полезен Animation Lab как референс authoring flow, timeline, responsive preview и производительного embed, но шаблоны, assets и exports остаются в границах действующего плана и лицензии и не копируются автоматически.",
+      "useCases": [
+        "Улучшить motion authoring в Animation Lab",
+        "Сравнить timeline и responsive preview",
+        "Оценить performance budget интерактивных scenes"
+      ],
+      "platforms": [
+        "Web"
+      ],
+      "license": {
+        "label": "Proprietary SaaS; reuse and export rights follow official Terms and selected plan",
+        "original": "Proprietary SaaS; reuse and export rights follow official Terms and selected plan",
+        "spdx": null,
+        "kind": "service-terms",
+        "status": "editor-reviewed",
+        "requiresReview": false,
+        "evidence": [
+          {
+            "kind": "source",
+            "label": "Official Unicorn Studio website",
+            "url": "https://www.unicorn.studio/"
+          },
+          {
+            "kind": "terms",
+            "label": "Official terms",
+            "url": "https://www.unicorn.studio/terms.pdf"
+          }
+        ]
+      },
+      "access": {
+        "cost": "unknown",
+        "signup": "optional",
+        "runtime": "cloud"
+      },
+      "trust": "official",
+      "decision": "reference",
+      "riskLevel": "high",
+      "projects": [
+        "Animation Lab",
+        "Eclipse Forge",
+        "Eclipse Library"
+      ],
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://www.unicorn.studio/"
+        },
+        {
+          "kind": "terms",
+          "label": "Official terms",
+          "url": "https://www.unicorn.studio/terms.pdf"
         }
       ],
       "actions": {
@@ -4451,6 +6706,88 @@
       }
     },
     {
+      "id": "wan22-animate-offline-provider-reference",
+      "title": "Wan2.2 Animate 14B: optional avatar motion worker",
+      "url": "https://huggingface.co/Wan-AI/Wan2.2-Animate-14B",
+      "type": "model",
+      "category": "Video & Media",
+      "subcategory": "Character animation and replacement",
+      "addedAt": "2026-09-01",
+      "description": "Official Apache-2.0 character animation and replacement model that accepts a source video plus character image. It is useful as an optional asynchronous worker for original Eclipse companion art and consented media, not as a browser dependency or VPS workload; downloads, GPU execution and generated outputs need pinned revisions, hashes, provenance and rights checks.",
+      "useCases": [
+        "Create offline motion studies for an original Eclipse companion",
+        "Offer character animation as an optional Eclipse Media provider",
+        "Generate reviewed short avatar clips from consented driving video"
+      ],
+      "platforms": [
+        "Python",
+        "PyTorch",
+        "CUDA",
+        "Hugging Face",
+        "ModelScope"
+      ],
+      "license": {
+        "label": "Apache-2.0",
+        "original": "Apache-2.0 model card and code surface; input and output rights remain the user's responsibility",
+        "spdx": "Apache-2.0",
+        "kind": "open-source",
+        "status": "editor-reviewed",
+        "requiresReview": false,
+        "evidence": [
+          {
+            "kind": "license",
+            "label": "Official Hugging Face Apache-2.0 model card",
+            "url": "https://huggingface.co/Wan-AI/Wan2.2-Animate-14B"
+          },
+          {
+            "kind": "source",
+            "label": "Official Wan2.2 repository",
+            "url": "https://github.com/Wan-Video/Wan2.2"
+          },
+          {
+            "kind": "source",
+            "label": "Official Wan web playground bookmark",
+            "url": "https://create.wan.video/"
+          }
+        ]
+      },
+      "access": {
+        "cost": "free",
+        "signup": "optional",
+        "runtime": "local"
+      },
+      "trust": "official",
+      "decision": "roadmap",
+      "riskLevel": "high",
+      "projects": [
+        "Eclipse Media",
+        "Eclipse AI Hub",
+        "Eclipse Library"
+      ],
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://huggingface.co/Wan-AI/Wan2.2-Animate-14B"
+        },
+        {
+          "kind": "source",
+          "label": "Official Wan2.2 repository",
+          "url": "https://github.com/Wan-Video/Wan2.2"
+        },
+        {
+          "kind": "source",
+          "label": "Official Wan web playground bookmark",
+          "url": "https://create.wan.video/"
+        }
+      ],
+      "actions": {
+        "openOfficialSource": true,
+        "installFromCatalog": false,
+        "mutateExternalSystems": false
+      }
+    },
+    {
       "id": "wangp-local-media-worker",
       "title": "WanGP (formerly Wan2GP)",
       "url": "https://github.com/deepbeepmeep/Wan2GP",
@@ -4660,6 +6997,75 @@
           "kind": "official-source",
           "label": "Официальный источник",
           "url": "https://www.youtube.com/watch?v=Uk7HHfF9n2Q"
+        }
+      ],
+      "actions": {
+        "openOfficialSource": true,
+        "installFromCatalog": false,
+        "mutateExternalSystems": false
+      }
+    },
+    {
+      "id": "wireguard-bot-archived-reference",
+      "title": "wireguard-bot: archived enrollment UX reference",
+      "url": "https://github.com/PheeZz/wireguard-bot",
+      "type": "oss",
+      "category": "Infrastructure & Security",
+      "subcategory": "Archived network tooling",
+      "addedAt": "2026-09-01",
+      "description": "Архивированный и явно не поддерживаемый Telegram-бот управления WireGuard с users, QR enrollment, connect/disconnect и payment flow. В production его не ставим и installer не запускаем; берём только абстрактный UX-паттерн short-lived enrollment, visible device list и immediate revoke для собственной поддерживаемой реализации.",
+      "useCases": [
+        "Спроектировать QR enrollment и revoke",
+        "Зафиксировать запрет на использование abandoned network admin code"
+      ],
+      "platforms": [
+        "Python",
+        "Telegram",
+        "WireGuard",
+        "PostgreSQL"
+      ],
+      "license": {
+        "label": "MIT",
+        "original": "MIT repository, archived and unmaintained; dependencies and installation scripts require independent review",
+        "spdx": "MIT",
+        "kind": "open-source",
+        "status": "editor-reviewed",
+        "requiresReview": false,
+        "evidence": [
+          {
+            "kind": "source",
+            "label": "Canonical archived repository",
+            "url": "https://github.com/PheeZz/wireguard-bot"
+          },
+          {
+            "kind": "license",
+            "label": "Repository license",
+            "url": "https://github.com/PheeZz/wireguard-bot/blob/master/LICENSE"
+          }
+        ]
+      },
+      "access": {
+        "cost": "free",
+        "signup": "none",
+        "runtime": "self-host"
+      },
+      "trust": "community",
+      "decision": "reference",
+      "riskLevel": "high",
+      "projects": [
+        "Eclipse Sentinel",
+        "Eclipse Library"
+      ],
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://github.com/PheeZz/wireguard-bot"
+        },
+        {
+          "kind": "license",
+          "label": "Repository license",
+          "url": "https://github.com/PheeZz/wireguard-bot/blob/master/LICENSE"
         }
       ],
       "actions": {
@@ -19899,64 +22305,6 @@
       }
     },
     {
-      "id": "anti-miner-github-com",
-      "title": "Anti-Miner",
-      "url": "https://github.com/Daiwv/Anti-Miner",
-      "type": "privacy",
-      "category": "Privacy / OPSEC",
-      "subcategory": "AppSec / Security tooling (defensive)",
-      "addedAt": null,
-      "description": "Anti-Miner — Windows · Поиск и удаление скрытых майнеров. Малоизвестный репо — проверять исходники, запускать в sandbox. Карточка помогает понять назначение ресурса и начать с небольшой безопасной проверки; условия использования ещё нужно сверить с официальным источником.",
-      "useCases": [
-        "Разобраться, подходит ли Anti-Miner для вашей задачи",
-        "Проверить возможности на небольшом тестовом сценарии до интеграции"
-      ],
-      "platforms": [
-        "Windows"
-      ],
-      "license": {
-        "label": "GPL-3.0",
-        "original": "Нужно проверить в официальном источнике",
-        "spdx": "GPL-3.0",
-        "kind": "open-source",
-        "status": "source-declared",
-        "requiresReview": false,
-        "evidence": [
-          {
-            "kind": "license",
-            "label": "GPL-3.0 license",
-            "url": "https://api.github.com/repos/daiwv/anti-miner/license"
-          }
-        ]
-      },
-      "access": {
-        "cost": "free",
-        "signup": "none",
-        "runtime": "local"
-      },
-      "trust": "community",
-      "decision": "reference",
-      "riskLevel": "medium",
-      "projects": [],
-      "evidence": [
-        {
-          "kind": "official-source",
-          "label": "Официальный источник",
-          "url": "https://github.com/Daiwv/Anti-Miner"
-        },
-        {
-          "kind": "license",
-          "label": "GPL-3.0 license",
-          "url": "https://api.github.com/repos/daiwv/anti-miner/license"
-        }
-      ],
-      "actions": {
-        "openOfficialSource": true,
-        "installFromCatalog": false,
-        "mutateExternalSystems": false
-      }
-    },
-    {
       "id": "minersearch-github-com",
       "title": "MinerSearch",
       "url": "https://github.com/BlendLog/MinerSearch",
@@ -25512,63 +27860,6 @@
           "kind": "license",
           "label": "Other license",
           "url": "https://api.github.com/repos/misolabsai/misotts/license"
-        }
-      ],
-      "actions": {
-        "openOfficialSource": true,
-        "installFromCatalog": false,
-        "mutateExternalSystems": false
-      }
-    },
-    {
-      "id": "reve-2-0-app-reve-com",
-      "title": "Reve 2.0",
-      "url": "https://app.reve.com/",
-      "type": "media",
-      "category": "Подборка Eclipse",
-      "subcategory": "Генерация изображений",
-      "addedAt": "2026-05-28",
-      "description": "Reve 2.0 — Layout-based генератор: представляет картинку как код/слои (у каждого элемента позиция+размер+описание) → каждый элемент addressable и редактируется отдельно. #2 на Text-to-Image Arena (03.06, 1280 — обошёл Nano Banana, уступил GPT Image 2), 4K/16MP под печать, ~$0.0067/img. Закрытый SaaS (не локально). Differentiator vs Nano Banana — точное…. Карточка помогает понять назначение ресурса и начать с небольшой безопасной проверки; условия использования ещё нужно сверить с официальным источником.",
-      "useCases": [
-        "Разобраться, подходит ли Reve 2.0 для вашей задачи",
-        "Проверить возможности на небольшом тестовом сценарии до интеграции"
-      ],
-      "platforms": [
-        "Self-host"
-      ],
-      "license": {
-        "label": "Нужно проверить в официальном источнике",
-        "original": "Нужно проверить в официальном источнике",
-        "spdx": null,
-        "kind": "unknown",
-        "status": "unverified",
-        "requiresReview": true,
-        "evidence": [
-          {
-            "kind": "official-source",
-            "label": "Официальный источник; точные условия ещё нужно сверить",
-            "url": "https://app.reve.com/"
-          }
-        ]
-      },
-      "access": {
-        "cost": "unknown",
-        "signup": "none",
-        "runtime": "self-host"
-      },
-      "trust": "unknown",
-      "decision": "reference",
-      "riskLevel": "medium",
-      "projects": [
-        "Eclipse AI Hub",
-        "Shotforge",
-        "Text2Image"
-      ],
-      "evidence": [
-        {
-          "kind": "official-source",
-          "label": "Официальный источник",
-          "url": "https://app.reve.com/"
         }
       ],
       "actions": {

@@ -7,7 +7,7 @@ const web = path.join(root, 'web');
 const manifest = JSON.parse(fs.readFileSync(path.join(web, 'animation-lab-manifest.json'), 'utf8'));
 const newDemos = manifest.demos.slice(11);
 
-assert.equal(newDemos.length, 19, 'the product-pattern intake must contain 19 scenes');
+assert.equal(newDemos.length, 22, 'the product-pattern intake must contain 22 scenes');
 
 for (const demo of newDemos) {
   const html = fs.readFileSync(path.join(web, demo.file), 'utf8');
@@ -43,6 +43,6 @@ assert.equal(manifestFiles.size, manifest.demos.length, 'manifest files must be 
 const workbench = fs.readFileSync(path.join(web, 'animations.html'), 'utf8');
 assert.equal((workbench.match(/id="demo-search"/g) || []).length, 1, 'workbench search must be rendered once');
 assert.equal((workbench.match(/id="demo-filters"/g) || []).length, 1, 'workbench filters must be rendered once');
-assert.equal((workbench.match(/animation-demos\.js\?v=7/g) || []).length, 1, 'demo catalog must be loaded once');
+assert.equal((workbench.match(/animation-demos\.js\?v=8/g) || []).length, 1, 'demo catalog must be loaded once');
 
 console.log(`Animation product-pattern checks passed for ${newDemos.length} scenes.`);

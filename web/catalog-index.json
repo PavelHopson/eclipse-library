@@ -1,20 +1,20 @@
 {
   "schemaVersion": 2,
-  "sourceHash": "f5fca751652e1600272a8b47a1ab83871ddb6722f474ea39bb7566509b396bfc",
+  "sourceHash": "3f8e21552206e40c4579153eea692d70ad5c512d7eb82d1756d0f404ccb5c6d2",
   "policy": {
     "canonicalSource": "catalog/resources.json",
     "directInstallForbidden": true,
     "greyResourcesExcludedFromAgentRecommendations": true
   },
   "totals": {
-    "all": 738,
-    "verified": 371,
-    "inferred": 367,
-    "licenseReviewRequired": 214,
-    "agentSafe": 644,
-    "agentExcluded": 94,
-    "grey": 86,
-    "withAddedAt": 458
+    "all": 771,
+    "verified": 406,
+    "inferred": 365,
+    "licenseReviewRequired": 213,
+    "agentSafe": 676,
+    "agentExcluded": 95,
+    "grey": 87,
+    "withAddedAt": 492
   },
   "items": [
     {
@@ -144,6 +144,146 @@
       }
     },
     {
+      "id": "500-ai-agents-recipe-catalog-reference",
+      "url": "https://github.com/ashishpatel26/500-AI-Agents-Projects",
+      "title": "500+ AI Agent Projects: recipe catalog reference",
+      "type": "oss",
+      "category": "AI Agents",
+      "subcategory": "Agent recipes and framework comparison",
+      "simpleDescription": "MIT-licensed catalog of agent use cases and runnable examples across LangGraph, CrewAI, AutoGen, Agno and LlamaIndex. Eclipse should ingest only reviewed metadata and architecture patterns, then rebuild selected recipes behind its own permission, provenance, evaluation and cost controls instead of installing hundreds of unknown agents.",
+      "useCases": [
+        "Create a curated recipe catalog in Eclipse AI Hub and Jarvis",
+        "Compare framework fit for stateful, collaborative and retrieval workflows",
+        "Seed defensive recipes for PII sanitization, memory guards and agent evaluation"
+      ],
+      "features": [
+        "500+ use cases",
+        "Runnable agent examples",
+        "Framework comparison",
+        "Industry catalog",
+        "MIT license"
+      ],
+      "platforms": [
+        "Python",
+        "LangGraph",
+        "CrewAI",
+        "AutoGen",
+        "Agno",
+        "LlamaIndex"
+      ],
+      "license": "MIT",
+      "licenseEvidence": [
+        {
+          "kind": "license",
+          "label": "Repository MIT license",
+          "url": "https://github.com/ashishpatel26/500-AI-Agents-Projects/blob/main/LICENSE"
+        },
+        {
+          "kind": "source",
+          "label": "Official public repository",
+          "url": "https://github.com/ashishpatel26/500-AI-Agents-Projects"
+        }
+      ],
+      "pricing": "Catalog access is free. Models, APIs and services used by individual examples can create separate costs and quotas.",
+      "access": {
+        "cost": "free",
+        "signup": "none",
+        "runtime": "local"
+      },
+      "trust": "community",
+      "trustReason": "Canonical repository, README and MIT license checked 01.09.2026. The collection links to many independently maintained projects, so no linked recipe inherits blanket approval.",
+      "projects": [
+        "Eclipse AI Hub",
+        "Jarvis",
+        "Growth OS",
+        "Eclipse Library"
+      ],
+      "decision": "now",
+      "riskLevel": "high",
+      "risks": [
+        "Individual agents can request broad tools, network access or secrets",
+        "Linked repositories and dependencies have independent licenses and supply-chain risk",
+        "Healthcare, finance and cybersecurity recipes can be unsafe without domain review",
+        "Examples can confuse demo quality with production reliability"
+      ],
+      "quickStart": [
+        "Import metadata only into a quarantine queue",
+        "Select five recipes with a named Eclipse owner and measurable outcome",
+        "Require license, dependency, tool-permission, data, evaluation and cost review before implementation"
+      ],
+      "limitations": [
+        "No bulk install",
+        "No inherited trust for linked projects",
+        "No autonomous production access",
+        "No sensitive data in evaluation fixtures"
+      ],
+      "audience": [
+        "Agent platform engineers",
+        "Product owners",
+        "Security reviewers",
+        "Evaluation engineers"
+      ],
+      "relatedTechnologies": [
+        "Agent recipes",
+        "Permission manifests",
+        "Evaluation",
+        "Provenance",
+        "Cost controls"
+      ],
+      "verifiedAt": "2026-09-01",
+      "addedAt": "2026-09-01",
+      "reviewStatus": "verified",
+      "guide": "september-2026-agent-architecture-companion-radar",
+      "source": {
+        "file": "catalog/resources.json",
+        "key": "500-ai-agents-recipe-catalog-reference",
+        "legacy": {
+          "file": "guides/september-2026-agent-architecture-companion-radar.md",
+          "line": 1,
+          "category": "Source verification",
+          "subcategory": "Agent recipes, architecture, audio UX and visual companions"
+        }
+      },
+      "catalogOrder": 1,
+      "licenseInfo": {
+        "label": "MIT",
+        "original": "MIT for repository content; every linked project, model, dataset and service keeps its own terms",
+        "spdx": "MIT",
+        "kind": "open-source",
+        "status": "editor-reviewed",
+        "requiresReview": false,
+        "evidence": [
+          {
+            "kind": "license",
+            "label": "Repository MIT license",
+            "url": "https://github.com/ashishpatel26/500-AI-Agents-Projects/blob/main/LICENSE"
+          },
+          {
+            "kind": "source",
+            "label": "Official public repository",
+            "url": "https://github.com/ashishpatel26/500-AI-Agents-Projects"
+          }
+        ]
+      },
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://github.com/ashishpatel26/500-AI-Agents-Projects"
+        },
+        {
+          "kind": "license",
+          "label": "Repository MIT license",
+          "url": "https://github.com/ashishpatel26/500-AI-Agents-Projects/blob/main/LICENSE"
+        }
+      ],
+      "agentEligibility": {
+        "eligible": true,
+        "reasons": [],
+        "installAllowed": false
+      }
+    },
+    {
       "id": "abacus-ai-agent-appllm",
       "url": "https://abacus.ai/pricing",
       "title": "Abacus.AI Agent and AppLLM",
@@ -259,6 +399,121 @@
           "kind": "source",
           "label": "Official AppLLM product page",
           "url": "https://appllm.abacus.ai/"
+        }
+      ],
+      "agentEligibility": {
+        "eligible": true,
+        "reasons": [],
+        "installAllowed": false
+      }
+    },
+    {
+      "type": "reference",
+      "features": [
+        "AI coworkers",
+        "Scheduled work",
+        "Business integrations",
+        "Human-in-the-loop"
+      ],
+      "platforms": [
+        "Web"
+      ],
+      "pricing": "Актуальные тарифы и квоты нужно проверять у владельца перед каждым production-пилотом.",
+      "access": {
+        "cost": "unknown",
+        "signup": "optional",
+        "runtime": "cloud"
+      },
+      "trust": "official",
+      "trustReason": "Primary official website, documentation, repository status and applicable license or terms were checked on 01.09.2026. No account connection, installer, model download, external upload or production integration was performed.",
+      "decision": "roadmap",
+      "riskLevel": "high",
+      "audience": [
+        "Product owners",
+        "Platform engineers",
+        "Security reviewers"
+      ],
+      "relatedTechnologies": [],
+      "id": "adaptive-ai-growth-action-ledger-reference",
+      "url": "https://adaptive.ai/",
+      "title": "Adaptive.ai: Growth OS action-ledger reference",
+      "category": "Business & Growth",
+      "subcategory": "AI coworkers and scheduled actions",
+      "simpleDescription": "SaaS AI coworkers for research, building, sales, follow-up and scheduled work with integrations. Growth OS should reproduce the safe product mechanics rather than delegate blindly: scoped OAuth, visible schedules, preview of external actions, per-action approval, audit ledger, cancellation and clear ownership.",
+      "useCases": [
+        "Design scheduled-agent UX",
+        "Add approval gates to external actions",
+        "Track OAuth scopes and action history"
+      ],
+      "license": "Proprietary SaaS; data processing, OAuth scopes and connector terms require contractual and security review",
+      "licenseEvidence": [
+        {
+          "kind": "source",
+          "label": "Official Adaptive AI site",
+          "url": "https://adaptive.ai/"
+        },
+        {
+          "kind": "source",
+          "label": "Official product security statements",
+          "url": "https://adaptive.ai/"
+        }
+      ],
+      "projects": [
+        "Growth OS",
+        "Eclipse AI Hub",
+        "Jarvis",
+        "Eclipse Library"
+      ],
+      "risks": [
+        "Broad OAuth can expose mail, code, billing and customer data",
+        "Scheduled actions can create silent external side effects",
+        "Agent errors can send messages or modify records"
+      ],
+      "quickStart": [
+        "Define action ledger and approval schema",
+        "Prototype with a fake connector and synthetic data",
+        "Require scoped token, preview, cancel and audit before real connector work"
+      ],
+      "limitations": [
+        "No broad OAuth",
+        "No silent external action",
+        "No customer data before DPA/security review"
+      ],
+      "verifiedAt": "2026-09-01",
+      "addedAt": "2026-09-01",
+      "reviewStatus": "verified",
+      "guide": "september-2026-forgotten-bookmarks-radar",
+      "source": {
+        "file": "catalog/resources.json",
+        "key": "adaptive-ai-growth-action-ledger-reference",
+        "legacy": {
+          "file": "guides/september-2026-forgotten-bookmarks-radar.md",
+          "line": 1,
+          "category": "Source verification",
+          "subcategory": "Forgotten bookmarks, builders, media, datasets and rejected sources"
+        }
+      },
+      "catalogOrder": 1,
+      "licenseInfo": {
+        "label": "Proprietary SaaS; data processing, OAuth scopes and connector terms require contractual and security review",
+        "original": "Proprietary SaaS; data processing, OAuth scopes and connector terms require contractual and security review",
+        "spdx": null,
+        "kind": "service-terms",
+        "status": "editor-reviewed",
+        "requiresReview": false,
+        "evidence": [
+          {
+            "kind": "source",
+            "label": "Official Adaptive AI site",
+            "url": "https://adaptive.ai/"
+          }
+        ]
+      },
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://adaptive.ai/"
         }
       ],
       "agentEligibility": {
@@ -1054,6 +1309,128 @@
       }
     },
     {
+      "id": "anti-miner-github-com",
+      "url": "https://github.com/Daiwv/Anti-Miner",
+      "title": "Anti-Miner: quarantined defensive reference",
+      "type": "privacy",
+      "category": "Privacy / OPSEC",
+      "subcategory": "Quarantined endpoint tooling",
+      "simpleDescription": "Windows utility that scans for and deletes suspected hidden miners. Keep as a quarantined defensive reference only: the repository is low-trust for endpoint remediation, performs destructive actions and instructs users to place a VirusTotal API key directly in Program.cs. Eclipse Sentinel should implement detect → explain → isolate → approve → remediate with report-only defaults instead.",
+      "useCases": [
+        "Разобраться, подходит ли Anti-Miner для вашей задачи",
+        "Проверить возможности на небольшом тестовом сценарии до интеграции"
+      ],
+      "platforms": [
+        "Windows"
+      ],
+      "license": "GPL-3.0",
+      "pricing": "Исходный код доступен публично; hosting, модели и внешние API могут оплачиваться отдельно",
+      "access": {
+        "cost": "free",
+        "signup": "none",
+        "runtime": "local"
+      },
+      "trust": "community",
+      "trustReason": "Запись структурирована автоматически из опубликованного описания. Официальный источник, лицензия и условия ещё не прошли отдельную редакторскую проверку.",
+      "projects": [
+        "Eclipse Sentinel",
+        "Eclipse Library"
+      ],
+      "decision": "reference",
+      "riskLevel": "high",
+      "risks": [
+        "Destructive false positives",
+        "Hard-coded VirusTotal secret guidance",
+        "Unsigned or low-trust endpoint binary",
+        "Deletion without recoverable quarantine"
+      ],
+      "verifiedAt": "2026-09-01",
+      "quickStart": [
+        "Do not run the binary on production endpoints",
+        "Rebuild only the safe detection model in a synthetic lab",
+        "Require signed rules, report-only default, quarantine, approval and rollback"
+      ],
+      "reviewStatus": "verified",
+      "source": {
+        "file": "catalog/resources.json",
+        "key": "anti-miner-github-com",
+        "legacy": {
+          "file": "guides/september-2026-forgotten-bookmarks-radar.md",
+          "line": 1,
+          "category": "Source verification",
+          "subcategory": "Forgotten bookmarks, builders, media, datasets and rejected sources"
+        }
+      },
+      "addedAt": "2026-09-01",
+      "licenseEvidence": [
+        {
+          "kind": "source",
+          "label": "Canonical repository",
+          "url": "https://github.com/Daiwv/Anti-Miner"
+        },
+        {
+          "kind": "license",
+          "label": "Repository GPL-3.0 license",
+          "url": "https://github.com/Daiwv/Anti-Miner/blob/main/LICENSE"
+        }
+      ],
+      "limitations": [
+        "No local execution",
+        "No API key in source",
+        "No automatic deletion",
+        "No production recommendation"
+      ],
+      "guide": "september-2026-forgotten-bookmarks-radar",
+      "catalogOrder": 1,
+      "licenseInfo": {
+        "label": "GPL-3.0",
+        "original": "GPL-3.0; runtime trust, signing, destructive behavior and secret handling remain unresolved",
+        "spdx": "GPL-3.0",
+        "kind": "open-source",
+        "status": "source-declared",
+        "requiresReview": false,
+        "evidence": [
+          {
+            "kind": "license",
+            "label": "GPL-3.0 license",
+            "url": "https://api.github.com/repos/daiwv/anti-miner/license"
+          },
+          {
+            "kind": "source",
+            "label": "Canonical repository",
+            "url": "https://github.com/Daiwv/Anti-Miner"
+          },
+          {
+            "kind": "license",
+            "label": "Repository GPL-3.0 license",
+            "url": "https://github.com/Daiwv/Anti-Miner/blob/main/LICENSE"
+          }
+        ]
+      },
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://github.com/Daiwv/Anti-Miner"
+        },
+        {
+          "kind": "license",
+          "label": "GPL-3.0 license",
+          "url": "https://api.github.com/repos/daiwv/anti-miner/license"
+        },
+        {
+          "kind": "license",
+          "label": "Repository GPL-3.0 license",
+          "url": "https://github.com/Daiwv/Anti-Miner/blob/main/LICENSE"
+        }
+      ],
+      "agentEligibility": {
+        "eligible": true,
+        "reasons": [],
+        "installAllowed": false
+      }
+    },
+    {
       "id": "anti-vibe-design-review-eclipse",
       "url": "https://library.eclipse-forge.ru/guides/anti-vibe-design-review-2026-08-23.md",
       "title": "Anti-vibe Design Review",
@@ -1154,6 +1531,133 @@
           "kind": "official-source",
           "label": "Официальный источник",
           "url": "https://library.eclipse-forge.ru/guides/anti-vibe-design-review-2026-08-23.md"
+        }
+      ],
+      "agentEligibility": {
+        "eligible": true,
+        "reasons": [],
+        "installAllowed": false
+      }
+    },
+    {
+      "type": "oss",
+      "features": [
+        "Multi-session agents",
+        "Task board",
+        "Specification workflow",
+        "Validation loop"
+      ],
+      "platforms": [
+        "TypeScript",
+        "AI coding agents",
+        "Desktop/Web"
+      ],
+      "pricing": "Актуальные тарифы и квоты нужно проверять у владельца перед каждым production-пилотом.",
+      "access": {
+        "cost": "free",
+        "signup": "none",
+        "runtime": "local"
+      },
+      "trust": "community",
+      "trustReason": "Primary official website, documentation, repository status and applicable license or terms were checked on 01.09.2026. No account connection, installer, model download, external upload or production integration was performed.",
+      "decision": "roadmap",
+      "riskLevel": "high",
+      "audience": [
+        "Product owners",
+        "Platform engineers",
+        "Security reviewers"
+      ],
+      "relatedTechnologies": [],
+      "id": "aperant-multisession-agent-architecture-reference",
+      "url": "https://github.com/AndyMik90/Aperant",
+      "title": "Aperant: multi-session coding-agent architecture reference",
+      "category": "AI Agents",
+      "subcategory": "Multi-session software delivery",
+      "simpleDescription": "Autonomous multi-session coding agent with task/spec workflows and a public 2.x maintenance line while a 3.x rewrite evolves separately. Eclipse Forge/Jarvis should study plan/build/validate, isolated specs, task board and QA loop, but AGPL-3.0 code is not copied into proprietary services without a deliberate compliance decision.",
+      "useCases": [
+        "Design multi-session task board",
+        "Separate plan, build and validation",
+        "Track spec evidence and QA loop"
+      ],
+      "license": "AGPL-3.0",
+      "licenseEvidence": [
+        {
+          "kind": "source",
+          "label": "Canonical repository",
+          "url": "https://github.com/AndyMik90/Aperant"
+        },
+        {
+          "kind": "license",
+          "label": "Repository AGPL-3.0 license",
+          "url": "https://github.com/AndyMik90/Aperant/blob/main/LICENSE"
+        }
+      ],
+      "projects": [
+        "Eclipse Forge",
+        "Jarvis",
+        "Eclipse AI Hub",
+        "Eclipse Library"
+      ],
+      "risks": [
+        "AGPL obligations can conflict with proprietary deployment",
+        "Autonomous sessions can broaden scope and permissions",
+        "3.x design is not yet a stable public release"
+      ],
+      "quickStart": [
+        "Document patterns only",
+        "Build a clean-room task-state schema",
+        "Require scope, branch, tool, budget and QA gates per session"
+      ],
+      "limitations": [
+        "No source copying into proprietary services",
+        "No autonomous production access",
+        "No assumption that unreleased 3.x is stable"
+      ],
+      "verifiedAt": "2026-09-01",
+      "addedAt": "2026-09-01",
+      "reviewStatus": "verified",
+      "guide": "september-2026-forgotten-bookmarks-radar",
+      "source": {
+        "file": "catalog/resources.json",
+        "key": "aperant-multisession-agent-architecture-reference",
+        "legacy": {
+          "file": "guides/september-2026-forgotten-bookmarks-radar.md",
+          "line": 1,
+          "category": "Source verification",
+          "subcategory": "Forgotten bookmarks, builders, media, datasets and rejected sources"
+        }
+      },
+      "catalogOrder": 1,
+      "licenseInfo": {
+        "label": "AGPL-3.0",
+        "original": "AGPL-3.0; network use and distribution obligations require legal/compliance review before reuse",
+        "spdx": "AGPL-3.0",
+        "kind": "open-source",
+        "status": "editor-reviewed",
+        "requiresReview": false,
+        "evidence": [
+          {
+            "kind": "source",
+            "label": "Canonical repository",
+            "url": "https://github.com/AndyMik90/Aperant"
+          },
+          {
+            "kind": "license",
+            "label": "Repository AGPL-3.0 license",
+            "url": "https://github.com/AndyMik90/Aperant/blob/main/LICENSE"
+          }
+        ]
+      },
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://github.com/AndyMik90/Aperant"
+        },
+        {
+          "kind": "license",
+          "label": "Repository AGPL-3.0 license",
+          "url": "https://github.com/AndyMik90/Aperant/blob/main/LICENSE"
         }
       ],
       "agentEligibility": {
@@ -1300,6 +1804,397 @@
           "kind": "license",
           "label": "Official MIT license",
           "url": "https://github.com/tt-a1i/archify/blob/main/LICENSE"
+        }
+      ],
+      "agentEligibility": {
+        "eligible": true,
+        "reasons": [],
+        "installAllowed": false
+      }
+    },
+    {
+      "type": "reference",
+      "features": [
+        "Blind model comparison",
+        "Human preference votes",
+        "Category leaderboards",
+        "Multiple modalities"
+      ],
+      "platforms": [
+        "Web"
+      ],
+      "pricing": "Актуальные тарифы и квоты нужно проверять у владельца перед каждым production-пилотом.",
+      "access": {
+        "cost": "unknown",
+        "signup": "optional",
+        "runtime": "cloud"
+      },
+      "trust": "official",
+      "trustReason": "Primary official website, documentation, repository status and applicable license or terms were checked on 01.09.2026. No account connection, installer, model download, external upload or production integration was performed.",
+      "decision": "now",
+      "riskLevel": "high",
+      "audience": [
+        "Product owners",
+        "Platform engineers",
+        "Security reviewers"
+      ],
+      "relatedTechnologies": [],
+      "id": "arena-ai-model-evaluation-evidence-reference",
+      "url": "https://arena.ai/",
+      "title": "Arena.ai: human-preference evaluation evidence",
+      "category": "AI Agents",
+      "subcategory": "Model evaluation and leaderboards",
+      "simpleDescription": "Публичная платформа сравнений и human-preference leaderboards для text, code, vision, image, video и agent моделей. Eclipse AI Hub может сохранять снимок rank, дату, category и методику как один сигнал выбора модели, но не должен отправлять чувствительные prompts или маршрутизировать production только по месту в таблице.",
+      "useCases": [
+        "Дополнить model registry внешним evidence",
+        "Составить shortlist для controlled benchmark",
+        "Отслеживать изменение рейтингов по категориям"
+      ],
+      "license": "Proprietary evaluation service; prompts and votes обрабатываются по действующим Terms и Privacy Policy",
+      "licenseEvidence": [
+        {
+          "kind": "source",
+          "label": "Official leaderboard",
+          "url": "https://arena.ai/leaderboard"
+        },
+        {
+          "kind": "source",
+          "label": "Official methodology overview",
+          "url": "https://arena.ai/how-it-works"
+        }
+      ],
+      "projects": [
+        "Eclipse AI Hub",
+        "Jarvis",
+        "Eclipse Library"
+      ],
+      "risks": [
+        "Public prompts can expose confidential data",
+        "Rank can be noisy or category-specific",
+        "Leaderboard quality does not prove production reliability, cost or safety"
+      ],
+      "quickStart": [
+        "Store only public leaderboard metadata",
+        "Benchmark shortlisted models on private synthetic fixtures",
+        "Combine quality with latency, cost, quota, tool and safety scores"
+      ],
+      "limitations": [
+        "No sensitive prompts",
+        "No automatic routing from rank alone",
+        "No claim that one leaderboard proves superiority"
+      ],
+      "verifiedAt": "2026-09-01",
+      "addedAt": "2026-09-01",
+      "reviewStatus": "verified",
+      "guide": "september-2026-forgotten-bookmarks-radar",
+      "source": {
+        "file": "catalog/resources.json",
+        "key": "arena-ai-model-evaluation-evidence-reference",
+        "legacy": {
+          "file": "guides/september-2026-forgotten-bookmarks-radar.md",
+          "line": 1,
+          "category": "Source verification",
+          "subcategory": "Forgotten bookmarks, builders, media, datasets and rejected sources"
+        }
+      },
+      "catalogOrder": 1,
+      "licenseInfo": {
+        "label": "Proprietary evaluation service; prompts and votes обрабатываются по действующим Terms и Privacy Policy",
+        "original": "Proprietary evaluation service; prompts and votes обрабатываются по действующим Terms и Privacy Policy",
+        "spdx": null,
+        "kind": "service-terms",
+        "status": "editor-reviewed",
+        "requiresReview": false,
+        "evidence": [
+          {
+            "kind": "source",
+            "label": "Official leaderboard",
+            "url": "https://arena.ai/leaderboard"
+          },
+          {
+            "kind": "source",
+            "label": "Official methodology overview",
+            "url": "https://arena.ai/how-it-works"
+          }
+        ]
+      },
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://arena.ai/"
+        },
+        {
+          "kind": "source",
+          "label": "Official leaderboard",
+          "url": "https://arena.ai/leaderboard"
+        },
+        {
+          "kind": "source",
+          "label": "Official methodology overview",
+          "url": "https://arena.ai/how-it-works"
+        }
+      ],
+      "agentEligibility": {
+        "eligible": true,
+        "reasons": [],
+        "installAllowed": false
+      }
+    },
+    {
+      "type": "reference",
+      "features": [
+        "Music and footage licensing",
+        "License certificates",
+        "Plan-specific channel coverage",
+        "Creative assets"
+      ],
+      "platforms": [
+        "Web"
+      ],
+      "pricing": "Актуальные тарифы и квоты нужно проверять у владельца перед каждым production-пилотом.",
+      "access": {
+        "cost": "unknown",
+        "signup": "optional",
+        "runtime": "cloud"
+      },
+      "trust": "official",
+      "trustReason": "Primary official website, documentation, repository status and applicable license or terms were checked on 01.09.2026. No account connection, installer, model download, external upload or production integration was performed.",
+      "decision": "now",
+      "riskLevel": "high",
+      "audience": [
+        "Product owners",
+        "Platform engineers",
+        "Security reviewers"
+      ],
+      "relatedTechnologies": [],
+      "id": "artlist-media-rights-receipt-reference",
+      "url": "https://artlist.io/",
+      "title": "Artlist: media rights receipt reference",
+      "category": "Video & Media",
+      "subcategory": "Licensed asset provenance",
+      "simpleDescription": "Коммерческая библиотека музыки, footage и creative assets с лицензиями, зависящими от плана, канала, клиента и способа использования. Для Eclipse Media главный вывод — права должны храниться рядом с asset: source ID, план, дата, certificate, project/client scope, разрешённые каналы и запреты на standalone redistribution или model training.",
+      "useCases": [
+        "Спроектировать rights receipt",
+        "Вести license evidence для каждого media asset",
+        "Проверять export channel до публикации"
+      ],
+      "license": "Commercial license varies by plan and use; assets must be integrated into projects and cannot be treated as unrestricted standalone files or training data",
+      "licenseEvidence": [
+        {
+          "kind": "license",
+          "label": "Official Artlist license",
+          "url": "https://artlist.io/help-center/privacy-terms/artlist-license/"
+        },
+        {
+          "kind": "terms",
+          "label": "Official terms of use",
+          "url": "https://artlist.io/help-center/privacy-terms/terms-of-use"
+        }
+      ],
+      "projects": [
+        "Eclipse Media",
+        "Growth OS",
+        "Eclipse Library"
+      ],
+      "risks": [
+        "Wrong plan or channel can invalidate intended use",
+        "Standalone redistribution is not the same as project use",
+        "Assets cannot be assumed eligible for model training"
+      ],
+      "quickStart": [
+        "Add rights-receipt schema to Media imports",
+        "Store certificate and terms snapshot with asset hash",
+        "Block export when project/channel scope is missing"
+      ],
+      "limitations": [
+        "No standalone redistribution",
+        "No model training unless explicitly licensed",
+        "No asset without receipt and project scope"
+      ],
+      "verifiedAt": "2026-09-01",
+      "addedAt": "2026-09-01",
+      "reviewStatus": "verified",
+      "guide": "september-2026-forgotten-bookmarks-radar",
+      "source": {
+        "file": "catalog/resources.json",
+        "key": "artlist-media-rights-receipt-reference",
+        "legacy": {
+          "file": "guides/september-2026-forgotten-bookmarks-radar.md",
+          "line": 1,
+          "category": "Source verification",
+          "subcategory": "Forgotten bookmarks, builders, media, datasets and rejected sources"
+        }
+      },
+      "catalogOrder": 1,
+      "licenseInfo": {
+        "label": "Commercial license varies by plan and use; assets must be integrated into projects and cannot be treated as unrestricted standalone files or training data",
+        "original": "Commercial license varies by plan and use; assets must be integrated into projects and cannot be treated as unrestricted standalone files or training data",
+        "spdx": null,
+        "kind": "service-terms",
+        "status": "editor-reviewed",
+        "requiresReview": false,
+        "evidence": [
+          {
+            "kind": "license",
+            "label": "Official Artlist license",
+            "url": "https://artlist.io/help-center/privacy-terms/artlist-license/"
+          },
+          {
+            "kind": "terms",
+            "label": "Official terms of use",
+            "url": "https://artlist.io/help-center/privacy-terms/terms-of-use"
+          }
+        ]
+      },
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://artlist.io/"
+        },
+        {
+          "kind": "license",
+          "label": "Official Artlist license",
+          "url": "https://artlist.io/help-center/privacy-terms/artlist-license/"
+        },
+        {
+          "kind": "terms",
+          "label": "Official terms of use",
+          "url": "https://artlist.io/help-center/privacy-terms/terms-of-use"
+        }
+      ],
+      "agentEligibility": {
+        "eligible": true,
+        "reasons": [],
+        "installAllowed": false
+      }
+    },
+    {
+      "id": "aura-build-design-handoff-reference",
+      "url": "https://www.aura.build/",
+      "title": "Aura — design and handoff process reference",
+      "type": "tool",
+      "category": "Design & UI",
+      "subcategory": "AI design exploration and handoff",
+      "simpleDescription": "AI design builder is useful as a workflow reference from brief through several directions to Figma or HTML handoff. Eclipse keeps its own design system and treats exported markup as an untrusted draft that still needs semantic implementation, responsive visual QA, accessibility, performance and security review before production.",
+      "useCases": [
+        "Standardize brief-to-direction design exploration",
+        "Improve Figma and HTML handoff for Eclipse landing pages",
+        "Create a responsive and accessibility acceptance gate for generated UI"
+      ],
+      "features": [
+        "AI design generation",
+        "Visual iteration",
+        "Figma-oriented handoff",
+        "HTML-oriented export"
+      ],
+      "platforms": [
+        "Web",
+        "Figma workflow",
+        "HTML workflow"
+      ],
+      "license": "Proprietary service terms; exported code, fonts, images and third-party assets require separate license verification",
+      "licenseEvidence": [
+        {
+          "kind": "source",
+          "label": "Official Aura product",
+          "url": "https://www.aura.build/"
+        },
+        {
+          "kind": "terms",
+          "label": "Official Aura terms surface",
+          "url": "https://www.aura.build/terms"
+        }
+      ],
+      "pricing": "Commercial cloud service; verify current plan, export and usage rights before project use.",
+      "access": {
+        "cost": "paid",
+        "signup": "required",
+        "runtime": "cloud"
+      },
+      "trust": "official",
+      "trustReason": "Official product and public commercial surface checked 01.09.2026. Export fidelity, accessibility and generated asset rights were not assumed and require artifact-level QA.",
+      "projects": [
+        "Eclipse Forge",
+        "Eclipse Landing",
+        "Eclipse Library"
+      ],
+      "decision": "reference",
+      "riskLevel": "medium",
+      "risks": [
+        "Generated layouts can become generic or diverge from the project design system",
+        "Exported HTML may have poor semantics, focus order or responsive behavior",
+        "Generated assets can carry unclear rights",
+        "Cloud briefs and screenshots can expose confidential product plans"
+      ],
+      "quickStart": [
+        "Use a synthetic brief and compare two or three directions",
+        "Extract design tokens and rebuild the chosen direction inside the project system",
+        "Run desktop, mobile, keyboard, screen-reader, reduced-motion, performance and security QA before acceptance"
+      ],
+      "limitations": [
+        "Reference process only",
+        "No direct production deploy of exported HTML",
+        "No copying Aura brand or visual identity"
+      ],
+      "audience": [
+        "Product designers",
+        "Frontend engineers",
+        "Design-system owners"
+      ],
+      "relatedTechnologies": [
+        "Figma",
+        "Design tokens",
+        "HTML handoff",
+        "Responsive QA",
+        "Accessibility"
+      ],
+      "verifiedAt": "2026-09-01",
+      "addedAt": "2026-09-01",
+      "reviewStatus": "verified",
+      "guide": "september-2026-visual-builders-and-media-radar",
+      "source": {
+        "file": "catalog/resources.json",
+        "key": "aura-build-design-handoff-reference",
+        "legacy": {
+          "file": "guides/september-2026-visual-builders-and-media-radar.md",
+          "line": 1,
+          "category": "Source verification",
+          "subcategory": "Visual personas, builders and media workflows"
+        }
+      },
+      "catalogOrder": 1,
+      "licenseInfo": {
+        "label": "Proprietary service terms; exported code, fonts, images and third-party assets require separate license verification",
+        "original": "Proprietary service terms; exported code, fonts, images and third-party assets require separate license verification",
+        "spdx": null,
+        "kind": "service-terms",
+        "status": "editor-reviewed",
+        "requiresReview": false,
+        "evidence": [
+          {
+            "kind": "source",
+            "label": "Official Aura product",
+            "url": "https://www.aura.build/"
+          },
+          {
+            "kind": "terms",
+            "label": "Official Aura terms surface",
+            "url": "https://www.aura.build/terms"
+          }
+        ]
+      },
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://www.aura.build/"
+        },
+        {
+          "kind": "terms",
+          "label": "Official Aura terms surface",
+          "url": "https://www.aura.build/terms"
         }
       ],
       "agentEligibility": {
@@ -1701,6 +2596,257 @@
       }
     },
     {
+      "type": "reference",
+      "features": [
+        "Full-stack generation",
+        "Database and auth",
+        "Functions and agents",
+        "ZIP/GitHub export",
+        "SDK and CLI"
+      ],
+      "platforms": [
+        "Web"
+      ],
+      "pricing": "Актуальные тарифы и квоты нужно проверять у владельца перед каждым production-пилотом.",
+      "access": {
+        "cost": "unknown",
+        "signup": "optional",
+        "runtime": "cloud"
+      },
+      "trust": "official",
+      "trustReason": "Primary official website, documentation, repository status and applicable license or terms were checked on 01.09.2026. No account connection, installer, model download, external upload or production integration was performed.",
+      "decision": "roadmap",
+      "riskLevel": "high",
+      "audience": [
+        "Product owners",
+        "Platform engineers",
+        "Security reviewers"
+      ],
+      "relatedTechnologies": [],
+      "id": "base44-controlled-builder-sandbox-reference",
+      "url": "https://app.base44.com/",
+      "title": "Base44: controlled full-stack builder sandbox",
+      "category": "Developer Tools",
+      "subcategory": "AI application builders",
+      "simpleDescription": "Облачный AI-конструктор приложений с базой данных, authentication, hosting, functions, agents, SDK/CLI и экспортом кода. Для Eclipse это внешний прототипный контур: результат обязан покинуть vendor workspace, попасть в наш Git и пройти security, dependency, license, accessibility и runtime review.",
+      "useCases": [
+        "Быстро проверить продуктовую гипотезу",
+        "Сравнить builder UX с Eclipse Forge",
+        "Экспортировать проверяемый React/Vite prototype"
+      ],
+      "license": "Proprietary SaaS; экспорт и доступность функций зависят от плана, а зависимости экспортированного приложения сохраняют собственные лицензии",
+      "licenseEvidence": [
+        {
+          "kind": "source",
+          "label": "Official Base44 quick start",
+          "url": "https://docs.base44.com/Getting-Started/Quick-start-guide"
+        },
+        {
+          "kind": "source",
+          "label": "Official developer platform",
+          "url": "https://base44.com/developers"
+        }
+      ],
+      "projects": [
+        "Eclipse Forge",
+        "Eclipse AI Hub",
+        "Eclipse Library"
+      ],
+      "risks": [
+        "Private code and secrets can leave our boundary",
+        "Generated dependencies can be vulnerable or incompatible",
+        "Vendor hosting can hide runtime and data-flow assumptions"
+      ],
+      "quickStart": [
+        "Use a synthetic non-sensitive fixture",
+        "Export to an approved existing Eclipse repository",
+        "Run secret, dependency, license, tests and human review before any deploy"
+      ],
+      "limitations": [
+        "No production secrets",
+        "No customer data",
+        "No direct production deploy",
+        "No vendor-only artifact without Git export"
+      ],
+      "verifiedAt": "2026-09-01",
+      "addedAt": "2026-09-01",
+      "reviewStatus": "verified",
+      "guide": "september-2026-forgotten-bookmarks-radar",
+      "source": {
+        "file": "catalog/resources.json",
+        "key": "base44-controlled-builder-sandbox-reference",
+        "legacy": {
+          "file": "guides/september-2026-forgotten-bookmarks-radar.md",
+          "line": 1,
+          "category": "Source verification",
+          "subcategory": "Forgotten bookmarks, builders, media, datasets and rejected sources"
+        }
+      },
+      "catalogOrder": 1,
+      "licenseInfo": {
+        "label": "Proprietary SaaS; экспорт и доступность функций зависят от плана, а зависимости экспортированного приложения сохраняют собственные лицензии",
+        "original": "Proprietary SaaS; экспорт и доступность функций зависят от плана, а зависимости экспортированного приложения сохраняют собственные лицензии",
+        "spdx": null,
+        "kind": "service-terms",
+        "status": "editor-reviewed",
+        "requiresReview": false,
+        "evidence": [
+          {
+            "kind": "source",
+            "label": "Official Base44 quick start",
+            "url": "https://docs.base44.com/Getting-Started/Quick-start-guide"
+          },
+          {
+            "kind": "source",
+            "label": "Official developer platform",
+            "url": "https://base44.com/developers"
+          }
+        ]
+      },
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://app.base44.com/"
+        },
+        {
+          "kind": "source",
+          "label": "Official Base44 quick start",
+          "url": "https://docs.base44.com/Getting-Started/Quick-start-guide"
+        },
+        {
+          "kind": "source",
+          "label": "Official developer platform",
+          "url": "https://base44.com/developers"
+        }
+      ],
+      "agentEligibility": {
+        "eligible": true,
+        "reasons": [],
+        "installAllowed": false
+      }
+    },
+    {
+      "id": "bella-visual-persona-concept-only",
+      "url": "https://github.com/Jackywine/Bella",
+      "title": "Bella — visual persona concept only",
+      "type": "grey",
+      "category": "AI Companions",
+      "subcategory": "Clean-room visual companion reference",
+      "simpleDescription": "Bella remains a concept-only reference because no reliable reuse license was verified. Eclipse takes only the general digital-companion product language and implements an original first-party presence surface for Альтрон with idle, listening, thinking, speaking and error states, explicit privacy boundaries, a collapsible conversation layer and no Bella code, assets, voice, models or branding.",
+      "useCases": [
+        "Create a persistent original visual presence for Альтрон",
+        "Map idle, listening, thinking, speaking and error states to accessible feedback",
+        "Keep microphone, transcript, memory and tools behind separate explicit permissions"
+      ],
+      "features": [
+        "Cinematic companion presence concept",
+        "Reactive state language",
+        "Voice-oriented layout",
+        "Conversation overlay"
+      ],
+      "platforms": [
+        "GitHub",
+        "Python",
+        "Local AI experiments"
+      ],
+      "license": "No reliable reuse grant verified; concept reference only, with no code, model or asset import",
+      "licenseEvidence": [
+        {
+          "kind": "source",
+          "label": "Official public repository",
+          "url": "https://github.com/Jackywine/Bella"
+        }
+      ],
+      "pricing": "Repository is publicly readable; models, GPU runtime and third-party assets have separate costs and terms. No reuse rights were assumed.",
+      "access": {
+        "cost": "unknown",
+        "signup": "none",
+        "runtime": "local"
+      },
+      "trust": "caution",
+      "trustReason": "Repository tree, dependency delivery and model download surface were reviewed 01.09.2026. No code was executed. Missing or unclear licensing and unpinned external artifacts block adoption.",
+      "projects": [
+        "Eclipse AI Hub",
+        "Jarvis",
+        "Eclipse Media",
+        "Eclipse Library"
+      ],
+      "decision": "reference",
+      "riskLevel": "high",
+      "risks": [
+        "No verified license permits code or asset reuse",
+        "Committed dependencies and mutable downloads expand supply-chain risk",
+        "Avatar identity can accidentally imitate protected characters or real people",
+        "Voice, microphone and memory can expose sensitive data if coupled to the renderer"
+      ],
+      "quickStart": [
+        "Use only the first-party Альтрон Valkyrie asset and Eclipse design tokens",
+        "Drive the renderer from a small public UI state machine with no direct tool access",
+        "Test keyboard use, reduced motion, hidden state, mobile layout and microphone denial"
+      ],
+      "limitations": [
+        "Concept only",
+        "No code, model, weight, image, video, voice, animation or branding reuse",
+        "No direct microphone, file, tool or memory access from the renderer"
+      ],
+      "audience": [
+        "AI companion designers",
+        "Voice UX engineers",
+        "Supply-chain reviewers"
+      ],
+      "relatedTechnologies": [
+        "Reactive avatars",
+        "State machines",
+        "Reduced motion",
+        "Permission isolation"
+      ],
+      "verifiedAt": "2026-09-01",
+      "addedAt": "2026-09-01",
+      "reviewStatus": "verified",
+      "guide": "september-2026-agent-architecture-companion-radar",
+      "source": {
+        "file": "catalog/resources.json",
+        "key": "bella-visual-persona-concept-only",
+        "legacy": {
+          "file": "guides/september-2026-agent-architecture-companion-radar.md",
+          "line": 1,
+          "category": "Source verification",
+          "subcategory": "Agent recipes, architecture, audio UX and visual companions"
+        }
+      },
+      "catalogOrder": 1,
+      "licenseInfo": {
+        "label": "No reliable reuse grant verified; concept reference only, with no code, model or asset import",
+        "original": "No reliable reuse grant verified; concept reference only, with no code, model or asset import",
+        "spdx": null,
+        "kind": "custom",
+        "status": "editor-reviewed",
+        "requiresReview": false,
+        "evidence": [
+          {
+            "kind": "source",
+            "label": "Official public repository",
+            "url": "https://github.com/Jackywine/Bella"
+          }
+        ]
+      },
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://github.com/Jackywine/Bella"
+        }
+      ],
+      "agentEligibility": {
+        "eligible": false,
+        "reasons": [
+          "grey-resource"
+        ],
+        "installAllowed": false
+      }
+    },
+    {
       "id": "block-buzz-agent-workspace",
       "url": "https://github.com/block/buzz",
       "title": "Buzz by Block",
@@ -1835,6 +2981,156 @@
           "kind": "license",
           "label": "Official Apache-2.0 license",
           "url": "https://github.com/block/buzz/blob/main/LICENSE"
+        }
+      ],
+      "agentEligibility": {
+        "eligible": true,
+        "reasons": [],
+        "installAllowed": false
+      }
+    },
+    {
+      "id": "bolt-new-isolated-builder-reference",
+      "url": "https://bolt.new/",
+      "title": "Bolt — isolated builder benchmark",
+      "type": "tool",
+      "category": "Developer Tools",
+      "subcategory": "Prompt-to-app sandbox",
+      "simpleDescription": "Prompt-to-app cloud builder is useful as a benchmark for fast prototypes, not as a production authority. Eclipse should use a disposable sandbox with no production secrets, require export as a patch or archive, then run dependency, license, security and test gates before importing code into an existing approved repository branch.",
+      "useCases": [
+        "Benchmark prompt-to-preview latency",
+        "Design a disposable prototype sandbox in Eclipse AI Hub",
+        "Standardize export, review and provenance receipts for generated code"
+      ],
+      "features": [
+        "Browser-based app generation",
+        "Interactive preview",
+        "Package installation",
+        "Project export and integrations"
+      ],
+      "platforms": [
+        "Web",
+        "Cloud sandbox",
+        "JavaScript ecosystem"
+      ],
+      "license": "Proprietary service terms; exported dependencies and generated assets retain their own licenses",
+      "licenseEvidence": [
+        {
+          "kind": "terms",
+          "label": "Official StackBlitz terms",
+          "url": "https://stackblitz.com/terms-of-service"
+        },
+        {
+          "kind": "privacy",
+          "label": "Official StackBlitz privacy policy",
+          "url": "https://stackblitz.com/privacy-policy"
+        },
+        {
+          "kind": "source",
+          "label": "Official Bolt product",
+          "url": "https://bolt.new/"
+        }
+      ],
+      "pricing": "Freemium and paid plans; generation tokens, hosting, integrations and external APIs may create separate costs.",
+      "access": {
+        "cost": "freemium",
+        "signup": "optional",
+        "runtime": "cloud"
+      },
+      "trust": "official",
+      "trustReason": "Official product and StackBlitz terms/privacy surface checked 01.09.2026. Generated code quality and dependency safety vary by prompt and were not assumed.",
+      "projects": [
+        "Eclipse AI Hub",
+        "Eclipse Claw",
+        "Eclipse Forge",
+        "Eclipse Library"
+      ],
+      "decision": "roadmap",
+      "riskLevel": "high",
+      "risks": [
+        "Generated applications can contain vulnerable or hallucinated code",
+        "Mutable npm packages and install scripts create supply-chain risk",
+        "Broad repository integrations can expose code and secrets",
+        "Cloud prompts and files can include sensitive project context",
+        "One-click deploy can bypass review"
+      ],
+      "quickStart": [
+        "Create one synthetic disposable project with no repository connection",
+        "Export a patch with manifest, lockfile and provenance receipt",
+        "Run secret scan, dependency review, lint, typecheck, tests and human diff approval before import"
+      ],
+      "limitations": [
+        "No production secrets, customer data or direct deploy",
+        "No broad GitHub installation",
+        "Vendor workspace is never the sole source of truth"
+      ],
+      "audience": [
+        "Developer experience engineers",
+        "App builders",
+        "Security reviewers"
+      ],
+      "relatedTechnologies": [
+        "WebContainers",
+        "Code generation",
+        "SBOM",
+        "Sandboxing",
+        "Patch export"
+      ],
+      "verifiedAt": "2026-09-01",
+      "addedAt": "2026-09-01",
+      "reviewStatus": "verified",
+      "guide": "september-2026-visual-builders-and-media-radar",
+      "source": {
+        "file": "catalog/resources.json",
+        "key": "bolt-new-isolated-builder-reference",
+        "legacy": {
+          "file": "guides/september-2026-visual-builders-and-media-radar.md",
+          "line": 1,
+          "category": "Source verification",
+          "subcategory": "Visual personas, builders and media workflows"
+        }
+      },
+      "catalogOrder": 1,
+      "licenseInfo": {
+        "label": "Proprietary service terms; exported dependencies and generated assets retain their own licenses",
+        "original": "Proprietary service terms; exported dependencies and generated assets retain their own licenses",
+        "spdx": null,
+        "kind": "service-terms",
+        "status": "editor-reviewed",
+        "requiresReview": false,
+        "evidence": [
+          {
+            "kind": "terms",
+            "label": "Official StackBlitz terms",
+            "url": "https://stackblitz.com/terms-of-service"
+          },
+          {
+            "kind": "privacy",
+            "label": "Official StackBlitz privacy policy",
+            "url": "https://stackblitz.com/privacy-policy"
+          },
+          {
+            "kind": "source",
+            "label": "Official Bolt product",
+            "url": "https://bolt.new/"
+          }
+        ]
+      },
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://bolt.new/"
+        },
+        {
+          "kind": "terms",
+          "label": "Official StackBlitz terms",
+          "url": "https://stackblitz.com/terms-of-service"
+        },
+        {
+          "kind": "privacy",
+          "label": "Official StackBlitz privacy policy",
+          "url": "https://stackblitz.com/privacy-policy"
         }
       ],
       "agentEligibility": {
@@ -2930,6 +4226,279 @@
       }
     },
     {
+      "type": "reference",
+      "features": [
+        "Text and image to video",
+        "Video-to-video",
+        "Lip sync",
+        "Motion control",
+        "Avatars",
+        "Editor"
+      ],
+      "platforms": [
+        "Web"
+      ],
+      "pricing": "Актуальные тарифы и квоты нужно проверять у владельца перед каждым production-пилотом.",
+      "access": {
+        "cost": "unknown",
+        "signup": "optional",
+        "runtime": "cloud"
+      },
+      "trust": "official",
+      "trustReason": "Primary official website, documentation, repository status and applicable license or terms were checked on 01.09.2026. No account connection, installer, model download, external upload or production integration was performed.",
+      "decision": "reference",
+      "riskLevel": "high",
+      "audience": [
+        "Product owners",
+        "Platform engineers",
+        "Security reviewers"
+      ],
+      "relatedTechnologies": [],
+      "id": "deevid-ai-video-provider-benchmark",
+      "url": "https://deevid.ai/",
+      "title": "DeeVid AI: video provider benchmark",
+      "category": "Video & Media",
+      "subcategory": "Cloud AI video suites",
+      "simpleDescription": "Коммерческий AI-video suite для text/image/reference/audio-to-video, video-to-video, motion control, lip sync, avatars, music и editing. Eclipse Media использует его как vendor benchmark для цепочки reference bundle → storyboard → short clip, не как production provider до privacy, DPA, retention и rights review.",
+      "useCases": [
+        "Сравнить video-provider capabilities",
+        "Проверить storyboard-to-clip UX",
+        "Уточнить единый provider contract Eclipse Media"
+      ],
+      "license": "Proprietary SaaS; private creation, watermark and commercial rights depend on current plan and terms",
+      "licenseEvidence": [
+        {
+          "kind": "source",
+          "label": "Official AI video generator",
+          "url": "https://deevid.ai/ai-video-generator"
+        },
+        {
+          "kind": "source",
+          "label": "Official pricing",
+          "url": "https://deevid.ai/pricing"
+        }
+      ],
+      "projects": [
+        "Eclipse Media",
+        "Eclipse AI Hub",
+        "Eclipse Library"
+      ],
+      "risks": [
+        "Sensitive assets can leave our boundary",
+        "Avatar and lip-sync features create likeness risk",
+        "Vendor output rights and retention can change by plan"
+      ],
+      "quickStart": [
+        "Use only a synthetic first-party fixture",
+        "Capture latency, cost, retention and provenance",
+        "Do not connect production storage or auto-publish"
+      ],
+      "limitations": [
+        "Benchmark only",
+        "No client assets",
+        "No real-person avatar without consent",
+        "No automatic publish"
+      ],
+      "verifiedAt": "2026-09-01",
+      "addedAt": "2026-09-01",
+      "reviewStatus": "verified",
+      "guide": "september-2026-forgotten-bookmarks-radar",
+      "source": {
+        "file": "catalog/resources.json",
+        "key": "deevid-ai-video-provider-benchmark",
+        "legacy": {
+          "file": "guides/september-2026-forgotten-bookmarks-radar.md",
+          "line": 1,
+          "category": "Source verification",
+          "subcategory": "Forgotten bookmarks, builders, media, datasets and rejected sources"
+        }
+      },
+      "catalogOrder": 1,
+      "licenseInfo": {
+        "label": "Proprietary SaaS; private creation, watermark and commercial rights depend on current plan and terms",
+        "original": "Proprietary SaaS; private creation, watermark and commercial rights depend on current plan and terms",
+        "spdx": null,
+        "kind": "service-terms",
+        "status": "editor-reviewed",
+        "requiresReview": false,
+        "evidence": [
+          {
+            "kind": "source",
+            "label": "Official AI video generator",
+            "url": "https://deevid.ai/ai-video-generator"
+          },
+          {
+            "kind": "source",
+            "label": "Official pricing",
+            "url": "https://deevid.ai/pricing"
+          }
+        ]
+      },
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://deevid.ai/"
+        },
+        {
+          "kind": "source",
+          "label": "Official AI video generator",
+          "url": "https://deevid.ai/ai-video-generator"
+        },
+        {
+          "kind": "source",
+          "label": "Official pricing",
+          "url": "https://deevid.ai/pricing"
+        }
+      ],
+      "agentEligibility": {
+        "eligible": true,
+        "reasons": [],
+        "installAllowed": false
+      }
+    },
+    {
+      "id": "devildev-spec-architecture-gate-reference",
+      "url": "https://github.com/lak7/devildev",
+      "title": "DevilDev: spec-driven architecture gate",
+      "type": "oss",
+      "category": "Developer Tools",
+      "subcategory": "Specification and architecture review",
+      "simpleDescription": "Apache-2.0 architecture workspace that turns natural-language specifications and existing repositories into explicit phases, modules and relationships before coding. Eclipse should reproduce the reviewable spec to architecture gate inside Forge and AI Hub, while avoiding DevilDev's large cloud, webhook, authentication and payment integration surface.",
+      "useCases": [
+        "Add an architecture approval gate before AI code generation",
+        "Reverse-map an approved repository into evidence-backed modules and flows",
+        "Keep specifications, decisions and implementation phases reviewable"
+      ],
+      "features": [
+        "Spec-driven architecture",
+        "Repository architecture analysis",
+        "Human review by phase",
+        "Next.js workspace",
+        "Background jobs"
+      ],
+      "platforms": [
+        "Next.js",
+        "React",
+        "TypeScript",
+        "PostgreSQL",
+        "Prisma",
+        "LangChain",
+        "Inngest"
+      ],
+      "license": "Apache-2.0",
+      "licenseEvidence": [
+        {
+          "kind": "license",
+          "label": "Repository Apache-2.0 license",
+          "url": "https://github.com/lak7/devildev/blob/main/LICENSE"
+        },
+        {
+          "kind": "source",
+          "label": "Official public repository",
+          "url": "https://github.com/lak7/devildev"
+        }
+      ],
+      "pricing": "Source is free. Required databases, model APIs, auth, vector storage, jobs, tunnels and payments can create separate cost and operational load.",
+      "access": {
+        "cost": "free",
+        "signup": "none",
+        "runtime": "local"
+      },
+      "trust": "community",
+      "trustReason": "Canonical repository, architecture scope, stack, setup and Apache-2.0 license checked 01.09.2026. No installation or webhook exposure was performed.",
+      "projects": [
+        "Eclipse Forge",
+        "Eclipse AI Hub",
+        "Jarvis",
+        "Eclipse Library"
+      ],
+      "decision": "roadmap",
+      "riskLevel": "high",
+      "risks": [
+        "Setup requires many secrets, webhooks and external services",
+        "Repository ingestion can expose private code and credentials",
+        "Generated architecture can invent relationships unless evidence is mandatory",
+        "Public tunnels and broad GitHub App permissions expand attack surface"
+      ],
+      "quickStart": [
+        "Define a local architecture artifact with claims, evidence paths, unknowns and reviewer status",
+        "Run read-only analysis on a small public Eclipse fixture with vendor, secrets and build outputs excluded",
+        "Block code generation until a human approves scope, modules, interfaces and security boundaries"
+      ],
+      "limitations": [
+        "No direct install in production",
+        "No public tunnel by default",
+        "No broad GitHub App permissions",
+        "No architecture claim without file evidence"
+      ],
+      "audience": [
+        "Software architects",
+        "AI coding platform engineers",
+        "Security reviewers",
+        "Repository maintainers"
+      ],
+      "relatedTechnologies": [
+        "Specifications",
+        "Architecture maps",
+        "Evidence",
+        "Human approval",
+        "Repository analysis"
+      ],
+      "verifiedAt": "2026-09-01",
+      "addedAt": "2026-09-01",
+      "reviewStatus": "verified",
+      "guide": "september-2026-agent-architecture-companion-radar",
+      "source": {
+        "file": "catalog/resources.json",
+        "key": "devildev-spec-architecture-gate-reference",
+        "legacy": {
+          "file": "guides/september-2026-agent-architecture-companion-radar.md",
+          "line": 1,
+          "category": "Source verification",
+          "subcategory": "Agent recipes, architecture, audio UX and visual companions"
+        }
+      },
+      "catalogOrder": 1,
+      "licenseInfo": {
+        "label": "Apache-2.0",
+        "original": "Apache-2.0 for the repository; integrated cloud services retain separate terms",
+        "spdx": "Apache-2.0",
+        "kind": "open-source",
+        "status": "editor-reviewed",
+        "requiresReview": false,
+        "evidence": [
+          {
+            "kind": "license",
+            "label": "Repository Apache-2.0 license",
+            "url": "https://github.com/lak7/devildev/blob/main/LICENSE"
+          },
+          {
+            "kind": "source",
+            "label": "Official public repository",
+            "url": "https://github.com/lak7/devildev"
+          }
+        ]
+      },
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://github.com/lak7/devildev"
+        },
+        {
+          "kind": "license",
+          "label": "Repository Apache-2.0 license",
+          "url": "https://github.com/lak7/devildev/blob/main/LICENSE"
+        }
+      ],
+      "agentEligibility": {
+        "eligible": true,
+        "reasons": [],
+        "installAllowed": false
+      }
+    },
+    {
       "id": "duplicati-encrypted-backups",
       "url": "https://github.com/duplicati/duplicati",
       "title": "Duplicati",
@@ -3045,6 +4614,138 @@
           "kind": "license",
           "label": "Official mixed license notice",
           "url": "https://github.com/duplicati/duplicati/blob/master/LICENSE"
+        }
+      ],
+      "agentEligibility": {
+        "eligible": true,
+        "reasons": [],
+        "installAllowed": false
+      }
+    },
+    {
+      "type": "oss",
+      "features": [
+        "Local desktop",
+        "BYOK and local models",
+        "Code ownership",
+        "Import/export",
+        "MCP",
+        "Security scan"
+      ],
+      "platforms": [
+        "Desktop",
+        "TypeScript",
+        "Electron",
+        "Ollama",
+        "LM Studio"
+      ],
+      "pricing": "Актуальные тарифы и квоты нужно проверять у владельца перед каждым production-пилотом.",
+      "access": {
+        "cost": "free",
+        "signup": "none",
+        "runtime": "local"
+      },
+      "trust": "community",
+      "trustReason": "Primary official website, documentation, repository status and applicable license or terms were checked on 01.09.2026. No account connection, installer, model download, external upload or production integration was performed.",
+      "decision": "now",
+      "riskLevel": "high",
+      "audience": [
+        "Product owners",
+        "Platform engineers",
+        "Security reviewers"
+      ],
+      "relatedTechnologies": [],
+      "id": "dyad-local-first-builder-reference",
+      "url": "https://www.dyad.sh/",
+      "title": "Dyad: local-first AI application builder reference",
+      "category": "Developer Tools",
+      "subcategory": "Local AI application builders",
+      "simpleDescription": "Локальный AI app builder с BYOK, OpenAI/Anthropic/Ollama/LM Studio, видимым кодом, import/export, deployment, integrations и MCP. Это главный продуктовый референс для Eclipse Forge Builder: локальное владение репозиторием, inspectable diff и явные permissions вместо скрытого cloud runtime.",
+      "useCases": [
+        "Спроектировать local-first Eclipse Builder",
+        "Сравнить model adapters и export flow",
+        "Проверить MCP quarantine UX"
+      ],
+      "license": "Apache-2.0",
+      "licenseEvidence": [
+        {
+          "kind": "source",
+          "label": "Official Dyad website",
+          "url": "https://www.dyad.sh/"
+        },
+        {
+          "kind": "license",
+          "label": "Canonical repository",
+          "url": "https://github.com/dyad-sh/dyad"
+        }
+      ],
+      "projects": [
+        "Eclipse Forge",
+        "Eclipse AI Hub",
+        "Jarvis",
+        "Eclipse Library"
+      ],
+      "risks": [
+        "MCP servers can poison tools or exfiltrate data",
+        "Generated apps can contain vulnerable dependencies",
+        "Pro and open source paths have different terms"
+      ],
+      "quickStart": [
+        "Document Forge Builder contract without installing Dyad",
+        "Prototype local repo plus visible diff on an Eclipse fixture",
+        "Gate every model, network and MCP capability separately"
+      ],
+      "limitations": [
+        "No blind source copying",
+        "No unreviewed MCP",
+        "No automatic production deployment",
+        "Verify license by source path"
+      ],
+      "verifiedAt": "2026-09-01",
+      "addedAt": "2026-09-01",
+      "reviewStatus": "verified",
+      "guide": "september-2026-forgotten-bookmarks-radar",
+      "source": {
+        "file": "catalog/resources.json",
+        "key": "dyad-local-first-builder-reference",
+        "legacy": {
+          "file": "guides/september-2026-forgotten-bookmarks-radar.md",
+          "line": 1,
+          "category": "Source verification",
+          "subcategory": "Forgotten bookmarks, builders, media, datasets and rejected sources"
+        }
+      },
+      "catalogOrder": 1,
+      "licenseInfo": {
+        "label": "Apache-2.0",
+        "original": "Source-split repository: основная открытая часть указывает Apache-2.0, а pro paths имеют отдельные условия; каждый reused path нужно проверять",
+        "spdx": "Apache-2.0",
+        "kind": "open-source",
+        "status": "editor-reviewed",
+        "requiresReview": false,
+        "evidence": [
+          {
+            "kind": "source",
+            "label": "Official Dyad website",
+            "url": "https://www.dyad.sh/"
+          },
+          {
+            "kind": "license",
+            "label": "Canonical repository",
+            "url": "https://github.com/dyad-sh/dyad"
+          }
+        ]
+      },
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://www.dyad.sh/"
+        },
+        {
+          "kind": "license",
+          "label": "Canonical repository",
+          "url": "https://github.com/dyad-sh/dyad"
         }
       ],
       "agentEligibility": {
@@ -3662,6 +5363,129 @@
       }
     },
     {
+      "type": "reference",
+      "features": [
+        "Font catalog",
+        "Gothic category",
+        "Per-font license labels"
+      ],
+      "platforms": [
+        "Web"
+      ],
+      "pricing": "Актуальные тарифы и квоты нужно проверять у владельца перед каждым production-пилотом.",
+      "access": {
+        "cost": "unknown",
+        "signup": "optional",
+        "runtime": "cloud"
+      },
+      "trust": "official",
+      "trustReason": "Primary official website, documentation, repository status and applicable license or terms were checked on 01.09.2026. No account connection, installer, model download, external upload or production integration was performed.",
+      "decision": "reference",
+      "riskLevel": "high",
+      "audience": [
+        "Product owners",
+        "Platform engineers",
+        "Security reviewers"
+      ],
+      "relatedTechnologies": [],
+      "id": "fontspace-gothic-license-gated-discovery",
+      "url": "https://www.fontspace.com/category/gothic",
+      "title": "FontSpace Gothic: license-gated font discovery",
+      "category": "Design & Frontend",
+      "subcategory": "Font discovery",
+      "simpleDescription": "Большой каталог готических fonts, где условия различаются у каждого файла: встречаются personal-use, commercial и free варианты. Это только discovery source для Eclipse brand work; production font появляется в asset registry лишь вместе с author, original URL, exact license file, file hash, commercial scope и проверкой кириллицы.",
+      "useCases": [
+        "Искать Gothic references",
+        "Проверять Cyrillic coverage",
+        "Вести provenance шрифтов"
+      ],
+      "license": "Varies per font; category page does not grant one blanket production license",
+      "licenseEvidence": [
+        {
+          "kind": "source",
+          "label": "Official category",
+          "url": "https://www.fontspace.com/category/gothic"
+        },
+        {
+          "kind": "terms",
+          "label": "Official license FAQ",
+          "url": "https://www.fontspace.com/help#license"
+        }
+      ],
+      "projects": [
+        "Eclipse Forge",
+        "Animation Lab",
+        "Eclipse Library"
+      ],
+      "risks": [
+        "Personal-use fonts can be mistaken for commercial",
+        "Fonts may lack Cyrillic or required weights",
+        "Font files can be replaced without a stored hash"
+      ],
+      "quickStart": [
+        "Shortlist by visual need and Cyrillic coverage",
+        "Download license text from the exact font page",
+        "Store author, URL, license and hash in asset registry"
+      ],
+      "limitations": [
+        "No blanket category license",
+        "No production use without exact license",
+        "No font without Cyrillic test when Russian copy is required"
+      ],
+      "verifiedAt": "2026-09-01",
+      "addedAt": "2026-09-01",
+      "reviewStatus": "verified",
+      "guide": "september-2026-forgotten-bookmarks-radar",
+      "source": {
+        "file": "catalog/resources.json",
+        "key": "fontspace-gothic-license-gated-discovery",
+        "legacy": {
+          "file": "guides/september-2026-forgotten-bookmarks-radar.md",
+          "line": 1,
+          "category": "Source verification",
+          "subcategory": "Forgotten bookmarks, builders, media, datasets and rejected sources"
+        }
+      },
+      "catalogOrder": 1,
+      "licenseInfo": {
+        "label": "Varies per font; category page does not grant one blanket production license",
+        "original": "Varies per font; category page does not grant one blanket production license",
+        "spdx": null,
+        "kind": "custom",
+        "status": "editor-reviewed",
+        "requiresReview": false,
+        "evidence": [
+          {
+            "kind": "source",
+            "label": "Official category",
+            "url": "https://www.fontspace.com/category/gothic"
+          },
+          {
+            "kind": "terms",
+            "label": "Official license FAQ",
+            "url": "https://www.fontspace.com/help#license"
+          }
+        ]
+      },
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://www.fontspace.com/category/gothic"
+        },
+        {
+          "kind": "terms",
+          "label": "Official license FAQ",
+          "url": "https://www.fontspace.com/help#license"
+        }
+      ],
+      "agentEligibility": {
+        "eligible": true,
+        "reasons": [],
+        "installAllowed": false
+      }
+    },
+    {
       "id": "free-claude-code-provider-router",
       "url": "https://github.com/Alishahryar1/free-claude-code",
       "title": "Free Claude Code provider router",
@@ -3799,6 +5623,139 @@
           "kind": "license",
           "label": "Official MIT license",
           "url": "https://github.com/Alishahryar1/free-claude-code/blob/main/LICENSE"
+        }
+      ],
+      "agentEligibility": {
+        "eligible": true,
+        "reasons": [],
+        "installAllowed": false
+      }
+    },
+    {
+      "id": "freebeat-media-scene-plan-reference",
+      "url": "https://freebeat.ai/",
+      "title": "Freebeat — beat map and scene plan reference",
+      "type": "tool",
+      "category": "Voice & Audio",
+      "subcategory": "Music-to-video planning",
+      "simpleDescription": "Cloud product reference for converting music into video-oriented structure. Eclipse Media should reproduce only the safe product idea: rights-cleared audio becomes a local beat map, section and energy analysis, then an editable scene plan. It must not add downloaders, DRM bypass or automatic publication.",
+      "useCases": [
+        "Prototype music-to-beat-map analysis in Eclipse Media",
+        "Generate an editable plan of scenes and transitions",
+        "Export a rights-aware montage plan for later rendering"
+      ],
+      "features": [
+        "Music video generation",
+        "Beat-aware editing",
+        "AI scene generation",
+        "Cloud workflow"
+      ],
+      "platforms": [
+        "Web",
+        "Cloud AI",
+        "Media generation"
+      ],
+      "license": "Proprietary service and output terms; user media and generated assets require separate rights verification",
+      "licenseEvidence": [
+        {
+          "kind": "source",
+          "label": "Official Freebeat product",
+          "url": "https://freebeat.ai/"
+        },
+        {
+          "kind": "privacy",
+          "label": "Official Freebeat privacy policy",
+          "url": "https://freebeat.ai/privacy-policy"
+        }
+      ],
+      "pricing": "Freemium or paid cloud usage may apply; current credits, export rights and commercial terms must be checked before use.",
+      "access": {
+        "cost": "freemium",
+        "signup": "required",
+        "runtime": "cloud"
+      },
+      "trust": "official",
+      "trustReason": "Official product and public policy surface checked 01.09.2026. Marketing output quality was not independently benchmarked, and cloud handling of uploaded media requires project-specific review.",
+      "projects": [
+        "Eclipse Media",
+        "Eclipse Creative",
+        "Eclipse Library"
+      ],
+      "decision": "roadmap",
+      "riskLevel": "high",
+      "risks": [
+        "Uploaded music may be copyrighted or confidential",
+        "Cloud processors can retain prompts, files or outputs under changing policies",
+        "Generated scenes may contain unlicensed likenesses or assets",
+        "Automatic timing can create unsafe flash or motion patterns"
+      ],
+      "quickStart": [
+        "Use a synthetic or first-party 30-second audio fixture",
+        "Produce JSON with BPM, beat timestamps, sections, energy and editable scene slots",
+        "Keep analysis local first and require explicit rights confirmation before any upload"
+      ],
+      "limitations": [
+        "No YouTube or music-service downloading",
+        "No DRM or access-control bypass",
+        "No automatic publish and no assumption that service outputs are commercially cleared"
+      ],
+      "audience": [
+        "Media engineers",
+        "Video editors",
+        "Rights and privacy reviewers"
+      ],
+      "relatedTechnologies": [
+        "Beat tracking",
+        "Audio segmentation",
+        "Scene planning",
+        "EDL",
+        "Media provenance"
+      ],
+      "verifiedAt": "2026-09-01",
+      "addedAt": "2026-09-01",
+      "reviewStatus": "verified",
+      "guide": "september-2026-visual-builders-and-media-radar",
+      "source": {
+        "file": "catalog/resources.json",
+        "key": "freebeat-media-scene-plan-reference",
+        "legacy": {
+          "file": "guides/september-2026-visual-builders-and-media-radar.md",
+          "line": 1,
+          "category": "Source verification",
+          "subcategory": "Visual personas, builders and media workflows"
+        }
+      },
+      "catalogOrder": 1,
+      "licenseInfo": {
+        "label": "Proprietary service and output terms; user media and generated assets require separate rights verification",
+        "original": "Proprietary service and output terms; user media and generated assets require separate rights verification",
+        "spdx": null,
+        "kind": "service-terms",
+        "status": "editor-reviewed",
+        "requiresReview": false,
+        "evidence": [
+          {
+            "kind": "source",
+            "label": "Official Freebeat product",
+            "url": "https://freebeat.ai/"
+          },
+          {
+            "kind": "privacy",
+            "label": "Official Freebeat privacy policy",
+            "url": "https://freebeat.ai/privacy-policy"
+          }
+        ]
+      },
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://freebeat.ai/"
+        },
+        {
+          "kind": "privacy",
+          "label": "Official Freebeat privacy policy",
+          "url": "https://freebeat.ai/privacy-policy"
         }
       ],
       "agentEligibility": {
@@ -4449,6 +6406,135 @@
       }
     },
     {
+      "type": "reference",
+      "features": [
+        "Image-to-video",
+        "Motion prompts",
+        "Camera control",
+        "MP4 export"
+      ],
+      "platforms": [
+        "Web"
+      ],
+      "pricing": "Актуальные тарифы и квоты нужно проверять у владельца перед каждым production-пилотом.",
+      "access": {
+        "cost": "unknown",
+        "signup": "optional",
+        "runtime": "cloud"
+      },
+      "trust": "official",
+      "trustReason": "Primary official website, documentation, repository status and applicable license or terms were checked on 01.09.2026. No account connection, installer, model download, external upload or production integration was performed.",
+      "decision": "roadmap",
+      "riskLevel": "high",
+      "audience": [
+        "Product owners",
+        "Platform engineers",
+        "Security reviewers"
+      ],
+      "relatedTechnologies": [],
+      "id": "hailuo-image-to-video-consent-gated-pilot",
+      "url": "https://hailuoai.video/create/image-to-video",
+      "title": "Hailuo AI: consent-gated image-to-video pilot",
+      "category": "Video & Media",
+      "subcategory": "Cloud image-to-video providers",
+      "simpleDescription": "Облачный image-to-video генератор: принимает изображение и motion/camera prompt, затем выдаёт видео. Для Eclipse Media годится только как необязательный vendor pilot на собственных или явно разрешённых материалах; privacy, retention, commercial rights и условия плана проверяются до каждой рабочей интеграции.",
+      "useCases": [
+        "Сравнить image-to-video providers",
+        "Создать короткий motion study из first-party art",
+        "Проверить provider provenance contract"
+      ],
+      "license": "Proprietary SaaS; права на inputs/outputs, retention и commercial use определяются действующими Terms, Privacy Policy и планом",
+      "licenseEvidence": [
+        {
+          "kind": "source",
+          "label": "Official image-to-video tool",
+          "url": "https://hailuoai.video/tools/image-to-video"
+        },
+        {
+          "kind": "terms",
+          "label": "Official privacy policy",
+          "url": "https://hailuoai.video/doc/privacy-policy.html"
+        }
+      ],
+      "projects": [
+        "Eclipse Media",
+        "Eclipse AI Hub",
+        "Eclipse Library"
+      ],
+      "risks": [
+        "Input retention and broad service rights can change",
+        "Likeness and biometric processing require consent",
+        "Commercial rights can depend on plan"
+      ],
+      "quickStart": [
+        "Use an original synthetic Eclipse asset",
+        "Capture current terms, plan and retention in a provider receipt",
+        "Require manual review before download or publish"
+      ],
+      "limitations": [
+        "No client media before DPA/terms review",
+        "No real-person likeness without explicit consent",
+        "No automatic publishing"
+      ],
+      "verifiedAt": "2026-09-01",
+      "addedAt": "2026-09-01",
+      "reviewStatus": "verified",
+      "guide": "september-2026-forgotten-bookmarks-radar",
+      "source": {
+        "file": "catalog/resources.json",
+        "key": "hailuo-image-to-video-consent-gated-pilot",
+        "legacy": {
+          "file": "guides/september-2026-forgotten-bookmarks-radar.md",
+          "line": 1,
+          "category": "Source verification",
+          "subcategory": "Forgotten bookmarks, builders, media, datasets and rejected sources"
+        }
+      },
+      "catalogOrder": 1,
+      "licenseInfo": {
+        "label": "Proprietary SaaS; права на inputs/outputs, retention и commercial use определяются действующими Terms, Privacy Policy и планом",
+        "original": "Proprietary SaaS; права на inputs/outputs, retention и commercial use определяются действующими Terms, Privacy Policy и планом",
+        "spdx": null,
+        "kind": "service-terms",
+        "status": "editor-reviewed",
+        "requiresReview": false,
+        "evidence": [
+          {
+            "kind": "source",
+            "label": "Official image-to-video tool",
+            "url": "https://hailuoai.video/tools/image-to-video"
+          },
+          {
+            "kind": "terms",
+            "label": "Official privacy policy",
+            "url": "https://hailuoai.video/doc/privacy-policy.html"
+          }
+        ]
+      },
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://hailuoai.video/create/image-to-video"
+        },
+        {
+          "kind": "source",
+          "label": "Official image-to-video tool",
+          "url": "https://hailuoai.video/tools/image-to-video"
+        },
+        {
+          "kind": "terms",
+          "label": "Official privacy policy",
+          "url": "https://hailuoai.video/doc/privacy-policy.html"
+        }
+      ],
+      "agentEligibility": {
+        "eligible": true,
+        "reasons": [],
+        "installAllowed": false
+      }
+    },
+    {
       "id": "hapi-remote-agent-control",
       "url": "https://hapi.run/",
       "title": "HAPI",
@@ -4646,6 +6732,131 @@
           "kind": "official-source",
           "label": "Официальный источник",
           "url": "https://www.happyshrimp.ai/"
+        }
+      ],
+      "agentEligibility": {
+        "eligible": true,
+        "reasons": [],
+        "installAllowed": false
+      }
+    },
+    {
+      "type": "reference",
+      "features": [
+        "Prompt-to-UI",
+        "Screenshot input",
+        "React output",
+        "Live preview",
+        "Versioning"
+      ],
+      "platforms": [
+        "Web"
+      ],
+      "pricing": "Актуальные тарифы и квоты нужно проверять у владельца перед каждым production-пилотом.",
+      "access": {
+        "cost": "unknown",
+        "signup": "optional",
+        "runtime": "cloud"
+      },
+      "trust": "official",
+      "trustReason": "Primary official website, documentation, repository status and applicable license or terms were checked on 01.09.2026. No account connection, installer, model download, external upload or production integration was performed.",
+      "decision": "roadmap",
+      "riskLevel": "high",
+      "audience": [
+        "Product owners",
+        "Platform engineers",
+        "Security reviewers"
+      ],
+      "relatedTechnologies": [],
+      "id": "heroui-chat-controlled-ui-export-reference",
+      "url": "https://heroui.chat/",
+      "title": "HeroUI Chat: controlled UI export reference",
+      "category": "Design & Frontend",
+      "subcategory": "Prompt-to-interface builders",
+      "simpleDescription": "Prompt/screenshot-to-React interface builder around HeroUI with live preview and export-oriented workflows. Для Eclipse Forge и Animation Lab это дизайн-песочница: exported files входят в наш repository, используют разрешённые OSS components и проходят dependency, license, accessibility, responsive, reduced-motion и behavior review.",
+      "useCases": [
+        "Прототипировать экран по brief или screenshot",
+        "Сравнить UI variations",
+        "Экспортировать React/Tailwind prototype"
+      ],
+      "license": "Service and Pro components have separate terms; HeroUI OSS components follow their repository license and every export dependency must be checked",
+      "licenseEvidence": [
+        {
+          "kind": "source",
+          "label": "Official HeroUI Chat",
+          "url": "https://heroui.chat/"
+        },
+        {
+          "kind": "source",
+          "label": "Official HeroUI MCP documentation",
+          "url": "https://heroui.pro/docs/react/getting-started/mcp-server"
+        }
+      ],
+      "projects": [
+        "Eclipse Forge",
+        "Animation Lab",
+        "Eclipse Library"
+      ],
+      "risks": [
+        "Screenshot inputs can contain confidential UI or personal data",
+        "Pro and OSS component rights differ",
+        "Generated UI can be inaccessible or behaviorally incomplete"
+      ],
+      "quickStart": [
+        "Use an Eclipse-owned mock screenshot",
+        "Export files to an isolated review directory",
+        "Run license, dependency, behavior, desktop/mobile and accessibility QA"
+      ],
+      "limitations": [
+        "No confidential screenshots",
+        "No direct production publish",
+        "No component without verified source license"
+      ],
+      "verifiedAt": "2026-09-01",
+      "addedAt": "2026-09-01",
+      "reviewStatus": "verified",
+      "guide": "september-2026-forgotten-bookmarks-radar",
+      "source": {
+        "file": "catalog/resources.json",
+        "key": "heroui-chat-controlled-ui-export-reference",
+        "legacy": {
+          "file": "guides/september-2026-forgotten-bookmarks-radar.md",
+          "line": 1,
+          "category": "Source verification",
+          "subcategory": "Forgotten bookmarks, builders, media, datasets and rejected sources"
+        }
+      },
+      "catalogOrder": 1,
+      "licenseInfo": {
+        "label": "Service and Pro components have separate terms; HeroUI OSS components follow their repository license and every export dependency must be checked",
+        "original": "Service and Pro components have separate terms; HeroUI OSS components follow their repository license and every export dependency must be checked",
+        "spdx": null,
+        "kind": "service-terms",
+        "status": "editor-reviewed",
+        "requiresReview": false,
+        "evidence": [
+          {
+            "kind": "source",
+            "label": "Official HeroUI Chat",
+            "url": "https://heroui.chat/"
+          },
+          {
+            "kind": "source",
+            "label": "Official HeroUI MCP documentation",
+            "url": "https://heroui.pro/docs/react/getting-started/mcp-server"
+          }
+        ]
+      },
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://heroui.chat/"
+        },
+        {
+          "kind": "source",
+          "label": "Official HeroUI MCP documentation",
+          "url": "https://heroui.pro/docs/react/getting-started/mcp-server"
         }
       ],
       "agentEligibility": {
@@ -5029,6 +7240,256 @@
           "kind": "license",
           "label": "Official Apache-2.0 license",
           "url": "https://github.com/Intelligent-Internet/ii-agent/blob/main/LICENSE"
+        }
+      ],
+      "agentEligibility": {
+        "eligible": true,
+        "reasons": [],
+        "installAllowed": false
+      }
+    },
+    {
+      "type": "reference",
+      "features": [
+        "Third-party creator-content aggregation"
+      ],
+      "platforms": [
+        "Web"
+      ],
+      "pricing": "Актуальные тарифы и квоты нужно проверять у владельца перед каждым production-пилотом.",
+      "access": {
+        "cost": "unknown",
+        "signup": "optional",
+        "runtime": "cloud"
+      },
+      "trust": "unknown",
+      "trustReason": "Primary official website, documentation, repository status and applicable license or terms were checked on 01.09.2026. No account connection, installer, model download, external upload or production integration was performed.",
+      "decision": "reference",
+      "riskLevel": "high",
+      "audience": [
+        "Product owners",
+        "Platform engineers",
+        "Security reviewers"
+      ],
+      "relatedTechnologies": [],
+      "id": "kemono-rejected-content-source",
+      "url": "https://kemono.cr/",
+      "title": "Kemono: rejected creator-content source",
+      "category": "Video & Media",
+      "subcategory": "Rejected content acquisition",
+      "simpleDescription": "Неофициальный агрегатор и зеркало creator/paywalled content. Eclipse не использует его для поиска assets, scraping, downloads, model datasets или media references: наличие файла в публичном интерфейсе не подтверждает авторство, согласие, лицензию или право на повторное использование.",
+      "useCases": [
+        "Зафиксировать deny decision",
+        "Не допустить повторного добавления как media provider"
+      ],
+      "license": "No reliable rights chain for aggregated content; not approved for Eclipse use",
+      "licenseEvidence": [
+        {
+          "kind": "source",
+          "label": "Submitted public site",
+          "url": "https://kemono.cr/"
+        },
+        {
+          "kind": "decision",
+          "label": "Eclipse rights and provenance gate",
+          "url": "https://artlist.io/help-center/privacy-terms/artlist-license/"
+        }
+      ],
+      "projects": [
+        "Eclipse Media",
+        "Eclipse Library"
+      ],
+      "risks": [
+        "Copyright and privacy violations",
+        "Missing creator consent",
+        "Unsafe downloads and tracking",
+        "Dataset contamination"
+      ],
+      "quickStart": [
+        "Keep domain in rejected-source registry",
+        "Do not crawl or download",
+        "Acquire creator work only from official licensed channels"
+      ],
+      "limitations": [
+        "No integration",
+        "No scraping",
+        "No downloads",
+        "No dataset use"
+      ],
+      "verifiedAt": "2026-09-01",
+      "addedAt": "2026-09-01",
+      "reviewStatus": "verified",
+      "guide": "september-2026-forgotten-bookmarks-radar",
+      "source": {
+        "file": "catalog/resources.json",
+        "key": "kemono-rejected-content-source",
+        "legacy": {
+          "file": "guides/september-2026-forgotten-bookmarks-radar.md",
+          "line": 1,
+          "category": "Source verification",
+          "subcategory": "Forgotten bookmarks, builders, media, datasets and rejected sources"
+        }
+      },
+      "catalogOrder": 1,
+      "licenseInfo": {
+        "label": "No reliable rights chain for aggregated content; not approved for Eclipse use",
+        "original": "No reliable rights chain for aggregated content; not approved for Eclipse use",
+        "spdx": null,
+        "kind": "custom",
+        "status": "editor-reviewed",
+        "requiresReview": false,
+        "evidence": [
+          {
+            "kind": "source",
+            "label": "Submitted public site",
+            "url": "https://kemono.cr/"
+          },
+          {
+            "kind": "decision",
+            "label": "Eclipse rights and provenance gate",
+            "url": "https://artlist.io/help-center/privacy-terms/artlist-license/"
+          }
+        ]
+      },
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://kemono.cr/"
+        },
+        {
+          "kind": "decision",
+          "label": "Eclipse rights and provenance gate",
+          "url": "https://artlist.io/help-center/privacy-terms/artlist-license/"
+        }
+      ],
+      "agentEligibility": {
+        "eligible": true,
+        "reasons": [],
+        "installAllowed": false
+      }
+    },
+    {
+      "type": "oss",
+      "features": [
+        "LoRA",
+        "DreamBooth",
+        "Fine-tuning",
+        "Gradio GUI",
+        "Multiple diffusion families"
+      ],
+      "platforms": [
+        "Python",
+        "PyTorch",
+        "CUDA",
+        "Windows",
+        "Linux"
+      ],
+      "pricing": "Актуальные тарифы и квоты нужно проверять у владельца перед каждым production-пилотом.",
+      "access": {
+        "cost": "free",
+        "signup": "none",
+        "runtime": "local"
+      },
+      "trust": "community",
+      "trustReason": "Primary official website, documentation, repository status and applicable license or terms were checked on 01.09.2026. No account connection, installer, model download, external upload or production integration was performed.",
+      "decision": "roadmap",
+      "riskLevel": "high",
+      "audience": [
+        "Product owners",
+        "Platform engineers",
+        "Security reviewers"
+      ],
+      "relatedTechnologies": [],
+      "id": "kohya-ss-isolated-gpu-training-reference",
+      "url": "https://github.com/bmaltais/kohya_ss",
+      "title": "kohya_ss: isolated diffusion training workbench",
+      "category": "AI & Data",
+      "subcategory": "Diffusion training and LoRA",
+      "simpleDescription": "Активный Apache-2.0 GUI/CLI workbench для LoRA, DreamBooth, finetune и других diffusion training flows. Eclipse может использовать его только на отдельном GPU worker с pinned commits/models, first-party или consented dataset manifest, quotas и sample review; текущий малый production VPS для этого не подходит.",
+      "useCases": [
+        "Обучить экспериментальную LoRA на first-party art",
+        "Сравнить dataset captions",
+        "Проверить isolated GPU job contract"
+      ],
+      "license": "Apache-2.0",
+      "licenseEvidence": [
+        {
+          "kind": "source",
+          "label": "Canonical repository",
+          "url": "https://github.com/bmaltais/kohya_ss"
+        },
+        {
+          "kind": "license",
+          "label": "Repository Apache-2.0 license",
+          "url": "https://github.com/bmaltais/kohya_ss/blob/master/LICENSE.md"
+        }
+      ],
+      "projects": [
+        "Eclipse Media",
+        "Eclipse AI Hub",
+        "Eclipse Library"
+      ],
+      "risks": [
+        "GPU jobs can exhaust disk, VRAM and budget",
+        "Base models and datasets can have incompatible rights",
+        "Training on real people creates likeness and privacy risk"
+      ],
+      "quickStart": [
+        "Define disabled provider contract without installing on VPS",
+        "Prepare a small original-art dataset with manifest",
+        "Run later on isolated GPU with pinned hashes, quota, cancel and reviewed samples"
+      ],
+      "limitations": [
+        "Not for current VPS",
+        "No real-person training without explicit consent",
+        "No unpinned model or dependency downloads"
+      ],
+      "verifiedAt": "2026-09-01",
+      "addedAt": "2026-09-01",
+      "reviewStatus": "verified",
+      "guide": "september-2026-forgotten-bookmarks-radar",
+      "source": {
+        "file": "catalog/resources.json",
+        "key": "kohya-ss-isolated-gpu-training-reference",
+        "legacy": {
+          "file": "guides/september-2026-forgotten-bookmarks-radar.md",
+          "line": 1,
+          "category": "Source verification",
+          "subcategory": "Forgotten bookmarks, builders, media, datasets and rejected sources"
+        }
+      },
+      "catalogOrder": 1,
+      "licenseInfo": {
+        "label": "Apache-2.0",
+        "original": "Apache-2.0 repository code; base models, datasets, adapters and outputs retain independent licenses and rights",
+        "spdx": "Apache-2.0",
+        "kind": "open-source",
+        "status": "editor-reviewed",
+        "requiresReview": false,
+        "evidence": [
+          {
+            "kind": "source",
+            "label": "Canonical repository",
+            "url": "https://github.com/bmaltais/kohya_ss"
+          },
+          {
+            "kind": "license",
+            "label": "Repository Apache-2.0 license",
+            "url": "https://github.com/bmaltais/kohya_ss/blob/master/LICENSE.md"
+          }
+        ]
+      },
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://github.com/bmaltais/kohya_ss"
+        },
+        {
+          "kind": "license",
+          "label": "Repository Apache-2.0 license",
+          "url": "https://github.com/bmaltais/kohya_ss/blob/master/LICENSE.md"
         }
       ],
       "agentEligibility": {
@@ -5487,6 +7948,128 @@
       }
     },
     {
+      "type": "reference",
+      "features": [
+        "Prompt-to-site",
+        "Visual editing",
+        "Branding",
+        "Publishing",
+        "SEO"
+      ],
+      "platforms": [
+        "Web"
+      ],
+      "pricing": "Актуальные тарифы и квоты нужно проверять у владельца перед каждым production-пилотом.",
+      "access": {
+        "cost": "unknown",
+        "signup": "optional",
+        "runtime": "cloud"
+      },
+      "trust": "official",
+      "trustReason": "Primary official website, documentation, repository status and applicable license or terms were checked on 01.09.2026. No account connection, installer, model download, external upload or production integration was performed.",
+      "decision": "reference",
+      "riskLevel": "high",
+      "audience": [
+        "Product owners",
+        "Platform engineers",
+        "Security reviewers"
+      ],
+      "relatedTechnologies": [],
+      "id": "loki-build-discontinued-design-reference",
+      "url": "https://app.loki.build/",
+      "title": "Loki Build: discontinued visual-builder reference",
+      "category": "Design & Frontend",
+      "subcategory": "Discontinued AI website builders",
+      "simpleDescription": "AI-native visual website builder for prompt/brief-to-landing, branding, publishing and SEO. The product has been publicly described by its founder as shut down, so Eclipse keeps only historical UX observations; it is not a dependency, integration target or recommended place for new projects.",
+      "useCases": [
+        "Review historical visual-builder UX",
+        "Avoid planning an integration with a discontinued service"
+      ],
+      "license": "Discontinued proprietary SaaS; no reusable code or asset license established",
+      "licenseEvidence": [
+        {
+          "kind": "source",
+          "label": "Submitted application",
+          "url": "https://app.loki.build/"
+        },
+        {
+          "kind": "status",
+          "label": "Founder shutdown announcement",
+          "url": "https://www.linkedin.com/posts/nikita-sorokin40_introducing-silow-it-shows-you-exactly-where-activity-7481368512872046592-ctw1"
+        }
+      ],
+      "projects": [
+        "Eclipse Forge",
+        "Eclipse Library"
+      ],
+      "risks": [
+        "Service availability and data export are not reliable",
+        "Historical marketing pages can outlive product support"
+      ],
+      "quickStart": [
+        "Keep as historical reference only",
+        "Do not create accounts or upload projects",
+        "Use maintained builder comparisons instead"
+      ],
+      "limitations": [
+        "No integration",
+        "No production dependency",
+        "No new project upload"
+      ],
+      "verifiedAt": "2026-09-01",
+      "addedAt": "2026-09-01",
+      "reviewStatus": "verified",
+      "guide": "september-2026-forgotten-bookmarks-radar",
+      "source": {
+        "file": "catalog/resources.json",
+        "key": "loki-build-discontinued-design-reference",
+        "legacy": {
+          "file": "guides/september-2026-forgotten-bookmarks-radar.md",
+          "line": 1,
+          "category": "Source verification",
+          "subcategory": "Forgotten bookmarks, builders, media, datasets and rejected sources"
+        }
+      },
+      "catalogOrder": 1,
+      "licenseInfo": {
+        "label": "Discontinued proprietary SaaS; no reusable code or asset license established",
+        "original": "Discontinued proprietary SaaS; no reusable code or asset license established",
+        "spdx": null,
+        "kind": "service-terms",
+        "status": "editor-reviewed",
+        "requiresReview": false,
+        "evidence": [
+          {
+            "kind": "source",
+            "label": "Submitted application",
+            "url": "https://app.loki.build/"
+          },
+          {
+            "kind": "status",
+            "label": "Founder shutdown announcement",
+            "url": "https://www.linkedin.com/posts/nikita-sorokin40_introducing-silow-it-shows-you-exactly-where-activity-7481368512872046592-ctw1"
+          }
+        ]
+      },
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://app.loki.build/"
+        },
+        {
+          "kind": "status",
+          "label": "Founder shutdown announcement",
+          "url": "https://www.linkedin.com/posts/nikita-sorokin40_introducing-silow-it-shows-you-exactly-where-activity-7481368512872046592-ctw1"
+        }
+      ],
+      "agentEligibility": {
+        "eligible": true,
+        "reasons": [],
+        "installAllowed": false
+      }
+    },
+    {
       "id": "magnitude-local-model-agent",
       "url": "https://github.com/magnitudedev/magnitude",
       "title": "Magnitude",
@@ -5826,6 +8409,128 @@
           "kind": "license",
           "label": "Official MIT license",
           "url": "https://github.com/moeru-ai/airi/blob/main/LICENSE"
+        }
+      ],
+      "agentEligibility": {
+        "eligible": true,
+        "reasons": [],
+        "installAllowed": false
+      }
+    },
+    {
+      "type": "oss",
+      "features": [
+        "Proxy configuration GUI",
+        "Multiple protocols"
+      ],
+      "platforms": [
+        "Desktop",
+        "Windows",
+        "Linux"
+      ],
+      "pricing": "Актуальные тарифы и квоты нужно проверять у владельца перед каждым production-пилотом.",
+      "access": {
+        "cost": "free",
+        "signup": "none",
+        "runtime": "local"
+      },
+      "trust": "community",
+      "trustReason": "Primary official website, documentation, repository status and applicable license or terms were checked on 01.09.2026. No account connection, installer, model download, external upload or production integration was performed.",
+      "decision": "reference",
+      "riskLevel": "high",
+      "audience": [
+        "Product owners",
+        "Platform engineers",
+        "Security reviewers"
+      ],
+      "relatedTechnologies": [],
+      "id": "nekoray-archived-network-tool-reference",
+      "url": "https://github.com/MatsuriDayo/nekoray",
+      "title": "NekoRay: archived network tool reference",
+      "category": "Infrastructure & Security",
+      "subcategory": "Archived network tooling",
+      "simpleDescription": "Архивированный и не поддерживаемый GUI для proxy configurations. Он остаётся в Library только как отрицательное maintenance-свидетельство: network/security client без обновлений нельзя делать production dependency. Для легитимных задач Eclipse использует поддерживаемые official WireGuard/sing-box paths с review и audit.",
+      "useCases": [
+        "Record archived status",
+        "Prevent use as a production network client"
+      ],
+      "license": "GPL-3.0",
+      "licenseEvidence": [
+        {
+          "kind": "source",
+          "label": "Canonical archived repository",
+          "url": "https://github.com/MatsuriDayo/nekoray"
+        },
+        {
+          "kind": "license",
+          "label": "Repository license",
+          "url": "https://github.com/MatsuriDayo/nekoray/blob/main/LICENSE"
+        }
+      ],
+      "projects": [
+        "Eclipse Sentinel",
+        "Eclipse Library"
+      ],
+      "risks": [
+        "Unpatched network-facing code",
+        "Proxy configuration can redirect sensitive traffic",
+        "Archived dependencies can accumulate vulnerabilities"
+      ],
+      "quickStart": [
+        "Do not install",
+        "Keep archived status visible",
+        "Select a maintained official tool only after a separate security review"
+      ],
+      "limitations": [
+        "No production use",
+        "No system proxy changes",
+        "No secret or traffic import"
+      ],
+      "verifiedAt": "2026-09-01",
+      "addedAt": "2026-09-01",
+      "reviewStatus": "verified",
+      "guide": "september-2026-forgotten-bookmarks-radar",
+      "source": {
+        "file": "catalog/resources.json",
+        "key": "nekoray-archived-network-tool-reference",
+        "legacy": {
+          "file": "guides/september-2026-forgotten-bookmarks-radar.md",
+          "line": 1,
+          "category": "Source verification",
+          "subcategory": "Forgotten bookmarks, builders, media, datasets and rejected sources"
+        }
+      },
+      "catalogOrder": 1,
+      "licenseInfo": {
+        "label": "GPL-3.0",
+        "original": "GPL-3.0 repository, archived and unmaintained",
+        "spdx": "GPL-3.0",
+        "kind": "open-source",
+        "status": "editor-reviewed",
+        "requiresReview": false,
+        "evidence": [
+          {
+            "kind": "source",
+            "label": "Canonical archived repository",
+            "url": "https://github.com/MatsuriDayo/nekoray"
+          },
+          {
+            "kind": "license",
+            "label": "Repository license",
+            "url": "https://github.com/MatsuriDayo/nekoray/blob/main/LICENSE"
+          }
+        ]
+      },
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://github.com/MatsuriDayo/nekoray"
+        },
+        {
+          "kind": "license",
+          "label": "Repository license",
+          "url": "https://github.com/MatsuriDayo/nekoray/blob/main/LICENSE"
         }
       ],
       "agentEligibility": {
@@ -6317,6 +9022,146 @@
         "reasons": [
           "grey-resource"
         ],
+        "installAllowed": false
+      }
+    },
+    {
+      "id": "openspot-local-audio-shelf-reference",
+      "url": "https://github.com/BlackHatDevX/openspot-music-app",
+      "title": "OpenSpot: local audio shelf UX reference",
+      "type": "oss",
+      "category": "Voice & Audio",
+      "subcategory": "Local library, queue and offline playback",
+      "simpleDescription": "MIT-licensed React Native and Tauri music application with cross-platform playback, playlists, offline state and a compact player. Eclipse Media can reuse product patterns for a rights-cleared local audio shelf, persistent queue and background job feedback, but must not copy or adopt third-party stream extraction and download behavior.",
+      "useCases": [
+        "Build a local audio shelf for user-owned and licensed media",
+        "Add persistent queue, mini-player and background download state to Eclipse Media",
+        "Improve offline, retry and interrupted-job recovery UX"
+      ],
+      "features": [
+        "React Native mobile app",
+        "Tauri desktop app",
+        "Mini player",
+        "Offline mode",
+        "Playlists",
+        "Background playback"
+      ],
+      "platforms": [
+        "Android",
+        "iOS",
+        "Windows",
+        "macOS",
+        "Linux",
+        "React Native",
+        "Tauri"
+      ],
+      "license": "MIT",
+      "licenseEvidence": [
+        {
+          "kind": "license",
+          "label": "Repository MIT license",
+          "url": "https://github.com/BlackHatDevX/openspot-music-app/blob/main/LICENSE"
+        },
+        {
+          "kind": "source",
+          "label": "Official public repository",
+          "url": "https://github.com/BlackHatDevX/openspot-music-app"
+        }
+      ],
+      "pricing": "Source is free. Storage, metadata providers, transcoding and licensed catalog access can create separate costs.",
+      "access": {
+        "cost": "free",
+        "signup": "none",
+        "runtime": "local"
+      },
+      "trust": "community",
+      "trustReason": "Canonical repository, current README features, cross-platform structure and MIT license checked 01.09.2026. Streaming and download sources were not executed or approved.",
+      "projects": [
+        "Eclipse Media",
+        "Eclipse Library"
+      ],
+      "decision": "roadmap",
+      "riskLevel": "high",
+      "risks": [
+        "Music streaming and downloading can violate copyright or provider terms",
+        "External metadata and source APIs can change or block requests",
+        "Background downloads can consume storage and bandwidth without clear limits",
+        "Media metadata and listening history can be sensitive user data"
+      ],
+      "quickStart": [
+        "Use only uploaded, local or explicitly licensed audio fixtures",
+        "Prototype queue, mini-player, offline state and recoverable background jobs",
+        "Add storage limits, provenance, delete controls and explicit source labels before broader ingestion"
+      ],
+      "limitations": [
+        "No stream extraction",
+        "No DRM bypass",
+        "No automatic public-source downloading",
+        "No hidden collection of listening history"
+      ],
+      "audience": [
+        "Media product engineers",
+        "Desktop app engineers",
+        "Audio UX designers",
+        "Rights reviewers"
+      ],
+      "relatedTechnologies": [
+        "Tauri",
+        "React Native",
+        "Audio queue",
+        "Offline state",
+        "Background jobs"
+      ],
+      "verifiedAt": "2026-09-01",
+      "addedAt": "2026-09-01",
+      "reviewStatus": "verified",
+      "guide": "september-2026-agent-architecture-companion-radar",
+      "source": {
+        "file": "catalog/resources.json",
+        "key": "openspot-local-audio-shelf-reference",
+        "legacy": {
+          "file": "guides/september-2026-agent-architecture-companion-radar.md",
+          "line": 1,
+          "category": "Source verification",
+          "subcategory": "Agent recipes, architecture, audio UX and visual companions"
+        }
+      },
+      "catalogOrder": 1,
+      "licenseInfo": {
+        "label": "MIT",
+        "original": "MIT for repository code; music, metadata, APIs and source services retain separate rights and terms",
+        "spdx": "MIT",
+        "kind": "open-source",
+        "status": "editor-reviewed",
+        "requiresReview": false,
+        "evidence": [
+          {
+            "kind": "license",
+            "label": "Repository MIT license",
+            "url": "https://github.com/BlackHatDevX/openspot-music-app/blob/main/LICENSE"
+          },
+          {
+            "kind": "source",
+            "label": "Official public repository",
+            "url": "https://github.com/BlackHatDevX/openspot-music-app"
+          }
+        ]
+      },
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://github.com/BlackHatDevX/openspot-music-app"
+        },
+        {
+          "kind": "license",
+          "label": "Repository MIT license",
+          "url": "https://github.com/BlackHatDevX/openspot-music-app/blob/main/LICENSE"
+        }
+      ],
+      "agentEligibility": {
+        "eligible": true,
+        "reasons": [],
         "installAllowed": false
       }
     },
@@ -6952,6 +9797,131 @@
       }
     },
     {
+      "type": "reference",
+      "features": [
+        "Prospecting workflows",
+        "Platform automation",
+        "Message outreach",
+        "Data enrichment"
+      ],
+      "platforms": [
+        "Web"
+      ],
+      "pricing": "Актуальные тарифы и квоты нужно проверять у владельца перед каждым production-пилотом.",
+      "access": {
+        "cost": "unknown",
+        "signup": "optional",
+        "runtime": "cloud"
+      },
+      "trust": "official",
+      "trustReason": "Primary official website, documentation, repository status and applicable license or terms were checked on 01.09.2026. No account connection, installer, model download, external upload or production integration was performed.",
+      "decision": "reference",
+      "riskLevel": "high",
+      "audience": [
+        "Product owners",
+        "Platform engineers",
+        "Security reviewers"
+      ],
+      "relatedTechnologies": [],
+      "id": "phantombuster-compliance-gated-growth-reference",
+      "url": "https://phantombuster.com/",
+      "title": "PhantomBuster: compliance-gated outreach reference",
+      "category": "Business & Growth",
+      "subcategory": "Prospecting and outreach automation",
+      "simpleDescription": "Коммерческая prospecting/scraping/outreach automation для социальных и business platforms. Growth OS не превращает её в общий scraper: допустим только отдельный compliance-reviewed experiment с разрешённой интеграцией, lawful basis, data minimization, suppression/unsubscribe, rate limits и human approval перед каждым внешним сообщением.",
+      "useCases": [
+        "Спроектировать outreach approval ledger",
+        "Оценить compliance controls",
+        "Проверить suppression and rate-limit UX"
+      ],
+      "license": "Proprietary SaaS; platform terms, privacy law, anti-spam rules and data-provider terms all apply independently",
+      "licenseEvidence": [
+        {
+          "kind": "source",
+          "label": "Official PhantomBuster website",
+          "url": "https://phantombuster.com/"
+        },
+        {
+          "kind": "terms",
+          "label": "Official terms",
+          "url": "https://phantombuster.com/terms"
+        }
+      ],
+      "projects": [
+        "Growth OS",
+        "Eclipse Library"
+      ],
+      "risks": [
+        "Platform account suspension",
+        "Unlawful scraping or personal-data processing",
+        "Spam and reputation harm",
+        "Automated messages sent without review"
+      ],
+      "quickStart": [
+        "Start with a fake connector and synthetic leads",
+        "Define lawful basis, suppression and per-platform policy",
+        "Require preview and human approval before any real outreach"
+      ],
+      "limitations": [
+        "No generic scraper",
+        "No credential sharing",
+        "No cold outreach without lawful basis and approval",
+        "No automatic send"
+      ],
+      "verifiedAt": "2026-09-01",
+      "addedAt": "2026-09-01",
+      "reviewStatus": "verified",
+      "guide": "september-2026-forgotten-bookmarks-radar",
+      "source": {
+        "file": "catalog/resources.json",
+        "key": "phantombuster-compliance-gated-growth-reference",
+        "legacy": {
+          "file": "guides/september-2026-forgotten-bookmarks-radar.md",
+          "line": 1,
+          "category": "Source verification",
+          "subcategory": "Forgotten bookmarks, builders, media, datasets and rejected sources"
+        }
+      },
+      "catalogOrder": 1,
+      "licenseInfo": {
+        "label": "Proprietary SaaS; platform terms, privacy law, anti-spam rules and data-provider terms all apply independently",
+        "original": "Proprietary SaaS; platform terms, privacy law, anti-spam rules and data-provider terms all apply independently",
+        "spdx": null,
+        "kind": "service-terms",
+        "status": "editor-reviewed",
+        "requiresReview": false,
+        "evidence": [
+          {
+            "kind": "source",
+            "label": "Official PhantomBuster website",
+            "url": "https://phantombuster.com/"
+          },
+          {
+            "kind": "terms",
+            "label": "Official terms",
+            "url": "https://phantombuster.com/terms"
+          }
+        ]
+      },
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://phantombuster.com/"
+        },
+        {
+          "kind": "terms",
+          "label": "Official terms",
+          "url": "https://phantombuster.com/terms"
+        }
+      ],
+      "agentEligibility": {
+        "eligible": true,
+        "reasons": [],
+        "installAllowed": false
+      }
+    },
+    {
       "id": "phone-number-osint-claims-warning",
       "url": "https://github.com/spider863644/PhoneNumber-OSINT",
       "title": "PhoneNumber-OSINT — проверка заявлений",
@@ -7212,6 +10182,133 @@
       }
     },
     {
+      "type": "reference",
+      "features": [
+        "Searchable library reference",
+        "Queue and progress reference",
+        "Resume-state reference",
+        "Rejected torrent, scraper, IPTV and Debrid acquisition"
+      ],
+      "platforms": [
+        "Flutter",
+        "Android",
+        "Windows"
+      ],
+      "pricing": "Актуальные тарифы и квоты нужно проверять у владельца перед каждым production-пилотом.",
+      "access": {
+        "cost": "free",
+        "signup": "optional",
+        "runtime": "local"
+      },
+      "trust": "community",
+      "trustReason": "Primary official website, documentation, repository status and applicable license or terms were checked on 01.09.2026. No account connection, installer, model download, external upload or production integration was performed.",
+      "decision": "reference",
+      "riskLevel": "high",
+      "audience": [
+        "Product owners",
+        "Platform engineers",
+        "Security reviewers"
+      ],
+      "relatedTechnologies": [],
+      "id": "playtorrio-rejected-media-source",
+      "url": "https://playtorrio.pages.dev/",
+      "title": "PlayTorrio: quarantined source, approved clean-room UX reference",
+      "category": "Video & Media",
+      "subcategory": "Rejected content acquisition",
+      "simpleDescription": "PlayTorrio remains a rejected media source, but its generic product mechanics are useful as a clean-room UX reference: searchable local shelf, visible queue, resumable work and progress states. Eclipse Media reimplements those ideas independently for user-owned and licensed files; it does not reuse the source code, torrent, scraper, IPTV or Debrid paths.",
+      "useCases": [
+        "Rebuild a clean-room local media shelf",
+        "Design visible queue, progress and resumable workflow states",
+        "Prevent accidental re-evaluation as an approved content provider"
+      ],
+      "license": "GPL-3.0",
+      "licenseEvidence": [
+        {
+          "kind": "source",
+          "label": "Official project website",
+          "url": "https://playtorrio.pages.dev/"
+        },
+        {
+          "kind": "license",
+          "label": "Canonical repository and GPL-3.0 label",
+          "url": "https://github.com/ayman708-UX/PlayTorrioV3"
+        }
+      ],
+      "projects": [
+        "Eclipse Media",
+        "Eclipse Library"
+      ],
+      "risks": [
+        "Copyright and platform-terms violations",
+        "Untrusted scrapers and streams",
+        "Malicious media or subtitle payloads",
+        "Network and storage abuse"
+      ],
+      "quickStart": [
+        "Reimplement only generic UX patterns from scratch",
+        "Keep the site and repository blocked as acquisition sources",
+        "Use only local, first-party or explicitly licensed media in Eclipse"
+      ],
+      "limitations": [
+        "No integration",
+        "No torrent streaming",
+        "No scraper reuse",
+        "No IPTV or Debrid discovery"
+      ],
+      "verifiedAt": "2026-09-01",
+      "addedAt": "2026-09-01",
+      "reviewStatus": "verified",
+      "guide": "september-2026-forgotten-bookmarks-radar",
+      "source": {
+        "file": "catalog/resources.json",
+        "key": "playtorrio-rejected-media-source",
+        "legacy": {
+          "file": "guides/september-2026-forgotten-bookmarks-radar.md",
+          "line": 1,
+          "category": "Source verification",
+          "subcategory": "Forgotten bookmarks, builders, media, datasets and rejected sources"
+        }
+      },
+      "catalogOrder": 1,
+      "licenseInfo": {
+        "label": "GPL-3.0",
+        "original": "GPL-3.0 repository code; media, streams and third-party services retain independent rights and terms",
+        "spdx": "GPL-3.0",
+        "kind": "open-source",
+        "status": "editor-reviewed",
+        "requiresReview": false,
+        "evidence": [
+          {
+            "kind": "source",
+            "label": "Official project website",
+            "url": "https://playtorrio.pages.dev/"
+          },
+          {
+            "kind": "license",
+            "label": "Canonical repository and GPL-3.0 label",
+            "url": "https://github.com/ayman708-UX/PlayTorrioV3"
+          }
+        ]
+      },
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://playtorrio.pages.dev/"
+        },
+        {
+          "kind": "license",
+          "label": "Canonical repository and GPL-3.0 label",
+          "url": "https://github.com/ayman708-UX/PlayTorrioV3"
+        }
+      ],
+      "agentEligibility": {
+        "eligible": true,
+        "reasons": [],
+        "installAllowed": false
+      }
+    },
+    {
       "id": "portainer-container-management-ce",
       "url": "https://github.com/portainer/portainer",
       "title": "Portainer Community Edition",
@@ -7462,6 +10559,141 @@
           "kind": "license",
           "label": "Official MIT license",
           "url": "https://github.com/rampstackco/claude-skills/blob/main/LICENSE"
+        }
+      ],
+      "agentEligibility": {
+        "eligible": true,
+        "reasons": [],
+        "installAllowed": false
+      }
+    },
+    {
+      "id": "react-bits-animation-lab-reference",
+      "url": "https://github.com/DavidHDev/react-bits",
+      "title": "React Bits — selective Animation Lab reference",
+      "type": "oss",
+      "category": "Design & UI",
+      "subcategory": "React animation patterns",
+      "simpleDescription": "Большая коллекция React-анимаций полезна как очередь кандидатов для Animation Lab, но не должна перепубликовываться целиком. Каждый эффект проходит отдельную проверку лицензии, accessibility, reduced motion, bundle impact и стабильных 60 FPS; при сомнении поведение реализуется заново в дизайн-системе Eclipse.",
+      "useCases": [
+        "Добавить отдельные showcase в Animation Lab",
+        "Сравнивать text, background и interaction effects",
+        "Создать performance и accessibility gate для UI-анимаций"
+      ],
+      "features": [
+        "Text animations",
+        "Background effects",
+        "Interactive components",
+        "React examples",
+        "Copy-oriented documentation"
+      ],
+      "platforms": [
+        "React",
+        "TypeScript",
+        "JavaScript",
+        "Web"
+      ],
+      "license": "MIT with Commons Clause restrictions; item-level review required before reuse or redistribution",
+      "licenseEvidence": [
+        {
+          "kind": "license",
+          "label": "Official repository license",
+          "url": "https://github.com/DavidHDev/react-bits/blob/main/LICENSE"
+        },
+        {
+          "kind": "source",
+          "label": "Official repository",
+          "url": "https://github.com/DavidHDev/react-bits"
+        }
+      ],
+      "pricing": "Source is publicly accessible. Redistribution and commercial packaging remain subject to the repository license and Commons Clause restrictions.",
+      "access": {
+        "cost": "free",
+        "signup": "none",
+        "runtime": "local"
+      },
+      "trust": "community",
+      "trustReason": "Canonical repository, license and component-oriented structure checked 01.09.2026. Individual effects were not approved as a batch and remain subject to per-component QA.",
+      "projects": [
+        "Eclipse Animation Lab",
+        "Eclipse Library",
+        "Eclipse Forge"
+      ],
+      "decision": "now",
+      "riskLevel": "medium",
+      "risks": [
+        "Commons Clause can restrict redistribution as a competing component service",
+        "GPU-heavy effects can cause jank and battery drain",
+        "Canvas and visual-only controls can be inaccessible",
+        "Copying many components creates dependency and maintenance sprawl"
+      ],
+      "quickStart": [
+        "Choose three effects with a concrete product use case",
+        "Record source and license per effect before implementation",
+        "Require reduced motion, keyboard focus, mobile QA, FPS trace and bundle delta before Library acceptance"
+      ],
+      "limitations": [
+        "No full-library mirror or repackaging",
+        "No decorative animation without an interaction or communication purpose",
+        "No effect enters production solely because the demo looks attractive"
+      ],
+      "audience": [
+        "Frontend engineers",
+        "Motion designers",
+        "Accessibility reviewers"
+      ],
+      "relatedTechnologies": [
+        "React",
+        "CSS transforms",
+        "WebGL",
+        "Accessibility",
+        "Performance profiling"
+      ],
+      "verifiedAt": "2026-09-01",
+      "addedAt": "2026-09-01",
+      "reviewStatus": "verified",
+      "guide": "september-2026-visual-builders-and-media-radar",
+      "source": {
+        "file": "catalog/resources.json",
+        "key": "react-bits-animation-lab-reference",
+        "legacy": {
+          "file": "guides/september-2026-visual-builders-and-media-radar.md",
+          "line": 1,
+          "category": "Source verification",
+          "subcategory": "Visual personas, builders and media workflows"
+        }
+      },
+      "catalogOrder": 1,
+      "licenseInfo": {
+        "label": "MIT with Commons Clause restrictions; item-level review required before reuse or redistribution",
+        "original": "MIT with Commons Clause restrictions; item-level review required before reuse or redistribution",
+        "spdx": null,
+        "kind": "custom",
+        "status": "editor-reviewed",
+        "requiresReview": false,
+        "evidence": [
+          {
+            "kind": "license",
+            "label": "Official repository license",
+            "url": "https://github.com/DavidHDev/react-bits/blob/main/LICENSE"
+          },
+          {
+            "kind": "source",
+            "label": "Official repository",
+            "url": "https://github.com/DavidHDev/react-bits"
+          }
+        ]
+      },
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://github.com/DavidHDev/react-bits"
+        },
+        {
+          "kind": "license",
+          "label": "Official repository license",
+          "url": "https://github.com/DavidHDev/react-bits/blob/main/LICENSE"
         }
       ],
       "agentEligibility": {
@@ -7744,6 +10976,249 @@
       }
     },
     {
+      "type": "reference",
+      "features": [
+        "Agent planning",
+        "Checkpoints",
+        "Rollback",
+        "Project imports",
+        "Security agent"
+      ],
+      "platforms": [
+        "Web"
+      ],
+      "pricing": "Актуальные тарифы и квоты нужно проверять у владельца перед каждым production-пилотом.",
+      "access": {
+        "cost": "unknown",
+        "signup": "optional",
+        "runtime": "cloud"
+      },
+      "trust": "official",
+      "trustReason": "Primary official website, documentation, repository status and applicable license or terms were checked on 01.09.2026. No account connection, installer, model download, external upload or production integration was performed.",
+      "decision": "roadmap",
+      "riskLevel": "high",
+      "audience": [
+        "Product owners",
+        "Platform engineers",
+        "Security reviewers"
+      ],
+      "relatedTechnologies": [],
+      "id": "replit-agent-checkpoint-workflow-reference",
+      "url": "https://replit.com/",
+      "title": "Replit Agent: checkpoint and rollback workflow reference",
+      "category": "Developer Tools",
+      "subcategory": "Cloud AI coding workspaces",
+      "simpleDescription": "Облачная IDE и AI Agent builder с plan/build flow, checkpoints, application history, rollback, imports и security tooling. Eclipse Forge должен забрать видимые checkpoints, selective rollback и budget feedback, но внешний workspace остаётся sandbox: код экспортируется в наш Git и не получает production secrets или customer data.",
+      "useCases": [
+        "Спроектировать checkpoints и rollback",
+        "Показывать plan/build и cost before run",
+        "Импортировать внешний prototype в controlled review"
+      ],
+      "license": "Proprietary cloud service; exported code and dependencies keep their own licenses",
+      "licenseEvidence": [
+        {
+          "kind": "source",
+          "label": "Official Agent documentation",
+          "url": "https://docs.replit.com/learn/build-with-agent"
+        },
+        {
+          "kind": "source",
+          "label": "Official import documentation",
+          "url": "https://docs.replit.com/build/import-from-providers"
+        }
+      ],
+      "projects": [
+        "Eclipse Forge",
+        "Eclipse AI Hub",
+        "Eclipse Library"
+      ],
+      "risks": [
+        "Private repositories and prompts leave local boundary",
+        "Generated dependencies and migrations can be unsafe",
+        "Rollback can be incomplete without database state"
+      ],
+      "quickStart": [
+        "Model checkpoint schema in Forge",
+        "Test code plus migration rollback on a synthetic fixture",
+        "Require Git export, scans, tests and review before deploy"
+      ],
+      "limitations": [
+        "No production secrets",
+        "No customer data",
+        "No direct external-to-production deploy"
+      ],
+      "verifiedAt": "2026-09-01",
+      "addedAt": "2026-09-01",
+      "reviewStatus": "verified",
+      "guide": "september-2026-forgotten-bookmarks-radar",
+      "source": {
+        "file": "catalog/resources.json",
+        "key": "replit-agent-checkpoint-workflow-reference",
+        "legacy": {
+          "file": "guides/september-2026-forgotten-bookmarks-radar.md",
+          "line": 1,
+          "category": "Source verification",
+          "subcategory": "Forgotten bookmarks, builders, media, datasets and rejected sources"
+        }
+      },
+      "catalogOrder": 1,
+      "licenseInfo": {
+        "label": "Proprietary cloud service; exported code and dependencies keep their own licenses",
+        "original": "Proprietary cloud service; exported code and dependencies keep their own licenses",
+        "spdx": null,
+        "kind": "custom",
+        "status": "editor-reviewed",
+        "requiresReview": false,
+        "evidence": [
+          {
+            "kind": "source",
+            "label": "Official Agent documentation",
+            "url": "https://docs.replit.com/learn/build-with-agent"
+          },
+          {
+            "kind": "source",
+            "label": "Official import documentation",
+            "url": "https://docs.replit.com/build/import-from-providers"
+          }
+        ]
+      },
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://replit.com/"
+        },
+        {
+          "kind": "source",
+          "label": "Official Agent documentation",
+          "url": "https://docs.replit.com/learn/build-with-agent"
+        },
+        {
+          "kind": "source",
+          "label": "Official import documentation",
+          "url": "https://docs.replit.com/build/import-from-providers"
+        }
+      ],
+      "agentEligibility": {
+        "eligible": true,
+        "reasons": [],
+        "installAllowed": false
+      }
+    },
+    {
+      "id": "reve-2-0-app-reve-com",
+      "url": "https://app.reve.com/",
+      "title": "Reve: internal image-provider reference",
+      "type": "media",
+      "category": "Подборка Eclipse",
+      "subcategory": "Генерация изображений",
+      "simpleDescription": "Cloud image generator and API with strong layout/editing workflows. Eclipse may evaluate Reve as an internal Media/AI Hub provider under a declared use case, but must not expose one provider credential as a generic third-party gateway, resell or aggregate API access, or send sensitive input without retention and privacy review.",
+      "useCases": [
+        "Разобраться, подходит ли Reve 2.0 для вашей задачи",
+        "Проверить возможности на небольшом тестовом сценарии до интеграции"
+      ],
+      "platforms": [
+        "Web",
+        "API",
+        "Cloud"
+      ],
+      "license": "Proprietary service and API agreement; credential sharing, resale, aggregation and third-party access are restricted",
+      "pricing": "Актуальную стоимость нужно проверить на официальной странице",
+      "access": {
+        "cost": "paid",
+        "signup": "required",
+        "runtime": "cloud"
+      },
+      "trust": "official",
+      "trustReason": "Official application and API agreement checked 01.09.2026. No credential, upload or API request was used during intake.",
+      "projects": [
+        "Eclipse Media",
+        "Eclipse AI Hub",
+        "Eclipse Library"
+      ],
+      "decision": "roadmap",
+      "riskLevel": "high",
+      "risks": [
+        "API terms restrict aggregation and third-party access",
+        "Inputs leave local boundary",
+        "Provider pricing and output conditions can change"
+      ],
+      "verifiedAt": "2026-09-01",
+      "quickStart": [
+        "Define one internal declared use case",
+        "Review current API agreement and retention",
+        "Use a synthetic fixture with a server-side secret and no public provider proxy"
+      ],
+      "reviewStatus": "verified",
+      "source": {
+        "file": "catalog/resources.json",
+        "key": "reve-2-0-app-reve-com",
+        "legacy": {
+          "file": "guides/september-2026-forgotten-bookmarks-radar.md",
+          "line": 1,
+          "category": "Source verification",
+          "subcategory": "Forgotten bookmarks, builders, media, datasets and rejected sources"
+        }
+      },
+      "addedAt": "2026-09-01",
+      "licenseEvidence": [
+        {
+          "kind": "source",
+          "label": "Official Reve application",
+          "url": "https://app.reve.com/"
+        },
+        {
+          "kind": "terms",
+          "label": "Official API agreement",
+          "url": "https://app.reve.com/terms/api"
+        }
+      ],
+      "limitations": [
+        "No credential exposure",
+        "No generic public provider gateway",
+        "No customer assets before terms/privacy review"
+      ],
+      "guide": "september-2026-forgotten-bookmarks-radar",
+      "catalogOrder": 1,
+      "licenseInfo": {
+        "label": "Proprietary service and API agreement; credential sharing, resale, aggregation and third-party access are restricted",
+        "original": "Proprietary service and API agreement; credential sharing, resale, aggregation and third-party access are restricted",
+        "spdx": null,
+        "kind": "custom",
+        "status": "editor-reviewed",
+        "requiresReview": false,
+        "evidence": [
+          {
+            "kind": "source",
+            "label": "Official Reve application",
+            "url": "https://app.reve.com/"
+          },
+          {
+            "kind": "terms",
+            "label": "Official API agreement",
+            "url": "https://app.reve.com/terms/api"
+          }
+        ]
+      },
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://app.reve.com/"
+        },
+        {
+          "kind": "terms",
+          "label": "Official API agreement",
+          "url": "https://app.reve.com/terms/api"
+        }
+      ],
+      "agentEligibility": {
+        "eligible": true,
+        "reasons": [],
+        "installAllowed": false
+      }
+    },
+    {
       "id": "reverse-api-engineer-nottelabs",
       "url": "https://github.com/nottelabs/reverse-api-engineer",
       "title": "Reverse API Engineer",
@@ -7989,6 +11464,262 @@
       }
     },
     {
+      "id": "rocket-new-growth-context-reference",
+      "url": "https://www.rocket.new/",
+      "title": "Rocket — persistent product context reference",
+      "type": "tool",
+      "category": "Growth & Marketing",
+      "subcategory": "Persistent context and competitive monitoring",
+      "simpleDescription": "AI product builder is useful to Growth OS as a product reference for persistent context and long-running work. The Eclipse version must store evidence, decisions, owners and expiry separately, preserve source snapshots, and require human approval before changing offers or messaging; it is not a licence to scrape competitors or trust stale agent memory.",
+      "useCases": [
+        "Build an evidence-backed context ledger in Growth OS",
+        "Maintain a competitor watchlist with dated source snapshots",
+        "Connect hypotheses, decisions and outcomes without losing history"
+      ],
+      "features": [
+        "Persistent project context",
+        "AI-assisted product generation",
+        "Long-running workspace",
+        "Cloud collaboration"
+      ],
+      "platforms": [
+        "Web",
+        "Cloud AI",
+        "Product development"
+      ],
+      "license": "Proprietary service terms; generated code, external models and third-party assets retain separate conditions",
+      "licenseEvidence": [
+        {
+          "kind": "source",
+          "label": "Official Rocket product",
+          "url": "https://www.rocket.new/"
+        },
+        {
+          "kind": "privacy",
+          "label": "Official Rocket privacy policy",
+          "url": "https://www.rocket.new/privacy-policy"
+        }
+      ],
+      "pricing": "Plan limits and credits can change; verify current commercial terms before any project or data upload.",
+      "access": {
+        "cost": "freemium",
+        "signup": "required",
+        "runtime": "cloud"
+      },
+      "trust": "official",
+      "trustReason": "Official product and public policy surface checked 01.09.2026. Feature and performance claims were treated as publisher claims, and external model subprocessors require separate review.",
+      "projects": [
+        "Growth OS",
+        "Eclipse AI Hub",
+        "Eclipse Library"
+      ],
+      "decision": "reference",
+      "riskLevel": "high",
+      "risks": [
+        "Persistent context can retain secrets, personal data or outdated claims",
+        "Automated competitor collection may violate terms or robots rules",
+        "Agent inference can be confused with verified fact",
+        "Cloud providers and subprocessors can change"
+      ],
+      "quickStart": [
+        "Create a schema separating fact, source, inference, decision, owner and expiry",
+        "Monitor only public allowlisted pages at a respectful cadence",
+        "Require a dated snapshot and human approval before any Growth OS recommendation becomes active"
+      ],
+      "limitations": [
+        "No authenticated scraping or access-control bypass",
+        "No automatic pricing or campaign changes",
+        "No un-sourced fact enters persistent context"
+      ],
+      "audience": [
+        "Growth teams",
+        "Product strategists",
+        "Competitive intelligence reviewers"
+      ],
+      "relatedTechnologies": [
+        "Context ledger",
+        "Change detection",
+        "Provenance",
+        "Human approval"
+      ],
+      "verifiedAt": "2026-09-01",
+      "addedAt": "2026-09-01",
+      "reviewStatus": "verified",
+      "guide": "september-2026-visual-builders-and-media-radar",
+      "source": {
+        "file": "catalog/resources.json",
+        "key": "rocket-new-growth-context-reference",
+        "legacy": {
+          "file": "guides/september-2026-visual-builders-and-media-radar.md",
+          "line": 1,
+          "category": "Source verification",
+          "subcategory": "Visual personas, builders and media workflows"
+        }
+      },
+      "catalogOrder": 1,
+      "licenseInfo": {
+        "label": "Proprietary service terms; generated code, external models and third-party assets retain separate conditions",
+        "original": "Proprietary service terms; generated code, external models and third-party assets retain separate conditions",
+        "spdx": null,
+        "kind": "service-terms",
+        "status": "editor-reviewed",
+        "requiresReview": false,
+        "evidence": [
+          {
+            "kind": "source",
+            "label": "Official Rocket product",
+            "url": "https://www.rocket.new/"
+          },
+          {
+            "kind": "privacy",
+            "label": "Official Rocket privacy policy",
+            "url": "https://www.rocket.new/privacy-policy"
+          }
+        ]
+      },
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://www.rocket.new/"
+        },
+        {
+          "kind": "privacy",
+          "label": "Official Rocket privacy policy",
+          "url": "https://www.rocket.new/privacy-policy"
+        }
+      ],
+      "agentEligibility": {
+        "eligible": true,
+        "reasons": [],
+        "installAllowed": false
+      }
+    },
+    {
+      "type": "oss",
+      "features": [
+        "Torrent client",
+        "Media center",
+        "Self-hosting"
+      ],
+      "platforms": [
+        "Self-host",
+        "Web",
+        "Docker"
+      ],
+      "pricing": "Актуальные тарифы и квоты нужно проверять у владельца перед каждым production-пилотом.",
+      "access": {
+        "cost": "free",
+        "signup": "none",
+        "runtime": "self-host"
+      },
+      "trust": "community",
+      "trustReason": "Primary official website, documentation, repository status and applicable license or terms were checked on 01.09.2026. No account connection, installer, model download, external upload or production integration was performed.",
+      "decision": "reference",
+      "riskLevel": "high",
+      "audience": [
+        "Product owners",
+        "Platform engineers",
+        "Security reviewers"
+      ],
+      "relatedTechnologies": [],
+      "id": "seedbox-lite-rejected-torrent-reference",
+      "url": "https://github.com/hotheadhacker/seedbox-lite",
+      "title": "seedbox-lite: rejected non-commercial torrent stack",
+      "category": "Video & Media",
+      "subcategory": "Rejected content acquisition",
+      "simpleDescription": "Self-hosted torrent media center/seedbox with a custom non-commercial license. It is a poor fit for Eclipse Media both legally and operationally: torrent acquisition is not a rights chain, commercial reuse is restricted, and a network-facing downloader expands storage, malware, abuse and incident-response surface.",
+      "useCases": [
+        "Record exclusion decision",
+        "Prevent accidental production installation"
+      ],
+      "license": "Custom non-commercial license; not approved for commercial Eclipse integration",
+      "licenseEvidence": [
+        {
+          "kind": "source",
+          "label": "Canonical repository",
+          "url": "https://github.com/hotheadhacker/seedbox-lite"
+        },
+        {
+          "kind": "license",
+          "label": "Repository license file",
+          "url": "https://github.com/hotheadhacker/seedbox-lite/blob/main/LICENSE"
+        }
+      ],
+      "projects": [
+        "Eclipse Media",
+        "Eclipse Library"
+      ],
+      "risks": [
+        "Copyright and abuse complaints",
+        "Custom non-commercial restriction",
+        "Malicious downloads",
+        "Unbounded disk and bandwidth"
+      ],
+      "quickStart": [
+        "Keep as rejected",
+        "Do not deploy or connect storage",
+        "Use rights-cleared upload and licensed-provider flows instead"
+      ],
+      "limitations": [
+        "No integration",
+        "No torrent acquisition",
+        "No commercial reuse"
+      ],
+      "verifiedAt": "2026-09-01",
+      "addedAt": "2026-09-01",
+      "reviewStatus": "verified",
+      "guide": "september-2026-forgotten-bookmarks-radar",
+      "source": {
+        "file": "catalog/resources.json",
+        "key": "seedbox-lite-rejected-torrent-reference",
+        "legacy": {
+          "file": "guides/september-2026-forgotten-bookmarks-radar.md",
+          "line": 1,
+          "category": "Source verification",
+          "subcategory": "Forgotten bookmarks, builders, media, datasets and rejected sources"
+        }
+      },
+      "catalogOrder": 1,
+      "licenseInfo": {
+        "label": "Custom non-commercial license; not approved for commercial Eclipse integration",
+        "original": "Custom non-commercial license; not approved for commercial Eclipse integration",
+        "spdx": null,
+        "kind": "service-terms",
+        "status": "editor-reviewed",
+        "requiresReview": false,
+        "evidence": [
+          {
+            "kind": "source",
+            "label": "Canonical repository",
+            "url": "https://github.com/hotheadhacker/seedbox-lite"
+          },
+          {
+            "kind": "license",
+            "label": "Repository license file",
+            "url": "https://github.com/hotheadhacker/seedbox-lite/blob/main/LICENSE"
+          }
+        ]
+      },
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://github.com/hotheadhacker/seedbox-lite"
+        },
+        {
+          "kind": "license",
+          "label": "Repository license file",
+          "url": "https://github.com/hotheadhacker/seedbox-lite/blob/main/LICENSE"
+        }
+      ],
+      "agentEligibility": {
+        "eligible": true,
+        "reasons": [],
+        "installAllowed": false
+      }
+    },
+    {
       "id": "stockagent-market-simulation-reference",
       "url": "https://github.com/MingyuJ666/Stockagent",
       "title": "StockAgent — research simulation only",
@@ -8118,6 +11849,135 @@
         "reasons": [
           "grey-resource"
         ],
+        "installAllowed": false
+      }
+    },
+    {
+      "type": "oss",
+      "features": [
+        "Image tagging",
+        "Auto-captioning",
+        "Batch operations",
+        "Token counting",
+        "CPU/NVIDIA modes"
+      ],
+      "platforms": [
+        "Windows",
+        "Linux",
+        "macOS",
+        "Python",
+        "Desktop"
+      ],
+      "pricing": "Актуальные тарифы и квоты нужно проверять у владельца перед каждым production-пилотом.",
+      "access": {
+        "cost": "free",
+        "signup": "none",
+        "runtime": "local"
+      },
+      "trust": "community",
+      "trustReason": "Primary official website, documentation, repository status and applicable license or terms were checked on 01.09.2026. No account connection, installer, model download, external upload or production integration was performed.",
+      "decision": "roadmap",
+      "riskLevel": "high",
+      "audience": [
+        "Product owners",
+        "Platform engineers",
+        "Security reviewers"
+      ],
+      "relatedTechnologies": [],
+      "id": "taggui-local-dataset-curation-reference",
+      "url": "https://github.com/jhc13/taggui",
+      "title": "TagGUI: isolated local dataset curation reference",
+      "category": "AI & Data",
+      "subcategory": "Image dataset curation",
+      "simpleDescription": "Cross-platform desktop GUI для local image dataset tagging, captions, batch tag operations и token counting. Полезен как отдельный Eclipse Media Dataset Lab process для собственных или consented assets; GPL-3.0 не позволяет бездумно переносить код в закрытый продукт, а captions и models требуют provenance и review.",
+      "useCases": [
+        "Подготовить captions и tags локально",
+        "Провести batch review image dataset",
+        "Создать dataset manifest для LoRA experiments"
+      ],
+      "license": "GPL-3.0",
+      "licenseEvidence": [
+        {
+          "kind": "source",
+          "label": "Canonical repository",
+          "url": "https://github.com/jhc13/taggui"
+        },
+        {
+          "kind": "license",
+          "label": "Repository GPL-3.0 license",
+          "url": "https://github.com/jhc13/taggui/blob/main/LICENSE"
+        }
+      ],
+      "projects": [
+        "Eclipse Media",
+        "Eclipse AI Hub",
+        "Eclipse Library"
+      ],
+      "risks": [
+        "Datasets can contain unlicensed or personal images",
+        "Auto-captions can add incorrect or sensitive labels",
+        "GPL distribution obligations apply"
+      ],
+      "quickStart": [
+        "Create a tiny first-party dataset manifest",
+        "Run in an isolated local process with network disabled",
+        "Review every caption and store model/hash/provenance"
+      ],
+      "limitations": [
+        "No customer images",
+        "No unreviewed captions",
+        "No code embedding without GPL decision"
+      ],
+      "verifiedAt": "2026-09-01",
+      "addedAt": "2026-09-01",
+      "reviewStatus": "verified",
+      "guide": "september-2026-forgotten-bookmarks-radar",
+      "source": {
+        "file": "catalog/resources.json",
+        "key": "taggui-local-dataset-curation-reference",
+        "legacy": {
+          "file": "guides/september-2026-forgotten-bookmarks-radar.md",
+          "line": 1,
+          "category": "Source verification",
+          "subcategory": "Forgotten bookmarks, builders, media, datasets and rejected sources"
+        }
+      },
+      "catalogOrder": 1,
+      "licenseInfo": {
+        "label": "GPL-3.0",
+        "original": "GPL-3.0; keep as a separate process/reference unless a compliance decision approves distribution obligations",
+        "spdx": "GPL-3.0",
+        "kind": "open-source",
+        "status": "editor-reviewed",
+        "requiresReview": false,
+        "evidence": [
+          {
+            "kind": "source",
+            "label": "Canonical repository",
+            "url": "https://github.com/jhc13/taggui"
+          },
+          {
+            "kind": "license",
+            "label": "Repository GPL-3.0 license",
+            "url": "https://github.com/jhc13/taggui/blob/main/LICENSE"
+          }
+        ]
+      },
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://github.com/jhc13/taggui"
+        },
+        {
+          "kind": "license",
+          "label": "Repository GPL-3.0 license",
+          "url": "https://github.com/jhc13/taggui/blob/main/LICENSE"
+        }
+      ],
+      "agentEligibility": {
+        "eligible": true,
+        "reasons": [],
         "installAllowed": false
       }
     },
@@ -8463,6 +12323,373 @@
           "kind": "license",
           "label": "Official asset license notes",
           "url": "https://github.com/MengTo/threeui/blob/main/ASSET-LICENSES.md"
+        }
+      ],
+      "agentEligibility": {
+        "eligible": true,
+        "reasons": [],
+        "installAllowed": false
+      }
+    },
+    {
+      "type": "reference",
+      "features": [
+        "AI tool directory",
+        "Categories",
+        "Discovery"
+      ],
+      "platforms": [
+        "Web"
+      ],
+      "pricing": "Актуальные тарифы и квоты нужно проверять у владельца перед каждым production-пилотом.",
+      "access": {
+        "cost": "unknown",
+        "signup": "optional",
+        "runtime": "cloud"
+      },
+      "trust": "community",
+      "trustReason": "Primary official website, documentation, repository status and applicable license or terms were checked on 01.09.2026. No account connection, installer, model download, external upload or production integration was performed.",
+      "decision": "reference",
+      "riskLevel": "high",
+      "audience": [
+        "Product owners",
+        "Platform engineers",
+        "Security reviewers"
+      ],
+      "relatedTechnologies": [],
+      "id": "toolfolio-discovery-feed-reference",
+      "url": "https://toolfolio.com/ai",
+      "title": "Toolfolio: untrusted AI-tool discovery feed",
+      "category": "Research & Discovery",
+      "subcategory": "Tool directories",
+      "simpleDescription": "Каталог AI-инструментов, полезный для первичного обнаружения сервисов, но не являющийся доказательством владельца, лицензии, безопасности, цены или актуальности. Library может принимать из него только candidate URL в карантинную очередь, после чего всё перепроверяется по первичному источнику.",
+      "useCases": [
+        "Находить кандидатов для Library intake",
+        "Собирать темы рынка без автоматической установки"
+      ],
+      "license": "Directory terms apply; linked tools keep independent licenses, owners and privacy policies",
+      "licenseEvidence": [
+        {
+          "kind": "source",
+          "label": "Official directory",
+          "url": "https://toolfolio.com/ai"
+        },
+        {
+          "kind": "decision",
+          "label": "Eclipse verification guide",
+          "url": "https://toolfolio.com/"
+        }
+      ],
+      "projects": [
+        "Eclipse Library",
+        "Growth OS"
+      ],
+      "risks": [
+        "Sponsored or stale listings",
+        "Impersonation and unsafe downloads",
+        "Linked tools have unrelated terms"
+      ],
+      "quickStart": [
+        "Import URL and title only as unverified",
+        "Resolve canonical owner, license, pricing and privacy",
+        "Approve or reject before it appears in recommendations"
+      ],
+      "limitations": [
+        "Not a trust source",
+        "No automatic install",
+        "No inherited approval for linked tools"
+      ],
+      "verifiedAt": "2026-09-01",
+      "addedAt": "2026-09-01",
+      "reviewStatus": "verified",
+      "guide": "september-2026-forgotten-bookmarks-radar",
+      "source": {
+        "file": "catalog/resources.json",
+        "key": "toolfolio-discovery-feed-reference",
+        "legacy": {
+          "file": "guides/september-2026-forgotten-bookmarks-radar.md",
+          "line": 1,
+          "category": "Source verification",
+          "subcategory": "Forgotten bookmarks, builders, media, datasets and rejected sources"
+        }
+      },
+      "catalogOrder": 1,
+      "licenseInfo": {
+        "label": "Directory terms apply; linked tools keep independent licenses, owners and privacy policies",
+        "original": "Directory terms apply; linked tools keep independent licenses, owners and privacy policies",
+        "spdx": null,
+        "kind": "service-terms",
+        "status": "editor-reviewed",
+        "requiresReview": false,
+        "evidence": [
+          {
+            "kind": "source",
+            "label": "Official directory",
+            "url": "https://toolfolio.com/ai"
+          },
+          {
+            "kind": "decision",
+            "label": "Eclipse verification guide",
+            "url": "https://toolfolio.com/"
+          }
+        ]
+      },
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://toolfolio.com/ai"
+        },
+        {
+          "kind": "decision",
+          "label": "Eclipse verification guide",
+          "url": "https://toolfolio.com/"
+        }
+      ],
+      "agentEligibility": {
+        "eligible": true,
+        "reasons": [],
+        "installAllowed": false
+      }
+    },
+    {
+      "type": "oss",
+      "features": [
+        "Course downloading",
+        "Desktop GUI"
+      ],
+      "platforms": [
+        "Desktop",
+        "Python"
+      ],
+      "pricing": "Актуальные тарифы и квоты нужно проверять у владельца перед каждым production-пилотом.",
+      "access": {
+        "cost": "free",
+        "signup": "required",
+        "runtime": "local"
+      },
+      "trust": "community",
+      "trustReason": "Primary official website, documentation, repository status and applicable license or terms were checked on 01.09.2026. No account connection, installer, model download, external upload or production integration was performed.",
+      "decision": "reference",
+      "riskLevel": "high",
+      "audience": [
+        "Product owners",
+        "Platform engineers",
+        "Security reviewers"
+      ],
+      "relatedTechnologies": [],
+      "id": "udemy-downloader-gui-rejected-content-tool",
+      "url": "https://github.com/heliomarpm/udemy-downloader-gui/",
+      "title": "Udemy Downloader GUI: rejected course acquisition tool",
+      "category": "Video & Media",
+      "subcategory": "Rejected content acquisition",
+      "simpleDescription": "GUI/fork для скачивания приобретённых Udemy courses. Даже если repository code имеет permissive license, это не выдаёт право обходить platform controls, DRM, course licensing или хранить чужой educational content в Eclipse Media. Интеграция и download behavior отклонены.",
+      "useCases": [
+        "Record exclusion decision",
+        "Prevent confusion between code license and content rights"
+      ],
+      "license": "Repository code license does not grant rights to platform content or permission to bypass access controls",
+      "licenseEvidence": [
+        {
+          "kind": "source",
+          "label": "Canonical repository",
+          "url": "https://github.com/heliomarpm/udemy-downloader-gui/"
+        },
+        {
+          "kind": "terms",
+          "label": "Udemy terms",
+          "url": "https://www.udemy.com/terms/"
+        }
+      ],
+      "projects": [
+        "Eclipse Media",
+        "Eclipse Library"
+      ],
+      "risks": [
+        "Platform ToS and copyright violations",
+        "Credential/session handling",
+        "DRM or access-control bypass",
+        "Storage of licensed third-party courses"
+      ],
+      "quickStart": [
+        "Keep as rejected",
+        "Do not run with a user session or credentials",
+        "Use official offline/export features where the platform permits them"
+      ],
+      "limitations": [
+        "No integration",
+        "No credentials",
+        "No course downloading or DRM bypass"
+      ],
+      "verifiedAt": "2026-09-01",
+      "addedAt": "2026-09-01",
+      "reviewStatus": "verified",
+      "guide": "september-2026-forgotten-bookmarks-radar",
+      "source": {
+        "file": "catalog/resources.json",
+        "key": "udemy-downloader-gui-rejected-content-tool",
+        "legacy": {
+          "file": "guides/september-2026-forgotten-bookmarks-radar.md",
+          "line": 1,
+          "category": "Source verification",
+          "subcategory": "Forgotten bookmarks, builders, media, datasets and rejected sources"
+        }
+      },
+      "catalogOrder": 1,
+      "licenseInfo": {
+        "label": "Repository code license does not grant rights to platform content or permission to bypass access controls",
+        "original": "Repository code license does not grant rights to platform content or permission to bypass access controls",
+        "spdx": null,
+        "kind": "custom",
+        "status": "editor-reviewed",
+        "requiresReview": false,
+        "evidence": [
+          {
+            "kind": "source",
+            "label": "Canonical repository",
+            "url": "https://github.com/heliomarpm/udemy-downloader-gui/"
+          },
+          {
+            "kind": "terms",
+            "label": "Udemy terms",
+            "url": "https://www.udemy.com/terms/"
+          }
+        ]
+      },
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://github.com/heliomarpm/udemy-downloader-gui/"
+        },
+        {
+          "kind": "terms",
+          "label": "Udemy terms",
+          "url": "https://www.udemy.com/terms/"
+        }
+      ],
+      "agentEligibility": {
+        "eligible": true,
+        "reasons": [],
+        "installAllowed": false
+      }
+    },
+    {
+      "type": "reference",
+      "features": [
+        "Interactive scenes",
+        "Website embeds",
+        "Visual editor",
+        "Motion timeline"
+      ],
+      "platforms": [
+        "Web"
+      ],
+      "pricing": "Актуальные тарифы и квоты нужно проверять у владельца перед каждым production-пилотом.",
+      "access": {
+        "cost": "unknown",
+        "signup": "optional",
+        "runtime": "cloud"
+      },
+      "trust": "official",
+      "trustReason": "Primary official website, documentation, repository status and applicable license or terms were checked on 01.09.2026. No account connection, installer, model download, external upload or production integration was performed.",
+      "decision": "reference",
+      "riskLevel": "high",
+      "audience": [
+        "Product owners",
+        "Platform engineers",
+        "Security reviewers"
+      ],
+      "relatedTechnologies": [],
+      "id": "unicorn-studio-motion-design-reference",
+      "url": "https://www.unicorn.studio/",
+      "title": "Unicorn Studio: interactive motion design reference",
+      "category": "Design & Frontend",
+      "subcategory": "Interactive web motion",
+      "simpleDescription": "Веб-редактор интерактивных animated scenes и embeds для сайтов. Полезен Animation Lab как референс authoring flow, timeline, responsive preview и производительного embed, но шаблоны, assets и exports остаются в границах действующего плана и лицензии и не копируются автоматически.",
+      "useCases": [
+        "Улучшить motion authoring в Animation Lab",
+        "Сравнить timeline и responsive preview",
+        "Оценить performance budget интерактивных scenes"
+      ],
+      "license": "Proprietary SaaS; reuse and export rights follow official Terms and selected plan",
+      "licenseEvidence": [
+        {
+          "kind": "source",
+          "label": "Official Unicorn Studio website",
+          "url": "https://www.unicorn.studio/"
+        },
+        {
+          "kind": "terms",
+          "label": "Official terms",
+          "url": "https://www.unicorn.studio/terms.pdf"
+        }
+      ],
+      "projects": [
+        "Animation Lab",
+        "Eclipse Forge",
+        "Eclipse Library"
+      ],
+      "risks": [
+        "Third-party embeds create availability and tracking dependencies",
+        "Templates and assets can have restricted reuse",
+        "Heavy scenes can damage accessibility and performance"
+      ],
+      "quickStart": [
+        "Record authoring UX observations only",
+        "Rebuild a tiny first-party scene with Eclipse tokens",
+        "Test 60fps, reduced motion, keyboard, mobile and no-JS fallback"
+      ],
+      "limitations": [
+        "No template scraping",
+        "No unreviewed third-party embed in production",
+        "No animation without reduced-motion behavior"
+      ],
+      "verifiedAt": "2026-09-01",
+      "addedAt": "2026-09-01",
+      "reviewStatus": "verified",
+      "guide": "september-2026-forgotten-bookmarks-radar",
+      "source": {
+        "file": "catalog/resources.json",
+        "key": "unicorn-studio-motion-design-reference",
+        "legacy": {
+          "file": "guides/september-2026-forgotten-bookmarks-radar.md",
+          "line": 1,
+          "category": "Source verification",
+          "subcategory": "Forgotten bookmarks, builders, media, datasets and rejected sources"
+        }
+      },
+      "catalogOrder": 1,
+      "licenseInfo": {
+        "label": "Proprietary SaaS; reuse and export rights follow official Terms and selected plan",
+        "original": "Proprietary SaaS; reuse and export rights follow official Terms and selected plan",
+        "spdx": null,
+        "kind": "service-terms",
+        "status": "editor-reviewed",
+        "requiresReview": false,
+        "evidence": [
+          {
+            "kind": "source",
+            "label": "Official Unicorn Studio website",
+            "url": "https://www.unicorn.studio/"
+          },
+          {
+            "kind": "terms",
+            "label": "Official terms",
+            "url": "https://www.unicorn.studio/terms.pdf"
+          }
+        ]
+      },
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://www.unicorn.studio/"
+        },
+        {
+          "kind": "terms",
+          "label": "Official terms",
+          "url": "https://www.unicorn.studio/terms.pdf"
         }
       ],
       "agentEligibility": {
@@ -9081,6 +13308,162 @@
       }
     },
     {
+      "id": "wan22-animate-offline-provider-reference",
+      "url": "https://huggingface.co/Wan-AI/Wan2.2-Animate-14B",
+      "title": "Wan2.2 Animate 14B: optional avatar motion worker",
+      "type": "model",
+      "category": "Video & Media",
+      "subcategory": "Character animation and replacement",
+      "simpleDescription": "Official Apache-2.0 character animation and replacement model that accepts a source video plus character image. It is useful as an optional asynchronous worker for original Eclipse companion art and consented media, not as a browser dependency or VPS workload; downloads, GPU execution and generated outputs need pinned revisions, hashes, provenance and rights checks.",
+      "useCases": [
+        "Create offline motion studies for an original Eclipse companion",
+        "Offer character animation as an optional Eclipse Media provider",
+        "Generate reviewed short avatar clips from consented driving video"
+      ],
+      "features": [
+        "Character animation",
+        "Character replacement",
+        "Video and image input",
+        "Single and multi-GPU inference",
+        "Safetensors weights"
+      ],
+      "platforms": [
+        "Python",
+        "PyTorch",
+        "CUDA",
+        "Hugging Face",
+        "ModelScope"
+      ],
+      "license": "Apache-2.0",
+      "licenseEvidence": [
+        {
+          "kind": "license",
+          "label": "Official Hugging Face Apache-2.0 model card",
+          "url": "https://huggingface.co/Wan-AI/Wan2.2-Animate-14B"
+        },
+        {
+          "kind": "source",
+          "label": "Official Wan2.2 repository",
+          "url": "https://github.com/Wan-Video/Wan2.2"
+        },
+        {
+          "kind": "source",
+          "label": "Official Wan web playground bookmark",
+          "url": "https://create.wan.video/"
+        }
+      ],
+      "pricing": "Weights are publicly available. Hardware, storage, bandwidth and hosted GPU inference create substantial separate costs.",
+      "access": {
+        "cost": "free",
+        "signup": "optional",
+        "runtime": "local"
+      },
+      "trust": "official",
+      "trustReason": "Official Wan AI model card, Apache-2.0 label, input contract and documented inference paths checked 01.09.2026. The large model was not downloaded or executed.",
+      "projects": [
+        "Eclipse Media",
+        "Eclipse AI Hub",
+        "Eclipse Library"
+      ],
+      "decision": "roadmap",
+      "riskLevel": "high",
+      "risks": [
+        "Character replacement can enable deceptive or non-consensual likeness use",
+        "Large weights and preprocessing can exhaust GPU, RAM, disk or job capacity",
+        "Unpinned model downloads can change without review",
+        "Generated video needs provenance and visible disclosure",
+        "The web playground has a separate cloud privacy and retention surface from local weights"
+      ],
+      "quickStart": [
+        "Define a provider contract and disabled-by-default queue without downloading weights",
+        "Require proof of rights for the character image and driving video",
+        "Run a short synthetic fixture on an isolated GPU worker with pinned revision, hashes, quotas and output provenance"
+      ],
+      "limitations": [
+        "Not for the current VPS",
+        "No browser-side inference",
+        "No real-person replacement without explicit consent",
+        "No automatic publish",
+        "No unpinned downloads",
+        "No sensitive upload to the web playground before terms and privacy verification"
+      ],
+      "audience": [
+        "Media ML engineers",
+        "Avatar designers",
+        "GPU platform engineers",
+        "Safety reviewers"
+      ],
+      "relatedTechnologies": [
+        "Video-to-video",
+        "Avatar animation",
+        "GPU queues",
+        "Model provenance",
+        "Consent"
+      ],
+      "verifiedAt": "2026-09-01",
+      "addedAt": "2026-09-01",
+      "reviewStatus": "verified",
+      "guide": "september-2026-agent-architecture-companion-radar",
+      "source": {
+        "file": "catalog/resources.json",
+        "key": "wan22-animate-offline-provider-reference",
+        "legacy": {
+          "file": "guides/september-2026-agent-architecture-companion-radar.md",
+          "line": 1,
+          "category": "Source verification",
+          "subcategory": "Agent recipes, architecture, audio UX and visual companions"
+        }
+      },
+      "catalogOrder": 1,
+      "licenseInfo": {
+        "label": "Apache-2.0",
+        "original": "Apache-2.0 model card and code surface; input and output rights remain the user's responsibility",
+        "spdx": "Apache-2.0",
+        "kind": "open-source",
+        "status": "editor-reviewed",
+        "requiresReview": false,
+        "evidence": [
+          {
+            "kind": "license",
+            "label": "Official Hugging Face Apache-2.0 model card",
+            "url": "https://huggingface.co/Wan-AI/Wan2.2-Animate-14B"
+          },
+          {
+            "kind": "source",
+            "label": "Official Wan2.2 repository",
+            "url": "https://github.com/Wan-Video/Wan2.2"
+          },
+          {
+            "kind": "source",
+            "label": "Official Wan web playground bookmark",
+            "url": "https://create.wan.video/"
+          }
+        ]
+      },
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://huggingface.co/Wan-AI/Wan2.2-Animate-14B"
+        },
+        {
+          "kind": "source",
+          "label": "Official Wan2.2 repository",
+          "url": "https://github.com/Wan-Video/Wan2.2"
+        },
+        {
+          "kind": "source",
+          "label": "Official Wan web playground bookmark",
+          "url": "https://create.wan.video/"
+        }
+      ],
+      "agentEligibility": {
+        "eligible": true,
+        "reasons": [],
+        "installAllowed": false
+      }
+    },
+    {
       "id": "wangp-local-media-worker",
       "url": "https://github.com/deepbeepmeep/Wan2GP",
       "title": "WanGP (formerly Wan2GP)",
@@ -9444,6 +13827,131 @@
           "kind": "official-source",
           "label": "Официальный источник",
           "url": "https://www.youtube.com/watch?v=Uk7HHfF9n2Q"
+        }
+      ],
+      "agentEligibility": {
+        "eligible": true,
+        "reasons": [],
+        "installAllowed": false
+      }
+    },
+    {
+      "type": "oss",
+      "features": [
+        "WireGuard user management",
+        "QR enrollment",
+        "Telegram bot",
+        "Payments"
+      ],
+      "platforms": [
+        "Python",
+        "Telegram",
+        "WireGuard",
+        "PostgreSQL"
+      ],
+      "pricing": "Актуальные тарифы и квоты нужно проверять у владельца перед каждым production-пилотом.",
+      "access": {
+        "cost": "free",
+        "signup": "none",
+        "runtime": "self-host"
+      },
+      "trust": "community",
+      "trustReason": "Primary official website, documentation, repository status and applicable license or terms were checked on 01.09.2026. No account connection, installer, model download, external upload or production integration was performed.",
+      "decision": "reference",
+      "riskLevel": "high",
+      "audience": [
+        "Product owners",
+        "Platform engineers",
+        "Security reviewers"
+      ],
+      "relatedTechnologies": [],
+      "id": "wireguard-bot-archived-reference",
+      "url": "https://github.com/PheeZz/wireguard-bot",
+      "title": "wireguard-bot: archived enrollment UX reference",
+      "category": "Infrastructure & Security",
+      "subcategory": "Archived network tooling",
+      "simpleDescription": "Архивированный и явно не поддерживаемый Telegram-бот управления WireGuard с users, QR enrollment, connect/disconnect и payment flow. В production его не ставим и installer не запускаем; берём только абстрактный UX-паттерн short-lived enrollment, visible device list и immediate revoke для собственной поддерживаемой реализации.",
+      "useCases": [
+        "Спроектировать QR enrollment и revoke",
+        "Зафиксировать запрет на использование abandoned network admin code"
+      ],
+      "license": "MIT",
+      "licenseEvidence": [
+        {
+          "kind": "source",
+          "label": "Canonical archived repository",
+          "url": "https://github.com/PheeZz/wireguard-bot"
+        },
+        {
+          "kind": "license",
+          "label": "Repository license",
+          "url": "https://github.com/PheeZz/wireguard-bot/blob/master/LICENSE"
+        }
+      ],
+      "projects": [
+        "Eclipse Sentinel",
+        "Eclipse Library"
+      ],
+      "risks": [
+        "Unmaintained network administration surface",
+        "Bot takeover can issue credentials",
+        "Shell installer and old dependencies increase supply-chain risk"
+      ],
+      "quickStart": [
+        "Do not install the repository",
+        "Write a clean-room enrollment contract",
+        "Use maintained WireGuard tooling with short-lived tokens, audit and revoke"
+      ],
+      "limitations": [
+        "No production use",
+        "No shell installer",
+        "No bot-held long-lived administrator credential"
+      ],
+      "verifiedAt": "2026-09-01",
+      "addedAt": "2026-09-01",
+      "reviewStatus": "verified",
+      "guide": "september-2026-forgotten-bookmarks-radar",
+      "source": {
+        "file": "catalog/resources.json",
+        "key": "wireguard-bot-archived-reference",
+        "legacy": {
+          "file": "guides/september-2026-forgotten-bookmarks-radar.md",
+          "line": 1,
+          "category": "Source verification",
+          "subcategory": "Forgotten bookmarks, builders, media, datasets and rejected sources"
+        }
+      },
+      "catalogOrder": 1,
+      "licenseInfo": {
+        "label": "MIT",
+        "original": "MIT repository, archived and unmaintained; dependencies and installation scripts require independent review",
+        "spdx": "MIT",
+        "kind": "open-source",
+        "status": "editor-reviewed",
+        "requiresReview": false,
+        "evidence": [
+          {
+            "kind": "source",
+            "label": "Canonical archived repository",
+            "url": "https://github.com/PheeZz/wireguard-bot"
+          },
+          {
+            "kind": "license",
+            "label": "Repository license",
+            "url": "https://github.com/PheeZz/wireguard-bot/blob/master/LICENSE"
+          }
+        ]
+      },
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://github.com/PheeZz/wireguard-bot"
+        },
+        {
+          "kind": "license",
+          "label": "Repository license",
+          "url": "https://github.com/PheeZz/wireguard-bot/blob/master/LICENSE"
         }
       ],
       "agentEligibility": {
@@ -33324,88 +37832,6 @@
       }
     },
     {
-      "id": "anti-miner-github-com",
-      "url": "https://github.com/Daiwv/Anti-Miner",
-      "title": "Anti-Miner",
-      "type": "privacy",
-      "category": "Privacy / OPSEC",
-      "subcategory": "AppSec / Security tooling (defensive)",
-      "simpleDescription": "Anti-Miner — Windows · Поиск и удаление скрытых майнеров. Малоизвестный репо — проверять исходники, запускать в sandbox. Карточка помогает понять назначение ресурса и начать с небольшой безопасной проверки; условия использования ещё нужно сверить с официальным источником.",
-      "useCases": [
-        "Разобраться, подходит ли Anti-Miner для вашей задачи",
-        "Проверить возможности на небольшом тестовом сценарии до интеграции"
-      ],
-      "platforms": [
-        "Windows"
-      ],
-      "license": "GPL-3.0",
-      "pricing": "Исходный код доступен публично; hosting, модели и внешние API могут оплачиваться отдельно",
-      "access": {
-        "cost": "free",
-        "signup": "none",
-        "runtime": "local"
-      },
-      "trust": "community",
-      "trustReason": "Запись структурирована автоматически из опубликованного описания. Официальный источник, лицензия и условия ещё не прошли отдельную редакторскую проверку.",
-      "projects": [],
-      "decision": "reference",
-      "riskLevel": "medium",
-      "risks": [
-        "Лицензия, цена, permissions и обработка данных могут отличаться от краткого описания."
-      ],
-      "verifiedAt": null,
-      "quickStart": [
-        "Откройте официальный источник и проверьте владельца, лицензию и дату обновления.",
-        "Не передавайте secrets или рабочие данные; начните с пустого тестового проекта.",
-        "Сравните результат с текущим способом работы и только потом решайте об интеграции."
-      ],
-      "reviewStatus": "inferred",
-      "source": {
-        "file": "catalog/resources.json",
-        "key": "anti-miner-github-com",
-        "legacy": {
-          "file": "README.md",
-          "line": 762,
-          "category": "Privacy / OPSEC",
-          "subcategory": "AppSec / Security tooling (defensive)"
-        }
-      },
-      "addedAt": null,
-      "catalogOrder": 762,
-      "licenseInfo": {
-        "label": "GPL-3.0",
-        "original": "Нужно проверить в официальном источнике",
-        "spdx": "GPL-3.0",
-        "kind": "open-source",
-        "status": "source-declared",
-        "requiresReview": false,
-        "evidence": [
-          {
-            "kind": "license",
-            "label": "GPL-3.0 license",
-            "url": "https://api.github.com/repos/daiwv/anti-miner/license"
-          }
-        ]
-      },
-      "evidence": [
-        {
-          "kind": "official-source",
-          "label": "Официальный источник",
-          "url": "https://github.com/Daiwv/Anti-Miner"
-        },
-        {
-          "kind": "license",
-          "label": "GPL-3.0 license",
-          "url": "https://api.github.com/repos/daiwv/anti-miner/license"
-        }
-      ],
-      "agentEligibility": {
-        "eligible": true,
-        "reasons": [],
-        "installAllowed": false
-      }
-    },
-    {
       "id": "minersearch-github-com",
       "url": "https://github.com/BlendLog/MinerSearch",
       "title": "MinerSearch",
@@ -41764,87 +46190,6 @@
           "kind": "license",
           "label": "Other license",
           "url": "https://api.github.com/repos/misolabsai/misotts/license"
-        }
-      ],
-      "agentEligibility": {
-        "eligible": true,
-        "reasons": [],
-        "installAllowed": false
-      }
-    },
-    {
-      "id": "reve-2-0-app-reve-com",
-      "url": "https://app.reve.com/",
-      "title": "Reve 2.0",
-      "type": "media",
-      "category": "Подборка Eclipse",
-      "subcategory": "Генерация изображений",
-      "simpleDescription": "Reve 2.0 — Layout-based генератор: представляет картинку как код/слои (у каждого элемента позиция+размер+описание) → каждый элемент addressable и редактируется отдельно. #2 на Text-to-Image Arena (03.06, 1280 — обошёл Nano Banana, уступил GPT Image 2), 4K/16MP под печать, ~$0.0067/img. Закрытый SaaS (не локально). Differentiator vs Nano Banana — точное…. Карточка помогает понять назначение ресурса и начать с небольшой безопасной проверки; условия использования ещё нужно сверить с официальным источником.",
-      "useCases": [
-        "Разобраться, подходит ли Reve 2.0 для вашей задачи",
-        "Проверить возможности на небольшом тестовом сценарии до интеграции"
-      ],
-      "platforms": [
-        "Self-host"
-      ],
-      "license": "Нужно проверить в официальном источнике",
-      "pricing": "Актуальную стоимость нужно проверить на официальной странице",
-      "access": {
-        "cost": "unknown",
-        "signup": "none",
-        "runtime": "self-host"
-      },
-      "trust": "unknown",
-      "trustReason": "Запись структурирована автоматически из опубликованного описания. Официальный источник, лицензия и условия ещё не прошли отдельную редакторскую проверку.",
-      "projects": [
-        "Eclipse AI Hub",
-        "Shotforge",
-        "Text2Image"
-      ],
-      "decision": "reference",
-      "riskLevel": "medium",
-      "risks": [
-        "Лицензия, цена, permissions и обработка данных могут отличаться от краткого описания."
-      ],
-      "verifiedAt": null,
-      "quickStart": [
-        "Откройте официальный источник и проверьте владельца, лицензию и дату обновления.",
-        "Не передавайте secrets или рабочие данные; начните с пустого тестового проекта.",
-        "Сравните результат с текущим способом работы и только потом решайте об интеграции."
-      ],
-      "reviewStatus": "inferred",
-      "source": {
-        "file": "catalog/resources.json",
-        "key": "reve-2-0-app-reve-com",
-        "legacy": {
-          "file": "README.md",
-          "line": 1194,
-          "category": "Подборка Eclipse (28.05–05.06.2026)",
-          "subcategory": "Генерация изображений"
-        }
-      },
-      "addedAt": "2026-05-28",
-      "catalogOrder": 1194,
-      "licenseInfo": {
-        "label": "Нужно проверить в официальном источнике",
-        "original": "Нужно проверить в официальном источнике",
-        "spdx": null,
-        "kind": "unknown",
-        "status": "unverified",
-        "requiresReview": true,
-        "evidence": [
-          {
-            "kind": "official-source",
-            "label": "Официальный источник; точные условия ещё нужно сверить",
-            "url": "https://app.reve.com/"
-          }
-        ]
-      },
-      "evidence": [
-        {
-          "kind": "official-source",
-          "label": "Официальный источник",
-          "url": "https://app.reve.com/"
         }
       ],
       "agentEligibility": {

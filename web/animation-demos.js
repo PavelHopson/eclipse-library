@@ -646,5 +646,68 @@ window.ECLIPSE_ANIMATION_DEMOS=[
     "readiness": "Готово к адаптации",
     "project": "Eclipse AI Hub · Jarvis",
     "category": "feedback"
+  },
+  {
+    "id": "text-cascade",
+    "title": "Text Cascade",
+    "label": "Каскадное раскрытие текста",
+    "file": "animation-text-cascade.html",
+    "description": "Фраза раскрывается по словам, чтобы показать иерархию сообщения. Текст остаётся настоящим DOM-контентом, а движение использует только transform и opacity.",
+    "tags": [
+      "текст",
+      "раскрытие",
+      "transform"
+    ],
+    "states": [
+      "live",
+      "idle",
+      "active",
+      "complete"
+    ],
+    "readiness": "Готово к адаптации",
+    "project": "Eclipse Forge Landing, Eclipse Chat",
+    "category": "feedback"
+  },
+  {
+    "id": "directional-action",
+    "title": "Directional Action",
+    "label": "Заливка приходит со стороны курсора",
+    "file": "animation-directional-action.html",
+    "description": "Кнопка отвечает на направление входа курсора и сохраняет равнозначный focus-сценарий. Эффект сообщает границы действия, не меняя размер и положение контента.",
+    "tags": [
+      "кнопка",
+      "направление",
+      "focus-visible"
+    ],
+    "states": [
+      "live",
+      "idle",
+      "active",
+      "complete"
+    ],
+    "readiness": "Готово к внедрению",
+    "project": "Eclipse Forge, Growth OS",
+    "category": "navigation"
+  },
+  {
+    "id": "magnetic-dock",
+    "title": "Magnetic Dock",
+    "label": "Навигация следует за указателем",
+    "file": "animation-magnetic-dock.html",
+    "description": "Компактная dock-навигация усиливает ближайшую цель без React rerender и layout shift. Клавиатура получает тот же акцент, а reduced motion оставляет статическое выделение.",
+    "tags": [
+      "навигация",
+      "pointer",
+      "клавиатура"
+    ],
+    "states": [
+      "live",
+      "idle",
+      "active",
+      "complete"
+    ],
+    "readiness": "Готово к адаптации",
+    "project": "Eclipse Chat, Eclipse AI Hub",
+    "category": "navigation"
   }
 ];
