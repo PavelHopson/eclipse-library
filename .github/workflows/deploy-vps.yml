@@ -4,17 +4,8 @@ name: Deploy library web to VPS (eclipse-forge.ru)
 # Секреты: VPS_SSH_KEY, VPS_KNOWN_HOSTS, VPS_HOST, VPS_USER, VPS_PATH (=/var/www/library).
 
 on:
-  push:
-    branches: [master]
-    paths:
-      - 'web/**'
-      - 'catalog/**'
-      - 'scripts/**'
-      - 'guides/**'
-      - 'prompts/**'
-      - '.github/workflows/deploy-vps.yml'
   workflow_run:
-    workflows: ['Audit catalog links']
+    workflows: ['Validate library catalog']
     types: [completed]
     branches: [master]
   workflow_dispatch:
@@ -28,11 +19,13 @@ concurrency:
 
 jobs:
   deploy:
-    if: github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success'
+    if: github.event_name == 'workflow_dispatch' || github.event.workflow_run.conclusion == 'success'
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
       - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+        with:
+          ref: ${{ github.event_name == 'workflow_run' && github.event.workflow_run.head_sha || github.sha }}
       - uses: actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38 # v6
         with:
           node-version: 24
@@ -41,6 +34,7 @@ jobs:
         run: |
           node scripts/build-catalog-index.mjs --check
           node scripts/build-catalog-runtime.mjs --check
+          node scripts/build-license-review-queue.mjs --check
           node scripts/build-catalog-exports.mjs --check
           node scripts/build-guides-manifest.mjs --check
           node scripts/validate-star-technology-registry.mjs

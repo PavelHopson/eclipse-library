@@ -1,22 +1,22 @@
 {
   "schemaVersion": 1,
-  "sourceHash": "f5fca751652e1600272a8b47a1ab83871ddb6722f474ea39bb7566509b396bfc",
+  "sourceHash": "3f8e21552206e40c4579153eea692d70ad5c512d7eb82d1756d0f404ccb5c6d2",
   "policy": {
     "automaticApprovalForbidden": true,
     "directInstallForbidden": true,
     "missingLicenseMeansNoReusePermission": true
   },
   "totals": {
-    "reviewRequired": 214,
+    "reviewRequired": 213,
     "byPriority": {
       "P1": 0,
-      "P2": 176,
+      "P2": 175,
       "P3": 38
     },
     "byBucket": {
       "content-terms": 33,
       "grey-reference": 38,
-      "manual-other": 25,
+      "manual-other": 24,
       "repository-license-not-detected": 25,
       "service-terms": 93
     }
@@ -1131,27 +1131,6 @@
           "kind": "official-source",
           "label": "Официальный источник; точные условия ещё нужно сверить",
           "url": "https://p2p.mirotalk.com/"
-        }
-      ]
-    },
-    {
-      "id": "reve-2-0-app-reve-com",
-      "title": "Reve 2.0",
-      "type": "media",
-      "url": "https://app.reve.com/",
-      "decision": "reference",
-      "riskLevel": "medium",
-      "currentLicense": "Нужно проверить в официальном источнике",
-      "reviewStatus": "inferred",
-      "bucket": "manual-other",
-      "priority": "P2",
-      "reason": "The current official source does not provide enough normalized license evidence.",
-      "nextStep": "Open the official source and record the exact grant, restrictions, owner and evidence URL.",
-      "evidence": [
-        {
-          "kind": "official-source",
-          "label": "Официальный источник; точные условия ещё нужно сверить",
-          "url": "https://app.reve.com/"
         }
       ]
     },
