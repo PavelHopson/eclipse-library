@@ -1,6 +1,6 @@
 # ANURA — визуальная и функциональная приёмка
 
-- Дата: 2026-09-05. Checkout: E:/projects/eclipse-library, master. Локальная реализация; не опубликована.
+- Дата: 2026-09-05. Checkout: E:/projects/eclipse-library, master. Опубликован релиз 15a10bc0ae62a6f30499ecf82ec867b4a0344d63; production verification passed.
 - Отчёт хранится вне публичной web-папки, отдельно от другой задачи Gwen.
 - Source visual truth: предоставленный JPEG (2752×1536) и MOV (1920×1080, 600 кадров). Рабочий эталон композиции/состояния — web/experiments/anura/assets/poster.webp (1280×720, кадр 0 видео) плюс подробный пользовательский бриф. Готового макета с типографикой не было: проверяется соответствие арт-направлению, не вымышленная попиксельная идентичность макету.
 - Implementation: http://127.0.0.1:4186/experiments/anura/index.html.
@@ -34,8 +34,8 @@
 - 46/46 локальных команд quality workflow; в том числе 12 ANURA Node tests, 240 SHA-256 проверок, manifest и регрессии Gwen/Library. git diff --check passed.
 - Память: encoded sequence 4 454 170 bytes; observed decoded-cache max 12, mobile cap 8, decode in-flight ≤2. В простое draws не растёт, rAF выключен. Это не полный GPU/OS-memory benchmark и не обещание 60 fps на любом железе. Видеоряд имеет 24 fps после подготовки.
 - DOCX: 11 страниц после реальной пагинации Word в read-only режиме с отключёнными макросами; 177 абзацев, 2 иллюстрации, 98/98 исходных абзацев, OLE/macros/external relationships 0. Контакт всех страниц и страница 3 визуально осмотрены.
-- Security pass: новых Critical/High/Medium/Low технических findings в ограниченной статической поверхности не обнаружено; same-origin CSP, фиксированные URL, bounded streaming, отсутствие eval/innerHTML/секретов/пользовательского хранилища. Встроенный OLE исходного DOCX не исполнялся и не распространяется. Это не утверждение, что исходник вредоносен. Права на распространение изображений и видео отдельно не подтверждены.
-- Не проверено: Safari/Firefox, реальное iOS/Android устройство, аппаратный GPU frame timing, production. Проверка скрытой вкладки синтетическая. Noindex не является контролем доступа.
+- Security pass статической сцены: новых Critical/High/Medium/Low технических findings не обнаружено; same-origin CSP, фиксированные URL, bounded streaming, отсутствие eval/innerHTML/секретов/пользовательского хранилища. Отдельный High CI finding и его исправление описаны ниже. Встроенный OLE исходного DOCX не исполнялся и не распространяется. Это не утверждение, что исходник вредоносен. Права на распространение изображений и видео отдельно не подтверждены.
+- Не проверено: Safari/Firefox, реальное iOS/Android устройство, аппаратный GPU frame timing. Production проверен ниже. Проверка скрытой вкладки синтетическая. Noindex не является контролем доступа.
 
 final result: passed
 
@@ -50,10 +50,16 @@ final result: passed
 
 ## Security выпуска
 
-- High, исправлено локально: старый deploy workflow_run проверял success, но не тип исходного события/владельца репозитория. Привилегированный checkout теперь разрешён только для push/master/этого репозитория, manual — только master. Регрессия реально вычисляет guard для trusted push/manual и запрещённых PR/fork/failure/feature. Это предотвращение риска, не свидетельство компрометации. [GitHub: риски workflow_run и untrusted checkout](https://docs.github.com/en/actions/reference/security/secure-use).
+- High, исправлено и опубликовано: старый deploy workflow_run проверял success, но не тип исходного события/владельца репозитория. Привилегированный checkout теперь разрешён только для push/master/этого репозитория, manual — только master. Регрессия реально вычисляет guard для trusted push/manual и запрещённых PR/fork/failure/feature. Production deploy выполнился по разрешённому trusted push. Это предотвращение риска, не свидетельство компрометации. [GitHub: риски workflow_run и untrusted checkout](https://docs.github.com/en/actions/reference/security/secure-use).
 - Сохранены read-only GITHUB_TOKEN, pinned 40-hex action SHAs, strict known-host SSH и существующие secrets. Секреты не выводились и не менялись. Добавлены проверки public/staged allowlist и exact HTTP-содержимого ANURA после деплоя.
-- Critical: 0 найдено. High: 1 локально закрыт, ждёт публикации. Medium/Low: 0 новых findings в изменённой поверхности. Это пропорциональный review, не полный аудит инфраструктуры.
+- Critical: 0 найдено. High: 1 закрыт и опубликован. Medium/Low: 0 новых findings в изменённой поверхности. Это пропорциональный review, не полный аудит инфраструктуры.
 
-## Следующий шаг
+## Выпуск и финальная проверка
 
-По текущему запросу пользователя: опубликовать после QA через существующую master. Staged manifest — 79 гайдов, рабочий manifest — 80 с несвязанным diagnostics draft. Чистый staged-снимок release-checkout-lf: 46/46 quality-команд; ANURA/Gwen stage allowlists passed. Первый Windows archive добавил CRLF (байты нормализованно совпали с index), поэтому четыре точные generated-file проверки вернули stale; повтор с core.autocrlf=false прошёл без изменения каталога. Следующий шаг — CI/deploy и exact production HTTP/browser smoke. До этого локальный успех не означает публикацию.
+По текущему запросу пользователя опубликовано через существующую master, commit 15a10bc. Staged/production manifest — 79 гайдов, рабочий manifest — 80 с несвязанным diagnostics draft. Чистый staged-снимок release-checkout-lf: 46/46 quality-команд; ANURA/Gwen stage allowlists passed. Первый Windows archive добавил CRLF (байты нормализованно совпали с index), поэтому четыре точные generated-file проверки вернули stale; повтор с core.autocrlf=false прошёл без изменения каталога.
+
+- CI [33970998492](https://github.com/PavelHopson/eclipse-library/actions/runs/33970998492) и deploy [33971046707](https://github.com/PavelHopson/eclipse-library/actions/runs/33971046707): success, точный headSha 15a10bc0ae62a6f30499ecf82ec867b4a0344d63.
+- Публичные проверки: Library smoke passed; Gwen 18 exact assets; ANURA 253 exact assets; отдельное byte comparison animations.html/animation-lab.css/guides.json passed. Не опубликованы source MOV, reports, diagnostics draft и исходный OLE.
+- Браузер на production: .artifacts/anura/qa-production/results.json 25/25, qa-edge-production/results.json 8/8; JS errors/third-party requests 0. Production screenshot desktop/responsive/reduced-motion визуально осмотрены; layout и оригинальный персонаж сохранены. Проверены работоспособность кнопок, возврат, гайд/DOCX, размеры 320–1920 px и сценарии ошибок.
+- .artifacts/anura/release-proof.json фиксирует точные публичные navigation bytes, 79 guides и reduced-motion check. Физические телефоны, Safari/Firefox и аппаратные GPU timings остаются непроверенными; синтетическая CPU-метрика не обещает универсальных 60 fps.
+- Финальный результат: published + production verified. Следующий безопасный шаг — пользовательский просмотр на собственном устройстве.
