@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex,nofollow">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self' blob:; connect-src 'self'; font-src 'self'; base-uri 'none'; form-action 'none'">
+  <meta name="theme-color" content="#152e2b">
+  <title>ANURA — Interactive Frog • Eclipse Library</title>
+  <link rel="stylesheet" href="styles.css?v=2">
+  <link rel="preload" as="image" href="assets/poster.webp">
+  <script type="module" src="script.js?v=2"></script>
+</head>
+<body>
+  <div class="experience" id="experience">
+    <div class="scene" aria-hidden="true"><img class="poster" src="assets/poster.webp" alt="" fetchpriority="high"><canvas id="frog"></canvas></div>
+    <div class="shade" aria-hidden="true"></div>
+    <header class="masthead">
+      <a class="brand" href="../../animations.html#anura-experiment" aria-label="ANURA — назад в библиотеку">ANURA<sup>®</sup></a>
+      <span class="study">FIELD STUDY / 01</span>
+      <span class="masthead-center">ИНТЕРАКТИВНОЕ НАБЛЮДЕНИЕ</span>
+      <span class="object-status"><i aria-hidden="true"></i><span id="object-state">ОБЪЕКТ НАЙДЕН</span></span>
+    </header>
+    <nav class="utility" aria-label="Навигация эксперимента"><a href="../../animations.html#anura-experiment">← В библиотеку</a><a href="guide.html">Как это сделано ↗</a></nav>
+    <main class="copy">
+      <p class="eyebrow">— ОНА УЖЕ ВАС ЗАМЕТИЛА</p>
+      <h1>Не спускает<br><span>с вас глаз.</span></h1>
+      <div class="interaction-row">
+        <p class="description"><span class="desktop-copy">Проведите курсором по экрану.</span><span class="touch-copy">Проведите пальцем по лягушке.</span> Она заметит движение и проводит его взглядом — куда бы вы ни направились.</p>
+        <button class="catch" id="catch" type="button" disabled><span>ПОЙМАТЬ<br>ВЗГЛЯД</span><span class="arrow" aria-hidden="true">↗</span></button>
+      </div>
+      <dl class="metrics"><div><dt>240</dt><dd>КАДРОВ</dd></div><div><dt>XY</dt><dd>УПРАВЛЕНИЕ</dd></div><div><dt>LIVE</dt><dd>РЕАКЦИЯ</dd></div></dl>
+    </main>
+    <div class="loading" id="loading" role="status" hidden>
+      <div class="load-label"><span id="load-label">Знакомимся с объектом</span><span id="percent" aria-hidden="true">0%</span></div>
+      <progress id="progress" max="240" value="0" aria-label="Загрузка кадров лягушки"></progress>
+      <button id="retry" type="button" hidden>Повторить загрузку</button>
+    </div>
+    <p class="sr-only" id="announcement" aria-live="polite"></p>
+    <footer><span>© 2026 ANURA LAB <span class="footer-dot">/</span> ECLIPSE LIBRARY</span><span class="footer-hint" id="footer-hint">ДВИГАЙТЕ КУРСОРОМ · НАБЛЮДАЙТЕ РЕАКЦИЮ</span><button id="pause" type="button" aria-pressed="false" disabled>Пауза</button></footer>
+    <noscript><div class="no-js">Показан исходный кадр. Для реакции на движение нужен JavaScript. <a href="guide.html">Открыть гайд →</a></div></noscript>
+  </div>
+  <div class="cursor" id="cursor" aria-hidden="true"><span></span></div>
+</body>
+</html>

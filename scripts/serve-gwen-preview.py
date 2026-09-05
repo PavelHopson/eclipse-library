@@ -7,6 +7,7 @@ import argparse
 ROOT = Path(__file__).resolve().parents[1]
 
 class Handler(SimpleHTTPRequestHandler):
+    extensions_map = {**SimpleHTTPRequestHandler.extensions_map, '.js': 'text/javascript', '.mjs': 'text/javascript', '.webp': 'image/webp', '.woff2': 'font/woff2', '.docx': 'application/vnd.openxmlformats-officedocument.wordprocessingml.document'}
     def translate_path(self, path):
         path = unquote(urlsplit(path).path)
         base = ROOT / ('guides' if path.startswith('/guides/') else 'web')

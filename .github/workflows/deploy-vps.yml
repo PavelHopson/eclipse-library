@@ -19,7 +19,13 @@ concurrency:
 
 jobs:
   deploy:
-    if: github.event_name == 'workflow_dispatch' || github.event.workflow_run.conclusion == 'success'
+    if: >-
+      (github.event_name == 'workflow_dispatch' && github.ref == 'refs/heads/master') ||
+      (github.event_name == 'workflow_run' &&
+       github.event.workflow_run.event == 'push' &&
+       github.event.workflow_run.head_branch == 'master' &&
+       github.event.workflow_run.head_repository.full_name == github.repository &&
+       github.event.workflow_run.conclusion == 'success')
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
@@ -46,6 +52,8 @@ jobs:
           node --test scripts/source-motion-library.test.mjs
           node --test scripts/gwen-reveal.test.mjs scripts/gwen-publication.test.mjs
           node scripts/gwen-publication.mjs --check
+          node --test scripts/anura.test.mjs scripts/anura-publication.test.mjs
+          node scripts/anura-publication.mjs --check
           node --check web/library-shell.js
           node --check web/catalog-review.js
           node --check web/registry.js
@@ -61,6 +69,7 @@ jobs:
           rm -f _site/.gitignore _site/_*.png _site/_edge.log
           rm -f _site/experiments/gwen-reveal/README.md _site/experiments/gwen-reveal/design-qa.md
           node scripts/gwen-publication.mjs --check-stage _site
+          node scripts/anura-publication.mjs --check-stage _site
 
       - name: Setup SSH
         env:
@@ -99,7 +108,8 @@ jobs:
 
       - name: Verify production payload
         env:
-          DEPLOY_SHA: ${{ github.sha }}
+          DEPLOY_SHA: ${{ github.event_name == 'workflow_run' && github.event.workflow_run.head_sha || github.sha }}
         run: |
           node scripts/smoke-production.mjs https://library.eclipse-forge.ru/
           node scripts/gwen-publication.mjs --smoke https://library.eclipse-forge.ru/
+          node scripts/anura-publication.mjs --smoke https://library.eclipse-forge.ru/

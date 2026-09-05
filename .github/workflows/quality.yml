@@ -39,6 +39,8 @@ jobs:
           node --check web/animation-lab.js
           node --check web/registry.js
           node --check web/experiments/gwen-reveal/script.js
+          node --check web/experiments/anura/script.js
+          node --check web/experiments/anura/motion.js
           node --check scripts/review-preview-policy.mjs
           node --check scripts/review-preview.mjs
       - name: Validate structured catalog
@@ -60,6 +62,8 @@ jobs:
           node --test scripts/source-motion-library.test.mjs
           node --test scripts/gwen-reveal.test.mjs scripts/gwen-publication.test.mjs
           node scripts/gwen-publication.mjs --check
+          node --test scripts/anura.test.mjs scripts/anura-publication.test.mjs
+          node scripts/anura-publication.mjs --check
           node scripts/animation-lab.test.mjs
           node --test scripts/review-preview.test.mjs
       - name: Validate Eclipse Forge projects

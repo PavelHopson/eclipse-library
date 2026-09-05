@@ -60,6 +60,7 @@ body,button,a,select,input,body *{font-family:Manrope,"Segoe UI",sans-serif!impo
 .gwen-entry h2{margin:0 0 3px;font:700 15px/1.35 Manrope,"Segoe UI",sans-serif;letter-spacing:-.02em}
 .gwen-launch{display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:44px;padding:10px 14px;border:1px solid #dce9ff;border-radius:7px;background:#dce9ff;color:#0b1525;font-size:13px;font-weight:700;text-decoration:none}
 .gwen-launch:hover{background:white;border-color:white}.gwen-launch:active{background:#bfd5f7}
+.anura-launch{background:#d1ec8d;border-color:#d1ec8d;color:#18352c}.anura-launch:hover{background:#e4f4bc;border-color:#e4f4bc}
 .gwen-guide{display:flex;align-items:center;min-height:44px;width:fit-content;color:#b9c9df;font-size:11px;text-decoration:underline;text-underline-offset:3px}
 .gwen-guide:hover{color:white}
 @media(max-width:900px){.gwen-entry{grid-template-columns:minmax(0,1fr) auto;gap:6px 16px;padding:12px}.gwen-entry p,.gwen-entry h2{grid-column:1/-1}.gwen-guide{padding:0 2px}}

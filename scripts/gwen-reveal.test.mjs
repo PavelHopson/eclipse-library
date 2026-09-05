@@ -73,7 +73,7 @@ test('Gwen has discoverable entry and deterministic return without history or Ja
   const labCss=readFileSync(resolve(root,'web/animation-lab.css'),'utf8');
   assert.match(lab, /<section class="gwen-entry" id="gwen-experiment"/);
   assert.match(lab, /<a class="gwen-launch" href="experiments\/gwen-reveal\/index.html">Открыть Gwen/);
-  assert.match(lab, /animation-lab.css\?v=9/);
+  assert.match(lab, /animation-lab.css\?v=10/);
   assert.match(html, /<a class="sticker library-back ui" href="\.\.\/\.\.\/animations.html#gwen-experiment">/);
   assert.match(html, /Назад в библиотеку/);
   assert.match(html, /styles.css\?v=2/);
