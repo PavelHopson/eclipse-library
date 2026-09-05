@@ -10,6 +10,15 @@ export const canonical=(name,bytes)=>textExtensions.has(path.extname(name))?Buff
 export const sha256=bytes=>crypto.createHash('sha256').update(bytes).digest('hex');
 export function safePath(value){assert.equal(typeof value,'string');assert.match(value,/^[a-zA-Z0-9][a-zA-Z0-9._/-]*$/);assert.ok(value.split('/').every(part=>part&&part!=='.'&&part!=='..'));return value}
 export function readContract(){return JSON.parse(fs.readFileSync(contractPath,'utf8'))}
+export function checkImageReferences(html,page,names){
+ for(const match of html.matchAll(/<img\b[^>]*\ssrc\s*=\s*(['"])(.*?)\1/gi)){
+  const ref=match[2].replaceAll('&amp;','&');if(!ref||/^(data:|blob:|#)/i.test(ref))continue;
+  const url=new URL(ref,'https://library.eclipse-forge.ru/'+page);
+  assert.equal(url.origin,'https://library.eclipse-forge.ru','External image: '+page);
+  const name=decodeURIComponent(url.pathname.slice(1));safePath(name);
+  assert.ok(names.has(name),'Missing or case-mismatched image: '+page+' -> '+ref);
+ }
+}
 const walk=(base,prefix='')=>fs.readdirSync(base,{withFileTypes:true}).sort((a,b)=>a.name.localeCompare(b.name,'en')).flatMap(entry=>{assert.ok(!entry.isSymbolicLink(),'Symlink in publication');return entry.isDirectory()?walk(path.join(base,entry.name),prefix+entry.name+'/'):[prefix+entry.name]});
 export function checkText(text,name){
  assert.doesNotMatch(text,/-----BEGIN (?:RSA |EC |OPENSSH )?PRIVATE KEY-----|\bgh[pousr]_[A-Za-z0-9]{36,}|\bgithub_pat_[A-Za-z0-9_]{50,}|\bAKIA[A-Z0-9]{16}/,'Possible secret in '+name);
@@ -34,6 +43,8 @@ export function inspect(base=path.join(root,'web')){
   assert.ok(html.includes('original-motion-manifest.js?v='+manifest.buildVersion),'Stale version: '+page);
  }
  const names=['animations.html','animation-original.html','original-motion.js','original-motion.css','original-motion-standalone.js','original-motion-manifest.js',...[...expected].map(name=>'original-motion/'+name)].sort();
+ const publishedNames=new Set(names);
+ for(const item of manifest.items)checkImageReferences(fs.readFileSync(path.join(base,item.path),'utf8'),item.path,publishedNames);
  const entries=names.map(name=>{safePath(name);const file=path.join(base,name);assert.ok(!fs.lstatSync(file).isSymbolicLink());const bytes=canonical(name,fs.readFileSync(file));assert.ok(bytes.length>0&&bytes.length<16e6,name+' size');if(textExtensions.has(path.extname(name)))checkText(bytes.toString('utf8'),name);assert.ok(!bytes.subarray(0,160).toString().includes('jQuery v2.2.4'),'Retired jQuery');return {path:name,bytes:bytes.length,sha256:sha256(bytes)}});
  return {schemaVersion:1,buildVersion:manifest.buildVersion,sceneIds:manifest.items.map(item=>item.id),authorization:{scope:'all-43-original-scenes',basis:'Explicit owner authorship declaration and production publication approval',confirmedAt:'2026-09-05',thirdPartyNotices:'original-motion/THIRD_PARTY_NOTICES.md'},entries};
 }

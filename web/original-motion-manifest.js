@@ -1,4 +1,4 @@
-window.ORIGINAL_MOTION_VERSION = "1be7cbad01e64e66";
+window.ORIGINAL_MOTION_VERSION = "d2a69f30d5e195ee";
 window.ORIGINAL_MOTION_ITEMS = [
   {
     "id": "active-navbar",
@@ -302,7 +302,7 @@ window.ORIGINAL_MOTION_ITEMS = [
     "missing": [],
     "missingReason": null,
     "repairs": null,
-    "renderSha256": "e63b261ab126b7c9fb7b4ce136bde5ae11c53f2cea2117b844d88ddf3fda95ab"
+    "renderSha256": "1a837896a5857f845d7ab47796e821182a1a7c71caf2eeb84d338dbf8bd392e3"
   },
   {
     "id": "card-opening",
