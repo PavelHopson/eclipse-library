@@ -40,7 +40,7 @@ assert.doesNotMatch(upload, /innerHTML\s*=/, 'uploaded filenames must not reach 
 const manifestFiles = new Set(manifest.demos.map((demo) => demo.file));
 assert.equal(manifestFiles.size, manifest.demos.length, 'manifest files must be unique');
 
-const workbench = fs.readFileSync(path.join(web, 'animations.html'), 'utf8');
+const workbench = fs.readFileSync(path.join(web, 'animations-lab-archive.html'), 'utf8');
 assert.equal((workbench.match(/id="demo-search"/g) || []).length, 1, 'workbench search must be rendered once');
 assert.equal((workbench.match(/id="demo-filters"/g) || []).length, 1, 'workbench filters must be rendered once');
 assert.equal((workbench.match(/animation-demos\.js\?v=8/g) || []).length, 1, 'demo catalog must be loaded once');

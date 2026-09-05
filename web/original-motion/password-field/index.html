@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <link rel="stylesheet" href="style.css" />
+  <head><meta charset="utf-8"><meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'unsafe-inline' 'self' http://127.0.0.1:4186 https://library.eclipse-forge.ru; style-src 'unsafe-inline' 'self' http://127.0.0.1:4186 https://library.eclipse-forge.ru; img-src 'self' data: blob: http://127.0.0.1:4186 https://library.eclipse-forge.ru; font-src 'self' data: http://127.0.0.1:4186 https://library.eclipse-forge.ru; media-src 'self' blob: http://127.0.0.1:4186 https://library.eclipse-forge.ru; connect-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Интерактивный пароль</title>
+    <link rel="stylesheet" href="./style.css">
+  </head>
+  <body>
+    <div class="container">
+      <input id="pass" type="password" placeholder="Пароль" />
+      <span id="fakepass">Пароль</span>
+      <button id="reveal" disabled="disabled"><span></span></button>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+  <head><meta charset="utf-8"><meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'unsafe-inline' 'self' http://127.0.0.1:4186 https://library.eclipse-forge.ru; style-src 'unsafe-inline' 'self' http://127.0.0.1:4186 https://library.eclipse-forge.ru; img-src 'self' data: blob: http://127.0.0.1:4186 https://library.eclipse-forge.ru; font-src 'self' data: http://127.0.0.1:4186 https://library.eclipse-forge.ru; media-src 'self' blob: http://127.0.0.1:4186 https://library.eclipse-forge.ru; connect-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'">
+    <meta charset="UTF-8">
+    <title>Параллакс-карточки Nike</title>
+    <link rel="stylesheet" href="./style.css">
+
+  </head>
+    
+  <body>
+  <button class="mode-switch" title="Switch Theme">
+  <svg class="moon" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="36" height="36" viewBox="0 0 24 24">
+    <defs></defs>
+    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+  </svg>
+</button>
+<div class="container">
+  <div data-tilt-gyroscope="false" class="box green">
+    <h2 class="name">Nike Air Max</h2>
+    <a href="https://codepen.io/krautgti" class="buy">Купить</a>
+    <div class="circle"></div>
+    <img class="product" src="../vendor/221cab18e3e0303270a2.png" />
+  </div>
+  <div data-tilt-gyroscope="false" class="box blue">
+    <h2 class="name">Nike Air Max</h2>
+    <a href="https://codepen.io/krautgti" class="buy">Купить</a>
+    <div class="circle"></div>
+    <img class="product" src="../vendor/536206e824ab814254d4.png" />
+  </div>
+  <script src="../vendor/debce43e7090f49c1d4e.js"></script>
+  <script>
+    VanillaTilt.init(document.querySelectorAll(".box"), {
+      max: 15,
+      speed: 300,
+      easing: "cubic-bezier(.03,.98,.52,.99)",
+      scale: 1.05,
+    });
+  </script>
+    <script  src="./script.js"></script>
+
+  </body>
+  
+</html>

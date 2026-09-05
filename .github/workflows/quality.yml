@@ -8,6 +8,7 @@ on:
       - 'README.md'
       - 'catalog/**'
       - 'contracts/gwen-publication.json'
+      - 'contracts/original-motion-publication.json'
       - 'guides/**'
       - 'prompts/**'
       - 'web/**'
@@ -60,6 +61,8 @@ jobs:
           node --test scripts/diagram-contract.test.mjs
           node --test scripts/brand-assets.test.mjs
           node --test scripts/source-motion-library.test.mjs
+          node --test scripts/original-motion-publication.test.mjs
+          node scripts/original-motion-publication.mjs --check
           node --test scripts/gwen-reveal.test.mjs scripts/gwen-publication.test.mjs
           node scripts/gwen-publication.mjs --check
           node --test scripts/anura.test.mjs scripts/anura-publication.test.mjs

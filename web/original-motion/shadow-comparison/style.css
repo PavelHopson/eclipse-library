@@ -1,0 +1,33 @@
+ 
+.img1{
+    box-shadow : 50px 7px 5px green;
+}
+
+
+
+
+body{
+    background: white;
+}
+
+*{
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+}
+
+.box1{
+    width: 230px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    /* box-shadow: 0px 0px 12px #3e3e3e; */
+    filter: drop-shadow(0px 0px 20px #383838);
+}
+
+.image1{
+    width: 100%;
+    
+}
+

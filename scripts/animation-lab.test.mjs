@@ -58,7 +58,7 @@ assert.match(otpLight,/Eclipse crisp motion contract/,'Light OTP must use the cr
 for(const source of [upload,progress,otp,otpLight]){
   assert.match(source,/min-height:100dvh/,'Each demo must use the dynamic viewport height contract');
 }
-const page=fs.readFileSync(path.join(web,'animations.html'),'utf8');
+const page=fs.readFileSync(path.join(web,'animations-lab-archive.html'),'utf8');
 const app=fs.readFileSync(path.join(web,'animation-lab.js'),'utf8');
 const demoCatalog=fs.readFileSync(path.join(web,'animation-demos.js'),'utf8');
 const css=fs.readFileSync(path.join(web,'animation-lab.css'),'utf8');

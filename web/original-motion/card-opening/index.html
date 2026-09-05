@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+  <head><meta charset="utf-8"><meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'unsafe-inline' 'self' http://127.0.0.1:4186 https://library.eclipse-forge.ru; style-src 'unsafe-inline' 'self' http://127.0.0.1:4186 https://library.eclipse-forge.ru; img-src 'self' data: blob: http://127.0.0.1:4186 https://library.eclipse-forge.ru; font-src 'self' data: http://127.0.0.1:4186 https://library.eclipse-forge.ru; media-src 'self' blob: http://127.0.0.1:4186 https://library.eclipse-forge.ru; connect-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'">
+    <meta charset="UTF-8">
+    <title>Кинематографичные путешествия</title>
+    <link rel="stylesheet" href="./style.css">
+
+  </head>
+    
+  <body>
+  <body>
+    <div class="indicator"></div>
+
+    <nav>
+      <div>
+        <div class="svg-container">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M12 21a9.004 9.004 0 008.716-6.747M12 21a9.004 9.004 0 01-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 017.843 4.582M12 3a8.997 8.997 0 00-7.843 4.582m15.686 0A11.953 11.953 0 0112 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0121 12c0 .778-.099 1.533-.284 2.253m0 0A17.919 17.919 0 0112 16.5c-3.162 0-6.133-.815-8.716-2.247m0 0A9.015 9.015 0 013 12c0-1.605.42-3.113 1.157-4.418"
+            />
+          </svg>
+        </div>
+        <div>Вокруг света</div>
+      </div>
+      <div>
+        <div class="active">Главная</div>
+        <div>Отдых</div>
+        <div>Направления</div>
+        <div>Перелёты</div>
+        <div>Предложения</div>
+        <div>Контакты</div>
+        <div class="svg-container">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z"
+            />
+          </svg>
+        </div>
+        <div class="svg-container">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            fill="currentColor"
+          >
+            <path
+              fill-rule="evenodd"
+              d="M7.5 6a4.5 4.5 0 119 0 4.5 4.5 0 01-9 0zM3.751 20.105a8.25 8.25 0 0116.498 0 .75.75 0 01-.437.695A18.683 18.683 0 0112 22.5c-2.786 0-5.433-.608-7.812-1.7a.75.75 0 01-.437-.695z"
+              clip-rule="evenodd"
+            />
+          </svg>
+        </div>
+      </div>
+    </nav>
+
+    <div id="demo"></div>
+
+    <div class="details" id="details-even">
+      <div class="place-box">
+        <div class="text">Швейцарские Альпы</div>
+      </div>
+      <div class="title-box-1"><div class="title-1">САНКТ</div></div>
+      <div class="title-box-2"><div class="title-2">АНТЁНИЕН</div></div>
+      <div class="desc">
+        Санкт-Антёниен в Швейцарских Альпах — тихое место для отдыха и приключений. Зимой здесь катаются на лыжах вне трасс, а летом путешествуют пешком и на горных велосипедах.
+      </div>
+      <div class="cta">
+        <button class="bookmark">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            fill="currentColor"
+          >
+            <path
+              fill-rule="evenodd"
+              d="M6.32 2.577a49.255 49.255 0 0111.36 0c1.497.174 2.57 1.46 2.57 2.93V21a.75.75 0 01-1.085.67L12 18.089l-7.165 3.583A.75.75 0 013.75 21V5.507c0-1.47 1.073-2.756 2.57-2.93z"
+              clip-rule="evenodd"
+            />
+          </svg>
+        </button>
+        <button class="discover">Открыть место</button>
+      </div>
+    </div>
+
+    <div class="details" id="details-odd">
+      <div class="place-box">
+        <div class="text">Швейцарские Альпы</div>
+      </div>
+      <div class="title-box-1"><div class="title-1">САНКТ </div></div>
+      <div class="title-box-2"><div class="title-2">АНТЁНИЕН</div></div>
+      <div class="desc">
+        Санкт-Антёниен в Швейцарских Альпах — тихое место для отдыха и приключений. Зимой здесь катаются на лыжах вне трасс, а летом путешествуют пешком и на горных велосипедах.
+      </div>
+      <div class="cta">
+        <button class="bookmark">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            fill="currentColor"
+          >
+            <path
+              fill-rule="evenodd"
+              d="M6.32 2.577a49.255 49.255 0 0111.36 0c1.497.174 2.57 1.46 2.57 2.93V21a.75.75 0 01-1.085.67L12 18.089l-7.165 3.583A.75.75 0 013.75 21V5.507c0-1.47 1.073-2.756 2.57-2.93z"
+              clip-rule="evenodd"
+            />
+          </svg>
+        </button>
+        <button class="discover">Открыть место</button>
+      </div>
+    </div>
+
+    <div class="pagination" id="pagination">
+      <div class="arrow arrow-left">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M15.75 19.5L8.25 12l7.5-7.5"
+          />
+        </svg>
+      </div>
+      <div class="arrow arrow-right">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M8.25 4.5l7.5 7.5-7.5 7.5"
+          />
+        </svg>
+      </div>
+      <div class="progress-sub-container" >
+        <div class="progress-sub-background" >
+            <div class="progress-sub-foreground" ></div>
+        </div>
+    </div>
+    <div class="slide-numbers" id="slide-numbers"></div>
+    </div>
+
+    <div class="cover" ></div>
+   
+
+   
+  </body>
+    <script src='../vendor/027051effa470c61b9d2.js'></script><script  src="./script.js"></script>
+
+  </body>
+  
+</html>

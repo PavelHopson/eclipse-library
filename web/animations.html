@@ -1,104 +1,43 @@
 <!doctype html>
 <html lang="ru">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="color-scheme" content="dark">
-  <meta name="description" content="Eclipse Animation Lab — проверяемые motion-паттерны, состояния и автономные HTML-компоненты для Eclipse Forge.">
-  <title>Animation Lab — Eclipse Library</title>
-  <link rel="icon" href="assets/brand/eclipse-library-favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="animation-lab.css?v=10">
+ <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+ <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self'; script-src 'self'; frame-src 'self'; img-src 'self' data:; font-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'">
+ <title>Оригинальные анимации — Eclipse Library</title>
+ <meta name="description" content="Готовые анимации из локальной коллекции. Оригинальная композиция и поведение, русский текст, изолированный просмотр.">
+ <link rel="icon" href="assets/brand/eclipse-library-favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="original-motion.css?v=1be7cbad01e64e66">
 </head>
 <body>
-  <a class="skip-link" href="#motion-stage">К активной анимации</a>
-  <header class="topbar">
-    <a class="brand" href="index.html" aria-label="Eclipse Library — на главную"><span class="brand-mark" aria-hidden="true"></span><span><strong>Eclipse Library</strong><small>Animation Lab</small></span></a>
-    <nav aria-label="Основная навигация"><a href="index.html">Каталог</a><a href="index.html#guidesFeat">Гайды</a><a href="index.html#projects">Проекты</a><a href="animations.html" aria-current="page">Анимации</a></nav>
-    <div class="top-actions"><span class="lab-health"><i aria-hidden="true"></i><b id="lab-count">33</b> сцен готовы</span><button class="motion-toggle" type="button" aria-pressed="false"><span class="toggle-dot" aria-hidden="true"></span><span>Анимация: полная</span></button></div>
-  </header>
-
-  <main class="lab-shell">
-    <aside class="lab-rail" aria-label="Коллекция анимаций">
-      <div class="rail-heading"><p>Все анимации</p><span id="demo-count">33</span></div><div class="rail-tools"><label class="rail-search"><span class="sr-only">Найти анимацию</span><input id="demo-search" type="search" placeholder="Найти сцену" autocomplete="off"></label><div class="rail-filters" id="demo-filters" role="group" aria-label="Категория анимаций"><button type="button" data-filter="all" aria-pressed="true">Все</button><button type="button" data-filter="auth" aria-pressed="false">Вход</button><button type="button" data-filter="payment" aria-pressed="false">Оплата</button><button type="button" data-filter="commerce" aria-pressed="false">Коммерция</button><button type="button" data-filter="files" aria-pressed="false">Файлы</button><button type="button" data-filter="navigation" aria-pressed="false">Навигация</button><button type="button" data-filter="feedback" aria-pressed="false">Эффекты</button></div></div>
-      <section class="gwen-entry" id="gwen-experiment" aria-labelledby="gwen-entry-title">
-        <p>Интерактивный постер</p>
-        <h2 id="gwen-entry-title">Gwen: по ту сторону маски</h2>
-        <a class="gwen-launch" href="experiments/gwen-reveal/index.html">Открыть Gwen <span aria-hidden="true">↗</span></a>
-        <a class="gwen-guide" href="experiments/gwen-reveal/guide.html">Гайд и исходники</a>
-      </section>
-      <section class="gwen-entry anura-entry" id="anura-experiment" aria-labelledby="anura-entry-title">
-        <p>Живое наблюдение · Canvas</p>
-        <h2 id="anura-entry-title">ANURA: лягушка следит за вами</h2>
-        <a class="gwen-launch anura-launch" href="experiments/anura/index.html">Открыть ANURA <span aria-hidden="true">↗</span></a>
-        <a class="gwen-guide" href="experiments/anura/guide.html">Гайд и исходный промпт</a>
-      </section>
-      <div class="demo-list" id="demo-list"></div>
-      <div class="rail-note"><span class="status-light" aria-hidden="true"></span><div><strong>Собственные исходники</strong><small>Без внешнего JS и сетевых запросов</small></div></div>
-    </aside>
-
-    <section class="workbench" aria-labelledby="lab-title">
-      <header class="workbench-header">
-        <div><p class="eyebrow">Eclipse Motion System · Лаборатория</p><h1 id="lab-title">Проверьте анимацию до внедрения</h1><p>Выберите сцену слева, затем переключите состояние и размер экрана. Каждый пример можно открыть отдельно или скачать.</p></div>
-        <div class="stage-actions"><a class="primary" href="source-motion.html">Готовые оригиналы · 24 →</a><a href="animations-v9-preview.html?v=9">Все 18 новых сцен</a><button type="button" data-action="replay">Повторить</button><button type="button" data-action="focus">Фокус-режим</button><a data-action="download" download>Скачать HTML</a></div>
-      </header>
-
-      <div class="viewport-toolbar" aria-label="Настройки предпросмотра">
-        <div class="segmented" role="group" aria-label="Размер экрана">
-          <button type="button" data-viewport="desktop" aria-pressed="true">Компьютер</button>
-          <button type="button" data-viewport="tablet" aria-pressed="false">Планшет</button>
-          <button type="button" data-viewport="mobile" aria-pressed="false">Телефон</button>
-        </div>
-        <label class="state-control"><span>Состояние</span><select id="state-select" aria-label="Состояние демонстрации"></select></label>
-        <label class="state-control"><span>Скорость</span><select id="speed-select" aria-label="Скорость анимации"><option value="0.5">0.5×</option><option value="1" selected>1×</option><option value="1.5">1.5×</option><option value="2">2×</option></select></label>
-        <button class="inspect-toggle" type="button" aria-expanded="true" aria-controls="lab-inspector">Настройки</button>
-      </div>
-
-      <div class="stage-and-inspector">
-        <div class="stage-column">
-          <div class="stage-wrap" id="motion-stage" data-viewport="desktop">
-            <div class="stage-chrome" aria-hidden="true"><span></span><span></span><span></span><b id="stage-file">animation.html</b><em id="stage-status">АКТИВНО</em></div>
-            <div class="device-frame"><iframe id="stage-frame" title="Интерактивная демонстрация анимации" sandbox="allow-scripts"></iframe></div>
-            <div class="stage-loading" id="stage-loading" role="status"><span></span>Загружаем сцену</div>
-          </div>
-          <div class="timeline">
-            <button type="button" id="timeline-mode" aria-pressed="false">Авто</button>
-            <label><span>Кадр</span><input id="timeline-range" type="range" min="0" max="24" step="0.5" value="0" disabled><output id="timeline-output">live</output></label>
-          </div>
-          <footer class="workbench-meta"><div><span id="active-index">01</span><b id="active-title">Upload Queue</b></div><p id="active-description"></p><ul id="active-tags" aria-label="Свойства анимации"></ul></footer>
-        </div>
-
-        <aside class="inspector" id="lab-inspector" aria-label="Конфигуратор анимации">
-          <header><div><span>Настройки</span><strong>Параметры анимации</strong></div><button type="button" data-action="reset">Сбросить</button></header>
-          <div class="inspector-section">
-            <label><span>Акцент <output id="accent-output">#6BA3FF</output></span><input id="accent-input" type="color" value="#6ba3ff"></label>
-            <label><span>Свечение <output id="glow-output">18%</output></span><input id="glow-input" type="range" min="0" max="60" value="18"></label>
-            <label><span>Плотность <output id="density-output">Обычно</output></span><input id="density-input" type="range" min="0" max="2" step="1" value="1"></label>
-          </div>
-          <div class="inspector-section compact">
-            <span class="section-label">Accessibility</span>
-            <button class="preference-row" type="button" data-preference="reduce" aria-pressed="false"><span><b>Уменьшить движение</b><small>Убирает перемещения, сохраняет обратную связь</small></span><i aria-hidden="true"></i></button>
-            <button class="preference-row" type="button" data-preference="contrast" aria-pressed="false"><span><b>Высокий контраст</b><small>Усиливает границы и состояния</small></span><i aria-hidden="true"></i></button>
-          </div>
-          <div class="inspector-section compact">
-            <span class="section-label">Готовность</span>
-            <dl><div><dt>Статус</dt><dd id="readiness-value">Готово к внедрению</dd></div><div><dt>Лучше всего</dt><dd id="project-value">Eclipse Media</dd></div><div><dt>Бюджет движения</dt><dd>transform + opacity</dd></div></dl>
-          </div>
-          <button class="export-button" type="button" data-action="export">Открыть export kit <span>Ctrl E</span></button>
-        </aside>
-      </div>
-    </section>
-  </main>
-
-  <section class="pattern-notes" aria-labelledby="notes-title"><div><p class="eyebrow">Проверка перед внедрением</p><h2 id="notes-title">Что проверить в проекте</h2></div><ol><li><span>01</span><b>Реальные состояния</b><small>Загрузка, пустой результат, ошибка, успех, отмена и повтор.</small></li><li><span>02</span><b>Все способы управления</b><small>Мышь, касание, клавиатура и заметный фокус.</small></li><li><span>03</span><b>Безопасное движение</b><small>Уменьшение движения, стабильная вёрстка и плавность на мобильных.</small></li></ol></section>
-
-  <dialog class="export-dialog" id="export-dialog" aria-labelledby="export-title">
-    <div class="dialog-head"><div><span>Внедрение</span><h2 id="export-title">Передайте анимацию в проект</h2></div><button type="button" data-action="close-export" aria-label="Закрыть">×</button></div>
-    <div class="export-tabs" role="tablist" aria-label="Формат экспорта"><button role="tab" aria-selected="true" data-export-tab="html">HTML</button><button role="tab" aria-selected="false" data-export-tab="react">Контракт React</button><button role="tab" aria-selected="false" data-export-tab="tokens">Параметры</button><button role="tab" aria-selected="false" data-export-tab="qa">Проверка</button></div>
-    <p id="export-help">Автономный файл открывается без build step и внешних зависимостей.</p>
-    <pre><code id="export-code"></code></pre>
-    <div class="dialog-actions"><button type="button" data-action="copy-export">Скопировать</button><a data-action="open" target="_blank" rel="noopener">Открыть отдельно</a><a class="primary" data-action="download" download>Скачать HTML</a></div>
-    <p class="copy-status" id="copy-status" role="status"></p>
-  </dialog>
-  <script src="animation-demos.js?v=8" defer></script><script src="animation-lab.js?v=8" defer></script>
+ <a class="skip-link" href="#preview">К выбранной анимации</a>
+ <header class="topbar">
+  <a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true"></span><span><strong>Eclipse Library</strong><small>Оригинальные анимации</small></span></a>
+  <nav aria-label="Основная навигация"><a href="index.html">Каталог</a><a href="index.html#guidesFeat">Гайды</a><a href="index.html#projects">Проекты</a><a href="animations.html" aria-current="page">Анимации</a></nav>
+  <a class="back-link" href="index.html">← В библиотеку</a>
+ </header>
+ <main class="workspace">
+  <aside class="catalog" aria-label="Коллекция анимаций">
+   <div class="catalog-head"><p>Локальные оригиналы</p><strong><span id="visible-count">43</span> / <span id="total-count">43</span></strong></div>
+   <label class="search"><span class="sr-only">Найти анимацию</span><input id="search" type="search" placeholder="Найти анимацию" autocomplete="off"></label>
+   <div class="filters" id="filters" role="group" aria-label="Категория анимаций"></div>
+   <div class="experiments">
+    <section class="experiment" id="gwen-experiment" aria-label="Gwen"><a href="experiments/gwen-reveal/index.html">Открыть Gwen ↗</a><a href="experiments/gwen-reveal/guide.html">Гайд и исходники</a></section>
+    <section class="experiment" id="anura-experiment" aria-label="ANURA"><a href="experiments/anura/index.html">Открыть ANURA ↗</a><a href="experiments/anura/guide.html">Гайд и исходники</a></section>
+   </div>
+   <div class="items" id="items"></div>
+  </aside>
+  <section class="stage" id="preview" tabindex="-1">
+   <div class="stage-head"><div><p class="eyebrow" id="item-category">Навигация</p><h1 id="item-title">Световой индикатор вкладок</h1></div><div class="actions"><button id="pause" type="button" aria-pressed="false">Остановить</button><button id="replay" type="button">Перезапустить</button><a id="open-demo" class="primary" href="animation-original.html#active-navbar" target="_blank" rel="noopener">Открыть отдельно ↗</a></div></div>
+   <div class="notice"><strong>Оригинальная композиция и движения.</strong><span>Текст переведён на русский. Без дополнительных наклонов и 3D-оболочек.</span><span id="availability-count"></span></div>
+   <div class="viewport-controls" role="group" aria-label="Размер предпросмотра"><button type="button" data-size-choice="desktop" aria-pressed="true">Компьютер</button><button type="button" data-size-choice="tablet" aria-pressed="false">Планшет</button><button type="button" data-size-choice="mobile" aria-pressed="false">Телефон</button><small>Адаптивность — как в исходнике</small></div>
+   <div class="browser-frame" data-size="desktop">
+    <div class="browser-bar" aria-hidden="true"><i></i><i></i><i></i><span id="file-name">active-navbar/index.html</span><b>ОРИГИНАЛ</b></div>
+    <div class="loading" id="loading" role="status"><span id="load-spinner"></span><p id="load-message">Загрузка оригинала…</p><button id="start-scene" type="button" hidden>Запустить оригинал</button></div>
+    <iframe id="demo-frame" title="Предпросмотр оригинальной анимации" sandbox="allow-scripts" loading="eager"></iframe>
+   </div>
+   <footer class="stage-foot"><div><span>Управление</span><strong id="interaction-label">Нажмите внутри сцены</strong></div><div><span>Папка исходника</span><strong id="source-folder"></strong></div><div><span>Режим</span><strong>Изолированная демонстрация</strong></div></footer>
+   <details class="missing-source"><summary>Принтер чека: нужен полный комплект исходников</summary><p>В папке есть ReceiptPrinter.tsx и Usage.tsx, но нет TactileButton, classname-helper, темы Tailwind, текстуры и логотипа. Точный перенос пока невозможен. Прежнюю имитацию не выдаём за оригинал.</p></details>
+  </section>
+ </main>
+ <script src="original-motion-manifest.js?v=1be7cbad01e64e66"></script><script src="original-motion.js?v=1be7cbad01e64e66"></script>
 </body>
 </html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+  <head><meta charset="utf-8"><meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'unsafe-inline' 'self' http://127.0.0.1:4186 https://library.eclipse-forge.ru; style-src 'unsafe-inline' 'self' http://127.0.0.1:4186 https://library.eclipse-forge.ru; img-src 'self' data: blob: http://127.0.0.1:4186 https://library.eclipse-forge.ru; font-src 'self' data: http://127.0.0.1:4186 https://library.eclipse-forge.ru; media-src 'self' blob: http://127.0.0.1:4186 https://library.eclipse-forge.ru; connect-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'">
+    <meta charset="UTF-8">
+    <title>Симуляция чёрной дыры</title>
+    <link rel="stylesheet" href="./style.css">
+
+  </head>
+    
+  <body>
+  <body>
+  <div id="info">
+    Галактическая чёрная дыра<br>
+    <span style="font-size: 14px; opacity: 0.8;">Нажмите на ядро или кнопку для эха диска. Перетаскивайте для вращения.</span>
+  </div>
+
+  <div id="controls" class="ui-panel">
+    <div id="autoRotateToggle" class="control-item" title="Toggle automatic rotation">
+    </div>
+    <div id="triggerEffectButton" class="control-item" title="Trigger Disk Echo">
+    </div>
+  </div>
+
+  <div id="theme-changer" class="ui-panel">
+    <h4>Цветовая тема</h4>
+    <div id="theme-buttons">
+      <button class="theme-button active" data-theme="inferno">Пламя</button>
+      <button class="theme-button" data-theme="ruby">Рубин</button>
+      <button class="theme-button" data-theme="plasma">Плазма</button>
+      <button class="theme-button" data-theme="void">Пустота</button>
+    </div>
+  </div>
+</body>
+    <script src="script.bundle.js"></script>
+
+  </body>
+  
+</html>

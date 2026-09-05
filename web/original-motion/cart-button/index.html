@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head><meta charset="utf-8"><meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'unsafe-inline' 'self' http://127.0.0.1:4186 https://library.eclipse-forge.ru; style-src 'unsafe-inline' 'self' http://127.0.0.1:4186 https://library.eclipse-forge.ru; img-src 'self' data: blob: http://127.0.0.1:4186 https://library.eclipse-forge.ru; font-src 'self' data: http://127.0.0.1:4186 https://library.eclipse-forge.ru; media-src 'self' blob: http://127.0.0.1:4186 https://library.eclipse-forge.ru; connect-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Кнопка с тележкой</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="acp-wrap">
+      <button type="button" class="acp-btn">
+        <span class="acp-idle">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M12 3l8 4v10l-8 4-8-4V7l8-4z"></path>
+            <path d="M4 7l8 4 8-4"></path>
+            <path d="M12 11v10"></path>
+          </svg>
+          <span>В корзину</span>
+        </span>
+        <span class="acp-scene" aria-hidden="true">
+          <span class="acp-belt"><span class="acp-tread"></span></span>
+          <span class="acp-scanner">
+            <span class="acp-scan-mount"></span>
+            <span class="acp-scan-head"></span>
+            <span class="acp-scan-led"></span>
+            <span class="acp-blink"></span>
+          </span>
+          <span class="acp-laser"></span>
+          <span class="acp-box">
+            <span class="acp-face"></span>
+            <span class="acp-barcode"></span>
+            <span class="acp-flap acp-flap-l"></span>
+            <span class="acp-flap acp-flap-r"></span>
+            <span class="acp-tape"></span>
+            <span class="acp-slabel"></span>
+            <span class="acp-flash"></span>
+          </span>
+          <span class="acp-cart">
+            <svg width="40" height="38" viewBox="0 0 40 38" aria-hidden="true">
+              <path d="M3 5h4.5l2.5 6" fill="none" stroke="#9aa7b8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+              <path d="M7.5 10h28.5l-3.5 17h-20l-5-17z" fill="#1c232e" stroke="#9aa7b8" stroke-width="2" stroke-linejoin="round"></path>
+              <circle cx="15" cy="32.5" r="3" fill="#1c232e" stroke="#9aa7b8" stroke-width="2"></circle>
+              <circle cx="28" cy="32.5" r="3" fill="#1c232e" stroke="#9aa7b8" stroke-width="2"></circle>
+            </svg>
+            <span class="acp-badge">+1</span>
+          </span>
+        </span>
+        <span class="acp-done" aria-hidden="true">
+          <svg class="acp-check" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <circle class="acp-check-ring" cx="12" cy="12" r="10" stroke-width="1.6"></circle>
+            <path class="acp-check-path" d="M7.2 12.4l3.3 3.3 6.3-6.9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" pathLength="1"></path>
+          </svg>
+          <span>Добавлено</span>
+        </span>
+      </button>
+      <span class="acp-live" aria-live="polite"></span>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>

@@ -70,14 +70,14 @@ test('guide, full original, DOCX and library entry are included', () => {
 
 test('Gwen has discoverable entry and deterministic return without history or JavaScript', () => {
   const lab=readFileSync(resolve(root,'web/animations.html'),'utf8');
-  const labCss=readFileSync(resolve(root,'web/animation-lab.css'),'utf8');
-  assert.match(lab, /<section class="gwen-entry" id="gwen-experiment"/);
-  assert.match(lab, /<a class="gwen-launch" href="experiments\/gwen-reveal\/index.html">Открыть Gwen/);
-  assert.match(lab, /animation-lab.css\?v=10/);
+  const labCss=readFileSync(resolve(root,'web/original-motion.css'),'utf8');
+  assert.match(lab, /<section class="experiment" id="gwen-experiment"/);
+  assert.match(lab, /<a href="experiments\/gwen-reveal\/index.html">Открыть Gwen/);
+  assert.match(lab, /original-motion.css\?v=[a-f0-9]{16}/);
   assert.match(html, /<a class="sticker library-back ui" href="\.\.\/\.\.\/animations.html#gwen-experiment">/);
   assert.match(html, /Назад в библиотеку/);
   assert.match(html, /styles.css\?v=2/);
   assert.match(css, /\.library-back:focus-visible\{clip-path:none\}/);
-  assert.match(labCss, /\.gwen-entry\{flex-shrink:0;display:grid/);
+  assert.match(labCss, /\.experiments\{flex-shrink:0\}/);
   assert.doesNotMatch(js, /history\.back|document\.referrer/);
 });

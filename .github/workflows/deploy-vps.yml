@@ -50,6 +50,8 @@ jobs:
           node --test scripts/diagram-contract.test.mjs
           node --test scripts/brand-assets.test.mjs
           node --test scripts/source-motion-library.test.mjs
+          node --test scripts/original-motion-publication.test.mjs
+          node scripts/original-motion-publication.mjs --check
           node --test scripts/gwen-reveal.test.mjs scripts/gwen-publication.test.mjs
           node scripts/gwen-publication.mjs --check
           node --test scripts/anura.test.mjs scripts/anura-publication.test.mjs
@@ -70,6 +72,7 @@ jobs:
           rm -f _site/experiments/gwen-reveal/README.md _site/experiments/gwen-reveal/design-qa.md
           node scripts/gwen-publication.mjs --check-stage _site
           node scripts/anura-publication.mjs --check-stage _site
+          node scripts/original-motion-publication.mjs --check-stage _site
 
       - name: Setup SSH
         env:
@@ -113,3 +116,4 @@ jobs:
           node scripts/smoke-production.mjs https://library.eclipse-forge.ru/
           node scripts/gwen-publication.mjs --smoke https://library.eclipse-forge.ru/
           node scripts/anura-publication.mjs --smoke https://library.eclipse-forge.ru/
+          node scripts/original-motion-publication.mjs --smoke https://library.eclipse-forge.ru/

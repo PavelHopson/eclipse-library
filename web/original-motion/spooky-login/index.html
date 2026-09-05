@@ -1,0 +1,325 @@
+
+<!DOCTYPE html>
+<html lang="ru">
+<head><meta charset="utf-8"><meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'unsafe-inline' 'self' http://127.0.0.1:4186 https://library.eclipse-forge.ru; style-src 'unsafe-inline' 'self' http://127.0.0.1:4186 https://library.eclipse-forge.ru; img-src 'self' data: blob: http://127.0.0.1:4186 https://library.eclipse-forge.ru; font-src 'self' data: http://127.0.0.1:4186 https://library.eclipse-forge.ru; media-src 'self' blob: http://127.0.0.1:4186 https://library.eclipse-forge.ru; connect-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Кинематографичная форма входа</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+
+        .login-container {
+            display: flex;
+            width: 900px;
+            height: 550px;
+            background: #F8FAFC;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+        }
+
+        /* Image Panel */
+        .image-panel {
+            flex: 1;
+            position: relative;
+            overflow: hidden;
+            border-right: #ff0000;
+            
+        }
+
+        .image-panel video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: opacity 0.6s ease;
+            
+        }
+
+.image-overlay {
+    display: none;
+}
+
+/* Login Panel */
+.login-panel {
+    flex: 1;
+    padding: 50px 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.login-panel h2 {
+    font-size: 2em;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.login-panel p {
+    color: #666;
+    margin-bottom: 30px;
+}
+
+        .demo-info {
+            background: #e3f2fd;
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            border-left: 4px solid #2196F3;
+        }
+
+.demo-info p {
+    margin: 5px 0;
+    font-size: 0.9em;
+    color: #1565C0;
+}
+
+.message {
+    padding: 15px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    margin-top: 10px;
+    animation: slideIn 0.3s ease;
+    text-align: center;
+    font-weight: 600;
+}
+
+        .message.success {
+            background: #d4edda;
+            color: #155724;
+            border-left: 4px solid #28a745;
+            display: block;
+        }
+
+        .message.error {
+            background: #f8d7da;
+            color: #721c24;
+            border-left: 4px solid #dc3545;
+            display: block;
+        }
+
+        .input-group {
+            margin-bottom: 20px;
+        }
+
+        .input-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: #333;
+            font-weight: 600;
+        }
+
+        .input-group input {
+            width: 100%;
+            padding: 12px 15px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            font-size: 1em;
+            transition: border-color 0.3s;
+        }
+
+        .input-group input:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+
+        .input-group input:disabled {
+            background: #f5f5f5;
+            cursor: not-allowed;
+        }
+
+        .btn {
+            width: 100%;
+            padding: 14px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1em;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+            margin-top: 10px;
+        }
+
+        .btn:hover:not(:disabled) {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        .btn:disabled {
+            background: #ccc;
+            cursor: not-allowed;
+        }
+
+        .btn-secondary {
+            background: #6c757d;
+            margin-top: 10px;
+        }
+
+        .btn-secondary:hover {
+            box-shadow: 0 5px 15px rgba(108, 117, 125, 0.4);
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .login-container {
+                flex-direction: column;
+                width: 90%;
+                height: auto;
+            }
+            
+            .image-panel {
+                min-height: 200px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <!-- Image Panel -->
+        <div class="image-panel" id="imagePanel">
+            <video id="videoPlayer" autoplay loop muted playsinline>
+                <source src="" type="video/mp4">
+            </video>
+        </div>
+
+        <!-- Login Panel -->
+        <div class="login-panel">
+            <h2>Войти</h2>
+
+            <div class="input-group">
+                <label for="email">Электронная почта</label>
+                <input type="email" id="email" placeholder="Введите почту" autocomplete="off" required>
+            </div>
+
+            <div class="input-group">
+                <label for="password">Пароль</label>
+                <input type="password" id="password" placeholder="Введите пароль" required>
+            </div>
+
+            <button class="btn" id="loginBtn" onclick="handleLogin()">Войти</button>
+            <div id="message" class="message"></div>
+            <button class="btn btn-secondary" id="resetBtn" onclick="resetForm()" style="display: none;">Повторить</button>
+        </div>
+    </div>
+
+    <script>
+    let failCount = 0;
+
+    const videoPlayer = document.getElementById("videoPlayer");
+    const messageDiv = document.getElementById("message");
+    const loginBtn = document.getElementById("loginBtn");
+    const resetBtn = document.getElementById("resetBtn");
+
+    // Set default video on page load
+    window.onload = function () {
+        updateVideo("1026.mp4");
+    };
+
+    function updateVideo(videoFile) {
+        videoPlayer.src = videoFile;
+        videoPlayer.load();
+        videoPlayer.play();
+    }
+
+    function showMessage(text, type) {
+        messageDiv.textContent = text;
+        messageDiv.className = "message " + type;
+    }
+
+    function hideMessage() {
+        messageDiv.textContent = "";
+        messageDiv.className = "message";
+    }
+
+    function handleLogin() {
+        const email = document.getElementById("email").value.trim();
+        const password = document.getElementById("password").value.trim();
+
+        if (!email || !password) {
+            showMessage("Введите почту и пароль", "error");
+            return;
+        }
+
+        loginBtn.disabled = true;
+        loginBtn.textContent = "Вход…";
+        hideMessage();
+
+        setTimeout(() => {
+            const isCorrect =
+                email === "user1" &&
+                password === "1111";
+
+            if (isCorrect) {
+                // SUCCESS
+                updateVideo("correct.mp4");
+                showMessage("Вход выполнен!", "success");
+                failCount = 0;
+                resetBtn.style.display = "block";
+            } else {
+                // FAILURE
+                failCount++;
+
+                if (failCount === 1) {
+                    updateVideo("wrong.mp4");
+                } else {
+                    updateVideo("againwrong.mp4");
+                }
+
+                showMessage("Не удалось войти!", "error");
+            }
+
+            loginBtn.disabled = false;
+            loginBtn.textContent = "Войти";
+        }, 1200);
+    }
+
+    function resetForm() {
+        failCount = 0;
+
+        document.getElementById("email").value = "";
+        document.getElementById("password").value = "";
+
+        hideMessage();
+        updateVideo("1026.mp4");
+
+        resetBtn.style.display = "none";
+    }
+
+    // Submit on Enter key
+    document
+        .getElementById("password")
+        .addEventListener("keypress", function (e) {
+            if (e.key === "Enter") {
+                handleLogin();
+            }
+        });
+</script>
+</body>
+</html>

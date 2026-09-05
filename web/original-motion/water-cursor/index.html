@@ -1,0 +1,1327 @@
+<!doctype html>
+<html lang="ru">
+  <head><meta charset="utf-8"><meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'unsafe-inline' 'self' http://127.0.0.1:4186 https://library.eclipse-forge.ru; style-src 'unsafe-inline' 'self' http://127.0.0.1:4186 https://library.eclipse-forge.ru; img-src 'self' data: blob: http://127.0.0.1:4186 https://library.eclipse-forge.ru; font-src 'self' data: http://127.0.0.1:4186 https://library.eclipse-forge.ru; media-src 'self' blob: http://127.0.0.1:4186 https://library.eclipse-forge.ru; connect-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Водяной след курсора</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      html,
+      body {
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        background: #000;
+        cursor: none;
+        font-family: "Segoe UI", system-ui, sans-serif;
+      }
+      .bg {
+        position: fixed;
+        inset: 0;
+        z-index: 0;
+        background: radial-gradient(
+          ellipse at 50% 35%,
+          #001620 0%,
+          #00080c 45%,
+          #000 100%
+        );
+      }
+      .giyu-bg {
+        position: fixed;
+        top: -5%;
+        left: -5%;
+        width: 110%;
+        height: 110%;
+        z-index: 1;
+        background-image: url("bg.png");
+        background-size: cover;
+        background-position: center;
+        opacity: 0.6;
+        pointer-events: none;
+        will-change: transform;
+        transition: opacity 0.3s;
+      }
+      body.aura-active .giyu-bg {
+        opacity: 0.22;
+      }
+      #c {
+        position: fixed;
+        inset: 0;
+        z-index: 10;
+        pointer-events: none;
+      }
+      #hd {
+        position: fixed;
+        inset: 0;
+        z-index: 9;
+        pointer-events: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="bg"></div>
+    <div class="giyu-bg" id="tbg"></div>
+    <canvas id="hd"></canvas>
+    <canvas id="c"></canvas>
+
+    <script>
+      (function () {
+        "use strict";
+
+        /* ── Canvas & DPR ── */
+        const C = document.getElementById("c");
+        const ctx = C.getContext("2d");
+        const HD = document.getElementById("hd");
+        const hctx = HD.getContext("2d");
+        let W, H, dpr;
+
+        function resize() {
+          dpr = Math.min(devicePixelRatio || 1, 2);
+          W = innerWidth;
+          H = innerHeight;
+          C.width = W * dpr;
+          C.height = H * dpr;
+          C.style.width = W + "px";
+          C.style.height = H + "px";
+          ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+          HD.width = W * dpr;
+          HD.height = H * dpr;
+          HD.style.width = W + "px";
+          HD.style.height = H + "px";
+          hctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+        }
+        addEventListener("resize", resize);
+        resize();
+
+        /* ── Math helpers ── */
+        const lerp = (a, b, t) => a + (b - a) * t;
+        const rand = (a, b) => a + Math.random() * (b - a);
+        const randi = (a, b) => (a + Math.random() * (b - a)) | 0;
+        const clamp = (v, a, b) => Math.max(a, Math.min(b, v));
+        const TAU = Math.PI * 2;
+
+        /* ══════════════════════════════════════════════════
+   WATER BREATHING COLOR SYSTEM
+   Deep ocean navy → indigo → blue → cyan → aqua → white foam
+══════════════════════════════════════════════════ */
+        const LUT_R = new Uint8Array(256);
+        const LUT_G = new Uint8Array(256);
+        const LUT_B = new Uint8Array(256);
+        (function () {
+          const stops = [
+            [0, [0, 0, 0]],
+            [26, [0, 10, 30]],
+            [60, [0, 35, 80]],
+            [100, [0, 70, 140]],
+            [145, [0, 130, 190]],
+            [185, [40, 190, 220]],
+            [220, [140, 230, 240]],
+            [255, [235, 250, 255]],
+          ];
+          for (let i = 0; i < 256; i++) {
+            for (let s = 0; s < stops.length - 1; s++) {
+              const [t0, c0] = stops[s],
+                [t1, c1] = stops[s + 1];
+              if (i >= t0 && i <= t1) {
+                const f = (i - t0) / (t1 - t0);
+                LUT_R[i] = (c0[0] + (c1[0] - c0[0]) * f) | 0;
+                LUT_G[i] = (c0[1] + (c1[1] - c0[1]) * f) | 0;
+                LUT_B[i] = (c0[2] + (c1[2] - c0[2]) * f) | 0;
+                break;
+              }
+            }
+          }
+        })();
+
+        /* Foam / crest accent LUT — teal → turquoise → pale mint → white */
+        const FLUT_R = new Uint8Array(256);
+        const FLUT_G = new Uint8Array(256);
+        const FLUT_B = new Uint8Array(256);
+        (function () {
+          const stops = [
+            [0, [0, 0, 0]],
+            [40, [0, 35, 35]],
+            [95, [0, 110, 110]],
+            [150, [30, 180, 175]],
+            [200, [140, 230, 220]],
+            [255, [250, 255, 252]],
+          ];
+          for (let i = 0; i < 256; i++) {
+            for (let s = 0; s < stops.length - 1; s++) {
+              const [t0, c0] = stops[s],
+                [t1, c1] = stops[s + 1];
+              if (i >= t0 && i <= t1) {
+                const f = (i - t0) / (t1 - t0);
+                FLUT_R[i] = (c0[0] + (c1[0] - c0[0]) * f) | 0;
+                FLUT_G[i] = (c0[1] + (c1[1] - c0[1]) * f) | 0;
+                FLUT_B[i] = (c0[2] + (c1[2] - c0[2]) * f) | 0;
+                break;
+              }
+            }
+          }
+        })();
+
+        function waterColor(t, a) {
+          const i = clamp(t * 255, 0, 255) | 0;
+          return `rgba(${LUT_R[i]},${LUT_G[i]},${LUT_B[i]},${a})`;
+        }
+        function foamColor(t, a) {
+          const i = clamp(t * 255, 0, 255) | 0;
+          return `rgba(${FLUT_R[i]},${FLUT_G[i]},${FLUT_B[i]},${a})`;
+        }
+
+        /* ── Pointer state ── */
+        const P = {
+          x: W / 2,
+          y: H / 2,
+          tx: W / 2,
+          ty: H / 2,
+          px: W / 2,
+          py: H / 2,
+          vx: 0,
+          vy: 0,
+          speed: 0,
+          lastMove: 0,
+        };
+        function setTarget(x, y) {
+          P.tx = x;
+          P.ty = y;
+          P.lastMove = performance.now();
+        }
+        addEventListener("mousemove", (e) => setTarget(e.clientX, e.clientY));
+        addEventListener(
+          "touchmove",
+          (e) => {
+            if (e.touches.length)
+              setTarget(e.touches[0].clientX, e.touches[0].clientY);
+          },
+          { passive: true },
+        );
+
+        addEventListener("mousedown", (e) => {
+          document.body.classList.add("aura-active");
+          burst(e.clientX, e.clientY);
+        });
+        addEventListener("mouseup", () =>
+          document.body.classList.remove("aura-active"),
+        );
+        addEventListener("mouseleave", () =>
+          document.body.classList.remove("aura-active"),
+        );
+        addEventListener(
+          "touchstart",
+          (e) => {
+            document.body.classList.add("aura-active");
+            if (e.touches.length) {
+              setTarget(e.touches[0].clientX, e.touches[0].clientY);
+              burst(P.tx, P.ty);
+            }
+          },
+          { passive: true },
+        );
+        addEventListener("touchend", () =>
+          document.body.classList.remove("aura-active"),
+        );
+
+        /* ══════════════════════════════════════════
+   PARTICLE POOLS
+══════════════════════════════════════════ */
+
+        /* — Droplets (the signature Water Breathing element) — */
+        const DMAX = 200;
+        const drops = [];
+        for (let i = 0; i < DMAX; i++) drops.push({ alive: false });
+        let dHead = 0;
+        function spawnDrop(x, y, vx, vy, r, life, hot, foam) {
+          const d = drops[dHead % DMAX];
+          dHead++;
+          d.alive = true;
+          d.x = x;
+          d.y = y;
+          d.vx = vx;
+          d.vy = vy;
+          d.age = 0;
+          d.life = life;
+          d.r = r;
+          d.hot = hot;
+          d.foam = foam || false;
+          d.rot = Math.atan2(vy, vx) + Math.PI / 2;
+          d.wobble = rand(0, TAU);
+          d.wobbleSpd = rand(3, 7);
+        }
+
+        /* — Fine droplet motes (ambient mist beads, replaces embers) — */
+        const EMAX = 650;
+        const motes = [];
+        for (let i = 0; i < EMAX; i++) motes.push({ alive: false });
+        let eHead = 0;
+        function spawnMote(x, y, vx, vy, life, sz, hot, foam, spin) {
+          const e = motes[eHead % EMAX];
+          eHead++;
+          e.alive = true;
+          e.x = x;
+          e.y = y;
+          e.vx = vx;
+          e.vy = vy;
+          e.age = 0;
+          e.life = life;
+          e.sz = sz;
+          e.hot = hot;
+          e.sway = rand(0.3, 1.3);
+          e.phase = rand(0, TAU);
+          e.grav = rand(40, 95);
+          e.foam = foam || false;
+          e.rot = rand(0, TAU);
+          e.rotSpd = spin || rand(-4, 4);
+          e.isStretched = Math.random() < 0.4;
+        }
+
+        /* — Sea mist / vapor wisps (replaces smoke/ribbons) — */
+        const SMAX = 320;
+        const mist = [];
+        for (let i = 0; i < SMAX; i++) mist.push({ alive: false });
+        let sHead = 0;
+        function spawnMist(x, y, vx, vy, r, life, foam) {
+          const s = mist[sHead % SMAX];
+          sHead++;
+          s.alive = true;
+          s.x = x;
+          s.y = y;
+          s.vx = vx;
+          s.vy = vy;
+          s.age = 0;
+          s.life = life;
+          s.r = r;
+          s.foam = foam || false;
+          s.wave = rand(0, TAU);
+          s.waveSpd = rand(2, 5);
+        }
+
+        /* — Water current puffs (replaces energy/flame puffs) — */
+        const FMAX = 360;
+        const flows = [];
+        for (let i = 0; i < FMAX; i++) flows.push({ alive: false });
+        let fHead = 0;
+        function spawnFlow(x, y, vx, vy, r, life, hot, foam) {
+          const f = flows[fHead % FMAX];
+          fHead++;
+          f.alive = true;
+          f.x = x;
+          f.y = y;
+          f.vx = vx;
+          f.vy = vy;
+          f.age = 0;
+          f.life = life;
+          f.r = r;
+          f.hot = hot;
+          f.foam = foam || false;
+        }
+
+        /* — Wave-blade shards (replaces crescents) — */
+        const CMAX = 130;
+        const shards = [];
+        for (let i = 0; i < CMAX; i++) shards.push({ alive: false });
+        let cHead = 0;
+        function spawnShard(x, y, angle, speed, r, life, hot, foam) {
+          const c = shards[cHead % CMAX];
+          cHead++;
+          c.alive = true;
+          c.x = x;
+          c.y = y;
+          c.vx = Math.cos(angle) * speed;
+          c.vy = Math.sin(angle) * speed;
+          c.angle = angle;
+          c.r = r;
+          c.age = 0;
+          c.life = life;
+          c.hot = hot;
+          c.foam = foam || false;
+          c.spin = rand(-2.5, 2.5);
+        }
+
+        /* — Splash streaks / glints (replaces sparks) — */
+        const SPKMAX = 420;
+        const splashes = [];
+        for (let i = 0; i < SPKMAX; i++)
+          splashes.push({ alive: false, px: 0, py: 0 });
+        let spkHead = 0;
+        function spawnSplash(x, y, vx, vy, life, bright, foam) {
+          const s = splashes[spkHead % SPKMAX];
+          spkHead++;
+          s.alive = true;
+          s.x = x;
+          s.y = y;
+          s.px = x;
+          s.py = y;
+          s.vx = vx;
+          s.vy = vy;
+          s.age = 0;
+          s.life = life;
+          s.bright = bright;
+          s.foam = foam || false;
+          s.glint = Math.random() < 0.4;
+        }
+
+        /* — Shockwaves (ripples) & flashes — */
+        const waves = [];
+        const flashes = [];
+
+        /* — Ambient caustic glow cells — */
+        const HDMAX = 200;
+        const hdCells = [];
+        for (let i = 0; i < HDMAX; i++) hdCells.push({ alive: false });
+        let hdHead = 0;
+        function spawnHD(x, y, str, life) {
+          const h = hdCells[hdHead % HDMAX];
+          hdHead++;
+          h.alive = true;
+          h.x = x;
+          h.y = y;
+          h.str = str;
+          h.age = 0;
+          h.life = life;
+        }
+
+        /* — Trail points — */
+        const TMAX = 75;
+        const trail = [];
+
+        /* ══════════════════════════════════════════
+   DRAW PRIMITIVES
+══════════════════════════════════════════ */
+
+        /* Droplet path — classic raindrop, centered at (0,0), scaled by r */
+        function dropletPath(cx, cy, r, angle) {
+          ctx.save();
+          ctx.translate(cx, cy);
+          ctx.rotate(angle);
+          ctx.scale(r, r);
+          ctx.beginPath();
+          ctx.moveTo(0, -1.1);
+          ctx.bezierCurveTo(0.62, -0.32, 0.6, 0.55, 0, 0.6);
+          ctx.bezierCurveTo(-0.6, 0.55, -0.62, -0.32, 0, -1.1);
+          ctx.closePath();
+          ctx.restore();
+        }
+
+        /* 4-point glint sparkle */
+        function glintPath(cx, cy, r, angle) {
+          const ir = r * 0.36;
+          ctx.save();
+          ctx.translate(cx, cy);
+          ctx.rotate(angle);
+          ctx.beginPath();
+          for (let i = 0; i < 8; i++) {
+            const a = (i / 8) * TAU;
+            const rad = i % 2 === 0 ? r : ir;
+            i === 0
+              ? ctx.moveTo(Math.cos(a) * rad, Math.sin(a) * rad)
+              : ctx.lineTo(Math.cos(a) * rad, Math.sin(a) * rad);
+          }
+          ctx.closePath();
+          ctx.restore();
+        }
+
+        /* Wave-blade shard — thin curved crest, like a slash of cut water */
+        function drawShard(cx, cy, r, angle, hot, foam, alpha) {
+          ctx.save();
+          ctx.translate(cx, cy);
+          ctx.rotate(angle);
+          ctx.beginPath();
+          ctx.arc(0, 0, r, 0.25, Math.PI - 0.25);
+          const off = r * 0.42;
+          ctx.arc(off, 0, r * 0.68, Math.PI - 0.3, 0.3, true);
+          ctx.closePath();
+          const col = foam ? foamColor(hot, alpha) : waterColor(hot, alpha);
+          const colFade = foam
+            ? foamColor(hot * 0.4, 0)
+            : waterColor(hot * 0.4, 0);
+          const g = ctx.createRadialGradient(0, 0, 0, 0, 0, r);
+          g.addColorStop(0, col);
+          g.addColorStop(
+            0.6,
+            foam
+              ? foamColor(hot * 0.7, alpha * 0.6)
+              : waterColor(hot * 0.7, alpha * 0.6),
+          );
+          g.addColorStop(1, colFade);
+          ctx.fillStyle = g;
+          ctx.fill();
+          // foam crest highlight along the leading rim
+          ctx.lineWidth = Math.max(0.6, r * 0.07);
+          ctx.strokeStyle = foamColor(0.92, alpha * 0.55);
+          ctx.beginPath();
+          ctx.arc(0, 0, r, 0.25, Math.PI - 0.25);
+          ctx.stroke();
+          ctx.restore();
+        }
+
+        /* ── Water Breathing Burst — First Form: Water Surface Slash ── */
+        function burst(x, y) {
+          waves.push({ x, y, r: 0, maxR: rand(210, 320), age: 0, life: 720 });
+          waves.push({
+            x,
+            y,
+            r: 0,
+            maxR: rand(140, 210),
+            age: 0,
+            life: 520,
+            delay: 90,
+          });
+          flashes.push({ x, y, r: 0, maxR: rand(270, 410), age: 0, life: 540 });
+
+          /* Wave-blade shards radiating outward */
+          const ARCS = 18;
+          for (let i = 0; i < ARCS; i++) {
+            const a = (i / ARCS) * TAU + rand(-0.12, 0.12);
+            const spd = rand(140, 400);
+            const isFoam = Math.random() < 0.32;
+            spawnShard(
+              x,
+              y,
+              a,
+              spd,
+              rand(18, 45),
+              rand(450, 850),
+              rand(0.7, 1.0),
+              isFoam,
+            );
+            spawnFlow(
+              x,
+              y,
+              Math.cos(a) * spd * 0.5,
+              Math.sin(a) * spd * 0.5,
+              rand(22, 48),
+              rand(350, 700),
+              rand(0.6, 1.0),
+              isFoam,
+            );
+            if (i % 2 === 0)
+              spawnMist(
+                x + rand(-8, 8),
+                y + rand(-8, 8),
+                Math.cos(a) * spd * 0.18,
+                Math.sin(a) * spd * 0.18 - rand(25, 55),
+                rand(20, 38),
+                rand(550, 850),
+                true,
+              );
+          }
+
+          /* Heavy droplet burst — the signature splash */
+          const DJ = 22;
+          for (let i = 0; i < DJ; i++) {
+            const a = (i / DJ) * TAU + rand(-0.18, 0.18);
+            const spd = rand(110, 360);
+            spawnDrop(
+              x,
+              y,
+              Math.cos(a) * spd,
+              Math.sin(a) * spd - rand(20, 80),
+              rand(5, 14),
+              rand(550, 1050),
+              rand(0.65, 1.0),
+              Math.random() < 0.3,
+            );
+          }
+          for (let i = 0; i < 16; i++) {
+            const a = rand(0, TAU),
+              spd = rand(40, 140);
+            spawnDrop(
+              x + rand(-10, 10),
+              y + rand(-10, 10),
+              Math.cos(a) * spd,
+              Math.sin(a) * spd - rand(30, 90),
+              rand(3, 8),
+              rand(450, 850),
+              rand(0.5, 0.9),
+              Math.random() < 0.35,
+            );
+          }
+
+          /* Splash glint / streak shower */
+          for (let i = 0; i < 150; i++) {
+            const a = rand(0, TAU),
+              spd = rand(90, 540);
+            spawnSplash(
+              x,
+              y,
+              Math.cos(a) * spd,
+              Math.sin(a) * spd,
+              rand(280, 950),
+              rand(0.7, 1.0),
+              Math.random() < 0.28,
+            );
+          }
+
+          /* Fine spray motes */
+          for (let i = 0; i < 100; i++) {
+            const a = rand(0, TAU) - Math.PI / 2,
+              spd = rand(35, 210);
+            spawnMote(
+              x,
+              y,
+              Math.cos(a) * spd,
+              Math.sin(a) * spd - rand(40, 110),
+              rand(500, 1300),
+              rand(1.3, 3.2),
+              rand(0.5, 1.0),
+              Math.random() < 0.22,
+              rand(-5, 5),
+            );
+          }
+
+          spawnHD(x, y, rand(9, 15), rand(600, 1000));
+        }
+
+        /* ── Trail helpers ── */
+        function addTrail(x, y, t) {
+          if (trail.length >= TMAX) trail.shift();
+          trail.push({ x, y, t });
+        }
+
+        /* ══════════════════════════════════════════
+   MAIN LOOP
+══════════════════════════════════════════ */
+        let last = performance.now();
+        let ambE = 0,
+          ambF = 0,
+          ambHD = 0,
+          ambC = 0,
+          ambD = 0;
+
+        function frame(now) {
+          requestAnimationFrame(frame);
+          const dt = Math.min(now - last, 33);
+          last = now;
+          const dtS = dt * 0.001;
+
+          /* Pointer tracking */
+          P.px = P.x;
+          P.py = P.y;
+          const ease = 1 - Math.pow(0.001, dtS * 5);
+          P.x = lerp(P.x, P.tx, ease);
+          P.y = lerp(P.y, P.ty, ease);
+          P.vx = (P.x - P.px) / Math.max(dtS, 0.001);
+          P.vy = (P.y - P.py) / Math.max(dtS, 0.001);
+          P.speed = Math.hypot(P.vx, P.vy);
+
+          /* Parallax bg */
+          const bx = (P.tx / W - 0.5) * -32;
+          const by = (P.ty / H - 0.5) * -32;
+          document.getElementById("tbg").style.transform =
+            `translate(${bx}px,${by}px) scale(1.08)`;
+
+          /* Trail */
+          addTrail(P.x, P.y, now);
+          while (trail.length && now - trail[0].t > 380) trail.shift();
+
+          const idle = now - P.lastMove;
+          const moving = idle < 120;
+          const speedFactor = clamp(P.speed / 300, 0, 1);
+
+          /* ── Ambient mote emission (fine spray drifting off the blade) ── */
+          ambE -= dt;
+          if (ambE <= 0) {
+            ambE = moving ? rand(8, 22) : rand(28, 55);
+            const n = moving ? randi(2, 5) : 1;
+            for (let i = 0; i < n; i++) {
+              const a = -Math.PI / 2 + rand(-1.0, 1.0);
+              const spd = rand(15, 70) * (1 + speedFactor * 1.8);
+              const isFoam = Math.random() < 0.1;
+              spawnMote(
+                P.x + rand(-5, 5),
+                P.y + rand(-5, 5),
+                Math.cos(a) * spd,
+                Math.sin(a) * spd - rand(15, 45),
+                rand(700, 1600),
+                rand(1.0, 2.6),
+                rand(0.4, 0.9),
+                isFoam,
+                rand(-3, 3),
+              );
+            }
+          }
+
+          /* ── Ambient water current emission ── */
+          ambF -= dt;
+          if (ambF <= 0) {
+            ambF = moving ? rand(10, 25) : rand(30, 65);
+            const n = moving ? randi(2, 6) : randi(1, 3);
+            for (let i = 0; i < n; i++) {
+              const a = -Math.PI / 2 + rand(-1.1, 1.1);
+              const spd = rand(12, 65) * (1 + speedFactor * 1.4);
+              const isFoam = Math.random() < 0.08;
+              spawnFlow(
+                P.x + rand(-6, 6),
+                P.y + rand(-6, 6),
+                Math.cos(a) * spd * 0.45,
+                Math.sin(a) * spd - rand(8, 38),
+                rand(9, 26) * (1 + speedFactor * 0.7),
+                rand(160, 380),
+                rand(0.4, 1.0),
+                isFoam,
+              );
+            }
+            if (Math.random() < (moving ? 0.35 : 0.08))
+              spawnMist(
+                P.x + rand(-8, 8),
+                P.y - 8,
+                rand(-12, 12),
+                rand(-35, -12),
+                rand(12, 24),
+                rand(380, 680),
+                false,
+              );
+          }
+
+          /* ── Ambient wave-blade shards on fast sweeps ── */
+          ambC -= dt;
+          if (ambC <= 0) {
+            ambC = moving ? rand(60, 140) : rand(200, 400);
+            if (moving && P.speed > 40) {
+              const a = -Math.PI / 2 + rand(-1.3, 1.3);
+              const isFoam = Math.random() < 0.14;
+              spawnShard(
+                P.x + rand(-8, 8),
+                P.y + rand(-8, 8),
+                a,
+                rand(20, 70),
+                rand(6, 16),
+                rand(350, 700),
+                rand(0.5, 0.9),
+                isFoam,
+              );
+            }
+          }
+
+          /* ── Ambient droplets dripping off the blade tip ── */
+          ambD -= dt;
+          if (ambD <= 0) {
+            ambD = moving ? rand(70, 150) : rand(220, 420);
+            if (Math.random() < (moving ? 0.6 : 0.25)) {
+              const a = -Math.PI / 2 + rand(-1.0, 1.0);
+              const spd = rand(20, 60) * (1 + speedFactor);
+              spawnDrop(
+                P.x + rand(-6, 6),
+                P.y + rand(-6, 6),
+                Math.cos(a) * spd,
+                Math.sin(a) * spd - rand(10, 40),
+                rand(2.5, 6),
+                rand(450, 900),
+                rand(0.5, 0.9),
+                Math.random() < 0.25,
+              );
+            }
+          }
+
+          /* ── Ambient caustic shimmer ── */
+          ambHD -= dt;
+          if (ambHD <= 0) {
+            ambHD = rand(90, 170);
+            spawnHD(
+              P.x + rand(-18, 18),
+              P.y + rand(-18, 18),
+              rand(3, 6),
+              rand(180, 380),
+            );
+          }
+
+          /* ── Movement-triggered emission ── */
+          if (moving && P.speed > 20) {
+            const n = clamp((P.speed / 100) | 0, 1, 6);
+            for (let i = 0; i < n; i++) {
+              const t = Math.random();
+              const sx = lerp(P.px, P.x, t),
+                sy = lerp(P.py, P.y, t);
+              const a = -Math.PI / 2 + rand(-1.2, 1.2);
+              const spd = rand(28, 100) + speedFactor * 55;
+              const isFoam = Math.random() < 0.12;
+              spawnFlow(
+                sx + rand(-4, 4),
+                sy + rand(-4, 4),
+                P.vx * 0.1 + Math.cos(a) * spd * 0.4,
+                -Math.abs(Math.sin(a) * spd) - rand(18, 50),
+                rand(7, 20),
+                rand(140, 320),
+                rand(0.6, 1.0),
+                isFoam,
+              );
+              if (Math.random() < 0.45)
+                spawnMote(
+                  sx,
+                  sy,
+                  P.vx * 0.07 + rand(-35, 35),
+                  -rand(35, 120),
+                  rand(500, 1100),
+                  rand(0.9, 2.3),
+                  rand(0.5, 1.0),
+                  isFoam,
+                  rand(-3, 3),
+                );
+              if (P.speed > 110 && Math.random() < 0.25)
+                spawnSplash(
+                  sx,
+                  sy,
+                  P.vx * 0.18 + rand(-70, 70),
+                  P.vy * 0.18 + rand(-70, 70),
+                  rand(180, 480),
+                  0.85,
+                  isFoam,
+                );
+              if (P.speed > 170 && Math.random() < 0.22) {
+                const da = Math.atan2(P.vy, P.vx) + rand(-0.5, 0.5);
+                spawnDrop(
+                  sx,
+                  sy,
+                  Math.cos(da) * rand(60, 160),
+                  Math.sin(da) * rand(60, 160) - rand(10, 40),
+                  rand(3, 8),
+                  rand(280, 600),
+                  rand(0.65, 1.0),
+                  Math.random() < 0.2,
+                );
+              }
+              if (P.speed > 180 && Math.random() < 0.18) {
+                const ca = Math.atan2(P.vy, P.vx) + rand(-0.5, 0.5);
+                spawnShard(
+                  sx,
+                  sy,
+                  ca,
+                  rand(60, 160),
+                  rand(8, 18),
+                  rand(250, 550),
+                  rand(0.7, 1.0),
+                  Math.random() < 0.16,
+                );
+              }
+            }
+          }
+
+          /* ═══════════ DRAW ═══════════ */
+          ctx.clearRect(0, 0, W, H);
+          ctx.globalCompositeOperation = "lighter";
+
+          /* ── Flashes — cyan-white splash bloom ── */
+          for (let i = flashes.length - 1; i >= 0; i--) {
+            const f = flashes[i];
+            f.age += dt;
+            if (f.age >= f.life) {
+              flashes.splice(i, 1);
+              continue;
+            }
+            const tp = f.age / f.life;
+            const r = lerp(0, f.maxR, Math.pow(tp, 0.28));
+            const a = (1 - tp) * (1 - tp) * 0.32;
+            const g = ctx.createRadialGradient(f.x, f.y, 0, f.x, f.y, r);
+            g.addColorStop(0, `rgba(225,250,255,${a})`);
+            g.addColorStop(0.25, `rgba(90,210,235,${a * 0.82})`);
+            g.addColorStop(0.55, `rgba(10,110,170,${a * 0.48})`);
+            g.addColorStop(0.8, `rgba(0,40,80,${a * 0.22})`);
+            g.addColorStop(1, "rgba(0,0,0,0)");
+            ctx.fillStyle = g;
+            ctx.beginPath();
+            ctx.arc(f.x, f.y, r, 0, TAU);
+            ctx.fill();
+          }
+
+          /* ── Shockwaves — expanding ripple rings with foam crest ── */
+          for (let i = waves.length - 1; i >= 0; i--) {
+            const w = waves[i];
+            if (w.delay && w.delay > 0) {
+              w.delay -= dt;
+              continue;
+            }
+            w.age += dt;
+            if (w.age >= w.life) {
+              waves.splice(i, 1);
+              continue;
+            }
+            const tp = w.age / w.life;
+            const r = lerp(0, w.maxR, Math.pow(tp, 0.5));
+            const a = (1 - tp) * (1 - tp) * 0.78;
+            const lw = lerp(7, 0.4, tp);
+
+            ctx.beginPath();
+            ctx.arc(w.x, w.y, r, 0, TAU);
+            ctx.lineWidth = lw;
+            ctx.strokeStyle = `rgba(80,200,235,${a})`;
+            ctx.stroke();
+
+            ctx.lineWidth = lw * 3;
+            ctx.strokeStyle = `rgba(0,90,150,${a * 0.34})`;
+            ctx.stroke();
+
+            // bright foam leading edge
+            if (tp < 0.5) {
+              const fa = a * (1 - tp / 0.5);
+              ctx.lineWidth = lw * 0.55;
+              ctx.strokeStyle = `rgba(220,255,250,${fa * 0.85})`;
+              ctx.stroke();
+            }
+          }
+
+          /* ── Sea mist / vapor wisps (drawn under energy) ── */
+          ctx.globalCompositeOperation = "source-over";
+          for (let i = 0; i < SMAX; i++) {
+            const s = mist[i];
+            if (!s.alive) continue;
+            s.age += dt;
+            if (s.age >= s.life) {
+              s.alive = false;
+              continue;
+            }
+            s.wave += s.waveSpd * dtS;
+            s.x += (s.vx + Math.sin(s.wave) * 14) * dtS;
+            s.y += s.vy * dtS;
+            s.vy -= dtS * 6;
+            const tp = s.age / s.life;
+            const r = s.r * (1 + tp * 1.3);
+            const a = s.foam
+              ? (1 - tp) * 0.15 * Math.sin(tp * Math.PI)
+              : (1 - tp) * 0.1 * Math.sin(tp * Math.PI);
+            const col = s.foam
+              ? `rgba(150,230,225,${a})`
+              : `rgba(10,55,95,${a * 0.85})`;
+            const g = ctx.createRadialGradient(
+              s.x,
+              s.y,
+              0,
+              s.x,
+              s.y,
+              Math.max(1, r),
+            );
+            g.addColorStop(0, col);
+            g.addColorStop(1, "rgba(0,0,0,0)");
+            ctx.fillStyle = g;
+            ctx.beginPath();
+            ctx.arc(s.x, s.y, Math.max(1, r), 0, TAU);
+            ctx.fill();
+          }
+
+          /* ── Water current puffs ── */
+          ctx.globalCompositeOperation = "lighter";
+          for (let i = 0; i < FMAX; i++) {
+            const f = flows[i];
+            if (!f.alive) continue;
+            f.age += dt;
+            if (f.age >= f.life) {
+              f.alive = false;
+              continue;
+            }
+            f.x += f.vx * dtS;
+            f.y += f.vy * dtS;
+            f.vy -= dtS * 42;
+            f.vx *= Math.pow(0.96, dtS * 60);
+            f.vx += Math.sin(now * 0.006 + f.age * 0.009) * dtS * 30;
+            const tp = f.age / f.life;
+            const hotness = f.hot * (1 - tp);
+            const r = f.r * (1 + tp * 0.28);
+            const a = Math.sin(tp * Math.PI) * 0.65 * f.hot;
+            const g = ctx.createRadialGradient(
+              f.x,
+              f.y,
+              0,
+              f.x,
+              f.y,
+              Math.max(1, r),
+            );
+            if (f.foam) {
+              g.addColorStop(0, foamColor(hotness, a));
+              g.addColorStop(0.45, foamColor(hotness * 0.6, a * 0.65));
+              g.addColorStop(0.8, foamColor(hotness * 0.3, a * 0.28));
+            } else {
+              g.addColorStop(0, waterColor(hotness, a));
+              g.addColorStop(0.45, waterColor(hotness * 0.6, a * 0.65));
+              g.addColorStop(0.8, waterColor(hotness * 0.3, a * 0.28));
+            }
+            g.addColorStop(1, "rgba(0,0,0,0)");
+            ctx.fillStyle = g;
+            ctx.beginPath();
+            ctx.arc(f.x, f.y, Math.max(1, r), 0, TAU);
+            ctx.fill();
+          }
+
+          /* ── Wave-blade shards ── */
+          for (let i = 0; i < CMAX; i++) {
+            const c = shards[i];
+            if (!c.alive) continue;
+            c.age += dt;
+            if (c.age >= c.life) {
+              c.alive = false;
+              continue;
+            }
+            c.x += c.vx * dtS;
+            c.y += c.vy * dtS;
+            c.vy -= dtS * 14;
+            c.vx *= Math.pow(0.97, dtS * 60);
+            c.angle += c.spin * dtS;
+            const tp = c.age / c.life;
+            const hotness = c.hot * (1 - tp);
+            const r = c.r * (1 + tp * 0.2);
+            const a = Math.sin(tp * Math.PI) * 0.8 * c.hot;
+            if (a > 0.01) drawShard(c.x, c.y, r, c.angle, hotness, c.foam, a);
+          }
+
+          /* ── Droplets — the signature element ── */
+          for (let i = 0; i < DMAX; i++) {
+            const d = drops[i];
+            if (!d.alive) continue;
+            d.age += dt;
+            if (d.age >= d.life) {
+              d.alive = false;
+              continue;
+            }
+            d.x += d.vx * dtS;
+            d.y += d.vy * dtS;
+            d.vy += 220 * dtS; // gravity
+            d.vx *= Math.pow(0.985, dtS * 60);
+            d.wobble += d.wobbleSpd * dtS;
+            d.rot = Math.atan2(d.vy, d.vx) + Math.PI / 2;
+            const tp = d.age / d.life;
+            const hotness = d.hot * (1 - tp * 0.4);
+            const r = d.r * (1 - tp * 0.22);
+            const a = Math.sin(Math.min(tp * 1.6, 1) * Math.PI) * 0.85 * d.hot;
+            if (a < 0.01 || r < 0.3) continue;
+
+            /* soft glow behind droplet */
+            const glowR = r * 2.6;
+            const gg = ctx.createRadialGradient(d.x, d.y, 0, d.x, d.y, glowR);
+            if (d.foam) {
+              gg.addColorStop(0, foamColor(hotness, a * 0.4));
+              gg.addColorStop(1, "rgba(0,0,0,0)");
+            } else {
+              gg.addColorStop(0, waterColor(hotness, a * 0.38));
+              gg.addColorStop(1, "rgba(0,0,0,0)");
+            }
+            ctx.fillStyle = gg;
+            ctx.beginPath();
+            ctx.arc(d.x, d.y, glowR, 0, TAU);
+            ctx.fill();
+
+            /* droplet body */
+            dropletPath(d.x, d.y, r, d.rot);
+            const dg = ctx.createRadialGradient(
+              d.x - r * 0.25,
+              d.y - r * 0.35,
+              0,
+              d.x,
+              d.y,
+              r * 1.3,
+            );
+            if (d.foam) {
+              dg.addColorStop(0, "rgba(255,255,255,0.95)");
+              dg.addColorStop(0.35, foamColor(1.0, a));
+              dg.addColorStop(0.75, foamColor(0.6, a * 0.7));
+              dg.addColorStop(1, foamColor(0.32, a * 0.3));
+            } else {
+              dg.addColorStop(0, "rgba(255,255,255,0.9)");
+              dg.addColorStop(0.32, waterColor(1.0, a));
+              dg.addColorStop(0.72, waterColor(0.62, a * 0.75));
+              dg.addColorStop(1, waterColor(0.32, a * 0.3));
+            }
+            ctx.fillStyle = dg;
+            ctx.fill();
+          }
+
+          /* ── Trail — flowing water ribbon ── */
+          if (trail.length >= 3) {
+            for (let i = 1; i < trail.length; i++) {
+              const age = (now - trail[i].t) / 380;
+              const alpha = clamp(1 - age, 0, 1);
+              if (alpha < 0.01) continue;
+              const w = lerp(1.5, 9, 1 - age);
+              ctx.beginPath();
+              ctx.moveTo(trail[i - 1].x, trail[i - 1].y);
+              ctx.lineTo(trail[i].x, trail[i].y);
+              /* deep ocean outer glow */
+              ctx.lineWidth = w * 4.5;
+              ctx.strokeStyle = `rgba(0,40,90,${alpha * 0.16})`;
+              ctx.stroke();
+              /* blue mid layer */
+              ctx.lineWidth = w * 2.8;
+              ctx.strokeStyle = `rgba(20,120,190,${alpha * 0.3})`;
+              ctx.stroke();
+              /* cyan accent */
+              ctx.lineWidth = w * 1.6;
+              ctx.strokeStyle = `rgba(40,200,225,${alpha * 0.24})`;
+              ctx.stroke();
+              /* aqua-white core */
+              ctx.lineWidth = w * 1.1;
+              ctx.strokeStyle = `rgba(150,235,245,${alpha * 0.62})`;
+              ctx.stroke();
+              /* white foam spine */
+              ctx.lineWidth = Math.max(0.8, w * 0.45);
+              ctx.strokeStyle = `rgba(240,255,255,${alpha * 0.94})`;
+              ctx.stroke();
+            }
+          }
+
+          /* ── Splash streaks & glints ── */
+          for (let i = 0; i < SPKMAX; i++) {
+            const s = splashes[i];
+            if (!s.alive) continue;
+            s.age += dt;
+            if (s.age >= s.life) {
+              s.alive = false;
+              continue;
+            }
+            s.px = s.x;
+            s.py = s.y;
+            s.x += s.vx * dtS;
+            s.y += s.vy * dtS;
+            s.vy += 200 * dtS;
+            s.vx *= Math.pow(0.9, dtS * 60);
+            const tp = s.age / s.life;
+            const a = clamp((1 - tp) * (1 - tp) * s.bright * 1.2, 0, 1);
+            const hotness = 1 - tp * 0.52;
+
+            if (s.glint) {
+              const sr = clamp((1 - tp) * 3.3, 0.5, 4);
+              ctx.save();
+              glintPath(s.x, s.y, sr, now * 0.003 + s.bright * 5);
+              ctx.fillStyle = s.foam
+                ? foamColor(hotness, a)
+                : waterColor(hotness, a);
+              ctx.fill();
+              ctx.restore();
+            } else {
+              const tlen = Math.hypot(s.x - s.px, s.y - s.py);
+              const slen = clamp(tlen, 2, 20);
+              const ang = Math.atan2(s.y - s.py, s.x - s.px);
+              ctx.setTransform(dpr, 0, 0, dpr, s.x, s.y);
+              ctx.rotate(ang + Math.PI);
+              ctx.beginPath();
+              ctx.moveTo(0, 0);
+              ctx.lineTo(slen, 0);
+              const gc = ctx.createLinearGradient(0, 0, slen, 0);
+              if (s.foam) {
+                gc.addColorStop(0, foamColor(hotness, a));
+                gc.addColorStop(1, foamColor(hotness * 0.35, 0));
+              } else {
+                gc.addColorStop(0, waterColor(hotness, a));
+                gc.addColorStop(1, waterColor(hotness * 0.35, 0));
+              }
+              ctx.strokeStyle = gc;
+              ctx.lineWidth = clamp(2 - tp * 1.5, 0.4, 2);
+              ctx.stroke();
+              ctx.strokeStyle = s.foam
+                ? foamColor(hotness, a * 0.22)
+                : waterColor(hotness, a * 0.22);
+              ctx.lineWidth = clamp(2 - tp * 1.5, 0.4, 2) * 2.2;
+              ctx.stroke();
+            }
+          }
+          ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+
+          /* ── Fine spray motes ── */
+          for (let i = 0; i < EMAX; i++) {
+            const e = motes[i];
+            if (!e.alive) continue;
+            e.age += dt;
+            if (e.age >= e.life) {
+              e.alive = false;
+              continue;
+            }
+            e.x += e.vx * dtS + Math.sin(now * 0.0035 + e.phase) * e.sway * dtS;
+            e.y += e.vy * dtS;
+            e.vy += e.grav * dtS;
+            e.vx *= Math.pow(0.975, dtS * 60);
+            e.rot += e.rotSpd * dtS;
+            const tp = e.age / e.life;
+            const hotness = e.hot * (1 - tp * 0.65);
+            const a = (1 - tp) * (1 - tp) * 0.92;
+            const r = e.sz * (1 - tp * 0.28);
+            if (r < 0.4) continue;
+
+            if (e.isStretched) {
+              /* elongated droplet streak for motion */
+              ctx.save();
+              ctx.translate(e.x, e.y);
+              ctx.rotate(e.rot);
+              ctx.scale(1, 0.5);
+              ctx.beginPath();
+              ctx.arc(0, 0, Math.max(0.4, r), 0, TAU);
+              ctx.fillStyle = e.foam
+                ? foamColor(hotness, a)
+                : waterColor(hotness, a);
+              ctx.fill();
+              ctx.scale(1, 1 / 0.5);
+              ctx.scale(2.2, 2.2);
+              ctx.beginPath();
+              ctx.arc(0, 0, Math.max(0.4, r), 0, TAU);
+              ctx.fillStyle = e.foam
+                ? foamColor(clamp(hotness, 0, 1), a * 0.22)
+                : waterColor(clamp(hotness, 0, 1), a * 0.22);
+              ctx.fill();
+              ctx.restore();
+            } else {
+              ctx.fillStyle = e.foam
+                ? foamColor(hotness, a)
+                : waterColor(hotness, a);
+              ctx.beginPath();
+              ctx.arc(e.x, e.y, Math.max(0.4, r), 0, TAU);
+              ctx.fill();
+              ctx.fillStyle = e.foam
+                ? foamColor(clamp(hotness, 0, 1), a * 0.25)
+                : waterColor(clamp(hotness, 0, 1), a * 0.25);
+              ctx.beginPath();
+              ctx.arc(e.x, e.y, Math.max(0.4, r * 2.4), 0, TAU);
+              ctx.fill();
+            }
+          }
+
+          /* ── Cursor tip — Water Breathing vortex core ── */
+          {
+            const breathe =
+              0.86 +
+              0.09 * Math.sin(now * 0.0098) +
+              0.055 * Math.sin(now * 0.024 + 1.1) +
+              0.035 * Math.sin(now * 0.041 + 2.4);
+            const jx = Math.sin(now * 0.018) * 1.0;
+            const jy = Math.sin(now * 0.015 + 1.8) * 1.0;
+            const cx = P.x + jx,
+              cy = P.y + jy;
+
+            /* far outer deep-water aura */
+            const vg = ctx.createRadialGradient(
+              cx,
+              cy,
+              0,
+              cx,
+              cy,
+              74 * breathe,
+            );
+            vg.addColorStop(0, `rgba(0,90,150,0.17)`);
+            vg.addColorStop(0.5, `rgba(0,40,80,0.07)`);
+            vg.addColorStop(1, "rgba(0,0,0,0)");
+            ctx.fillStyle = vg;
+            ctx.beginPath();
+            ctx.arc(cx, cy, 74 * breathe, 0, TAU);
+            ctx.fill();
+
+            /* teal current ring */
+            const bg2 = ctx.createRadialGradient(
+              cx,
+              cy,
+              16 * breathe,
+              cx,
+              cy,
+              46 * breathe,
+            );
+            bg2.addColorStop(0, "rgba(0,0,0,0)");
+            bg2.addColorStop(0.5, `rgba(20,170,170,0.13)`);
+            bg2.addColorStop(1, "rgba(0,0,0,0)");
+            ctx.fillStyle = bg2;
+            ctx.beginPath();
+            ctx.arc(cx, cy, 46 * breathe, 0, TAU);
+            ctx.fill();
+
+            /* rotating vortex swirl strokes */
+            const swirlA = now * 0.0021;
+            for (let k = 0; k < 3; k++) {
+              const sa = swirlA + (k / 3) * TAU;
+              ctx.save();
+              ctx.translate(cx, cy);
+              ctx.rotate(sa);
+              ctx.beginPath();
+              ctx.arc(0, 0, 19 * breathe, 0.15, Math.PI * 0.95);
+              ctx.lineWidth = 1.6 * breathe;
+              ctx.strokeStyle = `rgba(110,225,235,${0.34 * breathe})`;
+              ctx.stroke();
+              ctx.restore();
+            }
+
+            /* mid cyan bloom */
+            const mg = ctx.createRadialGradient(
+              cx,
+              cy - 1.5,
+              0,
+              cx,
+              cy,
+              30 * breathe,
+            );
+            mg.addColorStop(0, `rgba(180,240,250,0.82)`);
+            mg.addColorStop(0.28, `rgba(40,190,220,0.68)`);
+            mg.addColorStop(0.65, `rgba(0,80,140,0.32)`);
+            mg.addColorStop(1, "rgba(0,0,0,0)");
+            ctx.fillStyle = mg;
+            ctx.beginPath();
+            ctx.arc(cx, cy - 1.5, 30 * breathe, 0, TAU);
+            ctx.fill();
+
+            /* inner aqua-white hot core */
+            const hg = ctx.createRadialGradient(cx, cy, 0, cx, cy, 9 * breathe);
+            hg.addColorStop(0, `rgba(255,255,255,1)`);
+            hg.addColorStop(0.4, `rgba(210,250,255,0.92)`);
+            hg.addColorStop(0.75, `rgba(60,200,230,0.5)`);
+            hg.addColorStop(1, `rgba(0,60,120,0)`);
+            ctx.fillStyle = hg;
+            ctx.beginPath();
+            ctx.arc(cx, cy, 9 * breathe, 0, TAU);
+            ctx.fill();
+
+            /* orbiting droplets around cursor tip */
+            const orbitAngle = now * 0.0025;
+            const ox = cx + Math.cos(orbitAngle) * 15 * breathe;
+            const oy = cy + Math.sin(orbitAngle) * 15 * breathe;
+            ctx.save();
+            ctx.globalAlpha = 0.6 * breathe;
+            dropletPath(ox, oy, 4.2 * breathe, orbitAngle + Math.PI / 2);
+            ctx.fillStyle = waterColor(0.85, 0.75);
+            ctx.fill();
+            ctx.globalAlpha = 1;
+            ctx.restore();
+
+            const ox2 = cx + Math.cos(orbitAngle + Math.PI) * 11 * breathe;
+            const oy2 = cy + Math.sin(orbitAngle + Math.PI) * 11 * breathe;
+            ctx.save();
+            ctx.globalAlpha = 0.42 * breathe;
+            dropletPath(ox2, oy2, 3.0 * breathe, orbitAngle + Math.PI * 1.5);
+            ctx.fillStyle = foamColor(0.85, 0.65);
+            ctx.fill();
+            ctx.globalAlpha = 1;
+            ctx.restore();
+
+            /* tiny white hot center point */
+            ctx.fillStyle = `rgba(255,255,255,${breathe * 0.95})`;
+            ctx.beginPath();
+            ctx.arc(cx, cy, 2.2 * breathe, 0, TAU);
+            ctx.fill();
+          }
+
+          ctx.globalCompositeOperation = "source-over";
+
+          /* ── Caustic shimmer layer on HD canvas ── */
+          hctx.clearRect(0, 0, W, H);
+          for (let i = 0; i < HDMAX; i++) {
+            const h = hdCells[i];
+            if (!h.alive) continue;
+            h.age += dt;
+            if (h.age >= h.life) {
+              h.alive = false;
+              continue;
+            }
+            const tp = h.age / h.life;
+            const r = h.str * 18 * (1 - tp * 0.35);
+            const a = (1 - tp) * 0.1;
+            const g = hctx.createRadialGradient(h.x, h.y, 0, h.x, h.y, r);
+            g.addColorStop(0, `rgba(60,200,230,${a})`);
+            g.addColorStop(0.5, `rgba(0,90,130,${a * 0.4})`);
+            g.addColorStop(1, "rgba(0,0,0,0)");
+            hctx.fillStyle = g;
+            hctx.beginPath();
+            hctx.arc(h.x, h.y, r, 0, TAU);
+            hctx.fill();
+          }
+        }
+
+        requestAnimationFrame(frame);
+      })();
+    </script>
+  </body>
+</html>
