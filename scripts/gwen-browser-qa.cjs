@@ -124,6 +124,41 @@ async function pixel(page, id, x, y) { return page.evaluate(({id,x,y})=>{const c
     await gp.waitForSelector('#guideBody h1',{timeout:10000}).catch(()=>{});await capture(gp,'library-guide');
     await check('library guide route loads',async()=>assert.ok((await gp.locator('body').innerText()).includes('Модуль 1. От идеи к проверяемому результату')));
     await guideContext.close();
+    for (const viewport of [{width:1440,height:900},{width:1024,height:768},{width:390,height:844},{width:320,height:700}]) {
+      const c=await isolatedContext({viewport,reducedMotion:'reduce'});const p=await c.newPage();
+      const visibleAction=async locator=>{
+        assert.equal(await locator.isVisible(),true);
+        const b=await locator.boundingBox();assert.ok(b&&b.height>=44&&b.x>=0&&b.x+b.width<=viewport.width&&b.y>=0&&b.y+b.height<=viewport.height);
+        assert.equal(await locator.evaluate(el=>{const r=el.getBoundingClientRect();return el.contains(document.elementFromPoint(r.x+r.width/2,r.y+r.height/2));}),true);
+      };
+      await p.goto(origin+'/animations.html');await p.evaluate(()=>document.fonts.ready);
+      await check(`Gwen entry is visible and clickable at ${viewport.width}`,async()=>{
+        await visibleAction(p.locator('.gwen-launch'));
+        assert.equal(await p.evaluate(()=>document.documentElement.scrollWidth),viewport.width);
+      });
+      await capture(p,`navigation-library-${viewport.width}`);
+      await p.locator('.gwen-launch').focus();
+      await check(`entry keyboard focus at ${viewport.width}`,async()=>assert.equal(await p.locator('.gwen-launch').evaluate(el=>el.matches(':focus-visible')&&getComputedStyle(el).outlineStyle!=='none'),true));
+      await p.keyboard.press('Enter');await p.waitForURL(base);await p.waitForFunction(()=>gwenDiagnostics().ready);
+      await check(`return button is visible and separate from header at ${viewport.width}`,async()=>{
+        await visibleAction(p.locator('.library-back'));
+        const back=await p.locator('.library-back').boundingBox();const header=await p.locator('.topbar').boundingBox();
+        assert.ok(back.y>=header.y+header.height);
+      });
+      await capture(p,`navigation-scene-${viewport.width}`);
+      await p.locator('.library-back').focus();
+      await check(`return keyboard focus at ${viewport.width}`,async()=>assert.equal(await p.locator('.library-back').evaluate(el=>el.matches(':focus-visible')&&getComputedStyle(el).clipPath==='none'),true));
+      await p.keyboard.press('Enter');await p.waitForURL(origin+'/animations.html#gwen-experiment');
+      await check(`round trip returns to Gwen entry at ${viewport.width}`,async()=>await visibleAction(p.locator('.gwen-launch')));
+      await c.close();
+    }
+    const nojs=await isolatedContext({viewport:{width:390,height:844},javaScriptEnabled:false});const np=await nojs.newPage();
+    await np.goto(base);
+    await check('direct visit can return without JavaScript or browser history',async()=>{
+      assert.equal(await np.locator('.library-back').isVisible(),true);
+      await np.locator('.library-back').click();await np.waitForURL(origin+'/animations.html#gwen-experiment');
+      assert.equal(await np.locator('.gwen-launch').isVisible(),true);
+    });await nojs.close();
   } finally {
     fs.writeFileSync(path.join(output,'results.json'),JSON.stringify(result,null,2));
     await browser.close();

@@ -25,7 +25,7 @@ test('runtime consists of local HTML/CSS/JS, with no remote scripts or network c
 
 test('all local runtime resources exist, and processed images share geometry', () => {
   const files = [...html.matchAll(/(?:src|href)="([^"#]+)"/g)].map(m => m[1]).filter(u => !/^https?:/.test(u));
-  for (const file of files) assert.ok(existsSync(resolve(scene, file)), file);
+  for (const file of files) assert.ok(existsSync(resolve(scene, file.split(/[?#]/)[0])), file);
   for (const file of [...css.matchAll(/url\(([^)]+)\)/g)].map(m => m[1]).filter(u => !u.startsWith('#'))) assert.ok(existsSync(resolve(scene,file)), file);
   const p=JSON.parse(readFileSync(resolve(scene,'assets/provenance.json'),'utf8'));
   assert.deepEqual([p.width,p.height],[1400,1248]);
@@ -66,4 +66,18 @@ test('guide, full original, DOCX and library entry are included', () => {
   const manifest = JSON.parse(readFileSync(resolve(root,'web/guides.json'),'utf8'));
   assert.equal(manifest.guides.filter(g=>g.name==='gwen-stacy-canvas-reveal').length,1);
   assert.match(readFileSync(resolve(root,'web/animations.html'),'utf8'),/experiments\/gwen-reveal\/index.html/);
+});
+
+test('Gwen has discoverable entry and deterministic return without history or JavaScript', () => {
+  const lab=readFileSync(resolve(root,'web/animations.html'),'utf8');
+  const labCss=readFileSync(resolve(root,'web/animation-lab.css'),'utf8');
+  assert.match(lab, /<section class="gwen-entry" id="gwen-experiment"/);
+  assert.match(lab, /<a class="gwen-launch" href="experiments\/gwen-reveal\/index.html">Открыть Gwen/);
+  assert.match(lab, /animation-lab.css\?v=9/);
+  assert.match(html, /<a class="sticker library-back ui" href="\.\.\/\.\.\/animations.html#gwen-experiment">/);
+  assert.match(html, /Назад в библиотеку/);
+  assert.match(html, /styles.css\?v=2/);
+  assert.match(css, /\.library-back:focus-visible\{clip-path:none\}/);
+  assert.match(labCss, /\.gwen-entry\{flex-shrink:0;display:grid/);
+  assert.doesNotMatch(js, /history\.back|document\.referrer/);
 });
