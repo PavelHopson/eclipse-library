@@ -10,7 +10,8 @@ const origin = process.env.GWEN_QA_ORIGIN || 'http://127.0.0.1:4186';
 assert.ok(['http://127.0.0.1:4186', 'https://library.eclipse-forge.ru'].includes(origin));
 const output = path.join(root, '.artifacts/gwen', runName);
 fs.mkdirSync(output, { recursive: true });
-const base = origin + '/experiments/gwen-reveal/';
+const directory = origin + '/experiments/gwen-reveal/';
+const base = directory + 'index.html';
 const result = { browser: '', checks: [], screenshots: [], diagnostics: [], errors: [], blockedRemote: [] };
 async function check(name, fn) { try { await fn(); result.checks.push({name, passed:true}); } catch(e) {result.checks.push({name, passed:false, error:e.message});} }
 async function capture(page,name,fullPage=false) { const file=path.join(output,name+'.png'); await page.screenshot({path:file,fullPage}); result.screenshots.push(file); }
@@ -114,7 +115,7 @@ async function pixel(page, id, x, y) { return page.evaluate(({id,x,y})=>{const c
       assert.notEqual(await fp.evaluate(()=>getComputedStyle(document.body).cursor),'none');
     });await failure.close();
     const guideContext=await isolatedContext({viewport:{width:1440,height:1000}});const gp=await guideContext.newPage();
-    await gp.goto(base+'guide.html');await gp.evaluate(()=>document.fonts.ready);await capture(gp,'guide-cover');
+    await gp.goto(directory+'guide.html');await gp.evaluate(()=>document.fonts.ready);await capture(gp,'guide-cover');
     await gp.getByText('Открыть полный текст промпта',{exact:true}).click();
     await check('full original brief is readable',async()=>assert.ok((await gp.locator('.full-brief pre').textContent()).includes('КАЧЕСТВО / ПРИЁМКА')));
     await gp.setViewportSize({width:390,height:844});await gp.evaluate(()=>scrollTo(0,0));await capture(gp,'guide-mobile');

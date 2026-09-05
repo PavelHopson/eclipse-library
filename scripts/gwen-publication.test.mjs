@@ -67,3 +67,10 @@ test('CI validates Gwen before SSH and checks exact assets after deploy', () => 
   assert.match(deploy, /_site\/experiments\/gwen-reveal\/README\.md/);
   assert.match(deploy, /_site\/experiments\/gwen-reveal\/design-qa\.md/);
 });
+test('live browser QA uses the explicit static entry instead of the directory SPA fallback', () => {
+  const main = readFileSync(join(root, 'scripts/gwen-browser-qa.cjs'), 'utf8');
+  const edge = readFileSync(join(root, 'scripts/gwen-browser-edge-cases.cjs'), 'utf8');
+  assert.match(main, /const base = directory \+ 'index.html'/);
+  assert.match(main, /gp.goto\(directory\+'guide.html'\)/);
+  assert.match(edge, /gwen-reveal\/index.html/);
+});

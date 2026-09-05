@@ -2,6 +2,7 @@
   "schemaVersion": 1,
   "projectRoot": "web/experiments/gwen-reveal",
   "route": "experiments/gwen-reveal",
+  "entry": "experiments/gwen-reveal/index.html",
   "guide": "guides/gwen-stacy-canvas-reveal.md",
   "publicFiles": [
     "index.html", "styles.css", "script.js", "guide.html", "guide.css",

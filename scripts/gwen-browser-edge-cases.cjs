@@ -4,7 +4,7 @@ const origin=process.env.GWEN_QA_ORIGIN||'http://127.0.0.1:4186';
 assert.ok(['http://127.0.0.1:4186','https://library.eclipse-forge.ru'].includes(origin));
 const runName=process.env.GWEN_QA_RUN||'qa-final';assert.match(runName,/^[a-z0-9-]+$/);
 const output=path.resolve(__dirname,'../.artifacts/gwen',runName);fs.mkdirSync(output,{recursive:true});
-const base=origin+'/experiments/gwen-reveal/';
+const base=origin+'/experiments/gwen-reveal/index.html';
 const results={checks:[],diagnostics:[]};
 async function check(name,fn){try{await fn();results.checks.push({name,passed:true});}catch(e){results.checks.push({name,passed:false,error:e.message});}}
 (async()=>{

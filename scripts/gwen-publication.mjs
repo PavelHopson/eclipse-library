@@ -38,6 +38,7 @@ export function validateTree(base, expected) {
 
 export function publicEntries(sourceRoot = root) {
   assert.equal(contract.schemaVersion, 1);
+  assert.equal(contract.entry, `${contract.route}/index.html`, 'Use the explicit static entry, not the server directory fallback');
   [contract.projectRoot, contract.route, contract.guide, ...contract.publicFiles, ...contract.internalFiles].forEach(safePath);
   assert.equal(new Set(contract.publicFiles).size, contract.publicFiles.length, 'Duplicate public entry');
   const project = resolve(sourceRoot, contract.projectRoot);
