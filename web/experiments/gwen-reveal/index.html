@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Gwen / Earth-65: интерактивный фан-концепт. Проведите курсором по маске и откройте лицо. Canvas, без библиотек.">
+  <meta name="robots" content="noindex, nofollow">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'none'; base-uri 'none'; form-action 'none'; object-src 'none'">
+  <title>GWEN / По ту сторону маски</title>
+  <link rel="stylesheet" href="styles.css">
+  <script defer src="script.js"></script>
+</head>
+<body>
+  <h1 class="sr-only">Gwen: по ту сторону маски</h1>
+  <svg class="definitions" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <filter id="goo-filter" x="-30%" y="-30%" width="160%" height="160%" color-interpolation-filters="sRGB">
+        <feGaussianBlur stdDeviation="7"/>
+        <feColorMatrix type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 24 -12"/>
+      </filter>
+      <filter id="wall-grain"><feTurbulence type="fractalNoise" baseFrequency=".85" numOctaves="3" stitchTiles="stitch"/></filter>
+      <symbol id="spider" viewBox="0 0 24 28">
+        <g fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M10 12 C6 10 6 6 4 2 M10 14 C5 13 4 10 1 8 M10 16 C5 17 4 21 1 23 M10 17 C7 20 8 25 6 27 M14 12 C18 10 18 6 20 2 M14 14 C19 13 20 10 23 8 M14 16 C19 17 20 21 23 23 M14 17 C17 20 16 25 18 27"/></g>
+        <ellipse cx="12" cy="15" rx="2.1" ry="3.1" fill="currentColor"/><circle cx="12" cy="10.8" r="1.5" fill="currentColor"/>
+      </symbol>
+      <g id="web-corner" fill="none" stroke="currentColor" stroke-width="1"><path d="M0 0 360 0 M0 0 337 122 M0 0 255 255 M0 0 122 337 M0 0 0 360 M75 0 Q60 14 70 25 Q52 28 53 53 Q28 52 25 70 Q14 60 0 75 M155 0 Q128 29 145 53 Q108 60 110 110 Q60 108 53 145 Q29 128 0 155 M240 0 Q197 43 225 82 Q167 92 170 170 Q92 167 82 225 Q43 197 0 240 M335 0 Q275 62 314 114 Q232 128 237 237 Q128 232 114 314 Q62 275 0 335"/></g>
+    </defs>
+  </svg>
+  <div class="wall" aria-hidden="true">
+    <div class="halftone left"></div><div class="halftone right"></div>
+    <svg class="web upper" viewBox="0 0 360 360"><use href="#web-corner"/></svg>
+    <svg class="web lower" viewBox="0 0 360 360"><use href="#web-corner"/></svg>
+    <svg class="grain"><rect width="100%" height="100%" filter="url(#wall-grain)"/></svg>
+  </div>
+  <div class="tag-position" aria-hidden="true">
+    <svg class="tag" viewBox="0 0 1160 430">
+      <defs><g id="gwen-tag" fill="none" stroke-width="36" stroke-linecap="square" stroke-linejoin="miter" stroke-miterlimit="14">
+        <path d="M253 89 212 54 85 91 45 268 119 304 225 266 236 193 170 211"/>
+        <path d="M286 91 313 69 285 289 348 252 402 141 396 264 449 237 504 59 482 88"/>
+        <path d="M744 49 568 88 532 286 706 249 688 278 540 286 558 179 686 149 558 179 577 88 744 49 722 81"/>
+        <path d="M780 255 821 73 846 42 965 209 1004 55 1038 29"/>
+        <path d="M87 360 974 308 1049 340 1100 294" stroke-width="14"/>
+      </g></defs>
+      <g class="tag-jitter"><use href="#gwen-tag" stroke="#1F1F23" transform="translate(17 18)"/><use class="ghost one" href="#gwen-tag" stroke="#26262B"/><use class="ghost two" href="#gwen-tag" stroke="#1F1F23"/><use href="#gwen-tag" stroke="#5A5960"/>
+        <path fill="#5A5960" d="m27 130 12-31 20-7-12 31z m243 198 36-11 14 17-36 11z m225-292 25-6 9 16-25 6z m231 274 22-9 9 16-22 9z m337-189 37-13 12 21-37 13z m20 99 29-10 10 17-29 10z"/>
+      </g>
+    </svg>
+  </div>
+  <div class="hero-wrap" aria-hidden="true"><canvas id="hero"></canvas><img id="fallback" src="assets/suit.webp" alt="" fetchpriority="high"></div>
+  <div class="scrim" aria-hidden="true"></div>
+  <canvas id="slime" aria-hidden="true"></canvas>
+  <header class="topbar ui">
+    <a class="brand" href="#home" aria-label="Gwen, главная">GWEN<span>/</span>STC<small>EARTH-65 UNIT</small></a>
+    <nav class="sticker navigation" aria-label="Разделы концепта">
+      <button class="active" data-panel="home" aria-current="page">Главная</button><button data-panel="story">История</button><button data-panel="suit">Костюм</button><button data-panel="band">Группа</button><button data-panel="gallery">Галерея</button><button data-panel="press">О проекте</button>
+    </nav>
+    <button class="sticker trailer" id="demo" disabled><svg aria-hidden="true"><use href="#spider"/></svg><span>Смотреть эффект</span><span aria-hidden="true">↗</span></button>
+  </header>
+  <main class="ui intro">
+    <p class="eyebrow">Две стороны одной истории</p>
+    <h2>По ту сторону<br><span>маски.</span></h2>
+    <p class="intro-copy">Между Гвен Стейси<br>и Ghost-Spider.</p>
+    <button class="reveal-control" id="reveal" disabled>Снять маску <span aria-hidden="true">↗</span></button>
+  </main>
+  <aside class="poster-wrap ui" aria-label="Постер концепта">
+    <p class="poster-label">ИЗ ЛИЧНОГО ДЕЛА / 65</p>
+    <button class="sticker poster" data-panel="gallery" aria-label="Открыть галерею исходников">
+      <span class="poster-image"><img src="assets/suit.webp" alt="Деталь бело-розового костюма Ghost-Spider"></span>
+      <span class="poster-copy"><small>ЗА МАСКОЙ ЕСТЬ ИСТОРИЯ</small><strong>Ghost-Spider<br>возвращается.</strong><span class="poster-arrow" aria-hidden="true">↗</span></span>
+    </button>
+  </aside>
+  <footer class="bottombar ui">
+    <button class="sticker integrity" id="repair" disabled aria-label="Восстановить маску">
+      <svg viewBox="0 0 40 40" aria-hidden="true"><circle class="ring-track" cx="20" cy="20" r="14.5"/><circle id="integrity-ring" cx="20" cy="20" r="14.5"/><use href="#spider" x="12" y="10" width="16" height="20"/></svg>
+      <span><small>ЦЕЛОСТНОСТЬ МАСКИ</small><strong id="integrity-value">100%</strong><em>Восстановить</em></span>
+    </button>
+    <div class="footer-middle"><span>Неофициальный фан-концепт</span><button id="motion" aria-pressed="false">Пауза анимации</button><a href="guide.html">Как это устроено ↗</a></div>
+    <div class="hint" id="hint"><span class="hint-drop" aria-hidden="true"></span><span>Проведите по маске.<br><b>Посмотрите, кто за ней.</b></span></div>
+  </footer>
+  <div class="load-status ui" id="load-status" role="status">Подготавливаем сцену…</div>
+  <p class="sr-only" id="announcement" role="status" aria-live="polite"></p>
+  <noscript><p class="no-script ui">Включите JavaScript для интерактивного раскрытия. Статичный постер доступен без него.</p></noscript>
+  <dialog id="details" aria-labelledby="panel-title"><button class="close-panel" id="close-panel" aria-label="Закрыть">×</button><p class="eyebrow">GWEN / EARTH-65</p><h2 id="panel-title"></h2><div id="panel-body"></div></dialog>
+</body>
+</html>

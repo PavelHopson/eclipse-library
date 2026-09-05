@@ -1,0 +1,15 @@
+{
+  "schemaVersion": 1,
+  "projectRoot": "web/experiments/gwen-reveal",
+  "route": "experiments/gwen-reveal",
+  "guide": "guides/gwen-stacy-canvas-reveal.md",
+  "publicFiles": [
+    "index.html", "styles.css", "script.js", "guide.html", "guide.css",
+    "assets/suit.webp", "assets/face.webp", "assets/matte.png",
+    "assets/source-pair.webp", "assets/provenance.json", "assets/original-brief.txt",
+    "assets/Gwen-Stacy-Guide.docx", "assets/inter-tight.woff2",
+    "assets/inter-tight-cyrillic.woff2", "assets/chakra-petch.woff2",
+    "assets/INTER-TIGHT-OFL.txt", "assets/CHAKRA-PETCH-OFL.txt"
+  ],
+  "internalFiles": ["README.md", "design-qa.md"]
+}
