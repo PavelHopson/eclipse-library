@@ -1,15 +1,15 @@
 {
   "schemaVersion": 1,
-  "checkedAt": "2026-08-31T10:53:36.786Z",
+  "checkedAt": "2026-09-07T09:23:18.364Z",
   "totals": {
-    "extracted": 763,
-    "unique": 758,
-    "checked": 758,
-    "ok": 718,
-    "restricted": 32,
+    "extracted": 804,
+    "unique": 799,
+    "checked": 799,
+    "ok": 753,
+    "restricted": 36,
     "broken": 1,
-    "unavailable": 1,
-    "unknown": 6,
+    "unavailable": 2,
+    "unknown": 7,
     "blocked": 0,
     "skipped": 0
   },
@@ -510,7 +510,7 @@
       "httpStatus": 200
     },
     {
-      "url": "https://github.com/ruvnet/claude-flow",
+      "url": "https://github.com/ruvnet/ruflo",
       "status": "ok",
       "httpStatus": 200
     },
@@ -736,8 +736,8 @@
     },
     {
       "url": "https://chat.deepseek.com/",
-      "status": "ok",
-      "httpStatus": 200
+      "status": "restricted",
+      "httpStatus": 403
     },
     {
       "url": "https://dejaview.bsct.so/",
@@ -1221,8 +1221,8 @@
     },
     {
       "url": "https://support.apple.com/en-us/105078",
-      "status": "ok",
-      "httpStatus": 200
+      "status": "restricted",
+      "httpStatus": 404
     },
     {
       "url": "https://higgsfield.ai/apps/virality-predictor",
@@ -1311,8 +1311,8 @@
     },
     {
       "url": "https://javagames.cc/",
-      "status": "ok",
-      "httpStatus": 200
+      "status": "unavailable",
+      "httpStatus": 526
     },
     {
       "url": "https://javascript.info",
@@ -2371,8 +2371,8 @@
     },
     {
       "url": "https://www.micromat.com/products/techtool-lite/",
-      "status": "ok",
-      "httpStatus": 200
+      "status": "unknown",
+      "httpStatus": null
     },
     {
       "url": "https://github.com/anthropics/claude-plugins-official/blob/main/external_plugins/telegram/README.md",
@@ -2916,8 +2916,8 @@
     },
     {
       "url": "https://designspells.com/",
-      "status": "ok",
-      "httpStatus": 200
+      "status": "restricted",
+      "httpStatus": 429
     },
     {
       "url": "https://60fps.design/",
@@ -3241,8 +3241,8 @@
     },
     {
       "url": "https://oceon.io/ui/form-vault-password",
-      "status": "ok",
-      "httpStatus": 200
+      "status": "restricted",
+      "httpStatus": 403
     },
     {
       "url": "https://vibehub.academy/",
@@ -3261,13 +3261,13 @@
     },
     {
       "url": "https://www.instagram.com/prozavlly/",
-      "status": "restricted",
-      "httpStatus": 429
+      "status": "ok",
+      "httpStatus": 200
     },
     {
       "url": "https://www.instagram.com/frontendjoe/",
-      "status": "restricted",
-      "httpStatus": 429
+      "status": "ok",
+      "httpStatus": 200
     },
     {
       "url": "https://github.com/vercel-labs/agent-skills/tree/main/skills/web-design-guidelines",
@@ -3661,6 +3661,211 @@
     },
     {
       "url": "https://github.com/tt-a1i/archify",
+      "status": "ok",
+      "httpStatus": 200
+    },
+    {
+      "url": "https://github.com/MingyuJ666/Stockagent",
+      "status": "ok",
+      "httpStatus": 200
+    },
+    {
+      "url": "https://github.com/Intelligent-Internet/ii-agent",
+      "status": "ok",
+      "httpStatus": 200
+    },
+    {
+      "url": "https://github.com/KoljaB/RealtimeVoiceChat",
+      "status": "ok",
+      "httpStatus": 200
+    },
+    {
+      "url": "https://github.com/moeru-ai/airi",
+      "status": "ok",
+      "httpStatus": 200
+    },
+    {
+      "url": "https://backloggd.com/",
+      "status": "ok",
+      "httpStatus": 200
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=G_2XOHxOoiY",
+      "status": "ok",
+      "httpStatus": 200
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=UPWlOvcFSEE",
+      "status": "ok",
+      "httpStatus": 200
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=9VOXy8Rny8c",
+      "status": "ok",
+      "httpStatus": 200
+    },
+    {
+      "url": "https://github.com/Jackywine/Bella",
+      "status": "ok",
+      "httpStatus": 200
+    },
+    {
+      "url": "https://github.com/DavidHDev/react-bits",
+      "status": "ok",
+      "httpStatus": 200
+    },
+    {
+      "url": "https://freebeat.ai/",
+      "status": "restricted",
+      "httpStatus": 429
+    },
+    {
+      "url": "https://bolt.new/",
+      "status": "ok",
+      "httpStatus": 200
+    },
+    {
+      "url": "https://www.rocket.new/",
+      "status": "ok",
+      "httpStatus": 200
+    },
+    {
+      "url": "https://www.aura.build/",
+      "status": "ok",
+      "httpStatus": 200
+    },
+    {
+      "url": "https://github.com/ashishpatel26/500-AI-Agents-Projects",
+      "status": "ok",
+      "httpStatus": 200
+    },
+    {
+      "url": "https://github.com/lak7/devildev",
+      "status": "ok",
+      "httpStatus": 200
+    },
+    {
+      "url": "https://github.com/BlackHatDevX/openspot-music-app",
+      "status": "ok",
+      "httpStatus": 200
+    },
+    {
+      "url": "https://huggingface.co/Wan-AI/Wan2.2-Animate-14B",
+      "status": "ok",
+      "httpStatus": 200
+    },
+    {
+      "url": "https://app.base44.com/",
+      "status": "ok",
+      "httpStatus": 200
+    },
+    {
+      "url": "https://playtorrio.pages.dev/",
+      "status": "ok",
+      "httpStatus": 200
+    },
+    {
+      "url": "https://hailuoai.video/create/image-to-video",
+      "status": "ok",
+      "httpStatus": 200
+    },
+    {
+      "url": "https://www.dyad.sh/",
+      "status": "ok",
+      "httpStatus": 200
+    },
+    {
+      "url": "https://arena.ai/",
+      "status": "ok",
+      "httpStatus": 200
+    },
+    {
+      "url": "https://www.unicorn.studio/",
+      "status": "ok",
+      "httpStatus": 200
+    },
+    {
+      "url": "https://deevid.ai/",
+      "status": "ok",
+      "httpStatus": 200
+    },
+    {
+      "url": "https://artlist.io/",
+      "status": "restricted",
+      "httpStatus": 403
+    },
+    {
+      "url": "https://kemono.cr/",
+      "status": "ok",
+      "httpStatus": 200
+    },
+    {
+      "url": "https://app.loki.build/",
+      "status": "ok",
+      "httpStatus": 200
+    },
+    {
+      "url": "https://toolfolio.com/ai",
+      "status": "ok",
+      "httpStatus": 200
+    },
+    {
+      "url": "https://github.com/PheeZz/wireguard-bot",
+      "status": "ok",
+      "httpStatus": 200
+    },
+    {
+      "url": "https://replit.com/",
+      "status": "ok",
+      "httpStatus": 200
+    },
+    {
+      "url": "https://www.fontspace.com/category/gothic",
+      "status": "ok",
+      "httpStatus": 200
+    },
+    {
+      "url": "https://heroui.chat/",
+      "status": "ok",
+      "httpStatus": 200
+    },
+    {
+      "url": "https://adaptive.ai/",
+      "status": "ok",
+      "httpStatus": 200
+    },
+    {
+      "url": "https://github.com/hotheadhacker/seedbox-lite",
+      "status": "ok",
+      "httpStatus": 200
+    },
+    {
+      "url": "https://github.com/jhc13/taggui",
+      "status": "ok",
+      "httpStatus": 200
+    },
+    {
+      "url": "https://github.com/bmaltais/kohya_ss",
+      "status": "ok",
+      "httpStatus": 200
+    },
+    {
+      "url": "https://github.com/heliomarpm/udemy-downloader-gui/",
+      "status": "ok",
+      "httpStatus": 200
+    },
+    {
+      "url": "https://github.com/AndyMik90/Aperant",
+      "status": "ok",
+      "httpStatus": 200
+    },
+    {
+      "url": "https://phantombuster.com/",
+      "status": "ok",
+      "httpStatus": 200
+    },
+    {
+      "url": "https://github.com/MatsuriDayo/nekoray",
       "status": "ok",
       "httpStatus": 200
     },
