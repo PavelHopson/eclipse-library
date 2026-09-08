@@ -1,0 +1,35 @@
+{
+  "schemaVersion": 1,
+  "project": "eclipse-library",
+  "capturedAt": "2026-09-08T09:45:05.187Z",
+  "caption": "Главная Library: поиск, направления и локальный индекс материалов.",
+  "method": "isolated-local-source-preview",
+  "context": "Local source preview, clean browser storage, reduced motion, no .env, external resources and backend APIs blocked. Repository content only, no additional fixtures or personal history; no production verification.",
+  "sourceHead": "48de41d512db26187e0a382d1101d69c79598457",
+  "sourceWorktreeDirty": true,
+  "entryFiles": [
+    {
+      "file": "web/index.html",
+      "sha256": "a9753dc412850c5286c266fe4ee615f6be994b3dad9f9c34b18bb700a7c5b0be"
+    }
+  ],
+  "screenshots": [
+    {
+      "kind": "overview",
+      "file": "overview.png",
+      "width": 1440,
+      "height": 900,
+      "sha256": "6661ea9eb6399f327f03cf5c25114cef7af65085b86dadfcaf7b57a2a36917a9",
+      "bytes": 144697
+    },
+    {
+      "kind": "mobile",
+      "file": "mobile.png",
+      "width": 390,
+      "height": 844,
+      "sha256": "0953ec41a783defb09bf5816b8b4e025a9a40aa0eddf11e9a77b287de6b4d71e",
+      "bytes": 65810
+    }
+  ],
+  "review": "Desktop and selected mobile captures visually reviewed before documentation use."
+}

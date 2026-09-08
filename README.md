@@ -1,34 +1,67 @@
 # Eclipse Library
 
-Визуальный слой использует локальный snapshot `eclipse-forge.visual-system.v1` из
-`web/assets/eclipse-forge.tokens.json` в профиле `product`: канонические deep-black,
-warm-gold и signal-blue tokens, self-hosted Outfit/Inter и reduced-motion-safe motion.
-Runtime-зависимости от главного лендинга нет.
-На desktop с точным указателем Library повторяет фирменный cursor light лендинга; обычный
-курсор остаётся системным, а на touch и при `prefers-reduced-motion` эффект отключён.
-Новый production-знак объединяет затмение и раскрытую книгу; SVG, favicon, monochrome fallback
-и правила использования хранятся в [`web/assets/brand/`](web/assets/brand/README.md).
+![Eclipse Library: Найти → Проверить → Применить](docs/assets/repository-cover.svg)
 
-Главная страница построена вокруг пользовательской задачи: сначала человек выбирает, что хочет
-сделать, затем получает подходящие материалы и при необходимости уточняет тип, цену или риск.
-Технические категории убраны в выдвижной раздел, а встроенный путеводитель объясняет основной
-маршрут без перехода в отдельную документацию. Каталог, гайды и проекты остаются тремя
-стабильными верхнеуровневыми направлениями.
+**База знаний.** Кураторская библиотека инструментов, практических гайдов и решений с источниками и ограничениями применения.
 
-Кураторская библиотека AI-инструментов, сервисов, моделей, skills, MCP, промптов, курсов и security-материалов для экосистемы Eclipse Forge.
+<!-- repository-guide:start -->
+[Интерфейс](#readme-interface) · [Первый запуск](#readme-start) · [Что внутри](#readme-map) · [Путеводитель](docs/repository-guide.md#start) · [Карта кода](docs/repository-guide.md#map) · [Проверки](docs/repository-guide.md#checks) · [Границы и права](docs/repository-guide.md#boundaries)
 
-[Открыть библиотеку](https://library.eclipse-forge.ru/) · [Eclipse Technology Registry](https://library.eclipse-forge.ru/registry.html) · [Каталог проектов](https://library.eclipse-forge.ru/#projects) · [Курсы и гайды](https://library.eclipse-forge.ru/#browse/courses)
+<a id="readme-interface"></a>
+
+## Интерфейс
+
+![Eclipse Library — Главная Library: поиск, направления и локальный индекс материалов.](docs/assets/ui/overview.png)
+
+**Главная Library: поиск, направления и локальный индекс материалов.**
+
+Локальный снимок от 8 сентября 2026: отдельный профиль браузера, без внешних API и пользовательских секретов. Это вид интерфейса, не подтверждение production-функций.
+
+<details>
+<summary><strong>Мобильный экран · 390 px</strong></summary>
+
+<img src="docs/assets/ui/mobile.png" alt="Eclipse Library — мобильный экран" width="390">
+
+</details>
+
+[Открыть в полном размере](docs/assets/ui/overview.png) · [Данные снимка](docs/assets/ui/capture.json)
+
+<a id="readme-map"></a>
+
+## Проект за минуту
+
+- **[Каталог](<catalog/resources.json>)** — Канонические записи, источники и редакционные статусы.
+- **[Практические гайды](<guides>)** — Инструкции по применению материалов в проектах.
+- **[Animation Lab](<web/animations.html>)** — Интерактивные примеры и визуальные эксперименты.
+
+<a id="readme-start"></a>
+
+## Начать локально
+
+**Среда:** Python 3 для локального статического сервера. **Источник:** [web/index.html](<web/index.html>).
+
+Из корня клонированного репозитория:
+
+```bash
+python -m http.server 8000 --bind 127.0.0.1 --directory web
+```
+
+Откройте http://127.0.0.1:8000. Сервер обслуживает только готовую папку web; публикации и перестроения каталога нет.
+
+<details>
+<summary><strong>Перед первым запуском и изменением кода</strong></summary>
+
+- Команды сверены с исходниками 8 сентября 2026. Это инструкция, а не отметка об успешном запуске или текущем production.
+- Установка зависимостей может обращаться в registry и выполнять lifecycle scripts. Используйте отдельную рабочую среду и демонстрационные данные.
+- Карточка в библиотеке не означает одобрение установки. Лицензия, источник и допуск для агентов проверяются отдельно.
+- [ROADMAP.md](<ROADMAP.md>)
+
+</details>
+<!-- repository-guide:end -->
 
 ## Текущее состояние
 
-- 698 уникальных записей доступны пользователям.
-- 329 карточек прошли ручную редакторскую проверку.
-- 369 карточек честно помечены как `inferred` и ожидают углублённого review.
-- У 483 записей лицензия или условия уже нормализованы и подкреплены evidence.
-- 215 лицензий или наборов условий всё ещё требуют отдельной проверки; срочная очередь P1 закрыта.
-- 75 grey-ресурсов видны человеку как reference, но исключены из agent recommendations.
-- Всего 83 записи исключены из agent exports по risk, editorial, transport или repository policy; 615 доступны для agent consumers.
-- 418 записей получили отдельное поле `addedAt`; неизвестные даты не выдумываются.
+Текущие записи и редакционные статусы хранятся в [catalog/resources.json](catalog/resources.json), а пользовательский индекс — в [web/catalog-index.json](web/catalog-index.json). Счётчики не дублируются вручную в README: они меняются при редакторских обновлениях. Наличие локального индекса не подтверждает его публикацию.
 
 ## Как устроены данные
 
