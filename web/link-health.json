@@ -1,15 +1,15 @@
 {
   "schemaVersion": 1,
-  "checkedAt": "2026-09-07T09:23:18.364Z",
+  "checkedAt": "2026-09-14T09:54:26.661Z",
   "totals": {
     "extracted": 804,
     "unique": 799,
     "checked": 799,
     "ok": 753,
     "restricted": 36,
-    "broken": 1,
+    "broken": 0,
     "unavailable": 2,
-    "unknown": 7,
+    "unknown": 8,
     "blocked": 0,
     "skipped": 0
   },
@@ -1226,8 +1226,8 @@
     },
     {
       "url": "https://higgsfield.ai/apps/virality-predictor",
-      "status": "ok",
-      "httpStatus": 200
+      "status": "unavailable",
+      "httpStatus": 503
     },
     {
       "url": "https://ruben.substack.com/archive?sort=new",
@@ -1896,8 +1896,8 @@
     },
     {
       "url": "https://paranoiaprivacy.wiki/",
-      "status": "unavailable",
-      "httpStatus": 521
+      "status": "unknown",
+      "httpStatus": null
     },
     {
       "url": "https://payloadcms.com",
@@ -2266,8 +2266,8 @@
     },
     {
       "url": "https://github.com/ojuschugh1/sqz",
-      "status": "broken",
-      "httpStatus": 404
+      "status": "ok",
+      "httpStatus": 200
     },
     {
       "url": "https://pinokio.co/posts/01kty98bwb20619q6274768kcm",
@@ -2371,8 +2371,8 @@
     },
     {
       "url": "https://www.micromat.com/products/techtool-lite/",
-      "status": "unknown",
-      "httpStatus": null
+      "status": "ok",
+      "httpStatus": 200
     },
     {
       "url": "https://github.com/anthropics/claude-plugins-official/blob/main/external_plugins/telegram/README.md",
@@ -2901,8 +2901,8 @@
     },
     {
       "url": "https://www.awwwards.com/",
-      "status": "ok",
-      "httpStatus": 200
+      "status": "unknown",
+      "httpStatus": null
     },
     {
       "url": "https://www.cosmos.so/",
