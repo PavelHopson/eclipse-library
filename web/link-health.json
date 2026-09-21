@@ -1,15 +1,15 @@
 {
   "schemaVersion": 1,
-  "checkedAt": "2026-09-14T09:54:26.661Z",
+  "checkedAt": "2026-09-21T09:58:40.191Z",
   "totals": {
     "extracted": 804,
     "unique": 799,
     "checked": 799,
     "ok": 753,
-    "restricted": 36,
-    "broken": 0,
-    "unavailable": 2,
-    "unknown": 8,
+    "restricted": 37,
+    "broken": 2,
+    "unavailable": 0,
+    "unknown": 7,
     "blocked": 0,
     "skipped": 0
   },
@@ -871,8 +871,8 @@
     },
     {
       "url": "https://elementsofai.com",
-      "status": "unknown",
-      "httpStatus": null
+      "status": "ok",
+      "httpStatus": 200
     },
     {
       "url": "https://email-fake.com/",
@@ -1161,8 +1161,8 @@
     },
     {
       "url": "https://gsap.com",
-      "status": "ok",
-      "httpStatus": 200
+      "status": "restricted",
+      "httpStatus": 403
     },
     {
       "url": "https://github.com/Greedeks/GTweak",
@@ -1221,13 +1221,13 @@
     },
     {
       "url": "https://support.apple.com/en-us/105078",
-      "status": "restricted",
+      "status": "broken",
       "httpStatus": 404
     },
     {
       "url": "https://higgsfield.ai/apps/virality-predictor",
-      "status": "unavailable",
-      "httpStatus": 503
+      "status": "ok",
+      "httpStatus": 200
     },
     {
       "url": "https://ruben.substack.com/archive?sort=new",
@@ -1311,8 +1311,8 @@
     },
     {
       "url": "https://javagames.cc/",
-      "status": "unavailable",
-      "httpStatus": 526
+      "status": "ok",
+      "httpStatus": 200
     },
     {
       "url": "https://javascript.info",
@@ -1671,8 +1671,8 @@
     },
     {
       "url": "https://nosubscription.org/",
-      "status": "ok",
-      "httpStatus": 200
+      "status": "restricted",
+      "httpStatus": 403
     },
     {
       "url": "https://www.nopcommerce.com",
@@ -2372,7 +2372,7 @@
     {
       "url": "https://www.micromat.com/products/techtool-lite/",
       "status": "ok",
-      "httpStatus": 200
+      "httpStatus": 202
     },
     {
       "url": "https://github.com/anthropics/claude-plugins-official/blob/main/external_plugins/telegram/README.md",
@@ -2716,8 +2716,8 @@
     },
     {
       "url": "https://echoed.gg/",
-      "status": "ok",
-      "httpStatus": 200
+      "status": "restricted",
+      "httpStatus": 403
     },
     {
       "url": "https://opencode.ai/docs/zen/",
@@ -2746,7 +2746,7 @@
     },
     {
       "url": "https://support.apple.com/en-us/120340",
-      "status": "restricted",
+      "status": "broken",
       "httpStatus": 404
     },
     {
