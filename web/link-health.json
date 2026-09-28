@@ -1,14 +1,14 @@
 {
   "schemaVersion": 1,
-  "checkedAt": "2026-09-21T09:58:40.191Z",
+  "checkedAt": "2026-09-28T10:57:00.344Z",
   "totals": {
     "extracted": 804,
     "unique": 799,
     "checked": 799,
-    "ok": 753,
-    "restricted": 37,
+    "ok": 756,
+    "restricted": 33,
     "broken": 2,
-    "unavailable": 0,
+    "unavailable": 1,
     "unknown": 7,
     "blocked": 0,
     "skipped": 0
@@ -351,8 +351,8 @@
     },
     {
       "url": "https://superhivemarket.com/products/blenderbuddy",
-      "status": "restricted",
-      "httpStatus": 403
+      "status": "ok",
+      "httpStatus": 200
     },
     {
       "url": "https://boardrepo.com/browse",
@@ -646,8 +646,8 @@
     },
     {
       "url": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills",
-      "status": "ok",
-      "httpStatus": 200
+      "status": "unavailable",
+      "httpStatus": 504
     },
     {
       "url": "https://github.com/ComposioHQ/openclaw-composio",
@@ -1076,8 +1076,8 @@
     },
     {
       "url": "https://github.com/marketplace/models",
-      "status": "ok",
-      "httpStatus": 200
+      "status": "broken",
+      "httpStatus": 404
     },
     {
       "url": "https://github.com/github/github-mcp-server",
@@ -1161,8 +1161,8 @@
     },
     {
       "url": "https://gsap.com",
-      "status": "restricted",
-      "httpStatus": 403
+      "status": "ok",
+      "httpStatus": 200
     },
     {
       "url": "https://github.com/Greedeks/GTweak",
@@ -1221,8 +1221,8 @@
     },
     {
       "url": "https://support.apple.com/en-us/105078",
-      "status": "broken",
-      "httpStatus": 404
+      "status": "ok",
+      "httpStatus": 200
     },
     {
       "url": "https://higgsfield.ai/apps/virality-predictor",
@@ -1296,8 +1296,8 @@
     },
     {
       "url": "https://internxt.com/temporary-email",
-      "status": "ok",
-      "httpStatus": 200
+      "status": "restricted",
+      "httpStatus": 403
     },
     {
       "url": "https://inworld.ai/blog/realtime-tts-2",
@@ -1671,8 +1671,8 @@
     },
     {
       "url": "https://nosubscription.org/",
-      "status": "restricted",
-      "httpStatus": 403
+      "status": "ok",
+      "httpStatus": 200
     },
     {
       "url": "https://www.nopcommerce.com",
@@ -2671,8 +2671,8 @@
     },
     {
       "url": "https://www.tbank.ru/kassa/",
-      "status": "ok",
-      "httpStatus": 200
+      "status": "unknown",
+      "httpStatus": null
     },
     {
       "url": "https://yookassa.ru",
@@ -2716,8 +2716,8 @@
     },
     {
       "url": "https://echoed.gg/",
-      "status": "restricted",
-      "httpStatus": 403
+      "status": "ok",
+      "httpStatus": 200
     },
     {
       "url": "https://opencode.ai/docs/zen/",
@@ -2901,8 +2901,8 @@
     },
     {
       "url": "https://www.awwwards.com/",
-      "status": "unknown",
-      "httpStatus": null
+      "status": "ok",
+      "httpStatus": 200
     },
     {
       "url": "https://www.cosmos.so/",
@@ -3241,8 +3241,8 @@
     },
     {
       "url": "https://oceon.io/ui/form-vault-password",
-      "status": "restricted",
-      "httpStatus": 403
+      "status": "ok",
+      "httpStatus": 200
     },
     {
       "url": "https://vibehub.academy/",
