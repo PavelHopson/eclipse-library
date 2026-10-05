@@ -1,15 +1,15 @@
 {
   "schemaVersion": 1,
-  "checkedAt": "2026-09-28T10:57:00.344Z",
+  "checkedAt": "2026-10-05T11:32:15.030Z",
   "totals": {
     "extracted": 804,
     "unique": 799,
     "checked": 799,
-    "ok": 756,
+    "ok": 757,
     "restricted": 33,
-    "broken": 2,
-    "unavailable": 1,
-    "unknown": 7,
+    "broken": 3,
+    "unavailable": 0,
+    "unknown": 6,
     "blocked": 0,
     "skipped": 0
   },
@@ -646,8 +646,8 @@
     },
     {
       "url": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills",
-      "status": "unavailable",
-      "httpStatus": 504
+      "status": "ok",
+      "httpStatus": 200
     },
     {
       "url": "https://github.com/ComposioHQ/openclaw-composio",
@@ -1221,8 +1221,8 @@
     },
     {
       "url": "https://support.apple.com/en-us/105078",
-      "status": "ok",
-      "httpStatus": 200
+      "status": "broken",
+      "httpStatus": 404
     },
     {
       "url": "https://higgsfield.ai/apps/virality-predictor",
@@ -2372,7 +2372,7 @@
     {
       "url": "https://www.micromat.com/products/techtool-lite/",
       "status": "ok",
-      "httpStatus": 202
+      "httpStatus": 200
     },
     {
       "url": "https://github.com/anthropics/claude-plugins-official/blob/main/external_plugins/telegram/README.md",
@@ -2941,8 +2941,8 @@
     },
     {
       "url": "https://www.krea.ai/",
-      "status": "unknown",
-      "httpStatus": null
+      "status": "ok",
+      "httpStatus": 200
     },
     {
       "url": "https://ai.google.dev/gemini-api/docs/models/gemini-3-pro-image",
