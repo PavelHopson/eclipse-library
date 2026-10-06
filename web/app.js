@@ -456,6 +456,8 @@
   function esc(s) { return s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;'); }
   function escAttr(s) { return esc(String(s || '')).replace(/"/g, '&quot;').replace(/'/g, '&#39;'); }
   function absUrl(u) {
+    // The codebook guide links to local Library assets, not GitHub source pages.
+    if (u === '/images.html' || u === '/image-prompt-codes.json') return u;
     if (/^https?:\/\//.test(u)) return u;
     if (u.startsWith('#')) return REPO_URL + '/blob/master/README.md' + u;
     return `${REPO_URL}/blob/master/${u.replace(/^\.?\//, '')}`;

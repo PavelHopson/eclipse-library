@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Генерация изображений — 100 визуальных приёмов · Eclipse Library</title>
+  <meta name="description" content="Справочник 100 творческих подсказок для изображений: ракурс, свет, композиция, собственные примеры на русском. Это не команды генераторов.">
+  <link rel="icon" type="image/svg+xml" href="assets/brand/eclipse-library-favicon.svg">
+  <link rel="stylesheet" href="styles.css?v=30">
+  <link rel="stylesheet" href="library-v2.css?v=1">
+  <link rel="stylesheet" href="image-prompts.css?v=1">
+  <script type="module" src="image-prompts.mjs?v=1"></script>
+</head>
+<body class="image-codebook" data-visual-profile="knowledge-bento">
+  <a class="skip" href="#codebook">Перейти к справочнику</a>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <a class="brand" href="index.html" aria-label="Eclipse Library — на главную">
+        <span class="brand-mark" aria-hidden="true"><img src="assets/brand/eclipse-library-mark.svg" width="32" height="32" alt=""></span>
+        <span class="brand-text"><strong>Eclipse Library</strong><small>Практические знания</small></span>
+      </a>
+      <nav class="image-nav" aria-label="Главная навигация">
+        <a href="index.html#catalogStart">Каталог</a>
+        <a href="index.html#guidesFeat">Гайды</a>
+        <a href="images.html" aria-current="page">Изображения</a>
+        <a href="animations.html">Анимации</a>
+      </nav>
+    </div>
+  </header>
+  <main class="image-main">
+    <header class="image-intro">
+      <p class="eyebrow">Изображения / Генерация изображений</p>
+      <h1>Скажите точнее,<br>какой кадр нужен.</h1>
+      <p class="image-lead">100 визуальных приёмов: выберите ракурс, свет и композицию. У каждого — объяснение на русском и пример для вашего промпта.</p>
+      <p class="image-notice"><strong>Это не команды генераторов.</strong> Обозначения со слешем — обычные творческие подсказки, а не программный код, официальные slash-команды или скрытые функции ChatGPT / Gemini. Их можно заменить понятными словами. Генерация изображений здесь не запускается.</p>
+      <nav class="image-jumps" aria-label="На этой странице"><a href="#codebook">Открыть справочник</a><a href="#how">Как составить промпт</a><a href="#recipes">Пять рецептов</a><a href="#sources">Источник и ограничения</a></nav>
+    </header>
+    <section id="how" class="image-method" aria-labelledby="how-title">
+      <h2 id="how-title">От сцены к промпту</h2>
+      <ol><li><strong>Сцена.</strong> Кто или что, где находится и что делает.</li><li><strong>2–4 приёма.</strong> Выберите только то, что нужно именно этому кадру.</li><li><strong>Формат и ограничения.</strong> Задайте стороны, цвета, место для текста и то, чего быть не должно.</li></ol>
+      <p>Не вставляйте все 100 сразу. Противоречащие ракурсы и стили мешают управлению результатом. Меняйте один параметр за раз и проверяйте результат. Вместо ярлыка можно скопировать развёрнутое описание.</p>
+    </section>
+    <section id="codebook" aria-labelledby="codebook-title">
+      <div class="image-section-heading"><div><p class="eyebrow">Справочник</p><h2 id="codebook-title">Найдите нужный приём</h2></div><p id="result-count" role="status" aria-live="polite">Загрузка справочника…</p></div>
+      <form id="image-filters" class="image-filters" role="search" aria-label="Поиск по визуальным приёмам">
+        <div><label for="code-search">Код или смысл</label><input id="code-search" name="q" type="search" placeholder="Например: /35mm, свет, полный рост" autocomplete="off" disabled></div>
+        <div><label for="code-group">Группа</label><select id="code-group" name="group" disabled><option value="">Все группы</option></select></div>
+        <button id="reset-filters" type="button" class="btn" disabled>Сбросить</button>
+      </form>
+      <p id="load-error" role="alert" hidden>Не удалось загрузить справочник. Проверьте соединение и попробуйте ещё раз. <button id="retry-load" class="btn" type="button">Повторить загрузку</button></p>
+      <div id="empty-results" class="image-empty" hidden><h3>Ничего не найдено</h3><p>Попробуйте короткое слово: «тень», «портрет» или «движение». Либо сбросьте фильтры выше.</p></div>
+      <ol id="code-list" class="image-code-list" aria-label="Визуальные приёмы" aria-busy="true"></ol>
+      <noscript><p>Для поиска и копирования нужен JavaScript. Полный справочник с русскими пояснениями доступен в <a href="image-prompt-codes.json">файле данных JSON</a>.</p></noscript>
+    </section>
+    <section id="recipes" aria-labelledby="recipes-title"><p class="eyebrow">Собственные примеры Eclipse Library</p><h2 id="recipes-title">Пять точек входа</h2><p>Это текстовые заготовки, не результаты теста генератора. Замените предмет и окружение своими; права на референсы проверьте до загрузки.</p><div id="recipe-list" class="image-recipes"></div></section>
+    <section id="sources" class="image-source" aria-labelledby="source-title"><h2 id="source-title">Источник и границы применения</h2>
+      <p><a id="article-link" href="https://abhijayvuyyuru.substack.com/p/try-these-100-code-that-make-your" target="_blank" rel="noopener noreferrer">Статья Abhijay Arora Vuyyuru — открыть первоисточник ↗</a></p>
+      <div id="source-details"></div>
+      <p>Реальные лица и исходные фотографии используйте только при наличии необходимых прав и согласий. Не выдавайте синтетические кадры за документальные. Надписи, геометрию, товарные детали и постоянство лица проверяйте отдельно.</p>
+      <p><a href="index.html#guide/image-generation-codebook">Открыть гайд в библиотеке</a> · <a href="image-prompt-codes.json">Структурированные данные</a> · <a href="index.html">Назад в библиотеку</a></p>
+    </section>
+  </main>
+  <p id="copy-status" class="image-copy-status" role="status" aria-live="polite"></p>
+  <dialog id="copy-dialog" aria-labelledby="copy-title"><h2 id="copy-title">Скопируйте вручную</h2><p>Браузер не разрешил запись в буфер. Текст ниже можно выделить и скопировать.</p><label for="copy-text">Текст для копирования</label><textarea id="copy-text" rows="7" readonly></textarea><form method="dialog"><button class="btn" type="submit">Закрыть</button></form></dialog>
+</body>
+</html>

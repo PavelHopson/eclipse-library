@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "consumer": "Eclipse CRM",
-  "catalogVersion": "3f8e21552206e40c4579153eea692d70ad5c512d7eb82d1756d0f404ccb5c6d2",
+  "catalogVersion": "95873f248b1b792daf9154552772fe8d824add2e427feae36453850b28eb158c",
   "generatedAt": null,
   "policy": {
     "greyResourcesExcluded": true,
@@ -9,7 +9,7 @@
     "externalMutationsRequireHumanApproval": true
   },
   "totals": {
-    "items": 676
+    "items": 672
   },
   "items": [
     {
@@ -127,9 +127,14 @@
         "original": "MIT for repository content; every linked project, model, dataset and service keeps its own terms",
         "spdx": "MIT",
         "kind": "open-source",
-        "status": "editor-reviewed",
+        "status": "source-declared",
         "requiresReview": false,
         "evidence": [
+          {
+            "kind": "license",
+            "label": "MIT license",
+            "url": "https://api.github.com/repos/ashishpatel26/500-ai-agents-projects/license"
+          },
           {
             "kind": "license",
             "label": "Repository MIT license",
@@ -161,6 +166,11 @@
           "kind": "official-source",
           "label": "Официальный источник",
           "url": "https://github.com/ashishpatel26/500-AI-Agents-Projects"
+        },
+        {
+          "kind": "license",
+          "label": "MIT license",
+          "url": "https://api.github.com/repos/ashishpatel26/500-ai-agents-projects/license"
         },
         {
           "kind": "license",
@@ -868,9 +878,14 @@
         "original": "AGPL-3.0; network use and distribution obligations require legal/compliance review before reuse",
         "spdx": "AGPL-3.0",
         "kind": "open-source",
-        "status": "editor-reviewed",
+        "status": "source-declared",
         "requiresReview": false,
         "evidence": [
+          {
+            "kind": "license",
+            "label": "AGPL-3.0 license",
+            "url": "https://api.github.com/repos/andymik90/aperant/license"
+          },
           {
             "kind": "source",
             "label": "Canonical repository",
@@ -902,6 +917,11 @@
           "kind": "official-source",
           "label": "Официальный источник",
           "url": "https://github.com/AndyMik90/Aperant"
+        },
+        {
+          "kind": "license",
+          "label": "AGPL-3.0 license",
+          "url": "https://api.github.com/repos/andymik90/aperant/license"
         },
         {
           "kind": "license",
@@ -2300,9 +2320,14 @@
         "original": "Apache-2.0 for the repository; integrated cloud services retain separate terms",
         "spdx": "Apache-2.0",
         "kind": "open-source",
-        "status": "editor-reviewed",
+        "status": "source-declared",
         "requiresReview": false,
         "evidence": [
+          {
+            "kind": "license",
+            "label": "Apache-2.0 license",
+            "url": "https://api.github.com/repos/lak7/devildev/license"
+          },
           {
             "kind": "license",
             "label": "Repository Apache-2.0 license",
@@ -2334,6 +2359,11 @@
           "kind": "official-source",
           "label": "Официальный источник",
           "url": "https://github.com/lak7/devildev"
+        },
+        {
+          "kind": "license",
+          "label": "Apache-2.0 license",
+          "url": "https://api.github.com/repos/lak7/devildev/license"
         },
         {
           "kind": "license",
@@ -2739,7 +2769,7 @@
         "evidence": [
           {
             "kind": "license",
-            "label": "MIT license",
+            "label": "Other license",
             "url": "https://api.github.com/repos/alishahryar1/free-claude-code/license"
           },
           {
@@ -2777,7 +2807,7 @@
         },
         {
           "kind": "license",
-          "label": "MIT license",
+          "label": "Other license",
           "url": "https://api.github.com/repos/alishahryar1/free-claude-code/license"
         },
         {
@@ -3588,6 +3618,64 @@
       }
     },
     {
+      "id": "image-generation-visual-codebook",
+      "title": "Генерация изображений: 100 визуальных приёмов",
+      "url": "https://abhijayvuyyuru.substack.com/p/try-these-100-code-that-make-your",
+      "type": "guide",
+      "category": "Изображения",
+      "subcategory": "Генерация изображений",
+      "addedAt": "2026-10-06",
+      "description": "Справочник 100 творческих подсказок: ракурс, композиция, свет, предметка и визуальные стили. Русские объяснения, поиск и копирование. Не официальные команды ChatGPT или Gemini.",
+      "useCases": [
+        "Найти точное описание ракурса, освещения или композиции",
+        "Подготовить промпт для портрета, lookbook, предметки и обложки"
+      ],
+      "platforms": [
+        "Web"
+      ],
+      "license": {
+        "label": "Условия сайта автора; права на повторное использование его текста нужно проверить, открытая лицензия не подтверждена. Русские пояснения и примеры — собственная редакционная работа Eclipse Library.",
+        "original": "Условия сайта автора; права на повторное использование его текста нужно проверить, открытая лицензия не подтверждена. Русские пояснения и примеры — собственная редакционная работа Eclipse Library.",
+        "spdx": null,
+        "kind": "service-terms",
+        "status": "unverified",
+        "requiresReview": true,
+        "evidence": [
+          {
+            "kind": "source",
+            "label": "Первоисточник и авторские условия",
+            "url": "https://abhijayvuyyuru.substack.com/p/try-these-100-code-that-make-your"
+          }
+        ]
+      },
+      "access": {
+        "cost": "free",
+        "signup": "none",
+        "runtime": "local"
+      },
+      "trust": "community",
+      "decision": "reference",
+      "riskLevel": "low",
+      "projects": [
+        "Eclipse Library",
+        "Text2Image",
+        "Shotforge",
+        "Eclipse Media"
+      ],
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://abhijayvuyyuru.substack.com/p/try-these-100-code-that-make-your"
+        }
+      ],
+      "actions": {
+        "openOfficialSource": true,
+        "installFromCatalog": false,
+        "mutateExternalSystems": false
+      }
+    },
+    {
       "id": "intelligent-internet-ii-agent",
       "title": "II-Agent",
       "url": "https://github.com/Intelligent-Internet/ii-agent",
@@ -3763,9 +3851,14 @@
         "original": "Apache-2.0 repository code; base models, datasets, adapters and outputs retain independent licenses and rights",
         "spdx": "Apache-2.0",
         "kind": "open-source",
-        "status": "editor-reviewed",
+        "status": "source-declared",
         "requiresReview": false,
         "evidence": [
+          {
+            "kind": "license",
+            "label": "Apache-2.0 license",
+            "url": "https://api.github.com/repos/bmaltais/kohya_ss/license"
+          },
           {
             "kind": "source",
             "label": "Canonical repository",
@@ -3796,6 +3889,11 @@
           "kind": "official-source",
           "label": "Официальный источник",
           "url": "https://github.com/bmaltais/kohya_ss"
+        },
+        {
+          "kind": "license",
+          "label": "Apache-2.0 license",
+          "url": "https://api.github.com/repos/bmaltais/kohya_ss/license"
         },
         {
           "kind": "license",
@@ -4386,74 +4484,6 @@
       }
     },
     {
-      "id": "nekoray-archived-network-tool-reference",
-      "title": "NekoRay: archived network tool reference",
-      "url": "https://github.com/MatsuriDayo/nekoray",
-      "type": "oss",
-      "category": "Infrastructure & Security",
-      "subcategory": "Archived network tooling",
-      "addedAt": "2026-09-01",
-      "description": "Архивированный и не поддерживаемый GUI для proxy configurations. Он остаётся в Library только как отрицательное maintenance-свидетельство: network/security client без обновлений нельзя делать production dependency. Для легитимных задач Eclipse использует поддерживаемые official WireGuard/sing-box paths с review и audit.",
-      "useCases": [
-        "Record archived status",
-        "Prevent use as a production network client"
-      ],
-      "platforms": [
-        "Desktop",
-        "Windows",
-        "Linux"
-      ],
-      "license": {
-        "label": "GPL-3.0",
-        "original": "GPL-3.0 repository, archived and unmaintained",
-        "spdx": "GPL-3.0",
-        "kind": "open-source",
-        "status": "editor-reviewed",
-        "requiresReview": false,
-        "evidence": [
-          {
-            "kind": "source",
-            "label": "Canonical archived repository",
-            "url": "https://github.com/MatsuriDayo/nekoray"
-          },
-          {
-            "kind": "license",
-            "label": "Repository license",
-            "url": "https://github.com/MatsuriDayo/nekoray/blob/main/LICENSE"
-          }
-        ]
-      },
-      "access": {
-        "cost": "free",
-        "signup": "none",
-        "runtime": "local"
-      },
-      "trust": "community",
-      "decision": "reference",
-      "riskLevel": "high",
-      "projects": [
-        "Eclipse Sentinel",
-        "Eclipse Library"
-      ],
-      "evidence": [
-        {
-          "kind": "official-source",
-          "label": "Официальный источник",
-          "url": "https://github.com/MatsuriDayo/nekoray"
-        },
-        {
-          "kind": "license",
-          "label": "Repository license",
-          "url": "https://github.com/MatsuriDayo/nekoray/blob/main/LICENSE"
-        }
-      ],
-      "actions": {
-        "openOfficialSource": true,
-        "installFromCatalog": false,
-        "mutateExternalSystems": false
-      }
-    },
-    {
       "id": "niri-scrollable-tiling-wayland-compositor",
       "title": "Niri",
       "url": "https://github.com/niri-wm/niri",
@@ -4709,9 +4739,14 @@
         "original": "MIT for repository code; music, metadata, APIs and source services retain separate rights and terms",
         "spdx": "MIT",
         "kind": "open-source",
-        "status": "editor-reviewed",
+        "status": "source-declared",
         "requiresReview": false,
         "evidence": [
+          {
+            "kind": "license",
+            "label": "MIT license",
+            "url": "https://api.github.com/repos/blackhatdevx/openspot-music-app/license"
+          },
           {
             "kind": "license",
             "label": "Repository MIT license",
@@ -4741,6 +4776,11 @@
           "kind": "official-source",
           "label": "Официальный источник",
           "url": "https://github.com/BlackHatDevX/openspot-music-app"
+        },
+        {
+          "kind": "license",
+          "label": "MIT license",
+          "url": "https://api.github.com/repos/blackhatdevx/openspot-music-app/license"
         },
         {
           "kind": "license",
@@ -5457,6 +5497,11 @@
         "evidence": [
           {
             "kind": "license",
+            "label": "Other license",
+            "url": "https://api.github.com/repos/davidhdev/react-bits/license"
+          },
+          {
+            "kind": "license",
             "label": "Official repository license",
             "url": "https://github.com/DavidHDev/react-bits/blob/main/LICENSE"
           },
@@ -5485,6 +5530,11 @@
           "kind": "official-source",
           "label": "Официальный источник",
           "url": "https://github.com/DavidHDev/react-bits"
+        },
+        {
+          "kind": "license",
+          "label": "Other license",
+          "url": "https://api.github.com/repos/davidhdev/react-bits/license"
         },
         {
           "kind": "license",
@@ -5893,6 +5943,11 @@
         "requiresReview": false,
         "evidence": [
           {
+            "kind": "license",
+            "label": "Other license",
+            "url": "https://api.github.com/repos/hotheadhacker/seedbox-lite/license"
+          },
+          {
             "kind": "source",
             "label": "Canonical repository",
             "url": "https://github.com/hotheadhacker/seedbox-lite"
@@ -5921,6 +5976,11 @@
           "kind": "official-source",
           "label": "Официальный источник",
           "url": "https://github.com/hotheadhacker/seedbox-lite"
+        },
+        {
+          "kind": "license",
+          "label": "Other license",
+          "url": "https://api.github.com/repos/hotheadhacker/seedbox-lite/license"
         },
         {
           "kind": "license",
@@ -5960,9 +6020,14 @@
         "original": "GPL-3.0; keep as a separate process/reference unless a compliance decision approves distribution obligations",
         "spdx": "GPL-3.0",
         "kind": "open-source",
-        "status": "editor-reviewed",
+        "status": "source-declared",
         "requiresReview": false,
         "evidence": [
+          {
+            "kind": "license",
+            "label": "GPL-3.0 license",
+            "url": "https://api.github.com/repos/jhc13/taggui/license"
+          },
           {
             "kind": "source",
             "label": "Canonical repository",
@@ -5993,6 +6058,11 @@
           "kind": "official-source",
           "label": "Официальный источник",
           "url": "https://github.com/jhc13/taggui"
+        },
+        {
+          "kind": "license",
+          "label": "GPL-3.0 license",
+          "url": "https://api.github.com/repos/jhc13/taggui/license"
         },
         {
           "kind": "license",
@@ -6296,13 +6366,18 @@
         "Python"
       ],
       "license": {
-        "label": "Repository code license does not grant rights to platform content or permission to bypass access controls",
+        "label": "MIT",
         "original": "Repository code license does not grant rights to platform content or permission to bypass access controls",
-        "spdx": null,
-        "kind": "custom",
-        "status": "editor-reviewed",
+        "spdx": "MIT",
+        "kind": "open-source",
+        "status": "source-declared",
         "requiresReview": false,
         "evidence": [
+          {
+            "kind": "license",
+            "label": "MIT license",
+            "url": "https://api.github.com/repos/heliomarpm/udemy-downloader-gui/license"
+          },
           {
             "kind": "source",
             "label": "Canonical repository",
@@ -6332,6 +6407,11 @@
           "kind": "official-source",
           "label": "Официальный источник",
           "url": "https://github.com/heliomarpm/udemy-downloader-gui/"
+        },
+        {
+          "kind": "license",
+          "label": "MIT license",
+          "url": "https://api.github.com/repos/heliomarpm/udemy-downloader-gui/license"
         },
         {
           "kind": "terms",
@@ -6997,75 +7077,6 @@
           "kind": "official-source",
           "label": "Официальный источник",
           "url": "https://www.youtube.com/watch?v=Uk7HHfF9n2Q"
-        }
-      ],
-      "actions": {
-        "openOfficialSource": true,
-        "installFromCatalog": false,
-        "mutateExternalSystems": false
-      }
-    },
-    {
-      "id": "wireguard-bot-archived-reference",
-      "title": "wireguard-bot: archived enrollment UX reference",
-      "url": "https://github.com/PheeZz/wireguard-bot",
-      "type": "oss",
-      "category": "Infrastructure & Security",
-      "subcategory": "Archived network tooling",
-      "addedAt": "2026-09-01",
-      "description": "Архивированный и явно не поддерживаемый Telegram-бот управления WireGuard с users, QR enrollment, connect/disconnect и payment flow. В production его не ставим и installer не запускаем; берём только абстрактный UX-паттерн short-lived enrollment, visible device list и immediate revoke для собственной поддерживаемой реализации.",
-      "useCases": [
-        "Спроектировать QR enrollment и revoke",
-        "Зафиксировать запрет на использование abandoned network admin code"
-      ],
-      "platforms": [
-        "Python",
-        "Telegram",
-        "WireGuard",
-        "PostgreSQL"
-      ],
-      "license": {
-        "label": "MIT",
-        "original": "MIT repository, archived and unmaintained; dependencies and installation scripts require independent review",
-        "spdx": "MIT",
-        "kind": "open-source",
-        "status": "editor-reviewed",
-        "requiresReview": false,
-        "evidence": [
-          {
-            "kind": "source",
-            "label": "Canonical archived repository",
-            "url": "https://github.com/PheeZz/wireguard-bot"
-          },
-          {
-            "kind": "license",
-            "label": "Repository license",
-            "url": "https://github.com/PheeZz/wireguard-bot/blob/master/LICENSE"
-          }
-        ]
-      },
-      "access": {
-        "cost": "free",
-        "signup": "none",
-        "runtime": "self-host"
-      },
-      "trust": "community",
-      "decision": "reference",
-      "riskLevel": "high",
-      "projects": [
-        "Eclipse Sentinel",
-        "Eclipse Library"
-      ],
-      "evidence": [
-        {
-          "kind": "official-source",
-          "label": "Официальный источник",
-          "url": "https://github.com/PheeZz/wireguard-bot"
-        },
-        {
-          "kind": "license",
-          "label": "Repository license",
-          "url": "https://github.com/PheeZz/wireguard-bot/blob/master/LICENSE"
         }
       ],
       "actions": {
@@ -9508,17 +9519,17 @@
         "Web"
       ],
       "license": {
-        "label": "Нужно проверить в официальном источнике",
+        "label": "MIT",
         "original": "Нужно проверить в официальном источнике",
-        "spdx": null,
-        "kind": "unknown",
-        "status": "unverified",
-        "requiresReview": true,
+        "spdx": "MIT",
+        "kind": "open-source",
+        "status": "source-declared",
+        "requiresReview": false,
         "evidence": [
           {
-            "kind": "official-source",
-            "label": "Официальный источник; точные условия ещё нужно сверить",
-            "url": "https://github.com/NickPittas/DirectorsConsole"
+            "kind": "license",
+            "label": "MIT license",
+            "url": "https://api.github.com/repos/nickpittas/directorsconsole/license"
           }
         ]
       },
@@ -9536,6 +9547,11 @@
           "kind": "official-source",
           "label": "Официальный источник",
           "url": "https://github.com/NickPittas/DirectorsConsole"
+        },
+        {
+          "kind": "license",
+          "label": "MIT license",
+          "url": "https://api.github.com/repos/nickpittas/directorsconsole/license"
         }
       ],
       "actions": {
@@ -10664,7 +10680,7 @@
         "evidence": [
           {
             "kind": "license",
-            "label": "Other license",
+            "label": "MIT license",
             "url": "https://api.github.com/repos/openclaw/openclaw/license"
           },
           {
@@ -10691,7 +10707,7 @@
         },
         {
           "kind": "license",
-          "label": "Other license",
+          "label": "MIT license",
           "url": "https://api.github.com/repos/openclaw/openclaw/license"
         },
         {
@@ -21350,64 +21366,6 @@
       }
     },
     {
-      "id": "supertonic-3-github-com",
-      "title": "Supertonic 3",
-      "url": "https://github.com/supertone-inc/supertonic",
-      "type": "media",
-      "category": "Media & Download",
-      "subcategory": "Media & Download",
-      "addedAt": null,
-      "description": "Supertonic 3 — Python / Supertone · Лёгкий TTS — имитация эмоций (вздохи, кашель), 31 язык (русский), локальный запуск даже на мобильных, безлимитный. Карточка помогает понять назначение ресурса и начать с небольшой безопасной проверки; условия использования ещё нужно сверить с официальным источником.",
-      "useCases": [
-        "Разобраться, подходит ли Supertonic 3 для вашей задачи",
-        "Проверить возможности на небольшом тестовом сценарии до интеграции"
-      ],
-      "platforms": [
-        "Self-host"
-      ],
-      "license": {
-        "label": "MIT",
-        "original": "Нужно проверить в официальном источнике",
-        "spdx": "MIT",
-        "kind": "open-source",
-        "status": "source-declared",
-        "requiresReview": false,
-        "evidence": [
-          {
-            "kind": "license",
-            "label": "MIT license",
-            "url": "https://api.github.com/repos/supertone-inc/supertonic/license"
-          }
-        ]
-      },
-      "access": {
-        "cost": "free",
-        "signup": "none",
-        "runtime": "self-host"
-      },
-      "trust": "community",
-      "decision": "reference",
-      "riskLevel": "medium",
-      "projects": [],
-      "evidence": [
-        {
-          "kind": "official-source",
-          "label": "Официальный источник",
-          "url": "https://github.com/supertone-inc/supertonic"
-        },
-        {
-          "kind": "license",
-          "label": "MIT license",
-          "url": "https://api.github.com/repos/supertone-inc/supertonic/license"
-        }
-      ],
-      "actions": {
-        "openOfficialSource": true,
-        "installFromCatalog": false,
-        "mutateExternalSystems": false
-      }
-    },
-    {
       "id": "translatebookswithllms-github-com",
       "title": "TranslateBooksWithLLMs",
       "url": "https://github.com/hydropix/TranslateBooksWithLLMs",
@@ -24521,7 +24479,7 @@
         "evidence": [
           {
             "kind": "license",
-            "label": "Other license",
+            "label": "MIT license",
             "url": "https://api.github.com/repos/mutonby/openshorts/license"
           },
           {
@@ -24548,7 +24506,7 @@
         },
         {
           "kind": "license",
-          "label": "Other license",
+          "label": "MIT license",
           "url": "https://api.github.com/repos/mutonby/openshorts/license"
         },
         {
@@ -27201,64 +27159,6 @@
       }
     },
     {
-      "id": "ccplugins-github-com",
-      "title": "CCPlugins",
-      "url": "https://github.com/brennercruvinel/CCPlugins",
-      "type": "agent",
-      "category": "Подборка Eclipse",
-      "subcategory": "Claude Code — мега-стек оркестрации (single drop)",
-      "addedAt": "2026-05-28",
-      "description": "CCPlugins — Готовые команды/плагины под рутину (cleanup, review, refactor) — экономия часов. Карточка помогает понять назначение ресурса и начать с небольшой безопасной проверки; условия использования ещё нужно сверить с официальным источником.",
-      "useCases": [
-        "Разобраться, подходит ли CCPlugins для вашей задачи",
-        "Проверить возможности на небольшом тестовом сценарии до интеграции"
-      ],
-      "platforms": [
-        "Web"
-      ],
-      "license": {
-        "label": "MIT",
-        "original": "Нужно проверить в официальном источнике",
-        "spdx": "MIT",
-        "kind": "open-source",
-        "status": "source-declared",
-        "requiresReview": false,
-        "evidence": [
-          {
-            "kind": "license",
-            "label": "MIT license",
-            "url": "https://api.github.com/repos/brennercruvinel/ccplugins/license"
-          }
-        ]
-      },
-      "access": {
-        "cost": "free",
-        "signup": "unknown",
-        "runtime": "cloud"
-      },
-      "trust": "community",
-      "decision": "reference",
-      "riskLevel": "medium",
-      "projects": [],
-      "evidence": [
-        {
-          "kind": "official-source",
-          "label": "Официальный источник",
-          "url": "https://github.com/brennercruvinel/CCPlugins"
-        },
-        {
-          "kind": "license",
-          "label": "MIT license",
-          "url": "https://api.github.com/repos/brennercruvinel/ccplugins/license"
-        }
-      ],
-      "actions": {
-        "openOfficialSource": true,
-        "installFromCatalog": false,
-        "mutateExternalSystems": false
-      }
-    },
-    {
       "id": "claude-code-action-anthropic-github-com",
       "title": "Claude Code Action (Anthropic)",
       "url": "https://github.com/anthropics/claude-code-action",
@@ -28369,64 +28269,6 @@
           "kind": "official-source",
           "label": "Официальный источник",
           "url": "https://openai.com/form/codex-for-oss/"
-        }
-      ],
-      "actions": {
-        "openOfficialSource": true,
-        "installFromCatalog": false,
-        "mutateExternalSystems": false
-      }
-    },
-    {
-      "id": "ml-intern-huggingface-github-com",
-      "title": "ml-intern (HuggingFace)",
-      "url": "https://github.com/huggingface/ml-intern",
-      "type": "skill",
-      "category": "Подборка Eclipse",
-      "subcategory": "ML training & research",
-      "addedAt": "2026-06-08",
-      "description": "ml-intern (HuggingFace) — Официальный HF — автономный ML-инженер на smolagents: читает статьи, исследует HF-доки/датасеты/репы, пишет/правит код, запускает fine-tuning, тестит/деплоит. 170k auto-compaction контекста, Doom-Loop detector (ловит зацикленные tool-call'ы), ToolRouter к HF-экосистеме + sandbox-исполнение. Обошёл Claude Code на GPQA (Qwen3-1.7B 10%→32% за <10ч на…. Карточка помогает понять назначение ресурса и начать с небольшой безопасной проверки; условия использования ещё нужно сверить с официальным источником.",
-      "useCases": [
-        "Разобраться, подходит ли ml-intern (HuggingFace) для вашей задачи",
-        "Проверить возможности на небольшом тестовом сценарии до интеграции"
-      ],
-      "platforms": [
-        "Web"
-      ],
-      "license": {
-        "label": "Apache-2.0",
-        "original": "Нужно проверить в официальном источнике",
-        "spdx": "Apache-2.0",
-        "kind": "open-source",
-        "status": "source-declared",
-        "requiresReview": false,
-        "evidence": [
-          {
-            "kind": "license",
-            "label": "Apache-2.0 license",
-            "url": "https://api.github.com/repos/huggingface/ml-intern/license"
-          }
-        ]
-      },
-      "access": {
-        "cost": "free",
-        "signup": "unknown",
-        "runtime": "cloud"
-      },
-      "trust": "community",
-      "decision": "reference",
-      "riskLevel": "medium",
-      "projects": [],
-      "evidence": [
-        {
-          "kind": "official-source",
-          "label": "Официальный источник",
-          "url": "https://github.com/huggingface/ml-intern"
-        },
-        {
-          "kind": "license",
-          "label": "Apache-2.0 license",
-          "url": "https://api.github.com/repos/huggingface/ml-intern/license"
         }
       ],
       "actions": {
@@ -31180,7 +31022,7 @@
         "evidence": [
           {
             "kind": "license",
-            "label": "Other license",
+            "label": "Apache-2.0 license",
             "url": "https://api.github.com/repos/juliusbrussee/caveman/license"
           },
           {
@@ -31216,7 +31058,7 @@
         },
         {
           "kind": "license",
-          "label": "Other license",
+          "label": "Apache-2.0 license",
           "url": "https://api.github.com/repos/juliusbrussee/caveman/license"
         },
         {
@@ -32442,9 +32284,14 @@
         "original": "Elastic-2.0 (source-available; managed-service and license-key restrictions apply)",
         "spdx": "Elastic-2.0",
         "kind": "source-available",
-        "status": "editor-reviewed",
+        "status": "source-declared",
         "requiresReview": false,
         "evidence": [
+          {
+            "kind": "license",
+            "label": "Other license",
+            "url": "https://api.github.com/repos/ojuschugh1/sqz/license"
+          },
           {
             "kind": "license",
             "label": "Official repository license file reviewed 2026-08-17",
@@ -32470,6 +32317,11 @@
           "kind": "official-source",
           "label": "Официальный источник",
           "url": "https://github.com/ojuschugh1/sqz"
+        },
+        {
+          "kind": "license",
+          "label": "Other license",
+          "url": "https://api.github.com/repos/ojuschugh1/sqz/license"
         },
         {
           "kind": "license",

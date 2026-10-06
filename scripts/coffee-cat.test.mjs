@@ -1,0 +1,11 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import {readFileSync,statSync} from 'node:fs';
+import {createHash} from 'node:crypto';
+import {frameForPointer,spriteRect,easeFrame,COUNT,IDLE} from '../web/experiments/coffee-cat/script.mjs';
+const root=new URL('../web/experiments/coffee-cat/',import.meta.url);
+test('pointer mapping, bounds and idle',()=>{assert.equal(COUNT,96);assert.equal(IDLE,40);for(const [x,f] of [[-2,28],[0,28],[.5,40],[1,56],[2,56]])assert.equal(frameForPointer(x),f);});
+test('all sprite cells are distinct and in bounds',()=>{const all=new Set();for(let i=0;i<96;i++){const [x,y,w,h]=spriteRect(i,480);assert.ok(x+w<=5760&&y+h<=2160);all.add(`${x},${y}`);}assert.equal(all.size,96);assert.deepEqual(spriteRect(200,480),spriteRect(95,480));});
+test('time-normalized easing converges without overshooting',()=>{let f=28;for(let i=0;i<100;i++){f=easeFrame(f,56,16.67);assert.ok(f<=56);}assert.ok(56-f<.01);assert.ok(Math.abs(easeFrame(easeFrame(0,40,10),40,10)-easeFrame(0,40,20))<1e-10);});
+test('assets match recorded hashes and preserve sources',()=>{const m=JSON.parse(readFileSync(new URL('assets/manifest.json',root)));assert.equal(m.frames,96);assert.equal(m.duration,4);for(const a of m.files){const bytes=readFileSync(new URL(a.file,root));assert.equal(bytes.length,a.bytes);assert.equal(createHash('sha256').update(bytes).digest('hex'),a.sha256);}assert.ok(statSync(new URL('assets/atlas.webp',root)).size<1_000_000);});
+test('navigation, accessibility and lifecycle are present',()=>{const html=readFileSync(new URL('index.html',root),'utf8'),js=readFileSync(new URL('script.mjs',root),'utf8'),nav=readFileSync(new URL('../web/animations.html',import.meta.url),'utf8');assert.ok(nav.includes('id="coffee-cat-experiment"'));assert.ok(html.includes('../../animations.html#coffee-cat-experiment'));for(const token of ['pointercancel','visibilitychange','prefers-reduced-motion','ArrowLeft','clearTimeout','candidate.decode','cancelAnimationFrame'])assert.ok(js.includes(token));assert.ok(!js.includes('innerHTML'));assert.ok(html.includes('role="status"'));});

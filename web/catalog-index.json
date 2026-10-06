@@ -1,20 +1,20 @@
 {
   "schemaVersion": 2,
-  "sourceHash": "3f8e21552206e40c4579153eea692d70ad5c512d7eb82d1756d0f404ccb5c6d2",
+  "sourceHash": "95873f248b1b792daf9154552772fe8d824add2e427feae36453850b28eb158c",
   "policy": {
     "canonicalSource": "catalog/resources.json",
     "directInstallForbidden": true,
     "greyResourcesExcludedFromAgentRecommendations": true
   },
   "totals": {
-    "all": 771,
-    "verified": 406,
+    "all": 772,
+    "verified": 407,
     "inferred": 365,
     "licenseReviewRequired": 213,
-    "agentSafe": 676,
-    "agentExcluded": 95,
+    "agentSafe": 672,
+    "agentExcluded": 100,
     "grey": 87,
-    "withAddedAt": 492
+    "withAddedAt": 493
   },
   "items": [
     {
@@ -250,9 +250,14 @@
         "original": "MIT for repository content; every linked project, model, dataset and service keeps its own terms",
         "spdx": "MIT",
         "kind": "open-source",
-        "status": "editor-reviewed",
+        "status": "source-declared",
         "requiresReview": false,
         "evidence": [
+          {
+            "kind": "license",
+            "label": "MIT license",
+            "url": "https://api.github.com/repos/ashishpatel26/500-ai-agents-projects/license"
+          },
           {
             "kind": "license",
             "label": "Repository MIT license",
@@ -270,6 +275,11 @@
           "kind": "official-source",
           "label": "Официальный источник",
           "url": "https://github.com/ashishpatel26/500-AI-Agents-Projects"
+        },
+        {
+          "kind": "license",
+          "label": "MIT license",
+          "url": "https://api.github.com/repos/ashishpatel26/500-ai-agents-projects/license"
         },
         {
           "kind": "license",
@@ -1633,9 +1643,14 @@
         "original": "AGPL-3.0; network use and distribution obligations require legal/compliance review before reuse",
         "spdx": "AGPL-3.0",
         "kind": "open-source",
-        "status": "editor-reviewed",
+        "status": "source-declared",
         "requiresReview": false,
         "evidence": [
+          {
+            "kind": "license",
+            "label": "AGPL-3.0 license",
+            "url": "https://api.github.com/repos/andymik90/aperant/license"
+          },
           {
             "kind": "source",
             "label": "Canonical repository",
@@ -1653,6 +1668,11 @@
           "kind": "official-source",
           "label": "Официальный источник",
           "url": "https://github.com/AndyMik90/Aperant"
+        },
+        {
+          "kind": "license",
+          "label": "AGPL-3.0 license",
+          "url": "https://api.github.com/repos/andymik90/aperant/license"
         },
         {
           "kind": "license",
@@ -2229,7 +2249,7 @@
         "Claude Code",
         "Codex"
       ],
-      "license": "No license grant detected; README badge is not sufficient permission to reuse code",
+      "license": "MIT",
       "licenseEvidence": [
         {
           "kind": "source",
@@ -2294,13 +2314,18 @@
       },
       "catalogOrder": 1,
       "licenseInfo": {
-        "label": "No license grant detected; README badge is not sufficient permission to reuse code",
+        "label": "MIT",
         "original": "No license grant detected; README badge is not sufficient permission to reuse code",
-        "spdx": null,
-        "kind": "custom",
-        "status": "editor-reviewed",
+        "spdx": "MIT",
+        "kind": "open-source",
+        "status": "source-declared",
         "requiresReview": false,
         "evidence": [
+          {
+            "kind": "license",
+            "label": "MIT license",
+            "url": "https://api.github.com/repos/maxmiksa/auto-company/license"
+          },
           {
             "kind": "source",
             "label": "Official repository; GitHub license field is empty",
@@ -2313,6 +2338,11 @@
           "kind": "official-source",
           "label": "Официальный источник",
           "url": "https://github.com/MaxMiksa/Auto-Company"
+        },
+        {
+          "kind": "license",
+          "label": "MIT license",
+          "url": "https://api.github.com/repos/maxmiksa/auto-company/license"
         }
       ],
       "agentEligibility": {
@@ -4465,9 +4495,14 @@
         "original": "Apache-2.0 for the repository; integrated cloud services retain separate terms",
         "spdx": "Apache-2.0",
         "kind": "open-source",
-        "status": "editor-reviewed",
+        "status": "source-declared",
         "requiresReview": false,
         "evidence": [
+          {
+            "kind": "license",
+            "label": "Apache-2.0 license",
+            "url": "https://api.github.com/repos/lak7/devildev/license"
+          },
           {
             "kind": "license",
             "label": "Repository Apache-2.0 license",
@@ -4485,6 +4520,11 @@
           "kind": "official-source",
           "label": "Официальный источник",
           "url": "https://github.com/lak7/devildev"
+        },
+        {
+          "kind": "license",
+          "label": "Apache-2.0 license",
+          "url": "https://api.github.com/repos/lak7/devildev/license"
         },
         {
           "kind": "license",
@@ -5593,7 +5633,7 @@
         "evidence": [
           {
             "kind": "license",
-            "label": "MIT license",
+            "label": "Other license",
             "url": "https://api.github.com/repos/alishahryar1/free-claude-code/license"
           },
           {
@@ -5616,7 +5656,7 @@
         },
         {
           "kind": "license",
-          "label": "MIT license",
+          "label": "Other license",
           "url": "https://api.github.com/repos/alishahryar1/free-claude-code/license"
         },
         {
@@ -7103,6 +7143,112 @@
       }
     },
     {
+      "id": "image-generation-visual-codebook",
+      "url": "https://abhijayvuyyuru.substack.com/p/try-these-100-code-that-make-your",
+      "title": "Генерация изображений: 100 визуальных приёмов",
+      "type": "guide",
+      "category": "Изображения",
+      "subcategory": "Генерация изображений",
+      "simpleDescription": "Справочник 100 творческих подсказок: ракурс, композиция, свет, предметка и визуальные стили. Русские объяснения, поиск и копирование. Не официальные команды ChatGPT или Gemini.",
+      "useCases": [
+        "Найти точное описание ракурса, освещения или композиции",
+        "Подготовить промпт для портрета, lookbook, предметки и обложки"
+      ],
+      "platforms": [
+        "Web"
+      ],
+      "license": "Условия сайта автора; права на повторное использование его текста нужно проверить, открытая лицензия не подтверждена. Русские пояснения и примеры — собственная редакционная работа Eclipse Library.",
+      "licenseEvidence": [
+        {
+          "kind": "source",
+          "label": "Первоисточник и авторские условия",
+          "url": "https://abhijayvuyyuru.substack.com/p/try-these-100-code-that-make-your"
+        }
+      ],
+      "pricing": "Чтение справочника бесплатно; стоимость генерации зависит от выбранного сервиса.",
+      "access": {
+        "cost": "free",
+        "signup": "none",
+        "runtime": "local"
+      },
+      "trust": "community",
+      "trustReason": "06.10.2026 сверены все 100 обозначений, порядок и регистр по статье. Проверка касается справочника, не качества генераторов.",
+      "projects": [
+        "Eclipse Library",
+        "Text2Image",
+        "Shotforge",
+        "Eclipse Media"
+      ],
+      "decision": "reference",
+      "riskLevel": "low",
+      "risks": [
+        "Обозначения не включают скрытые функции и не гарантируют качество, идентичность лица или техническую точность.",
+        "Текст и изображения автора не имеют подтверждённой открытой лицензии; сохраняем короткие названия и собственные пояснения."
+      ],
+      "verifiedAt": "2026-10-06",
+      "quickStart": [
+        "Откройте раздел «Изображения» в навигации Library и найдите нужный приём.",
+        "Опишите сцену, выберите 2–4 приёма и уточните формат/цвета/ограничения."
+      ],
+      "reviewStatus": "verified",
+      "addedAt": "2026-10-06",
+      "guide": "image-generation-codebook",
+      "source": {
+        "file": "catalog/resources.json",
+        "key": "image-generation-visual-codebook",
+        "legacy": {
+          "file": "guides/image-generation-codebook.md",
+          "line": 1,
+          "category": "Изображения",
+          "subcategory": "Генерация изображений"
+        }
+      },
+      "article": {
+        "title": "Try These 100 Codes That Make Your ChatGPT / Gemini Images Look Better (No Design Skills Needed)",
+        "author": "Abhijay Arora Vuyyuru",
+        "publishedAt": "2026-08-31",
+        "checkedAt": "2026-10-06"
+      },
+      "verification": {
+        "scope": "100 labels, sequence and case compared with the source; original Russian editorial descriptions",
+        "generationTested": false
+      },
+      "correctionHistory": [
+        {
+          "date": "2026-10-06",
+          "change": "Добавлена новая карточка после проверки отсутствия дубля URL. Создан словарь с собственными пояснениями; 100 обозначений — творческие подсказки, не команды генераторов."
+        }
+      ],
+      "catalogOrder": 1,
+      "licenseInfo": {
+        "label": "Условия сайта автора; права на повторное использование его текста нужно проверить, открытая лицензия не подтверждена. Русские пояснения и примеры — собственная редакционная работа Eclipse Library.",
+        "original": "Условия сайта автора; права на повторное использование его текста нужно проверить, открытая лицензия не подтверждена. Русские пояснения и примеры — собственная редакционная работа Eclipse Library.",
+        "spdx": null,
+        "kind": "service-terms",
+        "status": "unverified",
+        "requiresReview": true,
+        "evidence": [
+          {
+            "kind": "source",
+            "label": "Первоисточник и авторские условия",
+            "url": "https://abhijayvuyyuru.substack.com/p/try-these-100-code-that-make-your"
+          }
+        ]
+      },
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://abhijayvuyyuru.substack.com/p/try-these-100-code-that-make-your"
+        }
+      ],
+      "agentEligibility": {
+        "eligible": true,
+        "reasons": [],
+        "installAllowed": false
+      }
+    },
+    {
       "id": "intelligent-internet-ii-agent",
       "url": "https://github.com/Intelligent-Internet/ii-agent",
       "title": "II-Agent",
@@ -7465,9 +7611,14 @@
         "original": "Apache-2.0 repository code; base models, datasets, adapters and outputs retain independent licenses and rights",
         "spdx": "Apache-2.0",
         "kind": "open-source",
-        "status": "editor-reviewed",
+        "status": "source-declared",
         "requiresReview": false,
         "evidence": [
+          {
+            "kind": "license",
+            "label": "Apache-2.0 license",
+            "url": "https://api.github.com/repos/bmaltais/kohya_ss/license"
+          },
           {
             "kind": "source",
             "label": "Canonical repository",
@@ -7485,6 +7636,11 @@
           "kind": "official-source",
           "label": "Официальный источник",
           "url": "https://github.com/bmaltais/kohya_ss"
+        },
+        {
+          "kind": "license",
+          "label": "Apache-2.0 license",
+          "url": "https://api.github.com/repos/bmaltais/kohya_ss/license"
         },
         {
           "kind": "license",
@@ -8506,9 +8662,14 @@
         "original": "GPL-3.0 repository, archived and unmaintained",
         "spdx": "GPL-3.0",
         "kind": "open-source",
-        "status": "editor-reviewed",
+        "status": "source-declared",
         "requiresReview": false,
         "evidence": [
+          {
+            "kind": "license",
+            "label": "GPL-3.0 license",
+            "url": "https://api.github.com/repos/matsuridayo/nekoray/license"
+          },
           {
             "kind": "source",
             "label": "Canonical archived repository",
@@ -8529,13 +8690,20 @@
         },
         {
           "kind": "license",
+          "label": "GPL-3.0 license",
+          "url": "https://api.github.com/repos/matsuridayo/nekoray/license"
+        },
+        {
+          "kind": "license",
           "label": "Repository license",
           "url": "https://github.com/MatsuriDayo/nekoray/blob/main/LICENSE"
         }
       ],
       "agentEligibility": {
-        "eligible": true,
-        "reasons": [],
+        "eligible": false,
+        "reasons": [
+          "repository-archived"
+        ],
         "installAllowed": false
       }
     },
@@ -9132,9 +9300,14 @@
         "original": "MIT for repository code; music, metadata, APIs and source services retain separate rights and terms",
         "spdx": "MIT",
         "kind": "open-source",
-        "status": "editor-reviewed",
+        "status": "source-declared",
         "requiresReview": false,
         "evidence": [
+          {
+            "kind": "license",
+            "label": "MIT license",
+            "url": "https://api.github.com/repos/blackhatdevx/openspot-music-app/license"
+          },
           {
             "kind": "license",
             "label": "Repository MIT license",
@@ -9152,6 +9325,11 @@
           "kind": "official-source",
           "label": "Официальный источник",
           "url": "https://github.com/BlackHatDevX/openspot-music-app"
+        },
+        {
+          "kind": "license",
+          "label": "MIT license",
+          "url": "https://api.github.com/repos/blackhatdevx/openspot-music-app/license"
         },
         {
           "kind": "license",
@@ -10674,6 +10852,11 @@
         "evidence": [
           {
             "kind": "license",
+            "label": "Other license",
+            "url": "https://api.github.com/repos/davidhdev/react-bits/license"
+          },
+          {
+            "kind": "license",
             "label": "Official repository license",
             "url": "https://github.com/DavidHDev/react-bits/blob/main/LICENSE"
           },
@@ -10689,6 +10872,11 @@
           "kind": "official-source",
           "label": "Официальный источник",
           "url": "https://github.com/DavidHDev/react-bits"
+        },
+        {
+          "kind": "license",
+          "label": "Other license",
+          "url": "https://api.github.com/repos/davidhdev/react-bits/license"
         },
         {
           "kind": "license",
@@ -11690,6 +11878,11 @@
         "requiresReview": false,
         "evidence": [
           {
+            "kind": "license",
+            "label": "Other license",
+            "url": "https://api.github.com/repos/hotheadhacker/seedbox-lite/license"
+          },
+          {
             "kind": "source",
             "label": "Canonical repository",
             "url": "https://github.com/hotheadhacker/seedbox-lite"
@@ -11706,6 +11899,11 @@
           "kind": "official-source",
           "label": "Официальный источник",
           "url": "https://github.com/hotheadhacker/seedbox-lite"
+        },
+        {
+          "kind": "license",
+          "label": "Other license",
+          "url": "https://api.github.com/repos/hotheadhacker/seedbox-lite/license"
         },
         {
           "kind": "license",
@@ -11948,9 +12146,14 @@
         "original": "GPL-3.0; keep as a separate process/reference unless a compliance decision approves distribution obligations",
         "spdx": "GPL-3.0",
         "kind": "open-source",
-        "status": "editor-reviewed",
+        "status": "source-declared",
         "requiresReview": false,
         "evidence": [
+          {
+            "kind": "license",
+            "label": "GPL-3.0 license",
+            "url": "https://api.github.com/repos/jhc13/taggui/license"
+          },
           {
             "kind": "source",
             "label": "Canonical repository",
@@ -11968,6 +12171,11 @@
           "kind": "official-source",
           "label": "Официальный источник",
           "url": "https://github.com/jhc13/taggui"
+        },
+        {
+          "kind": "license",
+          "label": "GPL-3.0 license",
+          "url": "https://api.github.com/repos/jhc13/taggui/license"
         },
         {
           "kind": "license",
@@ -12488,7 +12696,7 @@
         "Record exclusion decision",
         "Prevent confusion between code license and content rights"
       ],
-      "license": "Repository code license does not grant rights to platform content or permission to bypass access controls",
+      "license": "MIT",
       "licenseEvidence": [
         {
           "kind": "source",
@@ -12537,13 +12745,18 @@
       },
       "catalogOrder": 1,
       "licenseInfo": {
-        "label": "Repository code license does not grant rights to platform content or permission to bypass access controls",
+        "label": "MIT",
         "original": "Repository code license does not grant rights to platform content or permission to bypass access controls",
-        "spdx": null,
-        "kind": "custom",
-        "status": "editor-reviewed",
+        "spdx": "MIT",
+        "kind": "open-source",
+        "status": "source-declared",
         "requiresReview": false,
         "evidence": [
+          {
+            "kind": "license",
+            "label": "MIT license",
+            "url": "https://api.github.com/repos/heliomarpm/udemy-downloader-gui/license"
+          },
           {
             "kind": "source",
             "label": "Canonical repository",
@@ -12561,6 +12774,11 @@
           "kind": "official-source",
           "label": "Официальный источник",
           "url": "https://github.com/heliomarpm/udemy-downloader-gui/"
+        },
+        {
+          "kind": "license",
+          "label": "MIT license",
+          "url": "https://api.github.com/repos/heliomarpm/udemy-downloader-gui/license"
         },
         {
           "kind": "terms",
@@ -13927,9 +14145,14 @@
         "original": "MIT repository, archived and unmaintained; dependencies and installation scripts require independent review",
         "spdx": "MIT",
         "kind": "open-source",
-        "status": "editor-reviewed",
+        "status": "source-declared",
         "requiresReview": false,
         "evidence": [
+          {
+            "kind": "license",
+            "label": "MIT license",
+            "url": "https://api.github.com/repos/pheezz/wireguard-bot/license"
+          },
           {
             "kind": "source",
             "label": "Canonical archived repository",
@@ -13950,13 +14173,20 @@
         },
         {
           "kind": "license",
+          "label": "MIT license",
+          "url": "https://api.github.com/repos/pheezz/wireguard-bot/license"
+        },
+        {
+          "kind": "license",
           "label": "Repository license",
           "url": "https://github.com/PheeZz/wireguard-bot/blob/master/LICENSE"
         }
       ],
       "agentEligibility": {
-        "eligible": true,
-        "reasons": [],
+        "eligible": false,
+        "reasons": [
+          "repository-archived"
+        ],
         "installAllowed": false
       }
     },
@@ -17659,7 +17889,7 @@
       "platforms": [
         "Web"
       ],
-      "license": "Нужно проверить в официальном источнике",
+      "license": "MIT",
       "pricing": "Исходный код доступен публично; hosting, модели и внешние API могут оплачиваться отдельно",
       "access": {
         "cost": "free",
@@ -17694,17 +17924,17 @@
       "addedAt": null,
       "catalogOrder": 209,
       "licenseInfo": {
-        "label": "Нужно проверить в официальном источнике",
+        "label": "MIT",
         "original": "Нужно проверить в официальном источнике",
-        "spdx": null,
-        "kind": "unknown",
-        "status": "unverified",
-        "requiresReview": true,
+        "spdx": "MIT",
+        "kind": "open-source",
+        "status": "source-declared",
+        "requiresReview": false,
         "evidence": [
           {
-            "kind": "official-source",
-            "label": "Официальный источник; точные условия ещё нужно сверить",
-            "url": "https://github.com/NickPittas/DirectorsConsole"
+            "kind": "license",
+            "label": "MIT license",
+            "url": "https://api.github.com/repos/nickpittas/directorsconsole/license"
           }
         ]
       },
@@ -17713,6 +17943,11 @@
           "kind": "official-source",
           "label": "Официальный источник",
           "url": "https://github.com/NickPittas/DirectorsConsole"
+        },
+        {
+          "kind": "license",
+          "label": "MIT license",
+          "url": "https://api.github.com/repos/nickpittas/directorsconsole/license"
         }
       ],
       "agentEligibility": {
@@ -19469,7 +19704,7 @@
         "evidence": [
           {
             "kind": "license",
-            "label": "Other license",
+            "label": "MIT license",
             "url": "https://api.github.com/repos/openclaw/openclaw/license"
           },
           {
@@ -19487,7 +19722,7 @@
         },
         {
           "kind": "license",
-          "label": "Other license",
+          "label": "MIT license",
           "url": "https://api.github.com/repos/openclaw/openclaw/license"
         },
         {
@@ -36456,8 +36691,10 @@
         }
       ],
       "agentEligibility": {
-        "eligible": true,
-        "reasons": [],
+        "eligible": false,
+        "reasons": [
+          "repository-archived"
+        ],
         "installAllowed": false
       }
     },
@@ -41277,7 +41514,7 @@
         "evidence": [
           {
             "kind": "license",
-            "label": "Other license",
+            "label": "MIT license",
             "url": "https://api.github.com/repos/mutonby/openshorts/license"
           },
           {
@@ -41295,7 +41532,7 @@
         },
         {
           "kind": "license",
-          "label": "Other license",
+          "label": "MIT license",
           "url": "https://api.github.com/repos/mutonby/openshorts/license"
         },
         {
@@ -45334,8 +45571,10 @@
         }
       ],
       "agentEligibility": {
-        "eligible": true,
-        "reasons": [],
+        "eligible": false,
+        "reasons": [
+          "repository-archived"
+        ],
         "installAllowed": false
       }
     },
@@ -47864,8 +48103,10 @@
         }
       ],
       "agentEligibility": {
-        "eligible": true,
-        "reasons": [],
+        "eligible": false,
+        "reasons": [
+          "repository-archived"
+        ],
         "installAllowed": false
       }
     },
@@ -54829,7 +55070,7 @@
         "evidence": [
           {
             "kind": "license",
-            "label": "Other license",
+            "label": "Apache-2.0 license",
             "url": "https://api.github.com/repos/juliusbrussee/caveman/license"
           },
           {
@@ -54852,7 +55093,7 @@
         },
         {
           "kind": "license",
-          "label": "Other license",
+          "label": "Apache-2.0 license",
           "url": "https://api.github.com/repos/juliusbrussee/caveman/license"
         },
         {
@@ -57055,9 +57296,14 @@
         "original": "Elastic-2.0 (source-available; managed-service and license-key restrictions apply)",
         "spdx": "Elastic-2.0",
         "kind": "source-available",
-        "status": "editor-reviewed",
+        "status": "source-declared",
         "requiresReview": false,
         "evidence": [
+          {
+            "kind": "license",
+            "label": "Other license",
+            "url": "https://api.github.com/repos/ojuschugh1/sqz/license"
+          },
           {
             "kind": "license",
             "label": "Official repository license file reviewed 2026-08-17",
@@ -57070,6 +57316,11 @@
           "kind": "official-source",
           "label": "Официальный источник",
           "url": "https://github.com/ojuschugh1/sqz"
+        },
+        {
+          "kind": "license",
+          "label": "Other license",
+          "url": "https://api.github.com/repos/ojuschugh1/sqz/license"
         },
         {
           "kind": "license",

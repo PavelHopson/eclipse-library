@@ -46,6 +46,7 @@ jobs:
           node --check scripts/review-preview.mjs
       - name: Validate structured catalog
         run: |
+          node --test scripts/image-prompt-codes.test.mjs scripts/coffee-cat.test.mjs
           node scripts/build-catalog-index.mjs --check
           node scripts/build-catalog-runtime.mjs --check
           node scripts/build-license-review-queue.mjs --check

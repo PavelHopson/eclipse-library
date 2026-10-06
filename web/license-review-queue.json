@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "sourceHash": "3f8e21552206e40c4579153eea692d70ad5c512d7eb82d1756d0f404ccb5c6d2",
+  "sourceHash": "95873f248b1b792daf9154552772fe8d824add2e427feae36453850b28eb158c",
   "policy": {
     "automaticApprovalForbidden": true,
     "directInstallForbidden": true,
@@ -16,8 +16,8 @@
     "byBucket": {
       "content-terms": 33,
       "grey-reference": 38,
-      "manual-other": 24,
-      "repository-license-not-detected": 25,
+      "manual-other": 25,
+      "repository-license-not-detected": 24,
       "service-terms": 93
     }
   },
@@ -732,6 +732,27 @@
           "kind": "official-source",
           "label": "Официальный источник; точные условия ещё нужно сверить",
           "url": "https://web3forms.com"
+        }
+      ]
+    },
+    {
+      "id": "image-generation-visual-codebook",
+      "title": "Генерация изображений: 100 визуальных приёмов",
+      "type": "guide",
+      "url": "https://abhijayvuyyuru.substack.com/p/try-these-100-code-that-make-your",
+      "decision": "reference",
+      "riskLevel": "low",
+      "currentLicense": "Условия сайта автора; права на повторное использование его текста нужно проверить, открытая лицензия не подтверждена. Русские пояснения и примеры — собственная редакционная работа Eclipse Library.",
+      "reviewStatus": "verified",
+      "bucket": "manual-other",
+      "priority": "P2",
+      "reason": "The current official source does not provide enough normalized license evidence.",
+      "nextStep": "Open the official source and record the exact grant, restrictions, owner and evidence URL.",
+      "evidence": [
+        {
+          "kind": "source",
+          "label": "Первоисточник и авторские условия",
+          "url": "https://abhijayvuyyuru.substack.com/p/try-these-100-code-that-make-your"
         }
       ]
     },
@@ -1467,27 +1488,6 @@
           "kind": "official-source",
           "label": "Официальный источник; точные условия ещё нужно сверить",
           "url": "https://github.com/virattt/dexter"
-        }
-      ]
-    },
-    {
-      "id": "director-s-console-github-com",
-      "title": "Director's Console",
-      "type": "prompt",
-      "url": "https://github.com/NickPittas/DirectorsConsole",
-      "decision": "reference",
-      "riskLevel": "medium",
-      "currentLicense": "Нужно проверить в официальном источнике",
-      "reviewStatus": "inferred",
-      "bucket": "repository-license-not-detected",
-      "priority": "P2",
-      "reason": "GitHub does not expose a detected repository license. Source availability alone grants no reuse rights.",
-      "nextStep": "Inspect repository root, README and package-specific directories; if no grant exists, mark reference-only.",
-      "evidence": [
-        {
-          "kind": "official-source",
-          "label": "Официальный источник; точные условия ещё нужно сверить",
-          "url": "https://github.com/NickPittas/DirectorsConsole"
         }
       ]
     },

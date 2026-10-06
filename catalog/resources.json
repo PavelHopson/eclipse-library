@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "migratedAt": "2026-08-03",
   "totals": {
-    "items": 744
+    "items": 772
   },
   "items": [
     {
@@ -45211,6 +45211,80 @@
         "category": "Source verification",
         "subcategory": "Forgotten bookmarks, builders, media, datasets and rejected sources"
       }
+    },
+    {
+      "id": "image-generation-visual-codebook",
+      "url": "https://abhijayvuyyuru.substack.com/p/try-these-100-code-that-make-your",
+      "title": "Генерация изображений: 100 визуальных приёмов",
+      "type": "guide",
+      "category": "Изображения",
+      "subcategory": "Генерация изображений",
+      "simpleDescription": "Справочник 100 творческих подсказок: ракурс, композиция, свет, предметка и визуальные стили. Русские объяснения, поиск и копирование. Не официальные команды ChatGPT или Gemini.",
+      "useCases": [
+        "Найти точное описание ракурса, освещения или композиции",
+        "Подготовить промпт для портрета, lookbook, предметки и обложки"
+      ],
+      "platforms": [
+        "Web"
+      ],
+      "license": "Условия сайта автора; права на повторное использование его текста нужно проверить, открытая лицензия не подтверждена. Русские пояснения и примеры — собственная редакционная работа Eclipse Library.",
+      "licenseEvidence": [
+        {
+          "kind": "source",
+          "label": "Первоисточник и авторские условия",
+          "url": "https://abhijayvuyyuru.substack.com/p/try-these-100-code-that-make-your"
+        }
+      ],
+      "pricing": "Чтение справочника бесплатно; стоимость генерации зависит от выбранного сервиса.",
+      "access": {
+        "cost": "free",
+        "signup": "none",
+        "runtime": "local"
+      },
+      "trust": "community",
+      "trustReason": "06.10.2026 сверены все 100 обозначений, порядок и регистр по статье. Проверка касается справочника, не качества генераторов.",
+      "projects": [
+        "Eclipse Library",
+        "Text2Image",
+        "Shotforge",
+        "Eclipse Media"
+      ],
+      "decision": "reference",
+      "riskLevel": "low",
+      "risks": [
+        "Обозначения не включают скрытые функции и не гарантируют качество, идентичность лица или техническую точность.",
+        "Текст и изображения автора не имеют подтверждённой открытой лицензии; сохраняем короткие названия и собственные пояснения."
+      ],
+      "verifiedAt": "2026-10-06",
+      "quickStart": [
+        "Откройте раздел «Изображения» в навигации Library и найдите нужный приём.",
+        "Опишите сцену, выберите 2–4 приёма и уточните формат/цвета/ограничения."
+      ],
+      "reviewStatus": "verified",
+      "addedAt": "2026-10-06",
+      "guide": "image-generation-codebook",
+      "source": {
+        "file": "guides/image-generation-codebook.md",
+        "line": 1,
+        "category": "Изображения",
+        "subcategory": "Генерация изображений"
+      },
+      "article": {
+        "title": "Try These 100 Codes That Make Your ChatGPT / Gemini Images Look Better (No Design Skills Needed)",
+        "author": "Abhijay Arora Vuyyuru",
+        "publishedAt": "2026-08-31",
+        "checkedAt": "2026-10-06"
+      },
+      "verification": {
+        "scope": "100 labels, sequence and case compared with the source; original Russian editorial descriptions",
+        "generationTested": false
+      },
+      "correctionHistory": [
+        {
+          "date": "2026-10-06",
+          "change": "Добавлена новая карточка после проверки отсутствия дубля URL. Создан словарь с собственными пояснениями; 100 обозначений — творческие подсказки, не команды генераторов."
+        }
+      ]
     }
   ]
 }

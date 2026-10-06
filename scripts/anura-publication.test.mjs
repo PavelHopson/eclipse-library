@@ -15,7 +15,7 @@ test('production smoke refuses third-party or credential-bearing origins',()=>{
 });
 test('deployment is gated on trusted master push; fork/PR cannot access deploy credentials',()=>{
  const y=readFileSync(new URL('../.github/workflows/deploy-vps.yml',import.meta.url),'utf8');
- const condition=y.match(/    if: >-\r?\n([\s\S]+?)\r?\n    runs-on:/)?.[1];assert.ok(condition);
+ const condition=y.match(/    if: >-\r?\n([\s\S]+?)(?=\r?\n    [a-z][a-z-]*:)/)?.[1];assert.ok(condition);
  assert.match(condition,/github\.event_name == 'workflow_run'/);
  assert.match(condition,/github\.event\.workflow_run\.event == 'push'/);
  assert.match(condition,/github\.event\.workflow_run\.head_repository\.full_name == github\.repository/);
@@ -23,8 +23,11 @@ test('deployment is gated on trusted master push; fork/PR cannot access deploy c
  assert.match(condition,/github\.event\.workflow_run\.conclusion == 'success'/);
  assert.match(condition,/github\.event_name == 'workflow_dispatch' && github\.ref == 'refs\/heads\/master'/);
  const trusted={event_name:'workflow_run',ref:'refs/heads/master',repository:'PavelHopson/eclipse-library',event:{workflow_run:{event:'push',head_branch:'master',head_repository:{full_name:'PavelHopson/eclipse-library'},conclusion:'success'}}};
- const allowed=github=>runInNewContext(condition,{github},{timeout:100})===true;
+ // GitHub expressions allow hyphenated job names; JavaScript needs brackets.
+ const jsCondition=condition.replace('needs.deployment-scope.', "needs['deployment-scope'].");
+ const allowed=(github,required='true')=>runInNewContext(jsCondition,{github,needs:{'deployment-scope':{outputs:{required}}}},{timeout:100})===true;
  assert.ok(allowed(trusted));
+ if(condition.includes('needs.'))assert.equal(allowed(trusted,'false'),false);
  for(const change of [{event:'pull_request'},{head_branch:'feature'},{head_repository:{full_name:'someone/fork'}},{conclusion:'failure'}]){
   const candidate=structuredClone(trusted);Object.assign(candidate.event.workflow_run,change);assert.equal(allowed(candidate),false);
  }

@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "totals": {
-    "guides": 79
+    "guides": 80
   },
   "guides": [
     {
@@ -463,6 +463,13 @@
       "name": "mcp-runtime-audit",
       "title": "Безопасный runtime-аудит MCP server",
       "description": "",
+      "modules": 0,
+      "lessons": 0
+    },
+    {
+      "name": "image-generation-codebook",
+      "title": "Генерация изображений: словарь 100 визуальных приёмов",
+      "description": "Русский справочник ракурсов, света, композиции и визуальных стилей.",
       "modules": 0,
       "lessons": 0
     },

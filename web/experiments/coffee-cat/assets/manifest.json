@@ -1,0 +1,55 @@
+{
+  "schemaVersion": 1,
+  "frames": 96,
+  "fps": 24,
+  "duration": 4,
+  "sourceWidth": 1280,
+  "sourceHeight": 720,
+  "columns": 12,
+  "rows": 8,
+  "idleFrame": 40,
+  "trackingRange": [
+    28,
+    56
+  ],
+  "sipRange": [
+    64,
+    95
+  ],
+  "seamless": false,
+  "desktopDecodedBytes": 49766400,
+  "mobileDecodedBytes": 22118400,
+  "rights": "User-supplied for this Library example; no general redistribution license declared.",
+  "files": [
+    {
+      "file": "sources/coffee-cat.mp4",
+      "bytes": 1042093,
+      "sha256": "47a1eb27e370380a0e8a48d7fcca3d7be8e214c0a8b6280a503dfe8d33e11b85"
+    },
+    {
+      "file": "sources/character-reference.jpeg",
+      "bytes": 85948,
+      "sha256": "656eef46fef9282f5eafc203e70729e82d5ffe13c079aa5b9dac8a9f836da7d7"
+    },
+    {
+      "file": "sources/horizontal-sprite.png",
+      "bytes": 4098111,
+      "sha256": "e43b04fb24bc7299d6e245a902158191a80110e6b376bcc99930a398a9a63e6a"
+    },
+    {
+      "file": "assets/atlas.webp",
+      "bytes": 673286,
+      "sha256": "57674a39673a4cd5d44fa9b2d3c678ade1f54be5548facd64154119cd31fb51d"
+    },
+    {
+      "file": "assets/atlas-mobile.webp",
+      "bytes": 332430,
+      "sha256": "cbcdb74703529d706d6a825030dfc6db365adf24c67ac9a95f23f55e8c135b11"
+    },
+    {
+      "file": "assets/poster.webp",
+      "bytes": 29484,
+      "sha256": "df736a8f0a4d2102a3f187fa18a40bc3ebbd98b87467fa41ff548ac6796690a4"
+    }
+  ]
+}
