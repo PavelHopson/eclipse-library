@@ -82,6 +82,8 @@ jobs:
       - name: Validate static payload
         run: |
           node --test scripts/image-prompt-codes.test.mjs scripts/coffee-cat.test.mjs
+          node --test scripts/character-heroes.test.mjs scripts/artefakt.test.mjs
+          node --check web/experiments/character-heroes/script.mjs
           node scripts/build-catalog-index.mjs --check
           node scripts/build-catalog-runtime.mjs --check
           node scripts/build-license-review-queue.mjs --check
@@ -161,3 +163,4 @@ jobs:
           node scripts/gwen-publication.mjs --smoke https://library.eclipse-forge.ru/
           node scripts/anura-publication.mjs --smoke https://library.eclipse-forge.ru/
           node scripts/original-motion-publication.mjs --smoke https://library.eclipse-forge.ru/
+          node scripts/verify-character-heroes-release.mjs https://library.eclipse-forge.ru/

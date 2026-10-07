@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="ru">
+<head>
+ <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+ <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' blob:; connect-src 'self'; font-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'">
+ <title>Живые персонажи — Eclipse Library</title>
+ <meta name="description" content="Три интерактивных персонажа: кот, лисёнок и кот с кофе. Плавная покадровая реакция на курсор, касание и клавиатуру.">
+ <link rel="icon" href="../../assets/brand/eclipse-library-favicon.svg" type="image/svg+xml">
+ <link rel="stylesheet" href="style.css"><script type="module" src="script.mjs"></script>
+</head>
+<body data-scene="curious">
+ <header class="topbar"><a href="../../animations.html#character-heroes-experiment">← Все анимации</a><span>ECLIPSE / ЛАБОРАТОРИЯ ДВИЖЕНИЯ</span><a href="guide.html">Как это сделано ↗</a></header>
+ <main>
+  <div class="intro"><p class="eyebrow">ТРИ ХАРАКТЕРА. ОДНО ДВИЖЕНИЕ.</p><h1>У каждого —<br><em>своя реакция.</em></h1><p class="lead">Проведите по сцене. Иногда одного взгляда достаточно.</p></div>
+  <nav class="characters" aria-label="Выбрать персонажа">
+   <button type="button" data-character="curious" aria-pressed="true"><span>01</span> Любопытный кот</button>
+   <button type="button" data-character="fox" aria-pressed="false"><span>02</span> Лисёнок</button>
+   <button type="button" data-character="grumpy" aria-pressed="false"><span>03</span> Кот с кофе</button>
+  </nav>
+  <section class="exhibit" aria-labelledby="scene-title">
+   <div class="scene-heading"><div><p id="scene-label" class="eyebrow">01 / ЛЮБОПЫТСТВО</p><h2 id="scene-title">Любопытный</h2></div><p id="subtitle">Всё вокруг заслуживает внимания.</p></div>
+   <div id="stage" class="stage" tabindex="0" role="group" aria-label="Любопытный кот. Стрелки влево и вправо меняют направление, Home возвращает исходную позу." aria-describedby="help">
+    <img id="poster" src="assets/curious/poster.webp" alt="Чёрный пушистый кот на фиолетовом фоне" width="1280" height="720" fetchpriority="high">
+    <canvas id="character" width="1280" height="720" aria-hidden="true"></canvas>
+    <div class="stage-note" aria-hidden="true"><span id="stage-mode">КАДРЫ ЗАГРУЖАЮТСЯ</span><span id="frame-counter">001 / 121</span></div>
+   </div>
+   <div class="toolbar"><div class="actions"><button id="play" type="button" disabled>Посмотреть движение</button><button id="pause" type="button" aria-pressed="false" disabled>Пауза</button><button id="home" type="button" disabled>В исходную позу</button></div><p id="status" role="status" aria-live="polite">Загружаем кадры…</p><button id="retry" type="button" hidden>Повторить загрузку</button></div>
+   <div class="direction"><span aria-hidden="true">ВЛЕВО</span><label for="direction" class="sr-only">Направление взгляда</label><input id="direction" type="range" min="0" max="100" value="50" disabled><span aria-hidden="true">ВПРАВО</span></div>
+   <p id="help" class="help">Мышь или палец — направление. Стрелки ← → — точная настройка. Уберите курсор — персонаж вернётся в исходную позу.</p>
+  </section>
+ </main>
+ <footer><span>ЖИВЫЕ ПЕРСОНАЖИ / 2026</span><span>Исходная композиция · Все кадры · Без видеоплеера</span><a href="guide.html#sources">Материалы и спрайты ↗</a></footer>
+ <noscript><p class="noscript">JavaScript выключен. Доступен статичный кадр; для интерактивной версии включите JavaScript.</p></noscript>
+</body>
+</html>

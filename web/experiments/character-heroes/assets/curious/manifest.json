@@ -1,0 +1,51 @@
+{
+  "schemaVersion": 1,
+  "frames": 121,
+  "fps": 24,
+  "duration": 5.041667,
+  "sourceWidth": 1280,
+  "sourceHeight": 720,
+  "columns": 12,
+  "rows": 11,
+  "idleFrame": 0,
+  "trackingAnchors": [
+    24,
+    0,
+    -33
+  ],
+  "cyclicIndex": true,
+  "seamless": false,
+  "rights": "User-provided materials for this Library example. No general redistribution license declared.",
+  "files": [
+    {
+      "file": "sources/curious/original.mp4",
+      "bytes": 4364181,
+      "sha256": "d9a1bef5d0fe18f2a30ed3ad57442a40a0c63201ef704810ce7db1d787a8eb9d"
+    },
+    {
+      "file": "sources/curious/reference.png",
+      "bytes": 1836448,
+      "sha256": "b91e95ed87d570283bd66228f7d1f1a4d592989eeda683a128d86384a19dfdd9"
+    },
+    {
+      "file": "sources/curious/horizontal-sprite.png",
+      "bytes": 5095201,
+      "sha256": "649cb8befb8e1e317ef0c0579745c62adc53f14f58209e6d953ce066da1d3aef"
+    },
+    {
+      "file": "assets/curious/atlas.webp",
+      "bytes": 791236,
+      "sha256": "a9fbc18f32d8c1432e477d987b66d245ff4a59c5b67141eb20bb82b3a38e3630"
+    },
+    {
+      "file": "assets/curious/atlas-mobile.webp",
+      "bytes": 361092,
+      "sha256": "d606854c0e236ffe385b736895d4c8a090b39b35959e94792b94ad0cddb70fb5"
+    },
+    {
+      "file": "assets/curious/poster.webp",
+      "bytes": 46738,
+      "sha256": "d607ddd8ca65d69f0701df39923dd084bd96d9247c2e5e5684d1a54df4b07c8e"
+    }
+  ]
+}

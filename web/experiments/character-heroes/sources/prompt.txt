@@ -1,0 +1,4 @@
+Create an interactive hero using the uploaded 5-second cat animation.
+Use FFmpeg to extract every frame, combine them into a single horizontal sprite sheet, and build a frame-based animation system in vanilla JavaScript.
+Make the character naturally track the mouse by smoothly scrubbing through the frames based on cursor position, with eased interpolation and a smooth return to the idle pose when the mouse leaves.
+Preserve the original composition, keep the character centered, and make the interaction feel premium and responsive.

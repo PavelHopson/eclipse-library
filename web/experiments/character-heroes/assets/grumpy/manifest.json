@@ -1,0 +1,51 @@
+{
+  "schemaVersion": 1,
+  "frames": 97,
+  "fps": 24,
+  "duration": 4.041667,
+  "sourceWidth": 1280,
+  "sourceHeight": 720,
+  "columns": 12,
+  "rows": 9,
+  "idleFrame": 40,
+  "trackingAnchors": [
+    24,
+    40,
+    52
+  ],
+  "cyclicIndex": false,
+  "seamless": false,
+  "rights": "User-provided materials for this Library example. No general redistribution license declared.",
+  "files": [
+    {
+      "file": "sources/grumpy/original.mp4",
+      "bytes": 4264718,
+      "sha256": "8e35419354dc79425486a5c36f514d3b9557a79e2188f0162c6170cd3a67ded7"
+    },
+    {
+      "file": "sources/grumpy/reference.png",
+      "bytes": 1772734,
+      "sha256": "c44b44c8fc37f880a69d048cfb3bdc0755a32d0726bd5036560eba478de85ff4"
+    },
+    {
+      "file": "sources/grumpy/horizontal-sprite.png",
+      "bytes": 4983131,
+      "sha256": "fd39a3de3707bb121fa0cc57f4722f4e07e59d7ddbc5e20435dc2a18e1503174"
+    },
+    {
+      "file": "assets/grumpy/atlas.webp",
+      "bytes": 706554,
+      "sha256": "266600203af61423d97977dcb497b8b787e5adfbffb7eace0b337c92058bd91e"
+    },
+    {
+      "file": "assets/grumpy/atlas-mobile.webp",
+      "bytes": 312672,
+      "sha256": "15ba8575420ba15da18688063e9f17e6303247d9e758d123882dbd796a12c43a"
+    },
+    {
+      "file": "assets/grumpy/poster.webp",
+      "bytes": 43868,
+      "sha256": "11f20017ad7641134d5323f9fa0f061a7e17f17abf76d9a6a1eeae9508525d5b"
+    }
+  ]
+}

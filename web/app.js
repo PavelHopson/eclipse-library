@@ -458,6 +458,7 @@
   function absUrl(u) {
     // The codebook guide links to local Library assets, not GitHub source pages.
     if (u === '/images.html' || u === '/image-prompt-codes.json') return u;
+    if (['/experiments/artefakt/index.html', '/experiments/artefakt/guide.html', '/experiments/artefakt/sources/original-prompt.txt', '/animations.html#artefakt-experiment'].includes(u)) return u;
     if (/^https?:\/\//.test(u)) return u;
     if (u.startsWith('#')) return REPO_URL + '/blob/master/README.md' + u;
     return `${REPO_URL}/blob/master/${u.replace(/^\.?\//, '')}`;

@@ -1,0 +1,1596 @@
+# Recreate this site as a single HTML file: ARTEFAKT
+You are an expert creative front-end developer. Produce a **single self-contained
+`index.html`**
+that reproduces the project below **exactly** — same layout, copy, visuals, motion and
+interaction.
+Pure HTML/CSS/JS in one file: no build step, no framework, no bundler. ES modules inline
+in a
+`<script type="module">`. **three.js and Lenis are the only external code**, pulled through an
+import map; the scramble decoder, the shared ticker, the reveal observers, the pointer field,
+the
+scroll-scrubbed frame reel, the card tilt and the preloader are all written by hand. Hardcode
+every
+value given here as a fixed constant.
+## What it is
+A one-page concept for **ARTEFAKT**, a technical outerwear label. The page is near-black
+and
+monospaced throughout, drawn on a **10px lattice** — a grid of `#0d0d0d` cells separated
+by pure
+black hairlines — that runs the full height of the document and **brightens in squares under
+the
+cursor**. Every surface is either that lattice or a hairline at 25% white; nothing on this page is
+ever filled.
+The subject is a **lacquered, iridescent black puffer jacket rendered live in WebGL**. There
+is one
+canvas and one WebGL context for it: the garment is framed in the hero, and as the reader
+scrolls it
+**travels** — growing, dropping, sliding left and turning 40° — into the second screen, where
+it
+comes to rest behind the specification rows. It answers the cursor the whole way (turntable
+on the
+horizontal axis, roll on the vertical) and its sleeves and belt straps **trail the turn on
+springs**.
+A second, pinned instance of the same model runs off the bottom-left corner of the FAQ
+screen.
+Six blocks, and two layouts rather than a responsive scale between them:
+1. **Hero** — a chromed ARTEFAKT wordmark plate at 20% behind the garment, bracketed
+statements
+against each margin, the claim and a bracketed CTA on the bottom edge, two corner cards
+under it.
+2. **Details** — "DETAILS MATTER." at 70px against five numbered specification rows, with
+the
+travelling garment full-bleed behind them.
+3. **Collections** — four product cards that **tilt towards the cursor** with the garment
+standing
+off the face in its own 3D layer; the tag chips trade for a SHOP NOW link on hover.
+4. **Technology** — a pinned stage whose scroll **scrubs a 61-frame reel** of the jacket's
+five
+material layers exploding apart, while a single specification card walks down them on a
+leader
+line drawn to the layer it names.
+5. **FAQ** — a description list over the pinned second instance of the garment.
+6. **Footer** — four link columns, a real newsletter form, a rule and a closing line.
+Over all of it: a **loading curtain** gated on real readiness, and text that **decodes from
+random
+glyphs** — on arrival, on hover and on focus — everywhere a label appears.
+## The two layouts, and why there are only two
+This is the single most important structural fact about the page, and getting it wrong will
+produce
+a site that looks approximately right at one width and broken at every other.
+- **At and above the frame breakpoint the page reproduces a 1440×800 artboard.** The root
+font-size
+*is* that artboard's scale factor, so every `rem` in the desktop layout is one artboard unit
+and
+the whole composition fills the viewport. Each screen is `50rem` tall — the artboard's own
+800
+units — and pieces are positioned **absolutely at the artboard's own coordinates**.
+- **Below it there is no artboard.** The root font-size is a plain `16px` and the layout is
+ordinary
+responsive flow: a single column, then two, with its own type steps.
+The breakpoint is **not** a width alone:
+```css
+/* the frame layout */
+@media (min-width: 1024px) and (min-aspect-ratio: 1/1) { … }
+/* the flow layout — keep these two conditions exact mirrors of each other */
+@media (max-width: 1023.98px), (max-aspect-ratio: 0.9999/1) { … }
+```
+A portrait tablet (1024×1366) is closer to a large phone than to a desktop, so it gets flow. Use
+a
+custom media query or a class toggled by `matchMedia` — but the two conditions must be
+exact
+complements, or the flow layout gets drawn at the artboard's scale.
+**The root scale is bound by whichever axis runs out first:**
+```css
+html { font-size: min(1.111111vw, 2lvh); } /* 16*100/1440 across, 16*100/800 down */
+@media (max-width: 1023.98px), (max-aspect-ratio: 0.9999/1) { html { font-size: 16px; } }
+```
+The artboard is 1.8:1. On a screen wider than that, the *height* binds, the composition is
+drawn at
+the size that fits and is centred, and a band of bare lattice is left down each side. A
+width-only
+scale crops the bottom off every screen on a maximised 1920×1080 browser — measured,
+45 elements
+fell below the fold. Use `lvh`, not `vh` or `svh`, and make the sections `h-lvh`/`50rem` so the
+two
+agree.
+**The canvas is the window, not 90rem.** Do not cap the page at the artboard's width.
+Where the
+window is wider than the frame, the extra width goes to the gaps between columns. That
+means every
+horizontal coordinate in the desktop layout must be anchored to **an edge or to the centre**,
+never
+to a left offset that only means "the right margin" at exactly 1440 units:
+- right-hand columns are `right: 2.5rem` (the 40-unit margin), not `left: 983px`;
+- centred pieces are `left: 50%` with a `translateX(-50%)`, or auto margins;
+- the leader lines in the technology stack are drawn from `50%` and `100%`.
+At exactly 1440 units every one of those resolves to the artboard's own number, so the
+reference
+render is unchanged.
+**Three screens use a centred 800-unit box, and one does not.** Details, Collections and
+FAQ each
+carry pairs that must stay level with each other — one anchored to the top, one to the bottom
+— and
+those drift apart by exactly the slack on a taller screen. So each of those sections is `height:
+100lvh; min-height: 50rem` with an inner box that is `position: absolute; inset-inline: 0; top:
+50%;
+margin-top: -25rem; height: 50rem`, and the children position against **that**. Use a
+negative
+margin, never `translateY(-50%)` — a transform makes the box a containing block for
+`background-attachment: fixed` and knocks the lattice panels inside out of step with the
+page.
+The **hero** is the one screen that may simply fill the viewport: nothing in it is anchored to
+the
+top, so extra height widens the space between the centred garment and the copy beneath it,
+which is
+where it is least visible. The **technology** stage is pinned, so its slack falls off the bottom of
+a stage nobody is looking at; its box fills the stage rather than being centred in it.
+## Page shell & libraries
+- **Import map:**
+```html
+<script type="importmap">
+{"imports":{
+"three": "https://cdn.jsdelivr.net/npm/three@0.185.0/build/three.module.js",
+"three/addons/": "https://cdn.jsdelivr.net/npm/three@0.185.0/examples/jsm/",
+"lenis": "https://cdn.jsdelivr.net/npm/lenis@1.3.26/dist/lenis.mjs"
+}}
+</script>
+```
+From `three/addons/` you need `loaders/GLTFLoader.js`, `loaders/DRACOLoader.js` and
+`environments/RoomEnvironment.js`. The DRACO decoder path is
+`https://cdn.jsdelivr.net/npm/three@0.185.0/examples/jsm/libs/draco/gltf/` — the model is
+Draco-compressed and **will not load without it**.
+- **The display face is IBM 3270**, served from the bucket (see Assets). Everything on the
+page is
+set in it; there is no second typeface.
+```css
+@font-face {
+font-family: "3270";
+src: url("https://storage.getlayers.ai/assets/artefakt-5f7a0c9962/fonts/3270-Regular.otf")
+format("opentype");
+font-weight: 400; font-style: normal; font-display: swap;
+}
+```
+Fall back to `ui-monospace, SFMono-Regular, Menlo, monospace`. **Monospace is
+load-bearing**: the
+scramble decoder substitutes characters in place and nothing may reflow while it runs.
+- **Smooth scroll, via Lenis:** `new Lenis({ lerp: 0.075, smoothWheel: !reduced, syncTouch:
+!reduced })`,
+driven from a `requestAnimationFrame` loop. `0.075` rather than the library default of `0.1`
+— a
+wheel notch settles over about 25 frames instead of 15. Anything asking for
+`prefers-reduced-motion: reduce` gets the platform's own scrolling untouched. Scroll to the
+top on
+load.
+- **One shared rAF ticker.** A `Set` of subscribers, each with its own minimum frame gap
+read live
+every frame; the loop starts on the first subscriber and `cancelAnimationFrame`s when the
+last
+leaves, and one subscriber throwing must not kill it. The pointer field, the scramble
+decoders,
+the badge idles, the wordmark sheen, the technology reel, the card walk, the preloader
+count and
+the WebGL scene all subscribe here. **Do not start a second rAF loop anywhere.**
+- `html { background-color: #000; }` — the canvas colour is taken from `html` deliberately, so
+a
+rubber-band overscroll shows the page's own black rather than a white flash.
+- The page shell is `position: relative; min-height: 100lvh; overflow-x: clip` (clip, **not**
+hidden — `hidden` makes it a scroll container and breaks sticky positioning for the pinned
+sections).
+## Fixed parameters (bake these in)
+```js
+/* ── Palette
+─────────────────────────────────────────────────────────
+────── */
+--hero-surface: #000000 /* the hairlines between lattice cells, and the page ground */
+--hero-surface-lattice: #0d0d0d /* the cell fill */
+--hero-content: #ffffff
+--hero-content-muted: rgb(255 255 255 / 0.4) /* body prose */
+--hero-content-faint: rgb(255 255 255 / 0.25) /* index numerals, legal line */
+--hero-rule: rgb(255 255 255 / 0.25) /* every border on the page */
+/* ── Type ramp, rem against the 1440 base (16px root) ──────────────────────
+*/
+caption 0.75rem (floored at 12px) badge captions, the loading count
+body 1.125rem (floored at 12px) nav, markers, rows, most copy
+lede 1.25rem standfirsts, the CTA labels
+fine 0.8125rem (floored at 12px) the newsletter consent line
+chip 0.875rem (floored at 12px) tag chips
+title 1.625rem product card titles
+display 4.375rem (70px) section headlines, frame layout only
+display-tablet 3.125rem (50px) 640–1023
+display-compact 2.5rem (40px) below 640
+leading: display 0.9 · headline 0.8 · caption/prose 1.1
+tracking: -0.02em on captions and display
+/* The four smallest roles carry `max(<rem>, 12px)`. At 1024 the artboard renders
+at 71% and 12 units becomes 8.5px — the badge captions and chips stopped being
+readable while remaining perfectly proportional. At 1440 the floor is a no-op. */
+/* ── Lattice
+─────────────────────────────────────────────────────────
+────── */
+pitch 0.625rem (10 units) gap 0.125rem (2 units) offset -gap/2
+reach 12rem (192px) /* the pointer highlight's radius */
+stage-fade 17rem (272px) /* how far the product canvas dissolves at its foot */
+/* ── Motion
+─────────────────────────────────────────────────────────
+─────── */
+duration-fast 150ms duration-normal 250ms ease-entrance cubic-bezier(0.2, 0, 0, 1)
+```
+**The lattice must land on whole pixels or it stops being squares.** Pitch and gap are rem —
+they
+are artboard units and scale with the frame — and a rem is not a whole number of pixels at
+most
+window sizes (at 1920 the pitch resolves to 13.33px). A repeating gradient with fractional
+stops is
+antialiased per bar, and because the fraction only comes round every three cells the error
+repeats
+on a three-cell beat: a ripple of light and dark cells across the screen that crawls when
+anything
+moves. Round all three to the device pixel grid, guarded:
+```css
+@supports (width: round(1px, 1px)) {
+:root {
+--lattice-pitch: round(0.625rem, 1px);
+--lattice-gap: round(0.125rem, 1px);
+--lattice-offset: round(calc(var(--lattice-gap) / -2), 1px);
+}
+}
+```
+## The lattice, and the light in it
+The page's surface is **two elements, not one painted background**, and the order is
+load-bearing.
+```css
+/* The shell keeps only its colour. */
+.lattice-shell { background-color: #0d0d0d; }
+/* FIRST in the tree: the pointer highlight, position: fixed. */
+.lattice-beam {
+position: fixed; inset: 0; pointer-events: none;
+background-image:
+radial-gradient(circle var(--lattice-reach) at var(--pointer-x) var(--pointer-y),
+rgb(255 255 255 / 0.07) 0%, rgb(255 255 255 / 0.055) 26%,
+rgb(255 255 255 / 0.034) 52%, rgb(255 255 255 / 0.016) 74%,
+rgb(255 255 255 / 0.005) 89%, transparent 100%),
+radial-gradient(circle calc(var(--lattice-reach) * 1.75) at var(--pointer-x) var(--pointer-y),
+rgb(255 255 255 / 0.017) 0%, rgb(255 255 255 / 0.009) 48%, transparent 100%),
+radial-gradient(circle calc(var(--lattice-reach) * 1.2) at var(--pointer-lag-x)
+var(--pointer-lag-y),
+rgb(255 255 255 / 0.032) 0%, rgb(255 255 255 / 0.014) 52%, transparent 100%);
+}
+@media (hover: none) and (pointer: coarse) { .lattice-beam { display: none; } }
+/* SECOND in the tree: the grid, position: absolute across the shell. */
+.lattice-bars {
+position: absolute; inset: 0; pointer-events: none;
+background-image:
+repeating-linear-gradient(to right,
+#000 0 var(--lattice-gap), transparent var(--lattice-gap) var(--lattice-pitch)),
+repeating-linear-gradient(to bottom,
+#000 0 var(--lattice-gap), transparent var(--lattice-gap) var(--lattice-pitch));
+background-position: var(--lattice-offset) var(--lattice-offset);
+}
+```
+**The bars paint over the light, and that is the whole effect.** The gap gradients are opaque
+black,
+so the highlight survives only inside the cells: it reads as the grid *brightening* in squares,
+never
+as a lamp shining across it. Swap the two elements and it stops looking like the page.
+**The falloff curve is what stops it reading as a blob**, not the radius. A plain
+colour→transparent
+radial is a linear cone with a flat core and a visible rim; the convex decay through explicit
+stops,
+plus the much wider halo at a sixth of the strength, plus the same treatment on the trailing
+pair,
+is what dissolves it into the page. Do not simplify these gradients.
+**Why two elements rather than one.** A single element painting all five layers needs
+`background-attachment: fixed` for the highlight, and a fixed background cannot be scrolled
+by the
+compositor — it is repainted every frame over the element's whole visible area, which for the
+page
+shell is the entire viewport for the length of the document. Measured at 4× CPU throttle that
+one
+element held the content sections at 16ms frames; split, they run at 8.5.
+**Opaque lattice panels.** The specification rows, the technology cards, the FAQ rows, the
+nav
+submenu, the CTA buttons and the preloader all sit on an opaque copy of the same surface
+— they
+*knock out* the artwork behind them rather than being transparent cards over it. One
+element, five
+background layers, attachments `scroll, scroll, fixed, fixed, fixed` (one value per layer — a
+short
+list is repeated and silently hands the last layer the wrong attachment):
+```css
+.lattice-panel {
+background-color: #0d0d0d;
+background-image: /* the two bar gradients, then the three radial gradients, in that order */;
+background-position: var(--lattice-offset) var(--lattice-offset),
+var(--lattice-offset) var(--lattice-offset), 0 0, 0 0, 0 0;
+background-attachment: scroll, scroll, fixed, fixed, fixed;
+}
+```
+Because the highlight layers are viewport-anchored, every panel lights up **in phase** with
+the page
+behind it. Never put this on an element that carries a transform — the transform becomes
+the
+containing block and the `fixed` half falls out of step.
+### The pointer field
+One writer for the whole page. Publish the cursor, in viewport pixels, as four custom
+properties on
+`:root`, smoothed on the shared ticker:
+```js
+const LERP = 0.12, LAG_LERP = 0.045; // per 60Hz frame
+const frameLerp = (k, dt) => 1 - Math.pow(1 - k, dt / (1000 / 60));
+// --pointer-x/y chase the raw position at LERP
+// --pointer-lag-x/y chase it at LAG_LERP — the glow's tail
+```
+Park them at `-100vw / -100vh` so nothing is lit before the pointer has been seen; land on
+the
+**first** reading rather than easing in from off-screen. Bail entirely — never start, never write
+—
+on `(hover: none) and (pointer: coarse)` or `prefers-reduced-motion: reduce`. **No
+`pointerleave`
+handler**: sending the coordinates off-screen makes the glow *slide* away rather than stop,
+and a
+spurious leave event snaps it back on the next move.
+## The scramble decoder
+Every label on this page decodes from random glyphs. It is the page's signature.
+```js
+const CHARACTERS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789@#$%&*<>";
+const STEP_MS = 40; // ms between substitution steps, on the shared ticker
+const MAX_STEPS = 22; // step ceiling — a longer label resolves several chars per step
+// charsPerStep = max(1, ceil(text.length / MAX_STEPS))
+```
+Resolution runs **left to right**, one step at a time; every character not yet resolved is a
+random
+glyph from the pool, and **whitespace is held fixed** so on a monospaced face the word
+shapes and
+wrap points are identical on every step. The tick rate never changes, so a long label and a
+short one
+share one texture — which is what stops a mixed cascade reading as several unrelated
+effects.
+Triggers: `mouseenter` and `focus` always; plus **once on arrival** — on load for anything
+above the
+fold, on scrolling into view for everything below it.
+**Accessibility, and it is not optional.** Render the scrambling glyphs in an `aria-hidden` span
+and
+keep the real label in a visually-hidden sibling, so the accessible name stays stable while the
+visible text churns. A screen reader must never be handed `X#@%R`. Skip the effect entirely
+under
+`prefers-reduced-motion: reduce` — rapidly mutating glyphs are exactly what that setting is
+for.
+### Typesetting the prose: bind the small words
+Before a paragraph is decoded, replace the space after every **function word** with a
+non-breaking
+space, so no line ends on a preposition or an article. In a monospaced face a hanging "and"
+is a
+visible stub of identical cells at the edge of the column; measured at 390px the page had 23
+of them.
+```js
+const TIED = new Set([
+"a","an","the", "and","or","but","as","if","so",
+"of","to","in","on","at","by","for","with","from","into",
+"over","under","per","via","no","not",
+"without","within","onto","upon","against","across","around",
+"after","before","through","during","between",
+"is","are","was","be","we","it","its",
+"my","our","your","their","his","her","i",
+"can","may","do","does","did","has","have","had","will","&",
+]);
+```
+A word already carrying sentence punctuation (`.,;:!?`) is left alone — that break is a pause
+the
+reader wants. **On a narrow column (below 640px) cap a bound pair at 20 characters and
+refuse to
+chain** one function word to another: gluing "without compromising" costs twenty characters
+of a line
+that holds twenty-nine, and "can be returned" carries a whole phrase down a line. A wide
+column takes
+no ceiling.
+The hero's claim gets a different treatment — `keepSentences`: make **every** space
+non-breaking
+except the ones after a full stop, so the two sentences on each line are the only hinges. Left
+to
+wrap freely it split "WEATHER-RESISTANT. THERMAL / INSULATION." mid-sentence on a
+phone.
+### Reveal-on-arrival
+Two `IntersectionObserver`s per element, **whichever fires first**, and this is not
+redundancy:
+```js
+const REVEAL_ROOT_MARGIN = "0px 0px -64px 0px";
+watch({ rootMargin: REVEAL_ROOT_MARGIN }); // the ordinary case: scrolling up into
+view
+watch({ threshold: 1 }); // anything already fully on screen
+```
+A hold-back alone has a failure mode that bit this page three times: anything anchored near
+the
+bottom of a viewport-tall section — the footer's copyright sits 40px clear against a 64px band
+— comes
+to rest closer to the bottom edge than the margin is deep and **never reveals at all**. Neither
+observer can be tightened into the other. Fire the callback at most once and disconnect both.
+## The loading curtain
+A full-viewport `z-index: 100` overlay wearing the plain lattice (cells and bars, no highlight),
+fixed, `display: grid; place-items: center`.
+**Gated on real readiness, not on a timer.** Three gates: `document.fonts.ready`,
+`window.load`, and
+a `hero-scene-ready` event the WebGL scene dispatches once its model is compiled. A
+duration would be
+a promise about the network that nothing can keep; this way a warm cache leaves almost
+immediately
+and a cold one is told the truth.
+```js
+const PATIENCE_MS = 8000; // backstop — a preloader that can outlive its gates is worse
+than none
+const FLOOR_MS = 700; // minimum on screen, so a warm cache does not flash the
+curtain
+const COUNT_LERP = 0.08; // how fast the readout chases the real figure, per 60Hz frame
+```
+The readout **chases** the target rather than showing it, and creeps toward the next gate
+rather than
+sitting still between them — `ceiling = finished ? 1 : min(0.97, target + 0.12)` — so the count
+reads
+as something filling rather than as three jumps.
+Contents, centred in a 16rem column (20rem below the frame):
+- the ARTEFAKT logo mark, `height: 3rem` (4rem below the frame), which scales to `1.05`
+on exit;
+- a 1px rule at 25% white with a white fill inside it, driven by `transform: scaleX(progress)`
+from
+`transform-origin: left` — one compositor job per frame, never a width;
+- `LOADING 000` — zero-padded to three digits, tabular numerals, caption size at 25% white
+(body size
+at 40% below the frame, where 25% is present without being legible).
+Four `2.5rem` corner brackets inset `2.5rem` from each corner (two borders each). On exit
+they
+`scale(1.5)` and fade over 700ms while the curtain fades over 500ms — the same gesture
+the buttons
+make when the pointer finds them, at the scale of the whole viewport. Remove the element
+from the DOM
+700ms after it is done.
+Render it in the initial HTML so there is no flash of the page before it, and add
+`<noscript><style>[data-preloader]{display:none!important}</style></noscript>` — where
+scripts never
+run the curtain can never lift.
+## The WebGL product
+One canvas, one context, one subscription to the shared ticker, **for the whole journey
+across two
+screens**. The garment does not hand off from a hero renderer to a details renderer — it
+never
+changes hands at all; only its framing does, driven by scroll. Two canvases would mean two
+contexts,
+two loads of the same model and a cross-fade at the seam.
+### Where it lives
+Wrap the hero and details sections in one **product region**. From the frame breakpoint the
+canvas
+box is `position: sticky` inside that region, `height: 50rem`, `top: calc((100lvh - 50rem) / 2)`,
+and
+the two screens are pulled back over it with a negative margin so the sticky box does not
+also occupy
+a screen of its own. The box is **one artboard tall, not viewport-tall**: viewport-tall it
+overhangs
+the details screen by the difference and the garment spills up into the seam (89px at
+1280×800).
+Below the frame breakpoint **there is no travel**: the canvas is absolutely positioned over
+the
+hero's own product box (`aspect-ratio: 4/3`, `16/9` from `md`) and the details screen has no
+product
+at all. Measure the box's offset from the region's top with a `ResizeObserver` and publish it
+as a
+custom property — the markers lead the screen on a phone, and a canvas pinned to the
+region's top
+would draw the garment straight over them.
+**The bottom edge is dissolved, not cut.** At rest the canvas comes to rest over exactly the
+details
+screen, so its bottom edge lands on the seam with the section below and the garment —
+which runs off
+the bottom of that screen — was being sliced by a hard horizontal line. Mask it:
+```css
+.stage-mask {
+mask-image: linear-gradient(to bottom,
+#000 0,
+#000 calc(100% - var(--stage-fade)),
+rgb(0 0 0 / 0.97) calc(100% - var(--stage-fade) * 0.68),
+rgb(0 0 0 / 0.82) calc(100% - var(--stage-fade) * 0.52),
+rgb(0 0 0 / 0.55) calc(100% - var(--stage-fade) * 0.36),
+rgb(0 0 0 / 0.26) calc(100% - var(--stage-fade) * 0.20),
+rgb(0 0 0 / 0.08) calc(100% - var(--stage-fade) * 0.08),
+transparent 100%);
+}
+```
+**Opaque for the first third, then a long even decay.** Both extremes were wrong: a mask
+makes the
+garment *translucent*, so a linear 160px ramp ghosted the 10px lattice across the whole
+lower body,
+and cutting the ramp to 48px put back the hard line the fade exists to hide. 272px of travel,
+the
+first 87 at full density.
+Give the canvas container `transform: translateZ(0); backface-visibility: hidden` — without its
+own
+compositor layer, a neighbouring fixed element repainting during a scroll (this page has a
+fixed
+lattice beam and a sticky header) invalidates the WebGL composite on WebKit and the
+whole scene
+flickers.
+### Renderer, camera, environment
+```js
+renderer = new WebGLRenderer({ alpha: true, antialias: !coarse,
+powerPreference: coarse ? "default" : "high-performance",
+stencil: false });
+renderer.setClearAlpha(0);
+renderer.autoClear = false;
+renderer.outputColorSpace = SRGBColorSpace;
+renderer.toneMapping = ACESFilmicToneMapping;
+renderer.toneMappingExposure = 0.95;
+camera = new PerspectiveCamera(30, 1, 0.1, 100);
+scene.environment = new PMREMGenerator(renderer).fromScene(new
+RoomEnvironment(), 0.04).texture;
+scene.environmentIntensity = 0.28;
+keyLight = new DirectionalLight(0x2f63ff, 4.5); keyLight.position.set(-2.4, 2.2, 2.6);
+rimLight = new DirectionalLight(0xffd9c0, 2.4); rimLight.position.set( 2.8, 0.6, -2.2);
+```
+The canvas is cleared to alpha 0 so the wordmark plate and the lattice show through
+wherever the
+garment does not cover. Set `role="img"` and an `aria-label` of *"Oversized weather-resistant
+thermal
+jacket, iridescent black"* on the canvas element.
+### The shell's look
+The GLB ships one near-black, fully rough, untextured material. The product is a
+**lacquered,
+iridescent shell**, which needs `MeshPhysicalMaterial` — `MeshStandardMaterial` has no
+iridescence
+layer at all, and the oil-slick sheen is exactly that layer. Upgrade every mesh in place,
+carrying
+`map` and `normalMap` across:
+```js
+const LOOK = {
+colour: 0x070a14,
+metalness: 0.15,
+roughness: 0.32,
+envMapIntensity: 0.45,
+iridescence: 1,
+iridescenceIOR: 1.3,
+iridescenceThicknessRange: [120, 360],
+clearcoat: 1,
+clearcoatRoughness: 0.06,
+};
+```
+Two things here are easy to get wrong and both were measured off the reference render
+(median
+luminance 0.055, median saturation 0.86, 69% of lit pixels in the 195–270° azure band):
+- **The blue is the light, not the material.** A neutral environment cannot make two thirds of
+an
+image one hue, so the key light carries it and the environment is turned well down.
+- **The film must stay thin.** 120–360nm is the blue/violet part of the interference range;
+past
+~450 the greens and magentas take over and the jacket goes pink.
+- The shell is not pure black because it cannot be — at RGB 14 it matched the lattice behind
+it and
+the silhouette dissolved.
+Switch every layer on with a non-zero value at construction: three compiles a *different
+program*
+when one of these crosses zero, and flipping that at runtime stalls a frame.
+### Framing, in artboard units
+```js
+const FRAME_WIDTH = 1440, FRAME_HEIGHT = 800;
+/* Hero */ SUBJECT_HEIGHT = 570; SUBJECT_RISE = 36; // above the section's
+centre
+/* Details, at rest*/ DETAILS_HEIGHT = 795; DETAILS_DROP = 140; DETAILS_SHIFT_X
+= -92;
+/* the turn it makes on the way */ SCROLL_TURN = 40°
+/* Boxed (below the frame): fill the tighter axis */
+BOXED_FILL_Y = 0.97; BOXED_FILL_X = 0.93; BOXED_DROP = 0.025;
+const ease = t => t*t*t*(t*(t*6 - 15) + 10); // smootherstep — the pinned approach
+const DRIFT_TAIL = 2.2;
+const drift = t => 1 - Math.pow(1 - t, DRIFT_TAIL); // the journey: leaves early, arrives long
+```
+Place the product by projecting the artboard's own coordinates. `scale = containerHeight /
+800`.
+Interpolate `heightUnits` from `SUBJECT_HEIGHT` to `DETAILS_HEIGHT`, `riseUnits` from
+`SUBJECT_RISE`
+to `-DETAILS_DROP`, and the x offset from 0 to `DETAILS_SHIFT_X`, all on `drift(journey)`.
+Then:
+```js
+const halfTan = Math.tan((30 * Math.PI / 180) / 2);
+const targetPx = fullBleed ? heightUnits * scale : cssHeight * BOXED_FILL_Y;
+const forHeight = (modelSize.y * cssHeight) / (2 * targetPx * halfTan);
+const forWidth = (modelSize.x * cssHeight) / (2 * cssWidth * BOXED_FILL_X * halfTan);
+const distance = fullBleed ? forHeight : Math.max(forHeight, forWidth);
+camera.position.set(0, 0, distance); camera.lookAt(0, 0, 0);
+worldPerPixel = (2 * distance * halfTan) / cssHeight;
+```
+Fit the **tighter axis** when boxed: on a phone the box is 350×262 and the jacket, sleeves
+out, is
+half again as wide as it is tall, so 93% of the height asked for 373px of width inside 350 and
+the
+sleeves were clipped at both edges.
+**Snap the buffer to a 50px cell pitch and centre the canvas.** Round `cssWidth`/`cssHeight`
+**up**
+to the next whole cell so a box edge never lands mid-pixel, hold the device pixel ratio to a
+whole
+step, and then centre the canvas with `left:50%; top:50%; transform: translate(-50%,-50%)`
+— the
+snap grows the buffer past its container by up to a cell in each axis, and left at the default
+top-left that overhang all falls off the bottom-right and pushes the product off centre
+(measured, it
+sat 9% higher in the section at 1024 than at 1440). Take `scale` from the **raw** container
+height,
+not the snapped one.
+`journey` is read once per frame from `-section.getBoundingClientRect().top /
+section.offsetHeight`,
+clamped to 0..1 — one rect read inside the ticker, never a scroll listener.
+### The exit ramp
+A pinned element's apparent velocity goes from zero to the page's own in a single frame
+when it
+releases, and that step is what is felt as the picture slamming into place.
+```js
+const RELEASE_LAG = 0.15; // viewport heights
+released = max(0, -sectionTop - sectionHeight); // scroll past the pin
+lagPx = cssHeight * RELEASE_LAG;
+releaseDrop = lagPx * (1 - Math.exp(-released / lagPx));
+```
+The derivative is exactly 1 at the seam, so the product starts leaving perfectly still and eases
+up
+to the page's speed over the following λ.
+### Rotation: the cursor turns it
+**No press.** Horizontal cursor position turns the product about its vertical axis; vertical
+position
+rolls it in the screen plane. Both are **absolute targets**, so the cursor's place in the section
+*is* the angle and a sweep can always be undone.
+```js
+TURN_MAX = 24° ROLL_MAX = 12° TILT_MAX_X = 3° PARALLAX = 12 // artboard
+units of drift
+TILT_STIFFNESS = 0.08 TILT_DAMPING = 0.52 // one damped integrator per axis
+```
+Normalise the cursor to −1..+1 across the canvas, **clamped** (the listeners cover the whole
+region,
+so the cursor can be outside the box the coordinates are measured against). Feed the raw
+position,
+not the smoothed one — the spring below is the smoothing, and running it through the
+pointer field's
+lerp first adds ~390ms of dead time.
+**Hover rotation belongs to the frame layout and to nothing else.** Gate it on the frame
+media query,
+not on a coarse-pointer test: a desktop window narrowed to a tablet's width has a cursor, and
+showed
+the garment leaning out of the flow layout's box, which reads as broken rather than
+responsive. Touch
+gets a **press-and-drag turntable** instead — `DRAG_DEGREES_PER_PX = 0.4`, released
+with
+`SPIN_FRICTION = 0.94` and stopped below `0.05°`.
+**Authority is taken from the cursor while the page is travelling and handed back
+afterwards**, and
+what the gate reads is the scroll's *speed*, not the bare fact that it moved:
+```js
+TRAVEL_MUTE_SPEED = 0.02; // journey delta per 60Hz step at which the cursor is fully
+muted
+TRAVEL_MUTE_MS = 200; // time constant while authority is being taken
+TRAVEL_SETTLE_MS = 900; // …and while it is given back — asymmetric on purpose
+// active = pointerIntensity * ease(travelSettle)
+```
+Two pivots, and **the nesting is load-bearing**: the roll is outermost so it always reads as a
+roll
+*on screen*; the turntable sits inside it, in the product's own frame. Swap them and a rolled
+product
+turns about a tilted axis and the two visibly fight. Recentre the model on its bounding-box
+centre
+before adding it.
+An idle that never stops and **adds** to the rest pose rather than replacing it:
+`IDLE_PERIOD_S = 7`, `IDLE_ROTATION = 1.5°`, `IDLE_RISE = 4` artboard units, driven
+by
+`sin(elapsed / 7 * 2π)`.
+### The sleeves trail the turn
+The rig names its chains. Collect every `Bone` matching
+`/^\s*(shoulder|arm|forearm)_[LR]$/i` or
+`/^belt-\d+_[LR]$/i`, record its rest quaternion and its **depth** in the chain, and give straps a
+scale of 1.6. Then, on a **fixed 60Hz timestep** (`PHYSICS_STEP_MS = 1000/60`, at most
+4 steps per
+frame — the physics is never throttled with the frame budget, precisely so the feel cannot
+follow
+the display):
+```js
+const raw = (rollVelZ + turnVelY * 0.6) * 7 // sleeveLag — the hover spring
++ journeyTurnVel * 1.5 // travelLag — the scroll's own turn
++ spinVelocity * 0.63; // dragLag — a thumb
+jiggleDrive += (raw - jiggleDrive) * 0.18; // JIGGLE_DRIVE_FOLLOW
+const limit = 30° ; // sleeveLimitDeg
+for (const item of bones) {
+const rawTarget = -jiggleDrive * item.scale * (1 + item.depth * 0.4); //
+JIGGLE_DEPTH_GAIN
+const target = limit * Math.tanh(rawTarget / limit);
+item.velocity = (item.velocity + (target - item.angle) * 0.15) * 0.75; // stiffness, damping
+item.angle += item.velocity;
+item.bone.quaternion.copy(item.rest)
+.multiply(scratch.setFromAxisAngle(new Vector3(0,0,1), item.angle));
+}
+```
+**Three inputs, three gains, and they must stay separate.** They are the same quantity —
+angular
+velocity — arriving at wildly different magnitudes. `DRAG_DEGREES_PER_PX` turns a
+30px/frame swipe
+into 12° *per step*, where the hover spring peaks near 1.7°; one gain sized for either pins
+every
+chain against the ceiling for the whole gesture and releases them together, which is a
+garment made
+of rubber. **Apply the limit per bone, after its own scale and depth** — limiting the shared
+drive
+lets a deep strap multiply its way past the ceiling anyway. `tanh` eases into the limit; a hard
+clamp
+pins a chain at maximum through a whole sweep and releases it all at once.
+The body itself follows the scroll on the same clock (`JOURNEY_FOLLOW = 0.12`), so the
+velocity the
+sleeves trail is bounded and continuous rather than the raw scroll delta.
+### Device tiers and the frame budget
+Read the tier **once**, at construction — a device does not change tier mid-session:
+```js
+coarse = matchMedia("(hover: none) and (pointer: coarse)").matches;
+tier = !coarse ? "desktop" : (innerWidth < 768 ? "mobile" : "tablet");
+RATIO_STEPS = { mobile: [1, 0.85, 0.75], tablet: [1.25, 1, 0.85], desktop: [1.5, 1.25, 1] };
+FRAME_BUDGET = { mobile: 1000/30, tablet: 1000/45, desktop: 0 }; // ms between renders
+FPS_FLOOR = 50; // below this, step down the pixel ratio — never the physics
+```
+A 3× phone renders nine times the fragments of a 1× screen and this scene is fill-bound: one
+full-screen lit, iridescent, clearcoated garment. Mobile stops at 1.0 rather than lower — the
+jacket
+has hard silhouette edges and a zip, and those alias visibly below 1. Measure fps over
+500ms windows
+with hysteresis so the ratio cannot flap.
+Render only when something changed (`needsFrame`), `renderer.clear()` then
+`renderer.render()`.
+Pause the ticker subscription on `document.hidden` and when an `IntersectionObserver`
+with
+`rootMargin: "10%"` says the **region** (not the hero — the loop must run for the whole
+journey) has
+left the viewport. Listen for `resize` on a fine pointer but **`orientationchange` on a coarse
+one**:
+iOS Safari fires `resize` every time the URL bar collapses during a scroll, and rebuilding the
+framebuffer mid-scroll reads as a whole-scene flash. Debounce 150ms.
+Call `renderer.compile(scene, camera)` after the model loads and before the first visible
+frame, then
+dispatch `hero-scene-ready`. Fade the canvas in on `duration-normal` once ready. A failed
+model load
+must not take the rest of the frame down with it.
+### The pinned second instance (FAQ)
+The same component with a fixed framing instead of the journey:
+```js
+const STILL = { height: 765, offsetX: -285, offsetY: -140,
+entrance: { shiftX: -110, turn: -28° } };
+// turn defaults to SCROLL_TURN (40°) — both screens show the garment from the same
+// three-quarter angle, so they cannot drift apart if that angle is ever retuned.
+```
+It has no journey but it has an **approach**, driven by scroll position alone (so it runs
+backwards
+when the reader does), measured against its own screen over a window from `0.55`
+viewports above the
+fold to `0.3` below it — it starts while the screen is still coming up and finishes after it has
+arrived, so the garment is still settling while the screen is being read. The weight is on the
+**rotation**, not the slide: 28° of turn against 110 units of shift. The garment turns into its final
+pose more than it arrives at it, which is also what gives the sleeves something to trail. The
+first
+frame places the body on its target outright — chasing it from zero opens the screen with a
+swing
+nobody asked for. It gets **no** drag target (a 760-unit grab area would swallow taps meant
+for the
+questions underneath) and **no** bottom mask is optional: keep it, because the section
+takes the
+larger of `100lvh` and 800 units and those scale differently — on 1920×900 the garment is
+cut dead
+flat by the section's bottom edge without it.
+This instance is **frame-layout only**. Below it there is no corner to run off, and a full-width
+photograph of a jacket the page has already shown twice reads as a repeat. `display: none`
+also means
+the box never lays out and the second WebGL context is never built.
+## Layout & sections (in order)
+Copy below is **verbatim**. Every `href` is `#` — no routes exist behind them.
+### Header — pinned for the whole page
+Three groups pinned independently, not distributed: the logo and cart sit against the 40-unit
+margins while the nav is **centred on the canvas**, which a `justify-content: space-between`
+row
+cannot reproduce.
+- Logo `ui/logo-mark.png` at `1.875rem × 4.6875rem` (30×75), `top: 1.5rem; left: 2.5rem`.
+- Nav, centred at `top: 1.5rem; left: 50%; translateX(-50%)`, items 4rem apart:
+`SHOP` · `COLLECTIONS ▾` · `TECHNOLOGY` · `ABOUT`. Body size, `line-height: 0.9`.
+- Cart, `top: 1.5rem; right: 2.5rem`: `CART [ 0 ]`.
+The wrapper is `position: sticky; top: 0; z-index: 50`, and **from the frame breakpoint it is
+given
+zero height** with the header inside going back to absolute positioning — so the banner
+keeps the
+artboard's coordinates and takes no space in the flow, and the hero still starts at the top of
+the
+canvas. Below the breakpoint the header is in flow, the wrapper takes its height, and it needs
+an
+**opaque lattice backdrop and a bottom hairline** — pinned and transparent, the whole page
+scrolled
+straight through it and spec-card copy read out from behind the logo. Put the fill on the
+*wrapper*,
+not the header: the header carries an entrance transform, and a transform makes
+`background-attachment: fixed` resolve against the element instead of the viewport.
+Header entrance: fade from `opacity: 0, translateY(-8px)`. Labels decode at `index * 60ms`,
+cart at
+`240ms`.
+**COLLECTIONS opens a submenu on hover** with a 6×5 caret that rotates 180°. Items:
+`SHADOW PUFFER JACKET` · `TACTICAL HOODED JACKET` · `THERMAL BOMBER
+JACKET` · `TECH SHELL JACKET`.
+The panel is an opaque lattice panel, `min-width: 14rem`, bordered, `padding: 1rem`, items
+0.75rem
+apart at 40% white brightening to full on hover. Three details matter:
+- **The 16 units between the label and the panel are padding on the wrapper, not a margin
+on the
+panel.** As a margin they are dead space the pointer crosses on its way down, which
+counts as
+leaving the wrapper — the menu closed before it could be reached.
+- **Close on a 220ms timer**, cancelled by re-entering; close on `Escape` and on a
+pointerdown
+outside; close on blur leaving the group.
+- **Focus does not open it, activation does.** Tapping a button focuses it and *then* clicks it,
+and
+focus arrives first — opening on focus and toggling on click cancelled each other out inside
+a
+single tap (traced: `aria-expanded` went true at 155ms and false at 157ms). Use a
+`<button>` with
+`aria-expanded`/`aria-controls`, and hold the panel in the tree with `visibility: hidden` on the
+wrapper so a closed panel is neither clickable nor tab-reachable.
+- A submenu item reserves the width of its caret box (`7.4375rem`) — the caret is positioned
+out of
+flow to match the artboard exactly, so without it the row centres 12px narrow.
+Below the frame the nav is hidden and replaced by a hamburger opening a full-screen panel
+with the
+same links.
+### 1 — Hero
+Full-viewport (`min-height: 100lvh; min-height: 50rem`). Everything is absolute against the
+section
+at the artboard's coordinates.
+- **The wordmark plate** (`hero/hero-wordmark.png`, 5028×2684 chrome lettering) behind
+everything at
+`z-index: 0`, drawn at **92%** of the artboard's own size, centred on the artboard's centre
+line
+**19.5 units below centre**, at **`opacity: 0.2`**. That is a deliberate deviation — the
+artboard
+draws it at 8%, a ghost peaking at RGB 32 against the lattice's 13; 20% lands its brightest
+strokes
+around 63. At full size its strokes reach across the edge copy; at 92% it clears the left
+column by
+49 units and the right by 20.
+**A torch travels over it.** The plate is drawn twice: a resting copy at 20%, and a second
+copy at
+full opacity revealed through a moving aperture. On a fine pointer the aperture is a soft disc
+centred on the cursor —
+`radial-gradient(circle closest-side, #000 0%, rgba(0,0,0,0.75) 45%, transparent 100%)` —
+with
+radius `min(260px, 0.42 × the plate's longer side)`. Without the cap the disc is wider than
+the
+plate on a phone and everything is lit at once, so there is no light to see.
+Where there is no cursor, the aperture is a **slanted sweep** instead, because a sweep is
+what reads
+as a highlight travelling over metal while a spot reads as a torch:
+```
+mask: linear-gradient(100deg, transparent 0%, rgb(0 0 0 / 0.35) 32%, #000 50%,
+rgb(0 0 0 / 0.35) 68%, transparent 100%)
+band 0.42 of the plate · crossing 2.6s · cycle 7.4s (the rest is the pause between passes)
+filter on the revealed copy: brightness(2.6) contrast(1.1)
+```
+The band **brightens** what it carries rather than merely making the plate less transparent
+—
+lifting a dark, mostly-transparent artwork from 20% to 100% moves its pixels by ten levels
+out of
+255 at a phone's size. Alongside it the whole plate **breathes** between 0.8× and 1.7× of
+its
+resting opacity on a **6.7s** period — a different period from the sweep, so the pair never
+pulses
+together. Below the frame draw the mark at `5028/4639 = 1.0839×` its canvas so the *ink*,
+not the
+transparent margin, reaches the screen edge.
+- **Two bracketed statements**, `top: 50%; translateY(-50%)`, one against each margin
+(`left: 2.5rem`, width 9.75rem / `right: 2.5rem`, width 11.5625rem). Each is a corner glyph
+(`hero/hero-bracket.svg`, 11×11), the lines, and the same glyph flipped — one asset, flipped
+per
+position, never four exports.
+```
+ENGINEERED | DESIGNED
+FOR MOTION. | FOR THE UNKNOWN.
+BUILT TO ENDURE. | READY FOR ANYTHING.
+```
+Left block is left-aligned, right block right-aligned.
+- **The claim**, the page's only `h1`, centred, `bottom: 7.375rem`, lede size, `line-height:
+0.9`.
+Each line is its own element so the hand-set breaks survive whatever the face measures:
+```
+WEATHER-RESISTANT. THERMAL INSULATION.
+OVERSIZED FIT. LIMITED QUANTITY.
+```
+Run both through `keepSentences`.
+- **The CTA**, centred, `bottom: 2.5rem`: `SHOP NOW`.
+- **Two corner cards**, `bottom: 2.5rem`, `height: max(4.25rem, 68px)`, bordered at 25%
+white, on an
+opaque lattice panel:
+- left, `left: 2.5rem`, width `max(16.4375rem, 263px)`: the globe glyph
+(`hero-icon-globe.svg`,
+37×23) with the caption `EST.2022` under it, a 1px vertical rule at 25%, then
+`BUILT ON EXPERIENCE. / DRIVEN BY INNOVATION. / FOCUSED ON YOU.`
+- right, `right: 2.5rem`, width `max(13.875rem, 222px)`: the reticle glyph
+(`hero-icon-target.svg`, 23×23), no caption, rule, then
+`WORLOWIDE SHIPPING / FAST & SECURE DELIVERY` — the typo is in the design;
+keep it.
+**Each glyph gets its own idle**, driven by a sine on the shared ticker and only while it is on
+screen. The **globe turns about its vertical axis** — a real `rotateY` under a short
+perspective,
+not a `scaleX`: both narrow the glyph, but only perspective grows the near edge while the
+far edge
+shrinks, and that asymmetry is the difference between reading as a turn and reading as a
+squash.
+```js
+GLOBE_PERIOD_S = 3.4; GLOBE_SWING_DEG = 58; GLOBE_PERSPECTIVE = 110;
+// px
+transform = `perspective(110px) rotateY(${sin(t/3.4 * 2π) * 58}deg)`
+```
+It swings either side of face-on rather than turning all the way round: past 90° a flat glyph
+mirrors and a sphere must never read as inside-out.
+The **reticle does not rotate — a sight is aimed, not swept**. It pings: sharp rise, slower
+fall,
+then rest for most of the period.
+```js
+RETICLE_PING_S = 2.4; ATTACK = 0.1; RELEASE = 0.32; GAIN = 0.16;
+// envelope over the phase, smoothstepped: e = env*env*(3 - 2*env)
+transform = `scale(${1 + e * 0.16})`; opacity = 0.78 + 0.22 * e;
+```
+Size both glyphs in **rem**, not their intrinsic pixels — they were the only two images on
+the page
+that did not scale with the frame, and at 1280 the reticle sat off the centre of its cell.
+**The decode cascade**, in ms after load (the hero is above the fold, so it fires on mount):
+```js
+navStep 60 · cart 240 · marker 140 (markerStep 80) · title 260 (titleStep 110)
+cta 420 · badgeStart 480 · badgeEnd 540 (badgeStep 60)
+```
+The artboard boots up rather than arriving all at once. Fade each block in with a spring while
+its
+glyphs are still resolving, so the finished sentence is never briefly on screen before its own
+decode
+starts. Badges and CTA also translate from `y: 12px`; the corner glyphs just fade at `delay
+120`.
+**Below the frame** the hero is a flow column with `justify-content: space-between`, the
+header's
+5rem taken off the screen: the two markers **lead** (in the artboard they flank the garment;
+stacked
+they landed under it, on top of everything), then the product box, then claim + CTA as one
+group,
+then the two badges as a **grid with equal rows** — side by side a flex row matched their
+heights,
+stacked a flex column left each as tall as its own copy (78 against 60), which is the one thing
+these
+two must never be.
+### 2 — Details
+`height: 50rem` inside the centred box. The travelling garment runs full-bleed behind it.
+- **Headline** `top: 7.625rem; left: 2.5rem; width: 21.5rem`, 70px, `line-height: 0.8`,
+`letter-spacing: -0.02em`, `text-box: trim-both cap alphabetic`: **DETAILS MATTER.**
+The 344-unit column is exactly wide enough for "DETAILS" and is what forces the break
+before
+"MATTER." The `text-box` trim is **load-bearing, not a nicety**: at leading 0.8 the two lines
+occupy
+a 112-unit box while the artboard measures the headline at 95 — without the trim the
+36-unit gap
+below measures from the wrong edge and the standfirst sits 17 units low. Browsers without
+support
+fall back to the untrimmed box, which is a slightly loose gap, not a broken layout.
+- **Standfirst** beneath it, `gap: 2.25rem`, lede size at 40% white, `text-transform:
+uppercase`
+(store it in sentence case and uppercase in CSS, so a screen reader is handed a sentence
+rather
+than shouting):
+*"A technical outer layer made for movement, changing weather and everything that
+happens beyond
+the expected."*
+- **Five numbered rows**, `top: 7.625rem; right: 2.5rem; width: 26.0625rem`, `gap: 0.75rem`.
+Each is
+an **opaque lattice panel** with a 25% border and `padding: 1rem` — not a transparent
+card. That is
+what the artboard draws, and on this screen it is also what makes the copy legible: the
+garment
+runs full-bleed behind these rows, and 40%-white prose over a lit sleeve is unreadable.
+A left rail is `justify-content: space-between` against a stretched cross-axis, which pins the
+numeral to the top and the icon to the bottom — which is why the rows are **not all the
+same
+height**: a three-line body is 122 units and row 01 is 102, the icon simply following the text
+down.
+Numerals at 25% white, `aria-hidden` (the `<ol>` already carries the ordering). Icons
+`2rem`,
+lifted by `calc(1.125rem * 0.155)` — `space-between` puts the mark's box on the same line
+as the
+paragraph's, and a line box runs below its own baseline by the font's descent.
+```
+01 WEATHER-RESISTANT SHELL WATER-REPELLENT OUTER SHELL PROTECTS
+AGAINST WIND AND RAIN.
+02 THERMAL INSULATION ADVANCED PADDING TRAPS HEAT AND KEEPS YOU
+WARM WITHOUT UNNECESSARY WEIGHT.
+03 REINFORCED CONSTRUCTION DURABLE STITCHING AND STRUCTURAL
+PANELS FOR ADDED STRENGTH.
+04 FUNCTIONAL STORAGE MULTIPLE ZIPPERED POCKETS INSIDE AND
+OUTSIDE TO CARRY ESSENTIALS.
+05 OVERSIZED FIT RELAXED SILHOUETTE FOR MOVEMENT, LAYERING AND
+EVERYDAY COMFORT.
+```
+Titles at full white, bodies at 40%, `gap: 0.75rem`. Column gutter `3rem` at the frame,
+`1.5rem`
+below it.
+- **CTA** `bottom: 2.5rem; left: 2.5rem`: `EXPLORE THE JACKET`.
+**Only the titles decode.** The bodies are 60-odd characters of prose, and running five of
+those at
+once turns a section of copy into noise — the effect works because it is applied to labels.
+(Do decode
+the bodies at `+60ms`, but never simultaneously with each other.)
+Reveal cascade, on entering view: `heading 0 · lede 120 · cta 200 · feature 80 (featureStep
+90)`.
+Below the frame: flow column, rows two-up from `sm` with the last spanning both columns.
+### 3 — Collections
+`height: 50rem` inside the centred box.
+- **Headline** `top: 8.125rem; left: 2.5rem`, same 70px setting and trim: **COLLECTIONS.**
+- **Standfirst** `top: 7.625rem; right: 5.375rem; width: 17.8125rem`, lede at 40% uppercase:
+*"Technical jackets for changing weather, movement and everyday use."* The 86-unit gap
+to the right
+margin is the composition — a lede tucked under the card row's right-hand end.
+- **Four cards**, `top: 14.25rem; inset-inline: 2.5rem`, a flex row of equal `flex: 1` shares with
+`0.75rem` gaps. (The artboard puts them at x 40, 383, 726, 1069 at 331 wide: 4×331 +
+3×12 = 1360 =
+1440 − 80. Express it as the row it is so the arithmetic cannot drift.) Each card is
+`height: 27.875rem`, a 25% border, `padding: 1rem`, contents pushed apart — **and no
+fill**: the
+page's lattice runs behind them, which is the light from one source rather than two in phase.
+The
+garments are lit-on-black renders, so what the grid shows through is their ground, not the
+jackets.
+Card contents, top to bottom:
+- a row with the index at 25% white and `collections/collections-corner.svg` (13×13) at the
+right;
+- the title, held to **13.5625rem (217 units)** — not decoration: it is what forces the break
+before
+"JACKET" on all four names. Left to the card's full 297-unit column, "SHADOW PUFFER
+JACKET" fits
+on one line and the break is lost. 217 is the widest of the four the artboard sets, so one
+value
+reproduces every break. Title size 26px, price at 40% white lifting to full on
+hover/focus-within;
+- the photograph, `position: absolute`, `18.5625rem` square, `object-fit: contain`, centred, in
+a
+layer of its own **behind** the text column;
+- a **swatch column** of four 0.75rem squares, `top: 50%; right: 1rem; translateY(-50%)`,
+gap
+0.25rem: the active one filled white, the rest a 25% hairline brightening on hover. It is a
+real
+view switcher — every view is rendered and cross-faded rather than swapped, so the card
+never
+flashes an empty box while a photograph decodes, and the switch costs only an opacity
+change.
+One photograph per product exists so far, so the other three swatches currently land on it:
+the
+control is real, the pictures are missing;
+- a `2.3125rem` band holding the tag chips **and** a SHOP NOW link in the same absolute
+box, so the
+swap cannot change the card's height. Chips are bordered at 40% white with `0.875rem`
+side
+padding; the link is bordered at full white with the same padding and a 10×6 arrow at its
+right
+end. At rest chips are visible and the link is `opacity: 0` **and `pointer-events: none`** —
+without that, the whole band was an unmarked tap on a phone that navigated away. On
+hover or
+`:focus-within` they trade. Under `@media (hover: none)` the link is shown
+**permanently** and the
+chips hidden, or a phone shows the chips for ever and the card's actual action never
+appears.
+```
+01 SHADOW PUFFER JACKET $480 collections-lime.png OVERSIZED FIT ·
+LIMITED QUANTITY
+02 TACTICAL HOODED JACKET $395 collections-rose.png LAYERING PIECE ·
+UTILITY
+03 THERMAL BOMBER JACKET $340 collections-copper.png THERMAL INSULATION
+· WINDPROOF
+04 TECH SHELL JACKET $520 collections-cobalt.png WATER-RESISTANT ·
+BREATHABLE
+```
+The four photographs are four colourways of one garment, dealt to the four names in a
+drawn order.
+- **CTA** `bottom: 2.5rem`, centred: `VIEW ALL JACKETS`.
+**The tilt.** The card turns towards the corner the cursor is in and the garment stands off its
+face.
+Three elements, each with one job:
+```js
+// the <li> owns the lens
+stage: { perspective: "60rem" }
+// the panel inside owns the rotation and preserve-3d
+surface: { transformStyle: "preserve-3d",
+transform: `rotateX(${-ny * 6.5}deg) rotateY(${nx * 6.5}deg)` }
+// the photographs sit in their own layer with a constant translateZ
+layer: { transform: `translate3d(${nx * 0.55}rem, ${ny * 0.55 * 0.7}rem, 2.5rem)` }
+spring: { tension: 170, friction: 26, mass: 1 } // no overshoot
+```
+`nx`/`ny` are −1..+1 across the card, clamped. **The corner under the cursor goes away**,
+so the card
+leans *towards* the hand — reversed, it reads as the card dodging the cursor. The parallax
+is the
+projection's own doing, not a second animation kept in step with the first; the small
+pointer-driven
+translate on top carries the effect on the axis the tilt cannot, keeping it alive while the card is
+still nearly flat on. The Z is constant so the layer stands off the card at rest too and does not
+appear to detach the moment the cursor arrives. Slower than a hover fade on purpose: the
+cursor is a
+noisy input and the box is large. Mouse pointers only; skip under `prefers-reduced-motion`.
+**The panel must be a separate element from the reveal.** The entrance writes a transform
+and an
+element can only have one — the tilt and the entrance would overwrite each other on the
+same node.
+Reveal cascade: `heading 0 · lede 120 · card 80 (cardStep 90) · cta 460`.
+### 4 — Technology
+**Five artboards, one composition.** The frames are *states*, not sections: heading,
+standfirst and
+stack are identical in all five and only the card moves. So the section is one pinned stage
+inside a
+tall region:
+```js
+const LAYER_STEP = 0.4; // viewports per layer after the first
+const regionHeight = n => 1 + (n - 1) * LAYER_STEP; // 5 layers → 2.6
+section { height: calc(2.6 * 50rem); } /* frame layout */
+stage { position: sticky; top: 0; height: 50rem; }
+```
+**Measured in artboards, not in viewports.** The stage the walk pins is one artboard tall, so
+the
+region must be counted in the same unit — with `100lvh` the region outran the walk on any
+screen that
+is not 1.8:1 and left dead scroll at the end (34% of a screen at 1280, 57% at 1024, against
+22% at
+1440). `0.4` is close to the floor: below roughly 0.35 the stack skips a card under a trackpad
+flick,
+because one inertial scroll covers more than a step.
+The stage's box **fills** the stage rather than being centred in it — everything here hangs off
+the
+top, so there is no pair to drift.
+- **Headline** `top: 8.5rem; left: 2.5rem; width: 22.9375rem`, 70px:
+```
+TECHNOLOGY
+ENGINEERED TO ENDURE
+```
+The two lines are **inline with a `<br>`, not flex items** — `text-box: trim-both` trims a block
+container's own first and last line boxes, and a flex parent has no text of its own to trim: the
+declaration is simply inert there, which put every line 10px low.
+- **Closing note** `top: 40.625rem; left: 2.5rem; width: 22.9375rem`, lede at 40% uppercase,
+set as
+three measured lines with `<br>` at the frame and as one running paragraph below it (in
+flow those
+breaks are breaks against nothing — the first line ended a third of the way across and left a
+hole
+the eye reads as a missing word):
+```
+Every detail has a purpose.
+From the protective outer shell to the insulation inside, the jacket is designed
+to perform without compromising its form.
+```
+- **The reel**, `top: 8.5rem; inset-inline: 0; height: 38.6875rem; width: 41.5625rem`, centred
+with
+auto margins (**not** `translateX(-50%)` — a transform here isolates what a later pass
+tries).
+#### The scrubbed reel
+**Scrubbed, not played**, and drawn on a `<canvas>` over decoded stills rather than a
+`<video>` whose
+`currentTime` is written. Three rounds of tuning got the video scrub to provably optimal
+seeking and
+it still juddered, because the thing being optimised was wrong: a decoder serves whole
+pictures at
+whatever rate it can, and the reader's scroll does not land on picture boundaries.
+`drawImage` of two
+already-decoded frames is synchronous, has no in-flight state to guard, and — crucially —
+can show
+the picture *between* two frames rather than the nearer of them.
+```js
+const TIERS = { hi: { dir: "hi", side: 768, count: 61 },
+lo: { dir: "lo", side: 512, count: 41 } };
+const TIER_BREAKPOINT = 1024; // by layout width, NOT device pixel ratio
+const FETCH_CONCURRENCY = 6;
+const SEEK_FOLLOW = 0.45; // playhead chase, quoted per 60Hz step
+const ENTRY_LEAD = 1; // viewports of head start before the stage pins
+const RELEASE_LAG = 0.15; // viewports of lag after it releases
+const REPAINT_EPSILON = 1 / 255;
+```
+The binding constraint is **resident memory, not download**: a decoded `ImageBitmap`
+costs
+`side² × 4` bytes however cheap it was on the wire, so the 61-frame set is 137MB the
+moment it
+finishes decoding. A desktop tab carries that; a phone is killed by it. Pixel density is exactly
+the
+wrong signal here — a DPR-3 phone asks for more backing store than the desktop box and
+has far less
+room to hold it.
+Fetch the set in order, a few at a time, and use `createImageBitmap(await response.blob())`
+— it
+decodes on a worker thread. Plain `<img>` elements defer their decode to the first
+`drawImage`, which
+is synchronous and on the main thread, putting back exactly the stall this design removes. A
+frame
+that will not load is covered by an outward neighbour search; failing the whole reel over one
+would
+be worse than a longer blend.
+**The blend is additive on a cleared canvas, and that is not stylistic.** Drawing frame A then
+frame B
+at `globalAlpha = t` under the default `source-over` is *not* a cross-dissolve: where B is
+transparent
+A survives at full strength, so the stack's old position never leaves and the motion smears.
+```js
+ctx = canvas.getContext("2d", { alpha: true, desynchronized: true });
+ctx.globalCompositeOperation = "lighter"; // set once, never per frame
+// per draw:
+ctx.clearRect(0, 0, side, side);
+ctx.globalAlpha = 1 - t; ctx.drawImage(a, 0, 0, side, side);
+ctx.globalAlpha = t; ctx.drawImage(b, 0, 0, side, side);
+```
+The weights sum to one, so nothing clips, and `lighter` interpolates colour *and* alpha in
+premultiplied space, which is the correct dissolve.
+**The frames carry a real alpha channel — the black ground is keyed at export, not
+blended.**
+`mix-blend-mode: difference` is the obvious answer for a lit object on black and it does
+nothing here:
+a blend composites against the backdrop *within the nearest ancestor stacking context*, and
+this
+section pins its stage with `position: sticky`, which creates one. Everything the artwork could
+blend
+with — the page's lattice — is outside it. Verified, not assumed: forced to `position: relative`
+the
+blend works; back on `sticky` the black rectangle returns, and the pin is not negotiable.
+The **poster** (`technology/technology-stack.webp`, 1024×954) is still flat, so it keeps an
+SVG
+filter tuned to match the baked key exactly, and it is the element that carries the alt text —
+*"The
+jacket's five material layers, separated and stacked"*:
+```html
+<filter id="reel-key" color-interpolation-filters="sRGB">
+<feColorMatrix type="matrix"
+values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 7 7 7 0 -0.04" />
+</filter>
+```
+**Equal weights, not luminance.** True luminance weights blue at 0.07 and this artwork is
+blue and
+violet — the outer shell's own deep blue would key out with the ground. The `-0.04` floor
+takes the
+ground's own noise to zero (measured: the ground is 0 of 765 at the median, 3 at the 95th
+percentile)
+and is what lets the weight be steep enough to hold the dark layers solid. `7`, not a gentler
+value:
+the bottom two layers are genuinely dark — the lining sheet's median pixel is 0.14 of full
+brightness
+— and a gentle weight left them at a third of opacity with the page's grid reading straight
+through.
+Fade the poster to `opacity: 0` the moment there is a real picture under it; keep it in the tree
+so
+the artwork is described exactly once and the canvas can stay `aria-hidden`.
+Progress: where the stage is pinned, `clamp((lead - sectionTop) / (lead + travel))` with
+`lead = viewport × ENTRY_LEAD` and `travel = section.offsetHeight - viewport` — the lead
+is part of
+the run, not an offset on it, so the reel still ends exactly where the card walk does; it simply
+starts before the stage has locked. At 0 lead the first frame is what the reader sees for the
+whole of
+the screen's arrival and it only starts moving once pinning finishes: the picture is dead
+exactly
+while the eye is on it. Below the frame, progress is the box's own crossing of the viewport.
+The playhead chases that with `follow = 1 - (1 - 0.45)^(delta / (1000/60))` and the canvas is
+drawn at
+`playhead * (count - 1)`. Skip the draw when the blended position moved less than `1/255` of
+the gap
+between two frames — below that the 8-bit blend weight cannot change a pixel.
+The exit ramp is applied to **the reel alone**, not the stage — the heading, the note and the
+walking
+card leave with the screen and only the picture hangs back, which is the parallax the rest of
+the page
+already reads as depth. Same `λ(1 − e^(−x/λ))` shape as the product, at `λ = 0.15` viewports.
+Measure
+`released` on the **parent box**, never the canvas: a transformed element's own rect
+includes the
+transform, so measuring there feeds the drop back into its own input and the ramp stalls at a
+fixed
+point a third of the way in.
+#### The card walk and its leader line
+One card at a time, `right: 2.5rem; width: 26.0625rem`, an opaque lattice panel with a 25%
+border and
+`padding: 1rem`, laid out exactly like a details row (index, icon, title, body) with a `3rem`
+gutter.
+All five are rendered and cross-faded rather than swapped — the markup never changes, so
+there is
+nothing to re-layout on a scroll frame, and a screen reader is handed all five specifications
+regardless of scroll position. This is **not** a list: they are five states of one description, and
+`display: contents` on an `<li>` drops the item out of the accessibility tree in some engines.
+Read progress once per frame from the region and set the active index only when it actually
+changes:
+`active = min(n - 1, floor(progress * n))` — equal bands, the last running to the end. The
+active
+card's title and body **re-decode each time it becomes active** (title at 0, body at 90ms): the
+card
+is the only thing that moves, so the decode is what marks the step.
+```js
+cardTop: [136, 236, 370, 492, 658] // artboard units, from the stage's top
+cardSideY: [197, 287, 431, 553, 709] // where the line meets the card's left edge
+anchorFx: [0.600, 0.707, 0.773, 0.855, 0.822] // fractions of the drawn artwork
+anchorFy: [0.145, 0.354, 0.477, 0.576, 0.740]
+```
+The card coordinates are the artboard's own — each card is hand-placed against the layer it
+describes
+and this is art direction rather than derivable layout, which is why `cardSideY` is not
+`cardTop` plus
+a constant (the cards are two or three lines tall). The anchors are fractions of the artwork,
+each checked to land on the layer its card names: the wet outer sheet, the ripstop mesh, the
+quilted
+insulation, the pale membrane, and the lining at the bottom.
+**Draw the leader line rather than exporting five SVGs.** It is one construction — a diagonal
+and an
+8-unit square — whose only variables are its two endpoints, and deriving it from the same
+numbers that
+place the card means it cannot come loose when either moves. Neither end has a fixed
+artboard x: the
+card is pinned to the right margin and the artwork is centred.
+```js
+const CARD_INSET = 457; // 40 margin + 417 card, from the canvas's right edge
+const ARTWORK = 619; // the DRAWN square — as tall as its box (38.6875rem), not the
+box's width
+const ARTWORK_TOP = 136; // the box's top edge on the stage
+const MARKER = 8;
+offset = (anchorFx - 0.5) * ARTWORK;
+anchorY = ARTWORK_TOP + anchorFy * ARTWORK;
+// the svg box:
+left: calc(50% + ${offset}units)
+top: min(anchorY, cardSideY)
+width: calc(50% - ${CARD_INSET + offset}units)
+height: max(1px, abs(cardSideY - anchorY))
+```
+The `<svg>` is `viewBox="0 0 100 100" preserveAspectRatio="none"` holding **only** the
+diagonal, with
+`vector-effect="non-scaling-stroke"`. **The square is a separate plain element**, sized in
+artboard
+units — `preserveAspectRatio="none"` stretches everything in the box, which leaves the
+diagonal
+correct and would turn a `<rect>` marker into a rectangle. The line is drawn at 25% white;
+the square
+is drawn in **full white**, because it is the one part that has to be *found* — at a quarter
+opacity
+over an artwork this busy it read as a speck of the render rather than a mark on it.
+The cards carry their own entrance (from `translateY(1rem)`, opacity 0) rather than a
+wrapper: a
+transformed wrapper becomes the containing block for its absolutely positioned descendants
+and would
+silently re-base every card off the artboard's coordinates.
+```
+01 OUTER SHELL Durable outer layer that repels water and protects against wind
+and rain.
+02 RIPSTOP PROTECTION Tear-resistant layer adds durability and prevents wear.
+03 THERMAL INSULATION Advanced padding traps heat and keeps you warm without
+unnecessary weight.
+04 BREATHABLE MEMBRANE Allows moisture to escape while blocking wind and water
+from outside.
+05 COMFORT LINING Soft inner layer for all-day comfort and easy layering.
+```
+Bodies are stored in sentence case and uppercased in CSS. Icons
+`technology/technology-icon-01…05.svg`.
+**Below the frame there is no pinning and no walk**: the reel sits in the flow (four fifths of the
+column, centred, square then 4:3) and all five specifications follow it as a plain stack of
+lattice
+cards, two-up from `sm` with the last spanning both. Pinning a viewport-tall stage on a phone
+and
+asking for three screens of scrolling to read five short paragraphs is a worse reading of the
+same
+content. Build the reel only when the section is near — twelve megabytes, seven screens
+down.
+### 5 — FAQ
+`height: 50rem` inside the centred box, `overflow: hidden`. The pinned second garment runs
+off the
+bottom-left corner **behind** the questions — it is the screen's ground.
+- **Headline** `top: 8.5rem; left: 2.5rem; width: 16.125rem`, 70px: **NEED TO KNOW.**
+- **A description list**, `top: 8.5rem; right: 2.5rem; width: 42.125rem`, `gap: 0.75rem`. Five
+questions and their answers is exactly what `<dl>/<dt>/<dd>` is for, and it makes the
+section
+eligible for FAQ structured data. The consequence is a strict content model — inside a `dl`
+a row
+wrapper may hold only `dt` and `dd` — so **the artboard's vertical rule is drawn as a border
+on the
+answer**, with the 32-unit gap split either side of it.
+Each row is an opaque lattice panel, 25% border, `height: 7.125rem`, `padding-inline:
+1rem`. The
+`dt` is `width: 12.1875rem`, centred vertically, question above index (`gap: 2rem`); the `dd`
+is
+`margin-left: 2rem; padding-left: 2rem; border-left: 1px solid rgb(255 255 255 / 0.25)`, at
+40%
+white uppercase.
+**The answer is top-aligned with a measured `padding-top: 0.92rem`, not centred.** The
+artboard
+centres the answer in its own 112-unit box while the question sits in a centred column
+beside it, so
+their first lines never met — the answer began 0.77rem above the question at every width,
+1440
+included.
+Questions are capped at **175 units** (`10.9375rem`), except question 02 at **195** — the
+width the
+artboard wraps each one to. Apply the cap **only at the frame breakpoint**: below it the
+row is the
+full width of the card with nothing to wrap around, and the same cap broke a question that
+fits
+comfortably on one line into three. Do **not** run the questions through the word-binder —
+a heading
+needs to be free to break between "OR" and what follows; ties are for prose.
+```
+01 HOW DO I CHOOSE THE RIGHT SIZE?
+Check our size guide for measurements and fit information. The jackets feature an
+oversized
+silhouette for comfortable layering.
+02 WHAT MATERIALS ARE USED IN THE JACKETS?
+We use technical fabrics, ripstop weave and advanced insulation for durability, protection
+and comfort.
+03 HOW SHOULD I CARE FOR MY JACKET?
+Follow the care instructions provided. Avoid harsh detergents and excessive heat to
+preserve the materials.
+04 DO YOU SHIP INTERNATIONALLY?
+Yes. We offer worldwide shipping with secure delivery and tracking on every order.
+05 CAN I RETURN OR EXCHANGE MY ORDER?
+Yes. Unworn jackets can be returned or exchanged within the specified return period.
+```
+Reveal: `80ms + index × 90ms`, answer at `+60`.
+**Below the frame the column reverses** — index above question. The artboard puts the
+index under the
+question because the two sit in a column beside the answer; read top to bottom on a narrow
+screen
+that is index-last, which is backwards. Keep question-first in the markup, where a reader
+needs it,
+and flip the column with `flex-direction: column-reverse`.
+### 6 — Footer
+`height: 21.875rem` — **350 units, not 800.** Every other artboard in this file is a full
+1440×800
+frame, but this one's content stops at 326 and Figma renders the node at 350, so the footer
+is given
+its own height rather than a screen's worth of empty lattice.
+- Logo `top: 1.5rem; left: 2.5rem`, drawn larger than the header's: `2.5rem × 6.1875rem`
+(40×99).
+- **Four link columns**, `top: 1.5rem; left: 18.5625rem`, `gap: 3rem`, each `width: 7.5rem`
+(the last
+auto). Headings at full white, links at 40% brightening to full on hover over `duration-fast`:
+```
+SHOP TECHNOLOGY ABOUT SUPPORT
+CORE MATERIALS PRIVACY POLICY
+TECH CONSTRUCTION Terms & Conditions
+LIMITED SIZE GUIDE
+SHIPPING & RETURNS
+FAQ
+```
+- **The newsletter form**, `top: 1.5rem; right: 2.5rem; width: max(15.3125rem, 245px)`. Built
+as a
+**real form**, deliberately: the artboard draws a bordered box with "Your e-mail" in it, an
+arrow,
+and a small square beside a consent line — a *picture* of a control. Rendering that as
+static text
+would put a lie in the accessibility tree.
+- a label: `STAY AHEAD OF THE DROP.`
+- `<input type="email" autocomplete="email" placeholder="Your e-mail">` inside a full-white
+border,
+with the padding **on the input, not the box** — on the box it is dead space and most of
+what
+looks like the field does not focus it. `padding: max(0.875rem,14px) max(1rem,16px)`.
+- a submit `<button>` with the 10×6 arrow and a visually-hidden "Subscribe".
+- `<input type="checkbox">` styled with **both** `appearance: none` and
+`-webkit-appearance: none`
+(without the prefixed one Safari keeps drawing a filled white box that reads as a stray
+square):
+`0.625rem`, a 25% hairline that fills white when checked and brightens under the pointer.
+- the consent label at fine size, 25% white, uppercase: `I AGREE TO RECEIVE UPDATES.`
+- **There is no endpoint.** `preventDefault` on submit rather than letting a form with no
+action
+reload the page with the address in the query string.
+Floor every gap and the field's padding at the artboard value with `max()` — the type inside
+stops
+shrinking below 1024, so spacing that kept shrinking left the consent line sitting on the field.
+The
+floor must **equal** the artboard value, never exceed it, or it bites at 1440 too.
+- **A rule**: 1px at 25% white, `top: 17.875rem; inset-inline: 2.5rem`.
+- **The closing line**, `top: 19.375rem`: `© 2026 ARTEFAKT. ALL RIGHTS RESERVED.` at
+25% white on the
+left margin, and `INSTAGRAM / YOUTUBE / TIK-TOK` on the right. The separator is the
+literal text
+`" / "`, **spaces included** — on a monospaced face those two spaces are 19 units of the
+row's
+width, and dropping them pulls the whole row 16 left. Anchor the row to the **right** margin:
+the
+artboard's own left value only lands flush for one exact set of glyph widths.
+Below the frame the two invert — links first, the notice last at chip size, where it fits on one
+line
+and reads as the footnote it is.
+## The bracketed button
+Both CTAs are one control: `height: 2.875rem`, `padding-inline: 1.25rem`, a `2rem` gap to a
+10×6
+arrow, lede-size label, a **full-white** border, on an opaque lattice panel (the fill both
+artboards
+put behind it, and what keeps the label readable where the garment runs behind it).
+**Hover adds nothing to the box.** Two earlier attempts filled it — a solid white inversion,
+then a
+10% wash — and both were rejected for the same reason, worth stating so it is not tried a
+third time:
+nothing on this page is filled. Every surface is near-black and every edge is a hairline, so any
+wash
+reads as a muddy grey rectangle borrowed from a different site.
+Instead **four corner brackets converge on it** — the same glyph the hero's edge
+statements are
+bracketed with, and the same gesture as the reticle badge: a target being acquired. Each is
+a
+`0.625rem` box with two borders, at `-0.75rem` from its corner (12px out against a 10px
+glyph, so each
+clears the box's own corner by 2px and reads as a separate frame closing in, not as a
+thickening of
+the border), sitting a further 4px out and `opacity: 0` at rest, arriving at `translate(0,0)` and
+`opacity: 1` on `:hover` / `:focus-visible` over `duration-normal`. The arrow nudges 4px right.
+The
+label decodes on its own, because the scramble already fires on `mouseenter` and `focus`.
+The brackets **are** the focus indicator, so drop the default outline to avoid two rings — but
+bring
+it back under `@media (forced-colors: active)`, where a palette you do not control is
+substituted and
+four hairlines are not something to stake keyboard access on.
+## Touch targets
+The artboard draws for a cursor: nav labels resolve to an 11px-tall box, the collections
+swatches to
+12×12, the newsletter arrow to 10×6. Fine for a mouse, unusable with a thumb — and simply
+making them
+bigger would be redrawing the design. So the **hit area grows and the drawing does not**:
+an empty
+`::before` stretched past the element's own box, which the browser hit-tests and nobody
+sees.
+```css
+.tap-area { position: relative; }
+.tap-area::before { content: ""; position: absolute;
+inset: calc(var(--tap-y, 0.75rem) * -1) calc(var(--tap-x, 0.5rem) * -1); }
+```
+Apply it **only below the frame breakpoint**, and keep the vertical inset at or under half the
+gap to
+the neighbour or two targets fight over the same pixels. Do not put it inside anything that
+scrolls
+horizontally.
+Also: below `sm` a paragraph is twenty-nine characters wide, and greedy wrapping leaves a
+rag that
+swings by a third and breaks words at their hyphens. Give short paragraphs `text-wrap:
+balance` there
+— measured, it took a page of mobile prose from 18 lines ending on a short word to 5.
+## Accessibility
+- One `<header>` banner for the whole page and one `<footer>` — do **not** rebuild the
+header inside
+each section, however the artboards draw it.
+- A "Skip to content" link, visually hidden until focused, to `#main`.
+- `<h1>` is the hero claim; each section has an `<h2>` and is `aria-labelledby` it.
+- The canvas carries `role="img"` and the product's label; the reel's poster carries the alt text
+and
+the canvas is `aria-hidden`.
+- Index numerals are `aria-hidden` inside ordered lists — the list already carries the ordering.
+- Every focusable control gets `outline: 2px solid #fff; outline-offset: 2px` on `:focus-visible`,
+except the bracketed buttons (see above).
+- Under `prefers-reduced-motion: reduce`: no scramble, no smooth scroll, no cursor tilt, no
+badge
+idles, no sleeve springs. The page still works; it simply stops moving.
+## Assets
+All fetched from `https://storage.getlayers.ai/assets/artefakt-5f7a0c9962/`. Set that as one
+`ASSET_BASE_URL` constant and build every path from it.
+| file | used by |
+|---|---|
+| `fonts/3270-Regular.otf` | the page's only typeface |
+| `hero/hero-jacket.glb` | the product, both instances — **Draco-compressed, needs
+`DRACOLoader`** |
+| `hero/hero-wordmark.png` | the chromed backdrop plate (5028×2684) |
+| `hero/hero-bracket.svg` | the corner glyph on both edge statements, flipped per position |
+| `hero/hero-caret.svg` | the COLLECTIONS submenu caret |
+| `hero/hero-icon-globe.svg` · `hero-icon-target.svg` | the two corner-card marks |
+| `ui/logo-mark.png` | header, footer and preloader wordmark |
+| `ui/arrow-right.svg` | the CTA buttons, the card links and the newsletter submit |
+| `details/details-icon-{shell,thermal,construction,storage,fit}.svg` | the five specification rows |
+| `collections/collections-{lime,rose,copper,cobalt}.png` | the four product photographs
+(1080²) |
+| `collections/collections-corner.svg` | the card's corner mark |
+| `technology/technology-icon-01…05.svg` | the five layer cards |
+| `technology/technology-stack.webp` | the reel's poster (1024×954), keyed with the SVG
+filter |
+| `technology/stack-frames/hi/000…060.webp` | the 61-frame desktop reel, 768², alpha
+baked in |
+| `technology/stack-frames/lo/000…040.webp` | the 41-frame mobile reel, 512², alpha baked
+in |
+Frame paths are zero-padded to three digits:
+`${ASSET_BASE_URL}/technology/stack-frames/hi/007.webp`.
+The DRACO decoder comes from the three.js CDN, **not** from this bucket:
+`loader.setDecoderPath("https://cdn.jsdelivr.net/npm/three@0.185.0/examples/jsm/libs/draco
+/gltf/")`.
+**A failed asset load must be visible.** Wrap the model load, the reel fetches and the font in
+a
+`catch` that puts a banner on the page naming the URL that failed. A blank product box with
+a console
+error is how a broken page ships unnoticed — and this page has three things that would
+each fail
+silently: a model that never decodes leaves an empty canvas over a wordmark plate, a reel
+that never
+arrives leaves the poster looking correct but frozen, and a font that never resolves changes
+every
+measured column width on the page

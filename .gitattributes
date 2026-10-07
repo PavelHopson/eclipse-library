@@ -1,2 +1,3 @@
 # Preserve the reviewed vendor bytes and keep generated minified code out of textual diffs.
 web/source-motion/vendor/gsap-3.13.0.unpkg.min.js -text -diff
+web/experiments/artefakt/sources/original-prompt.txt -text

@@ -1,0 +1,51 @@
+{
+  "schemaVersion": 1,
+  "frames": 97,
+  "fps": 24,
+  "duration": 4.041667,
+  "sourceWidth": 1280,
+  "sourceHeight": 720,
+  "columns": 12,
+  "rows": 9,
+  "idleFrame": 48,
+  "trackingAnchors": [
+    28,
+    48,
+    76
+  ],
+  "cyclicIndex": false,
+  "seamless": false,
+  "rights": "User-provided materials for this Library example. No general redistribution license declared.",
+  "files": [
+    {
+      "file": "sources/fox/original.mp4",
+      "bytes": 3550937,
+      "sha256": "ac477ee88b66c81523b47514175ebaf21942a8fb7af96cffc8eaf8c326db06dc"
+    },
+    {
+      "file": "sources/fox/reference.png",
+      "bytes": 1501580,
+      "sha256": "a98d459345c0a25cbe6390f53a741103ba6bdba03c49f5cad0b80ecb5ca29cc0"
+    },
+    {
+      "file": "sources/fox/horizontal-sprite.png",
+      "bytes": 4444824,
+      "sha256": "24eafc5440dd3f3b6a6c467e8bf47c09a5bc754d636f77a75fc6e9695be61b2d"
+    },
+    {
+      "file": "assets/fox/atlas.webp",
+      "bytes": 788190,
+      "sha256": "f87ae08ba0552f0d9f3a1cd2242e3ebfc7c7953c8d4f98aabd980453a6bc5430"
+    },
+    {
+      "file": "assets/fox/atlas-mobile.webp",
+      "bytes": 376908,
+      "sha256": "ffe896dda9f97bbfa266e6aaee241c6d34a1e65e4ef6ee6070ef51b2534ff98f"
+    },
+    {
+      "file": "assets/fox/poster.webp",
+      "bytes": 41248,
+      "sha256": "dedf1be16a79b0850b7256348f3f12116f2802d4b92ee0c5c973a915677c9248"
+    }
+  ]
+}

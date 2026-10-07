@@ -47,6 +47,8 @@ jobs:
       - name: Validate structured catalog
         run: |
           node --test scripts/image-prompt-codes.test.mjs scripts/coffee-cat.test.mjs
+          node --test scripts/character-heroes.test.mjs scripts/artefakt.test.mjs
+          node --check web/experiments/character-heroes/script.mjs
           node scripts/build-catalog-index.mjs --check
           node scripts/build-catalog-runtime.mjs --check
           node scripts/build-license-review-queue.mjs --check
