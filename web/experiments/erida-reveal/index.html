@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Интерактивный портрет Erida Vice: проведите по маске, чтобы открыть лицо. Практический пример Eclipse Library.">
+<title>Erida Vice — за маской · Eclipse Library</title>
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; script-src 'self' 'sha256-bwftD7OjiZpnLi1d8EE8mCfzY/OKBUeNoz8Oa0st668='; style-src 'self' 'sha256-axa29Q0iE8jiqxhTfACCe+3pKGCly6PLYFQe2akg1Dg='; object-src 'none'; base-uri 'none'; form-action 'none'; connect-src 'none'">
+<style>
+:root{color-scheme:dark;--bg:#101113;--text:#f2f0ec;--muted:#b8b8bb;--line:#353539;--accent:#b96f85}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font:16px/1.6 system-ui,-apple-system,"Segoe UI",sans-serif}a{color:inherit;text-underline-offset:5px}button{font:inherit}button,a{-webkit-tap-highlight-color:transparent}a:focus-visible,button:focus-visible,.portrait:focus-visible{outline:3px solid #e6b2c0;outline-offset:6px}button{cursor:pointer}button:disabled{cursor:wait;opacity:.55}.skip{position:absolute;top:-80px;left:20px;z-index:10;background:#f2f0ec;color:#111;padding:12px}.skip:focus{top:15px}
+.topbar{max-width:1240px;margin:auto;padding:24px 36px;display:flex;justify-content:space-between;align-items:center;gap:18px;border-bottom:1px solid var(--line)}.brand{text-decoration:none;font-size:13px;letter-spacing:.08em}.topbar nav{display:flex;gap:24px;font-size:14px}.hero{max-width:1240px;margin:auto;padding:48px 36px 56px;display:grid;grid-template-columns:1fr minmax(280px,480px);gap:64px;align-items:center}.eyebrow{margin:0 0 22px;color:var(--accent);font:12px/1.4 ui-monospace,monospace;letter-spacing:.15em;text-transform:uppercase}h1{font:normal clamp(46px,5.6vw,76px)/1.05 Georgia,"Times New Roman",serif;letter-spacing:-.04em;margin:0 0 28px}.intro{font-size:21px;max-width:370px;margin:0 0 18px}.description{color:var(--muted);max-width:370px;margin:0 0 30px}.actions{display:flex;flex-wrap:wrap;gap:12px}.primary,.secondary{min-height:48px;padding:10px 19px;border:1px solid #c9c5c1;border-radius:4px;background:#e9e5df;color:#141416}.secondary{background:transparent;color:var(--text);border-color:#646368}.primary:hover{background:#fff}.secondary:hover{background:#242427}.instructions{max-width:385px;margin:22px 0 0;font-size:13px;color:var(--muted)}.motion-note{color:#e4bac6;font-size:13px;margin:12px 0 0}.portrait{position:relative;aspect-ratio:1122/1402;isolation:isolate;touch-action:pan-y pinch-zoom;overflow:hidden;background:#333337;border:1px solid #57565b;border-radius:3px}.portrait img,.portrait canvas{position:absolute;inset:0;display:block;width:100%;height:100%;object-fit:fill}.portrait canvas{pointer-events:none}.portrait canvas[hidden]{display:none}.glow{mix-blend-mode:screen;filter:blur(8px);opacity:.45}.caption{display:flex;justify-content:space-between;gap:15px;margin:14px 0 0;font:11px/1.5 ui-monospace,monospace;color:var(--muted);text-transform:uppercase;letter-spacing:.05em}.status{max-width:370px;min-height:24px;font-size:13px;color:var(--muted);margin:16px 0 0}.status.error{color:#f4bac1}.retry{margin-top:12px;min-height:44px}.foot{max-width:1240px;margin:auto;padding:22px 36px 32px;border-top:1px solid var(--line);display:flex;justify-content:space-between;gap:24px;font-size:13px;color:var(--muted)}.foot p{margin:0}.foot a{color:var(--text)}.reduce .glow{display:none}.reduce .portrait img{transition:opacity 150ms ease}
+@media(max-width:760px){.topbar{padding:20px;align-items:flex-start}.topbar nav{gap:15px}.hero{padding:32px 20px 36px;grid-template-columns:1fr;gap:30px}.copy{max-width:530px}h1{font-size:54px;margin-bottom:18px}.intro{font-size:19px}.description{margin-bottom:22px}.portrait-wrap{max-width:480px;width:100%;margin:auto}.instructions{margin-top:18px}.foot{padding:22px 20px;flex-direction:column;gap:10px}}
+@media(prefers-reduced-motion:reduce){.glow{display:none}.portrait img{transition:opacity 150ms ease}}
+</style>
+</head>
+<body>
+<a class="skip" href="#portrait">К портрету</a>
+<header class="topbar"><a class="brand" href="../../animations.html#erida-reveal-experiment">ECLIPSE LIBRARY</a><nav aria-label="Материалы примера"><a href="guide.html">Как это сделано</a><a href="../../animations.html#erida-reveal-experiment">В библиотеку ↗</a></nav></header>
+<main class="hero">
+<section class="copy"><p class="eyebrow">Virtual creator by Eclipse Forge</p><h1>ERIDA<br>VICE.</h1><p class="intro">Познакомимся ближе.</p><p class="description">У каждого образа есть другая сторона. Проведите по маске — и увидите её.</p>
+<div class="actions"><button id="reveal" class="primary" type="button" aria-pressed="false" disabled>Показать лицо</button><button id="reset" class="secondary" type="button" disabled>Сбросить</button></div>
+<p id="instructions" class="instructions">Мышь: проведите по маске. Телефон: коснитесь кнопки или рисуйте по горизонтали. Клавиатура: кнопка либо стрелки на портрете; Escape — сброс.</p>
+<p id="motion-note" class="motion-note" hidden>Спокойный режим: лицо открывается кнопкой, без движущегося следа.</p>
+<p id="status" class="status" role="status" aria-live="polite">Загружаем портреты…</p><button id="retry" class="secondary retry" type="button" hidden>Повторить загрузку</button>
+<noscript><p>JavaScript отключён. Доступен статичный портрет. <a href="assets/face.webp">Посмотреть лицо без маски</a>.</p></noscript>
+</section>
+<div class="portrait-wrap"><div id="portrait" class="portrait" tabindex="0" role="group" aria-label="Интерактивный портрет Эриды" aria-describedby="instructions">
+<picture><source id="portrait-small" media="(max-width:600px)" srcset="assets/masked-small.webp"><img id="resting-image" src="assets/masked.webp" alt="Эрида: чёрные волосы, серо-зелёные глаза, чёрная маска с серебряным узором." width="1122" height="1402" fetchpriority="high"></picture>
+<canvas id="foreground" aria-hidden="true" hidden></canvas><canvas id="glow" class="glow" aria-hidden="true" hidden></canvas>
+</div><div class="caption"><span>Один персонаж. Две стороны.</span><span>Erida Vice / 01</span></div></div>
+</main>
+<footer class="foot"><p>Вымышленный цифровой персонаж. Интерактивный пример Eclipse Forge.</p><a href="guide.html">Руководство, исходники и полный промпт ↗</a></footer>
+<script>
+(() => {
+  'use strict';
+  const query = new URLSearchParams(location.search);
+  const stage = document.querySelector('#portrait');
+  const base = document.querySelector('#resting-image');
+  const baseSmall = document.querySelector('#portrait-small');
+  const foreground = document.querySelector('#foreground');
+  const glow = document.querySelector('#glow');
+  const reveal = document.querySelector('#reveal');
+  const resetButton = document.querySelector('#reset');
+  const retry = document.querySelector('#retry');
+  const status = document.querySelector('#status');
+  const motionNote = document.querySelector('#motion-note');
+  const trail = document.createElement('canvas');
+  const fg = foreground.getContext('2d');
+  const tc = trail.getContext('2d');
+  const gc = glow.getContext('2d');
+  const mq = matchMedia('(prefers-reduced-motion: reduce)');
+  // Percentages are relative to the complete source image, shared by all layers.
+  const config = Object.freeze({face:{x:.502,y:.444,rx:.205,ry:.16},brush:.062,heal95Ms:1100,clearMs:1800,accent:'#b96f85'});
+  const tau = config.heal95Ms / Math.log(20);
+  let reduced = query.get('reduce') === '1' || mq.matches;
+  let images = null, ready = false, full = false, visible = true, disposed = false;
+  let raf = 0, lastFrame = 0, lastStamp = 0, previous = null, activePointer = null;
+  let generation = 0, width = 0, height = 0, frames = 0;
+  let keyboard = {x:.502,y:.444};
+  let frozen = query.has('t') && Number.isFinite(Number(query.get('t')));
+  const handlers = [];
+  const on = (el,type,fn,options) => {el.addEventListener(type,fn,options);handlers.push(()=>el.removeEventListener(type,fn,options));};
+  const say = message => {status.textContent=message;};
+  const shape = ctx => {ctx.beginPath();ctx.ellipse(config.face.x*width,config.face.y*height,config.face.rx*width,config.face.ry*height,0,0,Math.PI*2);};
+  function draw() {
+    if(!images || !fg || !gc || !width || disposed) return;
+    frames++;
+    fg.globalCompositeOperation='source-over';fg.clearRect(0,0,width,height);fg.drawImage(images.masked,0,0,width,height);
+    fg.save();shape(fg);fg.clip();fg.globalCompositeOperation='destination-out';
+    if(full) fg.fillRect(0,0,width,height);else fg.drawImage(trail,0,0);
+    fg.restore();
+    gc.globalCompositeOperation='source-over';gc.clearRect(0,0,width,height);
+    if(!reduced && !full){gc.drawImage(trail,0,0);gc.globalCompositeOperation='source-in';gc.fillStyle=config.accent;gc.fillRect(0,0,width,height);gc.globalCompositeOperation='destination-out';shape(gc);gc.fill();gc.globalCompositeOperation='source-over';}
+  }
+  function stop(clear=true) {
+    if(raf)cancelAnimationFrame(raf);raf=0;lastFrame=0;previous=null;activePointer=null;
+    if(clear){tc?.clearRect(0,0,width,height);lastStamp=0;draw();}
+  }
+  function frame(time) {
+    raf=0;if(!ready||reduced||full||!visible||document.hidden||disposed){stop();return;}
+    const dt=lastFrame?Math.max(0,time-lastFrame):0;lastFrame=time;
+    tc.globalCompositeOperation='destination-out';tc.fillStyle=`rgba(0,0,0,${1-Math.exp(-dt/tau)})`;tc.fillRect(0,0,width,height);tc.globalCompositeOperation='source-over';
+    draw();
+    if(time-lastStamp<config.clearMs)raf=requestAnimationFrame(frame);else stop();
+  }
+  function schedule() {if(!raf&&!frozen&&visible&&!document.hidden)raf=requestAnimationFrame(frame);}
+  function stamp(x,y) {
+    const r=width*config.brush,g=tc.createRadialGradient(x,y,0,x,y,r);
+    g.addColorStop(0,'rgba(255,255,255,1)');g.addColorStop(.48,'rgba(255,255,255,.96)');g.addColorStop(1,'rgba(255,255,255,0)');
+    tc.fillStyle=g;tc.beginPath();tc.arc(x,y,r,0,Math.PI*2);tc.fill();
+  }
+  function paint(point) {
+    if(!ready||full||reduced||!visible)return;
+    if(previous){const distance=Math.hypot(point.x-previous.x,point.y-previous.y),steps=Math.max(1,Math.ceil(distance/(width*config.brush*.25)));
+      for(let i=1;i<=steps;i++){const t=i/steps;stamp(previous.x+(point.x-previous.x)*t,previous.y+(point.y-previous.y)*t);}
+    }else stamp(point.x,point.y);
+    previous=point;lastStamp=performance.now();draw();schedule();
+  }
+  function local(event) {const r=stage.getBoundingClientRect();return {x:(event.clientX-r.left)/r.width*width,y:(event.clientY-r.top)/r.height*height};}
+  function size() {
+    const r=stage.getBoundingClientRect(),dpr=Math.min(devicePixelRatio||1,2,1440/Math.max(r.width,1));
+    width=Math.max(1,Math.round(r.width*dpr));height=Math.max(1,Math.round(r.height*dpr));
+    for(const c of [foreground,glow,trail]){c.width=width;c.height=height;}
+    stop();draw();
+  }
+  function state(next,announce=true) {
+    full=next;stop();reveal.setAttribute('aria-pressed',String(full));reveal.textContent=full?'Вернуть маску':'Показать лицо';
+    stage.setAttribute('aria-label',full?'Портрет Эриды: лицо открыто':'Интерактивный портрет Эриды в маске');
+    base.alt=full?'Эрида без маски: чёрные волосы и серо-зелёные глаза.':'Эрида в чёрной маске с серебряным узором.';
+    draw();if(announce)say(full?'Лицо открыто.':'Маска восстановлена.');
+  }
+  function preference() {reduced=query.get('reduce')==='1'||mq.matches;document.documentElement.classList.toggle('reduce',reduced);motionNote.hidden=!reduced;stop();}
+  function loadImage(src) {return new Promise((resolve,reject)=>{const img=new Image();const timer=setTimeout(()=>{img.src='';reject(new Error('timeout'));},12000);img.onload=()=>{clearTimeout(timer);resolve(img);};img.onerror=()=>{clearTimeout(timer);reject(new Error('image'));};img.src=src;});}
+  async function load() {
+    const ticket=++generation;ready=false;images=null;stop();full=false;reveal.disabled=resetButton.disabled=true;foreground.hidden=glow.hidden=true;retry.hidden=true;status.classList.remove('error');say('Загружаем портреты…');
+    base.src='assets/masked.webp';baseSmall.srcset='assets/masked-small.webp';
+    const small=matchMedia('(max-width:600px)').matches;
+    try {
+      if(!fg||!tc||!gc)throw new Error('canvas');
+      const [face,masked]=await Promise.all([loadImage(`assets/face${small?'-small':''}.webp`),loadImage(`assets/masked${small?'-small':''}.webp`)]);
+      if(ticket!==generation||disposed)return;
+      if(face.width!==masked.width||face.height!==masked.height)throw new Error('dimensions');
+      images={face,masked};size();base.src=face.src;baseSmall.srcset=face.src;
+      ready=true;foreground.hidden=glow.hidden=false;reveal.disabled=resetButton.disabled=false;state(false,false);say('Готово. Проведите по маске или нажмите «Показать лицо».');
+      if(frozen&&!reduced){const age=Math.max(0,Number(query.get('t')))*1000;stamp(width*.465,height*.435);stamp(width*.50,height*.452);stamp(width*.54,height*.465);tc.globalCompositeOperation='destination-out';tc.fillStyle=`rgba(0,0,0,${1-Math.exp(-age/tau)})`;tc.fillRect(0,0,width,height);tc.globalCompositeOperation='source-over';draw();}
+      window.__ready=true;
+    }catch(error){if(ticket!==generation||disposed)return;status.classList.add('error');say(error.message==='dimensions'?'Размеры портретов не совпадают. Нужна одинаковая пара изображений.':'Не удалось загрузить интерактивный портрет. Можно повторить попытку.');retry.hidden=false;window.__ready=false;}
+  }
+  on(stage,'pointerdown',event=>{if(event.pointerType!=='mouse'&&ready&&!reduced&&!full){activePointer=event.pointerId;previous=null;stage.setPointerCapture?.(event.pointerId);paint(local(event));}});
+  on(stage,'pointermove',event=>{if(event.pointerType!=='mouse'&&event.pointerId!==activePointer)return;if(event.pointerType==='mouse'&&event.buttons>1)return;
+    const events=typeof event.getCoalescedEvents==='function'?event.getCoalescedEvents():[];
+    for(const sample of events.length?events:[event])paint(local(sample));});
+  const release=event=>{if(event.pointerId===activePointer){activePointer=null;previous=null;if(stage.hasPointerCapture?.(event.pointerId))stage.releasePointerCapture(event.pointerId);}};
+  on(stage,'pointerup',release);on(stage,'pointercancel',release);on(stage,'lostpointercapture',()=>{activePointer=null;previous=null;});on(stage,'pointerleave',()=>{previous=null;});
+  on(stage,'keydown',event=>{if(event.key==='Escape'){event.preventDefault();state(false);return;}if(!['ArrowLeft','ArrowRight','ArrowUp','ArrowDown'].includes(event.key)||reduced||!ready)return;event.preventDefault();frozen=false;if(full)state(false,false);const step=.02;if(event.key==='ArrowLeft')keyboard.x-=step;if(event.key==='ArrowRight')keyboard.x+=step;if(event.key==='ArrowUp')keyboard.y-=step;if(event.key==='ArrowDown')keyboard.y+=step;keyboard.x=Math.max(.37,Math.min(.63,keyboard.x));keyboard.y=Math.max(.35,Math.min(.54,keyboard.y));paint({x:keyboard.x*width,y:keyboard.y*height});});
+  on(reveal,'click',()=>state(!full));on(resetButton,'click',()=>state(false));on(retry,'click',load);
+  on(document,'keydown',event=>{if(event.key==='Escape'&&ready)state(false);});
+  on(window,'blur',()=>stop());on(window,'scroll',()=>stop(),{passive:true});on(document,'visibilitychange',()=>{if(document.hidden)stop();});
+  on(mq,'change',preference);preference();
+  const resizeObserver=new ResizeObserver(size);resizeObserver.observe(stage);
+  const intersectionObserver=new IntersectionObserver(entries=>{visible=entries[0].isIntersecting;if(!visible)stop();});intersectionObserver.observe(stage);
+  function dispose(){if(disposed)return;stop();disposed=true;generation++;resizeObserver.disconnect();intersectionObserver.disconnect();for(const remove of handlers)remove();images=null;}
+  on(window,'pagehide',event=>{if(event.persisted)stop();else dispose();});on(window,'pageshow',event=>{if(event.persisted&&!disposed)size();});
+  Object.defineProperty(window,'__eridaReveal',{value:Object.freeze({get state(){return {ready,full,reduced,running:Boolean(raf),width,height,frames,activePointer,visible,disposed,heal95Ms:config.heal95Ms};}})});
+  load();
+})();
+</script>
+</body></html>

@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "totals": {
-    "guides": 81
+    "guides": 82
   },
   "guides": [
     {
@@ -17,6 +17,13 @@
       "description": "Актуальная инструкция подключения Higgsfield к AI‑агентам, расчёта кредитов, постановки задач, пакетной генерации и приёмки результатов.",
       "modules": 8,
       "lessons": 16
+    },
+    {
+      "name": "erida-canvas-mask-reveal",
+      "title": "Интерактивный портрет Erida Vice: раскрываем лицо под маской с помощью Codex",
+      "description": "Практический гайд: от двух совмещённых изображений до работающей кисти Canvas, мобильного управления и доступного переключения портретов.",
+      "modules": 8,
+      "lessons": 12
     },
     {
       "name": "cinematic-scroll-video-storytelling",
