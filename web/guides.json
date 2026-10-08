@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "totals": {
-    "guides": 82
+    "guides": 83
   },
   "guides": [
     {
@@ -108,6 +108,13 @@
       "description": "Практический гайд по интерактивному Canvas-постеру: два прозрачных портрета, курсор-слизь, раскрытие костюма и восстановление одним нажатием.",
       "modules": 6,
       "lessons": 12
+    },
+    {
+      "name": "synthid-media-provenance-checklist",
+      "title": "SynthID: проверка медиа без ложной уверенности",
+      "description": "Практический чек-лист происхождения изображения, видео или аудио: источник, права, SHA-256, результат проверки и история изменений.",
+      "modules": 4,
+      "lessons": 9
     },
     {
       "name": "artefakt-interactive-webgl",

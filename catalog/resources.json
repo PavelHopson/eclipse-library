@@ -2,9 +2,103 @@
   "schemaVersion": 1,
   "migratedAt": "2026-08-03",
   "totals": {
-    "items": 772
+    "items": 773
   },
   "items": [
+    {
+      "id": "synthid-detector-media-provenance",
+      "url": "https://synthid.com/",
+      "title": "SynthID Detector — проверка метки и происхождения медиа",
+      "type": "privacy",
+      "category": "Security и privacy",
+      "subcategory": "Проверяемое происхождение media",
+      "simpleDescription": "Проверка поддерживаемых AI-меток как дополнительный сигнал перед публикацией. Не универсальный детектор фейков, авторства или прав. Гайд и локальный отчёт с SHA-256; реальная проверка файла не выполнена.",
+      "useCases": [
+        "Ручная проверка чужого медиа перед публикацией",
+        "Паспорт собственного исходника и производных экспортов",
+        "Отчёт с тремя статусами без выдуманной уверенности"
+      ],
+      "platforms": [
+        "Web"
+      ],
+      "license": "Условия сервиса Google; открытая лицензия Detector не подтверждена. Права на загружаемый файл проверяются отдельно.",
+      "licenseEvidence": [
+        {
+          "kind": "source",
+          "label": "Официальный Detector",
+          "url": "https://synthid.com/"
+        }
+      ],
+      "pricing": "Стоимость, квоты и условия API нового Detector в этой проверке не установлены.",
+      "access": {
+        "cost": "unknown",
+        "signup": "unknown",
+        "runtime": "cloud"
+      },
+      "trust": "official",
+      "trustReason": "08.10.2026 сверены анонс Google от 07.10.2026, DeepMind и отдельная справка Gemini. Прочитан receipt A-00 публичного welcome notice Detector от 12:36:09Z: условия хранения заявлены Google, независимое удаление не проверено. Загрузки файла не было. Покрытие конкретных моделей и старых файлов не гарантируется.",
+      "projects": [
+        "Eclipse Library",
+        "Eclipse Media",
+        "Ultron",
+        "AI Creator"
+      ],
+      "decision": "reference",
+      "riskLevel": "medium",
+      "risks": [
+        "По notice Google оригинал удаляется после результата, digital signature связана с user identifier и хранится до 24 часов; независимый аудит удаления не выполнен",
+        "Third-party sign-in передаёт базовые идентификаторы; загрузка файла требует отдельного разрешения",
+        "Additional Terms запрещают frontend-as-API, bulk verification, обход квот и adversarial-подбор преобразований против обнаружения метки",
+        "Отсутствие метки не доказывает отсутствие AI",
+        "Обнаружение метки не доказывает истинность, авторство или права",
+        "Результат нельзя переносить на изменённые байты или другой экспорт"
+      ],
+      "verifiedAt": "2026-10-08",
+      "quickStart": [
+        "Откройте гайд и зафиксируйте источник, права и SHA-256",
+        "До загрузки проверьте условия сервиса и отдельное разрешение на передачу файла",
+        "Сохраните точный ответ, дату и доказательство; ошибку отмечайте not_checked"
+      ],
+      "reviewStatus": "verified",
+      "addedAt": "2026-10-08",
+      "guide": "synthid-media-provenance-checklist",
+      "relatedResources": [
+        "c2pa-content-credentials"
+      ],
+      "source": {
+        "file": "guides/synthid-media-provenance-checklist.md",
+        "line": 1,
+        "category": "Security и privacy",
+        "subcategory": "Проверяемое происхождение media"
+      },
+      "verification": {
+        "scope": "Official documentation and A-00 public UI receipt reviewed; local asset hash computed without external upload",
+        "runtimeTested": false,
+        "fileVerificationStatus": "not_checked",
+        "eventDate": "2026-10-07",
+        "publicNoticeObservedAt": "2026-10-08T12:36:09.919Z",
+        "publicNoticeHttpStatus": 200,
+        "deletionIndependentlyVerified": false,
+        "sources": [
+          "https://blog.google/innovation-and-ai/models-and-research/google-deepmind/synth-id-ai-content/",
+          "https://deepmind.google/models/synthid/",
+          "https://support.google.com/gemini/answer/16722517?hl=en",
+          "https://synthid.com/",
+          "https://policies.google.com/terms",
+          "https://policies.google.com/privacy"
+        ]
+      },
+      "correctionHistory": [
+        {
+          "date": "2026-10-08",
+          "change": "Создана карточка IDEA-025. Разделены Detector, Gemini и C2PA. На момент первой редакции API, retention, квоты и реальная проверка файла не подтверждены."
+        },
+        {
+          "date": "2026-10-08",
+          "change": "По receipt A-00 от 12:36:09Z уточнён прочитанный welcome Privacy Notice: удаление оригинала после результата, signature/user identifier до 24ч, basic sign-in identifiers. Это заявление Google, не аудит удаления. Зафиксированы запреты adversarial optimization, frontend-as-API/bulk и обхода квот. API, тарифы, квоты, форматы и проверка файла по-прежнему не подтверждены; not_checked."
+        }
+      ]
+    },
     {
       "id": "100-free-open-source-github-repos-github-com",
       "url": "https://github.com/Moh4696/100-free-open-source-github-repos",

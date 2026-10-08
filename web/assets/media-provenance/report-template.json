@@ -1,0 +1,26 @@
+{
+  "schema_version": "1.0",
+  "asset_id": null,
+  "filename": null,
+  "sha256": null,
+  "media_type": null,
+  "source_url": null,
+  "source_ref": null,
+  "source_claim": null,
+  "evidence": [],
+  "rights": {"status": "unknown", "evidence_ref": null},
+  "model_id": null,
+  "revision": null,
+  "created_at": null,
+  "observed_at": null,
+  "transformations": [],
+  "parent_sha256": null,
+  "verification": {
+    "service_url": null,
+    "checked_at": null,
+    "status": "not_checked",
+    "raw_result": null,
+    "evidence_ref": null,
+    "reason": "Шаблон: файл не выбран и внешняя проверка не выполнена."
+  }
+}

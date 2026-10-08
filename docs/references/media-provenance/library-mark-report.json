@@ -1,0 +1,26 @@
+{
+  "schema_version": "1.0",
+  "asset_id": "eclipse-library-mark-local-2026-10-08",
+  "filename": "eclipse-library-mark.svg",
+  "sha256": "45b294cfebaf34555149181a1faa8545905b3ecbba24196caef349d789c73959",
+  "media_type": "image/svg+xml",
+  "source_url": null,
+  "source_ref": "web/assets/brand/eclipse-library-mark.svg",
+  "source_claim": "Локальный брендовый знак Eclipse Library. Наличие в репозитории подтверждено; автор, модель и первоначальная дата создания по этому файлу не установлены.",
+  "evidence": [{"kind": "local_file", "ref": "web/assets/brand/eclipse-library-mark.svg", "observation": "SVG содержит title Eclipse Library и векторные paths; SHA-256 рассчитан по исходным байтам."}],
+  "rights": {"status": "unknown", "evidence_ref": null},
+  "model_id": null,
+  "revision": null,
+  "created_at": null,
+  "observed_at": "2026-10-08",
+  "transformations": [],
+  "parent_sha256": null,
+  "verification": {
+    "service_url": "https://synthid.com/",
+    "checked_at": null,
+    "status": "not_checked",
+    "raw_result": null,
+    "evidence_ref": null,
+    "reason": "Только локальный учёт и хеширование. Файл не загружался во внешний сервис; поддержка SVG и разрешение на передачу этого файла не установлены. Публичный Privacy Notice прочитан по receipt A-00 от 2026-10-08T12:36:09.919Z, но заявленное Google удаление независимо не проверено. Пустая история изменений означает неизвестную историю, а не отсутствие редактирования."
+  }
+}
