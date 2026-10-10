@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "consumer": "Eclipse CRM",
-  "catalogVersion": "5a3fa9c69cde4eeace76a6e43f1639bff995bf00bb4ff575f89187078671a1ec",
+  "catalogVersion": "a8d5066950e7902b952eacf403f84500240b999d5c31ef096762f2fad38e8069",
   "generatedAt": null,
   "policy": {
     "greyResourcesExcluded": true,
@@ -9,7 +9,7 @@
     "externalMutationsRequireHumanApproval": true
   },
   "totals": {
-    "items": 673
+    "items": 674
   },
   "items": [
     {
@@ -3817,6 +3817,67 @@
           "kind": "decision",
           "label": "Eclipse rights and provenance gate",
           "url": "https://artlist.io/help-center/privacy-terms/artlist-license/"
+        }
+      ],
+      "actions": {
+        "openOfficialSource": true,
+        "installFromCatalog": false,
+        "mutateExternalSystems": false
+      }
+    },
+    {
+      "id": "koboyo-page-mascot",
+      "title": "Koboyo Page Mascot — интерактивный персонаж для сайта",
+      "url": "https://koboyo.com/page-mascot",
+      "type": "oss",
+      "category": "Frontend и дизайн",
+      "subcategory": "Интерактивные маскоты",
+      "addedAt": "2026-10-10",
+      "description": "Готовая коллекция: 53 персонажа и 5 дополнительных стилей лисы, 116 WebP-листов. Предпросмотр, скачивание и инструкция по подключению. Исходный React-компонент реагирует на курсор и нажатия.",
+      "useCases": [
+        "Персонаж рядом с приветствием или поиском",
+        "Маскот на странице портфолио или ссылок",
+        "Оригинальный герой игрового приветственного экрана",
+        "Дополнительная реакция на подтверждённое состояние приложения через отдельный адаптер"
+      ],
+      "platforms": [
+        "Web",
+        "React"
+      ],
+      "license": {
+        "label": "MIT",
+        "original": "MIT репозитория Kamran Ahmed, включая размещённый в нём набор; отдельных исключений для импортированных листов в исследованном дереве не найдено. Сохраняйте LICENSE и copyright. Права на свои фото и сторонние брендовые образы проверяются отдельно.",
+        "spdx": "MIT",
+        "kind": "open-source",
+        "status": "editor-reviewed",
+        "requiresReview": false,
+        "evidence": [
+          {
+            "kind": "license",
+            "label": "MIT на исследованной ревизии",
+            "url": "https://github.com/nilbuild/page-mascot/blob/76a44ed9180063bf4852b9dd724b656f4a828ac7/LICENSE"
+          }
+        ]
+      },
+      "access": {
+        "cost": "free",
+        "signup": "none",
+        "runtime": "self-host"
+      },
+      "trust": "community",
+      "decision": "reference",
+      "riskLevel": "low",
+      "projects": [],
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://koboyo.com/page-mascot"
+        },
+        {
+          "kind": "license",
+          "label": "MIT на исследованной ревизии",
+          "url": "https://github.com/nilbuild/page-mascot/blob/76a44ed9180063bf4852b9dd724b656f4a828ac7/LICENSE"
         }
       ],
       "actions": {

@@ -455,7 +455,15 @@
   // ---- markdown inline → safe-ish HTML ----
   function esc(s) { return s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;'); }
   function escAttr(s) { return esc(String(s || '')).replace(/"/g, '&quot;').replace(/'/g, '&#39;'); }
+  const LOCAL_KOBOYO_RESOURCES = new Set([
+    '/mascots/koboyo/index.html',
+    '/mascots/koboyo/downloads/koboyo-page-mascot.zip',
+    '/mascots/koboyo/README.md',
+    '/mascots/koboyo/LICENSE.txt',
+    '/mascots/koboyo/manifest.json',
+  ]);
   function absUrl(u) {
+    if (LOCAL_KOBOYO_RESOURCES.has(u)) return u;
     // The codebook guide links to local Library assets, not GitHub source pages.
     if (u === '/images.html' || u === '/image-prompt-codes.json') return u;
     if (['/experiments/artefakt/index.html', '/experiments/artefakt/guide.html', '/experiments/artefakt/sources/original-prompt.txt', '/animations.html#artefakt-experiment'].includes(u)) return u;
@@ -1522,6 +1530,7 @@
     s = esc(s || '');
     s = s.replace(/!\[[^\]]*\]\([^)]+\)/g, '');
     s = s.replace(/\[([^\]]+)\]\(([^)\s]+)\)/g, (_, t, u) => {
+      if (LOCAL_KOBOYO_RESOURCES.has(u)) return `<a href="${escAttr(u)}">${t}</a>`;
       if (/README\.md/.test(u)) { const a = (u.match(/#(.+)$/) || [])[1]; return `<a href="#${a || 'top'}">${t}</a>`; }
       const g = u.match(/(?:^|\/)([\w-]+)\.md(?:#[\w-]+)?$/);
       if (g && !/^https?:/.test(u)) return `<a href="#guide/${g[1]}">${t}</a>`;

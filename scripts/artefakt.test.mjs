@@ -53,7 +53,7 @@ test('local entry, guide and download links resolve without an external site',as
 
 test('library markdown renderer preserves the exact ARTEFAKT local destinations',async()=>{
  const app=await readFile(new URL('web/app.js',root),'utf8');
- const functionSource=app.slice(app.indexOf('  function absUrl(u)'),app.indexOf('  function inline(md)'));
+ const functionSource=app.slice(app.indexOf('  const LOCAL_KOBOYO_RESOURCES'),app.indexOf('  function inline(md)'));
  const absUrl=vm.runInNewContext('const REPO_URL="https://github.com/PavelHopson/eclipse-library";'+functionSource+';absUrl');
  for(const url of ['/experiments/artefakt/index.html','/experiments/artefakt/guide.html','/experiments/artefakt/sources/original-prompt.txt','/animations.html#artefakt-experiment'])assert.equal(absUrl(url),url);
  assert.equal(absUrl('unrelated.md'),'https://github.com/PavelHopson/eclipse-library/blob/master/unrelated.md');

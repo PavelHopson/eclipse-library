@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "totals": {
-    "guides": 83
+    "guides": 84
   },
   "guides": [
     {
@@ -108,6 +108,13 @@
       "description": "Практический гайд по интерактивному Canvas-постеру: два прозрачных портрета, курсор-слизь, раскрытие костюма и восстановление одним нажатием.",
       "modules": 6,
       "lessons": 12
+    },
+    {
+      "name": "koboyo-page-mascot",
+      "title": "Koboyo Page Mascot: интерактивный персонаж для сайта",
+      "description": "Бесплатный React-компонент с реакцией на курсор и нажатия: возможности, подключение, подготовка собственного героя и проверка доступности.",
+      "modules": 4,
+      "lessons": 7
     },
     {
       "name": "synthid-media-provenance-checklist",

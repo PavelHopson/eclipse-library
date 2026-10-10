@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "migratedAt": "2026-08-03",
   "totals": {
-    "items": 773
+    "items": 774
   },
   "items": [
     {
@@ -45377,6 +45377,120 @@
         {
           "date": "2026-10-06",
           "change": "Добавлена новая карточка после проверки отсутствия дубля URL. Создан словарь с собственными пояснениями; 100 обозначений — творческие подсказки, не команды генераторов."
+        }
+      ]
+    },
+    {
+      "id": "koboyo-page-mascot",
+      "url": "https://koboyo.com/page-mascot",
+      "title": "Koboyo Page Mascot — интерактивный персонаж для сайта",
+      "type": "oss",
+      "category": "Frontend и дизайн",
+      "subcategory": "Интерактивные маскоты",
+      "simpleDescription": "Готовая коллекция: 53 персонажа и 5 дополнительных стилей лисы, 116 WebP-листов. Предпросмотр, скачивание и инструкция по подключению. Исходный React-компонент реагирует на курсор и нажатия.",
+      "useCases": [
+        "Персонаж рядом с приветствием или поиском",
+        "Маскот на странице портфолио или ссылок",
+        "Оригинальный герой игрового приветственного экрана",
+        "Дополнительная реакция на подтверждённое состояние приложения через отдельный адаптер"
+      ],
+      "platforms": [
+        "Web",
+        "React"
+      ],
+      "license": "MIT репозитория Kamran Ahmed, включая размещённый в нём набор; отдельных исключений для импортированных листов в исследованном дереве не найдено. Сохраняйте LICENSE и copyright. Права на свои фото и сторонние брендовые образы проверяются отдельно.",
+      "licenseEvidence": [
+        {
+          "kind": "license",
+          "label": "MIT на исследованной ревизии",
+          "url": "https://github.com/nilbuild/page-mascot/blob/76a44ed9180063bf4852b9dd724b656f4a828ac7/LICENSE"
+        }
+      ],
+      "pricing": "Компонент и размещение у себя — без подписки Koboyo. Генерация собственного героя зависит от выбранного инструмента; готовые листы не требуют генерации.",
+      "access": {
+        "cost": "free",
+        "signup": "none",
+        "runtime": "self-host"
+      },
+      "trust": "community",
+      "trustReason": "10.10.2026: прочитаны документация, MIT и код на закреплённой ревизии; 116 WebP и четыре справочных файла сверены по Git blob SHA, SHA-256 сохранены. Все изображения декодированы браузером; ZIP скачан с локального сервера и проверен. Исходный npm-компонент не устанавливался.",
+      "projects": [],
+      "decision": "reference",
+      "riskLevel": "low",
+      "risks": [
+        "Готовый компонент требует React; для другого стека нужна отдельная реализация или адаптация",
+        "Генератор может расходовать лимиты или деньги",
+        "Reduced-motion отключает деформацию, но не все реакции; нужна браузерная проверка",
+        "Фотографии и брендовые образы требуют собственных прав; MIT на код их не заменяет"
+      ],
+      "verifiedAt": "2026-10-10",
+      "addedAt": "2026-10-10",
+      "reviewStatus": "verified",
+      "guide": "koboyo-page-mascot",
+      "quickStart": [
+        "Откройте коллекцию из гайда и выберите персонажа",
+        "Скачайте оба листа WebP или полный ZIP вместе с LICENSE.txt",
+        "Подключите по инструкции своего стека; проверьте клавиатуру, touch и reduced-motion"
+      ],
+      "source": {
+        "file": "guides/koboyo-page-mascot.md",
+        "line": 1,
+        "category": "Frontend и дизайн",
+        "subcategory": "Интерактивные маскоты"
+      },
+      "verification": {
+        "scope": "Documentation, pinned source and byte-for-byte asset integrity review; browser decoding and local archive download verified. Upstream npm component not installed. Static gallery adapter tested locally; production publication not performed.",
+        "runtimeTested": false,
+        "installed": false,
+        "upstreamCommit": "76a44ed9180063bf4852b9dd724b656f4a828ac7",
+        "packageVersion": "0.1.0",
+        "packageVersionEvidence": "main package.json; npm archive not inspected",
+        "eventDate": null,
+        "sources": [
+          "https://github.com/nilbuild/page-mascot",
+          "https://github.com/nilbuild/page-mascot/blob/main/package.json",
+          "https://github.com/nilbuild/page-mascot/blob/76a44ed9180063bf4852b9dd724b656f4a828ac7/src/mascot.tsx",
+          "https://github.com/nilbuild/page-mascot/blob/76a44ed9180063bf4852b9dd724b656f4a828ac7/LICENSE"
+        ],
+        "assetCollection": {
+          "variants": 58,
+          "baseCharacters": 53,
+          "images": 116,
+          "bytes": 21440188,
+          "allBlobHashesVerified": true,
+          "browserDecodeVerified": true,
+          "archiveDownloadVerified": true,
+          "upstreamCommit": "76a44ed9180063bf4852b9dd724b656f4a828ac7"
+        },
+        "localGallery": {
+          "tested": true,
+          "production": false,
+          "checks": [
+            "search and categories",
+            "58 selectable variants",
+            "9 directions and 9 reactions",
+            "real downloads and matching hashes",
+            "keyboard and touch",
+            "320/390 px layout",
+            "reduced motion",
+            "image and manifest errors with retry",
+            "guide navigation"
+          ],
+          "evidence": "reports/koboyo-gallery/qa.json"
+        }
+      },
+      "correctionHistory": [
+        {
+          "date": "2026-10-10",
+          "change": "Редакция 1: создана карточка и руководство; уточнены неподвижное положение героя, MIT и отдельная стоимость генерации. Установка и работа компонента не проверялись."
+        },
+        {
+          "date": "2026-10-10",
+          "change": "Редакция 2: универсальные примеры и промпт для читателя; уточнены права на изображения и отдельная интеграция реакций на состояние приложения."
+        },
+        {
+          "date": "2026-10-10",
+          "change": "Редакция 3: добавлена коллекция из 58 вариантов и скачиваемый архив с MIT, авторством и неизменёнными файлами. Полнота и контрольные суммы сверены с закреплённой ревизией; изображения и скачивание проверены локально. Локальная галерея проверена: выбор всех вариантов, 18 кадров, скачивание, клавиатура/touch, reduced-motion и ошибки с повтором."
         }
       ]
     }

@@ -1,0 +1,853 @@
+{
+  "source": "https://github.com/nilbuild/page-mascot",
+  "upstreamCommit": "76a44ed9180063bf4852b9dd724b656f4a828ac7",
+  "retrievedAt": "2026-10-10T21:23:48.687Z",
+  "files": [
+    {
+      "path": "assets/afro-directions.webp",
+      "sourcePath": "public/mascots/afro-directions.webp",
+      "bytes": 143792,
+      "gitBlobSha": "9a0fc894f04d45237068ab856bb0cfa7fb8cd876",
+      "sha256": "71ea43c8399210b0fc7e44fcb09a6cf0eef090ef4664236ecae7360d29c04a91"
+    },
+    {
+      "path": "assets/afro-reactions.webp",
+      "sourcePath": "public/mascots/afro-reactions.webp",
+      "bytes": 148918,
+      "gitBlobSha": "d594314539895813a04ea596080055baf018e197",
+      "sha256": "7ba96d8d7f79d6e47f5cc48ca00d4924f9e31ae512801619ba82c069191b8c6d"
+    },
+    {
+      "path": "assets/astronaut-directions.webp",
+      "sourcePath": "public/mascots/astronaut-directions.webp",
+      "bytes": 189490,
+      "gitBlobSha": "72bbf19b7692b073ec27e2e51ec6ecfffffbe1f8",
+      "sha256": "e06b9a9cdccf939d8aed9530496de1a8d00f2bc43221f3fb04807fcbe9464cdd"
+    },
+    {
+      "path": "assets/astronaut-reactions.webp",
+      "sourcePath": "public/mascots/astronaut-reactions.webp",
+      "bytes": 199468,
+      "gitBlobSha": "518cb0bb70113dcbb0e7670c6eda4b2a6a487cc7",
+      "sha256": "5da726befd992e04fcbf1a60e3db622c022e30f37fb5573414ff5732346aab6e"
+    },
+    {
+      "path": "assets/bald-directions.webp",
+      "sourcePath": "public/mascots/bald-directions.webp",
+      "bytes": 136604,
+      "gitBlobSha": "496954d5844d5e63984f52e2c5be1c2abd12619b",
+      "sha256": "24010cca7285ecb51f64aa1acd5adce0a80683da0147e4a96893f7ff39993a6b"
+    },
+    {
+      "path": "assets/bald-reactions.webp",
+      "sourcePath": "public/mascots/bald-reactions.webp",
+      "bytes": 154754,
+      "gitBlobSha": "e7d532c8310f5e25b6bbdac34367a77d5d02a8e4",
+      "sha256": "8194b1c2545a30e78d48f1cbabd5fe724e543e4ddebe98f9fa72d5d4ca3fdc3e"
+    },
+    {
+      "path": "assets/ballerina-directions.webp",
+      "sourcePath": "public/mascots/ballerina-directions.webp",
+      "bytes": 226620,
+      "gitBlobSha": "87d28f30e8e112203bf48e8fbb415ff34781f3ab",
+      "sha256": "edabf53ee3adbe7936c1a00f9a7798aa2abd79be606f0767214efc3e2b5d8ae4"
+    },
+    {
+      "path": "assets/ballerina-reactions.webp",
+      "sourcePath": "public/mascots/ballerina-reactions.webp",
+      "bytes": 206166,
+      "gitBlobSha": "e6cad834db51bd77d0bac320566ebc4e36bb6560",
+      "sha256": "adfca7bcaf99316519820fb2ef6499c5c4ae8ddc09f1bb2f43653545c9399076"
+    },
+    {
+      "path": "assets/bear-directions.webp",
+      "sourcePath": "public/mascots/bear-directions.webp",
+      "bytes": 148074,
+      "gitBlobSha": "acf3f4c5eac63abb821beede4f176195c5715045",
+      "sha256": "1cde52598400e36c42662543e2f0a967994300ca7aba10d8176d4e46c4efcec6"
+    },
+    {
+      "path": "assets/bear-reactions.webp",
+      "sourcePath": "public/mascots/bear-reactions.webp",
+      "bytes": 182752,
+      "gitBlobSha": "7d88d46d1567a0c4e0e920a3d34aed746ba0a818",
+      "sha256": "9329729bc1060f28bc328b8c2b89d0e08ebf3ba5de53b725419f4eaad11b0316"
+    },
+    {
+      "path": "assets/beard-directions.webp",
+      "sourcePath": "public/mascots/beard-directions.webp",
+      "bytes": 132926,
+      "gitBlobSha": "3027a2f9fcd1b50ec8011060355a0d9e59d49327",
+      "sha256": "4fbf2a4e249d40ab5bb4902210425feb7adf1d70e746ccad4fe5ae8c9ccd49d0"
+    },
+    {
+      "path": "assets/beard-reactions.webp",
+      "sourcePath": "public/mascots/beard-reactions.webp",
+      "bytes": 146650,
+      "gitBlobSha": "6c0a624b341767c25cdd245329c4579db330b2fe",
+      "sha256": "1fa3dbf54e370fb06c728fdc5ef7806961badfe1227bd76bffa3c94ab0f77927"
+    },
+    {
+      "path": "assets/builder-directions.webp",
+      "sourcePath": "public/mascots/builder-directions.webp",
+      "bytes": 191396,
+      "gitBlobSha": "58d77bdd009dc8835dcb760835e7e8da1bc9d891",
+      "sha256": "436cba06345833b0dcb4f180cfcbe2009fab16ec93aac2b84fb8c7a2e9b7fc08"
+    },
+    {
+      "path": "assets/builder-reactions.webp",
+      "sourcePath": "public/mascots/builder-reactions.webp",
+      "bytes": 197794,
+      "gitBlobSha": "ca75a7f2f9df53a4d9319a660735509f53f5a708",
+      "sha256": "46e9691a51ef8f1e4b1cadc8b81d3a24f56a60315600fd5034c9dd398e1651ed"
+    },
+    {
+      "path": "assets/bunny-directions.webp",
+      "sourcePath": "public/mascots/bunny-directions.webp",
+      "bytes": 157694,
+      "gitBlobSha": "dc003b03f049568bb9ec664023b3c37cdadb2e2c",
+      "sha256": "ad6f9c235bdbd670520ceaef61641908232a06e16349756951ec674581ada4eb"
+    },
+    {
+      "path": "assets/bunny-reactions.webp",
+      "sourcePath": "public/mascots/bunny-reactions.webp",
+      "bytes": 173236,
+      "gitBlobSha": "a09a48aa5ea06186cf372e029777a0888705ba9e",
+      "sha256": "684ffa9a58b5ee746122f4fe1d15184115962b63d39e65d76e786598d0e96875"
+    },
+    {
+      "path": "assets/cap-directions.webp",
+      "sourcePath": "public/mascots/cap-directions.webp",
+      "bytes": 174392,
+      "gitBlobSha": "027b8edda919fc6d6999f4c78d78a307306cd194",
+      "sha256": "ff647887f500d44f25091887014d123e6be19f4ef6bdda729140f5f429a10500"
+    },
+    {
+      "path": "assets/cap-reactions.webp",
+      "sourcePath": "public/mascots/cap-reactions.webp",
+      "bytes": 196650,
+      "gitBlobSha": "05eae5dff78403a75cc787d7d367fb11c25fa25a",
+      "sha256": "a482c82f96a0ff3760e4a81225cd17c473b840e4c7e03045f6d88dde94e2372f"
+    },
+    {
+      "path": "assets/cat-directions.webp",
+      "sourcePath": "public/mascots/cat-directions.webp",
+      "bytes": 129600,
+      "gitBlobSha": "509178c942095fe045b2ec32002d6a196338ed37",
+      "sha256": "74fc16d0b0a906e87da4c8e0df875333d9f0f9fa1708ae8a71535d9e716ed199"
+    },
+    {
+      "path": "assets/cat-reactions.webp",
+      "sourcePath": "public/mascots/cat-reactions.webp",
+      "bytes": 142868,
+      "gitBlobSha": "41719cb0bc58ae3217dd0bf01907e7e481cdc0a8",
+      "sha256": "71ec3b4b05dc314867bc0bf050dd70b81f289139d8569aaa23ab1f712a1fb939"
+    },
+    {
+      "path": "assets/chef-directions.webp",
+      "sourcePath": "public/mascots/chef-directions.webp",
+      "bytes": 162756,
+      "gitBlobSha": "ef40e3f13a6e73fa515137c68ba552f1d2d34662",
+      "sha256": "1c7b335df0ffa2ee73b3d7081537d7a728f54ebd904e2c7cac76d63411a08a0e"
+    },
+    {
+      "path": "assets/chef-reactions.webp",
+      "sourcePath": "public/mascots/chef-reactions.webp",
+      "bytes": 164832,
+      "gitBlobSha": "2200d6a4a39cf1b4a95c84091a19b04b5a8bfae4",
+      "sha256": "d19c646a33e4743a7ae654493a56c06e1445ab7008cfef9e030bacc66c064890"
+    },
+    {
+      "path": "assets/clockwork-directions.webp",
+      "sourcePath": "public/mascots/clockwork-directions.webp",
+      "bytes": 154012,
+      "gitBlobSha": "d7795869e5877c658d3806ae99253b2bd32b9c81",
+      "sha256": "2fe346a027233e46f268969c116ccaee8e08b89e2303034ee7b09d4e3e1d7af3"
+    },
+    {
+      "path": "assets/clockwork-reactions.webp",
+      "sourcePath": "public/mascots/clockwork-reactions.webp",
+      "bytes": 171954,
+      "gitBlobSha": "68748ae1c9802155be444b4a65c23911d4f1ff88",
+      "sha256": "a433a840246b620463e6ed869b0a03b9d89ef60ff6d877f7fb10fd49f680de55"
+    },
+    {
+      "path": "assets/crt-directions.webp",
+      "sourcePath": "public/mascots/crt-directions.webp",
+      "bytes": 143972,
+      "gitBlobSha": "11606bd50e9cfe396abe619e25d1a1419bfa3f59",
+      "sha256": "3bffa36d7e741b0d4eea09ee0257244e721ed547ada6566092e34b94ea8cf0eb"
+    },
+    {
+      "path": "assets/crt-reactions.webp",
+      "sourcePath": "public/mascots/crt-reactions.webp",
+      "bytes": 145600,
+      "gitBlobSha": "0ac3418ca3df0de2e7714ad1b838eb26bdbe49e8",
+      "sha256": "5d39cd40518dd16f84db1de854d84a9297c00d4be717a79ba8543f55ed8fbf62"
+    },
+    {
+      "path": "assets/cube-directions.webp",
+      "sourcePath": "public/mascots/cube-directions.webp",
+      "bytes": 137332,
+      "gitBlobSha": "3c2b60012bda4f55e03a9d29d7ef6f4b98180b27",
+      "sha256": "57c2de57273620a056669de0ddb067cff5b7241ddd7e7c616a775e51a5dd73be"
+    },
+    {
+      "path": "assets/cube-reactions.webp",
+      "sourcePath": "public/mascots/cube-reactions.webp",
+      "bytes": 116062,
+      "gitBlobSha": "5cbe332cde689a5e23843c7a28c75bafd0c89f55",
+      "sha256": "6c6eee38c8ae3346208532883381a3ff8d5d7863ac79c0870e0b608a399c39f6"
+    },
+    {
+      "path": "assets/deer-directions.webp",
+      "sourcePath": "public/mascots/deer-directions.webp",
+      "bytes": 193366,
+      "gitBlobSha": "d55b23bff134a87dc42aca4ab5f549ef108f1a62",
+      "sha256": "0edd66668a70fac4871fc2d7c865d116441d844e16c10baaad4579efd12a75b2"
+    },
+    {
+      "path": "assets/deer-reactions.webp",
+      "sourcePath": "public/mascots/deer-reactions.webp",
+      "bytes": 215838,
+      "gitBlobSha": "9c6e9e51d7325fcef2b8e2d8b338bcd2d137bf80",
+      "sha256": "659e1d9ad2478e65a4eb72d82e608de114c851004a51732343ce5a3a3435736b"
+    },
+    {
+      "path": "assets/dino-directions.webp",
+      "sourcePath": "public/mascots/dino-directions.webp",
+      "bytes": 122798,
+      "gitBlobSha": "57784108ba5ed95af0e7c9ac9e80122afbe42a7c",
+      "sha256": "e17016030a4b26c6f7c5621dcc4d0e1e833269d65ed70e5bf31310c417219fee"
+    },
+    {
+      "path": "assets/dino-reactions.webp",
+      "sourcePath": "public/mascots/dino-reactions.webp",
+      "bytes": 132782,
+      "gitBlobSha": "73617bc0c052c895f6018b4733c35bbd070c2bac",
+      "sha256": "ded1849510a8681aa6a74e741a4d85b3c32582738a8137f93f62d5d64a6e5a85"
+    },
+    {
+      "path": "assets/drone-directions.webp",
+      "sourcePath": "public/mascots/drone-directions.webp",
+      "bytes": 206768,
+      "gitBlobSha": "397ee13e9c8f8dd054b3c56c9b3d74825e347c48",
+      "sha256": "983f457d883d512c3aa784cc65176edb20cbc54abd282bd090b9b0d215cbf444"
+    },
+    {
+      "path": "assets/drone-reactions.webp",
+      "sourcePath": "public/mascots/drone-reactions.webp",
+      "bytes": 215386,
+      "gitBlobSha": "ed50c98dab321d448fd2aa1e71c380fc9b85fc23",
+      "sha256": "a7027c212b631c45663511aefeefce30b483545185d0ac1ecae0eded3808f660"
+    },
+    {
+      "path": "assets/fox-directions.webp",
+      "sourcePath": "public/mascots/fox-directions.webp",
+      "bytes": 191936,
+      "gitBlobSha": "ee3e26119789ac05db81ff42a12a5d7314d50f60",
+      "sha256": "b3e47f9624860707c7e2811e759b3cc21ba350546d4a502aa96ff53cd82c3ca5"
+    },
+    {
+      "path": "assets/fox-ink-directions.webp",
+      "sourcePath": "public/mascots/fox-ink-directions.webp",
+      "bytes": 293258,
+      "gitBlobSha": "a3b9f3a8c1cee7550d2595e41e1d30ccf78d22d0",
+      "sha256": "0ddcb26edc07b62543dbcd7e99cdd2bdb750754211f1a7c040ae41858fdf4f0b"
+    },
+    {
+      "path": "assets/fox-ink-reactions.webp",
+      "sourcePath": "public/mascots/fox-ink-reactions.webp",
+      "bytes": 293478,
+      "gitBlobSha": "b3ae727f0d992a29f2a40787bd4765d5179743c8",
+      "sha256": "f8bbb8b28aea120ef0404d4c7f7dfea2047dbd3d591c77ccc6cdb92fcd45c0d7"
+    },
+    {
+      "path": "assets/fox-paper-directions.webp",
+      "sourcePath": "public/mascots/fox-paper-directions.webp",
+      "bytes": 193256,
+      "gitBlobSha": "d5e9d03491f993db9c08b16a1e2399062047360f",
+      "sha256": "dc1cf4a9df13c28fef17b1b1ebd3c5d73ce51a21010d2bb66591ff1d56f83087"
+    },
+    {
+      "path": "assets/fox-paper-reactions.webp",
+      "sourcePath": "public/mascots/fox-paper-reactions.webp",
+      "bytes": 222092,
+      "gitBlobSha": "fc3c7f70089b5dfbee69f9f51bd8e71e16513c09",
+      "sha256": "ec5a05f95ba217a4c5b1ef39b4501c3be27e88ffc06c975ef062699dd038c12d"
+    },
+    {
+      "path": "assets/fox-pixel-directions.webp",
+      "sourcePath": "public/mascots/fox-pixel-directions.webp",
+      "bytes": 181058,
+      "gitBlobSha": "e465c11076a0137572d74f7ff1a76f179e4a48d4",
+      "sha256": "23b6a35f23c591eff6019f5b38a5196c7c659f99181222df701ad0d6b149fc6b"
+    },
+    {
+      "path": "assets/fox-pixel-reactions.webp",
+      "sourcePath": "public/mascots/fox-pixel-reactions.webp",
+      "bytes": 200716,
+      "gitBlobSha": "c5c8cfa35b9f8631743084ca02fcba976f758853",
+      "sha256": "f2cebe944c1113d3d69c393bc7bbf7c893e3e3bb82031a69d2aa664a721b01de"
+    },
+    {
+      "path": "assets/fox-reactions.webp",
+      "sourcePath": "public/mascots/fox-reactions.webp",
+      "bytes": 190152,
+      "gitBlobSha": "0400c1c397ee1fc7bbf1f5fae1e16024c7b1975d",
+      "sha256": "f7a0e7a0a5e412ca812d4bde60444957a01ae55927769654d13913ec5287f490"
+    },
+    {
+      "path": "assets/fox-riso-directions.webp",
+      "sourcePath": "public/mascots/fox-riso-directions.webp",
+      "bytes": 270866,
+      "gitBlobSha": "028a985d20b2a48f44fc6f0de74814abae5c2653",
+      "sha256": "7a2e39361ac75c77507f55147221dd3265afca0390638e012a9f9e755aedde48"
+    },
+    {
+      "path": "assets/fox-riso-reactions.webp",
+      "sourcePath": "public/mascots/fox-riso-reactions.webp",
+      "bytes": 274104,
+      "gitBlobSha": "65e797dd4fea79edbf15f88ed0d7ae4c07ac0bd5",
+      "sha256": "e5e72ba6b2b886dc70654669a63501fda45ee8ab5f6601f8681f0c3a52ff5014"
+    },
+    {
+      "path": "assets/fox-sketch-directions.webp",
+      "sourcePath": "public/mascots/fox-sketch-directions.webp",
+      "bytes": 280982,
+      "gitBlobSha": "b4eefbcbe6fe2f0fd8be4bc18e936bd5a70a7502",
+      "sha256": "a8ccb756bd06adb3529d91df8205876e4e2570f9fe9418fb33791bc81de71ba0"
+    },
+    {
+      "path": "assets/fox-sketch-reactions.webp",
+      "sourcePath": "public/mascots/fox-sketch-reactions.webp",
+      "bytes": 263884,
+      "gitBlobSha": "f1e43f3f29564656bbb647dbee980608c685e828",
+      "sha256": "a42bf9636a3f08df86886581a7702d50849058e85099d0738a5d83a237e8401c"
+    },
+    {
+      "path": "assets/frog-directions.webp",
+      "sourcePath": "public/mascots/frog-directions.webp",
+      "bytes": 136190,
+      "gitBlobSha": "1118f37cdc3fe2c4de0a1696a32ea71714682ac5",
+      "sha256": "5fddd80c05c7afc1470c0f356ab800a2574d5328b5daaacabb7e329f6ac38d7c"
+    },
+    {
+      "path": "assets/frog-reactions.webp",
+      "sourcePath": "public/mascots/frog-reactions.webp",
+      "bytes": 151904,
+      "gitBlobSha": "c67407ffe3a3cc7687641e3f1a0054849b1d1515",
+      "sha256": "cb597b7736117a1c4ed7c370c97964c0053fac31bae34af0736833a7f6263da6"
+    },
+    {
+      "path": "assets/gearbot-directions.webp",
+      "sourcePath": "public/mascots/gearbot-directions.webp",
+      "bytes": 136138,
+      "gitBlobSha": "8636cd20de99bfa0d432801e3fe05946bec26528",
+      "sha256": "bd25f9466ea59968a7458ac3b0c07892ef7478c231eb9a30bf2642910f5688df"
+    },
+    {
+      "path": "assets/gearbot-reactions.webp",
+      "sourcePath": "public/mascots/gearbot-reactions.webp",
+      "bytes": 160790,
+      "gitBlobSha": "013cb8b1bc21f8b526b4d65aaf3595ad88a19eec",
+      "sha256": "dca8a1f2397271f1be3b3812d5b6b07535cdaa635d5155a8a16e21c8ac5fe52d"
+    },
+    {
+      "path": "assets/glasses-directions.webp",
+      "sourcePath": "public/mascots/glasses-directions.webp",
+      "bytes": 311948,
+      "gitBlobSha": "d683a8a83d0562c85236d755dd4ecb326c7f05c2",
+      "sha256": "f3429c66e4cc77705a75f98f130a5a1cd3f4d383c5afad3aaded8cd63917066b"
+    },
+    {
+      "path": "assets/glasses-reactions.webp",
+      "sourcePath": "public/mascots/glasses-reactions.webp",
+      "bytes": 303218,
+      "gitBlobSha": "49e5d82de7bec9f61deda8f75c6cd8ef4b4c178c",
+      "sha256": "c6eb13897e64dc4afff17fcf73953983d94f57a2c76290331732bd868f9006d0"
+    },
+    {
+      "path": "assets/grandpa-directions.webp",
+      "sourcePath": "public/mascots/grandpa-directions.webp",
+      "bytes": 180412,
+      "gitBlobSha": "34df75e2dbc60aa689a04669fdaa9c21d4d92672",
+      "sha256": "e65f9260049a7e21a52807b1c2f53dfbb9f54c02b7e0c36f420efcada97463d6"
+    },
+    {
+      "path": "assets/grandpa-reactions.webp",
+      "sourcePath": "public/mascots/grandpa-reactions.webp",
+      "bytes": 195084,
+      "gitBlobSha": "0d8cb0c20255089afaaca7fb593484af02642300",
+      "sha256": "6b3bb67e04d9b21bd5379b10bfba01ba52517b5752bd6f57e926c0824af44157"
+    },
+    {
+      "path": "assets/granny-directions.webp",
+      "sourcePath": "public/mascots/granny-directions.webp",
+      "bytes": 165742,
+      "gitBlobSha": "8635a48154aeb990578336d24bd91119f7baa755",
+      "sha256": "9e57c2738a324f2c391780d03a26ef958497c252962e9798535a7072329122c6"
+    },
+    {
+      "path": "assets/granny-reactions.webp",
+      "sourcePath": "public/mascots/granny-reactions.webp",
+      "bytes": 218242,
+      "gitBlobSha": "dbcf628acbc1a6073b09624e9ac6740e46069498",
+      "sha256": "7782565d474a3da02a7995e72f3a2a53a69bea5f83f0c7a59542451d4d4ae9f4"
+    },
+    {
+      "path": "assets/hamster-directions.webp",
+      "sourcePath": "public/mascots/hamster-directions.webp",
+      "bytes": 224568,
+      "gitBlobSha": "a56326ea107aa425284e9d46809af45ebd72fd54",
+      "sha256": "4ffe26c253049b6bdf3be0705d174abf96ac1a6115edd3bd8e80ae1f26115a7f"
+    },
+    {
+      "path": "assets/hamster-reactions.webp",
+      "sourcePath": "public/mascots/hamster-reactions.webp",
+      "bytes": 219424,
+      "gitBlobSha": "834ac0374fcb4230b88e82a11cdde187b380bdd1",
+      "sha256": "778bd13fe9246a43b39eafcc16c06fc5ad1fc67e6ce06a47ceb3e8293d61ddcb"
+    },
+    {
+      "path": "assets/hedgehog-directions.webp",
+      "sourcePath": "public/mascots/hedgehog-directions.webp",
+      "bytes": 184736,
+      "gitBlobSha": "1223e644abfdefc8ba4984ffa8d960c5c640e599",
+      "sha256": "829c81725886a91f7f8c1de95b6894875abcf227646933e5329a3bb4d1b1701e"
+    },
+    {
+      "path": "assets/hedgehog-reactions.webp",
+      "sourcePath": "public/mascots/hedgehog-reactions.webp",
+      "bytes": 203290,
+      "gitBlobSha": "9ae87d0d3bd53a57e678aec6100fd992bf591dab",
+      "sha256": "a329d87bd84ab695d544e4909ba8eccfe4748fc8be9eb4d00566992478cc2f0d"
+    },
+    {
+      "path": "assets/hijabi-directions.webp",
+      "sourcePath": "public/mascots/hijabi-directions.webp",
+      "bytes": 173528,
+      "gitBlobSha": "0a020722128c75164b52d21a554b45af85614661",
+      "sha256": "90718b07a3821e5f17a1e5d6105e61bee2a60f3eb0da61262d1dd7398a030281"
+    },
+    {
+      "path": "assets/hijabi-reactions.webp",
+      "sourcePath": "public/mascots/hijabi-reactions.webp",
+      "bytes": 187920,
+      "gitBlobSha": "cfcf97c7101586ba4e27c543d5532b56324e7d55",
+      "sha256": "97a8393666e2b9b0d2c2da4dd0b973fefc4595a2ab6c94a52c805a0ce0954124"
+    },
+    {
+      "path": "assets/kamran-directions.webp",
+      "sourcePath": "public/mascots/kamran-directions.webp",
+      "bytes": 211890,
+      "gitBlobSha": "8d23ca202c4952b00b648d5d7a8f7757c14704e6",
+      "sha256": "255f64da7605c2af4c77cb938857f4b20730a02a56e0892f4b05c36c06e5321e"
+    },
+    {
+      "path": "assets/kamran-reactions.webp",
+      "sourcePath": "public/mascots/kamran-reactions.webp",
+      "bytes": 201748,
+      "gitBlobSha": "20d3cbcad050bd0417f2bf6ce43cd9530ca4c8eb",
+      "sha256": "d38cddac1886ff644b7b02090061967bbffa6898be97c31fca5ccee504641e7f"
+    },
+    {
+      "path": "assets/knight-directions.webp",
+      "sourcePath": "public/mascots/knight-directions.webp",
+      "bytes": 212276,
+      "gitBlobSha": "fd6eb39da21732f52c042c7572b6509331e602c9",
+      "sha256": "ef8d7dc410b7d6d3ba7da31c6641179bf9a19240f12c4c7359bab16654c25ae3"
+    },
+    {
+      "path": "assets/knight-reactions.webp",
+      "sourcePath": "public/mascots/knight-reactions.webp",
+      "bytes": 208790,
+      "gitBlobSha": "b44580beb2008523b03436f721b2b4f0fec2eb4c",
+      "sha256": "7f6aaa6ad470fe8e968c6e583334195e6503120a998f5be0719e8bd68126dc74"
+    },
+    {
+      "path": "assets/koala-directions.webp",
+      "sourcePath": "public/mascots/koala-directions.webp",
+      "bytes": 255172,
+      "gitBlobSha": "a27bd8992088159e37a357ac183031ed751574a7",
+      "sha256": "25f600ada01a3263b930cfcf2f7d66333201084e1f3008fc936cebd51128dffc"
+    },
+    {
+      "path": "assets/koala-reactions.webp",
+      "sourcePath": "public/mascots/koala-reactions.webp",
+      "bytes": 238478,
+      "gitBlobSha": "f555cee23195782497c3c26bfeec9012f4b4c4de",
+      "sha256": "7058be89f6a132ac4ddcf049fe00465bd4f25c4718d310e6047e8442d0e6703d"
+    },
+    {
+      "path": "assets/lantern-directions.webp",
+      "sourcePath": "public/mascots/lantern-directions.webp",
+      "bytes": 136870,
+      "gitBlobSha": "a3bf4e12026dcc6a0b3324d0fab4c955ceec591a",
+      "sha256": "c4a89c39eb14dfb39f5cbc64a922510c6590abb99bc467f4ccf8ed06795e694d"
+    },
+    {
+      "path": "assets/lantern-reactions.webp",
+      "sourcePath": "public/mascots/lantern-reactions.webp",
+      "bytes": 147916,
+      "gitBlobSha": "297b9480c15222c117b30c9d1d47634edcf6dd6b",
+      "sha256": "acfd741328432616a4ada16e4765ac29b6aa3161ee7e858cbc1d94c99350a090"
+    },
+    {
+      "path": "assets/mouse-directions.webp",
+      "sourcePath": "public/mascots/mouse-directions.webp",
+      "bytes": 231846,
+      "gitBlobSha": "40376887a2b35be55211506345f467aef0767a1a",
+      "sha256": "8140e5dea8d7626478354056e8a55a523aa5d13bca4b548125ce65453c8d8fe5"
+    },
+    {
+      "path": "assets/mouse-reactions.webp",
+      "sourcePath": "public/mascots/mouse-reactions.webp",
+      "bytes": 237546,
+      "gitBlobSha": "06902ade640b96a446ffbce35009fc570e0e89d3",
+      "sha256": "1930cd1a1248b6f55afee676420df48cbde81162c5fbfc480bcec2141fc46b67"
+    },
+    {
+      "path": "assets/nurse-directions.webp",
+      "sourcePath": "public/mascots/nurse-directions.webp",
+      "bytes": 183620,
+      "gitBlobSha": "259643eb93ffa04f1d52c67eb9f41c2c062163b9",
+      "sha256": "27a195de9392e2801f57bfa3215b12f1b245dd317a8464584efe314c75306d57"
+    },
+    {
+      "path": "assets/nurse-reactions.webp",
+      "sourcePath": "public/mascots/nurse-reactions.webp",
+      "bytes": 193764,
+      "gitBlobSha": "454885bd3a180dfe111ee28d36e3d24cb48431fe",
+      "sha256": "0f8bafb0e72fa3dc5de508d7457429b53d3eb16b8959ea55534120274839608d"
+    },
+    {
+      "path": "assets/otter-directions.webp",
+      "sourcePath": "public/mascots/otter-directions.webp",
+      "bytes": 139156,
+      "gitBlobSha": "279915f7d3f5a3cef9190793cf39108485be5ba5",
+      "sha256": "7fabf10e330b2c81ca71ccdc4e120ddc0116614d52d4f54ac17cfe4a6c272eb4"
+    },
+    {
+      "path": "assets/otter-reactions.webp",
+      "sourcePath": "public/mascots/otter-reactions.webp",
+      "bytes": 157528,
+      "gitBlobSha": "974b53ddb7be74411691c47a344d78e6c9a06187",
+      "sha256": "3453de4ab66e1df16d87d5b375f6aeaf190de8509a299dfc0fd699fc69be4406"
+    },
+    {
+      "path": "assets/owl-directions.webp",
+      "sourcePath": "public/mascots/owl-directions.webp",
+      "bytes": 155100,
+      "gitBlobSha": "df559078c6d870c3c5dc0ad9b52e78fe4ea85a83",
+      "sha256": "1f945599e242f18434ab6e3c1b73cc23310f8351437c753262d2f498d3505b5e"
+    },
+    {
+      "path": "assets/owl-reactions.webp",
+      "sourcePath": "public/mascots/owl-reactions.webp",
+      "bytes": 164022,
+      "gitBlobSha": "a3e00149c5afa7153b841850825feba655497275",
+      "sha256": "a27448c50dc75921ac7c88064da1bbacf02b35edf6f1b45d7c2477d4ba087218"
+    },
+    {
+      "path": "assets/panda-directions.webp",
+      "sourcePath": "public/mascots/panda-directions.webp",
+      "bytes": 100590,
+      "gitBlobSha": "6f3f42dcf066c2b1c01e85913d2ea8828215f474",
+      "sha256": "f48637ac8e8251f5de034b653ac82b479f8af708a550aec8ef2e6e9e288d460f"
+    },
+    {
+      "path": "assets/panda-reactions.webp",
+      "sourcePath": "public/mascots/panda-reactions.webp",
+      "bytes": 111338,
+      "gitBlobSha": "aaecccbcc7aaeb646aeb2a10145d31701ada5e9e",
+      "sha256": "46bd8ac9292582046d5e018606ad13be759e53727e53d7605aebe7fa98b3bcea"
+    },
+    {
+      "path": "assets/penguin-directions.webp",
+      "sourcePath": "public/mascots/penguin-directions.webp",
+      "bytes": 100424,
+      "gitBlobSha": "3a671457df0b75e99a99dca7638575271e2b5166",
+      "sha256": "e028cfe20a915376272bc91292fa11395f32cd12768cc9030c12e5cb03c20899"
+    },
+    {
+      "path": "assets/penguin-reactions.webp",
+      "sourcePath": "public/mascots/penguin-reactions.webp",
+      "bytes": 119244,
+      "gitBlobSha": "64e34e61311e2dd0420799c1116dd9e63d9c54c0",
+      "sha256": "4617a5005b5d3cec5a036e0949381e37a5ccce21a1945dce010c1dbc132c0ba3"
+    },
+    {
+      "path": "assets/pirate-directions.webp",
+      "sourcePath": "public/mascots/pirate-directions.webp",
+      "bytes": 182306,
+      "gitBlobSha": "09b762fc8b17732ea889558d967c055e21e7c7a9",
+      "sha256": "d8bb1733c926c5118c0f3ce48c7719a87518fb6885c00df602d3bb63e7a14f6f"
+    },
+    {
+      "path": "assets/pirate-reactions.webp",
+      "sourcePath": "public/mascots/pirate-reactions.webp",
+      "bytes": 194554,
+      "gitBlobSha": "8f0c60fea3a27bac523b7f5066a0b21b36f7621c",
+      "sha256": "491f3f3e32e111ce48fbe08cca91051dba179887f150a8dd375d5640a88da33a"
+    },
+    {
+      "path": "assets/postbot-directions.webp",
+      "sourcePath": "public/mascots/postbot-directions.webp",
+      "bytes": 145494,
+      "gitBlobSha": "00abb3bb818e4916ec7746da98535adddf7564c1",
+      "sha256": "f6cc5465adeb3c8df3743f558e283889e823e7720335583f02beec0aa6a314df"
+    },
+    {
+      "path": "assets/postbot-reactions.webp",
+      "sourcePath": "public/mascots/postbot-reactions.webp",
+      "bytes": 156698,
+      "gitBlobSha": "2b445b409c44c57c9141a3e4c82b500faa0817be",
+      "sha256": "ff0101ff6cdf8235d2daf295e7e3f26712456270f036c5c8a4e6c9f4a5d06db1"
+    },
+    {
+      "path": "assets/pug-directions.webp",
+      "sourcePath": "public/mascots/pug-directions.webp",
+      "bytes": 159908,
+      "gitBlobSha": "511a7c9af010881b33bd782009c5f061249f10bf",
+      "sha256": "7af9f3a9c03923e8c24dc190039f53e40e7b653c6db15f40ebed858a04f421af"
+    },
+    {
+      "path": "assets/pug-reactions.webp",
+      "sourcePath": "public/mascots/pug-reactions.webp",
+      "bytes": 176670,
+      "gitBlobSha": "b7717c8da2fd5e7b6920c7d58a5b0ed2a5d3018d",
+      "sha256": "4b9deb6e0e8ca81c1df1c668f7c5d1542813402646f0b970b7d10e1ab2717eae"
+    },
+    {
+      "path": "assets/raccoon-directions.webp",
+      "sourcePath": "public/mascots/raccoon-directions.webp",
+      "bytes": 181796,
+      "gitBlobSha": "bb1d4378dcb757603bfd8e5c31086598ce6905db",
+      "sha256": "4f0356ff3dc29c20084fa4a9b548de544a128647cc70c7907e3e62b02417ded2"
+    },
+    {
+      "path": "assets/raccoon-reactions.webp",
+      "sourcePath": "public/mascots/raccoon-reactions.webp",
+      "bytes": 207512,
+      "gitBlobSha": "4b951c3942c87ea156a73ad094dbcf63191065a4",
+      "sha256": "3afc32846f241af3df96d6bd33bcd3c70619decf2160be33fe254ec04d064a7d"
+    },
+    {
+      "path": "assets/radio-directions.webp",
+      "sourcePath": "public/mascots/radio-directions.webp",
+      "bytes": 193316,
+      "gitBlobSha": "35e0414e1a71aca96c49395d38cd986b09fb71e9",
+      "sha256": "6d3dc2f5ccb766515ae699c8b27abe59f0cc979a07ac17670d9cded88971caed"
+    },
+    {
+      "path": "assets/radio-reactions.webp",
+      "sourcePath": "public/mascots/radio-reactions.webp",
+      "bytes": 183170,
+      "gitBlobSha": "89869cd0e3593eddec16aadbb25d90878948a783",
+      "sha256": "395113b4198530d23d2bb0e14eb73ce4fbf2b1e57bad919d6b54b5ffb570c3c2"
+    },
+    {
+      "path": "assets/redpanda-directions.webp",
+      "sourcePath": "public/mascots/redpanda-directions.webp",
+      "bytes": 160898,
+      "gitBlobSha": "aefabe04b681dee4f25a83c372bcd3fa80183133",
+      "sha256": "8e054e56559a1c1886ae865c5a4d788c21c6d2c3748d4f53719d80a708fe8c98"
+    },
+    {
+      "path": "assets/redpanda-reactions.webp",
+      "sourcePath": "public/mascots/redpanda-reactions.webp",
+      "bytes": 174816,
+      "gitBlobSha": "22cf635285f13ef55b201608b5f17a0aef57b827",
+      "sha256": "240618c22860a09f3e2aca0d8e45a03e347a6e78780299d6333f365cb4438e86"
+    },
+    {
+      "path": "assets/rocket-directions.webp",
+      "sourcePath": "public/mascots/rocket-directions.webp",
+      "bytes": 158174,
+      "gitBlobSha": "fa8a1059ec88f98f64c963911051f9e09ea9f098",
+      "sha256": "0067902b6bb78d3edf4c3f7bef266c944b4dd98d0905696cd09a2cdb8159a7a7"
+    },
+    {
+      "path": "assets/rocket-reactions.webp",
+      "sourcePath": "public/mascots/rocket-reactions.webp",
+      "bytes": 179456,
+      "gitBlobSha": "ef2a75f3595e7479bd2d868c51add6063a6e37e8",
+      "sha256": "e53493570427144e215b8e3f267e136a445a61d7c0cc0add77aae33e3912544d"
+    },
+    {
+      "path": "assets/scientist-directions.webp",
+      "sourcePath": "public/mascots/scientist-directions.webp",
+      "bytes": 237184,
+      "gitBlobSha": "240d1f526d68ad69d0bc71364b2137b5c95efb07",
+      "sha256": "2ace926d6bf6a2fd3bfbc471031eacc5508c3fb4f864a7095f48d6f44e7beb73"
+    },
+    {
+      "path": "assets/scientist-reactions.webp",
+      "sourcePath": "public/mascots/scientist-reactions.webp",
+      "bytes": 229654,
+      "gitBlobSha": "75ce0f76c5ed5f9766cec26beb95f3ef7d5dae50",
+      "sha256": "d5058dc13489424dcf15c63e932aa3135d9e6f8237e5be4e8264505ab2d99c57"
+    },
+    {
+      "path": "assets/scout-directions.webp",
+      "sourcePath": "public/mascots/scout-directions.webp",
+      "bytes": 204960,
+      "gitBlobSha": "f0b07f06fb03d96c11d391bae2cbc7881c65a44d",
+      "sha256": "415cb099034dd67466c723dc65a1cc90618eab6869704b416b272b6e612a7337"
+    },
+    {
+      "path": "assets/scout-reactions.webp",
+      "sourcePath": "public/mascots/scout-reactions.webp",
+      "bytes": 201118,
+      "gitBlobSha": "dfd5daf9091b999f99178d0c4b9cb5dff6f9630d",
+      "sha256": "1cb3a04c13dce607623a5988bf344940b86148c4185d3487c20303b0ab039e6d"
+    },
+    {
+      "path": "assets/sheep-directions.webp",
+      "sourcePath": "public/mascots/sheep-directions.webp",
+      "bytes": 152940,
+      "gitBlobSha": "2c999297430fb7345f0da7688d11fa492b7fde0c",
+      "sha256": "b108ee372d6f1af9fd7dc5355fc5ae546ef47abdb6873856bd2a435c15426adb"
+    },
+    {
+      "path": "assets/sheep-reactions.webp",
+      "sourcePath": "public/mascots/sheep-reactions.webp",
+      "bytes": 180212,
+      "gitBlobSha": "c7e81d3ce9f4a6a7daeaeb1e4e4d14240527fde8",
+      "sha256": "d5af9c388225a3087c7d6fb058cd6ac76dd769561df07dc0a98d299fed1a9b8d"
+    },
+    {
+      "path": "assets/sikh-directions.webp",
+      "sourcePath": "public/mascots/sikh-directions.webp",
+      "bytes": 144460,
+      "gitBlobSha": "ee1995035b00240b47e683a219144e855310ccef",
+      "sha256": "08b7d53fab24bfac78698d3712ff44168927c7a99a359d36e54f1ecf949754b1"
+    },
+    {
+      "path": "assets/sikh-reactions.webp",
+      "sourcePath": "public/mascots/sikh-reactions.webp",
+      "bytes": 157374,
+      "gitBlobSha": "e975b626ce417deb31f725126f725c353ae55c25",
+      "sha256": "7062ed35f90efb9c259c275b084ba3821f9264aa65eb261a66ad0d3a3e8a2830"
+    },
+    {
+      "path": "assets/skater-directions.webp",
+      "sourcePath": "public/mascots/skater-directions.webp",
+      "bytes": 257708,
+      "gitBlobSha": "ce4c0b741bb41cda7961d57335b2c4d749696323",
+      "sha256": "cfcdc1ad3beafb5a8689ae63abaa953f4a3b8c44e5993416f62ed3f1b3a28717"
+    },
+    {
+      "path": "assets/skater-reactions.webp",
+      "sourcePath": "public/mascots/skater-reactions.webp",
+      "bytes": 248730,
+      "gitBlobSha": "73e810cd6801ac3ccf09989744d3e6e78c756da9",
+      "sha256": "c42b15031242a2d06e116bfd25d8c60785cec2971bb8f25e342924b499b4251f"
+    },
+    {
+      "path": "assets/sloth-directions.webp",
+      "sourcePath": "public/mascots/sloth-directions.webp",
+      "bytes": 182896,
+      "gitBlobSha": "cda1b09d70f86cdf4899cb6d5affe6c4c6296a9e",
+      "sha256": "6dcab4d835caf1d7b6edea9ca0f3d8f6bcce31779684611782b8c7a5b0b956e3"
+    },
+    {
+      "path": "assets/sloth-reactions.webp",
+      "sourcePath": "public/mascots/sloth-reactions.webp",
+      "bytes": 195924,
+      "gitBlobSha": "1fde6eb227378d562c9c5199ee2e78f7aab53e32",
+      "sha256": "0c2234a401e134a4dbf207f82ff14fbd03fb56c316bb9c3a34f581e8b82875f1"
+    },
+    {
+      "path": "assets/tiger-directions.webp",
+      "sourcePath": "public/mascots/tiger-directions.webp",
+      "bytes": 187052,
+      "gitBlobSha": "5154018ecba9d67b4d81ecb6b256252cc2fdbee4",
+      "sha256": "0441e79d31e27186a448c1a4a79acc12f0499507efce95ba465ca0951e88dfa1"
+    },
+    {
+      "path": "assets/tiger-reactions.webp",
+      "sourcePath": "public/mascots/tiger-reactions.webp",
+      "bytes": 204162,
+      "gitBlobSha": "d59ccc8fd92c2235996ad6611a7bb8225d07ac3c",
+      "sha256": "61a0139467d73a0e567e0eb4c933f6bee54ff27ffb73f8b361c3e1107cf5246a"
+    },
+    {
+      "path": "assets/toaster-directions.webp",
+      "sourcePath": "public/mascots/toaster-directions.webp",
+      "bytes": 159388,
+      "gitBlobSha": "8f353300e71bacea1427dca898acc5f12131e493",
+      "sha256": "fc9b613ba8103c90742777b779440a5e1512b41b6ce9b730e4d14c73c129ef87"
+    },
+    {
+      "path": "assets/toaster-reactions.webp",
+      "sourcePath": "public/mascots/toaster-reactions.webp",
+      "bytes": 168124,
+      "gitBlobSha": "34806af3f8cfc18c65f56c8e421bcfc1c24451b4",
+      "sha256": "46e264b78f8c0d4127a8ba739da20230fcd9b5f3a7e5349af4dbaf6ab8a77f9e"
+    },
+    {
+      "path": "assets/tv-directions.webp",
+      "sourcePath": "public/mascots/tv-directions.webp",
+      "bytes": 155656,
+      "gitBlobSha": "ee74295dc90ac625d9998ea3a09cf26ffffebfa9",
+      "sha256": "726dc5f5c0f2a650ef74f006aaa9a2f9d4e6a089ed12453aa35e4116ab8620b5"
+    },
+    {
+      "path": "assets/tv-reactions.webp",
+      "sourcePath": "public/mascots/tv-reactions.webp",
+      "bytes": 159010,
+      "gitBlobSha": "94f922fb3671caa88b7bed911bd64037033564a7",
+      "sha256": "d6a5fd39c89f1e76181f0525b3ba3986c4da85706f3918d8d0b227d9767dde32"
+    },
+    {
+      "path": "assets/wizard-directions.webp",
+      "sourcePath": "public/mascots/wizard-directions.webp",
+      "bytes": 185126,
+      "gitBlobSha": "1ee05ade97e63c62babb4c2cd961fbd88cc3a631",
+      "sha256": "a5712b967c0b3f59254a78ec291af2d322c400eb74793f5c3914c44a7a656c07"
+    },
+    {
+      "path": "assets/wizard-reactions.webp",
+      "sourcePath": "public/mascots/wizard-reactions.webp",
+      "bytes": 194206,
+      "gitBlobSha": "bd57354873c7ba9ce5fbe4c32b244f59f31ffc0a",
+      "sha256": "481f142159cf6de1c820178994d179d70fb91af0be5a2d6cd0529867bbb80977"
+    },
+    {
+      "path": "LICENSE.txt",
+      "sourcePath": "LICENSE",
+      "bytes": 1090,
+      "gitBlobSha": "ffe07aa615bcef6f34d70f7ec2c112e8ee6d7059",
+      "sha256": "33da9fbdab1e00d5207e293521bc8e0393cb65cdc6a2e552e9abd7319670adb7"
+    },
+    {
+      "path": "upstream/mascot.tsx",
+      "sourcePath": "src/mascot.tsx",
+      "bytes": 6216,
+      "gitBlobSha": "9b97fa55c29165f775eb21529346b509ae1c03c5",
+      "sha256": "c0710682c1c7fb6cae82797d66870bc8188ce3f02f80b5b3ebd57e8c6f4c8dd2"
+    },
+    {
+      "path": "upstream/prompts.md",
+      "sourcePath": "skills/page-mascot/reference/prompts.md",
+      "bytes": 15644,
+      "gitBlobSha": "5a239e0ee8eb7e3d7cb985c114909c45922b7865",
+      "sha256": "992a63d0f725506c8c4eb80c9971e357945d31c9b10401fb89cfc1cf41ccf963"
+    },
+    {
+      "path": "upstream/README.md",
+      "sourcePath": "README.md",
+      "bytes": 2487,
+      "gitBlobSha": "3b4811e38369f6b5a7137eba3e16e7241929df10",
+      "sha256": "edfee28fc65b681b073c8f172e0b1378d793d319e778405b734c37451ae65701"
+    }
+  ],
+  "notes": [
+    "All imported files are byte-for-byte upstream copies, verified by Git blob SHA-1 and SHA-256.",
+    "Only web-ready sheets and reference texts imported; no installers or skills executed.",
+    "Gallery and Russian instructions are Eclipse Library additions.",
+    "The kamran character is a portrait of the upstream author; no affiliation or endorsement is implied."
+  ]
+}

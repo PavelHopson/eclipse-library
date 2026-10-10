@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Koboyo — персонажи для сайта · Eclipse Library</title>
+  <meta name="description" content="Выберите персонажа Koboyo, проверьте девять направлений и эмоций, скачайте оригинальные WebP и пример подключения.">
+  <link rel="icon" href="../../assets/brand/eclipse-library-favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../../styles.css?v=30"><link rel="stylesheet" href="gallery.css?v=1">
+  <script type="module" src="gallery.mjs?v=1"></script>
+</head>
+<body class="koboyo-gallery">
+  <a class="skip" href="#collection">Перейти к персонажам</a>
+  <header class="kg-top"><a class="kg-brand" href="../../index.html"><img src="../../assets/brand/eclipse-library-mark.svg" width="30" height="30" alt="">Eclipse Library</a><nav aria-label="Навигация"><a href="../../animations.html">Анимации</a><a href="../../index.html#guide/koboyo-page-mascot">Гайд по подключению</a></nav></header>
+  <main class="kg-main">
+    <header class="kg-intro"><p class="eyebrow">Коллекция Koboyo / Kamran Ahmed</p><h1>Характер для вашего сайта.</h1><p>Выберите спутника, посмотрите его реакции и заберите два готовых листа кадров. Без генерации и внешних запросов.</p><div class="kg-meta"><span id="collectionMeta">Загружаем коллекцию…</span><a href="LICENSE.txt">Лицензия MIT</a><a href="downloads/koboyo-page-mascot.zip" download id="downloadAll">Скачать весь набор ZIP</a></div></header>
+    <div id="loadError" class="kg-error" role="alert" hidden><p>Не удалось загрузить список персонажей. Проверьте соединение и попробуйте ещё раз.</p><button type="button" id="retryManifest">Повторить загрузку</button></div>
+    <div class="kg-workbench" id="workbench" hidden>
+      <section id="collection" class="kg-collection" aria-labelledby="collectionTitle">
+        <div class="kg-section-head"><h2 id="collectionTitle">Выберите персонажа</h2><span id="resultCount" role="status"></span></div>
+        <label class="kg-search">Поиск по имени<input id="mascotSearch" type="search" placeholder="Например, кот или лиса" autocomplete="off" maxlength="80"></label>
+        <div class="kg-categories" role="group" aria-label="Категории"><button type="button" data-category="all" aria-pressed="true">Все</button><button type="button" data-category="animals" aria-pressed="false">Животные</button><button type="button" data-category="people" aria-pressed="false">Люди</button><button type="button" data-category="robots" aria-pressed="false">Роботы</button><button type="button" data-category="styles" aria-pressed="false">Стили</button></div>
+        <p id="emptyState" hidden>Ничего не найдено. <button id="resetFilters" type="button">Сбросить поиск и категорию</button></p>
+        <ul id="characterList" class="kg-list" aria-label="Персонажи"></ul>
+        <button type="button" id="loadMore" class="kg-more" hidden>Показать ещё</button>
+      </section>
+      <aside id="preview" class="kg-preview" aria-labelledby="selectedName" tabindex="-1">
+        <a class="kg-back" href="#collection">← К выбору персонажа</a>
+        <p class="eyebrow">Предпросмотр</p><div class="kg-selected-head"><h2 id="selectedName">Выберите персонажа</h2><span id="selectedStyle"></span></div>
+        <div id="previewStage" class="kg-stage"><button id="pet" type="button" aria-label="Показать эмоцию персонажа" disabled><canvas id="mascotCanvas" width="480" height="480" aria-hidden="true"></canvas></button><span id="frameLabel">Прямо</span></div>
+        <p id="previewStatus" role="status" class="kg-preview-status">Загружаем изображение…</p><button id="retrySheet" type="button" hidden>Повторить загрузку изображения</button>
+        <label class="kg-static"><input type="checkbox" id="staticMode">Статичный режим</label>
+        <fieldset class="kg-frames"><legend>Направление взгляда</legend><div id="directionButtons" class="kg-directions"></div></fieldset>
+        <fieldset class="kg-frames"><legend>Эмоция</legend><div id="reactionButtons" class="kg-reactions"></div></fieldset>
+        <p class="kg-help">Двигайте указателем внутри окна или выбирайте кадр кнопками. На телефоне достаточно нажатия. Эмоции — иллюстрации, не состояние приложения.</p>
+        <div class="kg-downloads"><a id="downloadDirections" download>Скачать направления</a><a id="downloadReactions" download>Скачать эмоции</a><span id="selectedSize"></span></div>
+        <details class="kg-code"><summary>Подключить в React</summary><p>Сохраните оба файла в <code>public/mascots/</code> своего приложения. Компонент доступен в пакете <code>page-mascot</code>. На этой странице React не используется.</p><pre><code id="reactCode"></code></pre><button type="button" id="copyCode">Скопировать пример</button><p id="copyStatus" role="status"></p><label id="manualCopy" hidden>Скопируйте выделенный текст вручную<textarea id="codeText" rows="7" readonly></textarea></label></details>
+      </aside>
+    </div>
+    <section class="kg-source" aria-labelledby="sourceTitle"><h2 id="sourceTitle">Авторство и исходники</h2><p>Персонажи и исходный компонент созданы Kamran Ahmed (Koboyo), а не Eclipse. Здесь хранится локальная копия оригинальных файлов. При распространении сохраните <a href="LICENSE.txt" download>текст лицензии и уведомление об авторстве</a>.</p><p><a href="https://koboyo.com/page-mascot" target="_blank" rel="noopener noreferrer">Сайт автора ↗</a> · <a href="https://github.com/nilbuild/page-mascot" target="_blank" rel="noopener noreferrer">Репозиторий ↗</a> · <a href="manifest.json">Состав и хеши файлов</a> · <a href="README.md">Инструкция к набору</a></p><p id="sourceRevision"></p></section>
+    <noscript><p>Для предпросмотра и поиска нужен JavaScript. <a href="downloads/koboyo-page-mascot.zip" download>Скачать набор</a> можно и без него.</p></noscript>
+  </main>
+</body>
+</html>
