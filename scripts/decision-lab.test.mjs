@@ -11,6 +11,11 @@ test('release includes local source guides and guide directory entry',async()=>{
  }
  const manifest=JSON.parse(await readFile(new URL('../web/guides.json',import.meta.url),'utf8'));
  assert.ok(manifest.guides.some(g=>g.name==='decision-model-library-pilot'));
+ for(const name of ['decision-model-library-pilot','first-career-case-without-invented-experience','own-digital-footprint-audit']){
+  const guide=await readFile(new URL('../guides/'+name+'.md',import.meta.url),'utf8');
+  assert.ok(guide.includes('](https://library.eclipse-forge.ru/experiments/decision-lab/index.html#queue)'));
+  assert.ok(!guide.includes('](/experiments/'),'Guide renderer rewrites relative links to GitHub');
+ }
  for(const file of ['styles.css','library-v2.css','assets/brand/eclipse-library-mark.svg','assets/brand/eclipse-library-favicon.svg']){
   assert.ok((await readFile(new URL('../web/'+file,import.meta.url))).length>0);
  }
