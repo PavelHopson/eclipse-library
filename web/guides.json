@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "totals": {
-    "guides": 85
+    "guides": 88
   },
   "guides": [
     {
@@ -495,6 +495,13 @@
       "lessons": 0
     },
     {
+      "name": "own-digital-footprint-audit",
+      "title": "Аудит собственного цифрового следа",
+      "description": "Определите свои домены и аккаунты, соберите источники и отделите гипотезы от подтверждённых связей.",
+      "modules": 0,
+      "lessons": 0
+    },
+    {
       "name": "mcp-runtime-audit",
       "title": "Безопасный runtime-аудит MCP server",
       "description": "",
@@ -509,9 +516,23 @@
       "lessons": 0
     },
     {
+      "name": "first-career-case-without-invented-experience",
+      "title": "Первый карьерный кейс без выдуманного опыта",
+      "description": "Выберите требование вакансии, потренируйтесь и создайте собственный проект.",
+      "modules": 0,
+      "lessons": 0
+    },
+    {
       "name": "verified-model-routing-and-cost-control",
       "title": "Проверенная маршрутизация моделей и контроль стоимости",
       "description": "Registry-backed router вместо рекламных таблиц: доступность, цена, политика данных, Eclipse benchmark и видимый fallback.",
+      "modules": 0,
+      "lessons": 0
+    },
+    {
+      "name": "decision-model-library-pilot",
+      "title": "Проверка материалов: предложение → решение редактора",
+      "description": "Практика проверки материалов: прочитайте предложение, подтвердите или исправьте категорию и сохраните свои решения.",
       "modules": 0,
       "lessons": 0
     },
