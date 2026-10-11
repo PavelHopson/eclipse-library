@@ -1,20 +1,20 @@
 {
   "schemaVersion": 2,
-  "sourceHash": "a8d5066950e7902b952eacf403f84500240b999d5c31ef096762f2fad38e8069",
+  "sourceHash": "c1958555c896a6aff65b4fcc69a204837e120ffe37bd2bdf2fcc68660de28c78",
   "policy": {
     "canonicalSource": "catalog/resources.json",
     "directInstallForbidden": true,
     "greyResourcesExcludedFromAgentRecommendations": true
   },
   "totals": {
-    "all": 774,
-    "verified": 409,
+    "all": 775,
+    "verified": 410,
     "inferred": 365,
     "licenseReviewRequired": 213,
-    "agentSafe": 674,
+    "agentSafe": 675,
     "agentExcluded": 100,
     "grey": 87,
-    "withAddedAt": 495
+    "withAddedAt": 496
   },
   "items": [
     {
@@ -12662,6 +12662,109 @@
           "kind": "official-source",
           "label": "Официальный источник",
           "url": "https://telegra.ph/Universalnyj-prompt-3D-lending-dlya-produkta-08-27"
+        }
+      ],
+      "agentEligibility": {
+        "eligible": true,
+        "reasons": [],
+        "installAllowed": false
+      }
+    },
+    {
+      "id": "tesseract-codex-editable-video",
+      "url": "https://mirage.app/tesseract/codex",
+      "title": "Tesseract + Codex — редактируемый видеоролик",
+      "type": "media",
+      "category": "Медиа и дизайн",
+      "subcategory": "Редактируемое видео",
+      "simpleDescription": "16-секундный пример: запись галереи Koboyo, нативные RU/EN титры, ambient; повторная правка текста, звука и видеовхода. .tsrct и MP4; контрольный кадр после распаковки совпал. Adobe-пакеты не включаются: нативная приёмка не выполнена.",
+      "useCases": [
+        "Короткая демонстрация интерфейса",
+        "Повторная правка титров без нового монтажа",
+        "Переносимый учебный проект с источниками и лицензиями"
+      ],
+      "platforms": [
+        "Windows"
+      ],
+      "license": "Проприетарные условия Tesseract; отдельная проверка коммерческого допуска и прав на исходники. Лицензия конвертера не распространяется на runtime.",
+      "licenseEvidence": [
+        {
+          "kind": "license",
+          "label": "Условия Tesseract",
+          "url": "https://github.com/mirage-hq/Tesseract/blob/fbc945864d0d758ea510fe6f2b6ab06d2660d570/LICENSE"
+        }
+      ],
+      "pricing": "Допуск зависит от условий Tesseract; расходы AI-провайдера отдельно. Общая бесплатность не заявляется.",
+      "access": {
+        "cost": "unknown",
+        "signup": "unknown",
+        "runtime": "local"
+      },
+      "trust": "official",
+      "trustReason": "Проверены официальные документы и локальные логи одного примера: tsrct 0.3.1, Converter 0.2.1. Создание Adobe-файлов отделено от непроверенного открытия в редакторе.",
+      "projects": [
+        "Eclipse Library"
+      ],
+      "decision": "reference",
+      "riskLevel": "medium",
+      "risks": [
+        "Коммерческий допуск и права на материалы требуют отдельной проверки",
+        "AEP experimental; Premiere содержит абсолютные пути: Adobe-пакеты не включаются в публичный ZIP",
+        "BT.709 metadata fix нельзя применять вслепую к HDR или неизвестному источнику"
+      ],
+      "verifiedAt": "2026-10-11",
+      "quickStart": [
+        "Прочитайте гайд и проверьте условия использования",
+        "Используйте установленный runtime нужной версии без второй установки",
+        "Проверьте исходники, preview и повторную правку; перед переносом распакуйте ZIP отдельно"
+      ],
+      "reviewStatus": "verified",
+      "addedAt": "2026-10-11",
+      "guide": "tesseract-codex-guide",
+      "relatedResources": [
+        "koboyo-page-mascot"
+      ],
+      "source": {
+        "file": "catalog/resources.json",
+        "key": "tesseract-codex-editable-video",
+        "legacy": {
+          "file": "guides/tesseract-codex-guide.md",
+          "line": 1,
+          "category": "Медиа и дизайн",
+          "subcategory": "Редактируемое видео"
+        }
+      },
+      "verification": {
+        "scope": "Local render, title revision, full decode and final archive reopen verified; preview PNG matches after extraction",
+        "nativeAdobeOpenTested": false,
+        "archiveReopenStatus": "PASS-single-frame-preview-after-final-ZIP-extraction"
+      },
+      "catalogOrder": 1,
+      "licenseInfo": {
+        "label": "Проприетарные условия Tesseract; отдельная проверка коммерческого допуска и прав на исходники. Лицензия конвертера не распространяется на runtime.",
+        "original": "Проприетарные условия Tesseract; отдельная проверка коммерческого допуска и прав на исходники. Лицензия конвертера не распространяется на runtime.",
+        "spdx": null,
+        "kind": "service-terms",
+        "status": "editor-reviewed",
+        "requiresReview": false,
+        "evidence": [
+          {
+            "kind": "license",
+            "label": "Условия Tesseract",
+            "url": "https://github.com/mirage-hq/Tesseract/blob/fbc945864d0d758ea510fe6f2b6ab06d2660d570/LICENSE"
+          }
+        ]
+      },
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://mirage.app/tesseract/codex"
+        },
+        {
+          "kind": "license",
+          "label": "Условия Tesseract",
+          "url": "https://github.com/mirage-hq/Tesseract/blob/fbc945864d0d758ea510fe6f2b6ab06d2660d570/LICENSE"
         }
       ],
       "agentEligibility": {

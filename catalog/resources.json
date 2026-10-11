@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "migratedAt": "2026-08-03",
   "totals": {
-    "items": 774
+    "items": 775
   },
   "items": [
     {
@@ -45493,6 +45493,72 @@
           "change": "Редакция 3: добавлена коллекция из 58 вариантов и скачиваемый архив с MIT, авторством и неизменёнными файлами. Полнота и контрольные суммы сверены с закреплённой ревизией; изображения и скачивание проверены локально. Локальная галерея проверена: выбор всех вариантов, 18 кадров, скачивание, клавиатура/touch, reduced-motion и ошибки с повтором."
         }
       ]
+    },
+    {
+      "id": "tesseract-codex-editable-video",
+      "url": "https://mirage.app/tesseract/codex",
+      "title": "Tesseract + Codex — редактируемый видеоролик",
+      "type": "media",
+      "category": "Медиа и дизайн",
+      "subcategory": "Редактируемое видео",
+      "simpleDescription": "16-секундный пример: запись галереи Koboyo, нативные RU/EN титры, ambient; повторная правка текста, звука и видеовхода. .tsrct и MP4; контрольный кадр после распаковки совпал. Adobe-пакеты не включаются: нативная приёмка не выполнена.",
+      "useCases": [
+        "Короткая демонстрация интерфейса",
+        "Повторная правка титров без нового монтажа",
+        "Переносимый учебный проект с источниками и лицензиями"
+      ],
+      "platforms": [
+        "Windows"
+      ],
+      "license": "Проприетарные условия Tesseract; отдельная проверка коммерческого допуска и прав на исходники. Лицензия конвертера не распространяется на runtime.",
+      "licenseEvidence": [
+        {
+          "kind": "license",
+          "label": "Условия Tesseract",
+          "url": "https://github.com/mirage-hq/Tesseract/blob/fbc945864d0d758ea510fe6f2b6ab06d2660d570/LICENSE"
+        }
+      ],
+      "pricing": "Допуск зависит от условий Tesseract; расходы AI-провайдера отдельно. Общая бесплатность не заявляется.",
+      "access": {
+        "cost": "unknown",
+        "signup": "unknown",
+        "runtime": "local"
+      },
+      "trust": "official",
+      "trustReason": "Проверены официальные документы и локальные логи одного примера: tsrct 0.3.1, Converter 0.2.1. Создание Adobe-файлов отделено от непроверенного открытия в редакторе.",
+      "projects": [
+        "Eclipse Library"
+      ],
+      "decision": "reference",
+      "riskLevel": "medium",
+      "risks": [
+        "Коммерческий допуск и права на материалы требуют отдельной проверки",
+        "AEP experimental; Premiere содержит абсолютные пути: Adobe-пакеты не включаются в публичный ZIP",
+        "BT.709 metadata fix нельзя применять вслепую к HDR или неизвестному источнику"
+      ],
+      "verifiedAt": "2026-10-11",
+      "quickStart": [
+        "Прочитайте гайд и проверьте условия использования",
+        "Используйте установленный runtime нужной версии без второй установки",
+        "Проверьте исходники, preview и повторную правку; перед переносом распакуйте ZIP отдельно"
+      ],
+      "reviewStatus": "verified",
+      "addedAt": "2026-10-11",
+      "guide": "tesseract-codex-guide",
+      "relatedResources": [
+        "koboyo-page-mascot"
+      ],
+      "source": {
+        "file": "guides/tesseract-codex-guide.md",
+        "line": 1,
+        "category": "Медиа и дизайн",
+        "subcategory": "Редактируемое видео"
+      },
+      "verification": {
+        "scope": "Local render, title revision, full decode and final archive reopen verified; preview PNG matches after extraction",
+        "nativeAdobeOpenTested": false,
+        "archiveReopenStatus": "PASS-single-frame-preview-after-final-ZIP-extraction"
+      }
     }
   ]
 }

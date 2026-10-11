@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "consumer": "Eclipse CRM",
-  "catalogVersion": "a8d5066950e7902b952eacf403f84500240b999d5c31ef096762f2fad38e8069",
+  "catalogVersion": "c1958555c896a6aff65b4fcc69a204837e120ffe37bd2bdf2fcc68660de28c78",
   "generatedAt": null,
   "policy": {
     "greyResourcesExcluded": true,
@@ -9,7 +9,7 @@
     "externalMutationsRequireHumanApproval": true
   },
   "totals": {
-    "items": 674
+    "items": 675
   },
   "items": [
     {
@@ -6307,6 +6307,67 @@
           "kind": "official-source",
           "label": "Официальный источник",
           "url": "https://telegra.ph/Universalnyj-prompt-3D-lending-dlya-produkta-08-27"
+        }
+      ],
+      "actions": {
+        "openOfficialSource": true,
+        "installFromCatalog": false,
+        "mutateExternalSystems": false
+      }
+    },
+    {
+      "id": "tesseract-codex-editable-video",
+      "title": "Tesseract + Codex — редактируемый видеоролик",
+      "url": "https://mirage.app/tesseract/codex",
+      "type": "media",
+      "category": "Медиа и дизайн",
+      "subcategory": "Редактируемое видео",
+      "addedAt": "2026-10-11",
+      "description": "16-секундный пример: запись галереи Koboyo, нативные RU/EN титры, ambient; повторная правка текста, звука и видеовхода. .tsrct и MP4; контрольный кадр после распаковки совпал. Adobe-пакеты не включаются: нативная приёмка не выполнена.",
+      "useCases": [
+        "Короткая демонстрация интерфейса",
+        "Повторная правка титров без нового монтажа",
+        "Переносимый учебный проект с источниками и лицензиями"
+      ],
+      "platforms": [
+        "Windows"
+      ],
+      "license": {
+        "label": "Проприетарные условия Tesseract; отдельная проверка коммерческого допуска и прав на исходники. Лицензия конвертера не распространяется на runtime.",
+        "original": "Проприетарные условия Tesseract; отдельная проверка коммерческого допуска и прав на исходники. Лицензия конвертера не распространяется на runtime.",
+        "spdx": null,
+        "kind": "service-terms",
+        "status": "editor-reviewed",
+        "requiresReview": false,
+        "evidence": [
+          {
+            "kind": "license",
+            "label": "Условия Tesseract",
+            "url": "https://github.com/mirage-hq/Tesseract/blob/fbc945864d0d758ea510fe6f2b6ab06d2660d570/LICENSE"
+          }
+        ]
+      },
+      "access": {
+        "cost": "unknown",
+        "signup": "unknown",
+        "runtime": "local"
+      },
+      "trust": "official",
+      "decision": "reference",
+      "riskLevel": "medium",
+      "projects": [
+        "Eclipse Library"
+      ],
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://mirage.app/tesseract/codex"
+        },
+        {
+          "kind": "license",
+          "label": "Условия Tesseract",
+          "url": "https://github.com/mirage-hq/Tesseract/blob/fbc945864d0d758ea510fe6f2b6ab06d2660d570/LICENSE"
         }
       ],
       "actions": {
