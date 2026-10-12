@@ -1,19 +1,24 @@
 {
   "schemaVersion": 1,
-  "checkedAt": "2026-10-05T11:32:15.030Z",
+  "checkedAt": "2026-10-12T12:02:08.796Z",
   "totals": {
-    "extracted": 804,
-    "unique": 799,
-    "checked": 799,
-    "ok": 757,
-    "restricted": 33,
+    "extracted": 808,
+    "unique": 803,
+    "checked": 803,
+    "ok": 759,
+    "restricted": 34,
     "broken": 3,
     "unavailable": 0,
-    "unknown": 6,
+    "unknown": 7,
     "blocked": 0,
     "skipped": 0
   },
   "links": [
+    {
+      "url": "https://synthid.com/",
+      "status": "ok",
+      "httpStatus": 200
+    },
     {
       "url": "https://github.com/Moh4696/100-free-open-source-github-repos",
       "status": "ok",
@@ -1221,8 +1226,8 @@
     },
     {
       "url": "https://support.apple.com/en-us/105078",
-      "status": "broken",
-      "httpStatus": 404
+      "status": "ok",
+      "httpStatus": 200
     },
     {
       "url": "https://higgsfield.ai/apps/virality-predictor",
@@ -2721,8 +2726,8 @@
     },
     {
       "url": "https://opencode.ai/docs/zen/",
-      "status": "ok",
-      "httpStatus": 200
+      "status": "broken",
+      "httpStatus": 404
     },
     {
       "url": "https://github.com/ShenSeanChen/waku-agent",
@@ -2901,8 +2906,8 @@
     },
     {
       "url": "https://www.awwwards.com/",
-      "status": "ok",
-      "httpStatus": 200
+      "status": "unknown",
+      "httpStatus": null
     },
     {
       "url": "https://www.cosmos.so/",
@@ -3866,6 +3871,21 @@
     },
     {
       "url": "https://github.com/MatsuriDayo/nekoray",
+      "status": "ok",
+      "httpStatus": 200
+    },
+    {
+      "url": "https://abhijayvuyyuru.substack.com/p/try-these-100-code-that-make-your",
+      "status": "restricted",
+      "httpStatus": 403
+    },
+    {
+      "url": "https://koboyo.com/page-mascot",
+      "status": "ok",
+      "httpStatus": 200
+    },
+    {
+      "url": "https://mirage.app/tesseract/codex",
       "status": "ok",
       "httpStatus": 200
     },
