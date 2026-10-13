@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "migratedAt": "2026-08-03",
   "totals": {
-    "items": 775
+    "items": 776
   },
   "items": [
     {
@@ -45558,6 +45558,68 @@
         "scope": "Local render, title revision, full decode and final archive reopen verified; preview PNG matches after extraction",
         "nativeAdobeOpenTested": false,
         "archiveReopenStatus": "PASS-single-frame-preview-after-final-ZIP-extraction"
+      }
+    },
+    {
+      "id": "rea-owned-application-analysis",
+      "url": "https://github.com/morluto/rea",
+      "title": "REA — проверяемый анализ собственной сборки",
+      "type": "oss",
+      "category": "Разработка и агенты",
+      "subcategory": "Анализ приложений",
+      "simpleDescription": "CLI и MCP для исследования приложений: структура модулей, связи и доказательства. Гайд показывает путь от разрешённого набора файлов до спецификации одной функции и тестов, без обещания клонировать любую программу.",
+      "useCases": [
+        "Проверка состава собственной сборки",
+        "Восстановление поведения старой собственной версии",
+        "Сопоставление наблюдений со спецификацией и тестами"
+      ],
+      "platforms": [
+        "Windows",
+        "Linux",
+        "macOS",
+        "Codex"
+      ],
+      "license": "MIT для REA; условия движков, зависимостей и исследуемого приложения проверяются отдельно.",
+      "licenseEvidence": [
+        {
+          "kind": "license",
+          "label": "Лицензия REA",
+          "url": "https://github.com/morluto/rea/blob/main/LICENSE"
+        }
+      ],
+      "pricing": "Код REA открыт; отдельные движки и модель могут требовать оплаты.",
+      "access": {
+        "cost": "free",
+        "signup": "none",
+        "runtime": "local"
+      },
+      "trust": "caution",
+      "trustReason": "11.10.2026: README, CLI и Security Policy проверены. Статический CLI и облачный агент — разные границы данных. REA не является песочницей; документация main может отличаться от установленного пакета.",
+      "projects": [],
+      "decision": "reference",
+      "riskLevel": "high",
+      "risks": [
+        "Результаты MCP могут передаваться провайдеру модели",
+        "Анализ неизвестных файлов требует отдельной среды",
+        "Поддержка зависит от формата, движка, версии и ОС",
+        "Лицензия инструмента не предоставляет права на чужое приложение",
+        "Наличие модуля не доказывает его использование, безопасность или полноту реконструкции"
+      ],
+      "verifiedAt": "2026-10-11",
+      "addedAt": "2026-10-11",
+      "reviewStatus": "verified",
+      "guide": "rea-owned-application-analysis",
+      "quickStart": [
+        "Откройте гайд и выберите одну функцию собственной сборки",
+        "Согласуйте список файлов, версию и SHA-256; исключите секреты",
+        "Начните со статического анализа копии без регистрации MCP",
+        "Сопоставьте доказательства с тестами, отметьте неизвестное"
+      ],
+      "source": {
+        "file": "guides/rea-owned-application-analysis.md",
+        "line": 1,
+        "category": "Разработка и агенты",
+        "subcategory": "Анализ приложений"
       }
     }
   ]

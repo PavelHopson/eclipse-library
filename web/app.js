@@ -1850,7 +1850,7 @@
     b.innerHTML = '<div class="status">Загружаю гайд…</div>';
     let md;
     try { const r = await fetch(`guides/${name}.md`, { cache: 'no-cache' }); if (!r.ok) throw 0; md = await r.text(); }
-    catch (e) { try { md = await (await fetch(`https://raw.githubusercontent.com/${REPO}/master/guides/${name}.md`)).text(); } catch (e2) { b.innerHTML = '<div class="status err">Гайд не найден.</div>'; return; } }
+    catch (e) { try { const r = await fetch(`https://raw.githubusercontent.com/${REPO}/master/guides/${name}.md`); if (!r.ok) throw new Error('Guide unavailable'); md = await r.text(); } catch (e2) { b.innerHTML = '<div class="status err">Гайд не найден.</div>'; return; } }
     const m = md.match(/^#\s+(.+)$/m);
     t.textContent = m ? m[1].replace(/[#*\x60]/g, '').replace(/\p{Extended_Pictographic}/gu, '').trim() : name;
     b.innerHTML = mdToHtml(md); buildGuideToc(b); v.scrollTop = 0;

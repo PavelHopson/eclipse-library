@@ -1,18 +1,18 @@
 {
   "schemaVersion": 2,
-  "sourceHash": "c1958555c896a6aff65b4fcc69a204837e120ffe37bd2bdf2fcc68660de28c78",
+  "sourceHash": "c30d556ec80a1a63ba37ae6869ef7566b467965981c76a3e12c95d382ea812aa",
   "policy": {
     "directInstallForbidden": true
   },
   "totals": {
-    "all": 775,
-    "verified": 410,
+    "all": 776,
+    "verified": 411,
     "inferred": 365,
     "licenseReviewRequired": 213,
-    "agentSafe": 675,
+    "agentSafe": 676,
     "agentExcluded": 100,
     "grey": 87,
-    "withAddedAt": 496
+    "withAddedAt": 497
   },
   "items": [
     {
@@ -10886,6 +10886,105 @@
           "kind": "license",
           "label": "Official MIT license",
           "url": "https://github.com/rampstackco/claude-skills/blob/main/LICENSE"
+        }
+      ],
+      "agentEligibility": {
+        "eligible": true,
+        "reasons": [],
+        "installAllowed": false
+      }
+    },
+    {
+      "id": "rea-owned-application-analysis",
+      "url": "https://github.com/morluto/rea",
+      "title": "REA — проверяемый анализ собственной сборки",
+      "type": "oss",
+      "category": "Разработка и агенты",
+      "subcategory": "Анализ приложений",
+      "simpleDescription": "CLI и MCP для исследования приложений: структура модулей, связи и доказательства. Гайд показывает путь от разрешённого набора файлов до спецификации одной функции и тестов, без обещания клонировать любую программу.",
+      "useCases": [
+        "Проверка состава собственной сборки",
+        "Восстановление поведения старой собственной версии",
+        "Сопоставление наблюдений со спецификацией и тестами"
+      ],
+      "platforms": [
+        "Windows",
+        "Linux",
+        "macOS",
+        "Codex"
+      ],
+      "license": "MIT",
+      "licenseEvidence": [
+        {
+          "kind": "license",
+          "label": "Лицензия REA",
+          "url": "https://github.com/morluto/rea/blob/main/LICENSE"
+        }
+      ],
+      "pricing": "Код REA открыт; отдельные движки и модель могут требовать оплаты.",
+      "access": {
+        "cost": "free",
+        "signup": "none",
+        "runtime": "local"
+      },
+      "trust": "caution",
+      "trustReason": "11.10.2026: README, CLI и Security Policy проверены. Статический CLI и облачный агент — разные границы данных. REA не является песочницей; документация main может отличаться от установленного пакета.",
+      "projects": [],
+      "decision": "reference",
+      "riskLevel": "high",
+      "risks": [
+        "Результаты MCP могут передаваться провайдеру модели",
+        "Анализ неизвестных файлов требует отдельной среды",
+        "Поддержка зависит от формата, движка, версии и ОС",
+        "Лицензия инструмента не предоставляет права на чужое приложение",
+        "Наличие модуля не доказывает его использование, безопасность или полноту реконструкции"
+      ],
+      "verifiedAt": "2026-10-11",
+      "addedAt": "2026-10-11",
+      "reviewStatus": "verified",
+      "guide": "rea-owned-application-analysis",
+      "quickStart": [
+        "Откройте гайд и выберите одну функцию собственной сборки",
+        "Согласуйте список файлов, версию и SHA-256; исключите секреты",
+        "Начните со статического анализа копии без регистрации MCP",
+        "Сопоставьте доказательства с тестами, отметьте неизвестное"
+      ],
+      "source": {
+        "file": "catalog/resources.json",
+        "key": "rea-owned-application-analysis",
+        "legacy": {
+          "file": "guides/rea-owned-application-analysis.md",
+          "line": 1,
+          "category": "Разработка и агенты",
+          "subcategory": "Анализ приложений"
+        }
+      },
+      "catalogOrder": 1,
+      "licenseInfo": {
+        "label": "MIT",
+        "original": "MIT для REA; условия движков, зависимостей и исследуемого приложения проверяются отдельно.",
+        "spdx": "MIT",
+        "kind": "open-source",
+        "status": "editor-reviewed",
+        "requiresReview": false,
+        "evidence": [
+          {
+            "kind": "license",
+            "label": "Лицензия REA",
+            "url": "https://github.com/morluto/rea/blob/main/LICENSE"
+          }
+        ]
+      },
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://github.com/morluto/rea"
+        },
+        {
+          "kind": "license",
+          "label": "Лицензия REA",
+          "url": "https://github.com/morluto/rea/blob/main/LICENSE"
         }
       ],
       "agentEligibility": {
@@ -57679,7 +57778,7 @@
         "evidence": [
           {
             "kind": "license",
-            "label": "Other license",
+            "label": "Apache-2.0 license",
             "url": "https://api.github.com/repos/ojuschugh1/sqz/license"
           },
           {
@@ -57697,7 +57796,7 @@
         },
         {
           "kind": "license",
-          "label": "Other license",
+          "label": "Apache-2.0 license",
           "url": "https://api.github.com/repos/ojuschugh1/sqz/license"
         },
         {
