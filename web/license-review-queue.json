@@ -1,20 +1,20 @@
 {
   "schemaVersion": 1,
-  "sourceHash": "e347612a5d5f3f9b2648c474ac6362a5370fd4a02aa26a1cf5fe1aae93f6c1f8",
+  "sourceHash": "5b6948667a08629546fd4be7759a3b178accc3d1e2124c621533b456a985576b",
   "policy": {
     "automaticApprovalForbidden": true,
     "directInstallForbidden": true,
     "missingLicenseMeansNoReusePermission": true
   },
   "totals": {
-    "reviewRequired": 214,
+    "reviewRequired": 215,
     "byPriority": {
       "P1": 1,
-      "P2": 175,
+      "P2": 176,
       "P3": 38
     },
     "byBucket": {
-      "content-terms": 33,
+      "content-terms": 34,
       "grey-reference": 38,
       "manual-other": 26,
       "repository-license-not-detected": 24,
@@ -522,6 +522,32 @@
           "kind": "official-source",
           "label": "Официальный источник; точные условия ещё нужно сверить",
           "url": "https://www.nvidia.com/en-us/training/"
+        }
+      ]
+    },
+    {
+      "id": "onepromptdesign-visual-prompts",
+      "title": "OnePromptDesign — промпты и визуальные референсы",
+      "type": "prompt",
+      "url": "https://onepromptdesign.com/",
+      "decision": "reference",
+      "riskLevel": "medium",
+      "currentLicense": "Нужно проверить условия сайта и права на промпты и изображения-референсы; открытая лицензия не подтверждена",
+      "reviewStatus": "verified",
+      "bucket": "content-terms",
+      "priority": "P2",
+      "reason": "Public access does not automatically permit copying, republishing or commercial reuse of content.",
+      "nextStep": "Confirm the content license and separate it from platform Terms and third-party assets.",
+      "evidence": [
+        {
+          "kind": "source",
+          "label": "Официальный каталог: назначение и категории",
+          "url": "https://onepromptdesign.com/"
+        },
+        {
+          "kind": "source",
+          "label": "Проверенный полный промпт Portal in Pink Fields; наличие открытой лицензии не установлено",
+          "url": "https://onepromptdesign.com/prompt/5099dbc8-915b-4a2c-a835-ea8179b864ec/portal-in-pink-fields"
         }
       ]
     },

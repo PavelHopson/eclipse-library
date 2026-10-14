@@ -1,20 +1,20 @@
 {
   "schemaVersion": 2,
-  "sourceHash": "e347612a5d5f3f9b2648c474ac6362a5370fd4a02aa26a1cf5fe1aae93f6c1f8",
+  "sourceHash": "5b6948667a08629546fd4be7759a3b178accc3d1e2124c621533b456a985576b",
   "policy": {
     "canonicalSource": "catalog/resources.json",
     "directInstallForbidden": true,
     "greyResourcesExcludedFromAgentRecommendations": true
   },
   "totals": {
-    "all": 777,
-    "verified": 412,
+    "all": 778,
+    "verified": 413,
     "inferred": 365,
-    "licenseReviewRequired": 214,
-    "agentSafe": 677,
+    "licenseReviewRequired": 215,
+    "agentSafe": 678,
     "agentExcluded": 100,
     "grey": 87,
-    "withAddedAt": 498
+    "withAddedAt": 499
   },
   "items": [
     {
@@ -76328,6 +76328,132 @@
           "kind": "official-source",
           "label": "Официальный источник",
           "url": "https://library.eclipse-forge.ru/guides/repository-architecture-map.md"
+        }
+      ],
+      "agentEligibility": {
+        "eligible": true,
+        "reasons": [],
+        "installAllowed": false
+      }
+    },
+    {
+      "id": "onepromptdesign-visual-prompts",
+      "url": "https://onepromptdesign.com/",
+      "title": "OnePromptDesign — промпты и визуальные референсы",
+      "type": "prompt",
+      "category": "Дизайн и визуал",
+      "subcategory": "Промпты для изображений",
+      "simpleDescription": "Каталог промптов и визуальных референсов для изображений, постеров, рекламы, мокапов и фонов. Помогает задать палитру, состав сцены, плотность деталей, свободное место под текст и формат кадра. Промпт нужно применить в отдельном генераторе изображений; результат зависит от выбранной модели.",
+      "useCases": [
+        "Подготовить визуальное задание для постера или обложки",
+        "Создать фон с заранее выделенным местом под заголовок",
+        "Сравнить варианты палитры и композиции по одному заданию"
+      ],
+      "features": [
+        "Промпты с примерами визуального направления",
+        "Категории Poster, Images, Mockups, Gradients и Backdrops",
+        "Поля для палитры, объектов, плотности деталей, свободной области и пропорций в проверенном примере"
+      ],
+      "platforms": [
+        "Web"
+      ],
+      "license": "Нужно проверить условия сайта и права на промпты и изображения-референсы; открытая лицензия не подтверждена",
+      "pricing": "На 14.10.2026 главная страница и полный промпт Portal in Pink Fields доступны без регистрации и оплаты. Доступность всего каталога бесплатно не проверена. Стоимость генерации зависит от отдельного инструмента.",
+      "access": {
+        "cost": "free",
+        "signup": "none",
+        "runtime": "cloud"
+      },
+      "trust": "official",
+      "trustReason": "14.10.2026 проверены официальный сайт и открытая карточка Portal in Pink Fields. Практически проверена самостоятельная адаптация структуры задания в image_gen; это не встроенная генерация на OnePromptDesign и не точное воспроизведение референса.",
+      "projects": [],
+      "decision": "reference",
+      "riskLevel": "medium",
+      "risks": [
+        "Публичный доступ к промпту не подтверждает право перепубликовывать чужие референсы или весь каталог",
+        "Условия и ограничения отдельного генератора нужно проверять отдельно"
+      ],
+      "verifiedAt": "2026-10-14",
+      "addedAt": "2026-10-14",
+      "quickStart": [
+        "Откройте каталог и выберите визуальное направление под свою задачу",
+        "Прочитайте промпт целиком: проверенный пример предполагает изображение-референс; без него отдельно опишите желаемые свет, материалы и композицию",
+        "Замените палитру, объекты, плотность деталей, свободную область и формат на свои требования",
+        "Пример самостоятельной адаптации: широкий фон 16:9, древний каменный проход справа, прохладный туман, мягкий тёплый свет внутри, спокойная левая часть под заголовок; без надписей и водяных знаков",
+        "Передайте адаптированное задание выбранному генератору; используйте только референсы, на которые у вас есть права",
+        "Проверьте главный объект, свет, артефакты, пропорции и место под текст; сохраните окончательный промпт и параметры генерации"
+      ],
+      "limitations": [
+        "Число промптов и фильтров из рекламных публикаций не подтверждено",
+        "Без изображения-референса исходный промпт не гарантирует повторение показанного стиля",
+        "Одинаковое описание может давать разные результаты в разных моделях",
+        "Проверка одного примера не означает, что проверен весь каталог"
+      ],
+      "audience": [
+        "Дизайнеры",
+        "Авторы контента",
+        "Создатели игр",
+        "Маркетологи"
+      ],
+      "relatedTechnologies": [
+        "Генерация изображений",
+        "Композиция",
+        "Prompt design"
+      ],
+      "reviewStatus": "verified",
+      "source": {
+        "file": "catalog/resources.json",
+        "key": "onepromptdesign-visual-prompts",
+        "legacy": {
+          "file": "catalog/resources.json",
+          "line": 45762,
+          "category": "Дизайн и визуал",
+          "subcategory": "Промпты для изображений"
+        }
+      },
+      "licenseEvidence": [
+        {
+          "kind": "source",
+          "label": "Официальный каталог: назначение и категории",
+          "url": "https://onepromptdesign.com/"
+        },
+        {
+          "kind": "source",
+          "label": "Проверенный полный промпт Portal in Pink Fields; наличие открытой лицензии не установлено",
+          "url": "https://onepromptdesign.com/prompt/5099dbc8-915b-4a2c-a835-ea8179b864ec/portal-in-pink-fields"
+        }
+      ],
+      "catalogOrder": 45762,
+      "licenseInfo": {
+        "label": "Нужно проверить условия сайта и права на промпты и изображения-референсы; открытая лицензия не подтверждена",
+        "original": "Нужно проверить условия сайта и права на промпты и изображения-референсы; открытая лицензия не подтверждена",
+        "spdx": null,
+        "kind": "service-terms",
+        "status": "unverified",
+        "requiresReview": true,
+        "evidence": [
+          {
+            "kind": "source",
+            "label": "Официальный каталог: назначение и категории",
+            "url": "https://onepromptdesign.com/"
+          },
+          {
+            "kind": "source",
+            "label": "Проверенный полный промпт Portal in Pink Fields; наличие открытой лицензии не установлено",
+            "url": "https://onepromptdesign.com/prompt/5099dbc8-915b-4a2c-a835-ea8179b864ec/portal-in-pink-fields"
+          }
+        ]
+      },
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://onepromptdesign.com/"
+        },
+        {
+          "kind": "source",
+          "label": "Проверенный полный промпт Portal in Pink Fields; наличие открытой лицензии не установлено",
+          "url": "https://onepromptdesign.com/prompt/5099dbc8-915b-4a2c-a835-ea8179b864ec/portal-in-pink-fields"
         }
       ],
       "agentEligibility": {
