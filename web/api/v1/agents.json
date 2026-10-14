@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "consumer": "generic-agent",
-  "catalogVersion": "c30d556ec80a1a63ba37ae6869ef7566b467965981c76a3e12c95d382ea812aa",
+  "catalogVersion": "c90c6ef5260b499e3fa53543d881eb2bdf0ae3f97bc0580d5495f3a298474419",
   "generatedAt": null,
   "policy": {
     "greyResourcesExcluded": true,
@@ -7112,17 +7112,17 @@
     },
     {
       "id": "wangp-local-media-worker",
-      "title": "WanGP (formerly Wan2GP)",
-      "url": "https://github.com/deepbeepmeep/Wan2GP",
+      "title": "WanGP — локальная генерация видео, изображений и аудио",
+      "url": "https://github.com/deepbeepmeep/WanGP",
       "type": "media",
       "category": "AI Media",
       "subcategory": "Local video and image generation worker",
       "addedAt": "2026-08-25",
-      "description": "Локальный web/headless worker для video, image и audio pipelines: очереди, API, LoRA, mask tools и несколько model families. Формулировка «работает на 6 ГБ ОЗУ» неверна — для некоторых конфигураций заявлено 6 ГБ VRAM; коммерческое embedding, SaaS, API и white-label ограничены отдельной WanGP Community License.",
+      "description": "Приложение с web UI для запуска разных моделей на своём компьютере: видео по тексту или изображению, обработка изображений и аудио. Поддерживает очереди, LoRA и headless/API. Среди доступных семейств — Wan и LTX, включая LTX 2.5. Требования к памяти и диску зависят от выбранной модели и настроек.",
       "useCases": [
-        "Пилот локальной генерации для Eclipse Media",
-        "Headless worker для Shotforge в изолированной среде",
-        "Сравнить video models и VRAM profiles"
+        "Оживить изображение коротким видео",
+        "Сравнить модели и параметры генерации на своей GPU",
+        "Обрабатывать задания локальной очередью"
       ],
       "platforms": [
         "Python",
@@ -7140,18 +7140,23 @@
         "evidence": [
           {
             "kind": "license",
-            "label": "Other license",
-            "url": "https://api.github.com/repos/deepbeepmeep/wan2gp/license"
-          },
-          {
-            "kind": "license",
-            "label": "Official WanGP Community License 2.0",
-            "url": "https://github.com/deepbeepmeep/Wan2GP/blob/main/LICENSE.txt"
+            "label": "WanGP Community License 2.0",
+            "url": "https://github.com/deepbeepmeep/WanGP/blob/main/LICENSE.txt"
           },
           {
             "kind": "source",
-            "label": "Official repository",
-            "url": "https://github.com/deepbeepmeep/Wan2GP"
+            "label": "Официальный сайт WanGP",
+            "url": "https://wangp.ai/"
+          },
+          {
+            "kind": "source",
+            "label": "Официальный репозиторий",
+            "url": "https://github.com/deepbeepmeep/WanGP"
+          },
+          {
+            "kind": "source",
+            "label": "Поддерживаемые модели",
+            "url": "https://github.com/deepbeepmeep/WanGP/blob/main/docs/MODELS.md"
           }
         ]
       },
@@ -7161,29 +7166,29 @@
         "runtime": "local"
       },
       "trust": "official",
-      "decision": "roadmap",
+      "decision": "reference",
       "riskLevel": "high",
-      "projects": [
-        "Eclipse Media",
-        "Shotforge",
-        "Eclipse AI Hub",
-        "Eclipse Library"
-      ],
+      "projects": [],
       "evidence": [
         {
           "kind": "official-source",
           "label": "Официальный источник",
-          "url": "https://github.com/deepbeepmeep/Wan2GP"
+          "url": "https://github.com/deepbeepmeep/WanGP"
         },
         {
           "kind": "license",
-          "label": "Other license",
-          "url": "https://api.github.com/repos/deepbeepmeep/wan2gp/license"
+          "label": "WanGP Community License 2.0",
+          "url": "https://github.com/deepbeepmeep/WanGP/blob/main/LICENSE.txt"
         },
         {
-          "kind": "license",
-          "label": "Official WanGP Community License 2.0",
-          "url": "https://github.com/deepbeepmeep/Wan2GP/blob/main/LICENSE.txt"
+          "kind": "source",
+          "label": "Официальный сайт WanGP",
+          "url": "https://wangp.ai/"
+        },
+        {
+          "kind": "source",
+          "label": "Поддерживаемые модели",
+          "url": "https://github.com/deepbeepmeep/WanGP/blob/main/docs/MODELS.md"
         }
       ],
       "actions": {
