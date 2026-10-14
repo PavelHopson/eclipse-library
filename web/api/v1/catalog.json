@@ -1,18 +1,18 @@
 {
   "schemaVersion": 2,
-  "sourceHash": "c90c6ef5260b499e3fa53543d881eb2bdf0ae3f97bc0580d5495f3a298474419",
+  "sourceHash": "972c483028853bbc61754ec8b6f5326cc953ed880837166280aa02a9c13103df",
   "policy": {
     "directInstallForbidden": true
   },
   "totals": {
-    "all": 776,
-    "verified": 411,
+    "all": 777,
+    "verified": 412,
     "inferred": 365,
     "licenseReviewRequired": 213,
-    "agentSafe": 676,
+    "agentSafe": 677,
     "agentExcluded": 100,
     "grey": 87,
-    "withAddedAt": 497
+    "withAddedAt": 498
   },
   "items": [
     {
@@ -38729,6 +38729,204 @@
           "kind": "official-source",
           "label": "Официальный источник",
           "url": "https://github.com/belrinn/MatrixDefender-4.2"
+        }
+      ],
+      "agentEligibility": {
+        "eligible": true,
+        "reasons": [],
+        "installAllowed": false
+      }
+    },
+    {
+      "id": "mixkit-free-media",
+      "url": "https://mixkit.co/",
+      "title": "Mixkit — бесплатные видео, музыка и звуки для монтажа",
+      "type": "media",
+      "category": "Медиа и дизайн",
+      "subcategory": "Стоковые материалы и шаблоны монтажа",
+      "simpleDescription": "Библиотека готовых видеокадров, фоновой музыки, звуковых эффектов и монтажных шаблонов от Envato. Материалы можно скачивать без регистрации и обязательного указания автора. Подходит для дополнения собственных роликов: звуковой атмосферы, титров, переходов и видеовставок. Допустимое использование зависит от лицензии конкретного материала.",
+      "useCases": [
+        "Добавить музыку и звуки среды к короткому ролику",
+        "Оформить видео титрами, переходами и заставкой",
+        "Подобрать дополнительные кадры для видео или интернет-рекламы"
+      ],
+      "features": [
+        "Стоковые видеокадры, включая вертикальные форматы",
+        "Музыка по жанру и настроению",
+        "Звуковые эффекты: среда, люди, предметы, интерфейсы",
+        "Шаблоны Premiere Pro, After Effects, DaVinci Resolve и Final Cut Pro"
+      ],
+      "platforms": [
+        "Web",
+        "Premiere Pro",
+        "After Effects",
+        "DaVinci Resolve",
+        "Final Cut Pro"
+      ],
+      "license": "Mixkit Licenses и User Terms; отдельные условия для видео, музыки, звуков и шаблонов",
+      "licenseEvidence": [
+        {
+          "kind": "license",
+          "label": "Лицензии по типам материалов",
+          "url": "https://mixkit.co/license/"
+        },
+        {
+          "kind": "terms",
+          "label": "Условия использования",
+          "url": "https://mixkit.co/terms/"
+        },
+        {
+          "kind": "source",
+          "label": "Видео и FAQ о Free / Restricted License",
+          "url": "https://mixkit.co/free-stock-video/"
+        },
+        {
+          "kind": "source",
+          "label": "Музыка и ограничения использования",
+          "url": "https://mixkit.co/free-stock-music/"
+        },
+        {
+          "kind": "source",
+          "label": "Звуковые эффекты",
+          "url": "https://mixkit.co/free-sound-effects/"
+        },
+        {
+          "kind": "source",
+          "label": "Шаблоны для видеоредакторов",
+          "url": "https://mixkit.co/free-video-templates/"
+        }
+      ],
+      "pricing": "Каталог Mixkit предлагает бесплатную загрузку без регистрации. Часть видео доступна бесплатно только для личного использования; коммерческие версии могут вести в платный Envato. Бесплатный шаблон не включает лицензию на сам видеоредактор.",
+      "access": {
+        "cost": "free",
+        "signup": "none",
+        "runtime": "cloud"
+      },
+      "trust": "official",
+      "trustReason": "14.10.2026 проверены официальный сайт, User Terms (редакция 02.10.2025), страницы лицензий и FAQ видео/музыки. Это редакционная проверка сервиса; отдельные файлы не скачивались, музыка не прослушивалась, шаблоны в редакторах не тестировались.",
+      "projects": [],
+      "decision": "reference",
+      "riskLevel": "medium",
+      "risks": [
+        "Бесплатная загрузка не означает одинаковые права для всех материалов",
+        "Права на изображённые бренды и другие сторонние элементы могут требовать отдельной проверки",
+        "Перепубликация исходников в собственном стоковом каталоге и массовое скачивание ботами запрещены условиями"
+      ],
+      "quickStart": [
+        "Выберите тип материала и найдите подходящий файл на Mixkit",
+        "На странице файла проверьте лицензию, разрешённое применение и доступную бесплатную версию",
+        "Для шаблона проверьте совместимость с вашим редактором",
+        "Сохраните URL, название, автора, дату загрузки и применимые условия рядом с файлом",
+        "Добавьте материал в монтаж, отрегулируйте звук и просмотрите весь экспортированный ролик"
+      ],
+      "limitations": [
+        "Видео с Free License допускают коммерческие проекты; Restricted License — только личное некоммерческое использование",
+        "Музыка не разрешена в видеоиграх, ТВ/радио и на CD/DVD; эти ограничения нельзя автоматически переносить на отдельно лицензируемые звуковые эффекты",
+        "У некоторых видео бесплатна только версия 720p для личного использования; условия и разрешение проверяются в карточке",
+        "Royalty-free означает использование по лицензии, а не отсутствие авторских прав"
+      ],
+      "audience": [
+        "Монтажёры",
+        "Авторы видео для соцсетей",
+        "Создатели обучающих и рекламных роликов"
+      ],
+      "relatedTechnologies": [
+        "Видеомонтаж",
+        "Звуковой дизайн",
+        "Premiere Pro",
+        "After Effects",
+        "DaVinci Resolve",
+        "Final Cut Pro"
+      ],
+      "verifiedAt": "2026-10-14",
+      "addedAt": "2026-10-14",
+      "reviewStatus": "verified",
+      "source": {
+        "file": "catalog/resources.json",
+        "key": "mixkit-free-media",
+        "legacy": {
+          "file": "catalog/resources.json",
+          "key": "mixkit-free-media",
+          "category": "Медиа и дизайн",
+          "subcategory": "Стоковые материалы и шаблоны монтажа"
+        }
+      },
+      "catalogOrder": 777,
+      "licenseInfo": {
+        "label": "Mixkit Licenses и User Terms; отдельные условия для видео, музыки, звуков и шаблонов",
+        "original": "Mixkit Licenses и User Terms; отдельные условия для видео, музыки, звуков и шаблонов",
+        "spdx": null,
+        "kind": "service-terms",
+        "status": "editor-reviewed",
+        "requiresReview": false,
+        "evidence": [
+          {
+            "kind": "license",
+            "label": "Лицензии по типам материалов",
+            "url": "https://mixkit.co/license/"
+          },
+          {
+            "kind": "terms",
+            "label": "Условия использования",
+            "url": "https://mixkit.co/terms/"
+          },
+          {
+            "kind": "source",
+            "label": "Видео и FAQ о Free / Restricted License",
+            "url": "https://mixkit.co/free-stock-video/"
+          },
+          {
+            "kind": "source",
+            "label": "Музыка и ограничения использования",
+            "url": "https://mixkit.co/free-stock-music/"
+          },
+          {
+            "kind": "source",
+            "label": "Звуковые эффекты",
+            "url": "https://mixkit.co/free-sound-effects/"
+          },
+          {
+            "kind": "source",
+            "label": "Шаблоны для видеоредакторов",
+            "url": "https://mixkit.co/free-video-templates/"
+          }
+        ]
+      },
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://mixkit.co/"
+        },
+        {
+          "kind": "license",
+          "label": "Лицензии по типам материалов",
+          "url": "https://mixkit.co/license/"
+        },
+        {
+          "kind": "terms",
+          "label": "Условия использования",
+          "url": "https://mixkit.co/terms/"
+        },
+        {
+          "kind": "source",
+          "label": "Видео и FAQ о Free / Restricted License",
+          "url": "https://mixkit.co/free-stock-video/"
+        },
+        {
+          "kind": "source",
+          "label": "Музыка и ограничения использования",
+          "url": "https://mixkit.co/free-stock-music/"
+        },
+        {
+          "kind": "source",
+          "label": "Звуковые эффекты",
+          "url": "https://mixkit.co/free-sound-effects/"
+        },
+        {
+          "kind": "source",
+          "label": "Шаблоны для видеоредакторов",
+          "url": "https://mixkit.co/free-video-templates/"
         }
       ],
       "agentEligibility": {
