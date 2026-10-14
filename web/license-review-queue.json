@@ -1,27 +1,48 @@
 {
   "schemaVersion": 1,
-  "sourceHash": "972c483028853bbc61754ec8b6f5326cc953ed880837166280aa02a9c13103df",
+  "sourceHash": "e347612a5d5f3f9b2648c474ac6362a5370fd4a02aa26a1cf5fe1aae93f6c1f8",
   "policy": {
     "automaticApprovalForbidden": true,
     "directInstallForbidden": true,
     "missingLicenseMeansNoReusePermission": true
   },
   "totals": {
-    "reviewRequired": 213,
+    "reviewRequired": 214,
     "byPriority": {
-      "P1": 0,
+      "P1": 1,
       "P2": 175,
       "P3": 38
     },
     "byBucket": {
       "content-terms": 33,
       "grey-reference": 38,
-      "manual-other": 25,
+      "manual-other": 26,
       "repository-license-not-detected": 24,
       "service-terms": 93
     }
   },
   "items": [
+    {
+      "id": "happy-shrimp-ai-music",
+      "title": "HappyShrimp — генерация песен и инструментальной музыки",
+      "type": "media",
+      "url": "https://www.happyshrimp.ai/",
+      "decision": "reference",
+      "riskLevel": "high",
+      "currentLicense": "Условия сервиса; права на коммерческое использование результатов нужно проверить",
+      "reviewStatus": "verified",
+      "bucket": "manual-other",
+      "priority": "P1",
+      "reason": "The current official source does not provide enough normalized license evidence.",
+      "nextStep": "Open the official source and record the exact grant, restrictions, owner and evidence URL.",
+      "evidence": [
+        {
+          "kind": "source",
+          "label": "Официальный сервис: режимы, модель и бесплатные кредиты; лицензия требует проверки",
+          "url": "https://www.happyshrimp.ai/"
+        }
+      ]
+    },
     {
       "id": "2r-ru-анализатор-hh-2r-ru",
       "title": "2r.ru — анализатор HH",

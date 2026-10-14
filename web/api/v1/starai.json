@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "consumer": "Eclipse AI",
-  "catalogVersion": "972c483028853bbc61754ec8b6f5326cc953ed880837166280aa02a9c13103df",
+  "catalogVersion": "e347612a5d5f3f9b2648c474ac6362a5370fd4a02aa26a1cf5fe1aae93f6c1f8",
   "generatedAt": null,
   "policy": {
     "greyResourcesExcluded": true,
@@ -3411,33 +3411,32 @@
     },
     {
       "id": "happy-shrimp-ai-music",
-      "title": "Happy Shrimp",
+      "title": "HappyShrimp — генерация песен и инструментальной музыки",
       "url": "https://www.happyshrimp.ai/",
-      "type": "service",
+      "type": "media",
       "category": "Медиа",
-      "subcategory": "AI music generation",
+      "subcategory": "Генерация музыки",
       "addedAt": "2026-08-21",
-      "description": "Облачный AI music service создаёт full song из короткого описания: lyrics, composition, arrangement и vocals, а также показывает community feed. Сервис существует и размещён на Alibaba infrastructure, но публичные Terms, pricing, training-data и commercial-rights условия требуют отдельной проверки.",
+      "description": "Облачный генератор музыки по текстовому описанию. Создаёт песни с вокалом и инструментальные композиции; в интерфейсе доступны Instrumental и Smart Lyrics, указана модель HS V1.1. Подходит для поиска музыкального настроения и пробного монтажа. Качество результатов и права на их коммерческое использование в этой карточке не подтверждены.",
       "useCases": [
-        "Benchmark original music briefs для Eclipse Media",
-        "Reference для song-structure UX",
-        "Preview только на оригинальных lyrics"
+        "Подобрать музыкальное настроение для короткого видео",
+        "Создать черновую инструментальную тему для сцены или персонажа",
+        "Сравнить несколько музыкальных вариантов по одному описанию"
       ],
       "platforms": [
-        "Web",
-        "Cloud"
+        "Web"
       ],
       "license": {
-        "label": "Proprietary; public usage, training-data and commercial-output terms require review",
-        "original": "Proprietary; public usage, training-data and commercial-output terms require review",
+        "label": "Условия сервиса; права на коммерческое использование результатов нужно проверить",
+        "original": "Условия сервиса; права на коммерческое использование результатов нужно проверить",
         "spdx": null,
         "kind": "service-terms",
-        "status": "editor-reviewed",
-        "requiresReview": false,
+        "status": "unverified",
+        "requiresReview": true,
         "evidence": [
           {
             "kind": "source",
-            "label": "Official service",
+            "label": "Официальный сервис: режимы, модель и бесплатные кредиты; лицензия требует проверки",
             "url": "https://www.happyshrimp.ai/"
           }
         ]
@@ -3450,10 +3449,7 @@
       "trust": "official",
       "decision": "reference",
       "riskLevel": "high",
-      "projects": [
-        "Eclipse Media",
-        "Shotforge"
-      ],
+      "projects": [],
       "evidence": [
         {
           "kind": "official-source",
