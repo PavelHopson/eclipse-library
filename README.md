@@ -1,5 +1,9 @@
 # Eclipse Library
 
+<!-- project-links:start -->
+[Открыть сайт](https://library.eclipse-forge.ru/) · [Документация](docs/repository-guide.md) · [Код](https://github.com/PavelHopson/eclipse-library/tree/master) · [История изменений](https://github.com/PavelHopson/eclipse-library/commits/master/)
+<!-- project-links:end -->
+
 ![Eclipse Library: Найти → Проверить → Применить](docs/assets/repository-cover.svg)
 
 **База знаний.** Кураторская библиотека инструментов, практических гайдов и решений с источниками и ограничениями применения.
@@ -203,6 +207,8 @@ Quality workflow проверяет:
 - [MCP runtime audit](guides/mcp-runtime-audit.md)
 - [Eclipse Technology Registry](guides/star-technology-registry.md)
 
-## License
+<a id="license"></a>
+
+## Лицензия
 
 Редакционные материалы Eclipse Library принадлежат Eclipse Forge. Каждый внешний ресурс, repository, model, dataset, prompt и service сохраняет собственные license и Terms; точный статус указан в соответствующей карточке.
