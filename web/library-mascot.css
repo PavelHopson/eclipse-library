@@ -1,0 +1,25 @@
+/* Scoped local sketch; no fixed overlay, no infinite or cursor-following animation. */
+.library-mascot { margin: 0 0 18px; max-width: 510px; color: var(--text, #e6e8ee); }
+.library-mascot [hidden] { display: none !important; }
+.library-mascot-body { display: flex; align-items: center; gap: 12px; }
+.library-mascot button { font: inherit; color: inherit; cursor: pointer; }
+.library-mascot-pet { flex: 0 0 96px; width: 96px; height: 96px; padding: 0; border: 1px solid transparent; background: transparent; border-radius: 12px; }
+.library-mascot-art { display: block; width: 100%; height: auto; }
+.library-mascot-fallback { font-size: 14px; color: #c9d6d4; }
+.library-mascot-copy { min-width: 0; }
+.library-mascot-label { font-size: 11px; letter-spacing: .04em; color: #a6b7b4; }
+.library-mascot-message { font-size: 13px; line-height: 1.5; margin: 5px 0 2px; min-height: 39px; }
+.library-mascot-controls { display: flex; flex-wrap: wrap; gap: 0 12px; }
+.library-mascot-controls button, .library-mascot-restore { min-height: 44px; padding: 6px 0; border: 0; background: transparent; font-size: 12px; text-decoration: underline; text-underline-offset: 4px; }
+.library-mascot button:focus-visible { outline: 2px solid #acd5e6; outline-offset: 4px; }
+.library-mascot-controls button[aria-pressed="true"] { color: #d2eab7; }
+.library-mascot button:disabled { cursor: default; opacity: .8; text-decoration: none; }
+@media (hover: hover) { .library-mascot button:not(:disabled):hover { color: #c4e0ef; } }
+@media (max-width: 420px) {
+  .library-mascot-body { gap: 8px; align-items: flex-start; }
+  .library-mascot-pet { flex-basis: 72px; width: 72px; height: 84px; }
+  .library-mascot-message { min-height: 0; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .library-mascot-art { transform: none !important; animation: none !important; }
+}
