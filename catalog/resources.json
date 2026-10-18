@@ -2,9 +2,150 @@
   "schemaVersion": 1,
   "migratedAt": "2026-08-03",
   "totals": {
-    "items": 778
+    "items": 786
   },
   "items": [
+    {
+      "id": "rea-owned-application-analysis",
+      "url": "https://github.com/morluto/rea",
+      "title": "REA — проверяемый анализ собственной сборки",
+      "type": "oss",
+      "category": "Разработка и агенты",
+      "subcategory": "Анализ приложений",
+      "simpleDescription": "CLI и MCP для исследования приложений: структура модулей, связи и доказательства. Гайд показывает путь от разрешённого набора файлов до спецификации одной функции и тестов, без обещания клонировать любую программу.",
+      "useCases": ["Проверка состава собственной сборки", "Восстановление поведения старой собственной версии", "Сопоставление наблюдений со спецификацией и тестами"],
+      "platforms": ["Windows", "Linux", "macOS", "Codex"],
+      "license": "MIT для REA; условия движков, зависимостей и исследуемого приложения проверяются отдельно.",
+      "licenseEvidence": [{"kind": "license", "label": "Лицензия REA", "url": "https://github.com/morluto/rea/blob/main/LICENSE"}],
+      "pricing": "Код REA открыт; отдельные движки и модель могут требовать оплаты.",
+      "access": {"cost": "free", "signup": "none", "runtime": "local"},
+      "trust": "caution",
+      "trustReason": "11.10.2026: README, CLI и Security Policy проверены. Статический CLI и облачный агент — разные границы данных. REA не является песочницей; документация main может отличаться от установленного пакета.",
+      "projects": [],
+      "decision": "reference",
+      "riskLevel": "high",
+      "risks": ["Результаты MCP могут передаваться провайдеру модели", "Анализ неизвестных файлов требует отдельной среды", "Поддержка зависит от формата, движка, версии и ОС", "Лицензия инструмента не предоставляет права на чужое приложение", "Наличие модуля не доказывает его использование, безопасность или полноту реконструкции"],
+      "verifiedAt": "2026-10-11",
+      "addedAt": "2026-10-11",
+      "reviewStatus": "verified",
+      "guide": "rea-owned-application-analysis",
+      "quickStart": ["Откройте гайд и выберите одну функцию собственной сборки", "Согласуйте список файлов, версию и SHA-256; исключите секреты", "Начните со статического анализа копии без регистрации MCP", "Сопоставьте доказательства с тестами, отметьте неизвестное"],
+      "source": {"file": "guides/rea-owned-application-analysis.md", "line": 1, "category": "Разработка и агенты", "subcategory": "Анализ приложений"}
+    },
+    {
+      "id": "koboyo-page-mascot",
+      "url": "https://koboyo.com/page-mascot",
+      "title": "Koboyo Page Mascot — интерактивный персонаж для сайта",
+      "type": "oss",
+      "category": "Frontend и дизайн",
+      "subcategory": "Интерактивные маскоты",
+      "simpleDescription": "Готовая коллекция: 53 персонажа и 5 дополнительных стилей лисы, 116 WebP-листов. Предпросмотр, скачивание и инструкция по подключению. Исходный React-компонент реагирует на курсор и нажатия.",
+      "useCases": [
+        "Персонаж рядом с приветствием или поиском",
+        "Маскот на странице портфолио или ссылок",
+        "Оригинальный герой игрового приветственного экрана",
+        "Дополнительная реакция на подтверждённое состояние приложения через отдельный адаптер"
+      ],
+      "platforms": [
+        "Web",
+        "React"
+      ],
+      "license": "MIT репозитория Kamran Ahmed, включая размещённый в нём набор; отдельных исключений для импортированных листов в исследованном дереве не найдено. Сохраняйте LICENSE и copyright. Права на свои фото и сторонние брендовые образы проверяются отдельно.",
+      "licenseEvidence": [
+        {
+          "kind": "license",
+          "label": "MIT на исследованной ревизии",
+          "url": "https://github.com/nilbuild/page-mascot/blob/76a44ed9180063bf4852b9dd724b656f4a828ac7/LICENSE"
+        }
+      ],
+      "pricing": "Компонент и размещение у себя — без подписки Koboyo. Генерация собственного героя зависит от выбранного инструмента; готовые листы не требуют генерации.",
+      "access": {
+        "cost": "free",
+        "signup": "none",
+        "runtime": "self-host"
+      },
+      "trust": "community",
+      "trustReason": "10.10.2026: прочитаны документация, MIT и код на закреплённой ревизии; 116 WebP и четыре справочных файла сверены по Git blob SHA, SHA-256 сохранены. Все изображения декодированы браузером; ZIP скачан с локального сервера и проверен. Исходный npm-компонент не устанавливался.",
+      "projects": [],
+      "decision": "reference",
+      "riskLevel": "low",
+      "risks": [
+        "Готовый компонент требует React; для другого стека нужна отдельная реализация или адаптация",
+        "Генератор может расходовать лимиты или деньги",
+        "Reduced-motion отключает деформацию, но не все реакции; нужна браузерная проверка",
+        "Фотографии и брендовые образы требуют собственных прав; MIT на код их не заменяет"
+      ],
+      "verifiedAt": "2026-10-10",
+      "addedAt": "2026-10-10",
+      "reviewStatus": "verified",
+      "guide": "koboyo-page-mascot",
+      "quickStart": [
+        "Откройте коллекцию из гайда и выберите персонажа",
+        "Скачайте оба листа WebP или полный ZIP вместе с LICENSE.txt",
+        "Подключите по инструкции своего стека; проверьте клавиатуру, touch и reduced-motion"
+      ],
+      "source": {
+        "file": "guides/koboyo-page-mascot.md",
+        "line": 1,
+        "category": "Frontend и дизайн",
+        "subcategory": "Интерактивные маскоты"
+      },
+      "verification": {
+        "scope": "Documentation, pinned source and byte-for-byte asset integrity review; browser decoding and local archive download verified. Upstream npm component not installed. Static gallery adapter tested locally; production publication not performed.",
+        "runtimeTested": false,
+        "installed": false,
+        "upstreamCommit": "76a44ed9180063bf4852b9dd724b656f4a828ac7",
+        "packageVersion": "0.1.0",
+        "packageVersionEvidence": "main package.json; npm archive not inspected",
+        "eventDate": null,
+        "sources": [
+          "https://github.com/nilbuild/page-mascot",
+          "https://github.com/nilbuild/page-mascot/blob/main/package.json",
+          "https://github.com/nilbuild/page-mascot/blob/76a44ed9180063bf4852b9dd724b656f4a828ac7/src/mascot.tsx",
+          "https://github.com/nilbuild/page-mascot/blob/76a44ed9180063bf4852b9dd724b656f4a828ac7/LICENSE"
+        ],
+        "assetCollection": {
+          "variants": 58,
+          "baseCharacters": 53,
+          "images": 116,
+          "bytes": 21440188,
+          "allBlobHashesVerified": true,
+          "browserDecodeVerified": true,
+          "archiveDownloadVerified": true,
+          "upstreamCommit": "76a44ed9180063bf4852b9dd724b656f4a828ac7"
+        },
+        "localGallery": {
+          "tested": true,
+          "production": false,
+          "checks": [
+            "search and categories",
+            "58 selectable variants",
+            "9 directions and 9 reactions",
+            "real downloads and matching hashes",
+            "keyboard and touch",
+            "320/390 px layout",
+            "reduced motion",
+            "image and manifest errors with retry",
+            "guide navigation"
+          ],
+          "evidence": "reports/koboyo-gallery/qa.json"
+        }
+      },
+      "correctionHistory": [
+        {
+          "date": "2026-10-10",
+          "change": "Редакция 1: создана карточка и руководство; уточнены неподвижное положение героя, MIT и отдельная стоимость генерации. Установка и работа компонента не проверялись."
+        },
+        {
+          "date": "2026-10-10",
+          "change": "Редакция 2: универсальные примеры и промпт для читателя; уточнены права на изображения и отдельная интеграция реакций на состояние приложения."
+        },
+        {
+          "date": "2026-10-10",
+          "change": "Редакция 3: добавлена коллекция из 58 вариантов и скачиваемый архив с MIT, авторством и неизменёнными файлами. Полнота и контрольные суммы сверены с закреплённой ревизией; изображения и скачивание проверены локально. Локальная галерея проверена: выбор всех вариантов, 18 кадров, скачивание, клавиатура/touch, reduced-motion и ошибки с повтором."
+        }
+      ]
+    },
     {
       "id": "synthid-detector-media-provenance",
       "url": "https://synthid.com/",
@@ -13,89 +154,128 @@
       "category": "Security и privacy",
       "subcategory": "Проверяемое происхождение media",
       "simpleDescription": "Проверка поддерживаемых AI-меток как дополнительный сигнал перед публикацией. Не универсальный детектор фейков, авторства или прав. Гайд и локальный отчёт с SHA-256; реальная проверка файла не выполнена.",
+      "useCases": ["Ручная проверка чужого медиа перед публикацией", "Паспорт собственного исходника и производных экспортов", "Отчёт с тремя статусами без выдуманной уверенности"],
+      "platforms": ["Web"],
+      "license": "Условия сервиса Google; открытая лицензия Detector не подтверждена. Права на загружаемый файл проверяются отдельно.",
+      "licenseEvidence": [{"kind": "source", "label": "Официальный Detector", "url": "https://synthid.com/"}],
+      "pricing": "Стоимость, квоты и условия API нового Detector в этой проверке не установлены.",
+      "access": {"cost": "unknown", "signup": "unknown", "runtime": "cloud"},
+      "trust": "official",
+      "trustReason": "08.10.2026 сверены анонс Google от 07.10.2026, DeepMind и отдельная справка Gemini. Прочитан receipt A-00 публичного welcome notice Detector от 12:36:09Z: условия хранения заявлены Google, независимое удаление не проверено. Загрузки файла не было. Покрытие конкретных моделей и старых файлов не гарантируется.",
+      "projects": ["Eclipse Library", "Eclipse Media", "Ultron", "AI Creator"],
+      "decision": "reference",
+      "riskLevel": "medium",
+      "risks": ["По notice Google оригинал удаляется после результата, digital signature связана с user identifier и хранится до 24 часов; независимый аудит удаления не выполнен", "Third-party sign-in передаёт базовые идентификаторы; загрузка файла требует отдельного разрешения", "Additional Terms запрещают frontend-as-API, bulk verification, обход квот и adversarial-подбор преобразований против обнаружения метки", "Отсутствие метки не доказывает отсутствие AI", "Обнаружение метки не доказывает истинность, авторство или права", "Результат нельзя переносить на изменённые байты или другой экспорт"],
+      "verifiedAt": "2026-10-08",
+      "quickStart": ["Откройте гайд и зафиксируйте источник, права и SHA-256", "До загрузки проверьте условия сервиса и отдельное разрешение на передачу файла", "Сохраните точный ответ, дату и доказательство; ошибку отмечайте not_checked"],
+      "reviewStatus": "verified",
+      "addedAt": "2026-10-08",
+      "guide": "synthid-media-provenance-checklist",
+      "relatedResources": ["c2pa-content-credentials"],
+      "source": {"file": "guides/synthid-media-provenance-checklist.md", "line": 1, "category": "Security и privacy", "subcategory": "Проверяемое происхождение media"},
+      "verification": {"scope": "Official documentation and A-00 public UI receipt reviewed; local asset hash computed without external upload", "runtimeTested": false, "fileVerificationStatus": "not_checked", "eventDate": "2026-10-07", "publicNoticeObservedAt": "2026-10-08T12:36:09.919Z", "publicNoticeHttpStatus": 200, "deletionIndependentlyVerified": false, "sources": ["https://blog.google/innovation-and-ai/models-and-research/google-deepmind/synth-id-ai-content/", "https://deepmind.google/models/synthid/", "https://support.google.com/gemini/answer/16722517?hl=en", "https://synthid.com/", "https://policies.google.com/terms", "https://policies.google.com/privacy"]},
+      "correctionHistory": [{"date": "2026-10-08", "change": "Создана карточка IDEA-025. Разделены Detector, Gemini и C2PA. На момент первой редакции API, retention, квоты и реальная проверка файла не подтверждены."}, {"date": "2026-10-08", "change": "По receipt A-00 от 12:36:09Z уточнён прочитанный welcome Privacy Notice: удаление оригинала после результата, signature/user identifier до 24ч, basic sign-in identifiers. Это заявление Google, не аудит удаления. Зафиксированы запреты adversarial optimization, frontend-as-API/bulk и обхода квот. API, тарифы, квоты, форматы и проверка файла по-прежнему не подтверждены; not_checked."}]
+    },
+    {
+      "id": "flowsint-self-audit-evidence-graph",
+      "url": "https://github.com/reconurge/flowsint",
+      "title": "Flowsint — граф источников для собственного цифрового следа",
+      "type": "grey",
+      "category": "Security & Privacy",
+      "subcategory": "Defensive self-audit",
+      "simpleDescription": "Графовый OSINT-инструмент как референс для аудита собственных доменов и аккаунтов. Локальное хранение не отменяет раскрытие данных внешним API; связи требуют источника, даты и ручной проверки.",
+      "useCases": ["Прочитать гайд об аудите собственного цифрового следа", "Подготовить ограниченный локальный пилот Sentinel с отдельным разрешением на каждый запрос", "Использовать граф доказательств без автоматического объединения людей"],
+      "platforms": ["Self-host", "Docker"],
+      "license": "Apache-2.0 в проверенном репозитории; условия API и зависимости проверяются отдельно.",
+      "licenseEvidence": [{"kind": "license", "label": "Flowsint LICENSE", "url": "https://github.com/reconurge/flowsint/blob/main/LICENSE"}],
+      "pricing": "Открытый код; инфраструктура и сторонние API могут требовать оплаты.",
+      "access": {"cost": "freemium", "signup": "optional", "runtime": "hybrid"},
+      "trust": "caution",
+      "trustReason": "08.10.2026 проверены README, Docker-конфигурация и официальный каталог источников. Flowsint не установлен и не протестирован в runtime; полный цифровой след не гарантируется. Исключён из автоматических рекомендаций агентам: только ручной defensive self-audit.",
+      "projects": ["Eclipse Library", "Hopson Sentinel", "Eclipse Media"],
+      "decision": "reference",
+      "riskLevel": "high",
+      "risks": ["Запрос может раскрывать идентификатор внешнему провайдеру", "Совпадение ника не доказывает личность", "Docker socket и сетевые порты требуют отдельного аудита до установки", "Проверять только собственные или явно разрешённые объекты; не использовать для doxxing"],
+      "verifiedAt": "2026-10-08",
+      "quickStart": ["Прочитайте гайд и определите цели/источники/срок хранения", "Начните с локального учебного графа Sentinel без сети", "Перед реальным запросом проверьте точный адрес, поля и получателя; дайте одноразовое согласие"],
+      "reviewStatus": "verified",
+      "addedAt": "2026-10-08",
+      "guide": "own-digital-footprint-audit",
+      "source": {"file": "guides/own-digital-footprint-audit.md", "line": 1, "category": "Security & Privacy", "subcategory": "Defensive self-audit"},
+      "verification": {"scope": "Official documentation and deployment configuration only", "runtimeTested": false, "sources": ["https://www.flowsint.io/docs/sources/available-enrichers", "https://github.com/reconurge/flowsint/blob/main/docker-compose.prod.yml", "https://github.com/reconurge/flowsint/blob/main/ETHICS.md"]},
+      "correctionHistory": [{"date": "2026-10-08", "change": "Создана карточка после проверки отсутствия дубля. Полный цифровой след и полностью офлайн-работа не заявляются. Только defensive self-audit и ручная проверка связей."}]
+    },
+    {
+      "id": "image-generation-visual-codebook",
+      "url": "https://abhijayvuyyuru.substack.com/p/try-these-100-code-that-make-your",
+      "title": "Генерация изображений: 100 визуальных приёмов",
+      "type": "guide",
+      "category": "Изображения",
+      "subcategory": "Генерация изображений",
+      "simpleDescription": "Справочник 100 творческих подсказок: ракурс, композиция, свет, предметка и визуальные стили. Русские объяснения, поиск и копирование. Не официальные команды ChatGPT или Gemini.",
       "useCases": [
-        "Ручная проверка чужого медиа перед публикацией",
-        "Паспорт собственного исходника и производных экспортов",
-        "Отчёт с тремя статусами без выдуманной уверенности"
+        "Найти точное описание ракурса, освещения или композиции",
+        "Подготовить промпт для портрета, lookbook, предметки и обложки"
       ],
       "platforms": [
         "Web"
       ],
-      "license": "Условия сервиса Google; открытая лицензия Detector не подтверждена. Права на загружаемый файл проверяются отдельно.",
+      "license": "Условия сайта автора; права на повторное использование его текста нужно проверить, открытая лицензия не подтверждена. Русские пояснения и примеры — собственная редакционная работа Eclipse Library.",
       "licenseEvidence": [
         {
           "kind": "source",
-          "label": "Официальный Detector",
-          "url": "https://synthid.com/"
+          "label": "Первоисточник и авторские условия",
+          "url": "https://abhijayvuyyuru.substack.com/p/try-these-100-code-that-make-your"
         }
       ],
-      "pricing": "Стоимость, квоты и условия API нового Detector в этой проверке не установлены.",
+      "pricing": "Чтение справочника бесплатно; стоимость генерации зависит от выбранного сервиса.",
       "access": {
-        "cost": "unknown",
-        "signup": "unknown",
-        "runtime": "cloud"
+        "cost": "free",
+        "signup": "none",
+        "runtime": "local"
       },
-      "trust": "official",
-      "trustReason": "08.10.2026 сверены анонс Google от 07.10.2026, DeepMind и отдельная справка Gemini. Прочитан receipt A-00 публичного welcome notice Detector от 12:36:09Z: условия хранения заявлены Google, независимое удаление не проверено. Загрузки файла не было. Покрытие конкретных моделей и старых файлов не гарантируется.",
+      "trust": "community",
+      "trustReason": "06.10.2026 сверены все 100 обозначений, порядок и регистр по статье. Проверка касается справочника, не качества генераторов.",
       "projects": [
         "Eclipse Library",
-        "Eclipse Media",
-        "Ultron",
-        "AI Creator"
+        "Text2Image",
+        "Shotforge",
+        "Eclipse Media"
       ],
       "decision": "reference",
-      "riskLevel": "medium",
+      "riskLevel": "low",
       "risks": [
-        "По notice Google оригинал удаляется после результата, digital signature связана с user identifier и хранится до 24 часов; независимый аудит удаления не выполнен",
-        "Third-party sign-in передаёт базовые идентификаторы; загрузка файла требует отдельного разрешения",
-        "Additional Terms запрещают frontend-as-API, bulk verification, обход квот и adversarial-подбор преобразований против обнаружения метки",
-        "Отсутствие метки не доказывает отсутствие AI",
-        "Обнаружение метки не доказывает истинность, авторство или права",
-        "Результат нельзя переносить на изменённые байты или другой экспорт"
+        "Обозначения не включают скрытые функции и не гарантируют качество, идентичность лица или техническую точность.",
+        "Текст и изображения автора не имеют подтверждённой открытой лицензии; сохраняем короткие названия и собственные пояснения."
       ],
-      "verifiedAt": "2026-10-08",
+      "verifiedAt": "2026-10-06",
       "quickStart": [
-        "Откройте гайд и зафиксируйте источник, права и SHA-256",
-        "До загрузки проверьте условия сервиса и отдельное разрешение на передачу файла",
-        "Сохраните точный ответ, дату и доказательство; ошибку отмечайте not_checked"
+        "Откройте раздел «Изображения» в навигации Library и найдите нужный приём.",
+        "Опишите сцену, выберите 2–4 приёма и уточните формат/цвета/ограничения."
       ],
       "reviewStatus": "verified",
-      "addedAt": "2026-10-08",
-      "guide": "synthid-media-provenance-checklist",
-      "relatedResources": [
-        "c2pa-content-credentials"
-      ],
+      "addedAt": "2026-10-06",
+      "guide": "image-generation-codebook",
       "source": {
-        "file": "guides/synthid-media-provenance-checklist.md",
+        "file": "guides/image-generation-codebook.md",
         "line": 1,
-        "category": "Security и privacy",
-        "subcategory": "Проверяемое происхождение media"
+        "category": "Изображения",
+        "subcategory": "Генерация изображений"
+      },
+      "article": {
+        "title": "Try These 100 Codes That Make Your ChatGPT / Gemini Images Look Better (No Design Skills Needed)",
+        "author": "Abhijay Arora Vuyyuru",
+        "publishedAt": "2026-08-31",
+        "checkedAt": "2026-10-06"
       },
       "verification": {
-        "scope": "Official documentation and A-00 public UI receipt reviewed; local asset hash computed without external upload",
-        "runtimeTested": false,
-        "fileVerificationStatus": "not_checked",
-        "eventDate": "2026-10-07",
-        "publicNoticeObservedAt": "2026-10-08T12:36:09.919Z",
-        "publicNoticeHttpStatus": 200,
-        "deletionIndependentlyVerified": false,
-        "sources": [
-          "https://blog.google/innovation-and-ai/models-and-research/google-deepmind/synth-id-ai-content/",
-          "https://deepmind.google/models/synthid/",
-          "https://support.google.com/gemini/answer/16722517?hl=en",
-          "https://synthid.com/",
-          "https://policies.google.com/terms",
-          "https://policies.google.com/privacy"
-        ]
+        "scope": "100 labels, sequence and case compared with the source; original Russian editorial descriptions",
+        "generationTested": false
       },
       "correctionHistory": [
         {
-          "date": "2026-10-08",
-          "change": "Создана карточка IDEA-025. Разделены Detector, Gemini и C2PA. На момент первой редакции API, retention, квоты и реальная проверка файла не подтверждены."
-        },
-        {
-          "date": "2026-10-08",
-          "change": "По receipt A-00 от 12:36:09Z уточнён прочитанный welcome Privacy Notice: удаление оригинала после результата, signature/user identifier до 24ч, basic sign-in identifiers. Это заявление Google, не аудит удаления. Зафиксированы запреты adversarial optimization, frontend-as-API/bulk и обхода квот. API, тарифы, квоты, форматы и проверка файла по-прежнему не подтверждены; not_checked."
+          "date": "2026-10-06",
+          "change": "Добавлена новая карточка после проверки отсутствия дубля URL. Создан словарь с собственными пояснениями; 100 обозначений — творческие подсказки, не команды генераторов."
         }
       ]
     },
@@ -5431,47 +5611,92 @@
     {
       "id": "claude-skills-github-com",
       "url": "https://github.com/alirezarezvani/claude-skills",
-      "title": "claude-skills",
+      "title": "Claude Skills — выборочный справочник",
       "type": "skill",
-      "category": "AI & Claude Code",
-      "subcategory": "Оркестрация и агенты",
-      "simpleDescription": "claude-skills — 230+ skills по категориям: дизайн, маркетинг, бизнес, копирайт, кибербез, Dev — установка из шаблона в терминале. Карточка помогает понять назначение ресурса и начать с небольшой безопасной проверки; условия использования ещё нужно сверить с официальным источником.",
+      "category": "Практические ресурсы Eclipse Forge",
+      "subcategory": "Skills и ревью",
+      "simpleDescription": "Большая коллекция инструкций и скриптов для агентных задач. Для Codex рассматриваем только отдельные проверенные инструкции, без установщика всей коллекции и без Claude Code hooks.",
       "useCases": [
-        "Разобраться, подходит ли claude-skills для вашей задачи",
-        "Проверить возможности на небольшом тестовом сценарии до интеграции"
+        "Пилот code-reviewer и senior-qa на SM-404, CRM-144 и CRM-145",
+        "Сравнить время, повторные чтения и переделки с текущим процессом"
       ],
       "platforms": [
-        "Web"
+        "Codex — только после адаптации",
+        "Claude Code — исходный формат"
       ],
-      "license": "Нужно проверить в официальном источнике",
-      "pricing": "Исходный код доступен публично; hosting, модели и внешние API могут оплачиваться отдельно",
+      "license": "MIT",
+      "pricing": "Исходный код MIT; модели и внешние сервисы оплачиваются по их собственным условиям.",
       "access": {
         "cost": "free",
-        "signup": "unknown",
-        "runtime": "cloud"
+        "signup": "none",
+        "runtime": "local"
       },
       "trust": "community",
-      "trustReason": "Запись структурирована автоматически из опубликованного описания. Официальный источник, лицензия и условия ещё не прошли отдельную редакторскую проверку.",
-      "projects": [],
+      "trustReason": "Проверены репозиторий, лицензия и структура на зафиксированном commit; безопасность каждого скрипта и совместимость hooks с Codex не подтверждены.",
+      "projects": [
+        "StarMarket",
+        "StarCRM",
+        "Romark",
+        "Eclipse Forge"
+      ],
       "decision": "reference",
       "riskLevel": "medium",
       "risks": [
-        "Лицензия, цена, permissions и обработка данных могут отличаться от краткого описания."
+        "Установщик по умолчанию копирует коллекцию и может заменить одноимённые навыки.",
+        "Claude Code hooks не становятся совместимыми с Codex автоматически.",
+        "Заявленное число skills зависит от способа подсчёта; не использовать старое 230+."
       ],
-      "verifiedAt": null,
+      "verifiedAt": "2026-09-29",
       "quickStart": [
-        "Откройте официальный источник и проверьте владельца, лицензию и дату обновления.",
-        "Не передавайте secrets или рабочие данные; начните с пустого тестового проекта.",
-        "Сравните результат с текущим способом работы и только потом решайте об интеграции."
+        "Открыть только выбранный SKILL.md и его зависимости.",
+        "Не запускать install/convert/hooks и не менять AGENTS.md.",
+        "Провести контрольный пилот на трёх существующих задачах."
       ],
-      "reviewStatus": "inferred",
+      "reviewStatus": "verified",
       "source": {
         "file": "README.md",
         "line": 297,
         "category": "AI & Claude Code",
         "subcategory": "Оркестрация и агенты"
       },
-      "addedAt": null
+      "addedAt": null,
+      "licenseEvidence": [
+        {
+          "kind": "license",
+          "label": "MIT license",
+          "url": "https://github.com/alirezarezvani/claude-skills/blob/19392f7a08264ed00486a251f5b2098321771f94/LICENSE"
+        }
+      ],
+      "sourceRevision": {
+        "kind": "commit",
+        "value": "19392f7a08264ed00486a251f5b2098321771f94",
+        "url": "https://github.com/alirezarezvani/claude-skills/tree/19392f7a08264ed00486a251f5b2098321771f94"
+      },
+      "dependencies": [
+        "Выборочно прочитать SKILL.md, references, scripts и hooks каждого кандидата; без установки.",
+        "Базовый процесс и замеры по SM-404, CRM-144, CRM-145."
+      ],
+      "limitations": [
+        "Не заменять Codex AGENTS.md, память и оркестрацию.",
+        "Оценки upstream не заменяют наше ревью безопасности."
+      ],
+      "nextStep": "Подготовить read-only pilot code-reviewer/senior-qa на SM-404, CRM-144, CRM-145.",
+      "guide": "september-2026-eight-resources-pilots",
+      "verification": {
+        "checkedAt": "2026-09-29",
+        "status": "pilot-planned",
+        "scope": "Проверены исходный репозиторий, лицензия и структура; в Codex не установлено.",
+        "installed": false,
+        "runtime": "not-run",
+        "merged": false,
+        "deployed": false
+      },
+      "correctionHistory": [
+        {
+          "date": "2026-09-29",
+          "change": "Уточнено старое «230+»: официальный README указывает 388 основных SKILL.md, но зеркала и скрытые каталоги дают иные счётчики. Уточнены MIT, установщик и границы Codex."
+        }
+      ]
     },
     {
       "id": "claude-squad-smtg-ai-github-com",
@@ -35838,11 +36063,11 @@
       "type": "repo",
       "category": "AI и агенты",
       "subcategory": "Remote agent control",
-      "simpleDescription": "Local-first AGPL-3.0 оболочка для Claude Code, Codex, Cursor Agent, OpenCode и других coding agents. Даёт PWA/телефон/Telegram, просмотр diff и permission prompts, но фактически открывает удалённый доступ к локальному агенту и терминалу — это высокорисковая capability.",
+      "simpleDescription": "HAPI — пульт для сессий Codex CLI с телефона: сообщения, diff и запросы разрешений. Web/PWA поддерживает терминал и голос. Работает компьютер, а не телефон; перенос всех чатов Codex Desktop не подтверждён.",
       "useCases": [
-        "Reference для Eclipse Chat Agent Control Room",
-        "Безопасный mobile approval UX",
-        "Session handoff между desktop и телефоном"
+        "Codex: компьютер → телефон → та же тестовая сессия",
+        "Просмотр diff и ручные разрешения",
+        "Мобильный доступ к Sentinel / ULTRON без второго Codex Gateway"
       ],
       "platforms": [
         "Web/PWA",
@@ -35859,24 +36084,25 @@
         "runtime": "self-host"
       },
       "trust": "official",
-      "trustReason": "Проверены официальные docs, supported-agent matrix, local storage model и AGPL license 21.08.2026.",
+      "trustReason": "07.10.2026 сверены официальные архитектура, матрица агентов, развёртывание и голосовые функции. Windows, мобильный сценарий и установленный экземпляр не тестировались.",
       "projects": [
-        "Eclipse Chat",
-        "Hopson Sentinel",
-        "oh-my-claudecode"
+        "Eclipse Library",
+        "Eclipse Media",
+        "Eclipse AI Hub",
+        "Hopson Sentinel"
       ],
-      "decision": "reference",
+      "decision": "roadmap",
       "riskLevel": "high",
       "risks": [
         "Компрометация access token даёт доступ к agent sessions",
         "Remote terminal и yolo modes расширяют blast radius",
         "AGPL требует отдельной legal оценки для network deployment"
       ],
-      "verifiedAt": "2026-08-21",
+      "verifiedAt": "2026-10-07",
       "quickStart": [
-        "Не устанавливать на production workstation",
-        "Проверять только в isolated VM через private network",
-        "Отключить yolo и разрешать каждое write action вручную"
+        "Подготовить изолированный checkout и закрепить версию; использовать только Codex.",
+        "Начать с read-only, private network + HTTPS, без production credentials и yolo.",
+        "Проверить отказ, обрыв связи, resume и отзыв доступа; голос и Telegram — отдельный этап."
       ],
       "reviewStatus": "verified",
       "source": {
@@ -35896,6 +36122,34 @@
           "kind": "source",
           "label": "Supported agents",
           "url": "https://hapi.run/docs/guide/agents"
+        },
+        {
+          "kind": "source",
+          "label": "Уточнение от 07.10.2026",
+          "url": "https://hapi.run/docs/guide/how-it-works"
+        },
+        {
+          "kind": "source",
+          "label": "Уточнение от 07.10.2026",
+          "url": "https://hapi.run/docs/guide/voice-assistant"
+        },
+        {
+          "kind": "source",
+          "label": "Уточнение от 07.10.2026",
+          "url": "https://hapi.run/docs/guide/deployment"
+        }
+      ],
+      "guide": "october-2026-hapi-ornith-glm-pilots",
+      "verification": {
+        "checkedAt": "2026-10-07",
+        "scope": "Official documentation review; no installation or independent benchmark",
+        "runtimeTested": false,
+        "securityAuditPerformed": false
+      },
+      "correctionHistory": [
+        {
+          "date": "2026-10-07",
+          "change": "Уточнены Codex-only пилот, границы CLI/Desktop и voice providers."
         }
       ]
     },
@@ -36024,43 +36278,45 @@
     {
       "id": "happy-shrimp-ai-music",
       "url": "https://www.happyshrimp.ai/",
-      "title": "HappyShrimp — генерация песен и инструментальной музыки",
-      "type": "media",
+      "title": "Happy Shrimp",
+      "type": "service",
       "category": "Медиа",
-      "subcategory": "Генерация музыки",
-      "simpleDescription": "Облачный генератор музыки по текстовому описанию. Создаёт песни с вокалом и инструментальные композиции; в интерфейсе доступны Instrumental и Smart Lyrics, указана модель HS V1.1. Подходит для поиска музыкального настроения и пробного монтажа. Качество результатов и права на их коммерческое использование в этой карточке не подтверждены.",
+      "subcategory": "AI music generation",
+      "simpleDescription": "Облачный AI music service создаёт full song из короткого описания: lyrics, composition, arrangement и vocals, а также показывает community feed. Сервис существует и размещён на Alibaba infrastructure, но публичные Terms, pricing, training-data и commercial-rights условия требуют отдельной проверки.",
       "useCases": [
-        "Подобрать музыкальное настроение для короткого видео",
-        "Создать черновую инструментальную тему для сцены или персонажа",
-        "Сравнить несколько музыкальных вариантов по одному описанию"
+        "Benchmark original music briefs для Eclipse Media",
+        "Reference для song-structure UX",
+        "Preview только на оригинальных lyrics"
       ],
       "platforms": [
-        "Web"
+        "Web",
+        "Cloud"
       ],
-      "license": "Условия сервиса; права на коммерческое использование результатов нужно проверить",
-      "pricing": "На 14.10.2026 сайт заявляет 320 бесплатных кредитов за регистрацию и 120 за ежедневный вход. Это лимитированный доступ, не безлимит. Расход кредитов на генерацию, платные тарифы и фактическое начисление на аккаунт не проверены.",
+      "license": "Proprietary; public usage, training-data and commercial-output terms require review",
+      "pricing": "Account/checkout conditions must be checked before use",
       "access": {
         "cost": "unknown",
         "signup": "required",
         "runtime": "cloud"
       },
       "trust": "official",
-      "trustReason": "14.10.2026 сверены публичные сведения happyshrimp.ai: HS V1.1, режимы и объявленные бесплатные кредиты. Проверка редакционная: регистрация, генерация, прослушивание результата и коммерческие условия не проверялись. Общая стоимость доступа пока не подтверждена.",
-      "projects": [],
+      "trustReason": "Проверены официальный сайт, canonical metadata и заявленный feature set 21.08.2026; Alibaba ownership and rights terms were not independently established.",
+      "projects": [
+        "Eclipse Media",
+        "Shotforge"
+      ],
       "decision": "reference",
       "riskLevel": "high",
       "risks": [
-        "Коммерческие права на бесплатные результаты и условия обработки данных пока не подтверждены",
-        "Лимиты бета-сервиса могут меняться; число бесплатных треков из баланса кредитов не установлено",
-        "Текст запроса обрабатывается облачным сервисом"
+        "Неясны training-data и commercial output rights",
+        "Возможны copyright/style imitation и voice likeness risks",
+        "Загруженные тексты и аудио уходят в cloud service"
       ],
-      "verifiedAt": "2026-10-14",
+      "verifiedAt": "2026-08-21",
       "quickStart": [
-        "Откройте happyshrimp.ai и проверьте текущие лимиты и условия аккаунта",
-        "Для первого теста выберите Instrumental и опишите жанр, темп, настроение и инструменты своими словами",
-        "Пример: Instrumental darkwave, 85 BPM, warm analog synthesizers, restrained bass, sparse drums, intimate late-night atmosphere, no vocals, no dramatic drops",
-        "Перед запуском проверьте стоимость в кредитах; после генерации прослушайте трек целиком",
-        "Сохраните промпт, версию модели, дату и условия использования; коммерческое применение проверьте отдельно"
+        "Не загружать клиентские или чужие lyrics",
+        "Проверить Terms/privacy/pricing до account",
+        "Сравнивать только на original/public-domain fixtures"
       ],
       "reviewStatus": "verified",
       "source": {
@@ -36073,30 +36329,9 @@
       "licenseEvidence": [
         {
           "kind": "source",
-          "label": "Официальный сервис: режимы, модель и бесплатные кредиты; лицензия требует проверки",
+          "label": "Official service",
           "url": "https://www.happyshrimp.ai/"
         }
-      ],
-      "features": [
-        "Генерация музыки по описанию жанра, настроения и инструментов",
-        "Режим Instrumental для музыки без вокала",
-        "Smart Lyrics и публичная лента примеров"
-      ],
-      "limitations": [
-        "Бесплатные кредиты не подтверждают разрешение на коммерческое использование",
-        "Качество вокала, произношение на русском, точность длительности и пригодность для финального монтажа ещё не тестировались",
-        "API и локальный запуск в этой проверке не подтверждены",
-        "Сведения относятся к happyshrimp.ai; тарифы похожих доменов сюда не переносились"
-      ],
-      "audience": [
-        "Авторы видео",
-        "Музыканты и авторы песен",
-        "Монтажёры"
-      ],
-      "relatedTechnologies": [
-        "Генерация музыки",
-        "AI audio",
-        "Видеомонтаж"
       ]
     },
     {
@@ -36224,11 +36459,11 @@
       "type": "model",
       "category": "AI-модели",
       "subcategory": "Local coding model",
-      "simpleDescription": "MIT GGUF text-generation model из семейства Ornith. Карточка существует и активно скачивается, но официальный metadata определяет её как text-generation, а не multimodal model; заявления о запуске на любом телефоне и автоматическом self-improvement требуют device benchmark.",
+      "simpleDescription": "Ornith 1.5 9B GGUF — отдельная 9B-модель, не Qwen 35B на любом телефоне. Издатель заявляет мультимодальность и публикует mmproj; совместимость зависит от runtime. Большой контекст и авторские бенчмарки не доказывают качество на наших устройствах.",
       "useCases": [
-        "Local coding benchmark в AI Hub",
-        "Low-memory agent fixtures",
-        "Comparison with other 9B GGUF models"
+        "Русские выжимки и теги Library",
+        "Структурирование готовых расшифровок и черновики сцен Media",
+        "Локальный benchmark через существующий AI Hub / Sentinel"
       ],
       "platforms": [
         "GGUF",
@@ -36243,11 +36478,12 @@
         "runtime": "local"
       },
       "trust": "official",
-      "trustReason": "Проверены Hugging Face API metadata, MIT license, text-generation pipeline and model availability 21.08.2026. Promotional benchmark and mobile claims remain unverified.",
+      "trustReason": "07.10.2026 сверены model card, файлы GGUF/mmproj и описание обучения. Сравнения — тесты издателя; наших аппаратных измерений нет.",
       "projects": [
+        "Eclipse Library",
+        "Eclipse Media",
         "Eclipse AI Hub",
-        "Hopson Sentinel",
-        "Educator-AI"
+        "Hopson Sentinel"
       ],
       "decision": "roadmap",
       "riskLevel": "medium",
@@ -36256,11 +36492,11 @@
         "Model card claims need reproducible fixtures",
         "Local execution does not guarantee safe or correct code"
       ],
-      "verifiedAt": "2026-08-21",
+      "verifiedAt": "2026-10-07",
       "quickStart": [
-        "Pin exact GGUF revision and hash",
-        "Test 4-bit variant on one desktop and one mobile device",
-        "Measure quality, RAM, first-token latency and sustained tok/s"
+        "До скачивания выбрать устройство, runtime, ревизию, SHA-256 и лимит диска.",
+        "Сначала ПК с 8k/16k контекстом и синтетическими русскими fixtures.",
+        "Измерить память, tok/s, задержку, JSON и точность; мобильный пилот после выбора устройства."
       ],
       "reviewStatus": "verified",
       "source": {
@@ -36275,6 +36511,34 @@
           "kind": "license",
           "label": "Official model metadata",
           "url": "https://huggingface.co/ornith-ai/Ornith-1.5-9B-GGUF"
+        },
+        {
+          "kind": "source",
+          "label": "Уточнение от 07.10.2026",
+          "url": "https://huggingface.co/ornith-ai/Ornith-1.5-9B-GGUF/tree/main"
+        },
+        {
+          "kind": "source",
+          "label": "Уточнение от 07.10.2026",
+          "url": "https://ornith.ai/ornith_1_5.html"
+        }
+      ],
+      "limitations": [
+        "Q4_K_M: около 5.78 GB только весов, дополнительно нужны KV-cache и runtime.",
+        "Self-improving описывает обучение издателя, а не автоматическое самообучение GGUF.",
+        "Изображения требуют отдельной проверки mmproj и runtime; text-generation tag не доказывает отсутствие мультимодальности."
+      ],
+      "guide": "october-2026-hapi-ornith-glm-pilots",
+      "verification": {
+        "checkedAt": "2026-10-07",
+        "scope": "Official documentation review; no installation or independent benchmark",
+        "runtimeTested": false,
+        "securityAuditPerformed": false
+      },
+      "correctionHistory": [
+        {
+          "date": "2026-10-07",
+          "change": "Исправлен вывод 21.08.2026 об отсутствии мультимодальности по одному text-generation tag; опубликован mmproj, runtime не проверен."
         }
       ]
     },
@@ -36647,7 +36911,7 @@
       "type": "grey",
       "category": "AI-модели",
       "subcategory": "Stealth hosted model",
-      "simpleDescription": "OpenRouter lists an unidentified stealth reasoning model with 1,048,576-token context and text/image/video input. Provider identity, training data, jurisdiction and durable pricing are undisclosed, so the model is unsuitable for confidential or production routing despite its current zero price.",
+      "simpleDescription": "Ox Alpha — историческое preview-имя раскрытой модели Z.AI GLM-5.3-Flash. Контекст по OpenRouter — 1,048,576 токенов; текущий маршрут платный. Историческая запись остаётся reference, без автоматической маршрутизации и без дублирования карточки GLM-5.3-Flash.",
       "useCases": [
         "Temporary public-fixture benchmark",
         "Long-context retrieval stress test",
@@ -36657,15 +36921,15 @@
         "OpenRouter API",
         "Cloud"
       ],
-      "license": "Unknown model license and provider identity; OpenRouter Terms apply",
-      "pricing": "OpenRouter API currently reports zero token price; this is not a durable commitment",
+      "license": "Условия OpenRouter и выбранного inference provider; права на веса проверять отдельно по GLM-5.3-Flash.",
+      "pricing": "Бесплатная неделя не подтверждается: текущий GLM-5.3-Flash имеет платные provider-specific тарифы; проверить перед вызовом.",
       "access": {
-        "cost": "free",
+        "cost": "paid",
         "signup": "required",
         "runtime": "cloud"
       },
       "trust": "caution",
-      "trustReason": "Model id, modality, context and current pricing were confirmed through OpenRouter API 21.08.2026. Ownership and comparative benchmark claims remain unverified.",
+      "trustReason": "07.10.2026 проверены раскрытие ZAI GLM-5.3-Flash и текущая страница модели. Преимущество 20–30% не подтверждено; API не вызывали.",
       "projects": [
         "Eclipse AI Hub",
         "Hopson Sentinel"
@@ -36673,15 +36937,15 @@
       "decision": "reference",
       "riskLevel": "high",
       "risks": [
-        "Unknown provider, retention, training data and jurisdiction",
-        "Free pricing can change without notice",
-        "No confidential code, personal data or production prompts may be sent"
+        "Preview-страница сообщает сохранение prompts/completions без обучения; это не zero retention.",
+        "Текущие retention, регион обработки и тариф требуют проверки у выбранного провайдера.",
+        "Секреты, клиентские данные и закрытые репозитории исключены из пилота."
       ],
-      "verifiedAt": "2026-08-21",
+      "verifiedAt": "2026-10-07",
       "quickStart": [
-        "Exclude from automatic routing and agent exports",
-        "If benchmarked, use synthetic public fixtures and strict budget",
-        "Delete provider key after temporary test"
+        "Использовать существующую карточку zai-glm-5-3-flash; stealth/ox-alpha — исторический адрес.",
+        "Подготовить обезличенные fixtures и верхний лимит стоимости.",
+        "До API-вызовов согласовать endpoint, бюджет и обработку данных; без auto-fallback."
       ],
       "reviewStatus": "verified",
       "source": {
@@ -36696,6 +36960,27 @@
           "kind": "terms",
           "label": "OpenRouter model page",
           "url": "https://openrouter.ai/stealth/ox-alpha"
+        },
+        {
+          "kind": "source",
+          "label": "Уточнение от 07.10.2026",
+          "url": "https://openrouter.ai/z-ai/glm-5.3-flash"
+        }
+      ],
+      "relatedResourceIds": [
+        "zai-glm-5-3-flash"
+      ],
+      "guide": "october-2026-hapi-ornith-glm-pilots",
+      "verification": {
+        "checkedAt": "2026-10-07",
+        "scope": "Official documentation review; no installation or independent benchmark",
+        "runtimeTested": false,
+        "securityAuditPerformed": false
+      },
+      "correctionHistory": [
+        {
+          "date": "2026-10-07",
+          "change": "Исправлены устаревшие анонимность и нулевая цена 21.08.2026; grey reference остаётся исключённым из agent exports."
         }
       ]
     },
@@ -39325,16 +39610,16 @@
     },
     {
       "id": "wangp-local-media-worker",
-      "url": "https://github.com/deepbeepmeep/WanGP",
-      "title": "WanGP — локальная генерация видео, изображений и аудио",
+      "url": "https://github.com/deepbeepmeep/Wan2GP",
+      "title": "WanGP (formerly Wan2GP)",
       "type": "media",
       "category": "AI Media",
       "subcategory": "Local video and image generation worker",
-      "simpleDescription": "Приложение с web UI для запуска разных моделей на своём компьютере: видео по тексту или изображению, обработка изображений и аудио. Поддерживает очереди, LoRA и headless/API. Среди доступных семейств — Wan и LTX, включая LTX 2.5. Требования к памяти и диску зависят от выбранной модели и настроек.",
+      "simpleDescription": "Локальный web/headless worker для video, image и audio pipelines: очереди, API, LoRA, mask tools и несколько model families. Формулировка «работает на 6 ГБ ОЗУ» неверна — для некоторых конфигураций заявлено 6 ГБ VRAM; коммерческое embedding, SaaS, API и white-label ограничены отдельной WanGP Community License.",
       "useCases": [
-        "Оживить изображение коротким видео",
-        "Сравнить модели и параметры генерации на своей GPU",
-        "Обрабатывать задания локальной очередью"
+        "Пилот локальной генерации для Eclipse Media",
+        "Headless worker для Shotforge в изолированной среде",
+        "Сравнить video models и VRAM profiles"
       ],
       "features": [
         "Text-to-video and image-to-video",
@@ -39353,50 +39638,44 @@
       "licenseEvidence": [
         {
           "kind": "license",
-          "label": "WanGP Community License 2.0",
-          "url": "https://github.com/deepbeepmeep/WanGP/blob/main/LICENSE.txt"
+          "label": "Official WanGP Community License 2.0",
+          "url": "https://github.com/deepbeepmeep/Wan2GP/blob/main/LICENSE.txt"
         },
         {
           "kind": "source",
-          "label": "Официальный сайт WanGP",
-          "url": "https://wangp.ai/"
-        },
-        {
-          "kind": "source",
-          "label": "Официальный репозиторий",
-          "url": "https://github.com/deepbeepmeep/WanGP"
-        },
-        {
-          "kind": "source",
-          "label": "Поддерживаемые модели",
-          "url": "https://github.com/deepbeepmeep/WanGP/blob/main/docs/MODELS.md"
+          "label": "Official repository",
+          "url": "https://github.com/deepbeepmeep/Wan2GP"
         }
       ],
-      "pricing": "Бесплатное локальное использование, в том числе внутри компании. Модели занимают место на диске и требуют вычислительных ресурсов. Продажа доступа, платные SaaS/API, white-label и встраивание в платный продукт требуют отдельного разрешения; лицензии моделей проверяются отдельно.",
+      "pricing": "Free for permitted local use; infrastructure, model downloads and commercial product embedding may require separate licenses and costs.",
       "access": {
         "cost": "freemium",
         "signup": "none",
         "runtime": "local"
       },
       "trust": "official",
-      "trustReason": "14.10.2026 проверены официальный сайт wangp.ai, актуальный репозиторий WanGP (прежнее имя Wan2GP), документация моделей и лицензия. Это проверка источников и возможностей, а не гарантия качества любой генерации.",
-      "projects": [],
-      "decision": "reference",
+      "trustReason": "Canonical repository, current WanGP branding and custom license checked 25.08.2026. Hardware claims are model-specific, not a universal minimum.",
+      "projects": [
+        "Eclipse Media",
+        "Shotforge",
+        "Eclipse AI Hub",
+        "Eclipse Library"
+      ],
+      "decision": "roadmap",
       "riskLevel": "high",
       "risks": [
-        "Платный доступ к приложению и встраивание в платный сервис требуют отдельного разрешения",
-        "Большие загрузки моделей и зависимостей требуют проверки источника и свободного места",
-        "Для исходных материалов и результатов необходимо учитывать права и отдельные лицензии моделей"
+        "Commercial embedding and hosted use require separate permission",
+        "Large model weights and GPU workloads create supply-chain and resource risks",
+        "Generated media needs provenance, rights and safety review"
       ],
       "quickStart": [
-        "Откройте официальный сайт и инструкцию в репозитории",
-        "Выберите одну модель под свою GPU, проверьте её лицензию, размер весов и требования к RAM/VRAM",
-        "Начните с короткого ролика и сохраните промпт, seed и настройки для сравнения"
+        "Confirm product use against the custom license",
+        "Select one model and pin all weights/checksums",
+        "Run offline with synthetic inputs and explicit VRAM/disk limits"
       ],
       "limitations": [
-        "6 ГБ VRAM заявлены для отдельных конфигураций; это не 6 ГБ системной RAM и не универсальный минимум",
-        "Размер весов, скорость, звук и доступные режимы различаются между моделями",
-        "При прямой продаже или лицензировании результата лицензия WanGP требует указания авторства WanGP; у моделей действуют отдельные условия"
+        "6 GB refers to select VRAM configurations, not all pipelines",
+        "Do not ship as paid service without commercial permission"
       ],
       "audience": [
         "Local AI media teams",
@@ -39409,7 +39688,7 @@
         "Flux",
         "LoRA"
       ],
-      "verifiedAt": "2026-10-14",
+      "verifiedAt": "2026-08-25",
       "addedAt": "2026-08-25",
       "reviewStatus": "verified",
       "guide": "august-2026-sovereign-agents-media-radar",
@@ -45332,515 +45611,775 @@
       }
     },
     {
-      "id": "image-generation-visual-codebook",
-      "url": "https://abhijayvuyyuru.substack.com/p/try-these-100-code-that-make-your",
-      "title": "Генерация изображений: 100 визуальных приёмов",
-      "type": "guide",
-      "category": "Изображения",
-      "subcategory": "Генерация изображений",
-      "simpleDescription": "Справочник 100 творческих подсказок: ракурс, композиция, свет, предметка и визуальные стили. Русские объяснения, поиск и копирование. Не официальные команды ChatGPT или Gemini.",
+      "id": "brag-launch-video",
+      "url": "https://github.com/latent-spaces/brag",
+      "title": "/brag — ролик о запуске",
+      "type": "media",
+      "category": "Практические ресурсы Eclipse Forge",
+      "subcategory": "Видео",
+      "simpleDescription": "Skill для подготовки короткого ролика о проекте. Для StarMarket пока готовим только раскадровку на подтверждённых сценариях; рендер и права на медиа проверяются отдельно.",
       "useCases": [
-        "Найти точное описание ракурса, освещения или композиции",
-        "Подготовить промпт для портрета, lookbook, предметки и обложки"
+        "Согласовать реальные экраны и медиа для 35-секундной раскадровки.",
+        "Сверить применимость на ограниченном пилоте без подключения к production"
       ],
       "platforms": [
         "Web"
       ],
-      "license": "Условия сайта автора; права на повторное использование его текста нужно проверить, открытая лицензия не подтверждена. Русские пояснения и примеры — собственная редакционная работа Eclipse Library.",
-      "licenseEvidence": [
-        {
-          "kind": "source",
-          "label": "Первоисточник и авторские условия",
-          "url": "https://abhijayvuyyuru.substack.com/p/try-these-100-code-that-make-your"
-        }
-      ],
-      "pricing": "Чтение справочника бесплатно; стоимость генерации зависит от выбранного сервиса.",
-      "access": {
-        "cost": "free",
-        "signup": "none",
-        "runtime": "local"
-      },
-      "trust": "community",
-      "trustReason": "06.10.2026 сверены все 100 обозначений, порядок и регистр по статье. Проверка касается справочника, не качества генераторов.",
-      "projects": [
-        "Eclipse Library",
-        "Text2Image",
-        "Shotforge",
-        "Eclipse Media"
-      ],
-      "decision": "reference",
-      "riskLevel": "low",
-      "risks": [
-        "Обозначения не включают скрытые функции и не гарантируют качество, идентичность лица или техническую точность.",
-        "Текст и изображения автора не имеют подтверждённой открытой лицензии; сохраняем короткие названия и собственные пояснения."
-      ],
-      "verifiedAt": "2026-10-06",
-      "quickStart": [
-        "Откройте раздел «Изображения» в навигации Library и найдите нужный приём.",
-        "Опишите сцену, выберите 2–4 приёма и уточните формат/цвета/ограничения."
-      ],
-      "reviewStatus": "verified",
-      "addedAt": "2026-10-06",
-      "guide": "image-generation-codebook",
-      "source": {
-        "file": "guides/image-generation-codebook.md",
-        "line": 1,
-        "category": "Изображения",
-        "subcategory": "Генерация изображений"
-      },
-      "article": {
-        "title": "Try These 100 Codes That Make Your ChatGPT / Gemini Images Look Better (No Design Skills Needed)",
-        "author": "Abhijay Arora Vuyyuru",
-        "publishedAt": "2026-08-31",
-        "checkedAt": "2026-10-06"
-      },
-      "verification": {
-        "scope": "100 labels, sequence and case compared with the source; original Russian editorial descriptions",
-        "generationTested": false
-      },
-      "correctionHistory": [
-        {
-          "date": "2026-10-06",
-          "change": "Добавлена новая карточка после проверки отсутствия дубля URL. Создан словарь с собственными пояснениями; 100 обозначений — творческие подсказки, не команды генераторов."
-        }
-      ]
-    },
-    {
-      "id": "koboyo-page-mascot",
-      "url": "https://koboyo.com/page-mascot",
-      "title": "Koboyo Page Mascot — интерактивный персонаж для сайта",
-      "type": "oss",
-      "category": "Frontend и дизайн",
-      "subcategory": "Интерактивные маскоты",
-      "simpleDescription": "Готовая коллекция: 53 персонажа и 5 дополнительных стилей лисы, 116 WebP-листов. Предпросмотр, скачивание и инструкция по подключению. Исходный React-компонент реагирует на курсор и нажатия.",
-      "useCases": [
-        "Персонаж рядом с приветствием или поиском",
-        "Маскот на странице портфолио или ссылок",
-        "Оригинальный герой игрового приветственного экрана",
-        "Дополнительная реакция на подтверждённое состояние приложения через отдельный адаптер"
-      ],
-      "platforms": [
-        "Web",
-        "React"
-      ],
-      "license": "MIT репозитория Kamran Ahmed, включая размещённый в нём набор; отдельных исключений для импортированных листов в исследованном дереве не найдено. Сохраняйте LICENSE и copyright. Права на свои фото и сторонние брендовые образы проверяются отдельно.",
-      "licenseEvidence": [
-        {
-          "kind": "license",
-          "label": "MIT на исследованной ревизии",
-          "url": "https://github.com/nilbuild/page-mascot/blob/76a44ed9180063bf4852b9dd724b656f4a828ac7/LICENSE"
-        }
-      ],
-      "pricing": "Компонент и размещение у себя — без подписки Koboyo. Генерация собственного героя зависит от выбранного инструмента; готовые листы не требуют генерации.",
-      "access": {
-        "cost": "free",
-        "signup": "none",
-        "runtime": "self-host"
-      },
-      "trust": "community",
-      "trustReason": "10.10.2026: прочитаны документация, MIT и код на закреплённой ревизии; 116 WebP и четыре справочных файла сверены по Git blob SHA, SHA-256 сохранены. Все изображения декодированы браузером; ZIP скачан с локального сервера и проверен. Исходный npm-компонент не устанавливался.",
-      "projects": [],
-      "decision": "reference",
-      "riskLevel": "low",
-      "risks": [
-        "Готовый компонент требует React; для другого стека нужна отдельная реализация или адаптация",
-        "Генератор может расходовать лимиты или деньги",
-        "Reduced-motion отключает деформацию, но не все реакции; нужна браузерная проверка",
-        "Фотографии и брендовые образы требуют собственных прав; MIT на код их не заменяет"
-      ],
-      "verifiedAt": "2026-10-10",
-      "addedAt": "2026-10-10",
-      "reviewStatus": "verified",
-      "guide": "koboyo-page-mascot",
-      "quickStart": [
-        "Откройте коллекцию из гайда и выберите персонажа",
-        "Скачайте оба листа WebP или полный ZIP вместе с LICENSE.txt",
-        "Подключите по инструкции своего стека; проверьте клавиатуру, touch и reduced-motion"
-      ],
-      "source": {
-        "file": "guides/koboyo-page-mascot.md",
-        "line": 1,
-        "category": "Frontend и дизайн",
-        "subcategory": "Интерактивные маскоты"
-      },
-      "verification": {
-        "scope": "Documentation, pinned source and byte-for-byte asset integrity review; browser decoding and local archive download verified. Upstream npm component not installed. Static gallery adapter tested locally; production publication not performed.",
-        "runtimeTested": false,
-        "installed": false,
-        "upstreamCommit": "76a44ed9180063bf4852b9dd724b656f4a828ac7",
-        "packageVersion": "0.1.0",
-        "packageVersionEvidence": "main package.json; npm archive not inspected",
-        "eventDate": null,
-        "sources": [
-          "https://github.com/nilbuild/page-mascot",
-          "https://github.com/nilbuild/page-mascot/blob/main/package.json",
-          "https://github.com/nilbuild/page-mascot/blob/76a44ed9180063bf4852b9dd724b656f4a828ac7/src/mascot.tsx",
-          "https://github.com/nilbuild/page-mascot/blob/76a44ed9180063bf4852b9dd724b656f4a828ac7/LICENSE"
-        ],
-        "assetCollection": {
-          "variants": 58,
-          "baseCharacters": 53,
-          "images": 116,
-          "bytes": 21440188,
-          "allBlobHashesVerified": true,
-          "browserDecodeVerified": true,
-          "archiveDownloadVerified": true,
-          "upstreamCommit": "76a44ed9180063bf4852b9dd724b656f4a828ac7"
-        },
-        "localGallery": {
-          "tested": true,
-          "production": false,
-          "checks": [
-            "search and categories",
-            "58 selectable variants",
-            "9 directions and 9 reactions",
-            "real downloads and matching hashes",
-            "keyboard and touch",
-            "320/390 px layout",
-            "reduced motion",
-            "image and manifest errors with retry",
-            "guide navigation"
-          ],
-          "evidence": "reports/koboyo-gallery/qa.json"
-        }
-      },
-      "correctionHistory": [
-        {
-          "date": "2026-10-10",
-          "change": "Редакция 1: создана карточка и руководство; уточнены неподвижное положение героя, MIT и отдельная стоимость генерации. Установка и работа компонента не проверялись."
-        },
-        {
-          "date": "2026-10-10",
-          "change": "Редакция 2: универсальные примеры и промпт для читателя; уточнены права на изображения и отдельная интеграция реакций на состояние приложения."
-        },
-        {
-          "date": "2026-10-10",
-          "change": "Редакция 3: добавлена коллекция из 58 вариантов и скачиваемый архив с MIT, авторством и неизменёнными файлами. Полнота и контрольные суммы сверены с закреплённой ревизией; изображения и скачивание проверены локально. Локальная галерея проверена: выбор всех вариантов, 18 кадров, скачивание, клавиатура/touch, reduced-motion и ошибки с повтором."
-        }
-      ]
-    },
-    {
-      "id": "tesseract-codex-editable-video",
-      "url": "https://mirage.app/tesseract/codex",
-      "title": "Tesseract + Codex — редактируемый видеоролик",
-      "type": "media",
-      "category": "Медиа и дизайн",
-      "subcategory": "Редактируемое видео",
-      "simpleDescription": "16-секундный пример: запись галереи Koboyo, нативные RU/EN титры, ambient; повторная правка текста, звука и видеовхода. .tsrct и MP4; контрольный кадр после распаковки совпал. Adobe-пакеты не включаются: нативная приёмка не выполнена.",
-      "useCases": [
-        "Короткая демонстрация интерфейса",
-        "Повторная правка титров без нового монтажа",
-        "Переносимый учебный проект с источниками и лицензиями"
-      ],
-      "platforms": [
-        "Windows"
-      ],
-      "license": "Проприетарные условия Tesseract; отдельная проверка коммерческого допуска и прав на исходники. Лицензия конвертера не распространяется на runtime.",
-      "licenseEvidence": [
-        {
-          "kind": "license",
-          "label": "Условия Tesseract",
-          "url": "https://github.com/mirage-hq/Tesseract/blob/fbc945864d0d758ea510fe6f2b6ab06d2660d570/LICENSE"
-        }
-      ],
-      "pricing": "Допуск зависит от условий Tesseract; расходы AI-провайдера отдельно. Общая бесплатность не заявляется.",
+      "license": "MIT для кода; музыка, SFX и изображения требуют отдельных прав",
+      "pricing": "Код открыт; Hyperframes и иные сервисы могут иметь собственные тарифы.",
       "access": {
         "cost": "unknown",
         "signup": "unknown",
+        "runtime": "hybrid"
+      },
+      "trust": "community",
+      "trustReason": "Проверены первоисточник и условия на указанной ревизии; работа в наших проектах не проверена.",
+      "projects": [
+        "StarMarket",
+        "Eclipse Media"
+      ],
+      "decision": "reference",
+      "riskLevel": "medium",
+      "risks": [
+        "MIT-лицензия кода не распространяется автоматически на встроенную музыку и изображения.",
+        "Нельзя показывать неподтверждённые функции или реальные данные клиентов."
+      ],
+      "verifiedAt": "2026-09-29",
+      "quickStart": [
+        "Прочитать карточку и план пилота.",
+        "Не устанавливать и не запускать без отдельного решения.",
+        "Согласовать реальные экраны и медиа для 35-секундной раскадровки."
+      ],
+      "reviewStatus": "verified",
+      "sourceRevision": {
+        "kind": "commit",
+        "value": "c893c5ed52aed84e3e2ee56787de869fccdae6b0",
+        "url": "https://github.com/latent-spaces/brag/tree/c893c5ed52aed84e3e2ee56787de869fccdae6b0"
+      },
+      "dependencies": [
+        "Node.js 22+, FFmpeg, Hyperframes для исходного пути; локальный рендер согласовать отдельно.",
+        "Разрешённые обезличенные кадры StarMarket и права на аудио/изображения."
+      ],
+      "limitations": [
+        "Текущий этап — сценарий, не проверка рендера.",
+        "Не использовать встроенную музыку до проверки прав."
+      ],
+      "nextStep": "Согласовать реальные экраны и медиа для 35-секундной раскадровки.",
+      "guide": "september-2026-eight-resources-pilots",
+      "verification": {
+        "checkedAt": "2026-09-29",
+        "status": "pilot-planned",
+        "scope": "Первоисточник и заявленные условия; локальный запуск и продуктовая пригодность не проверены.",
+        "installed": false,
+        "runtime": "not-run",
+        "merged": false,
+        "deployed": false
+      },
+      "correctionHistory": [
+        {
+          "date": "2026-09-29",
+          "change": "Добавлена карточка после сверки первоисточника; пилот не запускался."
+        }
+      ],
+      "addedAt": "2026-09-29"
+    },
+    {
+      "id": "disktree-disk-usage",
+      "url": "https://github.com/tobi/disktree",
+      "title": "DiskTree — карта занятого места",
+      "type": "tool",
+      "category": "Практические ресурсы Eclipse Forge",
+      "subcategory": "Диагностика диска",
+      "simpleDescription": "Локальная treemap-утилита показывает, что занимает место на диске. Текущий Windows-хост поддерживается проектом, но бинарник в доступном PATH не найден; диагностика не выполнена.",
+      "useCases": [
+        "После отдельного согласования установки проверить только занятую ёмкость согласованной папки.",
+        "Сверить применимость на ограниченном пилоте без подключения к production"
+      ],
+      "platforms": [
+        "Windows",
+        "Local"
+      ],
+      "license": "MIT",
+      "pricing": "Исходный код и релизы доступны бесплатно; условия сторонних сборок проверять отдельно.",
+      "access": {
+        "cost": "free",
+        "signup": "none",
         "runtime": "local"
       },
-      "trust": "official",
-      "trustReason": "Проверены официальные документы и локальные логи одного примера: tsrct 0.3.1, Converter 0.2.1. Создание Adobe-файлов отделено от непроверенного открытия в редакторе.",
+      "trust": "community",
+      "trustReason": "Проверены первоисточник и условия на указанной ревизии; работа в наших проектах не проверена.",
+      "projects": [
+        "Eclipse Sentinel"
+      ],
+      "decision": "reference",
+      "riskLevel": "medium",
+      "risks": [
+        "Программа также умеет удалять файлы; в пилоте запрещены удаление, повышение прав и обход junction.",
+        "Локальная сборка/подпись и совместимость конкретного релиза не проверены."
+      ],
+      "verifiedAt": "2026-09-29",
+      "quickStart": [
+        "Прочитать карточку и план пилота.",
+        "Не устанавливать и не запускать без отдельного решения.",
+        "После отдельного согласования установки проверить только занятую ёмкость согласованной папки."
+      ],
+      "reviewStatus": "verified",
+      "sourceRevision": {
+        "kind": "commit",
+        "value": "158f9cc2f0b332194a3ffc5acec47760c99146d8",
+        "url": "https://github.com/tobi/disktree/tree/158f9cc2f0b332194a3ffc5acec47760c99146d8"
+      },
+      "dependencies": [
+        "Проверенный Windows-релиз и его checksum/подпись перед установкой.",
+        "Согласованная тестовая папка на локальном диске."
+      ],
+      "limitations": [
+        "В PATH не найден; не установлен и не запускался.",
+        "Сканирование не должно удалять, менять права или пересекать тома."
+      ],
+      "nextStep": "После отдельного согласования установки проверить только занятую ёмкость согласованной папки.",
+      "guide": "september-2026-eight-resources-pilots",
+      "verification": {
+        "checkedAt": "2026-09-29",
+        "status": "pilot-planned",
+        "scope": "Первоисточник и заявленные условия; локальный запуск и продуктовая пригодность не проверены.",
+        "installed": false,
+        "runtime": "not-run",
+        "merged": false,
+        "deployed": false
+      },
+      "correctionHistory": [
+        {
+          "date": "2026-09-29",
+          "change": "Добавлена карточка после сверки первоисточника; пилот не запускался."
+        }
+      ],
+      "addedAt": "2026-09-29"
+    },
+    {
+      "id": "english-developer-knowledgefxg",
+      "url": "https://en.knowledgefxg.com/",
+      "title": "Английский для разработчика",
+      "type": "learn",
+      "category": "Практические ресурсы Eclipse Forge",
+      "subcategory": "Обучение",
+      "simpleDescription": "Каталог ссылок на материалы по английскому. Собственная подборка из пяти официальных бесплатных ресурсов помогает читать документацию и тренировать техническую речь без копирования чужих материалов.",
+      "useCases": [
+        "Пройти два маршрута из гайда: чтение технической документации и аудирование.",
+        "Сверить применимость на ограниченном пилоте без подключения к production"
+      ],
+      "platforms": [
+        "Web"
+      ],
+      "license": "Условия сайта; открытая лицензия каталога не подтверждена",
+      "pricing": "Пять выбранных страниц доступны без оплаты; отдельные курсы, сертификаты и функции могут быть платными.",
+      "access": {
+        "cost": "freemium",
+        "signup": "unknown",
+        "runtime": "cloud"
+      },
+      "trust": "community",
+      "trustReason": "Проверены первоисточник и условия на указанной ревизии; работа в наших проектах не проверена.",
+      "projects": [
+        "Eclipse Library",
+        "Educator-AI"
+      ],
+      "decision": "reference",
+      "riskLevel": "low",
+      "risks": [
+        "Публичный доступ не разрешает перепубликацию уроков.",
+        "Каталог агрегирует сторонние ресурсы; условия каждого источника различаются."
+      ],
+      "verifiedAt": null,
+      "quickStart": [
+        "Прочитать карточку и план пилота.",
+        "Не устанавливать и не запускать без отдельного решения.",
+        "Пройти два маршрута из гайда: чтение технической документации и аудирование."
+      ],
+      "reviewStatus": "inferred",
+      "sourceRevision": {
+        "kind": "checked-page",
+        "value": "2026-09-29",
+        "url": "https://en.knowledgefxg.com/"
+      },
+      "dependencies": [
+        "Доступ к официальным страницам Google, MDN, British Council, Cambridge English и VOA."
+      ],
+      "limitations": [
+        "Условия копирования исходного каталога не подтверждены.",
+        "Бесплатен доступ к указанным страницам, не все дополнительные услуги."
+      ],
+      "nextStep": "Пройти два маршрута из гайда: чтение технической документации и аудирование.",
+      "guide": "september-2026-eight-resources-pilots",
+      "verification": {
+        "checkedAt": "2026-09-29",
+        "status": "pilot-planned",
+        "scope": "Первоисточник и заявленные условия; локальный запуск и продуктовая пригодность не проверены.",
+        "installed": false,
+        "runtime": "not-run",
+        "merged": false,
+        "deployed": false
+      },
+      "correctionHistory": [
+        {
+          "date": "2026-09-29",
+          "change": "Добавлена карточка после сверки первоисточника; пилот не запускался."
+        }
+      ],
+      "addedAt": "2026-09-29"
+    },
+    {
+      "id": "reef-harness-pilot",
+      "url": "https://github.com/Human-Agent-Society/reef",
+      "title": "Reef — эксперимент с инструкцией",
+      "type": "agent",
+      "category": "Практические ресурсы Eclipse Forge",
+      "subcategory": "Оценка агентов",
+      "simpleDescription": "Инфраструктура для обновления агентных артефактов. Рассматриваем лишь изолированное сравнение копии одной инструкции Library на отложенных заданиях с ручным принятием и откатом.",
+      "useCases": [
+        "Подготовить baseline и копию одной инструкции; запуск согласовать отдельно.",
+        "Сверить применимость на ограниченном пилоте без подключения к production"
+      ],
+      "platforms": [
+        "Web"
+      ],
+      "license": "Apache-2.0",
+      "pricing": "Исходный код открыт; вычисления, модельные endpoints и инфраструктура могут оплачиваться отдельно.",
+      "access": {
+        "cost": "freemium",
+        "signup": "unknown",
+        "runtime": "self-host"
+      },
+      "trust": "community",
+      "trustReason": "Проверены первоисточник и условия на указанной ревизии; работа в наших проектах не проверена.",
       "projects": [
         "Eclipse Library"
       ],
       "decision": "reference",
       "riskLevel": "medium",
       "risks": [
-        "Коммерческий допуск и права на материалы требуют отдельной проверки",
-        "AEP experimental; Premiere содержит абсолютные пути: Adobe-пакеты не включаются в публичный ZIP",
-        "BT.709 metadata fix нельзя применять вслепую к HDR или неизвестному источнику"
+        "Нельзя менять рабочие полномочия, память и инструкции действующих исполнителей.",
+        "Эксперимент может сохранять запросы и обратную связь — использовать только синтетические задания."
       ],
-      "verifiedAt": "2026-10-11",
+      "verifiedAt": "2026-09-29",
       "quickStart": [
-        "Прочитайте гайд и проверьте условия использования",
-        "Используйте установленный runtime нужной версии без второй установки",
-        "Проверьте исходники, preview и повторную правку; перед переносом распакуйте ZIP отдельно"
+        "Прочитать карточку и план пилота.",
+        "Не устанавливать и не запускать без отдельного решения.",
+        "Подготовить baseline и копию одной инструкции; запуск согласовать отдельно."
       ],
       "reviewStatus": "verified",
-      "addedAt": "2026-10-11",
-      "guide": "tesseract-codex-guide",
-      "relatedResources": [
-        "koboyo-page-mascot"
-      ],
-      "source": {
-        "file": "guides/tesseract-codex-guide.md",
-        "line": 1,
-        "category": "Медиа и дизайн",
-        "subcategory": "Редактируемое видео"
+      "sourceRevision": {
+        "kind": "commit",
+        "value": "ba4d42f8d55892df2c963d1e5f28e1f69699fe4f",
+        "url": "https://github.com/Human-Agent-Society/reef/tree/ba4d42f8d55892df2c963d1e5f28e1f69699fe4f"
       },
+      "dependencies": [
+        "Python 3.12+, изолированное окружение, модельный endpoint и оценщик для harness-пути.",
+        "Отложенные синтетические задания и правила ручной оценки."
+      ],
+      "limitations": [
+        "Никакого обучения весов или автоматического переноса результата в рабочую систему.",
+        "Стоимость API и объём сохраняемых данных ещё не проверены."
+      ],
+      "nextStep": "Подготовить baseline и копию одной инструкции; запуск согласовать отдельно.",
+      "guide": "september-2026-eight-resources-pilots",
       "verification": {
-        "scope": "Local render, title revision, full decode and final archive reopen verified; preview PNG matches after extraction",
-        "nativeAdobeOpenTested": false,
-        "archiveReopenStatus": "PASS-single-frame-preview-after-final-ZIP-extraction"
-      }
+        "checkedAt": "2026-09-29",
+        "status": "pilot-planned",
+        "scope": "Первоисточник и заявленные условия; локальный запуск и продуктовая пригодность не проверены.",
+        "installed": false,
+        "runtime": "not-run",
+        "merged": false,
+        "deployed": false
+      },
+      "correctionHistory": [
+        {
+          "date": "2026-09-29",
+          "change": "Добавлена карточка после сверки первоисточника; пилот не запускался."
+        }
+      ],
+      "addedAt": "2026-09-29"
     },
     {
-      "id": "rea-owned-application-analysis",
-      "url": "https://github.com/morluto/rea",
-      "title": "REA — проверяемый анализ собственной сборки",
-      "type": "oss",
-      "category": "Разработка и агенты",
-      "subcategory": "Анализ приложений",
-      "simpleDescription": "CLI и MCP для исследования приложений: структура модулей, связи и доказательства. Гайд показывает путь от разрешённого набора файлов до спецификации одной функции и тестов, без обещания клонировать любую программу.",
+      "id": "gemini-38-tts-pilot",
+      "url": "https://ai.google.dev/gemini-api/docs/speech-generation",
+      "title": "Gemini 3.8 Flash / Flash-Lite TTS",
+      "type": "api",
+      "category": "Практические ресурсы Eclipse Forge",
+      "subcategory": "Синтез речи",
+      "simpleDescription": "Официальные TTS-модели Google для озвучки. План — сравнить два точных model ID на одном русском тексте 30–60 секунд для AI Creator и ролика StarMarket; вызовов пока не было.",
       "useCases": [
-        "Проверка состава собственной сборки",
-        "Восстановление поведения старой собственной версии",
-        "Сопоставление наблюдений со спецификацией и тестами"
+        "После согласования вызовов провести по три прогона каждой модели на одном тексте.",
+        "Сверить применимость на ограниченном пилоте без подключения к production"
+      ],
+      "platforms": [
+        "Web"
+      ],
+      "license": "Условия Gemini API",
+      "pricing": "Официальный тариф имеет free tier и платные ставки; фактическая стоимость, квоты и доступ аккаунта не проверены.",
+      "access": {
+        "cost": "freemium",
+        "signup": "required",
+        "runtime": "cloud"
+      },
+      "trust": "community",
+      "trustReason": "Проверены первоисточник и условия на указанной ревизии; работа в наших проектах не проверена.",
+      "projects": [
+        "AI Creator",
+        "Eclipse Media",
+        "StarMarket"
+      ],
+      "decision": "reference",
+      "riskLevel": "medium",
+      "risks": [
+        "Аудио и текст передаются сервису Google при вызове.",
+        "Не считать free tier гарантией доступности, отсутствия квот или одинаковых условий обработки данных."
+      ],
+      "verifiedAt": "2026-09-29",
+      "quickStart": [
+        "Прочитать карточку и план пилота.",
+        "Не устанавливать и не запускать без отдельного решения.",
+        "После согласования вызовов провести по три прогона каждой модели на одном тексте."
+      ],
+      "reviewStatus": "verified",
+      "sourceRevision": {
+        "kind": "model-ids",
+        "value": "gemini-3.8-flash-tts; gemini-3.8-flash-lite-tts",
+        "url": "https://ai.google.dev/gemini-api/docs/speech-generation"
+      },
+      "dependencies": [
+        "Google AI Studio / Gemini API и отдельное согласование внешнего вызова.",
+        "Одинаковый синтетический русский текст без персональных данных."
+      ],
+      "limitations": [
+        "Русские ударения, стабильность голоса, задержка и реальная цена не измерены.",
+        "Исходный URL AI Studio может требовать входа: https://aistudio.google.com/generate-speech?model=gemini-3.8-flash-tts"
+      ],
+      "nextStep": "После согласования вызовов провести по три прогона каждой модели на одном тексте.",
+      "guide": "september-2026-eight-resources-pilots",
+      "verification": {
+        "checkedAt": "2026-09-29",
+        "status": "pilot-planned",
+        "scope": "Первоисточник и заявленные условия; локальный запуск и продуктовая пригодность не проверены.",
+        "installed": false,
+        "runtime": "not-run",
+        "merged": false,
+        "deployed": false
+      },
+      "correctionHistory": [
+        {
+          "date": "2026-09-29",
+          "change": "Добавлена карточка после сверки первоисточника; пилот не запускался."
+        }
+      ],
+      "addedAt": "2026-09-29"
+    },
+    {
+      "id": "concat-local-video-pilot",
+      "url": "https://github.com/jub0t/Concat",
+      "title": "Concat (ранее WolfCut)",
+      "type": "media",
+      "category": "Практические ресурсы Eclipse Forge",
+      "subcategory": "Видеомонтаж",
+      "simpleDescription": "Локальный видеоредактор с заявленным MCP/API. WolfCut перенаправляет на Concat. Планируем отдельный Windows-пилот вертикального ролика, кириллицы, субтитров, двух аудиодорожек и сохранения проекта.",
+      "useCases": [
+        "После отдельного согласования установки импортировать синтетический ролик и пройти чеклист экспорта.",
+        "Сверить применимость на ограниченном пилоте без подключения к production"
       ],
       "platforms": [
         "Windows",
-        "Linux",
-        "macOS",
-        "Codex"
+        "Local"
       ],
-      "license": "MIT для REA; условия движков, зависимостей и исследуемого приложения проверяются отдельно.",
-      "licenseEvidence": [
-        {
-          "kind": "license",
-          "label": "Лицензия REA",
-          "url": "https://github.com/morluto/rea/blob/main/LICENSE"
-        }
-      ],
-      "pricing": "Код REA открыт; отдельные движки и модель могут требовать оплаты.",
+      "license": "AGPL-3.0-or-later с plugin exception; объём исключения требует отдельной проверки",
+      "pricing": "Автор заявляет отсутствие платного тарифа; релиз и условия сторонних компонентов проверять перед установкой.",
       "access": {
         "cost": "free",
         "signup": "none",
         "runtime": "local"
       },
-      "trust": "caution",
-      "trustReason": "11.10.2026: README, CLI и Security Policy проверены. Статический CLI и облачный агент — разные границы данных. REA не является песочницей; документация main может отличаться от установленного пакета.",
-      "projects": [],
+      "trust": "community",
+      "trustReason": "Проверены первоисточник и условия на указанной ревизии; работа в наших проектах не проверена.",
+      "projects": [
+        "Eclipse Media",
+        "StarMarket"
+      ],
       "decision": "reference",
-      "riskLevel": "high",
+      "riskLevel": "medium",
       "risks": [
-        "Результаты MCP могут передаваться провайдеру модели",
-        "Анализ неизвестных файлов требует отдельной среды",
-        "Поддержка зависит от формата, движка, версии и ОС",
-        "Лицензия инструмента не предоставляет права на чужое приложение",
-        "Наличие модуля не доказывает его использование, безопасность или полноту реконструкции"
+        "Бета-версия: экспорт и MCP/API не проверены локально.",
+        "AGPL и лицензии комплектных кодеков/моделей требуют отдельной проверки для интеграции."
       ],
-      "verifiedAt": "2026-10-11",
-      "addedAt": "2026-10-11",
-      "reviewStatus": "verified",
-      "guide": "rea-owned-application-analysis",
+      "verifiedAt": "2026-09-29",
       "quickStart": [
-        "Откройте гайд и выберите одну функцию собственной сборки",
-        "Согласуйте список файлов, версию и SHA-256; исключите секреты",
-        "Начните со статического анализа копии без регистрации MCP",
-        "Сопоставьте доказательства с тестами, отметьте неизвестное"
+        "Прочитать карточку и план пилота.",
+        "Не устанавливать и не запускать без отдельного решения.",
+        "После отдельного согласования установки импортировать синтетический ролик и пройти чеклист экспорта."
       ],
-      "source": {
-        "file": "guides/rea-owned-application-analysis.md",
-        "line": 1,
-        "category": "Разработка и агенты",
-        "subcategory": "Анализ приложений"
-      }
+      "reviewStatus": "verified",
+      "sourceRevision": {
+        "kind": "commit",
+        "value": "a262553bedbd1b5ef9dc6a00a830b49ae253503a",
+        "url": "https://github.com/jub0t/Concat/tree/a262553bedbd1b5ef9dc6a00a830b49ae253503a"
+      },
+      "dependencies": [
+        "Windows x86_64, проверенный релиз 0.2.5, синтетический MP4 и две разрешённые аудиодорожки.",
+        "Rust 1.93 и wgpu 30 нужны для сборки из исходников."
+      ],
+      "limitations": [
+        "Не отключать защиту ОС ради запуска.",
+        "Исследование MCP/API отделено от теста ручного монтажа."
+      ],
+      "nextStep": "После отдельного согласования установки импортировать синтетический ролик и пройти чеклист экспорта.",
+      "guide": "september-2026-eight-resources-pilots",
+      "verification": {
+        "checkedAt": "2026-09-29",
+        "status": "pilot-planned",
+        "scope": "Первоисточник и заявленные условия; локальный запуск и продуктовая пригодность не проверены.",
+        "installed": false,
+        "runtime": "not-run",
+        "merged": false,
+        "deployed": false
+      },
+      "correctionHistory": [
+        {
+          "date": "2026-09-29",
+          "change": "Добавлена карточка после сверки первоисточника; пилот не запускался."
+        }
+      ],
+      "addedAt": "2026-09-29"
     },
     {
-      "id": "mixkit-free-media",
-      "url": "https://mixkit.co/",
-      "title": "Mixkit — бесплатные видео, музыка и звуки для монтажа",
-      "type": "media",
-      "category": "Медиа и дизайн",
-      "subcategory": "Стоковые материалы и шаблоны монтажа",
-      "simpleDescription": "Библиотека готовых видеокадров, фоновой музыки, звуковых эффектов и монтажных шаблонов от Envato. Материалы можно скачивать без регистрации и обязательного указания автора. Подходит для дополнения собственных роликов: звуковой атмосферы, титров, переходов и видеовставок. Допустимое использование зависит от лицензии конкретного материала.",
+      "id": "nemotron-3-diarization",
+      "url": "https://huggingface.co/nvidia/Nemotron-3-Diarization",
+      "title": "Nemotron 3 Diarization",
+      "type": "model",
+      "category": "Практические ресурсы Eclipse Forge",
+      "subcategory": "Разметка говорящих",
+      "simpleDescription": "Модель NVIDIA размечает интервалы говорящих в аудио. Для звонков StarCRM и созвонов Eclipse сначала проверяются каналы и права на записи; слова и личности она не устанавливает.",
       "useCases": [
-        "Добавить музыку и звуки среды к короткому ролику",
-        "Оформить видео титрами, переходами и заставкой",
-        "Подобрать дополнительные кадры для видео или интернет-рекламы"
+        "Установить источник тестовых записей и каналов; затем отдельно согласовать локальный запуск.",
+        "Сверить применимость на ограниченном пилоте без подключения к production"
       ],
-      "features": [
-        "Стоковые видеокадры, включая вертикальные форматы",
-        "Музыка по жанру и настроению",
-        "Звуковые эффекты: среда, люди, предметы, интерфейсы",
-        "Шаблоны Premiere Pro, After Effects, DaVinci Resolve и Final Cut Pro"
+      "platforms": [
+        "Windows",
+        "Local"
       ],
+      "license": "OpenMDW-1.1",
+      "pricing": "Веса доступны по условиям модели; локальные вычисления и хранение записей имеют отдельную стоимость.",
+      "access": {
+        "cost": "unknown",
+        "signup": "unknown",
+        "runtime": "local"
+      },
+      "trust": "community",
+      "trustReason": "Проверены первоисточник и условия на указанной ревизии; работа в наших проектах не проверена.",
+      "projects": [
+        "StarCRM",
+        "Eclipse Chat",
+        "Eclipse Media"
+      ],
+      "decision": "reference",
+      "riskLevel": "low",
+      "risks": [
+        "Записи созвонов требуют разрешения участников и контроля доступа.",
+        "Ошибки при перебиваниях и русской речи не измерены; имена участников нельзя утверждать автоматически."
+      ],
+      "verifiedAt": "2026-09-29",
+      "quickStart": [
+        "Прочитать карточку и план пилота.",
+        "Не устанавливать и не запускать без отдельного решения.",
+        "Установить источник тестовых записей и каналов; затем отдельно согласовать локальный запуск."
+      ],
+      "reviewStatus": "verified",
+      "sourceRevision": {
+        "kind": "model-revision",
+        "value": "f667ed73aee57d40cc39428eb768b4fd87a0a29e",
+        "url": "https://huggingface.co/nvidia/Nemotron-3-Diarization/tree/f667ed73aee57d40cc39428eb768b4fd87a0a29e"
+      },
+      "dependencies": [
+        "Согласованный обезличенный или синтетический аудионабор; исходные раздельные каналы сохранять.",
+        "Совместимое Python/NeMo или Transformers-окружение и проверенные ресурсы памяти."
+      ],
+      "limitations": [
+        "Входной моно 16 kHz — только производная копия после сохранения оригинала.",
+        "ASR, транскрипция слов и идентификация людей — отдельные задачи."
+      ],
+      "nextStep": "Установить источник тестовых записей и каналов; затем отдельно согласовать локальный запуск.",
+      "guide": "september-2026-eight-resources-pilots",
+      "verification": {
+        "checkedAt": "2026-09-29",
+        "status": "pilot-planned",
+        "scope": "Первоисточник и заявленные условия; локальный запуск и продуктовая пригодность не проверены.",
+        "installed": false,
+        "runtime": "not-run",
+        "merged": false,
+        "deployed": false
+      },
+      "correctionHistory": [
+        {
+          "date": "2026-09-29",
+          "change": "Добавлена карточка после сверки первоисточника; пилот не запускался."
+        }
+      ],
+      "addedAt": "2026-09-29"
+    },
+    {
+      "id": "the-cartel-notcartel",
+      "url": "https://www.youtube.com/@notcartel",
+      "title": "The Cartel — AI-контент и практические приёмы",
+      "type": "learn",
+      "category": "Практические ресурсы Eclipse Forge",
+      "subcategory": "Персонажи и AI-контент",
       "platforms": [
         "Web",
-        "Premiere Pro",
-        "After Effects",
-        "DaVinci Resolve",
-        "Final Cut Pro"
+        "Local"
       ],
-      "license": "Mixkit Licenses и User Terms; отдельные условия для видео, музыки, звуков и шаблонов",
-      "licenseEvidence": [
-        {
-          "kind": "license",
-          "label": "Лицензии по типам материалов",
-          "url": "https://mixkit.co/license/"
-        },
-        {
-          "kind": "terms",
-          "label": "Условия использования",
-          "url": "https://mixkit.co/terms/"
-        },
-        {
-          "kind": "source",
-          "label": "Видео и FAQ о Free / Restricted License",
-          "url": "https://mixkit.co/free-stock-video/"
-        },
-        {
-          "kind": "source",
-          "label": "Музыка и ограничения использования",
-          "url": "https://mixkit.co/free-stock-music/"
-        },
-        {
-          "kind": "source",
-          "label": "Звуковые эффекты",
-          "url": "https://mixkit.co/free-sound-effects/"
-        },
-        {
-          "kind": "source",
-          "label": "Шаблоны для видеоредакторов",
-          "url": "https://mixkit.co/free-video-templates/"
-        }
-      ],
-      "pricing": "Каталог Mixkit предлагает бесплатную загрузку без регистрации. Часть видео доступна бесплатно только для личного использования; коммерческие версии могут вести в платный Envato. Бесплатный шаблон не включает лицензию на сам видеоредактор.",
+      "license": "Лицензия повторного использования не указана; локальный справочный архив, права на публикацию требуют проверки.",
+      "pricing": "Просмотр общедоступных видео без оплаты; тарифы генераторов, курсов и полная стоимость локальных вычислений не проверены.",
       "access": {
-        "cost": "free",
-        "signup": "none",
-        "runtime": "cloud"
+        "cost": "unknown",
+        "signup": "optional",
+        "runtime": "hybrid"
       },
-      "trust": "official",
-      "trustReason": "14.10.2026 проверены официальный сайт, User Terms (редакция 02.10.2025), страницы лицензий и FAQ видео/музыки. Это редакционная проверка сервиса; отдельные файлы не скачивались, музыка не прослушивалась, шаблоны в редакторах не тестировались.",
-      "projects": [],
+      "trust": "community",
+      "trustReason": "Проверены метаданные, автосубтитры выбранных роликов и предоставленные материалы; заявления автора не являются независимым тестом.",
+      "projects": [
+        "Eclipse Library",
+        "Eclipse Media",
+        "Eclipse AI Creator",
+        "Ultron"
+      ],
       "decision": "reference",
       "riskLevel": "medium",
       "risks": [
-        "Бесплатная загрузка не означает одинаковые права для всех материалов",
-        "Права на изображённые бренды и другие сторонние элементы могут требовать отдельной проверки",
-        "Перепубликация исходников в собственном стоковом каталоге и массовое скачивание ботами запрещены условиями"
+        "Публичный доступ к исходникам не устанавливает право на их перепубликацию.",
+        "Сохранение внешности и обещания о стоимости и скорости не подтверждены нашим тестом."
       ],
-      "quickStart": [
-        "Выберите тип материала и найдите подходящий файл на Mixkit",
-        "На странице файла проверьте лицензию, разрешённое применение и доступную бесплатную версию",
-        "Для шаблона проверьте совместимость с вашим редактором",
-        "Сохраните URL, название, автора, дату загрузки и применимые условия рядом с файлом",
-        "Добавьте материал в монтаж, отрегулируйте звук и просмотрите весь экспортированный ролик"
+      "verifiedAt": null,
+      "reviewStatus": "inferred",
+      "addedAt": "2026-10-02",
+      "guide": "the-cartel-character-sheet",
+      "dependencies": [
+        "Утверждённый персонаж и разрешённые материалы; для карточки два отдельных референса.",
+        "Проверенный генератор и интерфейс с подходящими входами, выбранные отдельно."
       ],
       "limitations": [
-        "Видео с Free License допускают коммерческие проекты; Restricted License — только личное некоммерческое использование",
-        "Музыка не разрешена в видеоиграх, ТВ/радио и на CD/DVD; эти ограничения нельзя автоматически переносить на отдельно лицензируемые звуковые эффекты",
-        "У некоторых видео бесплатна только версия 720p для личного использования; условия и разрешение проверяются в карточке",
-        "Royalty-free означает использование по лицензии, а не отсутствие авторских прав"
+        "Полного покадрового аудита канала нет; проверены 30 заголовков и автосубтитры четырёх роликов.",
+        "Генерации и интеграция Ultron не выполнялись."
       ],
-      "audience": [
-        "Монтажёры",
-        "Авторы видео для соцсетей",
-        "Создатели обучающих и рекламных роликов"
+      "nextStep": "Выбрать нашего вымышленного персонажа, движок и бюджет для отдельного согласованного пилота.",
+      "verification": {
+        "checkedAt": "2026-10-02",
+        "status": "source-reviewed-runtime-unverified",
+        "scope": "Метаданные, четыре расшифровки, два пользовательских исходника и официальные документы.",
+        "installed": false,
+        "runtime": "not-run",
+        "merged": false,
+        "deployed": false
+      },
+      "correctionHistory": [
+        {
+          "date": "2026-10-02",
+          "change": "Первая локальная запись; рекламные обещания и права не повышены до подтверждённых."
+        }
       ],
-      "relatedTechnologies": [
-        "Видеомонтаж",
-        "Звуковой дизайн",
-        "Premiere Pro",
-        "After Effects",
-        "DaVinci Resolve",
-        "Final Cut Pro"
+      "simpleDescription": "Канал с короткими приёмами для изображений, персонажей и видео. Обзор 30 последних тем и четырёх расшифровок; полезные идеи отделены от рекламных обещаний и не проверенных тарифов.",
+      "useCases": [
+        "Подбор тем для собственных гайдов Eclipse и контента AI Creator.",
+        "Изучение перехода от референса к раскадровке и контролю результата."
       ],
-      "verifiedAt": "2026-10-14",
-      "addedAt": "2026-10-14",
-      "reviewStatus": "verified",
-      "source": {
-        "file": "catalog/resources.json",
-        "key": "mixkit-free-media",
-        "category": "Медиа и дизайн",
-        "subcategory": "Стоковые материалы и шаблоны монтажа"
+      "quickStart": [
+        "Прочитать связанный гайд и ограничения.",
+        "Исходники использовать как справочный материал; адаптация v1 не запускалась.",
+        "Выбрать разрешённые входы и параметры перед отдельным тестом."
+      ],
+      "sourceRevision": {
+        "kind": "youtube-channel-snapshot",
+        "value": "UC-x9KFSI5kR7Cqs7gUURBng:2026-10-02:latest30",
+        "url": "https://www.youtube.com/@notcartel"
       }
     },
     {
-      "id": "onepromptdesign-visual-prompts",
-      "url": "https://onepromptdesign.com/",
-      "title": "OnePromptDesign — промпты и визуальные референсы",
+      "id": "the-cartel-character-sheet",
+      "url": "https://www.youtube.com/watch?v=dPHOl0fkkOA",
+      "title": "The Cartel — карточка персонажа: исходники и адаптация",
       "type": "prompt",
-      "category": "Дизайн и визуал",
-      "subcategory": "Промпты для изображений",
-      "simpleDescription": "Каталог промптов и визуальных референсов для изображений, постеров, рекламы, мокапов и фонов. Помогает задать палитру, состав сцены, плотность деталей, свободное место под текст и формат кадра. Промпт нужно применить в отдельном генераторе изображений; результат зависит от выбранной модели.",
-      "useCases": [
-        "Подготовить визуальное задание для постера или обложки",
-        "Создать фон с заранее выделенным местом под заголовок",
-        "Сравнить варианты палитры и композиции по одному заданию"
-      ],
-      "features": [
-        "Промпты с примерами визуального направления",
-        "Категории Poster, Images, Mockups, Gradients и Backdrops",
-        "Поля для палитры, объектов, плотности деталей, свободной области и пропорций в проверенном примере"
-      ],
+      "category": "Практические ресурсы Eclipse Forge",
+      "subcategory": "Персонажи и AI-контент",
       "platforms": [
-        "Web"
+        "Web",
+        "Local"
       ],
-      "license": "Нужно проверить условия сайта и права на промпты и изображения-референсы; открытая лицензия не подтверждена",
-      "pricing": "На 14.10.2026 главная страница и полный промпт Portal in Pink Fields доступны без регистрации и оплаты. Доступность всего каталога бесплатно не проверена. Стоимость генерации зависит от отдельного инструмента.",
+      "license": "Лицензия повторного использования не указана; локальный справочный архив, права на публикацию требуют проверки.",
+      "pricing": "Просмотр общедоступных видео без оплаты; тарифы генераторов, курсов и полная стоимость локальных вычислений не проверены.",
       "access": {
-        "cost": "free",
-        "signup": "none",
-        "runtime": "cloud"
+        "cost": "unknown",
+        "signup": "optional",
+        "runtime": "hybrid"
       },
-      "trust": "official",
-      "trustReason": "14.10.2026 проверены официальный сайт и открытая карточка Portal in Pink Fields. Практически проверена самостоятельная адаптация структуры задания в image_gen; это не встроенная генерация на OnePromptDesign и не точное воспроизведение референса.",
-      "projects": [],
+      "trust": "community",
+      "trustReason": "Проверены метаданные, автосубтитры выбранных роликов и предоставленные материалы; заявления автора не являются независимым тестом.",
+      "projects": [
+        "Eclipse Library",
+        "Eclipse Media",
+        "Eclipse AI Creator",
+        "Ultron"
+      ],
       "decision": "reference",
       "riskLevel": "medium",
       "risks": [
-        "Публичный доступ к промпту не подтверждает право перепубликовывать чужие референсы или весь каталог",
-        "Условия и ограничения отдельного генератора нужно проверять отдельно"
+        "Публичный доступ к исходникам не устанавливает право на их перепубликацию.",
+        "Сохранение внешности и обещания о стоимости и скорости не подтверждены нашим тестом."
       ],
-      "verifiedAt": "2026-10-14",
-      "addedAt": "2026-10-14",
-      "quickStart": [
-        "Откройте каталог и выберите визуальное направление под свою задачу",
-        "Прочитайте промпт целиком: проверенный пример предполагает изображение-референс; без него отдельно опишите желаемые свет, материалы и композицию",
-        "Замените палитру, объекты, плотность деталей, свободную область и формат на свои требования",
-        "Пример самостоятельной адаптации: широкий фон 16:9, древний каменный проход справа, прохладный туман, мягкий тёплый свет внутри, спокойная левая часть под заголовок; без надписей и водяных знаков",
-        "Передайте адаптированное задание выбранному генератору; используйте только референсы, на которые у вас есть права",
-        "Проверьте главный объект, свет, артефакты, пропорции и место под текст; сохраните окончательный промпт и параметры генерации"
+      "verifiedAt": null,
+      "reviewStatus": "inferred",
+      "addedAt": "2026-10-02",
+      "guide": "the-cartel-character-sheet",
+      "dependencies": [
+        "Утверждённый персонаж и разрешённые материалы; для карточки два отдельных референса.",
+        "Проверенный генератор и интерфейс с подходящими входами, выбранные отдельно."
       ],
       "limitations": [
-        "Число промптов и фильтров из рекламных публикаций не подтверждено",
-        "Без изображения-референса исходный промпт не гарантирует повторение показанного стиля",
-        "Одинаковое описание может давать разные результаты в разных моделях",
-        "Проверка одного примера не означает, что проверен весь каталог"
+        "Полного покадрового аудита канала нет; проверены 30 заголовков и автосубтитры четырёх роликов.",
+        "Генерации и интеграция Ultron не выполнялись."
       ],
-      "audience": [
-        "Дизайнеры",
-        "Авторы контента",
-        "Создатели игр",
-        "Маркетологи"
-      ],
-      "relatedTechnologies": [
-        "Генерация изображений",
-        "Композиция",
-        "Prompt design"
-      ],
-      "reviewStatus": "verified",
-      "source": {
-        "file": "catalog/resources.json",
-        "line": 45762,
-        "category": "Дизайн и визуал",
-        "subcategory": "Промпты для изображений"
+      "nextStep": "Выбрать нашего вымышленного персонажа, движок и бюджет для отдельного согласованного пилота.",
+      "verification": {
+        "checkedAt": "2026-10-02",
+        "status": "source-reviewed-runtime-unverified",
+        "scope": "Метаданные, четыре расшифровки, два пользовательских исходника и официальные документы.",
+        "installed": false,
+        "runtime": "not-run",
+        "merged": false,
+        "deployed": false
       },
-      "licenseEvidence": [
+      "correctionHistory": [
         {
-          "kind": "source",
-          "label": "Официальный каталог: назначение и категории",
-          "url": "https://onepromptdesign.com/"
+          "date": "2026-10-02",
+          "change": "Первая локальная запись; рекламные обещания и права не повышены до подтверждённых."
+        }
+      ],
+      "simpleDescription": "Простой лист с портретом и четырьмя ракурсами. Исходники локально сохранены без изменений, промпт уточнён; сохранение внешности в наших сценах и право перепубликации пока не проверены.",
+      "useCases": [
+        "Подготовка утверждаемого эталона AI Creator.",
+        "Сравнение исходного и адаптированного промптов на одинаковых сценах."
+      ],
+      "quickStart": [
+        "Прочитать связанный гайд и ограничения.",
+        "Исходники использовать как справочный материал; адаптация v1 не запускалась.",
+        "Выбрать разрешённые входы и параметры перед отдельным тестом."
+      ],
+      "sourceRevision": {
+        "kind": "youtube-video-id",
+        "value": "dPHOl0fkkOA",
+        "url": "https://www.youtube.com/watch?v=dPHOl0fkkOA"
+      }
+    },
+    {
+      "id": "erida-character-bible-v1",
+      "url": "https://github.com/PavelHopson/eclipse-library/blob/master/guides/erida-character-bible-v1.md",
+      "title": "ERIDA (Erida Vice) — Character Bible v1.0",
+      "type": "ours",
+      "category": "Практические ресурсы Eclipse Forge",
+      "subcategory": "Персонажи и AI-контент",
+      "platforms": [
+        "Local"
+      ],
+      "license": "Пользовательский авторский паспорт и предоставленные AI-изображения; внешняя лицензия не назначена, права исходных референсов и генераторов не проверены.",
+      "pricing": "Локальный архив; новые генерации и платные вызовы не выполнялись.",
+      "access": {
+        "cost": "unknown",
+        "signup": "none",
+        "runtime": "local"
+      },
+      "trust": "community",
+      "trustReason": "Паспорт принят владельцем; PNG осмотрены и сохранены с совпадающими SHA-256. Повторяемость и доступность handle не проверены.",
+      "projects": [
+        "Eclipse Library",
+        "Eclipse Media",
+        "Eclipse AI Creator"
+      ],
+      "decision": "now",
+      "riskLevel": "medium",
+      "risks": [
+        "Выбранный handle не подтверждает аккаунт.",
+        "Moodboards не доказывают постоянство лица, тела или права публикации."
+      ],
+      "verifiedAt": null,
+      "reviewStatus": "inferred",
+      "addedAt": "2026-10-02",
+      "guide": "erida-character-bible-v1",
+      "dependencies": [
+        "EF-03 / существующий исполнитель 25 AI Creator.",
+        "Новый основной портрет пользователя."
+      ],
+      "limitations": [
+        "Local-only; GitHub URL — будущий адрес, файл на remote не опубликован.",
+        "Веснушки/септум открыты; формат двуязычной подачи, дополнительные площадки, голос и монетизация не выбраны.",
+        "Павел сообщил о двух Instagram-аккаунтах: рабочий и IRL Эриды. Фактические username и состояние аккаунтов не проверены.",
+        "Оформление Instagram подготовлено, но не применено: браузерный runtime не запустился. Адреса pavelhopson/eclipse_hopson взяты из реестра; eridavice желаемый, не подтверждённый handle.",
+        "02.10.2026: публичный псевдоним Erida Vice выбран; желаемый @eridavice не проверен и не применён."
+      ],
+      "nextStep": "Один контрольный бытовой кадр с bimbo-goth styling от identity-master в существующем EF-03; сценки после проверки identity.",
+      "verification": {
+        "checkedAt": "2026-10-02",
+        "status": "owner-approved-spec-runtime-unverified",
+        "scope": "Паспорт, четыре базовых PNG и одно IRL-селфи; побайтовая сохранность копий проверена. Переименование Instagram и cross-scene runtime не проверены.",
+        "installed": false,
+        "runtime": "not-run",
+        "merged": false,
+        "deployed": false
+      },
+      "correctionHistory": [
+        {
+          "date": "2026-10-02",
+          "change": "Owner renamed Nera to Erida, selected revised identity and approved Character Bible v1.0. Freckles/septum remain pending. Original images preserved; no publication."
         },
         {
-          "kind": "source",
-          "label": "Проверенный полный промпт Portal in Pink Fields; наличие открытой лицензии не установлено",
-          "url": "https://onepromptdesign.com/prompt/5099dbc8-915b-4a2c-a835-ea8179b864ec/portal-in-pink-fields"
+          "date": "2026-10-02",
+          "change": "Owner reports two Instagram accounts with separate work and Erida lifestyle roles; main platform selected, language and account URLs pending."
+        },
+        {
+          "date": "2026-10-02",
+          "change": "Owner selected Russian and English for the Erida Instagram; caption/subtitle/voice format remains open."
+        },
+        {
+          "date": "2026-10-02",
+          "change": "Existing Instagram addresses read from registry; complete profile copy prepared, application blocked by browser runtime initialization failure."
+        },
+        {
+          "date": "2026-10-02",
+          "change": "Owner explicitly chose bimbo goth as the primary Erida aesthetic. Existing identity preserved; three-video transcript research and bounded first-party profile review added. Styling and content pilots proposed, not executed."
+        },
+        {
+          "date": "2026-10-02",
+          "change": "Owner reopened nickname selection; whoiserida is a previous candidate, not the final handle. Character name Erida unchanged. No account rename."
+        },
+        {
+          "date": "2026-10-02",
+          "change": "Owner selected public pseudonym Erida Vice and main image folder. Desired username eridavice is not availability-checked or applied. New bedroom selfie archived as IRL/styling reference, not identity replacement; same-name existing owner file preserved."
+        },
+        {
+          "date": "2026-10-03",
+          "change": "Pavel requested handoff of Erida and AI creator context to the existing AI Creator chat. Full canon and references sent; recipient confirmed read-only acceptance and source checks. No generation, account change, publication or file move."
         }
-      ]
+      ],
+      "simpleDescription": "Erida Vice — публичный псевдоним Эриды, 27-летней виртуальной бимбо-готки и IRL creator Eclipse Forge. Канонический паспорт и выбранные references; @eridavice желаемый, аккаунт не переименован.",
+      "useCases": [
+        "Единый источник решений для EF-03.",
+        "Проверка identity и continuity гардероба."
+      ],
+      "quickStart": [
+        "Прочитать паспорт и открытые решения.",
+        "Использовать identity-master.png; wardrobe только для styling.",
+        "Не повышать local до published/runtime без проверки."
+      ],
+      "sourceRevision": {
+        "kind": "owner-approved-document-version",
+        "value": "ERIDA Character Bible v1.0 / 2026-10-02",
+        "url": "codex://threads/01a09b0e-bbf6-71b3-bbd4-bd865dc5e8a7"
+      },
+      "ownerImageDirectory": "E:\\ADMIN_HOPSON_PC\\Рабочий стол\\Эрида"
     }
   ]
 }

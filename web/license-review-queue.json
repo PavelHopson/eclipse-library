@@ -1,48 +1,27 @@
 {
   "schemaVersion": 1,
-  "sourceHash": "5b6948667a08629546fd4be7759a3b178accc3d1e2124c621533b456a985576b",
+  "sourceHash": "8ea7cb03d02f9934453dfffa63da9ee7b3d318fb842ee1dced008d5798e089a4",
   "policy": {
     "automaticApprovalForbidden": true,
     "directInstallForbidden": true,
     "missingLicenseMeansNoReusePermission": true
   },
   "totals": {
-    "reviewRequired": 215,
+    "reviewRequired": 217,
     "byPriority": {
-      "P1": 1,
-      "P2": 176,
-      "P3": 38
+      "P1": 0,
+      "P2": 180,
+      "P3": 37
     },
     "byBucket": {
-      "content-terms": 34,
-      "grey-reference": 38,
-      "manual-other": 26,
-      "repository-license-not-detected": 24,
+      "content-terms": 36,
+      "grey-reference": 37,
+      "manual-other": 25,
+      "repository-license-not-detected": 26,
       "service-terms": 93
     }
   },
   "items": [
-    {
-      "id": "happy-shrimp-ai-music",
-      "title": "HappyShrimp — генерация песен и инструментальной музыки",
-      "type": "media",
-      "url": "https://www.happyshrimp.ai/",
-      "decision": "reference",
-      "riskLevel": "high",
-      "currentLicense": "Условия сервиса; права на коммерческое использование результатов нужно проверить",
-      "reviewStatus": "verified",
-      "bucket": "manual-other",
-      "priority": "P1",
-      "reason": "The current official source does not provide enough normalized license evidence.",
-      "nextStep": "Open the official source and record the exact grant, restrictions, owner and evidence URL.",
-      "evidence": [
-        {
-          "kind": "source",
-          "label": "Официальный сервис: режимы, модель и бесплатные кредиты; лицензия требует проверки",
-          "url": "https://www.happyshrimp.ai/"
-        }
-      ]
-    },
     {
       "id": "2r-ru-анализатор-hh-2r-ru",
       "title": "2r.ru — анализатор HH",
@@ -61,6 +40,27 @@
           "kind": "official-source",
           "label": "Официальный источник; точные условия ещё нужно сверить",
           "url": "https://2r.ru/top-skills-and-resumes/"
+        }
+      ]
+    },
+    {
+      "id": "english-developer-knowledgefxg",
+      "title": "Английский для разработчика",
+      "type": "learn",
+      "url": "https://en.knowledgefxg.com/",
+      "decision": "reference",
+      "riskLevel": "low",
+      "currentLicense": "Условия сайта; открытая лицензия каталога не подтверждена",
+      "reviewStatus": "inferred",
+      "bucket": "content-terms",
+      "priority": "P2",
+      "reason": "Public access does not automatically permit copying, republishing or commercial reuse of content.",
+      "nextStep": "Confirm the content license and separate it from platform Terms and third-party assets.",
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник; точные условия ещё нужно сверить",
+          "url": "https://en.knowledgefxg.com/"
         }
       ]
     },
@@ -526,32 +526,6 @@
       ]
     },
     {
-      "id": "onepromptdesign-visual-prompts",
-      "title": "OnePromptDesign — промпты и визуальные референсы",
-      "type": "prompt",
-      "url": "https://onepromptdesign.com/",
-      "decision": "reference",
-      "riskLevel": "medium",
-      "currentLicense": "Нужно проверить условия сайта и права на промпты и изображения-референсы; открытая лицензия не подтверждена",
-      "reviewStatus": "verified",
-      "bucket": "content-terms",
-      "priority": "P2",
-      "reason": "Public access does not automatically permit copying, republishing or commercial reuse of content.",
-      "nextStep": "Confirm the content license and separate it from platform Terms and third-party assets.",
-      "evidence": [
-        {
-          "kind": "source",
-          "label": "Официальный каталог: назначение и категории",
-          "url": "https://onepromptdesign.com/"
-        },
-        {
-          "kind": "source",
-          "label": "Проверенный полный промпт Portal in Pink Fields; наличие открытой лицензии не установлено",
-          "url": "https://onepromptdesign.com/prompt/5099dbc8-915b-4a2c-a835-ea8179b864ec/portal-in-pink-fields"
-        }
-      ]
-    },
-    {
       "id": "open-culture-free-courses-www-openculture-com",
       "title": "Open Culture — Free Courses",
       "type": "learn",
@@ -716,6 +690,48 @@
           "kind": "official-source",
           "label": "Официальный источник; точные условия ещё нужно сверить",
           "url": "https://shipthatcode.com/"
+        }
+      ]
+    },
+    {
+      "id": "the-cartel-character-sheet",
+      "title": "The Cartel — карточка персонажа: исходники и адаптация",
+      "type": "prompt",
+      "url": "https://www.youtube.com/watch?v=dPHOl0fkkOA",
+      "decision": "reference",
+      "riskLevel": "medium",
+      "currentLicense": "Лицензия повторного использования не указана; локальный справочный архив, права на публикацию требуют проверки.",
+      "reviewStatus": "inferred",
+      "bucket": "content-terms",
+      "priority": "P2",
+      "reason": "Public access does not automatically permit copying, republishing or commercial reuse of content.",
+      "nextStep": "Confirm the content license and separate it from platform Terms and third-party assets.",
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник; точные условия ещё нужно сверить",
+          "url": "https://www.youtube.com/watch?v=dPHOl0fkkOA"
+        }
+      ]
+    },
+    {
+      "id": "the-cartel-notcartel",
+      "title": "The Cartel — AI-контент и практические приёмы",
+      "type": "learn",
+      "url": "https://www.youtube.com/@notcartel",
+      "decision": "reference",
+      "riskLevel": "medium",
+      "currentLicense": "Лицензия повторного использования не указана; локальный справочный архив, права на публикацию требуют проверки.",
+      "reviewStatus": "inferred",
+      "bucket": "content-terms",
+      "priority": "P2",
+      "reason": "Public access does not automatically permit copying, republishing or commercial reuse of content.",
+      "nextStep": "Confirm the content license and separate it from platform Terms and third-party assets.",
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник; точные условия ещё нужно сверить",
+          "url": "https://www.youtube.com/@notcartel"
         }
       ]
     },
@@ -1539,6 +1555,27 @@
       ]
     },
     {
+      "id": "director-s-console-github-com",
+      "title": "Director's Console",
+      "type": "prompt",
+      "url": "https://github.com/NickPittas/DirectorsConsole",
+      "decision": "reference",
+      "riskLevel": "medium",
+      "currentLicense": "Нужно проверить в официальном источнике",
+      "reviewStatus": "inferred",
+      "bucket": "repository-license-not-detected",
+      "priority": "P2",
+      "reason": "GitHub does not expose a detected repository license. Source availability alone grants no reuse rights.",
+      "nextStep": "Inspect repository root, README and package-specific directories; if no grant exists, mark reference-only.",
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник; точные условия ещё нужно сверить",
+          "url": "https://github.com/NickPittas/DirectorsConsole"
+        }
+      ]
+    },
+    {
       "id": "eclipse-media-github-com",
       "title": "Eclipse Media",
       "type": "media",
@@ -1556,6 +1593,27 @@
           "kind": "official-source",
           "label": "Официальный источник; точные условия ещё нужно сверить",
           "url": "https://github.com/PavelHopson/eclipse-media"
+        }
+      ]
+    },
+    {
+      "id": "erida-character-bible-v1",
+      "title": "ERIDA (Erida Vice) — Character Bible v1.0",
+      "type": "ours",
+      "url": "https://github.com/PavelHopson/eclipse-library/blob/master/guides/erida-character-bible-v1.md",
+      "decision": "now",
+      "riskLevel": "medium",
+      "currentLicense": "Пользовательский авторский паспорт и предоставленные AI-изображения; внешняя лицензия не назначена, права исходных референсов и генераторов не проверены.",
+      "reviewStatus": "inferred",
+      "bucket": "repository-license-not-detected",
+      "priority": "P2",
+      "reason": "GitHub does not expose a detected repository license. Source availability alone grants no reuse rights.",
+      "nextStep": "Inspect repository root, README and package-specific directories; if no grant exists, mark reference-only.",
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник; точные условия ещё нужно сверить",
+          "url": "https://github.com/PavelHopson/eclipse-library/blob/master/guides/erida-character-bible-v1.md"
         }
       ]
     },
@@ -4363,27 +4421,6 @@
           "kind": "official-source",
           "label": "Официальный источник; точные условия ещё нужно сверить",
           "url": "https://osint.juanmathewsrebellosantos.com/"
-        }
-      ]
-    },
-    {
-      "id": "openrouter-ox-alpha",
-      "title": "Ox Alpha",
-      "type": "grey",
-      "url": "https://openrouter.ai/stealth/ox-alpha",
-      "decision": "reference",
-      "riskLevel": "high",
-      "currentLicense": "Unknown model license and provider identity; OpenRouter Terms apply",
-      "reviewStatus": "verified",
-      "bucket": "grey-reference",
-      "priority": "P3",
-      "reason": "Grey resources stay excluded from agent recommendations; review only if a human needs this reference.",
-      "nextStep": "Confirm ownership, redistribution rights and legal/safety boundaries before any use.",
-      "evidence": [
-        {
-          "kind": "terms",
-          "label": "OpenRouter model page",
-          "url": "https://openrouter.ai/stealth/ox-alpha"
         }
       ]
     },

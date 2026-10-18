@@ -23,7 +23,9 @@ for(const demo of manifest.demos){
   assert.equal((source.match(/data:font\/woff2;base64,/g)||[]).length,4,'All four local font subsets must be embedded for the sandbox: '+demo.file);
   assert.doesNotMatch(source,/backdrop-filter:\s*blur/i,'Optical backdrop blur is forbidden: '+demo.file);
   assert.doesNotMatch(source,/filter:\s*blur/i,'Raster blur is forbidden: '+demo.file);
-  assert.doesNotMatch(source,/box-shadow:|boxShadow/i,'Blurred shadows are forbidden: '+demo.file);
+  assert.match(source,/id="depth-motion-contract"/,'Each scene must own a depth design: '+demo.file);
+  assert.doesNotMatch(source,/@keyframes[^}]*\{[^}]*box-shadow\s*:/is,'Static depth shadows must not animate: '+demo.file);
+  assert.doesNotMatch(source,/style\.boxShadow\s*=/,'Pointer handlers must not repaint shadows: '+demo.file);
   assert.doesNotMatch(source,/filter:\s*grayscale/i,'Muted states must stay crisp: '+demo.file);
   assert.match(source,/rel="icon" href="data:,"/i,'Standalone demos must not request a missing favicon: '+demo.file);
   assert.match(source,/body \*\{font-family:Manrope[^}]*!important/,'All visible text must resolve to the local font: '+demo.file);
@@ -45,7 +47,7 @@ const guardian=fs.readFileSync(path.join(web,'animation-reactive-login.html'),'u
 assert.match(guardian,/Eclipse crisp motion contract/,'Guardian form must use the crisp motion contract');
 assert.doesNotMatch(guardian,/inset:14px -11px -15px 17px/,'Guardian depth plate must not overflow its card');
 const upload=fs.readFileSync(path.join(web,'animation-upload-queue.html'),'utf8');
-assert.match(upload,/escapeHtml\(f\.name\)/,'User-controlled file names must be output encoded before innerHTML rendering');
+assert.match(upload,/textContent=f\.name/,'User-controlled file names must be rendered as text');
 assert.match(upload,/Eclipse crisp motion contract/,'Upload Queue must use the crisp motion contract');
 assert.match(upload,/\.file>\*\{min-width:0\}/,'Upload Queue rows must remain shrink-safe');
 const progress=fs.readFileSync(path.join(web,'animation-ai-progress.html'),'utf8');
@@ -112,4 +114,4 @@ for(const demo of manifest.demos.slice(11)){
 console.log('Animation Lab checks passed for '+manifest.demos.length+' demos.');
 
 assert.equal((app.match(/function visibleDemos\(\)/g)||[]).length,1,"visibleDemos must be declared once");
-assert.match(app,/q\.set\("v","8"\)/,"Demo iframe URLs must carry the v8 cache key");
+assert.match(app,/q\.set\("v","9"\)/,"Demo iframe URLs must carry the v9 cache key");

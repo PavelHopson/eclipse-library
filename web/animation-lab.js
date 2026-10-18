@@ -9,9 +9,29 @@ const densityLabels=["Плотно","Обычно","Свободно"];
 const stateLabels={live:"Автодемо",idle:"Ожидание",active:"Выбрано",uploading:"Загрузка",paused:"Пауза",error:"Ошибка",complete:"Готово",preparing:"Подготовка",generating:"Генерация",rendering:"Сборка",typing:"Ввод",loading:"Проверка",success:"Успех",expired:"Код истёк",processing:"Обработка",cancelled:"Отменено",checking:"Проверка",open:"Открыто",compact:"Компактно",saved:"Сохранено",ordered:"Заказано",off:"Выключено",on:"Включено",deleting:"Удаление",playing:"Запущено",receipt:"Чек",focus:"CVC",signin:"Вход",signup:"Регистрация",added:"Добавлено",updated:"Обновлено"};
 function make(tag,className,text){const node=document.createElement(tag);if(className)node.className=className;if(text!==undefined)node.textContent=text;return node}
 function safeAccent(value){return /^#[0-9a-f]{6}$/i.test(value)?value:"#6ba3ff"}
-function demoUrl(item,replay=false){const q=new URLSearchParams();q.set("v","8");if(settings.reduce)q.set("reduce","1");if(settings.contrast)q.set("contrast","1");if(settings.speed!==1)q.set("speed",String(settings.speed));if(settings.accent!=="#6ba3ff")q.set("accent",settings.accent);if(settings.glow!==18)q.set("glow",String(settings.glow/100));if(settings.density!==1)q.set("density",String(settings.density));if(settings.state!=="live")q.set("state",settings.state);if(frozen)q.set("t",String(settings.time));if(replay)q.set("replay",String(Date.now()));const query=q.toString();return item.file+(query?"?"+query:"")}
+function demoUrl(item,replay=false){const q=new URLSearchParams();q.set("v","9");if(settings.reduce)q.set("reduce","1");if(settings.contrast)q.set("contrast","1");if(settings.speed!==1)q.set("speed",String(settings.speed));if(settings.accent!=="#6ba3ff")q.set("accent",settings.accent);if(settings.glow!==18)q.set("glow",String(settings.glow/100));if(settings.density!==1)q.set("density",String(settings.density));if(settings.state!=="live")q.set("state",settings.state);if(frozen)q.set("t",String(settings.time));if(replay)q.set("replay",String(Date.now()));const query=q.toString();return item.file+(query?"?"+query:"")}
 function visibleDemos(){return demos.map((item,index)=>({item,index})).filter(({item})=>(activeFilter==="all"||item.category===activeFilter)&&(!searchQuery||[item.title,item.label,item.description,...item.tags].join(" ").toLowerCase().includes(searchQuery)))}
-function renderList(){const visible=visibleDemos();demoCount.textContent=visible.length+" / "+demos.length;list.replaceChildren(...visible.map(({item,index})=>{const button=make("button","demo-option");button.type="button";button.dataset.index=String(index);button.setAttribute("aria-current",String(index===active));button.append(make("span","demo-num",String(index+1).padStart(2,"0")));const copy=make("span","demo-copy");copy.append(make("b","",item.title),make("small","",item.label));const live=make("i","demo-live");live.setAttribute("aria-hidden","true");button.append(copy,live);return button}));if(!visible.length)list.append(make("p","demo-empty","Ничего не найдено. Измените запрос или категорию."))}
+const demoNodes=new Map();
+function renderList(){
+ const visible=visibleDemos(),indices=new Set(visible.map(entry=>entry.index));
+ const top=list.scrollTop,left=list.scrollLeft;
+ demoCount.textContent=visible.length+" / "+demos.length;
+ // Keep node identity, keyboard focus and the rail's scroll position on selection.
+ demos.forEach((item,index)=>{
+  let button=demoNodes.get(index);
+  if(!button){
+   button=make("button","demo-option");button.type="button";button.dataset.index=String(index);
+   button.append(make("span","demo-num",String(index+1).padStart(2,"0")));
+   const copy=make("span","demo-copy"),live=make("i","demo-live");
+   copy.append(make("b","",item.title),make("small","",item.label));live.setAttribute("aria-hidden","true");
+   button.append(copy,live);demoNodes.set(index,button);list.append(button);
+  }
+  button.hidden=!indices.has(index);button.setAttribute("aria-current",String(index===active));
+ });
+ let empty=list.querySelector(".demo-empty");
+ if(!empty){empty=make("p","demo-empty","Ничего не найдено. Измените запрос или категорию.");list.append(empty)}
+ empty.hidden=visible.length>0;list.scrollTop=top;list.scrollLeft=left;
+}
 function syncFilteredSelection(){const visible=visibleDemos();if(visible.length&&!visible.some(({index})=>index===active))select(visible[0].index);else renderList()}
 function renderStates(){const item=demos[active];stateSelect.replaceChildren(...item.states.map(value=>{const option=document.createElement("option");option.value=value;option.textContent=stateLabels[value]||value;return option}));settings.state=item.states.includes(settings.state)?settings.state:item.states[0];stateSelect.value=settings.state}
 function updateOutputs(){controls.accentOutput.value=settings.accent.toUpperCase();controls.glowOutput.value=settings.glow+"%";controls.densityOutput.value=densityLabels[settings.density];document.documentElement.style.setProperty("--accent",settings.accent);document.documentElement.classList.toggle("motion-reduced",settings.reduce);document.documentElement.classList.toggle("high-contrast",settings.contrast);toggle.setAttribute("aria-pressed",String(settings.reduce));toggle.querySelector("span:last-child").textContent=settings.reduce?"Анимация: уменьшена":"Анимация: полная";document.querySelector('[data-preference="reduce"]').setAttribute("aria-pressed",String(settings.reduce));document.querySelector('[data-preference="contrast"]').setAttribute("aria-pressed",String(settings.contrast))}
@@ -51,4 +71,4 @@ timelineMode.addEventListener("click",()=>setFrozen(!frozen));
 timelineRange.addEventListener("input",()=>{settings.time=Number(timelineRange.value);timelineOutput.value=settings.time.toFixed(1)+"s";clearTimeout(timelineTimer);timelineTimer=setTimeout(()=>loadFrame(false),80)});
 document.querySelector(".inspect-toggle").addEventListener("click",event=>{const open=!inspector.classList.contains("is-open");inspector.classList.toggle("is-open",open);event.currentTarget.setAttribute("aria-expanded",String(open))});
 document.addEventListener("keydown",event=>{if((event.ctrlKey||event.metaKey)&&event.key.toLowerCase()==="e"){event.preventDefault();refreshExport();exportDialog.showModal()}if(event.key==="Escape"&&document.documentElement.classList.contains("focus-mode")){document.documentElement.classList.remove("focus-mode");document.querySelector('[data-action="focus"]').textContent="Фокус-режим"}});
-labCount.textContent=String(demos.length);labCount.textContent=String(demos.length);labCount.textContent=String(demos.length);labCount.textContent=String(demos.length);labCount.textContent=String(demos.length);labCount.textContent=String(demos.length);updateOutputs();renderList();renderActive(true);
+labCount.textContent=String(demos.length);updateOutputs();renderActive(true);

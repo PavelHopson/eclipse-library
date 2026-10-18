@@ -1,4 +1,4 @@
-<!doctype html><html lang="ru"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Guardian Login</title><link rel="icon" href="data:,"><style>:root{--accent:#6ba3ff;--glow:.18;--density:1;--speed:1}*{box-sizing:border-box}body{margin:0;min-height:100dvh;display:grid;place-items:center;overflow:hidden;background:radial-gradient(circle at 50% 0,#152943,transparent 44%),#06090e;color:#eef6ff;font-family:Inter,system-ui}.card{width:min(90vw,390px);padding:26px;border:1px solid #304158;border-radius:24px;background:rgba(11,17,27,.91);}.guardian{position:relative;width:106px;height:88px;margin:-2px auto 14px}.head{position:absolute;left:15px;top:5px;width:76px;height:72px;border:2px solid var(--accent);border-radius:42% 42% 48% 48%;background:#101d2b;}.ear{position:absolute;top:0;width:28px;height:34px;border:2px solid var(--accent);background:#101d2b;transform:rotate(45deg)}.ear.a{left:13px}.ear.b{right:13px;transform:rotate(135deg)}.face{position:absolute;inset:0}.eye{position:absolute;top:32px;width:18px;height:14px;border-radius:50%;background:#dff7ff;overflow:hidden;transition:height .18s,transform .18s}.eye.a{left:20px}.eye.b{right:20px}.pupil{position:absolute;left:6px;top:4px;width:6px;height:6px;border-radius:50%;background:#071018;transition:transform .08s}.mouth{position:absolute;left:31px;top:54px;width:15px;height:6px;border-bottom:2px solid #77a9dc;border-radius:50%;transition:transform .2s}.guardian.hide .eye{height:2px;transform:translateY(6px)}.guardian.happy .mouth{transform:scaleX(1.5) translateY(-2px)}h1{margin:0;text-align:center;font-size:21px}p{margin:5px 0 19px;color:#77869a;text-align:center;font-size:11px}.field{display:grid;gap:6px;margin:11px 0}.field span{color:#75869b;font-size:9px}.field input{width:100%;height:48px;padding:0 13px;border:1px solid #2a3a4e;border-radius:11px;background:#101723;color:white;outline:0}.field input:focus{border-color:var(--accent);}.row{display:flex;justify-content:space-between;color:#6f8298;font-size:9px}.submit{position:relative;width:100%;height:48px;margin-top:16px;border:0;border-radius:11px;background:linear-gradient(100deg,#2f78ef,var(--accent));color:white;font-weight:700;cursor:pointer;overflow:hidden}.submit::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,transparent,#fff4,transparent);transform:translateX(-110%)}.submit.busy::after{animation:sweep .8s ease}.status{min-height:16px;margin:10px 0 0;color:#5ee0a7;font-size:10px}@keyframes sweep{to{transform:translateX(110%)}}@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}/* Eclipse 3D contract: the guardian is a layered security companion. */
+<!doctype html><html lang="ru" data-depth-demo="reactive-login"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Guardian Login</title><link rel="icon" href="data:,"><style>:root{--accent:#6ba3ff;--glow:.18;--density:1;--speed:1}*{box-sizing:border-box}body{margin:0;min-height:100dvh;display:grid;place-items:center;overflow:hidden;background:radial-gradient(circle at 50% 0,#152943,transparent 44%),#06090e;color:#eef6ff;font-family:Inter,system-ui}.card{width:min(90vw,390px);padding:26px;border:1px solid #304158;border-radius:24px;background:rgba(11,17,27,.91);}.guardian{position:relative;width:106px;height:88px;margin:-2px auto 14px}.head{position:absolute;left:15px;top:5px;width:76px;height:72px;border:2px solid var(--accent);border-radius:42% 42% 48% 48%;background:#101d2b;}.ear{position:absolute;top:0;width:28px;height:34px;border:2px solid var(--accent);background:#101d2b;transform:rotate(45deg)}.ear.a{left:13px}.ear.b{right:13px;transform:rotate(135deg)}.face{position:absolute;inset:0}.eye{position:absolute;top:32px;width:18px;height:14px;border-radius:50%;background:#dff7ff;overflow:hidden;transition:height .18s,transform .18s}.eye.a{left:20px}.eye.b{right:20px}.pupil{position:absolute;left:6px;top:4px;width:6px;height:6px;border-radius:50%;background:#071018;transition:transform .08s}.mouth{position:absolute;left:31px;top:54px;width:15px;height:6px;border-bottom:2px solid #77a9dc;border-radius:50%;transition:transform .2s}.guardian.hide .eye{height:2px;transform:translateY(6px)}.guardian.happy .mouth{transform:scaleX(1.5) translateY(-2px)}h1{margin:0;text-align:center;font-size:21px}p{margin:5px 0 19px;color:#77869a;text-align:center;font-size:11px}.field{display:grid;gap:6px;margin:11px 0}.field span{color:#75869b;font-size:9px}.field input{width:100%;height:48px;padding:0 13px;border:1px solid #2a3a4e;border-radius:11px;background:#101723;color:white;outline:0}.field input:focus{border-color:var(--accent);}.row{display:flex;justify-content:space-between;color:#6f8298;font-size:9px}.submit{position:relative;width:100%;height:48px;margin-top:16px;border:0;border-radius:11px;background:linear-gradient(100deg,#2f78ef,var(--accent));color:white;font-weight:700;cursor:pointer;overflow:hidden}.submit::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,transparent,#fff4,transparent);transform:translateX(-110%)}.submit.busy::after{animation:sweep .8s ease}.status{min-height:16px;margin:10px 0 0;color:#5ee0a7;font-size:10px}@keyframes sweep{to{transform:translateX(110%)}}@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}/* Eclipse 3D contract: the guardian is a layered security companion. */
 body{padding:clamp(10px,3vmin,24px);perspective:1350px}.card{position:relative;isolation:isolate;overflow:clip;max-width:100%;transform-style:preserve-3d;transform:rotateX(var(--rx,0deg)) rotateY(var(--ry,0deg));transition:transform 180ms ease-out;}.card::before{content:"";position:absolute;z-index:-1;inset:10px;border-radius:16px;background:#020408;transform:translateZ(-40px)}.card::after{content:"";position:absolute;inset:1px;border-radius:23px;pointer-events:none;background:linear-gradient(120deg,#ffffff0b,transparent 28% 72%,color-mix(in srgb,var(--accent) 10%,transparent))}.guardian{transform-style:preserve-3d;transform:translateZ(58px)}.ear{transform:rotate(45deg) translateZ(4px)}.ear.b{transform:rotate(135deg) translateZ(4px)}.head{transform:translateZ(18px)}.face{transform:translateZ(20px)}h1{transform:translateZ(30px)}.card>p{transform:translateZ(22px)}.field,.row,.submit,.status{position:relative;z-index:1;transform:translateZ(18px)}.field:focus-within{transform:translateZ(30px)}.submit{}.guardian.happy{animation:guardian-confirm calc(650ms/var(--speed)) cubic-bezier(.2,.8,.2,1)}@keyframes guardian-confirm{50%{transform:translateZ(76px) translateY(-5px) rotateY(6deg)}}
 @media(max-width:430px){body{padding:10px}.card{width:100%;transform:none!important}.card::before{display:none}}@media(prefers-reduced-motion:reduce){.card{transform:none!important}.card::before{display:none}.guardian,.head,.face,h1,.card>p,.field,.field:focus-within,.row,.submit,.status{transform:none}.guardian.happy{animation:none}}
 </style><body><style id="crisp-motion-contract">
@@ -18,11 +18,231 @@ body{perspective:none;background:#06090e}
 .head,.ear,.submit{}
 .guardian.happy{animation-name:guardian-confirm-crisp}
 @keyframes guardian-confirm-crisp{50%{transform:translateY(-4px)}}
-</style><script>(()=>{const p=new URLSearchParams(location.search),r=document.documentElement,a=p.get("accent");if(a&&/^#[0-9a-f]{6}$/i.test(a))r.style.setProperty("--accent",a);["glow","density","speed"].forEach(k=>{const v=Number(p.get(k));if(Number.isFinite(v)&&v>0)r.style.setProperty("--"+k,v)});if(p.get("contrast")==="1")r.style.filter="contrast(1.12)"})()</script><form class="card"><div class="guardian" aria-hidden="true"><i class="ear a"></i><i class="ear b"></i><div class="head"><span class="face"><i class="eye a"><b class="pupil"></b></i><i class="eye b"><b class="pupil"></b></i><i class="mouth"></i></span></div></div><h1>С возвращением</h1><p>Eclipse Guardian следит только за безопасностью входа.</p><label class="field"><span>EMAIL</span><input type="email" value="pavel@eclipse-forge.ru" autocomplete="email"></label><label class="field"><span>PASSWORD</span><input class="password" type="password" placeholder="Введите пароль" autocomplete="current-password"></label><div class="row"><label><input type="checkbox"> Запомнить</label><span>Забыли пароль?</span></div><button class="submit" type="submit">Войти</button><p class="status" role="status"></p></form><script>
+</style><script>(()=>{const p=new URLSearchParams(location.search),r=document.documentElement,a=p.get("accent");if(a&&/^#[0-9a-f]{6}$/i.test(a))r.style.setProperty("--accent",a);["glow","density","speed"].forEach(k=>{const v=Number(p.get(k));if(Number.isFinite(v)&&v>0)r.style.setProperty("--"+k,v)});if(p.get("contrast")==="1")r.style.filter="contrast(1.12)"})()</script><form class="card depth-panel" data-depth-object="" data-depth-material="panel"><div class="guardian" aria-hidden="true"><i class="ear a"></i><i class="ear b"></i><div class="head"><span class="face"><i class="eye a"><b class="pupil"></b></i><i class="eye b"><b class="pupil"></b></i><i class="mouth"></i></span></div></div><h1>С возвращением</h1><p>Eclipse Guardian следит только за безопасностью входа.</p><label class="field"><span>EMAIL</span><input type="email" value="pavel@eclipse-forge.ru" autocomplete="email"></label><label class="field"><span>PASSWORD</span><input class="password" type="password" placeholder="Введите пароль" autocomplete="current-password"></label><div class="row"><label><input type="checkbox"> Запомнить</label><span>Забыли пароль?</span></div><button class="submit" type="submit">Войти</button><p class="status" role="status"></p></form><script>
 const q=new URLSearchParams(location.search),reduce=q.get("reduce")==="1"||matchMedia("(prefers-reduced-motion: reduce)").matches,g=document.querySelector(".guardian"),pupils=[...document.querySelectorAll(".pupil")],pass=document.querySelector(".password"),button=document.querySelector(".submit"),status=document.querySelector(".status");
 if(!reduce)window.addEventListener("pointermove",e=>{const r=g.getBoundingClientRect(),x=Math.max(-4,Math.min(4,(e.clientX-(r.left+r.width/2))/35)),y=Math.max(-3,Math.min(3,(e.clientY-(r.top+r.height/2))/35));pupils.forEach(p=>p.style.transform="translate("+x+"px,"+y+"px)")});
 pass.addEventListener("focus",()=>g.classList.add("hide"));pass.addEventListener("blur",()=>g.classList.remove("hide"));
 setInterval(()=>{if(!reduce&&!g.classList.contains("hide")){g.classList.add("hide");setTimeout(()=>g.classList.remove("hide"),160)}},2800);
 document.querySelector("form").onsubmit=e=>{e.preventDefault();button.classList.remove("busy");void button.offsetWidth;button.classList.add("busy");g.classList.add("happy");status.textContent="Проверяем защищённую сессию…";setTimeout(()=>status.textContent="Готово. Вход подтверждён",750)};const initial=q.get("state")||"idle";if(initial==="loading"){button.click();status.textContent="Проверяем защищённую сессию…"}if(initial==="error"){status.style.color="#ff8794";status.textContent="Пароль не подошёл. Проверьте ввод."}if(initial==="success"){g.classList.add("happy");status.textContent="Готово. Вход подтверждён"}
-const card3d=document.querySelector('.card');if(!reduce&&matchMedia('(pointer:fine)').matches){card3d.addEventListener('pointermove',e=>{const r=card3d.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;requestAnimationFrame(()=>{card3d.style.setProperty('--ry',(x*5).toFixed(2)+'deg');card3d.style.setProperty('--rx',(-y*4).toFixed(2)+'deg')})});card3d.addEventListener('pointerleave',()=>{card3d.style.setProperty('--ry','0deg');card3d.style.setProperty('--rx','0deg')})}window.__ready=true;
-</script></body></html>
+const card3d=document.querySelector('.card');if(!reduce&&false /* depth runtime owns tilt */){card3d.addEventListener('pointermove',e=>{const r=card3d.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;requestAnimationFrame(()=>{card3d.style.setProperty('--ry',(x*5).toFixed(2)+'deg');card3d.style.setProperty('--rx',(-y*4).toFixed(2)+'deg')})});card3d.addEventListener('pointerleave',()=>{card3d.style.setProperty('--ry','0deg');card3d.style.setProperty('--rx','0deg')})}window.__ready=true;
+</script><style id="depth-motion-contract">
+/* Physical depth without animated filters or shadow repaint. */
+html{--metal:#151e2a;--rim:#475769;--paper:#e8edf1;--ink:#142230;--depth-ease:cubic-bezier(.18,.78,.2,1)}
+[hidden]{display:none!important}
+body{perspective:1500px!important;background:radial-gradient(ellipse at 50% 20%,#17232f 0,transparent 64%),#080e15!important;color:#edf4fa;}
+body::before{content:"";position:fixed;inset:0;pointer-events:none;background:radial-gradient(ellipse at 50% 22%,#629cbc,transparent 68%);opacity:var(--depth-light,.18)}
+[data-depth-object]{position:relative;transform-style:preserve-3d!important;transform:perspective(1500px) rotateX(calc(var(--base-rx,0deg) + var(--view-rx,0deg))) rotateY(calc(var(--base-ry,0deg) + var(--view-ry,0deg)))!important;transition:transform .24s var(--depth-ease)!important;backface-visibility:hidden}
+[data-depth-object]:focus-within{--view-rx:0deg!important;--view-ry:0deg!important}
+.depth-panel,[data-depth-material=panel]{border:1px solid #526374!important;border-radius:24px!important;background:linear-gradient(145deg,#263342 0,#141e2a 38%,#0d151e 100%)!important;box-shadow:inset 0 1px 0 #ffffff40,inset 0 -2px 0 #03070c,0 8px 0 #050a10,0 9px 0 #344354,0 24px 42px #0008!important;overflow:visible!important}
+.depth-paper,[data-depth-material=paper]{border:1px solid #fff!important;background:linear-gradient(135deg,#f8fbfc,#dce5eb)!important;box-shadow:inset 0 1px #fff,0 7px 0 #aabac7,0 8px 0 #5d7180,0 24px 40px #0006!important;color:#1c3040!important}
+.depth-glass,[data-depth-material=glass]{border:1px solid #7f9cb580!important;background:linear-gradient(140deg,#355674dc,#152c43e8 55%,#102335)!important;box-shadow:inset 0 1px #ffffff4a,0 5px 0 #081827,0 18px 38px #0008!important}
+.depth-layer{transform:translateZ(var(--layer,18px));transform-style:preserve-3d}
+.depth-canvas{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
+[data-depth-viz]{position:relative}
+.depth-motion-control{position:fixed;z-index:100;right:12px;bottom:10px;min-height:32px;padding:6px 10px;border:1px solid #506172!important;border-radius:6px!important;background:#101b27!important;color:#c6d6e4!important;font:500 10px Manrope,sans-serif!important;cursor:pointer;box-shadow:none!important}
+.depth-motion-control:disabled{opacity:.6;cursor:default}
+button{transition-property:transform,opacity,background-color,border-color,color!important}
+button:not(:disabled):active{translate:0 1px}
+input{box-shadow:inset 0 2px 5px #0002}
+input:focus-visible,button:focus-visible,a:focus-visible{outline:2px solid #88d6ff!important;outline-offset:4px!important}
+button:disabled{cursor:not-allowed}
+.depth-reduced [data-depth-object],.depth-reduced .depth-layer{transform:none!important;transition:none!important}
+.depth-reduced *,.depth-reduced *::before,.depth-reduced *::after{animation:none!important;transition-duration:.1s!important;transition-property:opacity,color,background-color,border-color!important}
+.depth-paused *,.depth-paused *::before,.depth-paused *::after,.depth-seek *,.depth-seek *::before,.depth-seek *::after{animation-play-state:paused!important}
+@media(prefers-reduced-motion:reduce){[data-depth-object],.depth-layer{transform:none!important}*,*::before,*::after{animation:none!important;transition-property:opacity,color,background-color,border-color!important;transition-duration:.1s!important}}
+@media(max-width:600px){body{padding:24px 14px 54px!important;min-width:0!important;overflow-x:clip!important}[data-depth-object]{--base-rx:0deg!important;--base-ry:0deg!important;transform:none!important}.stage{padding:0!important;width:100%!important}.scene{width:100%!important;max-width:100%!important}.depth-motion-control{bottom:8px;right:8px}}
+
+html[data-depth-demo="reactive-login"]{
+
+.card{padding:30px!important;width:min(480px,92vw)!important;--base-ry:-5deg}.guardian{transform:translateZ(42px)!important;margin-bottom:20px!important}.guardian .head{border-color:#8bc8bf!important;background:linear-gradient(125deg,#c0e9da,#648d8c 40%,#304d58)!important;box-shadow:inset -9px -9px 18px #132b4270,0 5px 0 #1e383e,0 15px 25px #0005!important}.face{background:linear-gradient(120deg,#122733,#040d16)!important;box-shadow:inset 0 4px 10px #000!important}.ear{background:#41666a!important;border-color:#9cbeba!important}.field{transform:translateZ(12px)!important}.field input{border:1px solid #4e6a72!important;background:#11232d!important}.submit{background:linear-gradient(#b4ddc9,#72b69e)!important;color:#102c27!important;box-shadow:0 4px 0 #285b4c!important}.status{min-height:25px!important}
+
+}
+html[data-depth-demo=directional-action] .direction-label{color:#123848!important}
+html[data-depth-demo=auth-blade] .auth-pane[aria-hidden=true]{visibility:hidden}
+@media(max-width:720px){
+ html[data-depth-demo=auth-blade] .auth-card{min-height:610px!important}
+ html[data-depth-demo=auth-blade] .auth-blade,html[data-depth-demo=auth-blade] .blade-scene[data-state=signup] .auth-blade{inset:0 0 auto!important;width:100%!important;height:130px!important;padding:22px 28px!important;transform:none!important;clip-path:none!important;border-radius:23px 23px 0 0!important}
+ html[data-depth-demo=auth-blade] .auth-blade b{font-size:28px!important}
+ html[data-depth-demo=auth-blade] .auth-blade p{font-size:12px!important;margin:6px 0 0!important}
+ html[data-depth-demo=auth-blade] .auth-pane{inset:130px 0 0!important;padding:28px!important;transform:none!important}
+}
+/* Restore the wipe states disabled by the previous flat visual contract. */
+html[data-depth-demo=cloud-auth] .cloud-scene[data-state=signup] .cloud-wipe{transform:translateX(-100%)!important}
+html[data-depth-demo=cloud-auth] .cloud-pane[aria-hidden=true]{visibility:hidden}
+html[data-depth-demo=cloud-auth] .cloud-pane{transform:none!important}
+@media(max-width:720px){
+ html[data-depth-demo=cloud-auth] .cloud-card{min-height:610px!important}
+ html[data-depth-demo=cloud-auth] .cloud-wipe,html[data-depth-demo=cloud-auth] .cloud-scene[data-state=signup] .cloud-wipe{inset:0 0 auto!important;height:130px!important;transform:none!important}
+ html[data-depth-demo=cloud-auth] .cloud-wipe i{display:none!important}
+ html[data-depth-demo=cloud-auth] .cloud-wipe::after{padding:20px!important;font-size:24px!important}
+ html[data-depth-demo=cloud-auth] .cloud-pane{inset:130px 0 0!important;padding:28px!important}
+ html[data-depth-demo=provider-health-route] body{overflow-y:auto!important;height:auto!important;min-height:100dvh!important;align-items:start!important}
+ html[data-depth-demo=provider-health-route] .router{min-height:0!important;height:auto!important}
+ html[data-depth-demo=provider-health-route] .provider{padding:12px!important;margin-bottom:6px!important}
+ html[data-depth-demo=provider-health-route] .route-grid{gap:12px!important}
+ html[data-depth-demo=provider-health-route] .route-panel{padding:14px!important}
+ html[data-depth-demo=fly-to-cart] .bottle b{font-size:23px!important}
+ html[data-depth-demo=fly-to-cart] .bottle{padding:18px 10px!important}
+}
+/* Leave room for projected corners and keep form hit targets in one plane. */
+html[data-depth-demo] body{box-sizing:border-box}
+html[data-depth-demo] [data-depth-object]{align-self:center!important}
+html[data-depth-demo=payment-delight] .pay-form{transform:translateZ(36px)!important;transform-style:flat!important}
+html:is([data-depth-demo=upload-queue],[data-depth-demo=otp-light],[data-depth-demo=text-cascade],[data-depth-demo=directional-action],[data-depth-demo=magnetic-dock]) [data-depth-object]{min-height:0!important;height:auto!important}
+html[data-depth-demo=glass-navigation] .shell{width:min(800px,90vw)!important;height:min(560px,calc(100dvh - 88px))!important;min-height:0!important;flex:0 1 auto!important;margin:32px auto!important;display:flex!important;flex-direction:column!important}
+html[data-depth-demo=glass-navigation] .nav{flex-shrink:0!important}
+html[data-depth-demo=glass-navigation] .caption{margin:auto 0 0!important;padding:30px 22px!important}
+html[data-depth-demo=spatial-sidebar] .sidebar{height:auto!important;min-height:520px!important;margin:16px!important}
+@media(min-width:621px) and (max-height:740px){
+ html[data-depth-demo=upload-queue] .card{padding:22px!important}
+ html[data-depth-demo=upload-queue] .drop{min-height:94px!important;margin:14px 0!important}
+ html[data-depth-demo=upload-queue] .foot{margin-top:16px!important}
+ html:is([data-depth-demo=text-cascade],[data-depth-demo=directional-action],[data-depth-demo=magnetic-dock]) .demo{max-width:760px!important}
+}
+@media(max-width:620px){html[data-depth-demo=glass-navigation] .shell{width:100%!important}html[data-depth-demo=spatial-sidebar] .sidebar{margin:0!important}}
+html[data-depth-demo=ai-progress] .percent{position:absolute!important;inset:50% auto auto 50%!important;translate:-50% -50%!important}
+html[data-depth-demo=orbit-upload] .center{position:absolute!important;display:flex!important;flex-direction:column!important;justify-content:center!important;align-items:center!important;gap:9px!important}
+html[data-depth-demo=spatial-sidebar] .compact .sidebar{width:90px!important;padding:16px 10px!important}
+html.depth-custom-accent[data-depth-demo] [data-depth-object]{border-color:var(--accent)!important}
+html.depth-custom-accent[data-depth-demo] :is([data-primary],.verify,.submit,.unlock,.launch){background:linear-gradient(135deg,color-mix(in srgb,var(--accent),white 30%),var(--accent))!important;color:#102033!important}
+html[data-depth-demo] [data-depth-object]{scale:var(--depth-scale,1)}
+html.depth-reduced .magnetic-dock button,html.depth-reduced .cascade span{transform:none!important}
+html.depth-reduced .cascade span{opacity:1!important}
+html[data-depth-demo=payment-delight] .card-preview{transform:perspective(900px) translateZ(95px) rotateY(-10deg) rotateX(6deg)!important}
+html[data-depth-demo=interactive-checkout] .mini-card{transform:perspective(900px) translateZ(95px) rotateY(10deg) rotateX(6deg)!important}
+html[data-depth-demo=payment-v3] .flip-card{translate:0 0 55px}
+html[data-depth-demo=payment-v3] .paymentv3-scene[data-state=focus] .flip-card{transform:rotateY(180deg) rotateZ(5deg)!important}
+html[data-depth-demo=payment-v3] .paymentv3-scene[data-state=loading] .flip-card{transform:translateX(20%) rotateZ(-5deg)!important}
+html[data-depth-demo=payment-v3] .paymentv3-scene[data-state=success] .flip-card{transform:translateX(50%) rotateZ(-5deg)!important;opacity:0!important}
+html[data-depth-demo=upload-queue] .file{transform:none!important;translate:0 0 20px}
+html[data-depth-demo=upload-queue] .file:nth-child(2){transform:none!important;translate:0 0 16px}
+html[data-depth-demo=upload-queue] .file:nth-child(3){transform:none!important;translate:0 0 12px}
+html[data-depth-demo=destination-card] .visual{background:#243b44!important;overflow:hidden!important}
+html[data-depth-demo=destination-card] .visual::before,html[data-depth-demo=destination-card] .visual::after{display:none!important}
+.destination-art{width:100%;height:100%;object-fit:cover;object-position:center;display:block;scale:1.08;translate:var(--parallax-x,0px) var(--parallax-y,0px)}
+html[data-depth-demo=fly-to-cart] .bottle{display:flex!important;flex-direction:column!important;align-items:flex-start!important;justify-content:space-between!important;padding:24px 18px!important}
+html[data-depth-demo=fly-to-cart] .bottle b{font-size:28px!important;letter-spacing:-.05em!important}
+html[data-depth-demo=fly-to-cart] .bottle small,html[data-depth-demo=fly-to-cart] .bottle span{font-size:9px!important;letter-spacing:.12em!important}
+html[data-depth-demo=destination-card] .panel h1{font-size:34px!important}
+html[data-depth-demo=destination-card] .panel h2{font-size:16px!important;color:#a8c3ce!important;line-height:1.4!important}
+html[data-depth-demo=kinetic-delete] .file-list li>span{min-width:0;overflow:hidden}
+html[data-depth-demo=kinetic-delete] .file-list li b{display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+@media(max-width:620px){
+ html:is([data-depth-demo=upload-queue],[data-depth-demo=ai-progress],[data-depth-demo=otp-input]) [data-depth-object]{min-height:0!important;height:auto!important;align-self:center!important}
+ html:is([data-depth-demo=upload-queue],[data-depth-demo=ai-progress],[data-depth-demo=otp-input]) body{align-content:center!important}
+ html[data-depth-demo=kinetic-delete] .file-list li{grid-template-columns:minmax(0,1fr) 44px!important;gap:10px!important}
+ html[data-depth-demo=kinetic-delete] .file-list button{width:44px!important;min-height:44px!important}
+ html[data-depth-demo=kinetic-delete] .storage b{font-size:23px!important}
+ html[data-depth-demo=payment-delight] .card-preview,html[data-depth-demo=interactive-checkout] .mini-card{transform:translateZ(30px)!important}
+}
+
+</style>
+<script id="depth-motion-runtime">
+/* Local presentation only: no requests, persistence or access to the parent frame. */
+(()=>{
+ 'use strict';
+ const root=document.documentElement,q=new URLSearchParams(location.search);
+ const motionSpeed=Math.max(.5,Math.min(2,Number(q.get('speed'))||1));
+ const glow=q.has('glow')?Math.max(0,Math.min(1,Number(q.get('glow'))||0)):.18;
+ root.style.setProperty('--depth-light',String(glow));
+ const accent=q.get('accent');if(accent&&/^#[0-9a-f]{6}$/i.test(accent)){root.classList.add('depth-custom-accent');root.style.setProperty('--accent',accent)}
+ const density=q.get('density');if(['0','1','2'].includes(density))root.style.setProperty('--depth-scale',['.94','1','1.02'][Number(density)]);
+ const media=matchMedia('(prefers-reduced-motion: reduce)'),fine=matchMedia('(pointer:fine)');
+ const objects=[...document.querySelectorAll('[data-depth-object]')];
+ let paused=false,reduced=false,frame=0,x=0,y=0,tx=0,ty=0,last=0;
+ const seek=q.has('t')&&Number.isFinite(Number(q.get('t')))?Math.max(0,Math.min(24,Number(q.get('t')))):null;
+ const toggle=document.createElement('button');toggle.type='button';toggle.className='depth-motion-control';
+ toggle.setAttribute('aria-pressed','false');toggle.textContent='Остановить движение';document.body.append(toggle);
+ const still=()=>reduced||paused||document.hidden||seek!==null;
+ let oldPose='';
+ const setPose=()=>{const pose=x.toFixed(3)+','+y.toFixed(3);if(pose===oldPose)return;oldPose=pose;objects.forEach(el=>{el.style.setProperty('--view-rx',y.toFixed(3)+'deg');el.style.setProperty('--view-ry',x.toFixed(3)+'deg');el.style.setProperty('--parallax-x',(x*1.5).toFixed(2)+'px');el.style.setProperty('--parallax-y',(y*1.5).toFixed(2)+'px')})};
+ function updateMotion(){
+  reduced=q.get('reduce')==='1'||media.matches;
+  root.classList.toggle('depth-reduced',reduced);root.classList.toggle('depth-paused',paused||document.hidden);
+  document.dispatchEvent(new CustomEvent('depth-motion-change',{detail:{still:still()}}));
+  toggle.disabled=reduced||seek!==null;toggle.textContent=reduced?'Движение уменьшено':seek!==null?'Стоп-кадр':paused?'Продолжить движение':'Остановить движение';
+  toggle.setAttribute('aria-pressed',String(paused));
+  if(still()){cancelAnimationFrame(frame);frame=0;x=y=tx=ty=0;setPose();drawAll(seek||0)}else schedule();
+ }
+ toggle.addEventListener('click',()=>{paused=!paused;updateMotion()});media.addEventListener('change',updateMotion);
+ document.addEventListener('visibilitychange',updateMotion);
+ document.addEventListener('pointermove',event=>{
+  if(still()||!fine.matches||event.pointerType==='touch'||document.activeElement?.matches('input,textarea,select'))return;
+  tx=(event.clientX/innerWidth-.5)*8;ty=(.5-event.clientY/innerHeight)*5;schedule();
+ },{passive:true});
+ document.addEventListener('pointerleave',()=>{tx=ty=0;schedule()});
+ document.addEventListener('focusin',()=>{tx=ty=0;schedule()});
+ const cross=(a,b)=>[a[1]*b[2]-a[2]*b[1],a[2]*b[0]-a[0]*b[2],a[0]*b[1]-a[1]*b[0]];
+ const norm=a=>{const l=Math.hypot(...a)||1;return a.map(n=>n/l)};
+ function makeMesh(){
+  const center=u=>{const a=.72+.22*Math.cos(3*u);return [a*Math.cos(2*u),a*Math.sin(2*u),.3*Math.sin(3*u)]};
+  const surface=(i,j)=>{const u=i/80*Math.PI*2,v=j/10*Math.PI*2,a=center(u),b=center(u+.001),t=norm(b.map((n,k)=>n-a[k])),n=norm(cross(t,[0,0,1])),bn=cross(t,n);return a.map((value,k)=>value+.135*(n[k]*Math.cos(v)+bn[k]*Math.sin(v)))};
+  const mesh=[];
+  for(let i=0;i<80;i++)for(let j=0;j<10;j++){
+   const raw=[surface(i,j),surface(i+1,j),surface(i+1,j+1),surface(i,j+1)];
+   const normal=norm(cross(raw[1].map((v,k)=>v-raw[0][k]),raw[3].map((v,k)=>v-raw[0][k])));
+   mesh.push({raw,normal});
+  }return mesh;
+ }
+ const canvases=[...document.querySelectorAll('[data-depth-viz]')].map(el=>{
+  const canvas=document.createElement('canvas');canvas.className='depth-canvas';canvas.setAttribute('aria-hidden','true');el.prepend(canvas);
+  return {el,canvas,ctx:canvas.getContext('2d',{alpha:true}),w:0,h:0,mode:el.dataset.depthViz,mesh:el.dataset.depthViz==='orbit'?makeMesh():null};
+ });
+ function resize(){
+  const measurements=canvases.map(item=>item.el.getBoundingClientRect());
+  canvases.forEach((item,i)=>{item.w=measurements[i].width;item.h=measurements[i].height;const d=Math.min(devicePixelRatio||1,1.5);item.canvas.width=Math.round(item.w*d);item.canvas.height=Math.round(item.h*d);item.ctx?.setTransform(d,0,0,d,0,0)});
+  drawAll(seek||0);schedule();
+ }
+ const observer=new ResizeObserver(resize);canvases.forEach(item=>observer.observe(item.el));
+ function project(px,py,pz,angle,radius,w,h){
+  const cy=Math.cos(angle),sy=Math.sin(angle),cx=Math.cos(.48),sx=Math.sin(.48);
+  const xx=px*cy+pz*sy,zz=pz*cy-px*sy,yy=py*cx-zz*sx,z=py*sx+zz*cx,scale=3.8/(3.8-z);
+  return{x:w/2+xx*radius*scale,y:h/2+yy*radius*scale,z,scale};
+ }
+ function draw(item,time){
+  const {ctx:c,w,h,mode}=item;if(!c||!w||!h)return;c.clearRect(0,0,w,h);
+  const r=Math.min(w,h)*.32,angle=time*.22+x*.035;
+  const halo=c.createRadialGradient(w/2,h/2,5,w/2,h/2,r*1.75);
+  halo.addColorStop(0,`rgba(62,119,156,${glow})`);halo.addColorStop(1,'rgba(13,25,38,0)');c.fillStyle=halo;c.fillRect(0,0,w,h);
+  const points=[];
+  if(mode==='orbit'){
+   const mesh=[];
+   for(const {raw,normal} of item.mesh){
+    const p=raw.map(a=>project(...a,angle,r*1.22,w,h));
+    const np=project(...normal,angle,1,0,0),light=Math.max(0,(-np.x*.4-np.y*.6+np.z*.75));
+    mesh.push({p,z:p.reduce((a,v)=>a+v.z,0)/4,light:Math.min(1,light)});
+   }
+   mesh.sort((a,b)=>a.z-b.z);
+   for(const face of mesh){const l=face.light,spec=Math.pow(l,12)*24;c.fillStyle=`hsl(201 23% ${25+l*48+spec}%)`;c.strokeStyle=c.fillStyle;c.lineWidth=.7;c.beginPath();face.p.forEach((v,i)=>i?c.lineTo(v.x,v.y):c.moveTo(v.x,v.y));c.closePath();c.fill();c.stroke()}
+  }else{
+   for(let i=0;i<220;i++){
+    const yy=1-(i+.5)/220*2,rad=Math.sqrt(1-yy*yy),phi=i*2.399963;
+    points.push({...project(Math.cos(phi)*rad,yy,Math.sin(phi)*rad,angle,r,w,h),i});
+   }
+  }
+  points.sort((a,b)=>a.z-b.z);
+  for(const p of points){
+   const light=Math.max(.15,(p.z+1.4)/2.5);c.fillStyle=mode==='orbit'?`hsla(${192+light*28},${38+light*32}%,${42+light*48}%,${.25+light*.7})`:`rgba(146,222,255,${.15+light*.8})`;
+   c.beginPath();c.arc(p.x,p.y,(mode==='orbit'?2.1:1.65)*p.scale,0,Math.PI*2);c.fill();
+  }
+  if(mode!=='orbit'){
+   for(let band=0;band<3;band++){
+    c.beginPath();for(let i=0;i<=96;i++){const t=i/96*Math.PI*2,cc=Math.cos(band*1.05),ss=Math.sin(band*1.05);const p=project(Math.cos(t)*1.16,Math.sin(t)*cc*1.16,Math.sin(t)*ss*1.16,angle,r,w,h);i?c.lineTo(p.x,p.y):c.moveTo(p.x,p.y)}
+    c.strokeStyle=['#b8e6ff99','#5ba4bb88','#e2efff55'][band];c.lineWidth=1;c.stroke();
+   }
+  }
+ }
+ function drawAll(time){canvases.forEach(item=>draw(item,time))}
+ function schedule(){if(!frame&&!still())frame=requestAnimationFrame(tick)}
+ function tick(now){
+  frame=0;if(still())return;const dt=Math.min(40,last?now-last:16.67);last=now;const k=1-Math.pow(.82,dt/16.67);
+  x+=(tx-x)*k;y+=(ty-y)*k;setPose();drawAll(now/1000*motionSpeed);
+  if(canvases.length||Math.abs(tx-x)+Math.abs(ty-y)>.015)schedule();
+ }
+ if(seek!==null)root.classList.add('depth-seek');
+ updateMotion();resize();
+ window.__depthReady=true;
+})();
+
+</script>
+</body></html>

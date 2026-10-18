@@ -1014,6 +1014,7 @@
   function syncFilterUrl() {
     if (!filterStateReady) return;
     const params = new URLSearchParams();
+    if (new URLSearchParams(location.search).get('mascot') === 'preview') params.set('mascot', 'preview');
     const values = {
       q: query.trim().slice(0, 160), task: activeTask, type: activeType || '', cost: activeCost,
       signup: activeSignup, runtime: activeRuntime, platform: activePlatform,
@@ -1187,6 +1188,10 @@
     if (sheetResult) sheetResult.textContent = `${matched} ${matched === 1 ? 'материал' : 'материалов'}`;
     ensureInspectorSelection(visibleCards);
     entryReveal();
+    // Read-only local mascot preview: publish the computed result, never the query.
+    document.dispatchEvent(new CustomEvent('library:catalog-results', {
+      detail: { active: Boolean(q), count: matched }
+    }));
   }
 
   function sortCards(a, b) {
@@ -1574,7 +1579,14 @@
   let guideTocObs = null;
   function revealActiveGuideLink(link) {
     if (window.matchMedia('(min-width: 1080px)').matches) {
-      link.scrollIntoView({ block: 'nearest' });
+      // Move only the sidebar. scrollIntoView also moves the guide and can
+      // cancel the reader's smooth navigation when scrollspy changes active.
+      const toc = $('#guideToc');
+      if (!toc) return;
+      const bounds = toc.getBoundingClientRect();
+      const item = link.getBoundingClientRect();
+      if (item.top < bounds.top) toc.scrollTop -= bounds.top - item.top;
+      else if (item.bottom > bounds.bottom) toc.scrollTop += item.bottom - bounds.bottom;
     }
   }
 
