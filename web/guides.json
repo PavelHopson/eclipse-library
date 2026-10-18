@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "totals": {
-    "guides": 89
+    "guides": 99
   },
   "guides": [
     {
@@ -110,6 +110,20 @@
       "lessons": 12
     },
     {
+      "name": "september-2026-skills-to-workflows",
+      "title": "Из новостей в рабочие инструменты: зацепки, проверка ТЗ и маркетинговые эксперименты",
+      "description": "Практический разбор подборки 10–11 сентября 2026: что применено в Eclipse Media и AI Hub, какие подключения требуют отдельного допуска и чему нельзя доверять автоматически.",
+      "modules": 6,
+      "lessons": 12
+    },
+    {
+      "name": "coffee-webgl-landing-workshop",
+      "title": "Кофейный лендинг с 3D: от Coffee.pdf к проверяемому прототипу",
+      "description": "Практикум по продуктовому лендингу: обычная страница сначала, 3D и анимация — вторым слоем.",
+      "modules": 5,
+      "lessons": 10
+    },
+    {
       "name": "rea-owned-application-analysis",
       "title": "Разбираем собственное приложение: поведение → доказательства → спецификация → тесты",
       "description": "Восстановите одну функцию своей сборки и проверьте выводы на примерах.",
@@ -124,6 +138,20 @@
       "lessons": 7
     },
     {
+      "name": "papermorph-codex-interactive-web-book",
+      "title": "Papermorph-подход: интерактивная веб-книга из PDF в Codex",
+      "description": "Практический гайд для Eclipse Media: как превратить разрешённый PDF в проверяемый storyboard веб-книги, а затем отдельно подключить озвучку, анимацию и квизы.",
+      "modules": 4,
+      "lessons": 8
+    },
+    {
+      "name": "snapdeck-presentation-workflow",
+      "title": "Snapdeck: презентация через brief, проверку и ручной export",
+      "description": "Практический workflow для Eclipse Media и Library: Snapdeck оформляет внешний черновик, а источники, права, ограничения и финальную приёмку остаются под контролем редактора.",
+      "modules": 4,
+      "lessons": 8
+    },
+    {
       "name": "synthid-media-provenance-checklist",
       "title": "SynthID: проверка медиа без ложной уверенности",
       "description": "Практический чек-лист происхождения изображения, видео или аудио: источник, права, SHA-256, результат проверки и история изменений.",
@@ -131,9 +159,23 @@
       "lessons": 9
     },
     {
+      "name": "safe-ai-computer-diagnostics",
+      "title": "AI-агент для диагностики компьютера: безопасный рабочий процесс",
+      "description": "Практический гайд по мотивам демонстрации OpenCode: как использовать терминального AI-агента для поиска причин неисправности, не отдавая ему бесконтрольный доступ к Windows,…",
+      "modules": 3,
+      "lessons": 6
+    },
+    {
       "name": "artefakt-interactive-webgl",
       "title": "ARTEFAKT: 3D-лендинг по подробному промпту",
       "description": "Как связать WebGL-товар, прокрутку и раскрытие материалов в одном HTML.",
+      "modules": 3,
+      "lessons": 7
+    },
+    {
+      "name": "october-2026-hapi-ornith-glm-pilots",
+      "title": "HAPI, Ornith и GLM-5.3-Flash: от новости к проверяемому пилоту",
+      "description": "Как подготовить мобильный доступ к Codex и сравнение локальной и облачной моделей, не подменяя проверку рекламными обещаниями.",
       "modules": 3,
       "lessons": 7
     },
@@ -175,7 +217,7 @@
     {
       "name": "august-2026-agent-learning-media-radar",
       "title": "Agent, learning и media radar — 21 августа 2026",
-      "description": "",
+      "description": "Обновление 07.10.2026: разделы HAPI, Ornith и Ox Alpha ниже отражают историческую проверку.",
       "modules": 0,
       "lessons": 0
     },
@@ -281,6 +323,13 @@
       "name": "august-2026-discovery-review-security-radar",
       "title": "Discovery, review и provenance: безопасный разбор августовской подборки",
       "description": "Проверено 12.08.2026 по официальным сайтам, GitHub-репозиториям, лицензиям и документации.",
+      "modules": 0,
+      "lessons": 0
+    },
+    {
+      "name": "erida-character-bible-v1",
+      "title": "ERIDA — Character Bible v1.0",
+      "description": "Канонический рабочий паспорт, принят Павлом 02.10.2026 в чате координатора.",
       "modules": 0,
       "lessons": 0
     },
@@ -488,6 +537,13 @@
       "lessons": 0
     },
     {
+      "name": "the-cartel-character-sheet",
+      "title": "The Cartel — карточка персонажа и идеи для Eclipse",
+      "description": "Проверка 2 октября 2026 года. Изучены исходники, русские автоматические субтитры четырёх роликов и список 30 последних видео. Сохранено локально; генерации, установка моделей,…",
+      "modules": 0,
+      "lessons": 0
+    },
+    {
       "name": "token-saving-agent-stack",
       "title": "Token-saving agent stack для Codex / Claude",
       "description": "Рабочий стандарт Eclipse Forge: экономим токены не “магией”, а дисциплиной контекста.",
@@ -512,6 +568,13 @@
       "name": "mcp-runtime-audit",
       "title": "Безопасный runtime-аудит MCP server",
       "description": "",
+      "modules": 0,
+      "lessons": 0
+    },
+    {
+      "name": "september-2026-eight-resources-pilots",
+      "title": "Восемь ресурсов: проверка и ограниченные пилоты",
+      "description": "Проверка первоисточников: 29 сентября 2026.",
       "modules": 0,
       "lessons": 0
     },
@@ -582,6 +645,13 @@
       "name": "september-2026-old-youtube-video-review",
       "title": "Старые YouTube-видео: что сохранило ценность к сентябрю 2026 года",
       "description": "Проверка восьми роликов от 2025 года. Видео рассматриваются как кейсы и источники идей, а не как доверенные установщики, готовые шаблоны или доказательство дохода.",
+      "modules": 0,
+      "lessons": 0
+    },
+    {
+      "name": "codex-quality-cost-pilot",
+      "title": "Экономия лимитов Codex без потери качества",
+      "description": "Практический протокол: ограничить контекст, разделить работу по сложности и сравнить качество с полным расходом.",
       "modules": 0,
       "lessons": 0
     },

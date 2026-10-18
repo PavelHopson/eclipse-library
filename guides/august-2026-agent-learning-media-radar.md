@@ -1,5 +1,7 @@
 # Agent, learning и media radar — 21 августа 2026
 
+> Обновление 07.10.2026: разделы HAPI, Ornith и Ox Alpha ниже отражают историческую проверку. Актуальные исправления и планы пилотов — в [гайде HAPI, Ornith и GLM-5.3-Flash](october-2026-hapi-ornith-glm-pilots.md). Ox Alpha раскрыта, бесплатность устарела; вывод об отсутствии мультимодальности Ornith по одному metadata tag исправлен.
+
 Проверенная редакторская выжимка из новостной подборки. Рекламные формулировки не считаются
 доказательствами: карточки опираются на official product pages, canonical repositories, model cards,
 license files и официальную документацию.
