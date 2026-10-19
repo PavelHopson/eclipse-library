@@ -1,23 +1,43 @@
 {
   "schemaVersion": 1,
-  "checkedAt": "2026-10-12T12:02:08.796Z",
+  "checkedAt": "2026-10-19T09:56:17.932Z",
   "totals": {
-    "extracted": 808,
-    "unique": 803,
-    "checked": 803,
-    "ok": 759,
+    "extracted": 819,
+    "unique": 814,
+    "checked": 814,
+    "ok": 768,
     "restricted": 34,
-    "broken": 3,
+    "broken": 4,
     "unavailable": 0,
-    "unknown": 7,
+    "unknown": 8,
     "blocked": 0,
     "skipped": 0
   },
   "links": [
     {
+      "url": "https://github.com/morluto/rea",
+      "status": "ok",
+      "httpStatus": 200
+    },
+    {
+      "url": "https://koboyo.com/page-mascot",
+      "status": "ok",
+      "httpStatus": 200
+    },
+    {
       "url": "https://synthid.com/",
       "status": "ok",
       "httpStatus": 200
+    },
+    {
+      "url": "https://github.com/reconurge/flowsint",
+      "status": "ok",
+      "httpStatus": 200
+    },
+    {
+      "url": "https://abhijayvuyyuru.substack.com/p/try-these-100-code-that-make-your",
+      "status": "restricted",
+      "httpStatus": 403
     },
     {
       "url": "https://github.com/Moh4696/100-free-open-source-github-repos",
@@ -126,8 +146,8 @@
     },
     {
       "url": "https://aistupidlevel.info/",
-      "status": "ok",
-      "httpStatus": 200
+      "status": "unknown",
+      "httpStatus": null
     },
     {
       "url": "https://github.com/JCodesMore/ai-website-cloner-template",
@@ -1181,8 +1201,8 @@
     },
     {
       "url": "https://github.com/Z4nzu/hackingtool",
-      "status": "ok",
-      "httpStatus": 200
+      "status": "broken",
+      "httpStatus": 404
     },
     {
       "url": "https://haikei.app",
@@ -2377,7 +2397,7 @@
     {
       "url": "https://www.micromat.com/products/techtool-lite/",
       "status": "ok",
-      "httpStatus": 200
+      "httpStatus": 202
     },
     {
       "url": "https://github.com/anthropics/claude-plugins-official/blob/main/external_plugins/telegram/README.md",
@@ -2421,8 +2441,8 @@
     },
     {
       "url": "https://github.com/baairon/torlink",
-      "status": "ok",
-      "httpStatus": 200
+      "status": "broken",
+      "httpStatus": 404
     },
     {
       "url": "https://transitions.dev/",
@@ -2596,8 +2616,8 @@
     },
     {
       "url": "https://whatismy-ipaddress.com/learn-more-security.html#term-privacy",
-      "status": "restricted",
-      "httpStatus": 403
+      "status": "ok",
+      "httpStatus": 200
     },
     {
       "url": "https://github.com/QuentinFuxa/WhisperLiveKit",
@@ -2726,8 +2746,8 @@
     },
     {
       "url": "https://opencode.ai/docs/zen/",
-      "status": "broken",
-      "httpStatus": 404
+      "status": "ok",
+      "httpStatus": 200
     },
     {
       "url": "https://github.com/ShenSeanChen/waku-agent",
@@ -3781,8 +3801,8 @@
     },
     {
       "url": "https://arena.ai/",
-      "status": "ok",
-      "httpStatus": 200
+      "status": "restricted",
+      "httpStatus": 403
     },
     {
       "url": "https://www.unicorn.studio/",
@@ -3875,17 +3895,52 @@
       "httpStatus": 200
     },
     {
-      "url": "https://abhijayvuyyuru.substack.com/p/try-these-100-code-that-make-your",
-      "status": "restricted",
-      "httpStatus": 403
-    },
-    {
-      "url": "https://koboyo.com/page-mascot",
+      "url": "https://github.com/latent-spaces/brag",
       "status": "ok",
       "httpStatus": 200
     },
     {
-      "url": "https://mirage.app/tesseract/codex",
+      "url": "https://github.com/tobi/disktree",
+      "status": "ok",
+      "httpStatus": 200
+    },
+    {
+      "url": "https://en.knowledgefxg.com/",
+      "status": "ok",
+      "httpStatus": 202
+    },
+    {
+      "url": "https://github.com/Human-Agent-Society/reef",
+      "status": "ok",
+      "httpStatus": 200
+    },
+    {
+      "url": "https://ai.google.dev/gemini-api/docs/speech-generation",
+      "status": "ok",
+      "httpStatus": 200
+    },
+    {
+      "url": "https://github.com/jub0t/Concat",
+      "status": "ok",
+      "httpStatus": 200
+    },
+    {
+      "url": "https://huggingface.co/nvidia/Nemotron-3-Diarization",
+      "status": "ok",
+      "httpStatus": 200
+    },
+    {
+      "url": "https://www.youtube.com/@notcartel",
+      "status": "ok",
+      "httpStatus": 200
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=dPHOl0fkkOA",
+      "status": "ok",
+      "httpStatus": 200
+    },
+    {
+      "url": "https://github.com/PavelHopson/eclipse-library/blob/master/guides/erida-character-bible-v1.md",
       "status": "ok",
       "httpStatus": 200
     },
