@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>AI Office · Мобильная передача задания</title>
+<style>
+:root{color-scheme:dark;--bg:#111316;--panel:#181b20;--panel2:#20242b;--ink:#eef1f6;--muted:#97a0ad;--line:#333a46;--accent:#77d7c2;--blue:#8ea9ff;--warn:#f3c779;--ok:#9ce6be;--shadow:0 20px 60px #0008}
+*{box-sizing:border-box}html,body{margin:0;min-height:100%;background:radial-gradient(900px 500px at 50% -10%,#283039 0%,var(--bg) 70%);font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;color:var(--ink)}
+body{padding:28px 18px 42px}.shell{max-width:1200px;margin:auto}.eyebrow{font:700 11px/1.2 ui-monospace,SFMono-Regular,Consolas,monospace;letter-spacing:.16em;text-transform:uppercase;color:var(--accent)}h1{font-size:clamp(28px,4vw,54px);line-height:1.02;letter-spacing:-.045em;margin:10px 0 12px;max-width:820px}p{color:var(--muted);line-height:1.55;max-width:760px}.notice{display:flex;align-items:flex-start;gap:12px;border:1px solid #795e2d;background:#2b2416;color:#efd9a7;border-radius:14px;padding:13px 15px;margin:20px 0 24px;max-width:850px;font-size:13px}.notice strong{color:#fff0c6}.layout{display:grid;grid-template-columns:minmax(0,1.45fr) minmax(270px,.75fr);gap:18px;align-items:start}.stage,.side{background:linear-gradient(160deg,#1b1e24,#14171b);border:1px solid var(--line);border-radius:22px;box-shadow:var(--shadow)}.stage{padding:16px}.stage-head{display:flex;justify-content:space-between;align-items:center;gap:12px;margin:1px 4px 10px}.stage-head strong{font-size:13px}.badge{font:700 11px ui-monospace,monospace;letter-spacing:.08em;text-transform:uppercase;padding:6px 9px;border-radius:999px;background:#26342f;color:var(--ok)}svg{display:block;width:100%;height:auto;background:#111419;border:1px solid #2a3039;border-radius:16px}.side{padding:18px}.side h2{font-size:16px;margin:0 0 14px}.step-list{display:grid;gap:8px;margin:0 0 18px}.step{width:100%;display:flex;align-items:center;gap:10px;text-align:left;background:#1d2127;border:1px solid #343b46;color:var(--ink);border-radius:12px;padding:11px 12px;cursor:pointer;transition:border-color .18s,background .18s}.step:hover,.step:focus-visible{border-color:var(--accent);background:#222b2d;outline:none}.step[aria-current=true]{border-color:var(--accent);box-shadow:0 0 0 2px #77d7c21f inset}.num{display:grid;place-items:center;width:24px;height:24px;border-radius:8px;background:#2a303a;color:var(--muted);font:700 12px ui-monospace,monospace;flex:none}.step[aria-current=true] .num{background:var(--accent);color:#10201c}.step small{display:block;color:var(--muted);font-size:11px;margin-top:2px}.readout{border-top:1px solid var(--line);padding-top:15px}.readout dt{color:var(--muted);font-size:11px;text-transform:uppercase;letter-spacing:.08em;margin-top:10px}.readout dd{margin:3px 0 0;font-size:14px;line-height:1.4}.footer{display:flex;gap:8px;flex-wrap:wrap;margin-top:16px}.kbd{border:1px solid #424b57;background:#20242b;border-radius:6px;padding:2px 6px;font:11px ui-monospace,monospace;color:#dbe2eb}.legend{display:flex;gap:16px;flex-wrap:wrap;margin:12px 4px 0;color:var(--muted);font-size:11px}.dot{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:5px;background:var(--accent)}.dot.blue{background:var(--blue)}.dot.gray{background:#77808d}.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}@media(max-width:820px){body{padding:18px 12px 32px}.layout{grid-template-columns:1fr}.stage{padding:10px}.side{padding:14px}h1{font-size:34px}}
+@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}}
+</style>
+</head>
+<body>
+<main class="shell">
+ <div class="eyebrow">ECLIPSE AI OFFICE · MOBILE HANDOFF</div>
+ <h1>Задание с телефона становится локальным результатом</h1>
+ <p>Интерактивная схема пользовательского маршрута: телефон → рабочее пространство → сотрудник → локальное резюме → квитанция. Нажмите этапы или используйте <span class="kbd">←</span> <span class="kbd">→</span>.</p>
+ <div class="notice" role="note"><span aria-hidden="true">◈</span><span><strong>Граница проверки:</strong> HAPI Codex phone и Ornith runtime здесь не подключены и не подтверждены. Это безопасный локальный explainer без сети и авторизации; он показывает целевой UX и точки контракта.</span></div>
+ <div class="layout">
+  <section class="stage" aria-labelledby="stage-title">
+   <div class="stage-head"><strong id="stage-title">Маршрут задания</strong><span class="badge" id="statusBadge">локальный макет</span></div>
+   <svg id="diagram" viewBox="0 0 960 560" role="img" aria-labelledby="svgTitle svgDesc">
+    <title id="svgTitle">Маршрут задания с телефона до локального резюме</title>
+    <desc id="svgDesc">Пять механических модулей соединены трубкой потока. Активный модуль подсвечивается.</desc>
+    <defs>
+     <linearGradient id="metal" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#39414b"/><stop offset="1" stop-color="#1d2229"/></linearGradient>
+     <linearGradient id="paper" x1="0" x2="1"><stop stop-color="#263139"/><stop offset="1" stop-color="#1b2026"/></linearGradient>
+     <filter id="soft"><feGaussianBlur stdDeviation="10"/></filter>
+    </defs>
+    <rect x="0" y="0" width="960" height="560" fill="#111419"/>
+    <g opacity=".15" stroke="#6c7783" stroke-width="1"><path d="M40 94H920M40 186H920M40 278H920M40 370H920M40 462H920"/><path d="M126 40V520M270 40V520M414 40V520M558 40V520M702 40V520M846 40V520"/></g>
+    <path d="M118 306 C 250 306 260 152 378 152 S 500 306 602 306 S 730 456 842 306" fill="none" stroke="#77d7c2" stroke-opacity=".16" stroke-width="18" filter="url(#soft)"/>
+    <path d="M118 306 C 250 306 260 152 378 152 S 500 306 602 306 S 730 456 842 306" fill="none" stroke="#54636d" stroke-width="7" stroke-linecap="round"/>
+    <path id="flowLine" d="M118 306 C 250 306 260 152 378 152 S 500 306 602 306 S 730 456 842 306" fill="none" stroke="#77d7c2" stroke-width="4" stroke-linecap="round" stroke-dasharray="1 14"/>
+    <g id="module-phone" transform="translate(55 225)"><rect x="0" y="0" width="126" height="162" rx="20" fill="url(#metal)" stroke="#56616d"/><rect x="12" y="23" width="102" height="113" rx="10" fill="#11161c" stroke="#303944"/><circle cx="63" cy="12" r="3" fill="#77d7c2"/><rect x="26" y="45" width="74" height="8" rx="4" fill="#77808d"/><rect x="26" y="66" width="56" height="8" rx="4" fill="#47515c"/><rect x="26" y="101" width="52" height="16" rx="8" fill="#77d7c2"/><text x="63" y="154" text-anchor="middle" fill="#a8b3bf" font-size="12" font-weight="700">ТЕЛЕФОН</text></g>
+    <g id="module-workspace" transform="translate(315 72)"><path d="M0 22 28 0h126l28 22v112l-28 22H28L0 134Z" fill="url(#metal)" stroke="#56616d"/><rect x="23" y="37" width="136" height="68" rx="8" fill="#11161c" stroke="#303944"/><circle cx="45" cy="70" r="14" fill="#263b38" stroke="#77d7c2"/><path d="m39 70 5 5 9-11" fill="none" stroke="#77d7c2" stroke-width="3" stroke-linecap="round"/><rect x="72" y="58" width="62" height="8" rx="4" fill="#8b96a3"/><rect x="72" y="77" width="45" height="7" rx="3" fill="#47515c"/><text x="89" y="145" text-anchor="middle" fill="#a8b3bf" font-size="12" font-weight="700">WORKSPACE</text></g>
+    <g id="module-employee" transform="translate(520 225)"><rect x="0" y="0" width="155" height="162" rx="18" fill="url(#metal)" stroke="#56616d"/><circle cx="77" cy="51" r="22" fill="#242b35" stroke="#8ea9ff" stroke-width="3"/><circle cx="77" cy="47" r="7" fill="#8ea9ff"/><path d="M52 80q25-24 50 0" fill="none" stroke="#8ea9ff" stroke-width="5" stroke-linecap="round"/><rect x="25" y="103" width="105" height="8" rx="4" fill="#77808d"/><text x="77" y="151" text-anchor="middle" fill="#a8b3bf" font-size="12" font-weight="700">СОТРУДНИК</text></g>
+    <g id="module-summary" transform="translate(758 225)"><rect x="0" y="0" width="150" height="162" rx="18" fill="url(#paper)" stroke="#56616d"/><path d="M30 36h90M30 58h90M30 80h62M30 110h72" stroke="#77808d" stroke-width="8" stroke-linecap="round"/><path d="m106 106 8 8 17-20" fill="none" stroke="#77d7c2" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/><text x="75" y="151" text-anchor="middle" fill="#a8b3bf" font-size="12" font-weight="700">РЕЗЮМЕ</text></g>
+    <g id="cursor" transform="translate(105 398)" opacity=".9"><path d="M0 0 8 31l9-10 13 17 7-6-13-17 13-4Z" fill="#f1f5fa" stroke="#101318" stroke-width="3"/></g>
+    <g id="pulse" transform="translate(118 306)"><circle r="10" fill="#77d7c2"/><circle r="18" fill="none" stroke="#77d7c2" stroke-opacity=".35" stroke-width="2"/></g>
+    <g id="activeRing" transform="translate(118 306)" fill="none" stroke="#77d7c2" stroke-width="3"><rect x="-72" y="-88" width="170" height="186" rx="28" opacity=".7"/></g>
+   </svg>
+   <div class="legend"><span><i class="dot"></i>активный этап</span><span><i class="dot blue"></i>локальный сотрудник</span><span><i class="dot gray"></i>граница, которую ещё нужно подтвердить</span></div>
+  </section>
+  <aside class="side" aria-labelledby="controls-title">
+   <h2 id="controls-title">Этапы маршрута</h2>
+   <div class="step-list" role="list">
+    <button class="step" data-step="0" aria-current="true"><span class="num">01</span><span>Задание с телефона<small>намерение и короткий контекст</small></span></button>
+    <button class="step" data-step="1" aria-current="false"><span class="num">02</span><span>Workspace<small>изоляция рабочего пространства</small></span></button>
+    <button class="step" data-step="2" aria-current="false"><span class="num">03</span><span>Employee<small>назначение роли и лимитов</small></span></button>
+    <button class="step" data-step="3" aria-current="false"><span class="num">04</span><span>Локальное резюме<small>краткий результат без сети</small></span></button>
+    <button class="step" data-step="4" aria-current="false"><span class="num">05</span><span>Receipt<small>что сделано и что проверить</small></span></button>
+   </div>
+   <div class="readout" aria-live="polite"><dl><dt>Сейчас</dt><dd id="currentTitle">Задание с телефона</dd><dt>Действие</dt><dd id="currentAction">Собрать цель, источник и ожидаемый результат.</dd><dt>Результат</dt><dd id="currentResult">Локальная карточка задания готова к маршрутизации.</dd></dl></div>
+   <div class="footer"><span class="kbd">Enter</span><span class="kbd">Space</span><span style="color:var(--muted);font-size:11px">выбрать этап · ← → переключить</span></div>
+  </aside>
+ </div>
+</main>
+<script>
+(function(){
+ 'use strict';
+ var steps=[
+  {title:'Задание с телефона',action:'Собрать цель, источник и ожидаемый результат.',result:'Локальная карточка задания готова к маршрутизации.',pos:[118,306],ring:'phone',cursor:[105,398]},
+  {title:'Рабочее пространство',action:'Проверить workspaceId и границы доступа перед передачей.',result:'Контекст выбран; реальная мобильная синхронизация здесь не подключена.',pos:[404,152],ring:'workspace',cursor:[370,204]},
+  {title:'Сотрудник офиса',action:'Назначить роль, допустимые инструменты и бюджет.',result:'План назначения показан; реальный HAPI/Ornith runtime не подтверждён.',pos:[598,306],ring:'employee',cursor:[595,410]},
+  {title:'Локальное резюме',action:'Сжать выполненные шаги, решения и незакрытые вопросы.',result:'Черновик резюме хранится в этой странице и не отправляется в сеть.',pos:[833,306],ring:'summary',cursor:[828,410]},
+  {title:'Receipt',action:'Показать доказательства, ограничения и следующий ручной шаг.',result:'Квитанция готова к проверке человеком; публикация и авторизация не выполняются.',pos:[833,306],ring:'summary',cursor:[866,405]}
+ ];
+ var index=0, buttons=[].slice.call(document.querySelectorAll('.step')), title=document.getElementById('currentTitle'), action=document.getElementById('currentAction'), result=document.getElementById('currentResult'), badge=document.getElementById('statusBadge'), ring=document.getElementById('activeRing'), pulse=document.getElementById('pulse'), cursor=document.getElementById('cursor');
+ var ringBoxes={phone:{x:-72,y:-88,w:170,h:186,r:28},workspace:{x:-18,y:-93,w:208,h:188,r:28},employee:{x:-20,y:-92,w:195,h:188,r:28},summary:{x:-18,y:-92,w:190,h:188,r:28}};
+ function update(next){index=(next+steps.length)%steps.length;var s=steps[index],b=ringBoxes[s.ring];buttons.forEach(function(btn,i){btn.setAttribute('aria-current',i===index?'true':'false')});title.textContent=s.title;action.textContent=s.action;result.textContent=s.result;badge.textContent=index===4?'квитанция · локально':'локальный макет';ring.setAttribute('transform','translate('+s.pos[0]+' '+s.pos[1]+')');ring.firstElementChild.setAttribute('x',b.x);ring.firstElementChild.setAttribute('y',b.y);ring.firstElementChild.setAttribute('width',b.w);ring.firstElementChild.setAttribute('height',b.h);ring.firstElementChild.setAttribute('rx',b.r);pulse.setAttribute('transform','translate('+s.pos[0]+' '+s.pos[1]+')');cursor.setAttribute('transform','translate('+s.cursor[0]+' '+s.cursor[1]+')');}
+ buttons.forEach(function(btn){btn.addEventListener('click',function(){update(Number(btn.dataset.step))})});
+ document.addEventListener('keydown',function(e){if(e.key==='ArrowRight'){e.preventDefault();update(index+1)}else if(e.key==='ArrowLeft'){e.preventDefault();update(index-1)}else if((e.key==='Enter'||e.key===' ')&&document.activeElement&&document.activeElement.classList.contains('step')){e.preventDefault();update(Number(document.activeElement.dataset.step))}});
+ update(0);
+})();
+</script>
+</body>
+</html>
+
