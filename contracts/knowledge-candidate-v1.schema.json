@@ -1,0 +1,56 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://library.eclipse-forge.ru/contracts/knowledge-candidate-v1.schema.json",
+  "title": "Eclipse Library knowledge candidate v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schemaVersion", "candidateId", "createdAtEpochMs", "source", "content", "trust", "review"],
+  "properties": {
+    "schemaVersion": { "const": "knowledge.candidate.v1" },
+    "candidateId": { "type": "string", "pattern": "^[a-f0-9]{64}$" },
+    "createdAtEpochMs": { "type": "integer", "minimum": 1 },
+    "source": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["url", "title", "contentHashSha256", "extractor", "publicOnly"],
+      "properties": {
+        "url": { "type": "string", "pattern": "^https?://" },
+        "title": { "type": ["string", "null"] },
+        "contentHashSha256": { "type": "string", "pattern": "^[a-f0-9]{64}$" },
+        "extractor": { "const": "eclipse-claw" },
+        "publicOnly": { "const": true }
+      }
+    },
+    "content": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["markdown", "byteLength", "wordCount"],
+      "properties": {
+        "markdown": { "type": "string", "minLength": 1, "maxLength": 524288 },
+        "byteLength": { "type": "integer", "minimum": 1, "maximum": 524288 },
+        "wordCount": { "type": "integer", "minimum": 0 }
+      }
+    },
+    "trust": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["content", "instructions", "license", "sourcePolicy"],
+      "properties": {
+        "content": { "const": "untrusted" },
+        "instructions": { "const": "data_only" },
+        "license": { "const": "unknown" },
+        "sourcePolicy": { "const": "public_only" }
+      }
+    },
+    "review": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["status", "canonical", "agentEligible"],
+      "properties": {
+        "status": { "const": "needs_review" },
+        "canonical": { "const": false },
+        "agentEligible": { "const": false }
+      }
+    }
+  }
+}

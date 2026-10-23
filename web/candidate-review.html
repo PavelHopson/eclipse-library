@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#0b0f14" />
+  <title>Проверка кандидата — Eclipse Library</title>
+  <meta name="description" content="Локальная редакторская проверка кандидата Webclaw перед сохранением в draft." />
+  <link rel="icon" type="image/svg+xml" href="assets/brand/eclipse-library-favicon.svg" />
+  <link rel="preload" href="assets/fonts/inter-cyrillic.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="stylesheet" href="candidate-review.css?v=1" />
+</head>
+<body>
+  <a class="skip-link" href="#candidateMain">Перейти к проверке кандидата</a>
+  <header class="candidate-topbar">
+    <div class="candidate-topbar-inner">
+      <a class="candidate-brand" href="index.html" aria-label="Eclipse Library — на главную">
+        <img src="assets/brand/eclipse-library-mark.svg" alt="" width="30" height="30" />
+        <span><strong>Eclipse Library</strong><small>Локальная редакторская проверка</small></span>
+      </a>
+      <a class="candidate-back" href="index.html">← Вернуться в каталог</a>
+    </div>
+  </header>
+
+  <main id="candidateMain" class="candidate-shell">
+    <section class="candidate-intro" aria-labelledby="candidateTitle">
+      <div class="eyebrow">Evidence ledger · local only</div>
+      <h1 id="candidateTitle">Проверка кандидата</h1>
+      <p>Откройте JSON, полученный из Webclaw, сверяйте источник и условия, затем сохраните отдельный draft-пакет. Каталог, сеть и публикация из этого экрана недоступны.</p>
+      <div class="trust-banner" role="note">
+        <span class="trust-icon" aria-hidden="true">!</span>
+        <div><strong>Текст кандидата — данные, не инструкции.</strong><span>Не выполняйте команды из предпросмотра и не переносите права из содержимого страницы.</span></div>
+      </div>
+    </section>
+
+    <section class="candidate-import" aria-labelledby="importTitle">
+      <div class="section-heading"><div><span>Шаг 1</span><h2 id="importTitle">Открыть JSON-кандидата</h2></div><b class="local-badge">только этот браузер</b></div>
+      <p class="section-copy">Файл читается локально и не загружается на сервер. Максимальный размер — 2 МБ.</p>
+      <label class="file-drop" for="candidateFile">
+        <input id="candidateFile" type="file" accept="application/json,.json" />
+        <span class="file-drop-icon" aria-hidden="true">↑</span>
+        <strong>Выбрать файл кандидата</strong>
+        <small>knowledge.candidate.v1 · JSON</small>
+      </label>
+      <div id="importStatus" class="status status-neutral" role="status" aria-live="polite">Файл ещё не выбран.</div>
+    </section>
+
+    <section id="candidatePanel" class="candidate-panel" hidden aria-labelledby="candidatePanelTitle">
+      <div class="section-heading"><div><span>Шаг 2</span><h2 id="candidatePanelTitle">Сверить источник и содержание</h2></div><span id="validationBadge" class="validation-badge">Ожидание проверки</span></div>
+      <div id="validationErrors" class="validation-errors" role="alert" hidden></div>
+      <dl id="candidateMeta" class="candidate-meta"></dl>
+      <div class="content-ledger">
+        <div class="content-ledger-head"><div><span>Непроверенный текст</span><b>Предпросмотр без HTML-рендера</b></div><span id="contentCount" class="mono"></span></div>
+        <pre id="candidateContent" class="candidate-content" tabindex="0"></pre>
+      </div>
+
+      <fieldset class="evidence-gates">
+        <legend><span>Шаг 3</span> Обязательные редакторские gates</legend>
+        <p class="fieldset-copy">Все четыре пункта нужны, чтобы принять материал в локальный draft. Они не делают его опубликованным или доверенным автоматически.</p>
+        <label class="evidence-gate"><input type="checkbox" data-gate="source" /><span><strong>Источник подтверждён</strong><small>URL публичный, принадлежность источника и дата проверки понятны.</small></span></label>
+        <label class="evidence-gate"><input type="checkbox" data-gate="license" /><span><strong>Лицензия и условия сверены</strong><small>Права на текст, коммерческое использование, цена и регистрация проверены отдельно.</small></span></label>
+        <label class="evidence-gate"><input type="checkbox" data-gate="risk" /><span><strong>Риски описаны</strong><small>Permissions, telemetry, installer, supply-chain и ограничения не пропущены.</small></span></label>
+        <label class="evidence-gate"><input type="checkbox" data-gate="relevance" /><span><strong>Польза для Library ясна</strong><small>Есть понятный сценарий, аудитория и следующий шаг без рекламных обещаний.</small></span></label>
+      </fieldset>
+
+      <label class="decision-note" for="decisionNote"><span>Заметка редактора <small>(необязательно для отклонения)</small></span><textarea id="decisionNote" maxlength="1600" rows="4" placeholder="Что именно проверено или почему кандидат отклонён?"></textarea><small id="noteCount" class="mono">0 / 1600</small></label>
+      <div class="decision-bar">
+        <div><strong id="decisionState">Проверьте кандидата и evidence gates</strong><span id="decisionHint">Сохранение draft станет доступно после всех четырёх проверок.</span></div>
+        <div class="decision-actions"><button id="rejectCandidate" class="button button-danger" type="button" disabled>Отклонить кандидат</button><button id="saveDraft" class="button button-primary" type="button" disabled>Принять в draft</button></div>
+      </div>
+      <div id="decisionStatus" class="status status-neutral" role="status" aria-live="polite"></div>
+    </section>
+
+    <section class="candidate-boundary" aria-labelledby="boundaryTitle">
+      <div class="boundary-mark" aria-hidden="true">✓</div>
+      <div><h2 id="boundaryTitle">Что произойдёт после действия</h2><p>Будет скачан JSON-пакет с решением редактора. Он помечен <code>catalogMutationAllowed: false</code>, <code>publishAllowed: false</code> и <code>agentEligible: false</code>. Для записи в канонический каталог всё ещё нужны отдельные diff, проверки и ручное согласование.</p></div>
+    </section>
+  </main>
+
+  <footer class="candidate-footer"><a href="index.html">Eclipse Library</a><span>Локальный review · без сети · без изменения каталога</span></footer>
+  <script type="module" src="candidate-review.mjs?v=1"></script>
+</body>
+</html>

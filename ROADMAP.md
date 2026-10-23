@@ -2,6 +2,20 @@
 
 Последнее обновление: **25.08.2026**
 
+### 2026-10-23 — Webclaw → Library read-only candidate intake
+
+- [x] Добавлен versioned `knowledge.candidate.v1`: bounded Markdown, SHA-256 content/candidate ids,
+  public-only source boundary и explicit `needs_review`/non-canonical flags.
+- [x] Webclaw получил `POST /knowledge/candidate`; endpoint не возвращает raw HTML, не меняет каталог
+  и не выдаёт права на публикацию или agent recommendations.
+- [x] Library добавил fail-closed validator и synthetic regression tests для prompt-like content,
+  local/credentialed URLs, hash/size drift и попытки поднять agent eligibility.
+- [x] Добавлен локальный экран `web/candidate-review.html`: JSON-кандидат показывается как данные,
+  четыре evidence/license gates обязательны для draft, rejection/draft-пакеты скачиваются с
+  `catalogMutationAllowed: false`, `publishAllowed: false` и `agentEligible: false`.
+- [ ] Human editorial review и отдельная запись в `catalog/resources.json` остаются ручными; production
+  consumer, network smoke и автоматическая публикация не включались.
+
 ### 2026-08-25 — task-first navigation and library guide
 
 - [x] Главный экран перестроен вокруг понятных задач вместо типов ресурсов и внутренней терминологии.

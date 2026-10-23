@@ -1,0 +1,28 @@
+{
+  "schemaVersion": "knowledge.candidate.v1",
+  "candidateId": "b48d48ffbed6c162f22ee2c036e54ed00b817ef38a65b7bc7d61b68222d152e1",
+  "createdAtEpochMs": 1790000000000,
+  "source": {
+    "url": "https://example.com/research",
+    "title": "Example candidate",
+    "contentHashSha256": "a2d8d2cb05c14f8e378d593fa04f6546d30840c00830f035c95db69e7209d367",
+    "extractor": "eclipse-claw",
+    "publicOnly": true
+  },
+  "content": {
+    "markdown": "# Example candidate",
+    "byteLength": 19,
+    "wordCount": 2
+  },
+  "trust": {
+    "content": "untrusted",
+    "instructions": "data_only",
+    "license": "unknown",
+    "sourcePolicy": "public_only"
+  },
+  "review": {
+    "status": "needs_review",
+    "canonical": false,
+    "agentEligible": false
+  }
+}
