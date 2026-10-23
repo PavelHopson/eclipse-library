@@ -1,21 +1,21 @@
 {
   "schemaVersion": 1,
-  "sourceHash": "8ea7cb03d02f9934453dfffa63da9ee7b3d318fb842ee1dced008d5798e089a4",
+  "sourceHash": "c69faf5c94c02d8c0f42ac775999bb5a0299c7154437a71cfe0afa5df40d0bcb",
   "policy": {
     "automaticApprovalForbidden": true,
     "directInstallForbidden": true,
     "missingLicenseMeansNoReusePermission": true
   },
   "totals": {
-    "reviewRequired": 217,
+    "reviewRequired": 218,
     "byPriority": {
       "P1": 0,
       "P2": 180,
-      "P3": 37
+      "P3": 38
     },
     "byBucket": {
       "content-terms": 36,
-      "grey-reference": 37,
+      "grey-reference": 38,
       "manual-other": 25,
       "repository-license-not-detected": 26,
       "service-terms": 93
@@ -1555,27 +1555,6 @@
       ]
     },
     {
-      "id": "director-s-console-github-com",
-      "title": "Director's Console",
-      "type": "prompt",
-      "url": "https://github.com/NickPittas/DirectorsConsole",
-      "decision": "reference",
-      "riskLevel": "medium",
-      "currentLicense": "Нужно проверить в официальном источнике",
-      "reviewStatus": "inferred",
-      "bucket": "repository-license-not-detected",
-      "priority": "P2",
-      "reason": "GitHub does not expose a detected repository license. Source availability alone grants no reuse rights.",
-      "nextStep": "Inspect repository root, README and package-specific directories; if no grant exists, mark reference-only.",
-      "evidence": [
-        {
-          "kind": "official-source",
-          "label": "Официальный источник; точные условия ещё нужно сверить",
-          "url": "https://github.com/NickPittas/DirectorsConsole"
-        }
-      ]
-    },
-    {
       "id": "eclipse-media-github-com",
       "title": "Eclipse Media",
       "type": "media",
@@ -1656,6 +1635,27 @@
           "kind": "official-source",
           "label": "Официальный источник; точные условия ещё нужно сверить",
           "url": "https://github.com/mr-r3b00t/fingerprintdetector"
+        }
+      ]
+    },
+    {
+      "id": "hackingtool-github-com",
+      "title": "hackingtool",
+      "type": "oss",
+      "url": "https://github.com/Z4nzu/hackingtool",
+      "decision": "reference",
+      "riskLevel": "medium",
+      "currentLicense": "Нужно проверить в официальном источнике",
+      "reviewStatus": "inferred",
+      "bucket": "repository-license-not-detected",
+      "priority": "P2",
+      "reason": "GitHub does not expose a detected repository license. Source availability alone grants no reuse rights.",
+      "nextStep": "Inspect repository root, README and package-specific directories; if no grant exists, mark reference-only.",
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник; точные условия ещё нужно сверить",
+          "url": "https://github.com/Z4nzu/hackingtool"
         }
       ]
     },
@@ -4589,6 +4589,27 @@
           "kind": "source",
           "label": "Claimed official website; legal pages could not be verified",
           "url": "https://tabitoken.com/"
+        }
+      ]
+    },
+    {
+      "id": "torlink-github-com",
+      "title": "Torlink",
+      "type": "grey",
+      "url": "https://github.com/baairon/torlink",
+      "decision": "reference",
+      "riskLevel": "high",
+      "currentLicense": "Нужно проверить в официальном источнике",
+      "reviewStatus": "inferred",
+      "bucket": "grey-reference",
+      "priority": "P3",
+      "reason": "Grey resources stay excluded from agent recommendations; review only if a human needs this reference.",
+      "nextStep": "Confirm ownership, redistribution rights and legal/safety boundaries before any use.",
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник; точные условия ещё нужно сверить",
+          "url": "https://github.com/baairon/torlink"
         }
       ]
     },
