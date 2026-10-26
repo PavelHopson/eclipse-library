@@ -1,15 +1,15 @@
 {
   "schemaVersion": 1,
-  "checkedAt": "2026-10-19T09:56:17.932Z",
+  "checkedAt": "2026-10-26T10:09:51.816Z",
   "totals": {
     "extracted": 819,
     "unique": 814,
     "checked": 814,
-    "ok": 768,
-    "restricted": 34,
-    "broken": 4,
-    "unavailable": 0,
-    "unknown": 8,
+    "ok": 770,
+    "restricted": 33,
+    "broken": 3,
+    "unavailable": 1,
+    "unknown": 7,
     "blocked": 0,
     "skipped": 0
   },
@@ -146,8 +146,8 @@
     },
     {
       "url": "https://aistupidlevel.info/",
-      "status": "unknown",
-      "httpStatus": null
+      "status": "ok",
+      "httpStatus": 200
     },
     {
       "url": "https://github.com/JCodesMore/ai-website-cloner-template",
@@ -1201,8 +1201,8 @@
     },
     {
       "url": "https://github.com/Z4nzu/hackingtool",
-      "status": "broken",
-      "httpStatus": 404
+      "status": "ok",
+      "httpStatus": 200
     },
     {
       "url": "https://haikei.app",
@@ -1246,8 +1246,8 @@
     },
     {
       "url": "https://support.apple.com/en-us/105078",
-      "status": "ok",
-      "httpStatus": 200
+      "status": "broken",
+      "httpStatus": 404
     },
     {
       "url": "https://higgsfield.ai/apps/virality-predictor",
@@ -2121,8 +2121,8 @@
     },
     {
       "url": "https://robokassa.com",
-      "status": "ok",
-      "httpStatus": 200
+      "status": "unavailable",
+      "httpStatus": 503
     },
     {
       "url": "https://sakana.ai/fugu/",
@@ -2397,7 +2397,7 @@
     {
       "url": "https://www.micromat.com/products/techtool-lite/",
       "status": "ok",
-      "httpStatus": 202
+      "httpStatus": 200
     },
     {
       "url": "https://github.com/anthropics/claude-plugins-official/blob/main/external_plugins/telegram/README.md",
@@ -2441,8 +2441,8 @@
     },
     {
       "url": "https://github.com/baairon/torlink",
-      "status": "broken",
-      "httpStatus": 404
+      "status": "ok",
+      "httpStatus": 200
     },
     {
       "url": "https://transitions.dev/",
@@ -3741,8 +3741,8 @@
     },
     {
       "url": "https://freebeat.ai/",
-      "status": "restricted",
-      "httpStatus": 429
+      "status": "ok",
+      "httpStatus": 200
     },
     {
       "url": "https://bolt.new/",
@@ -3907,7 +3907,7 @@
     {
       "url": "https://en.knowledgefxg.com/",
       "status": "ok",
-      "httpStatus": 202
+      "httpStatus": 200
     },
     {
       "url": "https://github.com/Human-Agent-Society/reef",
