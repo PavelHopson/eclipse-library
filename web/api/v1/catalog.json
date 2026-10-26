@@ -1,18 +1,18 @@
 {
   "schemaVersion": 2,
-  "sourceHash": "8ea7cb03d02f9934453dfffa63da9ee7b3d318fb842ee1dced008d5798e089a4",
+  "sourceHash": "fadbd3c7ffa73c181070557d32197d5e1bc0f0287bf5016d0fb70c3a8e9b779f",
   "policy": {
     "directInstallForbidden": true
   },
   "totals": {
-    "all": 786,
-    "verified": 418,
+    "all": 787,
+    "verified": 419,
     "inferred": 368,
-    "licenseReviewRequired": 217,
-    "agentSafe": 690,
-    "agentExcluded": 96,
+    "licenseReviewRequired": 216,
+    "agentSafe": 685,
+    "agentExcluded": 102,
     "grey": 88,
-    "withAddedAt": 507
+    "withAddedAt": 508
   },
   "items": [
     {
@@ -248,9 +248,14 @@
         "original": "MIT for repository content; every linked project, model, dataset and service keeps its own terms",
         "spdx": "MIT",
         "kind": "open-source",
-        "status": "editor-reviewed",
+        "status": "source-declared",
         "requiresReview": false,
         "evidence": [
+          {
+            "kind": "license",
+            "label": "MIT license",
+            "url": "https://api.github.com/repos/ashishpatel26/500-ai-agents-projects/license"
+          },
           {
             "kind": "license",
             "label": "Repository MIT license",
@@ -268,6 +273,11 @@
           "kind": "official-source",
           "label": "Официальный источник",
           "url": "https://github.com/ashishpatel26/500-AI-Agents-Projects"
+        },
+        {
+          "kind": "license",
+          "label": "MIT license",
+          "url": "https://api.github.com/repos/ashishpatel26/500-ai-agents-projects/license"
         },
         {
           "kind": "license",
@@ -1631,9 +1641,14 @@
         "original": "AGPL-3.0; network use and distribution obligations require legal/compliance review before reuse",
         "spdx": "AGPL-3.0",
         "kind": "open-source",
-        "status": "editor-reviewed",
+        "status": "source-declared",
         "requiresReview": false,
         "evidence": [
+          {
+            "kind": "license",
+            "label": "AGPL-3.0 license",
+            "url": "https://api.github.com/repos/andymik90/aperant/license"
+          },
           {
             "kind": "source",
             "label": "Canonical repository",
@@ -1651,6 +1666,11 @@
           "kind": "official-source",
           "label": "Официальный источник",
           "url": "https://github.com/AndyMik90/Aperant"
+        },
+        {
+          "kind": "license",
+          "label": "AGPL-3.0 license",
+          "url": "https://api.github.com/repos/andymik90/aperant/license"
         },
         {
           "kind": "license",
@@ -1772,7 +1792,7 @@
         "evidence": [
           {
             "kind": "license",
-            "label": "MIT license",
+            "label": "Apache-2.0 license",
             "url": "https://api.github.com/repos/tt-a1i/archify/license"
           },
           {
@@ -1795,7 +1815,7 @@
         },
         {
           "kind": "license",
-          "label": "MIT license",
+          "label": "Apache-2.0 license",
           "url": "https://api.github.com/repos/tt-a1i/archify/license"
         },
         {
@@ -2227,7 +2247,7 @@
         "Claude Code",
         "Codex"
       ],
-      "license": "No license grant detected; README badge is not sufficient permission to reuse code",
+      "license": "MIT",
       "licenseEvidence": [
         {
           "kind": "source",
@@ -2292,13 +2312,18 @@
       },
       "catalogOrder": 1,
       "licenseInfo": {
-        "label": "No license grant detected; README badge is not sufficient permission to reuse code",
+        "label": "MIT",
         "original": "No license grant detected; README badge is not sufficient permission to reuse code",
-        "spdx": null,
-        "kind": "custom",
-        "status": "editor-reviewed",
+        "spdx": "MIT",
+        "kind": "open-source",
+        "status": "source-declared",
         "requiresReview": false,
         "evidence": [
+          {
+            "kind": "license",
+            "label": "MIT license",
+            "url": "https://api.github.com/repos/maxmiksa/auto-company/license"
+          },
           {
             "kind": "source",
             "label": "Official repository; GitHub license field is empty",
@@ -2311,6 +2336,11 @@
           "kind": "official-source",
           "label": "Официальный источник",
           "url": "https://github.com/MaxMiksa/Auto-Company"
+        },
+        {
+          "kind": "license",
+          "label": "MIT license",
+          "url": "https://api.github.com/repos/maxmiksa/auto-company/license"
         }
       ],
       "agentEligibility": {
@@ -4463,9 +4493,14 @@
         "original": "Apache-2.0 for the repository; integrated cloud services retain separate terms",
         "spdx": "Apache-2.0",
         "kind": "open-source",
-        "status": "editor-reviewed",
+        "status": "source-declared",
         "requiresReview": false,
         "evidence": [
+          {
+            "kind": "license",
+            "label": "Apache-2.0 license",
+            "url": "https://api.github.com/repos/lak7/devildev/license"
+          },
           {
             "kind": "license",
             "label": "Repository Apache-2.0 license",
@@ -4483,6 +4518,11 @@
           "kind": "official-source",
           "label": "Официальный источник",
           "url": "https://github.com/lak7/devildev"
+        },
+        {
+          "kind": "license",
+          "label": "Apache-2.0 license",
+          "url": "https://api.github.com/repos/lak7/devildev/license"
         },
         {
           "kind": "license",
@@ -5168,9 +5208,14 @@
         "original": "Apache-2.0 в проверенном репозитории; условия API и зависимости проверяются отдельно.",
         "spdx": "Apache-2.0",
         "kind": "open-source",
-        "status": "editor-reviewed",
+        "status": "source-declared",
         "requiresReview": false,
         "evidence": [
+          {
+            "kind": "license",
+            "label": "Apache-2.0 license",
+            "url": "https://api.github.com/repos/reconurge/flowsint/license"
+          },
           {
             "kind": "license",
             "label": "Flowsint LICENSE",
@@ -5183,6 +5228,11 @@
           "kind": "official-source",
           "label": "Официальный источник",
           "url": "https://github.com/reconurge/flowsint"
+        },
+        {
+          "kind": "license",
+          "label": "Apache-2.0 license",
+          "url": "https://api.github.com/repos/reconurge/flowsint/license"
         },
         {
           "kind": "license",
@@ -5707,7 +5757,7 @@
         "evidence": [
           {
             "kind": "license",
-            "label": "MIT license",
+            "label": "Other license",
             "url": "https://api.github.com/repos/alishahryar1/free-claude-code/license"
           },
           {
@@ -5730,7 +5780,7 @@
         },
         {
           "kind": "license",
-          "label": "MIT license",
+          "label": "Other license",
           "url": "https://api.github.com/repos/alishahryar1/free-claude-code/license"
         },
         {
@@ -7895,9 +7945,14 @@
         "original": "Apache-2.0 repository code; base models, datasets, adapters and outputs retain independent licenses and rights",
         "spdx": "Apache-2.0",
         "kind": "open-source",
-        "status": "editor-reviewed",
+        "status": "source-declared",
         "requiresReview": false,
         "evidence": [
+          {
+            "kind": "license",
+            "label": "Apache-2.0 license",
+            "url": "https://api.github.com/repos/bmaltais/kohya_ss/license"
+          },
           {
             "kind": "source",
             "label": "Canonical repository",
@@ -7915,6 +7970,11 @@
           "kind": "official-source",
           "label": "Официальный источник",
           "url": "https://github.com/bmaltais/kohya_ss"
+        },
+        {
+          "kind": "license",
+          "label": "Apache-2.0 license",
+          "url": "https://api.github.com/repos/bmaltais/kohya_ss/license"
         },
         {
           "kind": "license",
@@ -8936,9 +8996,14 @@
         "original": "GPL-3.0 repository, archived and unmaintained",
         "spdx": "GPL-3.0",
         "kind": "open-source",
-        "status": "editor-reviewed",
+        "status": "source-declared",
         "requiresReview": false,
         "evidence": [
+          {
+            "kind": "license",
+            "label": "GPL-3.0 license",
+            "url": "https://api.github.com/repos/matsuridayo/nekoray/license"
+          },
           {
             "kind": "source",
             "label": "Canonical archived repository",
@@ -8959,13 +9024,20 @@
         },
         {
           "kind": "license",
+          "label": "GPL-3.0 license",
+          "url": "https://api.github.com/repos/matsuridayo/nekoray/license"
+        },
+        {
+          "kind": "license",
           "label": "Repository license",
           "url": "https://github.com/MatsuriDayo/nekoray/blob/main/LICENSE"
         }
       ],
       "agentEligibility": {
-        "eligible": true,
-        "reasons": [],
+        "eligible": false,
+        "reasons": [
+          "repository-archived"
+        ],
         "installAllowed": false
       }
     },
@@ -9593,9 +9665,14 @@
         "original": "MIT for repository code; music, metadata, APIs and source services retain separate rights and terms",
         "spdx": "MIT",
         "kind": "open-source",
-        "status": "editor-reviewed",
+        "status": "source-declared",
         "requiresReview": false,
         "evidence": [
+          {
+            "kind": "license",
+            "label": "MIT license",
+            "url": "https://api.github.com/repos/blackhatdevx/openspot-music-app/license"
+          },
           {
             "kind": "license",
             "label": "Repository MIT license",
@@ -9613,6 +9690,11 @@
           "kind": "official-source",
           "label": "Официальный источник",
           "url": "https://github.com/BlackHatDevX/openspot-music-app"
+        },
+        {
+          "kind": "license",
+          "label": "MIT license",
+          "url": "https://api.github.com/repos/blackhatdevx/openspot-music-app/license"
         },
         {
           "kind": "license",
@@ -11148,9 +11230,14 @@
         "original": "MIT для REA; условия движков, зависимостей и исследуемого приложения проверяются отдельно.",
         "spdx": "MIT",
         "kind": "open-source",
-        "status": "editor-reviewed",
+        "status": "source-declared",
         "requiresReview": false,
         "evidence": [
+          {
+            "kind": "license",
+            "label": "MIT license",
+            "url": "https://api.github.com/repos/morluto/rea/license"
+          },
           {
             "kind": "license",
             "label": "Лицензия REA",
@@ -11163,6 +11250,11 @@
           "kind": "official-source",
           "label": "Официальный источник",
           "url": "https://github.com/morluto/rea"
+        },
+        {
+          "kind": "license",
+          "label": "MIT license",
+          "url": "https://api.github.com/repos/morluto/rea/license"
         },
         {
           "kind": "license",
@@ -11283,6 +11375,11 @@
         "evidence": [
           {
             "kind": "license",
+            "label": "Other license",
+            "url": "https://api.github.com/repos/davidhdev/react-bits/license"
+          },
+          {
+            "kind": "license",
             "label": "Official repository license",
             "url": "https://github.com/DavidHDev/react-bits/blob/main/LICENSE"
           },
@@ -11298,6 +11395,11 @@
           "kind": "official-source",
           "label": "Официальный источник",
           "url": "https://github.com/DavidHDev/react-bits"
+        },
+        {
+          "kind": "license",
+          "label": "Other license",
+          "url": "https://api.github.com/repos/davidhdev/react-bits/license"
         },
         {
           "kind": "license",
@@ -12205,6 +12307,151 @@
       }
     },
     {
+      "id": "scenario-3d-collection",
+      "url": "https://huggingface.co/datasets/scenario-labs/3d-collection",
+      "title": "Scenario 3D Collection — готовые 3D-ассеты",
+      "type": "media",
+      "category": "Медиа и дизайн",
+      "subcategory": "3D-ассеты и датасеты",
+      "simpleDescription": "Коллекция готовых AI-generated 3D-ассетов, а не бесплатный неограниченный генератор Scenario. По карточке автора: 1342 примера, 1500 выходных файлов, около 39 ГБ с превью и доступными исходниками. Форматы: 1271 GLB, 137 Blender, 41 SPZ, 23 PLY, 21 VOX и 7 FBX. Начните с одного подходящего файла.",
+      "useCases": [
+        "Прототип игровой сцены из выбранных GLB",
+        "Учебная 3D-сцена с проверкой материалов и масштаба",
+        "Предметная визуализация или медиаматериал после проверки ассета"
+      ],
+      "platforms": [
+        "Web",
+        "Blender",
+        "Windows",
+        "Linux",
+        "macOS"
+      ],
+      "license": "CC-BY-4.0",
+      "licenseEvidence": [
+        {
+          "kind": "source",
+          "label": "Карточка коллекции: состав, метаданные и ограничения",
+          "url": "https://huggingface.co/datasets/scenario-labs/3d-collection/blob/55b4c002b4c1529fc48da3dff98516c3069bfa3f/README.md"
+        },
+        {
+          "kind": "license",
+          "label": "CC BY 4.0 — условия атрибуции",
+          "url": "https://creativecommons.org/licenses/by/4.0/"
+        }
+      ],
+      "pricing": "Файлы основной коллекции доступны бесплатно. Это не бесплатный доступ к генерации в Scenario; хранение и обработка требуют собственных ресурсов.",
+      "access": {
+        "cost": "free",
+        "signup": "none",
+        "runtime": "local"
+      },
+      "trust": "caution",
+      "trustReason": "26.10.2026: сверены официальная карточка, метаданные примеров и CC BY 4.0. Это документальная проверка: файлы нами не открывались и не рендерились. Автор сообщает о структурных проверках и одной Blender-сцене с двумя отсутствующими текстурами, но не сертифицирует качество рендера и анимации.",
+      "projects": [],
+      "decision": "reference",
+      "riskLevel": "medium",
+      "risks": [
+        "CC BY 4.0 не гарантирует права на сторонние бренды, персонажей и другие охраняемые элементы; проверьте выбранный объект перед публикацией",
+        "Hunyuan-коллекция опубликована отдельно с другими лицензиями; не переносите на неё условия основной коллекции",
+        "Наличие превью не доказывает пригодность модели: проверьте текстуры, геометрию, масштаб, полигональность и нагрузку на целевом устройстве",
+        "В метаданных есть параметры, доступные промпты, входные изображения, пути и SHA-256, но часть полей null; не выдумывайте отсутствующие сведения",
+        "Не включайте автоматическое выполнение скриптов Blender для чужих файлов; работайте с копией в отдельной среде без секретов"
+      ],
+      "verifiedAt": "2026-10-26",
+      "addedAt": "2026-10-26",
+      "reviewStatus": "verified",
+      "quickStart": [
+        "Откройте официальный Dataset Viewer, выберите один пример с форматом GLB и проверьте его превью, ID и поле license",
+        "Сохраните ID, ревизию репозитория, путь outputs.path и ожидаемый outputs.sha256. Скачайте только нужный output_files URL или конкретный файл через Files and versions; не клонируйте весь датасет",
+        "Сверьте SHA-256 скачанного файла: в Windows PowerShell выполните Get-FileHash -LiteralPath '.\\output.glb' -Algorithm SHA256 и сравните результат с outputs.sha256. При несовпадении не используйте файл",
+        "Откройте копию в поддерживающем формат просмотрщике; проверьте материалы, масштаб и ресурсы. Для Blender отключите автоматическое выполнение скриптов; проверка источника не означает проверку безопасности файла",
+        "В титрах или документации укажите: Scenario — Scenario 3D Collection; ID ассета; URL источника; https://creativecommons.org/licenses/by/4.0/; Изменения: нет либо перечень правок. Сохраните эту запись рядом с экспортом"
+      ],
+      "source": {
+        "file": "catalog/resources.json",
+        "key": "scenario-3d-collection",
+        "legacy": {
+          "file": "catalog/resources.json",
+          "key": "scenario-3d-collection",
+          "category": "Медиа и дизайн",
+          "subcategory": "3D-ассеты и датасеты"
+        }
+      },
+      "verification": {
+        "scope": "Primary dataset card and license documentation review only; no asset download, installation, rendering or runtime validation.",
+        "runtimeTested": false,
+        "installed": false,
+        "eventDate": null,
+        "upstreamCommit": "55b4c002b4c1529fc48da3dff98516c3069bfa3f",
+        "sources": [
+          "https://huggingface.co/datasets/scenario-labs/3d-collection",
+          "https://creativecommons.org/licenses/by/4.0/"
+        ],
+        "dataset": {
+          "examples": 1342,
+          "outputFiles": 1500,
+          "approximateGB": 39,
+          "formats": {
+            "glb": 1271,
+            "blend": 137,
+            "spz": 41,
+            "ply": 23,
+            "vox": 21,
+            "fbx": 7
+          }
+        }
+      },
+      "correctionHistory": [
+        {
+          "date": "2026-10-26",
+          "change": "Добавлена карточка основной коллекции с документальной проверкой, выборочным скачиванием и атрибуцией; Hunyuan и качество отдельных моделей не включены в вывод о проверке."
+        }
+      ],
+      "catalogOrder": 1,
+      "licenseInfo": {
+        "label": "CC-BY-4.0",
+        "original": "CC BY 4.0. Авторство: Scenario. Сохраняйте источник, ссылку на лицензию и описание изменений; права на сторонние бренды и персонажей отдельно не гарантированы.",
+        "spdx": "CC-BY-4.0",
+        "kind": "open-source",
+        "status": "editor-reviewed",
+        "requiresReview": false,
+        "evidence": [
+          {
+            "kind": "source",
+            "label": "Карточка коллекции: состав, метаданные и ограничения",
+            "url": "https://huggingface.co/datasets/scenario-labs/3d-collection/blob/55b4c002b4c1529fc48da3dff98516c3069bfa3f/README.md"
+          },
+          {
+            "kind": "license",
+            "label": "CC BY 4.0 — условия атрибуции",
+            "url": "https://creativecommons.org/licenses/by/4.0/"
+          }
+        ]
+      },
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://huggingface.co/datasets/scenario-labs/3d-collection"
+        },
+        {
+          "kind": "source",
+          "label": "Карточка коллекции: состав, метаданные и ограничения",
+          "url": "https://huggingface.co/datasets/scenario-labs/3d-collection/blob/55b4c002b4c1529fc48da3dff98516c3069bfa3f/README.md"
+        },
+        {
+          "kind": "license",
+          "label": "CC BY 4.0 — условия атрибуции",
+          "url": "https://creativecommons.org/licenses/by/4.0/"
+        }
+      ],
+      "agentEligibility": {
+        "eligible": true,
+        "reasons": [],
+        "installAllowed": false
+      }
+    },
+    {
       "type": "oss",
       "features": [
         "Torrent client",
@@ -12299,6 +12546,11 @@
         "requiresReview": false,
         "evidence": [
           {
+            "kind": "license",
+            "label": "Other license",
+            "url": "https://api.github.com/repos/hotheadhacker/seedbox-lite/license"
+          },
+          {
             "kind": "source",
             "label": "Canonical repository",
             "url": "https://github.com/hotheadhacker/seedbox-lite"
@@ -12315,6 +12567,11 @@
           "kind": "official-source",
           "label": "Официальный источник",
           "url": "https://github.com/hotheadhacker/seedbox-lite"
+        },
+        {
+          "kind": "license",
+          "label": "Other license",
+          "url": "https://api.github.com/repos/hotheadhacker/seedbox-lite/license"
         },
         {
           "kind": "license",
@@ -12683,9 +12940,14 @@
         "original": "GPL-3.0; keep as a separate process/reference unless a compliance decision approves distribution obligations",
         "spdx": "GPL-3.0",
         "kind": "open-source",
-        "status": "editor-reviewed",
+        "status": "source-declared",
         "requiresReview": false,
         "evidence": [
+          {
+            "kind": "license",
+            "label": "GPL-3.0 license",
+            "url": "https://api.github.com/repos/jhc13/taggui/license"
+          },
           {
             "kind": "source",
             "label": "Canonical repository",
@@ -12703,6 +12965,11 @@
           "kind": "official-source",
           "label": "Официальный источник",
           "url": "https://github.com/jhc13/taggui"
+        },
+        {
+          "kind": "license",
+          "label": "GPL-3.0 license",
+          "url": "https://api.github.com/repos/jhc13/taggui/license"
         },
         {
           "kind": "license",
@@ -13223,7 +13490,7 @@
         "Record exclusion decision",
         "Prevent confusion between code license and content rights"
       ],
-      "license": "Repository code license does not grant rights to platform content or permission to bypass access controls",
+      "license": "MIT",
       "licenseEvidence": [
         {
           "kind": "source",
@@ -13272,13 +13539,18 @@
       },
       "catalogOrder": 1,
       "licenseInfo": {
-        "label": "Repository code license does not grant rights to platform content or permission to bypass access controls",
+        "label": "MIT",
         "original": "Repository code license does not grant rights to platform content or permission to bypass access controls",
-        "spdx": null,
-        "kind": "custom",
-        "status": "editor-reviewed",
+        "spdx": "MIT",
+        "kind": "open-source",
+        "status": "source-declared",
         "requiresReview": false,
         "evidence": [
+          {
+            "kind": "license",
+            "label": "MIT license",
+            "url": "https://api.github.com/repos/heliomarpm/udemy-downloader-gui/license"
+          },
           {
             "kind": "source",
             "label": "Canonical repository",
@@ -13296,6 +13568,11 @@
           "kind": "official-source",
           "label": "Официальный источник",
           "url": "https://github.com/heliomarpm/udemy-downloader-gui/"
+        },
+        {
+          "kind": "license",
+          "label": "MIT license",
+          "url": "https://api.github.com/repos/heliomarpm/udemy-downloader-gui/license"
         },
         {
           "kind": "terms",
@@ -14662,9 +14939,14 @@
         "original": "MIT repository, archived and unmaintained; dependencies and installation scripts require independent review",
         "spdx": "MIT",
         "kind": "open-source",
-        "status": "editor-reviewed",
+        "status": "source-declared",
         "requiresReview": false,
         "evidence": [
+          {
+            "kind": "license",
+            "label": "MIT license",
+            "url": "https://api.github.com/repos/pheezz/wireguard-bot/license"
+          },
           {
             "kind": "source",
             "label": "Canonical archived repository",
@@ -14685,13 +14967,20 @@
         },
         {
           "kind": "license",
+          "label": "MIT license",
+          "url": "https://api.github.com/repos/pheezz/wireguard-bot/license"
+        },
+        {
+          "kind": "license",
           "label": "Repository license",
           "url": "https://github.com/PheeZz/wireguard-bot/blob/master/LICENSE"
         }
       ],
       "agentEligibility": {
-        "eligible": true,
-        "reasons": [],
+        "eligible": false,
+        "reasons": [
+          "repository-archived"
+        ],
         "installAllowed": false
       }
     },
@@ -18394,7 +18683,7 @@
       "platforms": [
         "Web"
       ],
-      "license": "Нужно проверить в официальном источнике",
+      "license": "MIT",
       "pricing": "Исходный код доступен публично; hosting, модели и внешние API могут оплачиваться отдельно",
       "access": {
         "cost": "free",
@@ -18429,17 +18718,17 @@
       "addedAt": null,
       "catalogOrder": 209,
       "licenseInfo": {
-        "label": "Нужно проверить в официальном источнике",
+        "label": "MIT",
         "original": "Нужно проверить в официальном источнике",
-        "spdx": null,
-        "kind": "unknown",
-        "status": "unverified",
-        "requiresReview": true,
+        "spdx": "MIT",
+        "kind": "open-source",
+        "status": "source-declared",
+        "requiresReview": false,
         "evidence": [
           {
-            "kind": "official-source",
-            "label": "Официальный источник; точные условия ещё нужно сверить",
-            "url": "https://github.com/NickPittas/DirectorsConsole"
+            "kind": "license",
+            "label": "MIT license",
+            "url": "https://api.github.com/repos/nickpittas/directorsconsole/license"
           }
         ]
       },
@@ -18448,6 +18737,11 @@
           "kind": "official-source",
           "label": "Официальный источник",
           "url": "https://github.com/NickPittas/DirectorsConsole"
+        },
+        {
+          "kind": "license",
+          "label": "MIT license",
+          "url": "https://api.github.com/repos/nickpittas/directorsconsole/license"
         }
       ],
       "agentEligibility": {
@@ -20204,7 +20498,7 @@
         "evidence": [
           {
             "kind": "license",
-            "label": "Other license",
+            "label": "MIT license",
             "url": "https://api.github.com/repos/openclaw/openclaw/license"
           },
           {
@@ -20222,7 +20516,7 @@
         },
         {
           "kind": "license",
-          "label": "Other license",
+          "label": "MIT license",
           "url": "https://api.github.com/repos/openclaw/openclaw/license"
         },
         {
@@ -24323,8 +24617,10 @@
         }
       ],
       "agentEligibility": {
-        "eligible": true,
-        "reasons": [],
+        "eligible": false,
+        "reasons": [
+          "repository-archived"
+        ],
         "installAllowed": false
       }
     },
@@ -27346,7 +27642,7 @@
         }
       },
       "addedAt": "2026-08-04",
-      "catalogOrder": 539,
+      "catalogOrder": 540,
       "licenseInfo": {
         "label": "MIT",
         "original": "MIT",
@@ -29785,7 +30081,7 @@
       ],
       "guide": "august-2026-research-privacy-tools-radar",
       "addedAt": "2026-08-18",
-      "catalogOrder": 635,
+      "catalogOrder": 636,
       "licenseInfo": {
         "label": "MIT",
         "original": "MIT; optional OCR runtimes, model files and downstream document services retain their own licenses and security boundaries",
@@ -29938,7 +30234,7 @@
       ],
       "guide": "august-2026-research-privacy-tools-radar",
       "addedAt": "2026-08-18",
-      "catalogOrder": 636,
+      "catalogOrder": 637,
       "licenseInfo": {
         "label": "Proprietary Qwen Cloud service governed by Qwen Cloud Terms of Use, Customer Agreement, model availability and regional plan conditions",
         "original": "Proprietary Qwen Cloud service governed by Qwen Cloud Terms of Use, Customer Agreement, model availability and regional plan conditions",
@@ -30086,7 +30382,7 @@
       ],
       "guide": "august-2026-research-privacy-tools-radar",
       "addedAt": "2026-08-18",
-      "catalogOrder": 637,
+      "catalogOrder": 638,
       "licenseInfo": {
         "label": "Apache-2.0",
         "original": "Apache-2.0 for the official Qwen3.8-27B model repository and weights; inference frameworks, datasets and generated-content obligations remain separate",
@@ -30219,7 +30515,7 @@
       ],
       "guide": "august-2026-research-privacy-tools-radar",
       "addedAt": "2026-08-18",
-      "catalogOrder": 638,
+      "catalogOrder": 639,
       "licenseInfo": {
         "label": "Proprietary Steam-distributed utility governed by the Steam Subscriber Agreement and SeStudio product terms; no source-code reuse grant was found",
         "original": "Proprietary Steam-distributed utility governed by the Steam Subscriber Agreement and SeStudio product terms; no source-code reuse grant was found",
@@ -30356,7 +30652,7 @@
       ],
       "guide": "august-2026-research-privacy-tools-radar",
       "addedAt": "2026-08-18",
-      "catalogOrder": 639,
+      "catalogOrder": 640,
       "licenseInfo": {
         "label": "No license grant was found in the official repository as of 18.08.2026; public viewing and linking do not permit copying, modification or redistribution",
         "original": "No license grant was found in the official repository as of 18.08.2026; public viewing and linking do not permit copying, modification or redistribution",
@@ -30387,150 +30683,6 @@
           "kind": "source",
           "label": "Official repository",
           "url": "https://github.com/itcaat/after-enter"
-        }
-      ],
-      "agentEligibility": {
-        "eligible": true,
-        "reasons": [],
-        "installAllowed": false
-      }
-    },
-    {
-      "id": "text-grab-windows-ocr",
-      "url": "https://github.com/TheJoeFin/Text-Grab",
-      "title": "Text Grab",
-      "type": "tool",
-      "category": "Инструменты",
-      "subcategory": "Local OCR and screen text capture",
-      "simpleDescription": "Text Grab извлекает текст из выбранной области экрана, изображений и документов через локальный Windows OCR, а затем отправляет результат в редактор или буфер обмена. Это полезный privacy-first reference для Sentinel, но захват экрана и clipboard требуют явного действия пользователя и защиты от случайного копирования секретов.",
-      "useCases": [
-        "Распознать текст в приложении или изображении, где обычное копирование недоступно",
-        "Изучить локальный OCR flow для opt-in capability в Hopson Sentinel",
-        "Подготовить доступный текстовый слой для учебных материалов Educator-AI"
-      ],
-      "platforms": [
-        "Windows 10+",
-        "Windows OCR API",
-        "Microsoft Store",
-        "GitHub Releases"
-      ],
-      "license": "MIT",
-      "licenseEvidence": [
-        {
-          "kind": "license",
-          "label": "Official MIT license",
-          "url": "https://github.com/TheJoeFin/Text-Grab/blob/main/LICENSE"
-        },
-        {
-          "kind": "source",
-          "label": "Official repository and privacy description",
-          "url": "https://github.com/TheJoeFin/Text-Grab"
-        }
-      ],
-      "pricing": "Open-source releases are free; Microsoft Store packaging or future optional features may have separate terms",
-      "access": {
-        "cost": "free",
-        "signup": "none",
-        "runtime": "local"
-      },
-      "trust": "verified",
-      "trustReason": "The official repository, MIT license, local OCR statement, build requirements and Windows-only boundary were checked on 18.08.2026. No binary was downloaded or executed.",
-      "projects": [
-        "Hopson Sentinel",
-        "Educator-AI",
-        "Eclipse Media"
-      ],
-      "decision": "roadmap",
-      "riskLevel": "high",
-      "risks": [
-        "Screen regions and clipboard content can contain passwords, tokens, personal data or private messages",
-        "OCR errors can alter numbers, code and legal text without an obvious warning",
-        "Background hotkeys and clipboard watching expand the local permission surface"
-      ],
-      "verifiedAt": "2026-08-18",
-      "quickStart": [
-        "Use the signed Store or verified GitHub release only on a non-production workstation",
-        "Keep capture user-initiated, show a preview and require confirmation before sending text to any model",
-        "Redact secret patterns locally and never enable silent background capture in Eclipse products"
-      ],
-      "reviewStatus": "verified",
-      "source": {
-        "file": "catalog/resources.json",
-        "key": "text-grab-windows-ocr",
-        "legacy": {
-          "file": "User intake 2026-08-18",
-          "line": null,
-          "category": "August 2026 verified radar",
-          "subcategory": "Local OCR"
-        }
-      },
-      "description": "MIT Windows utility using the on-device Windows OCR API for region capture, file recognition, cleanup and clipboard/editor workflows. Its local-first architecture is useful, while the permission and data-loss boundaries matter more than the visual convenience.",
-      "features": [
-        "Full-screen region OCR",
-        "Movable grab frame",
-        "Text cleanup and spreadsheet modes",
-        "Local processing without a cloud OCR service"
-      ],
-      "audience": [
-        "Windows power users",
-        "Accessibility workflows",
-        "Developers designing local capture tools"
-      ],
-      "limitations": [
-        "Windows-only",
-        "OCR accuracy depends on the source and system language packs",
-        "Clipboard and screen capture are sensitive capabilities"
-      ],
-      "relatedTechnologies": [
-        "OCR",
-        "Windows API",
-        "Clipboard",
-        "Accessibility",
-        "Local-first privacy"
-      ],
-      "guide": "august-2026-research-privacy-tools-radar",
-      "addedAt": "2026-08-18",
-      "catalogOrder": 640,
-      "licenseInfo": {
-        "label": "MIT",
-        "original": "MIT for the Text Grab source code; Windows OCR APIs, Store distribution and bundled third-party components have separate terms",
-        "spdx": "MIT",
-        "kind": "open-source",
-        "status": "source-declared",
-        "requiresReview": false,
-        "evidence": [
-          {
-            "kind": "license",
-            "label": "MIT license",
-            "url": "https://api.github.com/repos/thejoefin/text-grab/license"
-          },
-          {
-            "kind": "license",
-            "label": "Official MIT license",
-            "url": "https://github.com/TheJoeFin/Text-Grab/blob/main/LICENSE"
-          },
-          {
-            "kind": "source",
-            "label": "Official repository and privacy description",
-            "url": "https://github.com/TheJoeFin/Text-Grab"
-          }
-        ]
-      },
-      "evidence": [
-        {
-          "kind": "official-source",
-          "label": "Официальный источник",
-          "url": "https://github.com/TheJoeFin/Text-Grab"
-        },
-        {
-          "kind": "license",
-          "label": "MIT license",
-          "url": "https://api.github.com/repos/thejoefin/text-grab/license"
-        },
-        {
-          "kind": "license",
-          "label": "Official MIT license",
-          "url": "https://github.com/TheJoeFin/Text-Grab/blob/main/LICENSE"
         }
       ],
       "agentEligibility": {
@@ -30663,6 +30815,235 @@
       }
     },
     {
+      "id": "text-grab-windows-ocr",
+      "url": "https://github.com/TheJoeFin/Text-Grab",
+      "title": "Text Grab",
+      "type": "tool",
+      "category": "Инструменты",
+      "subcategory": "Local OCR and screen text capture",
+      "simpleDescription": "Text Grab извлекает текст из выбранной области экрана, изображений и документов через локальный Windows OCR, а затем отправляет результат в редактор или буфер обмена. Это полезный privacy-first reference для Sentinel, но захват экрана и clipboard требуют явного действия пользователя и защиты от случайного копирования секретов.",
+      "useCases": [
+        "Распознать текст в приложении или изображении, где обычное копирование недоступно",
+        "Изучить локальный OCR flow для opt-in capability в Hopson Sentinel",
+        "Подготовить доступный текстовый слой для учебных материалов Educator-AI"
+      ],
+      "platforms": [
+        "Windows 10+",
+        "Windows OCR API",
+        "Microsoft Store",
+        "GitHub Releases"
+      ],
+      "license": "MIT",
+      "licenseEvidence": [
+        {
+          "kind": "license",
+          "label": "Official MIT license",
+          "url": "https://github.com/TheJoeFin/Text-Grab/blob/main/LICENSE"
+        },
+        {
+          "kind": "source",
+          "label": "Official repository and privacy description",
+          "url": "https://github.com/TheJoeFin/Text-Grab"
+        }
+      ],
+      "pricing": "Open-source releases are free; Microsoft Store packaging or future optional features may have separate terms",
+      "access": {
+        "cost": "free",
+        "signup": "none",
+        "runtime": "local"
+      },
+      "trust": "verified",
+      "trustReason": "The official repository, MIT license, local OCR statement, build requirements and Windows-only boundary were checked on 18.08.2026. No binary was downloaded or executed.",
+      "projects": [
+        "Hopson Sentinel",
+        "Educator-AI",
+        "Eclipse Media"
+      ],
+      "decision": "roadmap",
+      "riskLevel": "high",
+      "risks": [
+        "Screen regions and clipboard content can contain passwords, tokens, personal data or private messages",
+        "OCR errors can alter numbers, code and legal text without an obvious warning",
+        "Background hotkeys and clipboard watching expand the local permission surface"
+      ],
+      "verifiedAt": "2026-08-18",
+      "quickStart": [
+        "Use the signed Store or verified GitHub release only on a non-production workstation",
+        "Keep capture user-initiated, show a preview and require confirmation before sending text to any model",
+        "Redact secret patterns locally and never enable silent background capture in Eclipse products"
+      ],
+      "reviewStatus": "verified",
+      "source": {
+        "file": "catalog/resources.json",
+        "key": "text-grab-windows-ocr",
+        "legacy": {
+          "file": "User intake 2026-08-18",
+          "line": null,
+          "category": "August 2026 verified radar",
+          "subcategory": "Local OCR"
+        }
+      },
+      "description": "MIT Windows utility using the on-device Windows OCR API for region capture, file recognition, cleanup and clipboard/editor workflows. Its local-first architecture is useful, while the permission and data-loss boundaries matter more than the visual convenience.",
+      "features": [
+        "Full-screen region OCR",
+        "Movable grab frame",
+        "Text cleanup and spreadsheet modes",
+        "Local processing without a cloud OCR service"
+      ],
+      "audience": [
+        "Windows power users",
+        "Accessibility workflows",
+        "Developers designing local capture tools"
+      ],
+      "limitations": [
+        "Windows-only",
+        "OCR accuracy depends on the source and system language packs",
+        "Clipboard and screen capture are sensitive capabilities"
+      ],
+      "relatedTechnologies": [
+        "OCR",
+        "Windows API",
+        "Clipboard",
+        "Accessibility",
+        "Local-first privacy"
+      ],
+      "guide": "august-2026-research-privacy-tools-radar",
+      "addedAt": "2026-08-18",
+      "catalogOrder": 641,
+      "licenseInfo": {
+        "label": "MIT",
+        "original": "MIT for the Text Grab source code; Windows OCR APIs, Store distribution and bundled third-party components have separate terms",
+        "spdx": "MIT",
+        "kind": "open-source",
+        "status": "source-declared",
+        "requiresReview": false,
+        "evidence": [
+          {
+            "kind": "license",
+            "label": "MIT license",
+            "url": "https://api.github.com/repos/thejoefin/text-grab/license"
+          },
+          {
+            "kind": "license",
+            "label": "Official MIT license",
+            "url": "https://github.com/TheJoeFin/Text-Grab/blob/main/LICENSE"
+          },
+          {
+            "kind": "source",
+            "label": "Official repository and privacy description",
+            "url": "https://github.com/TheJoeFin/Text-Grab"
+          }
+        ]
+      },
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://github.com/TheJoeFin/Text-Grab"
+        },
+        {
+          "kind": "license",
+          "label": "MIT license",
+          "url": "https://api.github.com/repos/thejoefin/text-grab/license"
+        },
+        {
+          "kind": "license",
+          "label": "Official MIT license",
+          "url": "https://github.com/TheJoeFin/Text-Grab/blob/main/LICENSE"
+        }
+      ],
+      "agentEligibility": {
+        "eligible": true,
+        "reasons": [],
+        "installAllowed": false
+      }
+    },
+    {
+      "id": "github-store-github-com",
+      "url": "https://github.com/OpenHub-Store/GitHub-Store",
+      "title": "GitHub Store",
+      "type": "oss",
+      "category": "Dev Tools & CLI",
+      "subcategory": "Dev Tools & CLI",
+      "simpleDescription": "GitHub Store — Kotlin/Compose · App Store для GitHub — установка софта из Releases в 1 клик, авто-обновления, Android/Win/macOS/Linux. Карточка помогает понять назначение ресурса и начать с небольшой безопасной проверки; условия использования ещё нужно сверить с официальным источником.",
+      "useCases": [
+        "Разобраться, подходит ли GitHub Store для вашей задачи",
+        "Проверить возможности на небольшом тестовом сценарии до интеграции"
+      ],
+      "platforms": [
+        "macOS",
+        "Linux",
+        "Android",
+        "CLI"
+      ],
+      "license": "Apache-2.0",
+      "pricing": "Исходный код доступен публично; hosting, модели и внешние API могут оплачиваться отдельно",
+      "access": {
+        "cost": "free",
+        "signup": "none",
+        "runtime": "local"
+      },
+      "trust": "community",
+      "trustReason": "Запись структурирована автоматически из опубликованного описания. Официальный источник, лицензия и условия ещё не прошли отдельную редакторскую проверку.",
+      "projects": [],
+      "decision": "reference",
+      "riskLevel": "medium",
+      "risks": [
+        "Лицензия, цена, permissions и обработка данных могут отличаться от краткого описания."
+      ],
+      "verifiedAt": null,
+      "quickStart": [
+        "Откройте официальный источник и проверьте владельца, лицензию и дату обновления.",
+        "Не передавайте secrets или рабочие данные; начните с пустого тестового проекта.",
+        "Сравните результат с текущим способом работы и только потом решайте об интеграции."
+      ],
+      "reviewStatus": "inferred",
+      "source": {
+        "file": "catalog/resources.json",
+        "key": "github-store-github-com",
+        "legacy": {
+          "file": "README.md",
+          "line": 642,
+          "category": "️ Dev Tools & CLI",
+          "subcategory": null
+        }
+      },
+      "addedAt": null,
+      "catalogOrder": 642,
+      "licenseInfo": {
+        "label": "Apache-2.0",
+        "original": "Нужно проверить в официальном источнике",
+        "spdx": "Apache-2.0",
+        "kind": "open-source",
+        "status": "source-declared",
+        "requiresReview": false,
+        "evidence": [
+          {
+            "kind": "license",
+            "label": "Apache-2.0 license",
+            "url": "https://api.github.com/repos/openhub-store/github-store/license"
+          }
+        ]
+      },
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://github.com/OpenHub-Store/GitHub-Store"
+        },
+        {
+          "kind": "license",
+          "label": "Apache-2.0 license",
+          "url": "https://api.github.com/repos/openhub-store/github-store/license"
+        }
+      ],
+      "agentEligibility": {
+        "eligible": true,
+        "reasons": [],
+        "installAllowed": false
+      }
+    },
+    {
       "id": "morphe-android-patcher",
       "url": "https://github.com/MorpheApp/morphe-manager",
       "title": "Morphe Android Patcher",
@@ -30756,7 +31137,7 @@
       ],
       "guide": "august-2026-research-privacy-tools-radar",
       "addedAt": "2026-08-18",
-      "catalogOrder": 641,
+      "catalogOrder": 642,
       "licenseInfo": {
         "label": "GPL-3.0",
         "original": "GPL-3.0 for the Morphe manager repository; patched third-party applications, trademarks, services and community bundles retain separate rights and Terms",
@@ -30814,24 +31195,22 @@
       }
     },
     {
-      "id": "github-store-github-com",
-      "url": "https://github.com/OpenHub-Store/GitHub-Store",
-      "title": "GitHub Store",
-      "type": "oss",
+      "id": "ghost-downloader-3-github-com",
+      "url": "https://github.com/XiaoYouChR/Ghost-Downloader-3",
+      "title": "Ghost Downloader 3",
+      "type": "media",
       "category": "Dev Tools & CLI",
       "subcategory": "Dev Tools & CLI",
-      "simpleDescription": "GitHub Store — Kotlin/Compose · App Store для GitHub — установка софта из Releases в 1 клик, авто-обновления, Android/Win/macOS/Linux. Карточка помогает понять назначение ресурса и начать с небольшой безопасной проверки; условия использования ещё нужно сверить с официальным источником.",
+      "simpleDescription": "Ghost Downloader 3 — Python · Ускоритель загрузок +30% — параллельные части, AI-выбор сервера, Win/Linux/Mac. Карточка помогает понять назначение ресурса и начать с небольшой безопасной проверки; условия использования ещё нужно сверить с официальным источником.",
       "useCases": [
-        "Разобраться, подходит ли GitHub Store для вашей задачи",
+        "Разобраться, подходит ли Ghost Downloader 3 для вашей задачи",
         "Проверить возможности на небольшом тестовом сценарии до интеграции"
       ],
       "platforms": [
-        "macOS",
         "Linux",
-        "Android",
         "CLI"
       ],
-      "license": "Apache-2.0",
+      "license": "GPL-3.0",
       "pricing": "Исходный код доступен публично; hosting, модели и внешние API могут оплачиваться отдельно",
       "access": {
         "cost": "free",
@@ -30855,28 +31234,28 @@
       "reviewStatus": "inferred",
       "source": {
         "file": "catalog/resources.json",
-        "key": "github-store-github-com",
+        "key": "ghost-downloader-3-github-com",
         "legacy": {
           "file": "README.md",
-          "line": 642,
+          "line": 643,
           "category": "️ Dev Tools & CLI",
           "subcategory": null
         }
       },
       "addedAt": null,
-      "catalogOrder": 642,
+      "catalogOrder": 643,
       "licenseInfo": {
-        "label": "Apache-2.0",
+        "label": "GPL-3.0",
         "original": "Нужно проверить в официальном источнике",
-        "spdx": "Apache-2.0",
+        "spdx": "GPL-3.0",
         "kind": "open-source",
         "status": "source-declared",
         "requiresReview": false,
         "evidence": [
           {
             "kind": "license",
-            "label": "Apache-2.0 license",
-            "url": "https://api.github.com/repos/openhub-store/github-store/license"
+            "label": "GPL-3.0 license",
+            "url": "https://api.github.com/repos/xiaoyouchr/ghost-downloader-3/license"
           }
         ]
       },
@@ -30884,12 +31263,12 @@
         {
           "kind": "official-source",
           "label": "Официальный источник",
-          "url": "https://github.com/OpenHub-Store/GitHub-Store"
+          "url": "https://github.com/XiaoYouChR/Ghost-Downloader-3"
         },
         {
           "kind": "license",
-          "label": "Apache-2.0 license",
-          "url": "https://api.github.com/repos/openhub-store/github-store/license"
+          "label": "GPL-3.0 license",
+          "url": "https://api.github.com/repos/xiaoyouchr/ghost-downloader-3/license"
         }
       ],
       "agentEligibility": {
@@ -30993,7 +31372,7 @@
       ],
       "guide": "august-2026-research-privacy-tools-radar",
       "addedAt": "2026-08-18",
-      "catalogOrder": 642,
+      "catalogOrder": 643,
       "licenseInfo": {
         "label": "GPL-3.0",
         "original": "GPL-3.0 for the repository content and scripts; linked vendor tools and firmware retain their own terms",
@@ -31034,230 +31413,6 @@
           "kind": "license",
           "label": "Official GPL-3.0 license",
           "url": "https://github.com/valleyofdoom/PC-Tuning/blob/main/LICENSE"
-        }
-      ],
-      "agentEligibility": {
-        "eligible": true,
-        "reasons": [],
-        "installAllowed": false
-      }
-    },
-    {
-      "id": "ghost-downloader-3-github-com",
-      "url": "https://github.com/XiaoYouChR/Ghost-Downloader-3",
-      "title": "Ghost Downloader 3",
-      "type": "media",
-      "category": "Dev Tools & CLI",
-      "subcategory": "Dev Tools & CLI",
-      "simpleDescription": "Ghost Downloader 3 — Python · Ускоритель загрузок +30% — параллельные части, AI-выбор сервера, Win/Linux/Mac. Карточка помогает понять назначение ресурса и начать с небольшой безопасной проверки; условия использования ещё нужно сверить с официальным источником.",
-      "useCases": [
-        "Разобраться, подходит ли Ghost Downloader 3 для вашей задачи",
-        "Проверить возможности на небольшом тестовом сценарии до интеграции"
-      ],
-      "platforms": [
-        "Linux",
-        "CLI"
-      ],
-      "license": "GPL-3.0",
-      "pricing": "Исходный код доступен публично; hosting, модели и внешние API могут оплачиваться отдельно",
-      "access": {
-        "cost": "free",
-        "signup": "none",
-        "runtime": "local"
-      },
-      "trust": "community",
-      "trustReason": "Запись структурирована автоматически из опубликованного описания. Официальный источник, лицензия и условия ещё не прошли отдельную редакторскую проверку.",
-      "projects": [],
-      "decision": "reference",
-      "riskLevel": "medium",
-      "risks": [
-        "Лицензия, цена, permissions и обработка данных могут отличаться от краткого описания."
-      ],
-      "verifiedAt": null,
-      "quickStart": [
-        "Откройте официальный источник и проверьте владельца, лицензию и дату обновления.",
-        "Не передавайте secrets или рабочие данные; начните с пустого тестового проекта.",
-        "Сравните результат с текущим способом работы и только потом решайте об интеграции."
-      ],
-      "reviewStatus": "inferred",
-      "source": {
-        "file": "catalog/resources.json",
-        "key": "ghost-downloader-3-github-com",
-        "legacy": {
-          "file": "README.md",
-          "line": 643,
-          "category": "️ Dev Tools & CLI",
-          "subcategory": null
-        }
-      },
-      "addedAt": null,
-      "catalogOrder": 643,
-      "licenseInfo": {
-        "label": "GPL-3.0",
-        "original": "Нужно проверить в официальном источнике",
-        "spdx": "GPL-3.0",
-        "kind": "open-source",
-        "status": "source-declared",
-        "requiresReview": false,
-        "evidence": [
-          {
-            "kind": "license",
-            "label": "GPL-3.0 license",
-            "url": "https://api.github.com/repos/xiaoyouchr/ghost-downloader-3/license"
-          }
-        ]
-      },
-      "evidence": [
-        {
-          "kind": "official-source",
-          "label": "Официальный источник",
-          "url": "https://github.com/XiaoYouChR/Ghost-Downloader-3"
-        },
-        {
-          "kind": "license",
-          "label": "GPL-3.0 license",
-          "url": "https://api.github.com/repos/xiaoyouchr/ghost-downloader-3/license"
-        }
-      ],
-      "agentEligibility": {
-        "eligible": true,
-        "reasons": [],
-        "installAllowed": false
-      }
-    },
-    {
-      "id": "skills-sh-agent-skill-directory",
-      "url": "https://www.skills.sh/",
-      "title": "skills.sh",
-      "type": "skill",
-      "category": "Skills",
-      "subcategory": "Cross-agent skill directory",
-      "simpleDescription": "skills.sh — публичный каталог skills для Codex, Claude Code, Cursor и других агентов. Он полезен для discovery, но не является trust boundary: каждый skill отдельно проверяется, фиксируется на commit SHA и тестируется без secrets; установка прямо из Library запрещена.",
-      "useCases": [
-        "Найти candidate skill по задаче",
-        "Сравнить популярность и документацию",
-        "Передать источник в controlled Eclipse skill intake"
-      ],
-      "platforms": [
-        "Web",
-        "CLI",
-        "Codex",
-        "Claude Code",
-        "Cursor"
-      ],
-      "license": "Directory service terms; vercel-labs/skills CLI is open source, while every listed skill retains its own license and permissions",
-      "licenseEvidence": [
-        {
-          "kind": "official-source",
-          "label": "Official documentation",
-          "url": "https://www.skills.sh/docs"
-        },
-        {
-          "kind": "source",
-          "label": "Official CLI repository",
-          "url": "https://github.com/vercel-labs/skills"
-        }
-      ],
-      "pricing": "Directory and CLI are publicly available; listed services, models and skills can have separate costs",
-      "access": {
-        "cost": "free",
-        "signup": "none",
-        "runtime": "hybrid"
-      },
-      "trust": "official",
-      "trustReason": "Official docs and CLI repository were checked on 20.08.2026. The directory explicitly cannot guarantee the security or quality of every third-party skill.",
-      "projects": [
-        "Eclipse Library",
-        "Hopson Sentinel",
-        "Eclipse AI Hub",
-        "oh-my-claudecode"
-      ],
-      "decision": "now",
-      "riskLevel": "high",
-      "risks": [
-        "A SKILL.md can trigger shell, network, filesystem or account actions",
-        "Anonymous install telemetry is enabled by the CLI unless opted out",
-        "Rankings and audits do not replace component-level review"
-      ],
-      "quickStart": [
-        "Use only as a discovery source",
-        "Run eclipse-skill-intake against a pinned revision",
-        "Set DISABLE_TELEMETRY=1 for evaluation and keep installAllowed=false"
-      ],
-      "description": "Cross-agent directory and CLI ecosystem for reusable instruction bundles. Eclipse uses it as an intake source, not as an automatic installer.",
-      "features": [
-        "Searchable skill directory",
-        "Multi-agent CLI",
-        "Install leaderboard",
-        "Security audit indicators"
-      ],
-      "audience": [
-        "Agent developers",
-        "Codex and Claude Code users",
-        "Skill reviewers"
-      ],
-      "limitations": [
-        "Third-party quality varies",
-        "Telemetry requires an explicit opt-out",
-        "Each skill has independent license and capabilities"
-      ],
-      "relatedTechnologies": [
-        "SKILL.md",
-        "Codex",
-        "Claude Code",
-        "Supply chain",
-        "Allowlist"
-      ],
-      "verifiedAt": "2026-08-20",
-      "reviewStatus": "verified",
-      "source": {
-        "file": "catalog/resources.json",
-        "key": "skills-sh-agent-skill-directory",
-        "legacy": {
-          "file": "User intake 2026-08-20",
-          "line": null,
-          "category": "August 2026 skills/voice/growth rollout",
-          "subcategory": "Cross-agent skill directory"
-        }
-      },
-      "guide": "august-2026-skills-voice-growth-rollout",
-      "addedAt": "2026-08-20",
-      "catalogOrder": 643,
-      "licenseInfo": {
-        "label": "Directory service terms; vercel-labs/skills CLI is open source, while every listed skill retains its own license and permissions",
-        "original": "Directory service terms; vercel-labs/skills CLI is open source, while every listed skill retains its own license and permissions",
-        "spdx": null,
-        "kind": "service-terms",
-        "status": "editor-reviewed",
-        "requiresReview": false,
-        "evidence": [
-          {
-            "kind": "official-source",
-            "label": "Official documentation",
-            "url": "https://www.skills.sh/docs"
-          },
-          {
-            "kind": "source",
-            "label": "Official CLI repository",
-            "url": "https://github.com/vercel-labs/skills"
-          }
-        ]
-      },
-      "evidence": [
-        {
-          "kind": "official-source",
-          "label": "Официальный источник",
-          "url": "https://www.skills.sh/"
-        },
-        {
-          "kind": "official-source",
-          "label": "Official documentation",
-          "url": "https://www.skills.sh/docs"
-        },
-        {
-          "kind": "source",
-          "label": "Official CLI repository",
-          "url": "https://github.com/vercel-labs/skills"
         }
       ],
       "agentEligibility": {
@@ -31412,6 +31567,147 @@
       }
     },
     {
+      "id": "skills-sh-agent-skill-directory",
+      "url": "https://www.skills.sh/",
+      "title": "skills.sh",
+      "type": "skill",
+      "category": "Skills",
+      "subcategory": "Cross-agent skill directory",
+      "simpleDescription": "skills.sh — публичный каталог skills для Codex, Claude Code, Cursor и других агентов. Он полезен для discovery, но не является trust boundary: каждый skill отдельно проверяется, фиксируется на commit SHA и тестируется без secrets; установка прямо из Library запрещена.",
+      "useCases": [
+        "Найти candidate skill по задаче",
+        "Сравнить популярность и документацию",
+        "Передать источник в controlled Eclipse skill intake"
+      ],
+      "platforms": [
+        "Web",
+        "CLI",
+        "Codex",
+        "Claude Code",
+        "Cursor"
+      ],
+      "license": "Directory service terms; vercel-labs/skills CLI is open source, while every listed skill retains its own license and permissions",
+      "licenseEvidence": [
+        {
+          "kind": "official-source",
+          "label": "Official documentation",
+          "url": "https://www.skills.sh/docs"
+        },
+        {
+          "kind": "source",
+          "label": "Official CLI repository",
+          "url": "https://github.com/vercel-labs/skills"
+        }
+      ],
+      "pricing": "Directory and CLI are publicly available; listed services, models and skills can have separate costs",
+      "access": {
+        "cost": "free",
+        "signup": "none",
+        "runtime": "hybrid"
+      },
+      "trust": "official",
+      "trustReason": "Official docs and CLI repository were checked on 20.08.2026. The directory explicitly cannot guarantee the security or quality of every third-party skill.",
+      "projects": [
+        "Eclipse Library",
+        "Hopson Sentinel",
+        "Eclipse AI Hub",
+        "oh-my-claudecode"
+      ],
+      "decision": "now",
+      "riskLevel": "high",
+      "risks": [
+        "A SKILL.md can trigger shell, network, filesystem or account actions",
+        "Anonymous install telemetry is enabled by the CLI unless opted out",
+        "Rankings and audits do not replace component-level review"
+      ],
+      "quickStart": [
+        "Use only as a discovery source",
+        "Run eclipse-skill-intake against a pinned revision",
+        "Set DISABLE_TELEMETRY=1 for evaluation and keep installAllowed=false"
+      ],
+      "description": "Cross-agent directory and CLI ecosystem for reusable instruction bundles. Eclipse uses it as an intake source, not as an automatic installer.",
+      "features": [
+        "Searchable skill directory",
+        "Multi-agent CLI",
+        "Install leaderboard",
+        "Security audit indicators"
+      ],
+      "audience": [
+        "Agent developers",
+        "Codex and Claude Code users",
+        "Skill reviewers"
+      ],
+      "limitations": [
+        "Third-party quality varies",
+        "Telemetry requires an explicit opt-out",
+        "Each skill has independent license and capabilities"
+      ],
+      "relatedTechnologies": [
+        "SKILL.md",
+        "Codex",
+        "Claude Code",
+        "Supply chain",
+        "Allowlist"
+      ],
+      "verifiedAt": "2026-08-20",
+      "reviewStatus": "verified",
+      "source": {
+        "file": "catalog/resources.json",
+        "key": "skills-sh-agent-skill-directory",
+        "legacy": {
+          "file": "User intake 2026-08-20",
+          "line": null,
+          "category": "August 2026 skills/voice/growth rollout",
+          "subcategory": "Cross-agent skill directory"
+        }
+      },
+      "guide": "august-2026-skills-voice-growth-rollout",
+      "addedAt": "2026-08-20",
+      "catalogOrder": 644,
+      "licenseInfo": {
+        "label": "Directory service terms; vercel-labs/skills CLI is open source, while every listed skill retains its own license and permissions",
+        "original": "Directory service terms; vercel-labs/skills CLI is open source, while every listed skill retains its own license and permissions",
+        "spdx": null,
+        "kind": "service-terms",
+        "status": "editor-reviewed",
+        "requiresReview": false,
+        "evidence": [
+          {
+            "kind": "official-source",
+            "label": "Official documentation",
+            "url": "https://www.skills.sh/docs"
+          },
+          {
+            "kind": "source",
+            "label": "Official CLI repository",
+            "url": "https://github.com/vercel-labs/skills"
+          }
+        ]
+      },
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://www.skills.sh/"
+        },
+        {
+          "kind": "official-source",
+          "label": "Official documentation",
+          "url": "https://www.skills.sh/docs"
+        },
+        {
+          "kind": "source",
+          "label": "Official CLI repository",
+          "url": "https://github.com/vercel-labs/skills"
+        }
+      ],
+      "agentEligibility": {
+        "eligible": true,
+        "reasons": [],
+        "installAllowed": false
+      }
+    },
+    {
       "id": "eclipse-skill-intake",
       "url": "https://library.eclipse-forge.ru/guides/august-2026-skills-voice-growth-rollout.md",
       "title": "Eclipse Skill Intake",
@@ -31497,7 +31793,7 @@
       },
       "guide": "august-2026-skills-voice-growth-rollout",
       "addedAt": "2026-08-20",
-      "catalogOrder": 644,
+      "catalogOrder": 645,
       "licenseInfo": {
         "label": "Eclipse Forge first-party editorial workflow; external candidates retain their own licenses",
         "original": "Eclipse Forge first-party editorial workflow; external candidates retain their own licenses",
@@ -31518,6 +31814,89 @@
           "kind": "official-source",
           "label": "Официальный источник",
           "url": "https://library.eclipse-forge.ru/guides/august-2026-skills-voice-growth-rollout.md"
+        }
+      ],
+      "agentEligibility": {
+        "eligible": true,
+        "reasons": [],
+        "installAllowed": false
+      }
+    },
+    {
+      "id": "scrapy-github-com",
+      "url": "https://github.com/scrapy/scrapy",
+      "title": "Scrapy",
+      "type": "oss",
+      "category": "Dev Tools & CLI",
+      "subcategory": "Dev Tools & CLI",
+      "simpleDescription": "Scrapy — Python · Классический краулинг-фреймворк — обход всего сайта, пагинация, pipelines, robots.txt, 53K+ звёзд. Карточка помогает понять назначение ресурса и начать с небольшой безопасной проверки; условия использования ещё нужно сверить с официальным источником.",
+      "useCases": [
+        "Разобраться, подходит ли Scrapy для вашей задачи",
+        "Проверить возможности на небольшом тестовом сценарии до интеграции"
+      ],
+      "platforms": [
+        "CLI",
+        "Web"
+      ],
+      "license": "BSD-3-Clause",
+      "pricing": "Исходный код доступен публично; hosting, модели и внешние API могут оплачиваться отдельно",
+      "access": {
+        "cost": "free",
+        "signup": "unknown",
+        "runtime": "hybrid"
+      },
+      "trust": "community",
+      "trustReason": "Запись структурирована автоматически из опубликованного описания. Официальный источник, лицензия и условия ещё не прошли отдельную редакторскую проверку.",
+      "projects": [],
+      "decision": "reference",
+      "riskLevel": "medium",
+      "risks": [
+        "Лицензия, цена, permissions и обработка данных могут отличаться от краткого описания."
+      ],
+      "verifiedAt": null,
+      "quickStart": [
+        "Откройте официальный источник и проверьте владельца, лицензию и дату обновления.",
+        "Не передавайте secrets или рабочие данные; начните с пустого тестового проекта.",
+        "Сравните результат с текущим способом работы и только потом решайте об интеграции."
+      ],
+      "reviewStatus": "inferred",
+      "source": {
+        "file": "catalog/resources.json",
+        "key": "scrapy-github-com",
+        "legacy": {
+          "file": "README.md",
+          "line": 645,
+          "category": "️ Dev Tools & CLI",
+          "subcategory": null
+        }
+      },
+      "addedAt": null,
+      "catalogOrder": 645,
+      "licenseInfo": {
+        "label": "BSD-3-Clause",
+        "original": "Нужно проверить в официальном источнике",
+        "spdx": "BSD-3-Clause",
+        "kind": "open-source",
+        "status": "source-declared",
+        "requiresReview": false,
+        "evidence": [
+          {
+            "kind": "license",
+            "label": "BSD-3-Clause license",
+            "url": "https://api.github.com/repos/scrapy/scrapy/license"
+          }
+        ]
+      },
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://github.com/scrapy/scrapy"
+        },
+        {
+          "kind": "license",
+          "label": "BSD-3-Clause license",
+          "url": "https://api.github.com/repos/scrapy/scrapy/license"
         }
       ],
       "agentEligibility": {
@@ -31616,7 +31995,7 @@
       },
       "guide": "august-2026-skills-voice-growth-rollout",
       "addedAt": "2026-08-20",
-      "catalogOrder": 645,
+      "catalogOrder": 646,
       "licenseInfo": {
         "label": "Publicly shared guide with no explicit reuse license found; link and taxonomy are reference-only, prompt text must not be republished verbatim",
         "original": "Publicly shared guide with no explicit reuse license found; link and taxonomy are reference-only, prompt text must not be republished verbatim",
@@ -31637,89 +32016,6 @@
           "kind": "official-source",
           "label": "Официальный источник",
           "url": "https://docs.google.com/document/d/1mnm_Z-BCNY-_fSe0RgIe0kZZt8PDnOYFwrnA8NUqlWM/mobilebasic"
-        }
-      ],
-      "agentEligibility": {
-        "eligible": true,
-        "reasons": [],
-        "installAllowed": false
-      }
-    },
-    {
-      "id": "scrapy-github-com",
-      "url": "https://github.com/scrapy/scrapy",
-      "title": "Scrapy",
-      "type": "oss",
-      "category": "Dev Tools & CLI",
-      "subcategory": "Dev Tools & CLI",
-      "simpleDescription": "Scrapy — Python · Классический краулинг-фреймворк — обход всего сайта, пагинация, pipelines, robots.txt, 53K+ звёзд. Карточка помогает понять назначение ресурса и начать с небольшой безопасной проверки; условия использования ещё нужно сверить с официальным источником.",
-      "useCases": [
-        "Разобраться, подходит ли Scrapy для вашей задачи",
-        "Проверить возможности на небольшом тестовом сценарии до интеграции"
-      ],
-      "platforms": [
-        "CLI",
-        "Web"
-      ],
-      "license": "BSD-3-Clause",
-      "pricing": "Исходный код доступен публично; hosting, модели и внешние API могут оплачиваться отдельно",
-      "access": {
-        "cost": "free",
-        "signup": "unknown",
-        "runtime": "hybrid"
-      },
-      "trust": "community",
-      "trustReason": "Запись структурирована автоматически из опубликованного описания. Официальный источник, лицензия и условия ещё не прошли отдельную редакторскую проверку.",
-      "projects": [],
-      "decision": "reference",
-      "riskLevel": "medium",
-      "risks": [
-        "Лицензия, цена, permissions и обработка данных могут отличаться от краткого описания."
-      ],
-      "verifiedAt": null,
-      "quickStart": [
-        "Откройте официальный источник и проверьте владельца, лицензию и дату обновления.",
-        "Не передавайте secrets или рабочие данные; начните с пустого тестового проекта.",
-        "Сравните результат с текущим способом работы и только потом решайте об интеграции."
-      ],
-      "reviewStatus": "inferred",
-      "source": {
-        "file": "catalog/resources.json",
-        "key": "scrapy-github-com",
-        "legacy": {
-          "file": "README.md",
-          "line": 645,
-          "category": "️ Dev Tools & CLI",
-          "subcategory": null
-        }
-      },
-      "addedAt": null,
-      "catalogOrder": 645,
-      "licenseInfo": {
-        "label": "BSD-3-Clause",
-        "original": "Нужно проверить в официальном источнике",
-        "spdx": "BSD-3-Clause",
-        "kind": "open-source",
-        "status": "source-declared",
-        "requiresReview": false,
-        "evidence": [
-          {
-            "kind": "license",
-            "label": "BSD-3-Clause license",
-            "url": "https://api.github.com/repos/scrapy/scrapy/license"
-          }
-        ]
-      },
-      "evidence": [
-        {
-          "kind": "official-source",
-          "label": "Официальный источник",
-          "url": "https://github.com/scrapy/scrapy"
-        },
-        {
-          "kind": "license",
-          "label": "BSD-3-Clause license",
-          "url": "https://api.github.com/repos/scrapy/scrapy/license"
         }
       ],
       "agentEligibility": {
@@ -31802,6 +32098,84 @@
           "kind": "license",
           "label": "BSD-3-Clause license",
           "url": "https://api.github.com/repos/d4vinci/scrapling/license"
+        }
+      ],
+      "agentEligibility": {
+        "eligible": true,
+        "reasons": [],
+        "installAllowed": false
+      }
+    },
+    {
+      "id": "scraping-apis-github-com",
+      "url": "https://github.com/cporter202/scraping-apis-for-devs",
+      "title": "Scraping APIs",
+      "type": "api",
+      "category": "Dev Tools & CLI",
+      "subcategory": "Dev Tools & CLI",
+      "simpleDescription": "Scraping APIs — Каталог · 2622 API для парсинга — соцсети, маркетплейсы, новости, игры, БД и др.. Карточка помогает понять назначение ресурса и начать с небольшой безопасной проверки; условия использования ещё нужно сверить с официальным источником.",
+      "useCases": [
+        "Разобраться, подходит ли Scraping APIs для вашей задачи",
+        "Проверить возможности на небольшом тестовом сценарии до интеграции"
+      ],
+      "platforms": [
+        "CLI",
+        "API"
+      ],
+      "license": "Нужно проверить в официальном источнике",
+      "pricing": "Исходный код доступен публично; hosting, модели и внешние API могут оплачиваться отдельно",
+      "access": {
+        "cost": "free",
+        "signup": "unknown",
+        "runtime": "hybrid"
+      },
+      "trust": "community",
+      "trustReason": "Запись структурирована автоматически из опубликованного описания. Официальный источник, лицензия и условия ещё не прошли отдельную редакторскую проверку.",
+      "projects": [],
+      "decision": "reference",
+      "riskLevel": "medium",
+      "risks": [
+        "Лицензия, цена, permissions и обработка данных могут отличаться от краткого описания."
+      ],
+      "verifiedAt": null,
+      "quickStart": [
+        "Откройте официальный источник и проверьте владельца, лицензию и дату обновления.",
+        "Не передавайте secrets или рабочие данные; начните с пустого тестового проекта.",
+        "Сравните результат с текущим способом работы и только потом решайте об интеграции."
+      ],
+      "reviewStatus": "inferred",
+      "source": {
+        "file": "catalog/resources.json",
+        "key": "scraping-apis-github-com",
+        "legacy": {
+          "file": "README.md",
+          "line": 647,
+          "category": "️ Dev Tools & CLI",
+          "subcategory": null
+        }
+      },
+      "addedAt": null,
+      "catalogOrder": 647,
+      "licenseInfo": {
+        "label": "Нужно проверить в официальном источнике",
+        "original": "Нужно проверить в официальном источнике",
+        "spdx": null,
+        "kind": "unknown",
+        "status": "unverified",
+        "requiresReview": true,
+        "evidence": [
+          {
+            "kind": "official-source",
+            "label": "Официальный источник; точные условия ещё нужно сверить",
+            "url": "https://github.com/cporter202/scraping-apis-for-devs"
+          }
+        ]
+      },
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://github.com/cporter202/scraping-apis-for-devs"
         }
       ],
       "agentEligibility": {
@@ -31903,7 +32277,7 @@
       },
       "guide": "august-2026-skills-voice-growth-rollout",
       "addedAt": "2026-08-20",
-      "catalogOrder": 646,
+      "catalogOrder": 647,
       "licenseInfo": {
         "label": "MIT",
         "original": "MIT",
@@ -31953,15 +32327,15 @@
       }
     },
     {
-      "id": "scraping-apis-github-com",
-      "url": "https://github.com/cporter202/scraping-apis-for-devs",
-      "title": "Scraping APIs",
-      "type": "api",
+      "id": "api-mega-list-github-com",
+      "url": "https://github.com/cporter202/API-mega-list",
+      "title": "API-mega-list",
+      "type": "shop",
       "category": "Dev Tools & CLI",
       "subcategory": "Dev Tools & CLI",
-      "simpleDescription": "Scraping APIs — Каталог · 2622 API для парсинга — соцсети, маркетплейсы, новости, игры, БД и др.. Карточка помогает понять назначение ресурса и начать с небольшой безопасной проверки; условия использования ещё нужно сверить с официальным источником.",
+      "simpleDescription": "API-mega-list — Каталог · 10498 API (тот же автор, что Scraping APIs) — сбор данных, автоматизация, аналитика, лиды, e-commerce, соцсети, недвижимость, рынок труда, AI-интеграции. Расширенный надмножество к строке выше — годится как reference для data-ingestion в Lead-Sniper / Eclipse-webclaw. Карточка помогает понять назначение ресурса и начать с небольшой безопасной проверки; условия использования ещё нужно сверить с официальным источником.",
       "useCases": [
-        "Разобраться, подходит ли Scraping APIs для вашей задачи",
+        "Разобраться, подходит ли API-mega-list для вашей задачи",
         "Проверить возможности на небольшом тестовом сценарии до интеграции"
       ],
       "platforms": [
@@ -31992,16 +32366,16 @@
       "reviewStatus": "inferred",
       "source": {
         "file": "catalog/resources.json",
-        "key": "scraping-apis-github-com",
+        "key": "api-mega-list-github-com",
         "legacy": {
           "file": "README.md",
-          "line": 647,
+          "line": 648,
           "category": "️ Dev Tools & CLI",
           "subcategory": null
         }
       },
       "addedAt": null,
-      "catalogOrder": 647,
+      "catalogOrder": 648,
       "licenseInfo": {
         "label": "Нужно проверить в официальном источнике",
         "original": "Нужно проверить в официальном источнике",
@@ -32013,7 +32387,7 @@
           {
             "kind": "official-source",
             "label": "Официальный источник; точные условия ещё нужно сверить",
-            "url": "https://github.com/cporter202/scraping-apis-for-devs"
+            "url": "https://github.com/cporter202/API-mega-list"
           }
         ]
       },
@@ -32021,7 +32395,7 @@
         {
           "kind": "official-source",
           "label": "Официальный источник",
-          "url": "https://github.com/cporter202/scraping-apis-for-devs"
+          "url": "https://github.com/cporter202/API-mega-list"
         }
       ],
       "agentEligibility": {
@@ -32121,7 +32495,7 @@
       },
       "guide": "august-2026-skills-voice-growth-rollout",
       "addedAt": "2026-08-20",
-      "catalogOrder": 647,
+      "catalogOrder": 648,
       "licenseInfo": {
         "label": "Mixed service/component terms; free attribution and general no-copy language require component-level clarification",
         "original": "Mixed service/component terms; free attribution and general no-copy language require component-level clarification",
@@ -32245,7 +32619,7 @@
       },
       "guide": "august-2026-skills-voice-growth-rollout",
       "addedAt": "2026-08-20",
-      "catalogOrder": 648,
+      "catalogOrder": 649,
       "licenseInfo": {
         "label": "No verified reuse license or component terms found at review time",
         "original": "No verified reuse license or component terms found at review time",
@@ -32277,27 +32651,26 @@
       }
     },
     {
-      "id": "api-mega-list-github-com",
-      "url": "https://github.com/cporter202/API-mega-list",
-      "title": "API-mega-list",
-      "type": "shop",
+      "id": "cyberscraper-2077-github-com",
+      "url": "https://github.com/itsOwen/CyberScraper-2077",
+      "title": "CyberScraper 2077",
+      "type": "prompt",
       "category": "Dev Tools & CLI",
       "subcategory": "Dev Tools & CLI",
-      "simpleDescription": "API-mega-list — Каталог · 10498 API (тот же автор, что Scraping APIs) — сбор данных, автоматизация, аналитика, лиды, e-commerce, соцсети, недвижимость, рынок труда, AI-интеграции. Расширенный надмножество к строке выше — годится как reference для data-ingestion в Lead-Sniper / Eclipse-webclaw. Карточка помогает понять назначение ресурса и начать с небольшой безопасной проверки; условия использования ещё нужно сверить с официальным источником.",
+      "simpleDescription": "CyberScraper 2077 — Python · AI-парсер по промпту — описываешь что нужно, обход капчи/антибота, экспорт JSON/CSV/Excel. Карточка помогает понять назначение ресурса и начать с небольшой безопасной проверки; условия использования ещё нужно сверить с официальным источником.",
       "useCases": [
-        "Разобраться, подходит ли API-mega-list для вашей задачи",
+        "Разобраться, подходит ли CyberScraper 2077 для вашей задачи",
         "Проверить возможности на небольшом тестовом сценарии до интеграции"
       ],
       "platforms": [
-        "CLI",
-        "API"
+        "CLI"
       ],
-      "license": "Нужно проверить в официальном источнике",
+      "license": "MIT",
       "pricing": "Исходный код доступен публично; hosting, модели и внешние API могут оплачиваться отдельно",
       "access": {
         "cost": "free",
-        "signup": "unknown",
-        "runtime": "hybrid"
+        "signup": "none",
+        "runtime": "local"
       },
       "trust": "community",
       "trustReason": "Запись структурирована автоматически из опубликованного описания. Официальный источник, лицензия и условия ещё не прошли отдельную редакторскую проверку.",
@@ -32316,28 +32689,28 @@
       "reviewStatus": "inferred",
       "source": {
         "file": "catalog/resources.json",
-        "key": "api-mega-list-github-com",
+        "key": "cyberscraper-2077-github-com",
         "legacy": {
           "file": "README.md",
-          "line": 648,
+          "line": 649,
           "category": "️ Dev Tools & CLI",
           "subcategory": null
         }
       },
       "addedAt": null,
-      "catalogOrder": 648,
+      "catalogOrder": 649,
       "licenseInfo": {
-        "label": "Нужно проверить в официальном источнике",
+        "label": "MIT",
         "original": "Нужно проверить в официальном источнике",
-        "spdx": null,
-        "kind": "unknown",
-        "status": "unverified",
-        "requiresReview": true,
+        "spdx": "MIT",
+        "kind": "open-source",
+        "status": "source-declared",
+        "requiresReview": false,
         "evidence": [
           {
-            "kind": "official-source",
-            "label": "Официальный источник; точные условия ещё нужно сверить",
-            "url": "https://github.com/cporter202/API-mega-list"
+            "kind": "license",
+            "label": "MIT license",
+            "url": "https://api.github.com/repos/itsowen/cyberscraper-2077/license"
           }
         ]
       },
@@ -32345,7 +32718,12 @@
         {
           "kind": "official-source",
           "label": "Официальный источник",
-          "url": "https://github.com/cporter202/API-mega-list"
+          "url": "https://github.com/itsOwen/CyberScraper-2077"
+        },
+        {
+          "kind": "license",
+          "label": "MIT license",
+          "url": "https://api.github.com/repos/itsowen/cyberscraper-2077/license"
         }
       ],
       "agentEligibility": {
@@ -32437,7 +32815,7 @@
       },
       "guide": "august-2026-skills-voice-growth-rollout",
       "addedAt": "2026-08-20",
-      "catalogOrder": 649,
+      "catalogOrder": 650,
       "licenseInfo": {
         "label": "Directory/service terms; every linked project retains its own license",
         "original": "Directory/service terms; every linked project retains its own license",
@@ -32458,88 +32836,6 @@
           "kind": "official-source",
           "label": "Официальный источник",
           "url": "https://buildcool.sh/"
-        }
-      ],
-      "agentEligibility": {
-        "eligible": true,
-        "reasons": [],
-        "installAllowed": false
-      }
-    },
-    {
-      "id": "cyberscraper-2077-github-com",
-      "url": "https://github.com/itsOwen/CyberScraper-2077",
-      "title": "CyberScraper 2077",
-      "type": "prompt",
-      "category": "Dev Tools & CLI",
-      "subcategory": "Dev Tools & CLI",
-      "simpleDescription": "CyberScraper 2077 — Python · AI-парсер по промпту — описываешь что нужно, обход капчи/антибота, экспорт JSON/CSV/Excel. Карточка помогает понять назначение ресурса и начать с небольшой безопасной проверки; условия использования ещё нужно сверить с официальным источником.",
-      "useCases": [
-        "Разобраться, подходит ли CyberScraper 2077 для вашей задачи",
-        "Проверить возможности на небольшом тестовом сценарии до интеграции"
-      ],
-      "platforms": [
-        "CLI"
-      ],
-      "license": "MIT",
-      "pricing": "Исходный код доступен публично; hosting, модели и внешние API могут оплачиваться отдельно",
-      "access": {
-        "cost": "free",
-        "signup": "none",
-        "runtime": "local"
-      },
-      "trust": "community",
-      "trustReason": "Запись структурирована автоматически из опубликованного описания. Официальный источник, лицензия и условия ещё не прошли отдельную редакторскую проверку.",
-      "projects": [],
-      "decision": "reference",
-      "riskLevel": "medium",
-      "risks": [
-        "Лицензия, цена, permissions и обработка данных могут отличаться от краткого описания."
-      ],
-      "verifiedAt": null,
-      "quickStart": [
-        "Откройте официальный источник и проверьте владельца, лицензию и дату обновления.",
-        "Не передавайте secrets или рабочие данные; начните с пустого тестового проекта.",
-        "Сравните результат с текущим способом работы и только потом решайте об интеграции."
-      ],
-      "reviewStatus": "inferred",
-      "source": {
-        "file": "catalog/resources.json",
-        "key": "cyberscraper-2077-github-com",
-        "legacy": {
-          "file": "README.md",
-          "line": 649,
-          "category": "️ Dev Tools & CLI",
-          "subcategory": null
-        }
-      },
-      "addedAt": null,
-      "catalogOrder": 649,
-      "licenseInfo": {
-        "label": "MIT",
-        "original": "Нужно проверить в официальном источнике",
-        "spdx": "MIT",
-        "kind": "open-source",
-        "status": "source-declared",
-        "requiresReview": false,
-        "evidence": [
-          {
-            "kind": "license",
-            "label": "MIT license",
-            "url": "https://api.github.com/repos/itsowen/cyberscraper-2077/license"
-          }
-        ]
-      },
-      "evidence": [
-        {
-          "kind": "official-source",
-          "label": "Официальный источник",
-          "url": "https://github.com/itsOwen/CyberScraper-2077"
-        },
-        {
-          "kind": "license",
-          "label": "MIT license",
-          "url": "https://api.github.com/repos/itsowen/cyberscraper-2077/license"
         }
       ],
       "agentEligibility": {
@@ -32658,6 +32954,88 @@
       }
     },
     {
+      "id": "tgspyder-github-com",
+      "url": "https://github.com/Darksight-Analytics/tgspyder",
+      "title": "TGSpyder",
+      "type": "oss",
+      "category": "Dev Tools & CLI",
+      "subcategory": "Dev Tools & CLI",
+      "simpleDescription": "TGSpyder — Python · Telegram-парсер — участники чатов, история сообщений, инвайт-ссылки, поиск по ID, экспорт в CSV. Карточка помогает понять назначение ресурса и начать с небольшой безопасной проверки; условия использования ещё нужно сверить с официальным источником.",
+      "useCases": [
+        "Разобраться, подходит ли TGSpyder для вашей задачи",
+        "Проверить возможности на небольшом тестовом сценарии до интеграции"
+      ],
+      "platforms": [
+        "CLI"
+      ],
+      "license": "MIT",
+      "pricing": "Исходный код доступен публично; hosting, модели и внешние API могут оплачиваться отдельно",
+      "access": {
+        "cost": "free",
+        "signup": "none",
+        "runtime": "local"
+      },
+      "trust": "community",
+      "trustReason": "Запись структурирована автоматически из опубликованного описания. Официальный источник, лицензия и условия ещё не прошли отдельную редакторскую проверку.",
+      "projects": [],
+      "decision": "reference",
+      "riskLevel": "medium",
+      "risks": [
+        "Лицензия, цена, permissions и обработка данных могут отличаться от краткого описания."
+      ],
+      "verifiedAt": null,
+      "quickStart": [
+        "Откройте официальный источник и проверьте владельца, лицензию и дату обновления.",
+        "Не передавайте secrets или рабочие данные; начните с пустого тестового проекта.",
+        "Сравните результат с текущим способом работы и только потом решайте об интеграции."
+      ],
+      "reviewStatus": "inferred",
+      "source": {
+        "file": "catalog/resources.json",
+        "key": "tgspyder-github-com",
+        "legacy": {
+          "file": "README.md",
+          "line": 651,
+          "category": "️ Dev Tools & CLI",
+          "subcategory": null
+        }
+      },
+      "addedAt": null,
+      "catalogOrder": 651,
+      "licenseInfo": {
+        "label": "MIT",
+        "original": "Нужно проверить в официальном источнике",
+        "spdx": "MIT",
+        "kind": "open-source",
+        "status": "source-declared",
+        "requiresReview": false,
+        "evidence": [
+          {
+            "kind": "license",
+            "label": "MIT license",
+            "url": "https://api.github.com/repos/darksight-analytics/tgspyder/license"
+          }
+        ]
+      },
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://github.com/Darksight-Analytics/tgspyder"
+        },
+        {
+          "kind": "license",
+          "label": "MIT license",
+          "url": "https://api.github.com/repos/darksight-analytics/tgspyder/license"
+        }
+      ],
+      "agentEligibility": {
+        "eligible": true,
+        "reasons": [],
+        "installAllowed": false
+      }
+    },
+    {
       "id": "vlipsy-reaction-clips",
       "url": "https://vlipsy.com/",
       "title": "Vlipsy",
@@ -32745,7 +33123,7 @@
       },
       "guide": "august-2026-skills-voice-growth-rollout",
       "addedAt": "2026-08-20",
-      "catalogOrder": 650,
+      "catalogOrder": 651,
       "licenseInfo": {
         "label": "Proprietary service Terms; clip rights remain with their owners and fair-use responsibility remains with the user",
         "original": "Proprietary service Terms; clip rights remain with their owners and fair-use responsibility remains with the user",
@@ -32877,7 +33255,7 @@
       },
       "guide": "august-2026-skills-voice-growth-rollout",
       "addedAt": "2026-08-20",
-      "catalogOrder": 651,
+      "catalogOrder": 652,
       "licenseInfo": {
         "label": "Public UI page; no verified code-reuse license found",
         "original": "Public UI page; no verified code-reuse license found",
@@ -32908,88 +33286,6 @@
           "kind": "official-source",
           "label": "Official product explanation",
           "url": "https://oceon.io/what-is-ai-territories"
-        }
-      ],
-      "agentEligibility": {
-        "eligible": true,
-        "reasons": [],
-        "installAllowed": false
-      }
-    },
-    {
-      "id": "tgspyder-github-com",
-      "url": "https://github.com/Darksight-Analytics/tgspyder",
-      "title": "TGSpyder",
-      "type": "oss",
-      "category": "Dev Tools & CLI",
-      "subcategory": "Dev Tools & CLI",
-      "simpleDescription": "TGSpyder — Python · Telegram-парсер — участники чатов, история сообщений, инвайт-ссылки, поиск по ID, экспорт в CSV. Карточка помогает понять назначение ресурса и начать с небольшой безопасной проверки; условия использования ещё нужно сверить с официальным источником.",
-      "useCases": [
-        "Разобраться, подходит ли TGSpyder для вашей задачи",
-        "Проверить возможности на небольшом тестовом сценарии до интеграции"
-      ],
-      "platforms": [
-        "CLI"
-      ],
-      "license": "MIT",
-      "pricing": "Исходный код доступен публично; hosting, модели и внешние API могут оплачиваться отдельно",
-      "access": {
-        "cost": "free",
-        "signup": "none",
-        "runtime": "local"
-      },
-      "trust": "community",
-      "trustReason": "Запись структурирована автоматически из опубликованного описания. Официальный источник, лицензия и условия ещё не прошли отдельную редакторскую проверку.",
-      "projects": [],
-      "decision": "reference",
-      "riskLevel": "medium",
-      "risks": [
-        "Лицензия, цена, permissions и обработка данных могут отличаться от краткого описания."
-      ],
-      "verifiedAt": null,
-      "quickStart": [
-        "Откройте официальный источник и проверьте владельца, лицензию и дату обновления.",
-        "Не передавайте secrets или рабочие данные; начните с пустого тестового проекта.",
-        "Сравните результат с текущим способом работы и только потом решайте об интеграции."
-      ],
-      "reviewStatus": "inferred",
-      "source": {
-        "file": "catalog/resources.json",
-        "key": "tgspyder-github-com",
-        "legacy": {
-          "file": "README.md",
-          "line": 651,
-          "category": "️ Dev Tools & CLI",
-          "subcategory": null
-        }
-      },
-      "addedAt": null,
-      "catalogOrder": 651,
-      "licenseInfo": {
-        "label": "MIT",
-        "original": "Нужно проверить в официальном источнике",
-        "spdx": "MIT",
-        "kind": "open-source",
-        "status": "source-declared",
-        "requiresReview": false,
-        "evidence": [
-          {
-            "kind": "license",
-            "label": "MIT license",
-            "url": "https://api.github.com/repos/darksight-analytics/tgspyder/license"
-          }
-        ]
-      },
-      "evidence": [
-        {
-          "kind": "official-source",
-          "label": "Официальный источник",
-          "url": "https://github.com/Darksight-Analytics/tgspyder"
-        },
-        {
-          "kind": "license",
-          "label": "MIT license",
-          "url": "https://api.github.com/repos/darksight-analytics/tgspyder/license"
         }
       ],
       "agentEligibility": {
@@ -33082,6 +33378,88 @@
       }
     },
     {
+      "id": "repomix-github-com",
+      "url": "https://github.com/yamadashy/repomix",
+      "title": "Repomix",
+      "type": "oss",
+      "category": "Dev Tools & CLI",
+      "subcategory": "Dev Tools & CLI",
+      "simpleDescription": "Repomix — Node.js / CLI · Упаковщик кодбазы в один MD-файл — для AI-ревью больших модулей, фильтры по include/exclude. Карточка помогает понять назначение ресурса и начать с небольшой безопасной проверки; условия использования ещё нужно сверить с официальным источником.",
+      "useCases": [
+        "Разобраться, подходит ли Repomix для вашей задачи",
+        "Проверить возможности на небольшом тестовом сценарии до интеграции"
+      ],
+      "platforms": [
+        "CLI"
+      ],
+      "license": "MIT",
+      "pricing": "Исходный код доступен публично; hosting, модели и внешние API могут оплачиваться отдельно",
+      "access": {
+        "cost": "free",
+        "signup": "none",
+        "runtime": "local"
+      },
+      "trust": "community",
+      "trustReason": "Запись структурирована автоматически из опубликованного описания. Официальный источник, лицензия и условия ещё не прошли отдельную редакторскую проверку.",
+      "projects": [],
+      "decision": "reference",
+      "riskLevel": "medium",
+      "risks": [
+        "Лицензия, цена, permissions и обработка данных могут отличаться от краткого описания."
+      ],
+      "verifiedAt": null,
+      "quickStart": [
+        "Откройте официальный источник и проверьте владельца, лицензию и дату обновления.",
+        "Не передавайте secrets или рабочие данные; начните с пустого тестового проекта.",
+        "Сравните результат с текущим способом работы и только потом решайте об интеграции."
+      ],
+      "reviewStatus": "inferred",
+      "source": {
+        "file": "catalog/resources.json",
+        "key": "repomix-github-com",
+        "legacy": {
+          "file": "README.md",
+          "line": 653,
+          "category": "️ Dev Tools & CLI",
+          "subcategory": null
+        }
+      },
+      "addedAt": null,
+      "catalogOrder": 653,
+      "licenseInfo": {
+        "label": "MIT",
+        "original": "Нужно проверить в официальном источнике",
+        "spdx": "MIT",
+        "kind": "open-source",
+        "status": "source-declared",
+        "requiresReview": false,
+        "evidence": [
+          {
+            "kind": "license",
+            "label": "MIT license",
+            "url": "https://api.github.com/repos/yamadashy/repomix/license"
+          }
+        ]
+      },
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://github.com/yamadashy/repomix"
+        },
+        {
+          "kind": "license",
+          "label": "MIT license",
+          "url": "https://api.github.com/repos/yamadashy/repomix/license"
+        }
+      ],
+      "agentEligibility": {
+        "eligible": true,
+        "reasons": [],
+        "installAllowed": false
+      }
+    },
+    {
       "id": "vibehub-academy",
       "url": "https://vibehub.academy/",
       "title": "Vibehub Academy",
@@ -33163,7 +33541,7 @@
       },
       "guide": "august-2026-skills-voice-growth-rollout",
       "addedAt": "2026-08-20",
-      "catalogOrder": 652,
+      "catalogOrder": 653,
       "licenseInfo": {
         "label": "Proprietary paid course and service terms; no content reuse grant",
         "original": "Proprietary paid course and service terms; no content reuse grant",
@@ -33191,6 +33569,84 @@
         "reasons": [
           "editorial-decision-no"
         ],
+        "installAllowed": false
+      }
+    },
+    {
+      "id": "ab-download-manager-abdownloadmanager-com",
+      "url": "https://abdownloadmanager.com/",
+      "title": "AB Download Manager",
+      "type": "media",
+      "category": "Dev Tools & CLI",
+      "subcategory": "Dev Tools & CLI",
+      "simpleDescription": "AB Download Manager — Multi-platform · Менеджер загрузок: одновременные потоки, планировщик, авто-сортировка по папкам, Android. Карточка помогает понять назначение ресурса и начать с небольшой безопасной проверки; условия использования ещё нужно сверить с официальным источником.",
+      "useCases": [
+        "Разобраться, подходит ли AB Download Manager для вашей задачи",
+        "Проверить возможности на небольшом тестовом сценарии до интеграции"
+      ],
+      "platforms": [
+        "Android",
+        "CLI"
+      ],
+      "license": "Нужно проверить в официальном источнике",
+      "pricing": "Актуальную стоимость нужно проверить на официальной странице",
+      "access": {
+        "cost": "unknown",
+        "signup": "none",
+        "runtime": "local"
+      },
+      "trust": "unknown",
+      "trustReason": "Запись структурирована автоматически из опубликованного описания. Официальный источник, лицензия и условия ещё не прошли отдельную редакторскую проверку.",
+      "projects": [],
+      "decision": "reference",
+      "riskLevel": "medium",
+      "risks": [
+        "Лицензия, цена, permissions и обработка данных могут отличаться от краткого описания."
+      ],
+      "verifiedAt": null,
+      "quickStart": [
+        "Откройте официальный источник и проверьте владельца, лицензию и дату обновления.",
+        "Не передавайте secrets или рабочие данные; начните с пустого тестового проекта.",
+        "Сравните результат с текущим способом работы и только потом решайте об интеграции."
+      ],
+      "reviewStatus": "inferred",
+      "source": {
+        "file": "catalog/resources.json",
+        "key": "ab-download-manager-abdownloadmanager-com",
+        "legacy": {
+          "file": "README.md",
+          "line": 654,
+          "category": "️ Dev Tools & CLI",
+          "subcategory": null
+        }
+      },
+      "addedAt": null,
+      "catalogOrder": 654,
+      "licenseInfo": {
+        "label": "Нужно проверить в официальном источнике",
+        "original": "Нужно проверить в официальном источнике",
+        "spdx": null,
+        "kind": "unknown",
+        "status": "unverified",
+        "requiresReview": true,
+        "evidence": [
+          {
+            "kind": "official-source",
+            "label": "Официальный источник; точные условия ещё нужно сверить",
+            "url": "https://abdownloadmanager.com/"
+          }
+        ]
+      },
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://abdownloadmanager.com/"
+        }
+      ],
+      "agentEligibility": {
+        "eligible": true,
+        "reasons": [],
         "installAllowed": false
       }
     },
@@ -33279,7 +33735,7 @@
       },
       "guide": "august-2026-skills-voice-growth-rollout",
       "addedAt": "2026-08-20",
-      "catalogOrder": 653,
+      "catalogOrder": 654,
       "licenseInfo": {
         "label": "No public repository or reuse license established; lead-magnet content is reference-only",
         "original": "No public repository or reuse license established; lead-magnet content is reference-only",
@@ -33300,166 +33756,6 @@
           "kind": "official-source",
           "label": "Официальный источник",
           "url": "https://claude-code-guide-one-nu.vercel.app/jarvis"
-        }
-      ],
-      "agentEligibility": {
-        "eligible": true,
-        "reasons": [],
-        "installAllowed": false
-      }
-    },
-    {
-      "id": "repomix-github-com",
-      "url": "https://github.com/yamadashy/repomix",
-      "title": "Repomix",
-      "type": "oss",
-      "category": "Dev Tools & CLI",
-      "subcategory": "Dev Tools & CLI",
-      "simpleDescription": "Repomix — Node.js / CLI · Упаковщик кодбазы в один MD-файл — для AI-ревью больших модулей, фильтры по include/exclude. Карточка помогает понять назначение ресурса и начать с небольшой безопасной проверки; условия использования ещё нужно сверить с официальным источником.",
-      "useCases": [
-        "Разобраться, подходит ли Repomix для вашей задачи",
-        "Проверить возможности на небольшом тестовом сценарии до интеграции"
-      ],
-      "platforms": [
-        "CLI"
-      ],
-      "license": "MIT",
-      "pricing": "Исходный код доступен публично; hosting, модели и внешние API могут оплачиваться отдельно",
-      "access": {
-        "cost": "free",
-        "signup": "none",
-        "runtime": "local"
-      },
-      "trust": "community",
-      "trustReason": "Запись структурирована автоматически из опубликованного описания. Официальный источник, лицензия и условия ещё не прошли отдельную редакторскую проверку.",
-      "projects": [],
-      "decision": "reference",
-      "riskLevel": "medium",
-      "risks": [
-        "Лицензия, цена, permissions и обработка данных могут отличаться от краткого описания."
-      ],
-      "verifiedAt": null,
-      "quickStart": [
-        "Откройте официальный источник и проверьте владельца, лицензию и дату обновления.",
-        "Не передавайте secrets или рабочие данные; начните с пустого тестового проекта.",
-        "Сравните результат с текущим способом работы и только потом решайте об интеграции."
-      ],
-      "reviewStatus": "inferred",
-      "source": {
-        "file": "catalog/resources.json",
-        "key": "repomix-github-com",
-        "legacy": {
-          "file": "README.md",
-          "line": 653,
-          "category": "️ Dev Tools & CLI",
-          "subcategory": null
-        }
-      },
-      "addedAt": null,
-      "catalogOrder": 653,
-      "licenseInfo": {
-        "label": "MIT",
-        "original": "Нужно проверить в официальном источнике",
-        "spdx": "MIT",
-        "kind": "open-source",
-        "status": "source-declared",
-        "requiresReview": false,
-        "evidence": [
-          {
-            "kind": "license",
-            "label": "MIT license",
-            "url": "https://api.github.com/repos/yamadashy/repomix/license"
-          }
-        ]
-      },
-      "evidence": [
-        {
-          "kind": "official-source",
-          "label": "Официальный источник",
-          "url": "https://github.com/yamadashy/repomix"
-        },
-        {
-          "kind": "license",
-          "label": "MIT license",
-          "url": "https://api.github.com/repos/yamadashy/repomix/license"
-        }
-      ],
-      "agentEligibility": {
-        "eligible": true,
-        "reasons": [],
-        "installAllowed": false
-      }
-    },
-    {
-      "id": "ab-download-manager-abdownloadmanager-com",
-      "url": "https://abdownloadmanager.com/",
-      "title": "AB Download Manager",
-      "type": "media",
-      "category": "Dev Tools & CLI",
-      "subcategory": "Dev Tools & CLI",
-      "simpleDescription": "AB Download Manager — Multi-platform · Менеджер загрузок: одновременные потоки, планировщик, авто-сортировка по папкам, Android. Карточка помогает понять назначение ресурса и начать с небольшой безопасной проверки; условия использования ещё нужно сверить с официальным источником.",
-      "useCases": [
-        "Разобраться, подходит ли AB Download Manager для вашей задачи",
-        "Проверить возможности на небольшом тестовом сценарии до интеграции"
-      ],
-      "platforms": [
-        "Android",
-        "CLI"
-      ],
-      "license": "Нужно проверить в официальном источнике",
-      "pricing": "Актуальную стоимость нужно проверить на официальной странице",
-      "access": {
-        "cost": "unknown",
-        "signup": "none",
-        "runtime": "local"
-      },
-      "trust": "unknown",
-      "trustReason": "Запись структурирована автоматически из опубликованного описания. Официальный источник, лицензия и условия ещё не прошли отдельную редакторскую проверку.",
-      "projects": [],
-      "decision": "reference",
-      "riskLevel": "medium",
-      "risks": [
-        "Лицензия, цена, permissions и обработка данных могут отличаться от краткого описания."
-      ],
-      "verifiedAt": null,
-      "quickStart": [
-        "Откройте официальный источник и проверьте владельца, лицензию и дату обновления.",
-        "Не передавайте secrets или рабочие данные; начните с пустого тестового проекта.",
-        "Сравните результат с текущим способом работы и только потом решайте об интеграции."
-      ],
-      "reviewStatus": "inferred",
-      "source": {
-        "file": "catalog/resources.json",
-        "key": "ab-download-manager-abdownloadmanager-com",
-        "legacy": {
-          "file": "README.md",
-          "line": 654,
-          "category": "️ Dev Tools & CLI",
-          "subcategory": null
-        }
-      },
-      "addedAt": null,
-      "catalogOrder": 654,
-      "licenseInfo": {
-        "label": "Нужно проверить в официальном источнике",
-        "original": "Нужно проверить в официальном источнике",
-        "spdx": null,
-        "kind": "unknown",
-        "status": "unverified",
-        "requiresReview": true,
-        "evidence": [
-          {
-            "kind": "official-source",
-            "label": "Официальный источник; точные условия ещё нужно сверить",
-            "url": "https://abdownloadmanager.com/"
-          }
-        ]
-      },
-      "evidence": [
-        {
-          "kind": "official-source",
-          "label": "Официальный источник",
-          "url": "https://abdownloadmanager.com/"
         }
       ],
       "agentEligibility": {
@@ -33560,7 +33856,7 @@
       },
       "guide": "eclipse-automation-playbook-45",
       "addedAt": "2026-08-20",
-      "catalogOrder": 654,
+      "catalogOrder": 655,
       "licenseInfo": {
         "label": "Eclipse Forge first-party editorial guide; external products and source materials retain their own rights",
         "original": "Eclipse Forge first-party editorial guide; external products and source materials retain their own rights",
@@ -33672,6 +33968,89 @@
       }
     },
     {
+      "id": "gtweak-github-com",
+      "url": "https://github.com/Greedeks/GTweak",
+      "title": "GTweak",
+      "type": "privacy",
+      "category": "Dev Tools & CLI",
+      "subcategory": "Dev Tools & CLI",
+      "simpleDescription": "GTweak — C# / WPF · Windows-комбайн: debloat (OneDrive / Edge / Copilot / Recall / UWP-апы), блокировка телеметрии (MS / NVIDIA / Intel), отключение служб, темы. С оговоркой: содержит HWID/KMS-активацию (нарушение Microsoft EULA) и опции выключения Defender/SmartScreen/UAC (ослабление защиты) — эти модули не используем, только debloat / privacy. Альтернативы без…. Карточка помогает понять назначение ресурса и начать с небольшой безопасной проверки; условия использования ещё нужно сверить с официальным источником.",
+      "useCases": [
+        "Разобраться, подходит ли GTweak для вашей задачи",
+        "Проверить возможности на небольшом тестовом сценарии до интеграции"
+      ],
+      "platforms": [
+        "Windows",
+        "CLI"
+      ],
+      "license": "BSD-3-Clause",
+      "pricing": "Исходный код доступен публично; hosting, модели и внешние API могут оплачиваться отдельно",
+      "access": {
+        "cost": "free",
+        "signup": "none",
+        "runtime": "local"
+      },
+      "trust": "community",
+      "trustReason": "Запись структурирована автоматически из опубликованного описания. Официальный источник, лицензия и условия ещё не прошли отдельную редакторскую проверку.",
+      "projects": [],
+      "decision": "reference",
+      "riskLevel": "medium",
+      "risks": [
+        "Лицензия, цена, permissions и обработка данных могут отличаться от краткого описания."
+      ],
+      "verifiedAt": null,
+      "quickStart": [
+        "Откройте официальный источник и проверьте владельца, лицензию и дату обновления.",
+        "Не передавайте secrets или рабочие данные; начните с пустого тестового проекта.",
+        "Сравните результат с текущим способом работы и только потом решайте об интеграции."
+      ],
+      "reviewStatus": "inferred",
+      "source": {
+        "file": "catalog/resources.json",
+        "key": "gtweak-github-com",
+        "legacy": {
+          "file": "README.md",
+          "line": 656,
+          "category": "️ Dev Tools & CLI",
+          "subcategory": null
+        }
+      },
+      "addedAt": null,
+      "catalogOrder": 656,
+      "licenseInfo": {
+        "label": "BSD-3-Clause",
+        "original": "Нужно проверить в официальном источнике",
+        "spdx": "BSD-3-Clause",
+        "kind": "open-source",
+        "status": "source-declared",
+        "requiresReview": false,
+        "evidence": [
+          {
+            "kind": "license",
+            "label": "BSD-3-Clause license",
+            "url": "https://api.github.com/repos/greedeks/gtweak/license"
+          }
+        ]
+      },
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://github.com/Greedeks/GTweak"
+        },
+        {
+          "kind": "license",
+          "label": "BSD-3-Clause license",
+          "url": "https://api.github.com/repos/greedeks/gtweak/license"
+        }
+      ],
+      "agentEligibility": {
+        "eligible": true,
+        "reasons": [],
+        "installAllowed": false
+      }
+    },
+    {
       "id": "prozavlly-frontend-motion-references",
       "url": "https://www.instagram.com/prozavlly/",
       "title": "Prozavlly · Frontend motion references",
@@ -33758,7 +34137,7 @@
       "guide": "frontend-motion-reference-review-2026-08-20",
       "addedAt": "2026-08-20",
       "verifiedAt": null,
-      "catalogOrder": 655,
+      "catalogOrder": 656,
       "licenseInfo": {
         "label": "Instagram content; no code, asset or composition reuse license established",
         "original": "Instagram content; no code, asset or composition reuse license established",
@@ -33779,6 +34158,90 @@
           "kind": "official-source",
           "label": "Официальный источник",
           "url": "https://www.instagram.com/prozavlly/"
+        }
+      ],
+      "agentEligibility": {
+        "eligible": true,
+        "reasons": [],
+        "installAllowed": false
+      }
+    },
+    {
+      "id": "cloakbrowser-github-com",
+      "url": "https://github.com/CloakHQ/CloakBrowser",
+      "title": "CloakBrowser",
+      "type": "oss",
+      "category": "Dev Tools & CLI",
+      "subcategory": "Dev Tools & CLI",
+      "simpleDescription": "CloakBrowser — Python / Chromium · Антидетект-браузер на пропатченном Chromium: реалистичный TLS, прохождение reCAPTCHA v3 (~0.9), Cloudflare Turnstile, drop-in под Playwright. С оговоркой: инструмент по дизайну обходит антибот-защиту чужих сайтов, что нарушает их ToS (Cloudflare / Google) и в ряде юрисдикций сближается с CFAA-составами. Допустимые сценарии:…. Карточка помогает понять назначение ресурса и начать с небольшой безопасной проверки; условия использования ещё нужно сверить с официальным источником.",
+      "useCases": [
+        "Разобраться, подходит ли CloakBrowser для вашей задачи",
+        "Проверить возможности на небольшом тестовом сценарии до интеграции"
+      ],
+      "platforms": [
+        "CLI",
+        "Cloud",
+        "Web"
+      ],
+      "license": "MIT",
+      "pricing": "Исходный код доступен публично; hosting, модели и внешние API могут оплачиваться отдельно",
+      "access": {
+        "cost": "free",
+        "signup": "required",
+        "runtime": "hybrid"
+      },
+      "trust": "community",
+      "trustReason": "Запись структурирована автоматически из опубликованного описания. Официальный источник, лицензия и условия ещё не прошли отдельную редакторскую проверку.",
+      "projects": [],
+      "decision": "reference",
+      "riskLevel": "medium",
+      "risks": [
+        "Лицензия, цена, permissions и обработка данных могут отличаться от краткого описания."
+      ],
+      "verifiedAt": null,
+      "quickStart": [
+        "Откройте официальный источник и проверьте владельца, лицензию и дату обновления.",
+        "Не передавайте secrets или рабочие данные; начните с пустого тестового проекта.",
+        "Сравните результат с текущим способом работы и только потом решайте об интеграции."
+      ],
+      "reviewStatus": "inferred",
+      "source": {
+        "file": "catalog/resources.json",
+        "key": "cloakbrowser-github-com",
+        "legacy": {
+          "file": "README.md",
+          "line": 657,
+          "category": "️ Dev Tools & CLI",
+          "subcategory": null
+        }
+      },
+      "addedAt": null,
+      "catalogOrder": 657,
+      "licenseInfo": {
+        "label": "MIT",
+        "original": "Нужно проверить в официальном источнике",
+        "spdx": "MIT",
+        "kind": "open-source",
+        "status": "source-declared",
+        "requiresReview": false,
+        "evidence": [
+          {
+            "kind": "license",
+            "label": "MIT license",
+            "url": "https://api.github.com/repos/cloakhq/cloakbrowser/license"
+          }
+        ]
+      },
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://github.com/CloakHQ/CloakBrowser"
+        },
+        {
+          "kind": "license",
+          "label": "MIT license",
+          "url": "https://api.github.com/repos/cloakhq/cloakbrowser/license"
         }
       ],
       "agentEligibility": {
@@ -33875,7 +34338,7 @@
       "guide": "frontend-motion-reference-review-2026-08-20",
       "addedAt": "2026-08-20",
       "verifiedAt": null,
-      "catalogOrder": 656,
+      "catalogOrder": 657,
       "licenseInfo": {
         "label": "Instagram content; canonical repository and code reuse license must be established per example",
         "original": "Instagram content; canonical repository and code reuse license must be established per example",
@@ -33896,173 +34359,6 @@
           "kind": "official-source",
           "label": "Официальный источник",
           "url": "https://www.instagram.com/frontendjoe/"
-        }
-      ],
-      "agentEligibility": {
-        "eligible": true,
-        "reasons": [],
-        "installAllowed": false
-      }
-    },
-    {
-      "id": "gtweak-github-com",
-      "url": "https://github.com/Greedeks/GTweak",
-      "title": "GTweak",
-      "type": "privacy",
-      "category": "Dev Tools & CLI",
-      "subcategory": "Dev Tools & CLI",
-      "simpleDescription": "GTweak — C# / WPF · Windows-комбайн: debloat (OneDrive / Edge / Copilot / Recall / UWP-апы), блокировка телеметрии (MS / NVIDIA / Intel), отключение служб, темы. С оговоркой: содержит HWID/KMS-активацию (нарушение Microsoft EULA) и опции выключения Defender/SmartScreen/UAC (ослабление защиты) — эти модули не используем, только debloat / privacy. Альтернативы без…. Карточка помогает понять назначение ресурса и начать с небольшой безопасной проверки; условия использования ещё нужно сверить с официальным источником.",
-      "useCases": [
-        "Разобраться, подходит ли GTweak для вашей задачи",
-        "Проверить возможности на небольшом тестовом сценарии до интеграции"
-      ],
-      "platforms": [
-        "Windows",
-        "CLI"
-      ],
-      "license": "BSD-3-Clause",
-      "pricing": "Исходный код доступен публично; hosting, модели и внешние API могут оплачиваться отдельно",
-      "access": {
-        "cost": "free",
-        "signup": "none",
-        "runtime": "local"
-      },
-      "trust": "community",
-      "trustReason": "Запись структурирована автоматически из опубликованного описания. Официальный источник, лицензия и условия ещё не прошли отдельную редакторскую проверку.",
-      "projects": [],
-      "decision": "reference",
-      "riskLevel": "medium",
-      "risks": [
-        "Лицензия, цена, permissions и обработка данных могут отличаться от краткого описания."
-      ],
-      "verifiedAt": null,
-      "quickStart": [
-        "Откройте официальный источник и проверьте владельца, лицензию и дату обновления.",
-        "Не передавайте secrets или рабочие данные; начните с пустого тестового проекта.",
-        "Сравните результат с текущим способом работы и только потом решайте об интеграции."
-      ],
-      "reviewStatus": "inferred",
-      "source": {
-        "file": "catalog/resources.json",
-        "key": "gtweak-github-com",
-        "legacy": {
-          "file": "README.md",
-          "line": 656,
-          "category": "️ Dev Tools & CLI",
-          "subcategory": null
-        }
-      },
-      "addedAt": null,
-      "catalogOrder": 656,
-      "licenseInfo": {
-        "label": "BSD-3-Clause",
-        "original": "Нужно проверить в официальном источнике",
-        "spdx": "BSD-3-Clause",
-        "kind": "open-source",
-        "status": "source-declared",
-        "requiresReview": false,
-        "evidence": [
-          {
-            "kind": "license",
-            "label": "BSD-3-Clause license",
-            "url": "https://api.github.com/repos/greedeks/gtweak/license"
-          }
-        ]
-      },
-      "evidence": [
-        {
-          "kind": "official-source",
-          "label": "Официальный источник",
-          "url": "https://github.com/Greedeks/GTweak"
-        },
-        {
-          "kind": "license",
-          "label": "BSD-3-Clause license",
-          "url": "https://api.github.com/repos/greedeks/gtweak/license"
-        }
-      ],
-      "agentEligibility": {
-        "eligible": true,
-        "reasons": [],
-        "installAllowed": false
-      }
-    },
-    {
-      "id": "cloakbrowser-github-com",
-      "url": "https://github.com/CloakHQ/CloakBrowser",
-      "title": "CloakBrowser",
-      "type": "oss",
-      "category": "Dev Tools & CLI",
-      "subcategory": "Dev Tools & CLI",
-      "simpleDescription": "CloakBrowser — Python / Chromium · Антидетект-браузер на пропатченном Chromium: реалистичный TLS, прохождение reCAPTCHA v3 (~0.9), Cloudflare Turnstile, drop-in под Playwright. С оговоркой: инструмент по дизайну обходит антибот-защиту чужих сайтов, что нарушает их ToS (Cloudflare / Google) и в ряде юрисдикций сближается с CFAA-составами. Допустимые сценарии:…. Карточка помогает понять назначение ресурса и начать с небольшой безопасной проверки; условия использования ещё нужно сверить с официальным источником.",
-      "useCases": [
-        "Разобраться, подходит ли CloakBrowser для вашей задачи",
-        "Проверить возможности на небольшом тестовом сценарии до интеграции"
-      ],
-      "platforms": [
-        "CLI",
-        "Cloud",
-        "Web"
-      ],
-      "license": "MIT",
-      "pricing": "Исходный код доступен публично; hosting, модели и внешние API могут оплачиваться отдельно",
-      "access": {
-        "cost": "free",
-        "signup": "required",
-        "runtime": "hybrid"
-      },
-      "trust": "community",
-      "trustReason": "Запись структурирована автоматически из опубликованного описания. Официальный источник, лицензия и условия ещё не прошли отдельную редакторскую проверку.",
-      "projects": [],
-      "decision": "reference",
-      "riskLevel": "medium",
-      "risks": [
-        "Лицензия, цена, permissions и обработка данных могут отличаться от краткого описания."
-      ],
-      "verifiedAt": null,
-      "quickStart": [
-        "Откройте официальный источник и проверьте владельца, лицензию и дату обновления.",
-        "Не передавайте secrets или рабочие данные; начните с пустого тестового проекта.",
-        "Сравните результат с текущим способом работы и только потом решайте об интеграции."
-      ],
-      "reviewStatus": "inferred",
-      "source": {
-        "file": "catalog/resources.json",
-        "key": "cloakbrowser-github-com",
-        "legacy": {
-          "file": "README.md",
-          "line": 657,
-          "category": "️ Dev Tools & CLI",
-          "subcategory": null
-        }
-      },
-      "addedAt": null,
-      "catalogOrder": 657,
-      "licenseInfo": {
-        "label": "MIT",
-        "original": "Нужно проверить в официальном источнике",
-        "spdx": "MIT",
-        "kind": "open-source",
-        "status": "source-declared",
-        "requiresReview": false,
-        "evidence": [
-          {
-            "kind": "license",
-            "label": "MIT license",
-            "url": "https://api.github.com/repos/cloakhq/cloakbrowser/license"
-          }
-        ]
-      },
-      "evidence": [
-        {
-          "kind": "official-source",
-          "label": "Официальный источник",
-          "url": "https://github.com/CloakHQ/CloakBrowser"
-        },
-        {
-          "kind": "license",
-          "label": "MIT license",
-          "url": "https://api.github.com/repos/cloakhq/cloakbrowser/license"
         }
       ],
       "agentEligibility": {
@@ -35033,6 +35329,88 @@
       }
     },
     {
+      "id": "linly-dubbing-github-com",
+      "url": "https://github.com/Kedreamix/Linly-Dubbing",
+      "title": "Linly-Dubbing",
+      "type": "media",
+      "category": "Media & Download",
+      "subcategory": "Media & Download",
+      "simpleDescription": "Linly-Dubbing — Python / ML · AI-дубляж видео на 100+ языков — перевод речи, клон голоса, липсинк, авто-субтитры. Карточка помогает понять назначение ресурса и начать с небольшой безопасной проверки; условия использования ещё нужно сверить с официальным источником.",
+      "useCases": [
+        "Разобраться, подходит ли Linly-Dubbing для вашей задачи",
+        "Проверить возможности на небольшом тестовом сценарии до интеграции"
+      ],
+      "platforms": [
+        "Web"
+      ],
+      "license": "Apache-2.0",
+      "pricing": "Исходный код доступен публично; hosting, модели и внешние API могут оплачиваться отдельно",
+      "access": {
+        "cost": "free",
+        "signup": "unknown",
+        "runtime": "cloud"
+      },
+      "trust": "community",
+      "trustReason": "Запись структурирована автоматически из опубликованного описания. Официальный источник, лицензия и условия ещё не прошли отдельную редакторскую проверку.",
+      "projects": [],
+      "decision": "reference",
+      "riskLevel": "medium",
+      "risks": [
+        "Лицензия, цена, permissions и обработка данных могут отличаться от краткого описания."
+      ],
+      "verifiedAt": null,
+      "quickStart": [
+        "Откройте официальный источник и проверьте владельца, лицензию и дату обновления.",
+        "Не передавайте secrets или рабочие данные; начните с пустого тестового проекта.",
+        "Сравните результат с текущим способом работы и только потом решайте об интеграции."
+      ],
+      "reviewStatus": "inferred",
+      "source": {
+        "file": "catalog/resources.json",
+        "key": "linly-dubbing-github-com",
+        "legacy": {
+          "file": "README.md",
+          "line": 681,
+          "category": "Media & Download",
+          "subcategory": null
+        }
+      },
+      "addedAt": null,
+      "catalogOrder": 681,
+      "licenseInfo": {
+        "label": "Apache-2.0",
+        "original": "Нужно проверить в официальном источнике",
+        "spdx": "Apache-2.0",
+        "kind": "open-source",
+        "status": "source-declared",
+        "requiresReview": false,
+        "evidence": [
+          {
+            "kind": "license",
+            "label": "Apache-2.0 license",
+            "url": "https://api.github.com/repos/kedreamix/linly-dubbing/license"
+          }
+        ]
+      },
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://github.com/Kedreamix/Linly-Dubbing"
+        },
+        {
+          "kind": "license",
+          "label": "Apache-2.0 license",
+          "url": "https://api.github.com/repos/kedreamix/linly-dubbing/license"
+        }
+      ],
+      "agentEligibility": {
+        "eligible": true,
+        "reasons": [],
+        "installAllowed": false
+      }
+    },
+    {
       "id": "openreply-instagram-comment-dm",
       "url": "https://github.com/diwenne/openreply",
       "title": "OpenReply",
@@ -35127,7 +35505,7 @@
       },
       "guide": "community-agent-prompt-library-review-2026-08-22",
       "addedAt": "2026-08-22",
-      "catalogOrder": 680,
+      "catalogOrder": 681,
       "licenseInfo": {
         "label": "MIT",
         "original": "MIT",
@@ -35269,7 +35647,7 @@
       },
       "guide": "community-agent-prompt-library-review-2026-08-22",
       "addedAt": "2026-08-22",
-      "catalogOrder": 681,
+      "catalogOrder": 682,
       "licenseInfo": {
         "label": "No repository-wide license verified; each linked skill and connector keeps its own terms",
         "original": "No repository-wide license verified; each linked skill and connector keeps its own terms",
@@ -35300,228 +35678,6 @@
           "kind": "official-source",
           "label": "Composio toolkits",
           "url": "https://composio.dev/toolkits"
-        }
-      ],
-      "agentEligibility": {
-        "eligible": true,
-        "reasons": [],
-        "installAllowed": false
-      }
-    },
-    {
-      "id": "linly-dubbing-github-com",
-      "url": "https://github.com/Kedreamix/Linly-Dubbing",
-      "title": "Linly-Dubbing",
-      "type": "media",
-      "category": "Media & Download",
-      "subcategory": "Media & Download",
-      "simpleDescription": "Linly-Dubbing — Python / ML · AI-дубляж видео на 100+ языков — перевод речи, клон голоса, липсинк, авто-субтитры. Карточка помогает понять назначение ресурса и начать с небольшой безопасной проверки; условия использования ещё нужно сверить с официальным источником.",
-      "useCases": [
-        "Разобраться, подходит ли Linly-Dubbing для вашей задачи",
-        "Проверить возможности на небольшом тестовом сценарии до интеграции"
-      ],
-      "platforms": [
-        "Web"
-      ],
-      "license": "Apache-2.0",
-      "pricing": "Исходный код доступен публично; hosting, модели и внешние API могут оплачиваться отдельно",
-      "access": {
-        "cost": "free",
-        "signup": "unknown",
-        "runtime": "cloud"
-      },
-      "trust": "community",
-      "trustReason": "Запись структурирована автоматически из опубликованного описания. Официальный источник, лицензия и условия ещё не прошли отдельную редакторскую проверку.",
-      "projects": [],
-      "decision": "reference",
-      "riskLevel": "medium",
-      "risks": [
-        "Лицензия, цена, permissions и обработка данных могут отличаться от краткого описания."
-      ],
-      "verifiedAt": null,
-      "quickStart": [
-        "Откройте официальный источник и проверьте владельца, лицензию и дату обновления.",
-        "Не передавайте secrets или рабочие данные; начните с пустого тестового проекта.",
-        "Сравните результат с текущим способом работы и только потом решайте об интеграции."
-      ],
-      "reviewStatus": "inferred",
-      "source": {
-        "file": "catalog/resources.json",
-        "key": "linly-dubbing-github-com",
-        "legacy": {
-          "file": "README.md",
-          "line": 681,
-          "category": "Media & Download",
-          "subcategory": null
-        }
-      },
-      "addedAt": null,
-      "catalogOrder": 681,
-      "licenseInfo": {
-        "label": "Apache-2.0",
-        "original": "Нужно проверить в официальном источнике",
-        "spdx": "Apache-2.0",
-        "kind": "open-source",
-        "status": "source-declared",
-        "requiresReview": false,
-        "evidence": [
-          {
-            "kind": "license",
-            "label": "Apache-2.0 license",
-            "url": "https://api.github.com/repos/kedreamix/linly-dubbing/license"
-          }
-        ]
-      },
-      "evidence": [
-        {
-          "kind": "official-source",
-          "label": "Официальный источник",
-          "url": "https://github.com/Kedreamix/Linly-Dubbing"
-        },
-        {
-          "kind": "license",
-          "label": "Apache-2.0 license",
-          "url": "https://api.github.com/repos/kedreamix/linly-dubbing/license"
-        }
-      ],
-      "agentEligibility": {
-        "eligible": true,
-        "reasons": [],
-        "installAllowed": false
-      }
-    },
-    {
-      "id": "screenpipe-local-computer-history",
-      "url": "https://github.com/screenpipe/screenpipe",
-      "title": "Screenpipe",
-      "type": "tool",
-      "category": "Инструменты",
-      "subcategory": "Local computer history",
-      "simpleDescription": "Screenpipe записывает экран и звук локально и делает историю доступной агентам. Полезно для персональной памяти и QA evidence, но текущая лицензия требует отдельного commercial agreement для бизнес-использования и unattended machines; приватность здесь критичнее удобства.",
-      "useCases": [
-        "Личная локальная история действий",
-        "Поиск контекста по рабочему дню",
-        "Сбор QA evidence с явным consent"
-      ],
-      "platforms": [
-        "Desktop",
-        "Local AI",
-        "MCP"
-      ],
-      "license": "Screenpipe Commercial License; free personal/non-commercial use and limited evaluation, paid license required for commercial use",
-      "licenseEvidence": [
-        {
-          "kind": "license",
-          "label": "Official current license",
-          "url": "https://github.com/screenpipe/screenpipe/blob/main/LICENSE.md"
-        },
-        {
-          "kind": "source",
-          "label": "Official repository",
-          "url": "https://github.com/screenpipe/screenpipe"
-        }
-      ],
-      "pricing": "Personal/evaluation rights are limited by the current license; commercial and unattended use require paid terms",
-      "access": {
-        "cost": "paid",
-        "signup": "optional",
-        "runtime": "local"
-      },
-      "trust": "official",
-      "trustReason": "Canonical repository and current commercial license were checked on 22.08.2026. Older MIT releases do not make current versions MIT.",
-      "projects": [
-        "Hopson Sentinel",
-        "Eclipse Chat"
-      ],
-      "decision": "reference",
-      "riskLevel": "high",
-      "risks": [
-        "Continuous capture of credentials, messages and private data",
-        "Biometric and voice data",
-        "Retention and deletion failures",
-        "Commercial license required for business/unattended deployment"
-      ],
-      "quickStart": [
-        "Do not enable continuous capture in production",
-        "Run a short personal-only privacy pilot with exclusions",
-        "Define redaction, retention, encryption and panic-delete before evaluation"
-      ],
-      "description": "Local-first screen and audio memory for agents with a sensitive-data and commercial-license boundary.",
-      "features": [
-        "Continuous screen/audio capture",
-        "Local search",
-        "Agent context"
-      ],
-      "audience": [
-        "Personal knowledge workers",
-        "Agent researchers"
-      ],
-      "limitations": [
-        "Highly sensitive capture",
-        "Commercial restrictions",
-        "Needs strong hardware and storage governance"
-      ],
-      "relatedTechnologies": [
-        "OCR",
-        "STT",
-        "Privacy",
-        "Retention"
-      ],
-      "verifiedAt": "2026-08-22",
-      "reviewStatus": "verified",
-      "source": {
-        "file": "catalog/resources.json",
-        "key": "screenpipe-local-computer-history",
-        "legacy": {
-          "file": "User community materials intake 2026-08-22",
-          "line": null,
-          "category": "Community prompt and replacement pack",
-          "subcategory": "Local computer history"
-        }
-      },
-      "guide": "community-agent-prompt-library-review-2026-08-22",
-      "addedAt": "2026-08-22",
-      "catalogOrder": 682,
-      "licenseInfo": {
-        "label": "Screenpipe Commercial License; free personal/non-commercial use and limited evaluation, paid license required for commercial use",
-        "original": "Screenpipe Commercial License; free personal/non-commercial use and limited evaluation, paid license required for commercial use",
-        "spdx": null,
-        "kind": "service-terms",
-        "status": "editor-reviewed",
-        "requiresReview": false,
-        "evidence": [
-          {
-            "kind": "license",
-            "label": "Other license",
-            "url": "https://api.github.com/repos/screenpipe/screenpipe/license"
-          },
-          {
-            "kind": "license",
-            "label": "Official current license",
-            "url": "https://github.com/screenpipe/screenpipe/blob/main/LICENSE.md"
-          },
-          {
-            "kind": "source",
-            "label": "Official repository",
-            "url": "https://github.com/screenpipe/screenpipe"
-          }
-        ]
-      },
-      "evidence": [
-        {
-          "kind": "official-source",
-          "label": "Официальный источник",
-          "url": "https://github.com/screenpipe/screenpipe"
-        },
-        {
-          "kind": "license",
-          "label": "Other license",
-          "url": "https://api.github.com/repos/screenpipe/screenpipe/license"
-        },
-        {
-          "kind": "license",
-          "label": "Official current license",
-          "url": "https://github.com/screenpipe/screenpipe/blob/main/LICENSE.md"
         }
       ],
       "agentEligibility": {
@@ -35695,6 +35851,228 @@
       }
     },
     {
+      "id": "screenpipe-local-computer-history",
+      "url": "https://github.com/screenpipe/screenpipe",
+      "title": "Screenpipe",
+      "type": "tool",
+      "category": "Инструменты",
+      "subcategory": "Local computer history",
+      "simpleDescription": "Screenpipe записывает экран и звук локально и делает историю доступной агентам. Полезно для персональной памяти и QA evidence, но текущая лицензия требует отдельного commercial agreement для бизнес-использования и unattended machines; приватность здесь критичнее удобства.",
+      "useCases": [
+        "Личная локальная история действий",
+        "Поиск контекста по рабочему дню",
+        "Сбор QA evidence с явным consent"
+      ],
+      "platforms": [
+        "Desktop",
+        "Local AI",
+        "MCP"
+      ],
+      "license": "Screenpipe Commercial License; free personal/non-commercial use and limited evaluation, paid license required for commercial use",
+      "licenseEvidence": [
+        {
+          "kind": "license",
+          "label": "Official current license",
+          "url": "https://github.com/screenpipe/screenpipe/blob/main/LICENSE.md"
+        },
+        {
+          "kind": "source",
+          "label": "Official repository",
+          "url": "https://github.com/screenpipe/screenpipe"
+        }
+      ],
+      "pricing": "Personal/evaluation rights are limited by the current license; commercial and unattended use require paid terms",
+      "access": {
+        "cost": "paid",
+        "signup": "optional",
+        "runtime": "local"
+      },
+      "trust": "official",
+      "trustReason": "Canonical repository and current commercial license were checked on 22.08.2026. Older MIT releases do not make current versions MIT.",
+      "projects": [
+        "Hopson Sentinel",
+        "Eclipse Chat"
+      ],
+      "decision": "reference",
+      "riskLevel": "high",
+      "risks": [
+        "Continuous capture of credentials, messages and private data",
+        "Biometric and voice data",
+        "Retention and deletion failures",
+        "Commercial license required for business/unattended deployment"
+      ],
+      "quickStart": [
+        "Do not enable continuous capture in production",
+        "Run a short personal-only privacy pilot with exclusions",
+        "Define redaction, retention, encryption and panic-delete before evaluation"
+      ],
+      "description": "Local-first screen and audio memory for agents with a sensitive-data and commercial-license boundary.",
+      "features": [
+        "Continuous screen/audio capture",
+        "Local search",
+        "Agent context"
+      ],
+      "audience": [
+        "Personal knowledge workers",
+        "Agent researchers"
+      ],
+      "limitations": [
+        "Highly sensitive capture",
+        "Commercial restrictions",
+        "Needs strong hardware and storage governance"
+      ],
+      "relatedTechnologies": [
+        "OCR",
+        "STT",
+        "Privacy",
+        "Retention"
+      ],
+      "verifiedAt": "2026-08-22",
+      "reviewStatus": "verified",
+      "source": {
+        "file": "catalog/resources.json",
+        "key": "screenpipe-local-computer-history",
+        "legacy": {
+          "file": "User community materials intake 2026-08-22",
+          "line": null,
+          "category": "Community prompt and replacement pack",
+          "subcategory": "Local computer history"
+        }
+      },
+      "guide": "community-agent-prompt-library-review-2026-08-22",
+      "addedAt": "2026-08-22",
+      "catalogOrder": 683,
+      "licenseInfo": {
+        "label": "Screenpipe Commercial License; free personal/non-commercial use and limited evaluation, paid license required for commercial use",
+        "original": "Screenpipe Commercial License; free personal/non-commercial use and limited evaluation, paid license required for commercial use",
+        "spdx": null,
+        "kind": "service-terms",
+        "status": "editor-reviewed",
+        "requiresReview": false,
+        "evidence": [
+          {
+            "kind": "license",
+            "label": "Other license",
+            "url": "https://api.github.com/repos/screenpipe/screenpipe/license"
+          },
+          {
+            "kind": "license",
+            "label": "Official current license",
+            "url": "https://github.com/screenpipe/screenpipe/blob/main/LICENSE.md"
+          },
+          {
+            "kind": "source",
+            "label": "Official repository",
+            "url": "https://github.com/screenpipe/screenpipe"
+          }
+        ]
+      },
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://github.com/screenpipe/screenpipe"
+        },
+        {
+          "kind": "license",
+          "label": "Other license",
+          "url": "https://api.github.com/repos/screenpipe/screenpipe/license"
+        },
+        {
+          "kind": "license",
+          "label": "Official current license",
+          "url": "https://github.com/screenpipe/screenpipe/blob/main/LICENSE.md"
+        }
+      ],
+      "agentEligibility": {
+        "eligible": true,
+        "reasons": [],
+        "installAllowed": false
+      }
+    },
+    {
+      "id": "comic-translate-github-com",
+      "url": "https://github.com/ogkalu2/comic-translate",
+      "title": "Comic-translate",
+      "type": "api",
+      "category": "Media & Download",
+      "subcategory": "Media & Download",
+      "simpleDescription": "Comic-translate — Python · AI-перевод манги и комиксов — сохраняет шрифты и форматирование, нужен API (Gemini/OpenAI). Карточка помогает понять назначение ресурса и начать с небольшой безопасной проверки; условия использования ещё нужно сверить с официальным источником.",
+      "useCases": [
+        "Разобраться, подходит ли Comic-translate для вашей задачи",
+        "Проверить возможности на небольшом тестовом сценарии до интеграции"
+      ],
+      "platforms": [
+        "API"
+      ],
+      "license": "Apache-2.0",
+      "pricing": "Исходный код доступен публично; hosting, модели и внешние API могут оплачиваться отдельно",
+      "access": {
+        "cost": "free",
+        "signup": "unknown",
+        "runtime": "cloud"
+      },
+      "trust": "community",
+      "trustReason": "Запись структурирована автоматически из опубликованного описания. Официальный источник, лицензия и условия ещё не прошли отдельную редакторскую проверку.",
+      "projects": [],
+      "decision": "reference",
+      "riskLevel": "medium",
+      "risks": [
+        "Лицензия, цена, permissions и обработка данных могут отличаться от краткого описания."
+      ],
+      "verifiedAt": null,
+      "quickStart": [
+        "Откройте официальный источник и проверьте владельца, лицензию и дату обновления.",
+        "Не передавайте secrets или рабочие данные; начните с пустого тестового проекта.",
+        "Сравните результат с текущим способом работы и только потом решайте об интеграции."
+      ],
+      "reviewStatus": "inferred",
+      "source": {
+        "file": "catalog/resources.json",
+        "key": "comic-translate-github-com",
+        "legacy": {
+          "file": "README.md",
+          "line": 684,
+          "category": "Media & Download",
+          "subcategory": null
+        }
+      },
+      "addedAt": null,
+      "catalogOrder": 684,
+      "licenseInfo": {
+        "label": "Apache-2.0",
+        "original": "Нужно проверить в официальном источнике",
+        "spdx": "Apache-2.0",
+        "kind": "open-source",
+        "status": "source-declared",
+        "requiresReview": false,
+        "evidence": [
+          {
+            "kind": "license",
+            "label": "Apache-2.0 license",
+            "url": "https://api.github.com/repos/ogkalu2/comic-translate/license"
+          }
+        ]
+      },
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://github.com/ogkalu2/comic-translate"
+        },
+        {
+          "kind": "license",
+          "label": "Apache-2.0 license",
+          "url": "https://api.github.com/repos/ogkalu2/comic-translate/license"
+        }
+      ],
+      "agentEligibility": {
+        "eligible": true,
+        "reasons": [],
+        "installAllowed": false
+      }
+    },
+    {
       "id": "twenty-open-crm",
       "url": "https://github.com/twentyhq/twenty",
       "title": "Twenty CRM",
@@ -35788,7 +36166,7 @@
       },
       "guide": "community-agent-prompt-library-review-2026-08-22",
       "addedAt": "2026-08-22",
-      "catalogOrder": 683,
+      "catalogOrder": 684,
       "licenseInfo": {
         "label": "Mostly AGPL-3.0 with Twenty Application Exception; some Enterprise-licensed files and MIT packages",
         "original": "Mostly AGPL-3.0 with Twenty Application Exception; some Enterprise-licensed files and MIT packages",
@@ -35838,26 +36216,26 @@
       }
     },
     {
-      "id": "comic-translate-github-com",
-      "url": "https://github.com/ogkalu2/comic-translate",
-      "title": "Comic-translate",
-      "type": "api",
+      "id": "final2x-github-com",
+      "url": "https://github.com/EutropicAI/Final2x",
+      "title": "Final2x",
+      "type": "media",
       "category": "Media & Download",
       "subcategory": "Media & Download",
-      "simpleDescription": "Comic-translate — Python · AI-перевод манги и комиксов — сохраняет шрифты и форматирование, нужен API (Gemini/OpenAI). Карточка помогает понять назначение ресурса и начать с небольшой безопасной проверки; условия использования ещё нужно сверить с официальным источником.",
+      "simpleDescription": "Final2x — Python · AI-апскейлер изображений — восстановление деталей из пиксельных фото, Win/Mac/Linux. Карточка помогает понять назначение ресурса и начать с небольшой безопасной проверки; условия использования ещё нужно сверить с официальным источником.",
       "useCases": [
-        "Разобраться, подходит ли Comic-translate для вашей задачи",
+        "Разобраться, подходит ли Final2x для вашей задачи",
         "Проверить возможности на небольшом тестовом сценарии до интеграции"
       ],
       "platforms": [
-        "API"
+        "Linux"
       ],
-      "license": "Apache-2.0",
+      "license": "BSD-3-Clause",
       "pricing": "Исходный код доступен публично; hosting, модели и внешние API могут оплачиваться отдельно",
       "access": {
         "cost": "free",
-        "signup": "unknown",
-        "runtime": "cloud"
+        "signup": "none",
+        "runtime": "local"
       },
       "trust": "community",
       "trustReason": "Запись структурирована автоматически из опубликованного описания. Официальный источник, лицензия и условия ещё не прошли отдельную редакторскую проверку.",
@@ -35876,28 +36254,28 @@
       "reviewStatus": "inferred",
       "source": {
         "file": "catalog/resources.json",
-        "key": "comic-translate-github-com",
+        "key": "final2x-github-com",
         "legacy": {
           "file": "README.md",
-          "line": 684,
+          "line": 685,
           "category": "Media & Download",
           "subcategory": null
         }
       },
       "addedAt": null,
-      "catalogOrder": 684,
+      "catalogOrder": 685,
       "licenseInfo": {
-        "label": "Apache-2.0",
+        "label": "BSD-3-Clause",
         "original": "Нужно проверить в официальном источнике",
-        "spdx": "Apache-2.0",
+        "spdx": "BSD-3-Clause",
         "kind": "open-source",
         "status": "source-declared",
         "requiresReview": false,
         "evidence": [
           {
             "kind": "license",
-            "label": "Apache-2.0 license",
-            "url": "https://api.github.com/repos/ogkalu2/comic-translate/license"
+            "label": "BSD-3-Clause license",
+            "url": "https://api.github.com/repos/eutropicai/final2x/license"
           }
         ]
       },
@@ -35905,12 +36283,12 @@
         {
           "kind": "official-source",
           "label": "Официальный источник",
-          "url": "https://github.com/ogkalu2/comic-translate"
+          "url": "https://github.com/EutropicAI/Final2x"
         },
         {
           "kind": "license",
-          "label": "Apache-2.0 license",
-          "url": "https://api.github.com/repos/ogkalu2/comic-translate/license"
+          "label": "BSD-3-Clause license",
+          "url": "https://api.github.com/repos/eutropicai/final2x/license"
         }
       ],
       "agentEligibility": {
@@ -36011,7 +36389,7 @@
       },
       "guide": "self-hosted-platforms-for-eclipse-2026-08-22",
       "addedAt": "2026-08-22",
-      "catalogOrder": 684,
+      "catalogOrder": 685,
       "licenseInfo": {
         "label": "Sustainable Use License 1.0 for master/develop; other branches may be unlicensed",
         "original": "Sustainable Use License 1.0 for master/develop; other branches may be unlicensed",
@@ -36052,88 +36430,6 @@
           "kind": "license",
           "label": "Official current license",
           "url": "https://github.com/nocodb/nocodb/blob/develop/LICENSE.md"
-        }
-      ],
-      "agentEligibility": {
-        "eligible": true,
-        "reasons": [],
-        "installAllowed": false
-      }
-    },
-    {
-      "id": "final2x-github-com",
-      "url": "https://github.com/EutropicAI/Final2x",
-      "title": "Final2x",
-      "type": "media",
-      "category": "Media & Download",
-      "subcategory": "Media & Download",
-      "simpleDescription": "Final2x — Python · AI-апскейлер изображений — восстановление деталей из пиксельных фото, Win/Mac/Linux. Карточка помогает понять назначение ресурса и начать с небольшой безопасной проверки; условия использования ещё нужно сверить с официальным источником.",
-      "useCases": [
-        "Разобраться, подходит ли Final2x для вашей задачи",
-        "Проверить возможности на небольшом тестовом сценарии до интеграции"
-      ],
-      "platforms": [
-        "Linux"
-      ],
-      "license": "BSD-3-Clause",
-      "pricing": "Исходный код доступен публично; hosting, модели и внешние API могут оплачиваться отдельно",
-      "access": {
-        "cost": "free",
-        "signup": "none",
-        "runtime": "local"
-      },
-      "trust": "community",
-      "trustReason": "Запись структурирована автоматически из опубликованного описания. Официальный источник, лицензия и условия ещё не прошли отдельную редакторскую проверку.",
-      "projects": [],
-      "decision": "reference",
-      "riskLevel": "medium",
-      "risks": [
-        "Лицензия, цена, permissions и обработка данных могут отличаться от краткого описания."
-      ],
-      "verifiedAt": null,
-      "quickStart": [
-        "Откройте официальный источник и проверьте владельца, лицензию и дату обновления.",
-        "Не передавайте secrets или рабочие данные; начните с пустого тестового проекта.",
-        "Сравните результат с текущим способом работы и только потом решайте об интеграции."
-      ],
-      "reviewStatus": "inferred",
-      "source": {
-        "file": "catalog/resources.json",
-        "key": "final2x-github-com",
-        "legacy": {
-          "file": "README.md",
-          "line": 685,
-          "category": "Media & Download",
-          "subcategory": null
-        }
-      },
-      "addedAt": null,
-      "catalogOrder": 685,
-      "licenseInfo": {
-        "label": "BSD-3-Clause",
-        "original": "Нужно проверить в официальном источнике",
-        "spdx": "BSD-3-Clause",
-        "kind": "open-source",
-        "status": "source-declared",
-        "requiresReview": false,
-        "evidence": [
-          {
-            "kind": "license",
-            "label": "BSD-3-Clause license",
-            "url": "https://api.github.com/repos/eutropicai/final2x/license"
-          }
-        ]
-      },
-      "evidence": [
-        {
-          "kind": "official-source",
-          "label": "Официальный источник",
-          "url": "https://github.com/EutropicAI/Final2x"
-        },
-        {
-          "kind": "license",
-          "label": "BSD-3-Clause license",
-          "url": "https://api.github.com/repos/eutropicai/final2x/license"
         }
       ],
       "agentEligibility": {
@@ -36237,7 +36533,7 @@
       },
       "guide": "community-agent-prompt-library-review-2026-08-22",
       "addedAt": "2026-08-22",
-      "catalogOrder": 685,
+      "catalogOrder": 686,
       "licenseInfo": {
         "label": "MIT",
         "original": "MIT",
@@ -36369,6 +36665,84 @@
       }
     },
     {
+      "id": "hearica-hearica-com",
+      "url": "https://hearica.com/",
+      "title": "Hearica",
+      "type": "media",
+      "category": "Media & Download",
+      "subcategory": "Media & Download",
+      "simpleDescription": "Hearica — Desktop / Cloud · Live-субтитры поверх любых приложений (Zoom / Meet / игры / мессенджеры), перевод на 60+ языков на лету, разделение спикеров цветом, экспорт PDF/DOC/TXT/SRT. Автор глухой → дизайн ориентирован на accessibility. Cloud-based — для конфиденциальных созвонов оценивать отдельно; для self-hosted альтернативы — WhisperLiveKit выше. Карточка помогает понять назначение ресурса и начать с небольшой безопасной проверки; условия использования ещё нужно сверить с официальным источником.",
+      "useCases": [
+        "Разобраться, подходит ли Hearica для вашей задачи",
+        "Проверить возможности на небольшом тестовом сценарии до интеграции"
+      ],
+      "platforms": [
+        "Self-host",
+        "Cloud"
+      ],
+      "license": "Нужно проверить в официальном источнике",
+      "pricing": "Актуальную стоимость нужно проверить на официальной странице",
+      "access": {
+        "cost": "unknown",
+        "signup": "unknown",
+        "runtime": "hybrid"
+      },
+      "trust": "unknown",
+      "trustReason": "Запись структурирована автоматически из опубликованного описания. Официальный источник, лицензия и условия ещё не прошли отдельную редакторскую проверку.",
+      "projects": [],
+      "decision": "reference",
+      "riskLevel": "medium",
+      "risks": [
+        "Лицензия, цена, permissions и обработка данных могут отличаться от краткого описания."
+      ],
+      "verifiedAt": null,
+      "quickStart": [
+        "Откройте официальный источник и проверьте владельца, лицензию и дату обновления.",
+        "Не передавайте secrets или рабочие данные; начните с пустого тестового проекта.",
+        "Сравните результат с текущим способом работы и только потом решайте об интеграции."
+      ],
+      "reviewStatus": "inferred",
+      "source": {
+        "file": "catalog/resources.json",
+        "key": "hearica-hearica-com",
+        "legacy": {
+          "file": "README.md",
+          "line": 687,
+          "category": "Media & Download",
+          "subcategory": null
+        }
+      },
+      "addedAt": null,
+      "catalogOrder": 687,
+      "licenseInfo": {
+        "label": "Нужно проверить в официальном источнике",
+        "original": "Нужно проверить в официальном источнике",
+        "spdx": null,
+        "kind": "unknown",
+        "status": "unverified",
+        "requiresReview": true,
+        "evidence": [
+          {
+            "kind": "official-source",
+            "label": "Официальный источник; точные условия ещё нужно сверить",
+            "url": "https://hearica.com/"
+          }
+        ]
+      },
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://hearica.com/"
+        }
+      ],
+      "agentEligibility": {
+        "eligible": true,
+        "reasons": [],
+        "installAllowed": false
+      }
+    },
+    {
       "id": "arcads-agent-skills",
       "url": "https://github.com/arcads-ai/skills",
       "title": "Arcads Agent Skills",
@@ -36459,7 +36833,7 @@
       },
       "guide": "community-agent-prompt-library-review-2026-08-22",
       "addedAt": "2026-08-22",
-      "catalogOrder": 687,
+      "catalogOrder": 688,
       "licenseInfo": {
         "label": "No repository-wide license verified; Arcads service terms and skill files require separate review",
         "original": "No repository-wide license verified; Arcads service terms and skill files require separate review",
@@ -36490,84 +36864,6 @@
           "kind": "official-source",
           "label": "Arcads MCP endpoint",
           "url": "https://mcp.arcads.ai"
-        }
-      ],
-      "agentEligibility": {
-        "eligible": true,
-        "reasons": [],
-        "installAllowed": false
-      }
-    },
-    {
-      "id": "hearica-hearica-com",
-      "url": "https://hearica.com/",
-      "title": "Hearica",
-      "type": "media",
-      "category": "Media & Download",
-      "subcategory": "Media & Download",
-      "simpleDescription": "Hearica — Desktop / Cloud · Live-субтитры поверх любых приложений (Zoom / Meet / игры / мессенджеры), перевод на 60+ языков на лету, разделение спикеров цветом, экспорт PDF/DOC/TXT/SRT. Автор глухой → дизайн ориентирован на accessibility. Cloud-based — для конфиденциальных созвонов оценивать отдельно; для self-hosted альтернативы — WhisperLiveKit выше. Карточка помогает понять назначение ресурса и начать с небольшой безопасной проверки; условия использования ещё нужно сверить с официальным источником.",
-      "useCases": [
-        "Разобраться, подходит ли Hearica для вашей задачи",
-        "Проверить возможности на небольшом тестовом сценарии до интеграции"
-      ],
-      "platforms": [
-        "Self-host",
-        "Cloud"
-      ],
-      "license": "Нужно проверить в официальном источнике",
-      "pricing": "Актуальную стоимость нужно проверить на официальной странице",
-      "access": {
-        "cost": "unknown",
-        "signup": "unknown",
-        "runtime": "hybrid"
-      },
-      "trust": "unknown",
-      "trustReason": "Запись структурирована автоматически из опубликованного описания. Официальный источник, лицензия и условия ещё не прошли отдельную редакторскую проверку.",
-      "projects": [],
-      "decision": "reference",
-      "riskLevel": "medium",
-      "risks": [
-        "Лицензия, цена, permissions и обработка данных могут отличаться от краткого описания."
-      ],
-      "verifiedAt": null,
-      "quickStart": [
-        "Откройте официальный источник и проверьте владельца, лицензию и дату обновления.",
-        "Не передавайте secrets или рабочие данные; начните с пустого тестового проекта.",
-        "Сравните результат с текущим способом работы и только потом решайте об интеграции."
-      ],
-      "reviewStatus": "inferred",
-      "source": {
-        "file": "catalog/resources.json",
-        "key": "hearica-hearica-com",
-        "legacy": {
-          "file": "README.md",
-          "line": 687,
-          "category": "Media & Download",
-          "subcategory": null
-        }
-      },
-      "addedAt": null,
-      "catalogOrder": 687,
-      "licenseInfo": {
-        "label": "Нужно проверить в официальном источнике",
-        "original": "Нужно проверить в официальном источнике",
-        "spdx": null,
-        "kind": "unknown",
-        "status": "unverified",
-        "requiresReview": true,
-        "evidence": [
-          {
-            "kind": "official-source",
-            "label": "Официальный источник; точные условия ещё нужно сверить",
-            "url": "https://hearica.com/"
-          }
-        ]
-      },
-      "evidence": [
-        {
-          "kind": "official-source",
-          "label": "Официальный источник",
-          "url": "https://hearica.com/"
         }
       ],
       "agentEligibility": {
@@ -36655,6 +36951,90 @@
       "agentEligibility": {
         "eligible": true,
         "reasons": [],
+        "installAllowed": false
+      }
+    },
+    {
+      "id": "supertonic-3-github-com",
+      "url": "https://github.com/supertone-inc/supertonic",
+      "title": "Supertonic 3",
+      "type": "media",
+      "category": "Media & Download",
+      "subcategory": "Media & Download",
+      "simpleDescription": "Supertonic 3 — Python / Supertone · Лёгкий TTS — имитация эмоций (вздохи, кашель), 31 язык (русский), локальный запуск даже на мобильных, безлимитный. Карточка помогает понять назначение ресурса и начать с небольшой безопасной проверки; условия использования ещё нужно сверить с официальным источником.",
+      "useCases": [
+        "Разобраться, подходит ли Supertonic 3 для вашей задачи",
+        "Проверить возможности на небольшом тестовом сценарии до интеграции"
+      ],
+      "platforms": [
+        "Self-host"
+      ],
+      "license": "MIT",
+      "pricing": "Исходный код доступен публично; hosting, модели и внешние API могут оплачиваться отдельно",
+      "access": {
+        "cost": "free",
+        "signup": "none",
+        "runtime": "self-host"
+      },
+      "trust": "community",
+      "trustReason": "Запись структурирована автоматически из опубликованного описания. Официальный источник, лицензия и условия ещё не прошли отдельную редакторскую проверку.",
+      "projects": [],
+      "decision": "reference",
+      "riskLevel": "medium",
+      "risks": [
+        "Лицензия, цена, permissions и обработка данных могут отличаться от краткого описания."
+      ],
+      "verifiedAt": null,
+      "quickStart": [
+        "Откройте официальный источник и проверьте владельца, лицензию и дату обновления.",
+        "Не передавайте secrets или рабочие данные; начните с пустого тестового проекта.",
+        "Сравните результат с текущим способом работы и только потом решайте об интеграции."
+      ],
+      "reviewStatus": "inferred",
+      "source": {
+        "file": "catalog/resources.json",
+        "key": "supertonic-3-github-com",
+        "legacy": {
+          "file": "README.md",
+          "line": 689,
+          "category": "Media & Download",
+          "subcategory": null
+        }
+      },
+      "addedAt": null,
+      "catalogOrder": 689,
+      "licenseInfo": {
+        "label": "MIT",
+        "original": "Нужно проверить в официальном источнике",
+        "spdx": "MIT",
+        "kind": "open-source",
+        "status": "source-declared",
+        "requiresReview": false,
+        "evidence": [
+          {
+            "kind": "license",
+            "label": "MIT license",
+            "url": "https://api.github.com/repos/supertone-inc/supertonic/license"
+          }
+        ]
+      },
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://github.com/supertone-inc/supertonic"
+        },
+        {
+          "kind": "license",
+          "label": "MIT license",
+          "url": "https://api.github.com/repos/supertone-inc/supertonic/license"
+        }
+      ],
+      "agentEligibility": {
+        "eligible": false,
+        "reasons": [
+          "repository-archived"
+        ],
         "installAllowed": false
       }
     },
@@ -36749,7 +37129,7 @@
       },
       "guide": "community-agent-prompt-library-review-2026-08-22",
       "addedAt": "2026-08-22",
-      "catalogOrder": 688,
+      "catalogOrder": 689,
       "licenseInfo": {
         "label": "Apache-2.0 repository; model weights and bundled components must be checked separately",
         "original": "Apache-2.0 repository; model weights and bundled components must be checked separately",
@@ -36889,7 +37269,7 @@
       },
       "guide": "community-agent-prompt-library-review-2026-08-22",
       "addedAt": "2026-08-22",
-      "catalogOrder": 689,
+      "catalogOrder": 690,
       "licenseInfo": {
         "label": "MIT",
         "original": "MIT",
@@ -36939,26 +37319,26 @@
       }
     },
     {
-      "id": "supertonic-3-github-com",
-      "url": "https://github.com/supertone-inc/supertonic",
-      "title": "Supertonic 3",
+      "id": "translatebookswithllms-github-com",
+      "url": "https://github.com/hydropix/TranslateBooksWithLLMs",
+      "title": "TranslateBooksWithLLMs",
       "type": "media",
       "category": "Media & Download",
       "subcategory": "Media & Download",
-      "simpleDescription": "Supertonic 3 — Python / Supertone · Лёгкий TTS — имитация эмоций (вздохи, кашель), 31 язык (русский), локальный запуск даже на мобильных, безлимитный. Карточка помогает понять назначение ресурса и начать с небольшой безопасной проверки; условия использования ещё нужно сверить с официальным источником.",
+      "simpleDescription": "TranslateBooksWithLLMs — Python · Переводчик документов через GPT/Gemini/Mistral/DeepSeek/Ollama — EPUB / SRT / DOCX / TXT. Карточка помогает понять назначение ресурса и начать с небольшой безопасной проверки; условия использования ещё нужно сверить с официальным источником.",
       "useCases": [
-        "Разобраться, подходит ли Supertonic 3 для вашей задачи",
+        "Разобраться, подходит ли TranslateBooksWithLLMs для вашей задачи",
         "Проверить возможности на небольшом тестовом сценарии до интеграции"
       ],
       "platforms": [
-        "Self-host"
+        "Web"
       ],
-      "license": "MIT",
+      "license": "AGPL-3.0",
       "pricing": "Исходный код доступен публично; hosting, модели и внешние API могут оплачиваться отдельно",
       "access": {
         "cost": "free",
-        "signup": "none",
-        "runtime": "self-host"
+        "signup": "unknown",
+        "runtime": "cloud"
       },
       "trust": "community",
       "trustReason": "Запись структурирована автоматически из опубликованного описания. Официальный источник, лицензия и условия ещё не прошли отдельную редакторскую проверку.",
@@ -36977,28 +37357,28 @@
       "reviewStatus": "inferred",
       "source": {
         "file": "catalog/resources.json",
-        "key": "supertonic-3-github-com",
+        "key": "translatebookswithllms-github-com",
         "legacy": {
           "file": "README.md",
-          "line": 689,
+          "line": 690,
           "category": "Media & Download",
           "subcategory": null
         }
       },
       "addedAt": null,
-      "catalogOrder": 689,
+      "catalogOrder": 690,
       "licenseInfo": {
-        "label": "MIT",
+        "label": "AGPL-3.0",
         "original": "Нужно проверить в официальном источнике",
-        "spdx": "MIT",
+        "spdx": "AGPL-3.0",
         "kind": "open-source",
         "status": "source-declared",
         "requiresReview": false,
         "evidence": [
           {
             "kind": "license",
-            "label": "MIT license",
-            "url": "https://api.github.com/repos/supertone-inc/supertonic/license"
+            "label": "AGPL-3.0 license",
+            "url": "https://api.github.com/repos/hydropix/translatebookswithllms/license"
           }
         ]
       },
@@ -37006,12 +37386,12 @@
         {
           "kind": "official-source",
           "label": "Официальный источник",
-          "url": "https://github.com/supertone-inc/supertonic"
+          "url": "https://github.com/hydropix/TranslateBooksWithLLMs"
         },
         {
           "kind": "license",
-          "label": "MIT license",
-          "url": "https://api.github.com/repos/supertone-inc/supertonic/license"
+          "label": "AGPL-3.0 license",
+          "url": "https://api.github.com/repos/hydropix/translatebookswithllms/license"
         }
       ],
       "agentEligibility": {
@@ -37101,7 +37481,7 @@
       },
       "guide": "community-agent-prompt-library-review-2026-08-22",
       "addedAt": "2026-08-22",
-      "catalogOrder": 690,
+      "catalogOrder": 691,
       "licenseInfo": {
         "label": "MIT",
         "original": "No repository-wide license file verified despite an MIT claim in the description",
@@ -37135,28 +37515,28 @@
       }
     },
     {
-      "id": "translatebookswithllms-github-com",
-      "url": "https://github.com/hydropix/TranslateBooksWithLLMs",
-      "title": "TranslateBooksWithLLMs",
+      "id": "sliceyt-sliceyt-com",
+      "url": "https://sliceyt.com/",
+      "title": "sliceyt",
       "type": "media",
       "category": "Media & Download",
       "subcategory": "Media & Download",
-      "simpleDescription": "TranslateBooksWithLLMs — Python · Переводчик документов через GPT/Gemini/Mistral/DeepSeek/Ollama — EPUB / SRT / DOCX / TXT. Карточка помогает понять назначение ресурса и начать с небольшой безопасной проверки; условия использования ещё нужно сверить с официальным источником.",
+      "simpleDescription": "sliceyt — Web · Скачивание YouTube + кусочный отрез (например 30 сек) — MP4 / MP3, любое качество, в браузере. Карточка помогает понять назначение ресурса и начать с небольшой безопасной проверки; условия использования ещё нужно сверить с официальным источником.",
       "useCases": [
-        "Разобраться, подходит ли TranslateBooksWithLLMs для вашей задачи",
+        "Разобраться, подходит ли sliceyt для вашей задачи",
         "Проверить возможности на небольшом тестовом сценарии до интеграции"
       ],
       "platforms": [
         "Web"
       ],
-      "license": "AGPL-3.0",
-      "pricing": "Исходный код доступен публично; hosting, модели и внешние API могут оплачиваться отдельно",
+      "license": "Нужно проверить в официальном источнике",
+      "pricing": "Актуальную стоимость нужно проверить на официальной странице",
       "access": {
-        "cost": "free",
+        "cost": "unknown",
         "signup": "unknown",
         "runtime": "cloud"
       },
-      "trust": "community",
+      "trust": "unknown",
       "trustReason": "Запись структурирована автоматически из опубликованного описания. Официальный источник, лицензия и условия ещё не прошли отдельную редакторскую проверку.",
       "projects": [],
       "decision": "reference",
@@ -37173,28 +37553,28 @@
       "reviewStatus": "inferred",
       "source": {
         "file": "catalog/resources.json",
-        "key": "translatebookswithllms-github-com",
+        "key": "sliceyt-sliceyt-com",
         "legacy": {
           "file": "README.md",
-          "line": 690,
+          "line": 691,
           "category": "Media & Download",
           "subcategory": null
         }
       },
       "addedAt": null,
-      "catalogOrder": 690,
+      "catalogOrder": 691,
       "licenseInfo": {
-        "label": "AGPL-3.0",
+        "label": "Нужно проверить в официальном источнике",
         "original": "Нужно проверить в официальном источнике",
-        "spdx": "AGPL-3.0",
-        "kind": "open-source",
-        "status": "source-declared",
-        "requiresReview": false,
+        "spdx": null,
+        "kind": "unknown",
+        "status": "unverified",
+        "requiresReview": true,
         "evidence": [
           {
-            "kind": "license",
-            "label": "AGPL-3.0 license",
-            "url": "https://api.github.com/repos/hydropix/translatebookswithllms/license"
+            "kind": "official-source",
+            "label": "Официальный источник; точные условия ещё нужно сверить",
+            "url": "https://sliceyt.com/"
           }
         ]
       },
@@ -37202,12 +37582,7 @@
         {
           "kind": "official-source",
           "label": "Официальный источник",
-          "url": "https://github.com/hydropix/TranslateBooksWithLLMs"
-        },
-        {
-          "kind": "license",
-          "label": "AGPL-3.0 license",
-          "url": "https://api.github.com/repos/hydropix/translatebookswithllms/license"
+          "url": "https://sliceyt.com/"
         }
       ],
       "agentEligibility": {
@@ -37304,7 +37679,7 @@
       },
       "guide": "community-agent-prompt-library-review-2026-08-22",
       "addedAt": "2026-08-22",
-      "catalogOrder": 691,
+      "catalogOrder": 692,
       "licenseInfo": {
         "label": "No public reuse license established; summarize and link, do not republish prompt text verbatim",
         "original": "No public reuse license established; summarize and link, do not republish prompt text verbatim",
@@ -37325,83 +37700,6 @@
           "kind": "official-source",
           "label": "Официальный источник",
           "url": "https://claude-code-guide-one-nu.vercel.app/"
-        }
-      ],
-      "agentEligibility": {
-        "eligible": true,
-        "reasons": [],
-        "installAllowed": false
-      }
-    },
-    {
-      "id": "sliceyt-sliceyt-com",
-      "url": "https://sliceyt.com/",
-      "title": "sliceyt",
-      "type": "media",
-      "category": "Media & Download",
-      "subcategory": "Media & Download",
-      "simpleDescription": "sliceyt — Web · Скачивание YouTube + кусочный отрез (например 30 сек) — MP4 / MP3, любое качество, в браузере. Карточка помогает понять назначение ресурса и начать с небольшой безопасной проверки; условия использования ещё нужно сверить с официальным источником.",
-      "useCases": [
-        "Разобраться, подходит ли sliceyt для вашей задачи",
-        "Проверить возможности на небольшом тестовом сценарии до интеграции"
-      ],
-      "platforms": [
-        "Web"
-      ],
-      "license": "Нужно проверить в официальном источнике",
-      "pricing": "Актуальную стоимость нужно проверить на официальной странице",
-      "access": {
-        "cost": "unknown",
-        "signup": "unknown",
-        "runtime": "cloud"
-      },
-      "trust": "unknown",
-      "trustReason": "Запись структурирована автоматически из опубликованного описания. Официальный источник, лицензия и условия ещё не прошли отдельную редакторскую проверку.",
-      "projects": [],
-      "decision": "reference",
-      "riskLevel": "medium",
-      "risks": [
-        "Лицензия, цена, permissions и обработка данных могут отличаться от краткого описания."
-      ],
-      "verifiedAt": null,
-      "quickStart": [
-        "Откройте официальный источник и проверьте владельца, лицензию и дату обновления.",
-        "Не передавайте secrets или рабочие данные; начните с пустого тестового проекта.",
-        "Сравните результат с текущим способом работы и только потом решайте об интеграции."
-      ],
-      "reviewStatus": "inferred",
-      "source": {
-        "file": "catalog/resources.json",
-        "key": "sliceyt-sliceyt-com",
-        "legacy": {
-          "file": "README.md",
-          "line": 691,
-          "category": "Media & Download",
-          "subcategory": null
-        }
-      },
-      "addedAt": null,
-      "catalogOrder": 691,
-      "licenseInfo": {
-        "label": "Нужно проверить в официальном источнике",
-        "original": "Нужно проверить в официальном источнике",
-        "spdx": null,
-        "kind": "unknown",
-        "status": "unverified",
-        "requiresReview": true,
-        "evidence": [
-          {
-            "kind": "official-source",
-            "label": "Официальный источник; точные условия ещё нужно сверить",
-            "url": "https://sliceyt.com/"
-          }
-        ]
-      },
-      "evidence": [
-        {
-          "kind": "official-source",
-          "label": "Официальный источник",
-          "url": "https://sliceyt.com/"
         }
       ],
       "agentEligibility": {
@@ -38869,19 +39167,19 @@
         }
       ],
       "addedAt": "2026-09-29",
-      "catalogOrder": 777,
+      "catalogOrder": 778,
       "licenseInfo": {
         "label": "MIT",
         "original": "MIT для кода; музыка, SFX и изображения требуют отдельных прав",
         "spdx": "MIT",
         "kind": "open-source",
-        "status": "editor-reviewed",
+        "status": "source-declared",
         "requiresReview": false,
         "evidence": [
           {
-            "kind": "official-source",
-            "label": "Официальный источник; точные условия ещё нужно сверить",
-            "url": "https://github.com/latent-spaces/brag"
+            "kind": "license",
+            "label": "MIT license",
+            "url": "https://api.github.com/repos/latent-spaces/brag/license"
           }
         ]
       },
@@ -38890,6 +39188,11 @@
           "kind": "official-source",
           "label": "Официальный источник",
           "url": "https://github.com/latent-spaces/brag"
+        },
+        {
+          "kind": "license",
+          "label": "MIT license",
+          "url": "https://api.github.com/repos/latent-spaces/brag/license"
         }
       ],
       "agentEligibility": {
@@ -38975,19 +39278,19 @@
         }
       ],
       "addedAt": "2026-09-29",
-      "catalogOrder": 778,
+      "catalogOrder": 779,
       "licenseInfo": {
         "label": "MIT",
         "original": "MIT",
         "spdx": "MIT",
         "kind": "open-source",
-        "status": "editor-reviewed",
+        "status": "source-declared",
         "requiresReview": false,
         "evidence": [
           {
-            "kind": "official-source",
-            "label": "Официальный источник; точные условия ещё нужно сверить",
-            "url": "https://github.com/tobi/disktree"
+            "kind": "license",
+            "label": "MIT license",
+            "url": "https://api.github.com/repos/tobi/disktree/license"
           }
         ]
       },
@@ -38996,6 +39299,11 @@
           "kind": "official-source",
           "label": "Официальный источник",
           "url": "https://github.com/tobi/disktree"
+        },
+        {
+          "kind": "license",
+          "label": "MIT license",
+          "url": "https://api.github.com/repos/tobi/disktree/license"
         }
       ],
       "agentEligibility": {
@@ -39080,7 +39388,7 @@
         }
       ],
       "addedAt": "2026-09-29",
-      "catalogOrder": 779,
+      "catalogOrder": 780,
       "licenseInfo": {
         "label": "Условия сайта; открытая лицензия каталога не подтверждена",
         "original": "Условия сайта; открытая лицензия каталога не подтверждена",
@@ -39185,19 +39493,19 @@
         }
       ],
       "addedAt": "2026-09-29",
-      "catalogOrder": 780,
+      "catalogOrder": 781,
       "licenseInfo": {
         "label": "Apache-2.0",
         "original": "Apache-2.0",
         "spdx": "Apache-2.0",
         "kind": "open-source",
-        "status": "editor-reviewed",
+        "status": "source-declared",
         "requiresReview": false,
         "evidence": [
           {
-            "kind": "official-source",
-            "label": "Официальный источник; точные условия ещё нужно сверить",
-            "url": "https://github.com/Human-Agent-Society/reef"
+            "kind": "license",
+            "label": "Apache-2.0 license",
+            "url": "https://api.github.com/repos/human-agent-society/reef/license"
           }
         ]
       },
@@ -39206,6 +39514,11 @@
           "kind": "official-source",
           "label": "Официальный источник",
           "url": "https://github.com/Human-Agent-Society/reef"
+        },
+        {
+          "kind": "license",
+          "label": "Apache-2.0 license",
+          "url": "https://api.github.com/repos/human-agent-society/reef/license"
         }
       ],
       "agentEligibility": {
@@ -39292,7 +39605,7 @@
         }
       ],
       "addedAt": "2026-09-29",
-      "catalogOrder": 781,
+      "catalogOrder": 782,
       "licenseInfo": {
         "label": "Условия Gemini API",
         "original": "Условия Gemini API",
@@ -39399,19 +39712,19 @@
         }
       ],
       "addedAt": "2026-09-29",
-      "catalogOrder": 782,
+      "catalogOrder": 783,
       "licenseInfo": {
         "label": "AGPL-3.0",
         "original": "AGPL-3.0-or-later с plugin exception; объём исключения требует отдельной проверки",
         "spdx": "AGPL-3.0",
         "kind": "open-source",
-        "status": "editor-reviewed",
+        "status": "source-declared",
         "requiresReview": false,
         "evidence": [
           {
-            "kind": "official-source",
-            "label": "Официальный источник; точные условия ещё нужно сверить",
-            "url": "https://github.com/jub0t/Concat"
+            "kind": "license",
+            "label": "AGPL-3.0 license",
+            "url": "https://api.github.com/repos/jub0t/concat/license"
           }
         ]
       },
@@ -39420,6 +39733,11 @@
           "kind": "official-source",
           "label": "Официальный источник",
           "url": "https://github.com/jub0t/Concat"
+        },
+        {
+          "kind": "license",
+          "label": "AGPL-3.0 license",
+          "url": "https://api.github.com/repos/jub0t/concat/license"
         }
       ],
       "agentEligibility": {
@@ -39507,7 +39825,7 @@
         }
       ],
       "addedAt": "2026-09-29",
-      "catalogOrder": 783,
+      "catalogOrder": 784,
       "licenseInfo": {
         "label": "OpenMDW-1.1",
         "original": "OpenMDW-1.1",
@@ -39538,115 +39856,6 @@
       "source": {
         "file": "catalog/resources.json",
         "key": "nemotron-3-diarization",
-        "legacy": null
-      }
-    },
-    {
-      "id": "the-cartel-notcartel",
-      "url": "https://www.youtube.com/@notcartel",
-      "title": "The Cartel — AI-контент и практические приёмы",
-      "type": "learn",
-      "category": "Практические ресурсы Eclipse Forge",
-      "subcategory": "Персонажи и AI-контент",
-      "platforms": [
-        "Web",
-        "Local"
-      ],
-      "license": "Лицензия повторного использования не указана; локальный справочный архив, права на публикацию требуют проверки.",
-      "pricing": "Просмотр общедоступных видео без оплаты; тарифы генераторов, курсов и полная стоимость локальных вычислений не проверены.",
-      "access": {
-        "cost": "unknown",
-        "signup": "optional",
-        "runtime": "hybrid"
-      },
-      "trust": "community",
-      "trustReason": "Проверены метаданные, автосубтитры выбранных роликов и предоставленные материалы; заявления автора не являются независимым тестом.",
-      "projects": [
-        "Eclipse Library",
-        "Eclipse Media",
-        "Eclipse AI Creator",
-        "Ultron"
-      ],
-      "decision": "reference",
-      "riskLevel": "medium",
-      "risks": [
-        "Публичный доступ к исходникам не устанавливает право на их перепубликацию.",
-        "Сохранение внешности и обещания о стоимости и скорости не подтверждены нашим тестом."
-      ],
-      "verifiedAt": null,
-      "reviewStatus": "inferred",
-      "addedAt": "2026-10-02",
-      "guide": "the-cartel-character-sheet",
-      "dependencies": [
-        "Утверждённый персонаж и разрешённые материалы; для карточки два отдельных референса.",
-        "Проверенный генератор и интерфейс с подходящими входами, выбранные отдельно."
-      ],
-      "limitations": [
-        "Полного покадрового аудита канала нет; проверены 30 заголовков и автосубтитры четырёх роликов.",
-        "Генерации и интеграция Ultron не выполнялись."
-      ],
-      "nextStep": "Выбрать нашего вымышленного персонажа, движок и бюджет для отдельного согласованного пилота.",
-      "verification": {
-        "checkedAt": "2026-10-02",
-        "status": "source-reviewed-runtime-unverified",
-        "scope": "Метаданные, четыре расшифровки, два пользовательских исходника и официальные документы.",
-        "installed": false,
-        "runtime": "not-run",
-        "merged": false,
-        "deployed": false
-      },
-      "correctionHistory": [
-        {
-          "date": "2026-10-02",
-          "change": "Первая локальная запись; рекламные обещания и права не повышены до подтверждённых."
-        }
-      ],
-      "simpleDescription": "Канал с короткими приёмами для изображений, персонажей и видео. Обзор 30 последних тем и четырёх расшифровок; полезные идеи отделены от рекламных обещаний и не проверенных тарифов.",
-      "useCases": [
-        "Подбор тем для собственных гайдов Eclipse и контента AI Creator.",
-        "Изучение перехода от референса к раскадровке и контролю результата."
-      ],
-      "quickStart": [
-        "Прочитать связанный гайд и ограничения.",
-        "Исходники использовать как справочный материал; адаптация v1 не запускалась.",
-        "Выбрать разрешённые входы и параметры перед отдельным тестом."
-      ],
-      "sourceRevision": {
-        "kind": "youtube-channel-snapshot",
-        "value": "UC-x9KFSI5kR7Cqs7gUURBng:2026-10-02:latest30",
-        "url": "https://www.youtube.com/@notcartel"
-      },
-      "catalogOrder": 784,
-      "licenseInfo": {
-        "label": "Лицензия повторного использования не указана; локальный справочный архив, права на публикацию требуют проверки.",
-        "original": "Лицензия повторного использования не указана; локальный справочный архив, права на публикацию требуют проверки.",
-        "spdx": null,
-        "kind": "unknown",
-        "status": "unverified",
-        "requiresReview": true,
-        "evidence": [
-          {
-            "kind": "official-source",
-            "label": "Официальный источник; точные условия ещё нужно сверить",
-            "url": "https://www.youtube.com/@notcartel"
-          }
-        ]
-      },
-      "evidence": [
-        {
-          "kind": "official-source",
-          "label": "Официальный источник",
-          "url": "https://www.youtube.com/@notcartel"
-        }
-      ],
-      "agentEligibility": {
-        "eligible": true,
-        "reasons": [],
-        "installAllowed": false
-      },
-      "source": {
-        "file": "catalog/resources.json",
-        "key": "the-cartel-notcartel",
         "legacy": null
       }
     },
@@ -39756,6 +39965,115 @@
       }
     },
     {
+      "id": "the-cartel-notcartel",
+      "url": "https://www.youtube.com/@notcartel",
+      "title": "The Cartel — AI-контент и практические приёмы",
+      "type": "learn",
+      "category": "Практические ресурсы Eclipse Forge",
+      "subcategory": "Персонажи и AI-контент",
+      "platforms": [
+        "Web",
+        "Local"
+      ],
+      "license": "Лицензия повторного использования не указана; локальный справочный архив, права на публикацию требуют проверки.",
+      "pricing": "Просмотр общедоступных видео без оплаты; тарифы генераторов, курсов и полная стоимость локальных вычислений не проверены.",
+      "access": {
+        "cost": "unknown",
+        "signup": "optional",
+        "runtime": "hybrid"
+      },
+      "trust": "community",
+      "trustReason": "Проверены метаданные, автосубтитры выбранных роликов и предоставленные материалы; заявления автора не являются независимым тестом.",
+      "projects": [
+        "Eclipse Library",
+        "Eclipse Media",
+        "Eclipse AI Creator",
+        "Ultron"
+      ],
+      "decision": "reference",
+      "riskLevel": "medium",
+      "risks": [
+        "Публичный доступ к исходникам не устанавливает право на их перепубликацию.",
+        "Сохранение внешности и обещания о стоимости и скорости не подтверждены нашим тестом."
+      ],
+      "verifiedAt": null,
+      "reviewStatus": "inferred",
+      "addedAt": "2026-10-02",
+      "guide": "the-cartel-character-sheet",
+      "dependencies": [
+        "Утверждённый персонаж и разрешённые материалы; для карточки два отдельных референса.",
+        "Проверенный генератор и интерфейс с подходящими входами, выбранные отдельно."
+      ],
+      "limitations": [
+        "Полного покадрового аудита канала нет; проверены 30 заголовков и автосубтитры четырёх роликов.",
+        "Генерации и интеграция Ultron не выполнялись."
+      ],
+      "nextStep": "Выбрать нашего вымышленного персонажа, движок и бюджет для отдельного согласованного пилота.",
+      "verification": {
+        "checkedAt": "2026-10-02",
+        "status": "source-reviewed-runtime-unverified",
+        "scope": "Метаданные, четыре расшифровки, два пользовательских исходника и официальные документы.",
+        "installed": false,
+        "runtime": "not-run",
+        "merged": false,
+        "deployed": false
+      },
+      "correctionHistory": [
+        {
+          "date": "2026-10-02",
+          "change": "Первая локальная запись; рекламные обещания и права не повышены до подтверждённых."
+        }
+      ],
+      "simpleDescription": "Канал с короткими приёмами для изображений, персонажей и видео. Обзор 30 последних тем и четырёх расшифровок; полезные идеи отделены от рекламных обещаний и не проверенных тарифов.",
+      "useCases": [
+        "Подбор тем для собственных гайдов Eclipse и контента AI Creator.",
+        "Изучение перехода от референса к раскадровке и контролю результата."
+      ],
+      "quickStart": [
+        "Прочитать связанный гайд и ограничения.",
+        "Исходники использовать как справочный материал; адаптация v1 не запускалась.",
+        "Выбрать разрешённые входы и параметры перед отдельным тестом."
+      ],
+      "sourceRevision": {
+        "kind": "youtube-channel-snapshot",
+        "value": "UC-x9KFSI5kR7Cqs7gUURBng:2026-10-02:latest30",
+        "url": "https://www.youtube.com/@notcartel"
+      },
+      "catalogOrder": 785,
+      "licenseInfo": {
+        "label": "Лицензия повторного использования не указана; локальный справочный архив, права на публикацию требуют проверки.",
+        "original": "Лицензия повторного использования не указана; локальный справочный архив, права на публикацию требуют проверки.",
+        "spdx": null,
+        "kind": "unknown",
+        "status": "unverified",
+        "requiresReview": true,
+        "evidence": [
+          {
+            "kind": "official-source",
+            "label": "Официальный источник; точные условия ещё нужно сверить",
+            "url": "https://www.youtube.com/@notcartel"
+          }
+        ]
+      },
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://www.youtube.com/@notcartel"
+        }
+      ],
+      "agentEligibility": {
+        "eligible": true,
+        "reasons": [],
+        "installAllowed": false
+      },
+      "source": {
+        "file": "catalog/resources.json",
+        "key": "the-cartel-notcartel",
+        "legacy": null
+      }
+    },
+    {
       "id": "the-cartel-character-sheet",
       "url": "https://www.youtube.com/watch?v=dPHOl0fkkOA",
       "title": "The Cartel — карточка персонажа: исходники и адаптация",
@@ -39830,7 +40148,7 @@
         "value": "dPHOl0fkkOA",
         "url": "https://www.youtube.com/watch?v=dPHOl0fkkOA"
       },
-      "catalogOrder": 785,
+      "catalogOrder": 786,
       "licenseInfo": {
         "label": "Лицензия повторного использования не указана; локальный справочный архив, права на публикацию требуют проверки.",
         "original": "Лицензия повторного использования не указана; локальный справочный архив, права на публикацию требуют проверки.",
@@ -39969,7 +40287,7 @@
         "url": "codex://threads/01a09b0e-bbf6-71b3-bbd4-bd865dc5e8a7"
       },
       "ownerImageDirectory": "E:\\ADMIN_HOPSON_PC\\Рабочий стол\\Эрида",
-      "catalogOrder": 786,
+      "catalogOrder": 787,
       "licenseInfo": {
         "label": "Пользовательский авторский паспорт и предоставленные AI-изображения; внешняя лицензия не назначена, права исходных референсов и генераторов не проверены.",
         "original": "Пользовательский авторский паспорт и предоставленные AI-изображения; внешняя лицензия не назначена, права исходных референсов и генераторов не проверены.",
@@ -43168,7 +43486,7 @@
         "evidence": [
           {
             "kind": "license",
-            "label": "Other license",
+            "label": "MIT license",
             "url": "https://api.github.com/repos/mutonby/openshorts/license"
           },
           {
@@ -43186,7 +43504,7 @@
         },
         {
           "kind": "license",
-          "label": "Other license",
+          "label": "MIT license",
           "url": "https://api.github.com/repos/mutonby/openshorts/license"
         },
         {
@@ -47225,8 +47543,10 @@
         }
       ],
       "agentEligibility": {
-        "eligible": true,
-        "reasons": [],
+        "eligible": false,
+        "reasons": [
+          "repository-archived"
+        ],
         "installAllowed": false
       }
     },
@@ -49755,8 +50075,10 @@
         }
       ],
       "agentEligibility": {
-        "eligible": true,
-        "reasons": [],
+        "eligible": false,
+        "reasons": [
+          "repository-archived"
+        ],
         "installAllowed": false
       }
     },
@@ -56720,7 +57042,7 @@
         "evidence": [
           {
             "kind": "license",
-            "label": "Other license",
+            "label": "Apache-2.0 license",
             "url": "https://api.github.com/repos/juliusbrussee/caveman/license"
           },
           {
@@ -56743,7 +57065,7 @@
         },
         {
           "kind": "license",
-          "label": "Other license",
+          "label": "Apache-2.0 license",
           "url": "https://api.github.com/repos/juliusbrussee/caveman/license"
         },
         {
@@ -58946,9 +59268,14 @@
         "original": "Elastic-2.0 (source-available; managed-service and license-key restrictions apply)",
         "spdx": "Elastic-2.0",
         "kind": "source-available",
-        "status": "editor-reviewed",
+        "status": "source-declared",
         "requiresReview": false,
         "evidence": [
+          {
+            "kind": "license",
+            "label": "Apache-2.0 license",
+            "url": "https://api.github.com/repos/ojuschugh1/sqz/license"
+          },
           {
             "kind": "license",
             "label": "Official repository license file reviewed 2026-08-17",
@@ -58961,6 +59288,11 @@
           "kind": "official-source",
           "label": "Официальный источник",
           "url": "https://github.com/ojuschugh1/sqz"
+        },
+        {
+          "kind": "license",
+          "label": "Apache-2.0 license",
+          "url": "https://api.github.com/repos/ojuschugh1/sqz/license"
         },
         {
           "kind": "license",

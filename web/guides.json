@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "totals": {
-    "guides": 99
+    "guides": 100
   },
   "guides": [
     {
@@ -554,6 +554,13 @@
       "name": "tokenrouter-vendor-risk-gate",
       "title": "TokenRouter vendor-risk gate",
       "description": "Практический стоп-лист для Eclipse Forge: TokenRouter нельзя подключать, передавать ему API-ключи, prompts, ответы, код или рабочие данные, пока vendor не закроет юридические,…",
+      "modules": 0,
+      "lessons": 0
+    },
+    {
+      "name": "webclaw-library-candidate-intake",
+      "title": "Webclaw → Library: knowledge.candidate.v1",
+      "description": "",
       "modules": 0,
       "lessons": 0
     },

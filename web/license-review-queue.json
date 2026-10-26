@@ -1,23 +1,23 @@
 {
   "schemaVersion": 1,
-  "sourceHash": "8ea7cb03d02f9934453dfffa63da9ee7b3d318fb842ee1dced008d5798e089a4",
+  "sourceHash": "fadbd3c7ffa73c181070557d32197d5e1bc0f0287bf5016d0fb70c3a8e9b779f",
   "policy": {
     "automaticApprovalForbidden": true,
     "directInstallForbidden": true,
     "missingLicenseMeansNoReusePermission": true
   },
   "totals": {
-    "reviewRequired": 217,
+    "reviewRequired": 216,
     "byPriority": {
       "P1": 0,
-      "P2": 180,
+      "P2": 179,
       "P3": 37
     },
     "byBucket": {
       "content-terms": 36,
       "grey-reference": 37,
       "manual-other": 25,
-      "repository-license-not-detected": 26,
+      "repository-license-not-detected": 25,
       "service-terms": 93
     }
   },
@@ -1551,27 +1551,6 @@
           "kind": "official-source",
           "label": "Официальный источник; точные условия ещё нужно сверить",
           "url": "https://github.com/virattt/dexter"
-        }
-      ]
-    },
-    {
-      "id": "director-s-console-github-com",
-      "title": "Director's Console",
-      "type": "prompt",
-      "url": "https://github.com/NickPittas/DirectorsConsole",
-      "decision": "reference",
-      "riskLevel": "medium",
-      "currentLicense": "Нужно проверить в официальном источнике",
-      "reviewStatus": "inferred",
-      "bucket": "repository-license-not-detected",
-      "priority": "P2",
-      "reason": "GitHub does not expose a detected repository license. Source availability alone grants no reuse rights.",
-      "nextStep": "Inspect repository root, README and package-specific directories; if no grant exists, mark reference-only.",
-      "evidence": [
-        {
-          "kind": "official-source",
-          "label": "Официальный источник; точные условия ещё нужно сверить",
-          "url": "https://github.com/NickPittas/DirectorsConsole"
         }
       ]
     },

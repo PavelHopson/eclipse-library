@@ -2,9 +2,60 @@
   "schemaVersion": 1,
   "migratedAt": "2026-08-03",
   "totals": {
-    "items": 786
+    "items": 787
   },
   "items": [
+    {
+      "id": "scenario-3d-collection",
+      "url": "https://huggingface.co/datasets/scenario-labs/3d-collection",
+      "title": "Scenario 3D Collection — готовые 3D-ассеты",
+      "type": "media",
+      "category": "Медиа и дизайн",
+      "subcategory": "3D-ассеты и датасеты",
+      "simpleDescription": "Коллекция готовых AI-generated 3D-ассетов, а не бесплатный неограниченный генератор Scenario. По карточке автора: 1342 примера, 1500 выходных файлов, около 39 ГБ с превью и доступными исходниками. Форматы: 1271 GLB, 137 Blender, 41 SPZ, 23 PLY, 21 VOX и 7 FBX. Начните с одного подходящего файла.",
+      "useCases": ["Прототип игровой сцены из выбранных GLB", "Учебная 3D-сцена с проверкой материалов и масштаба", "Предметная визуализация или медиаматериал после проверки ассета"],
+      "platforms": ["Web", "Blender", "Windows", "Linux", "macOS"],
+      "license": "CC BY 4.0. Авторство: Scenario. Сохраняйте источник, ссылку на лицензию и описание изменений; права на сторонние бренды и персонажей отдельно не гарантированы.",
+      "licenseEvidence": [
+        {"kind": "source", "label": "Карточка коллекции: состав, метаданные и ограничения", "url": "https://huggingface.co/datasets/scenario-labs/3d-collection/blob/55b4c002b4c1529fc48da3dff98516c3069bfa3f/README.md"},
+        {"kind": "license", "label": "CC BY 4.0 — условия атрибуции", "url": "https://creativecommons.org/licenses/by/4.0/"}
+      ],
+      "pricing": "Файлы основной коллекции доступны бесплатно. Это не бесплатный доступ к генерации в Scenario; хранение и обработка требуют собственных ресурсов.",
+      "access": {"cost": "free", "signup": "none", "runtime": "local"},
+      "trust": "caution",
+      "trustReason": "26.10.2026: сверены официальная карточка, метаданные примеров и CC BY 4.0. Это документальная проверка: файлы нами не открывались и не рендерились. Автор сообщает о структурных проверках и одной Blender-сцене с двумя отсутствующими текстурами, но не сертифицирует качество рендера и анимации.",
+      "projects": [],
+      "decision": "reference",
+      "riskLevel": "medium",
+      "risks": [
+        "CC BY 4.0 не гарантирует права на сторонние бренды, персонажей и другие охраняемые элементы; проверьте выбранный объект перед публикацией",
+        "Hunyuan-коллекция опубликована отдельно с другими лицензиями; не переносите на неё условия основной коллекции",
+        "Наличие превью не доказывает пригодность модели: проверьте текстуры, геометрию, масштаб, полигональность и нагрузку на целевом устройстве",
+        "В метаданных есть параметры, доступные промпты, входные изображения, пути и SHA-256, но часть полей null; не выдумывайте отсутствующие сведения",
+        "Не включайте автоматическое выполнение скриптов Blender для чужих файлов; работайте с копией в отдельной среде без секретов"
+      ],
+      "verifiedAt": "2026-10-26",
+      "addedAt": "2026-10-26",
+      "reviewStatus": "verified",
+      "quickStart": [
+        "Откройте официальный Dataset Viewer, выберите один пример с форматом GLB и проверьте его превью, ID и поле license",
+        "Сохраните ID, ревизию репозитория, путь outputs.path и ожидаемый outputs.sha256. Скачайте только нужный output_files URL или конкретный файл через Files and versions; не клонируйте весь датасет",
+        "Сверьте SHA-256 скачанного файла: в Windows PowerShell выполните Get-FileHash -LiteralPath '.\\output.glb' -Algorithm SHA256 и сравните результат с outputs.sha256. При несовпадении не используйте файл",
+        "Откройте копию в поддерживающем формат просмотрщике; проверьте материалы, масштаб и ресурсы. Для Blender отключите автоматическое выполнение скриптов; проверка источника не означает проверку безопасности файла",
+        "В титрах или документации укажите: Scenario — Scenario 3D Collection; ID ассета; URL источника; https://creativecommons.org/licenses/by/4.0/; Изменения: нет либо перечень правок. Сохраните эту запись рядом с экспортом"
+      ],
+      "source": {"file": "catalog/resources.json", "key": "scenario-3d-collection", "category": "Медиа и дизайн", "subcategory": "3D-ассеты и датасеты"},
+      "verification": {
+        "scope": "Primary dataset card and license documentation review only; no asset download, installation, rendering or runtime validation.",
+        "runtimeTested": false,
+        "installed": false,
+        "eventDate": null,
+        "upstreamCommit": "55b4c002b4c1529fc48da3dff98516c3069bfa3f",
+        "sources": ["https://huggingface.co/datasets/scenario-labs/3d-collection", "https://creativecommons.org/licenses/by/4.0/"],
+        "dataset": {"examples": 1342, "outputFiles": 1500, "approximateGB": 39, "formats": {"glb": 1271, "blend": 137, "spz": 41, "ply": 23, "vox": 21, "fbx": 7}}
+      },
+      "correctionHistory": [{"date": "2026-10-26", "change": "Добавлена карточка основной коллекции с документальной проверкой, выборочным скачиванием и атрибуцией; Hunyuan и качество отдельных моделей не включены в вывод о проверке."}]
+    },
     {
       "id": "rea-owned-application-analysis",
       "url": "https://github.com/morluto/rea",

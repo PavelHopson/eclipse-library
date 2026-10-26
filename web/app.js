@@ -512,11 +512,13 @@
   };
   const LICENSE_GROUPS = {
     open: 'Open-source лицензия',
+    content: 'Открытый контент (CC BY 4.0)',
     service: 'Условия сервиса',
     unknown: 'Лицензия неясна',
   };
 
   function licenseGroup(value) {
+    if (/^CC[- ]BY[- ]4\.0$/i.test(String(value || '').trim())) return 'content';
     if (/MIT|Apache|AGPL|GPL|BSD|MPL|CC BY|Open Source License/i.test(value || '')) return 'open';
     if (/уточнить|не указана|не раскрыт/i.test(value || '')) return 'unknown';
     return 'service';
