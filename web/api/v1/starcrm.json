@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "consumer": "Eclipse CRM",
-  "catalogVersion": "5b6948667a08629546fd4be7759a3b178accc3d1e2124c621533b456a985576b",
+  "catalogVersion": "c69faf5c94c02d8c0f42ac775999bb5a0299c7154437a71cfe0afa5df40d0bcb",
   "generatedAt": null,
   "policy": {
     "greyResourcesExcluded": true,
@@ -9,7 +9,7 @@
     "externalMutationsRequireHumanApproval": true
   },
   "totals": {
-    "items": 678
+    "items": 685
   },
   "items": [
     {
@@ -3340,11 +3340,11 @@
       "category": "AI и агенты",
       "subcategory": "Remote agent control",
       "addedAt": "2026-08-21",
-      "description": "Local-first AGPL-3.0 оболочка для Claude Code, Codex, Cursor Agent, OpenCode и других coding agents. Даёт PWA/телефон/Telegram, просмотр diff и permission prompts, но фактически открывает удалённый доступ к локальному агенту и терминалу — это высокорисковая capability.",
+      "description": "HAPI — пульт для сессий Codex CLI с телефона: сообщения, diff и запросы разрешений. Web/PWA поддерживает терминал и голос. Работает компьютер, а не телефон; перенос всех чатов Codex Desktop не подтверждён.",
       "useCases": [
-        "Reference для Eclipse Chat Agent Control Room",
-        "Безопасный mobile approval UX",
-        "Session handoff между desktop и телефоном"
+        "Codex: компьютер → телефон → та же тестовая сессия",
+        "Просмотр diff и ручные разрешения",
+        "Мобильный доступ к Sentinel / ULTRON без второго Codex Gateway"
       ],
       "platforms": [
         "Web/PWA",
@@ -3370,6 +3370,21 @@
             "kind": "source",
             "label": "Supported agents",
             "url": "https://hapi.run/docs/guide/agents"
+          },
+          {
+            "kind": "source",
+            "label": "Уточнение от 07.10.2026",
+            "url": "https://hapi.run/docs/guide/how-it-works"
+          },
+          {
+            "kind": "source",
+            "label": "Уточнение от 07.10.2026",
+            "url": "https://hapi.run/docs/guide/voice-assistant"
+          },
+          {
+            "kind": "source",
+            "label": "Уточнение от 07.10.2026",
+            "url": "https://hapi.run/docs/guide/deployment"
           }
         ]
       },
@@ -3379,12 +3394,13 @@
         "runtime": "self-host"
       },
       "trust": "official",
-      "decision": "reference",
+      "decision": "roadmap",
       "riskLevel": "high",
       "projects": [
-        "Eclipse Chat",
-        "Hopson Sentinel",
-        "oh-my-claudecode"
+        "Eclipse Library",
+        "Eclipse Media",
+        "Eclipse AI Hub",
+        "Hopson Sentinel"
       ],
       "evidence": [
         {
@@ -3401,6 +3417,21 @@
           "kind": "source",
           "label": "Supported agents",
           "url": "https://hapi.run/docs/guide/agents"
+        },
+        {
+          "kind": "source",
+          "label": "Уточнение от 07.10.2026",
+          "url": "https://hapi.run/docs/guide/how-it-works"
+        },
+        {
+          "kind": "source",
+          "label": "Уточнение от 07.10.2026",
+          "url": "https://hapi.run/docs/guide/voice-assistant"
+        },
+        {
+          "kind": "source",
+          "label": "Уточнение от 07.10.2026",
+          "url": "https://hapi.run/docs/guide/deployment"
         }
       ],
       "actions": {
@@ -3411,32 +3442,33 @@
     },
     {
       "id": "happy-shrimp-ai-music",
-      "title": "HappyShrimp — генерация песен и инструментальной музыки",
+      "title": "Happy Shrimp",
       "url": "https://www.happyshrimp.ai/",
-      "type": "media",
+      "type": "service",
       "category": "Медиа",
-      "subcategory": "Генерация музыки",
+      "subcategory": "AI music generation",
       "addedAt": "2026-08-21",
-      "description": "Облачный генератор музыки по текстовому описанию. Создаёт песни с вокалом и инструментальные композиции; в интерфейсе доступны Instrumental и Smart Lyrics, указана модель HS V1.1. Подходит для поиска музыкального настроения и пробного монтажа. Качество результатов и права на их коммерческое использование в этой карточке не подтверждены.",
+      "description": "Облачный AI music service создаёт full song из короткого описания: lyrics, composition, arrangement и vocals, а также показывает community feed. Сервис существует и размещён на Alibaba infrastructure, но публичные Terms, pricing, training-data и commercial-rights условия требуют отдельной проверки.",
       "useCases": [
-        "Подобрать музыкальное настроение для короткого видео",
-        "Создать черновую инструментальную тему для сцены или персонажа",
-        "Сравнить несколько музыкальных вариантов по одному описанию"
+        "Benchmark original music briefs для Eclipse Media",
+        "Reference для song-structure UX",
+        "Preview только на оригинальных lyrics"
       ],
       "platforms": [
-        "Web"
+        "Web",
+        "Cloud"
       ],
       "license": {
-        "label": "Условия сервиса; права на коммерческое использование результатов нужно проверить",
-        "original": "Условия сервиса; права на коммерческое использование результатов нужно проверить",
+        "label": "Proprietary; public usage, training-data and commercial-output terms require review",
+        "original": "Proprietary; public usage, training-data and commercial-output terms require review",
         "spdx": null,
         "kind": "service-terms",
-        "status": "unverified",
-        "requiresReview": true,
+        "status": "editor-reviewed",
+        "requiresReview": false,
         "evidence": [
           {
             "kind": "source",
-            "label": "Официальный сервис: режимы, модель и бесплатные кредиты; лицензия требует проверки",
+            "label": "Official service",
             "url": "https://www.happyshrimp.ai/"
           }
         ]
@@ -3449,7 +3481,10 @@
       "trust": "official",
       "decision": "reference",
       "riskLevel": "high",
-      "projects": [],
+      "projects": [
+        "Eclipse Media",
+        "Shotforge"
+      ],
       "evidence": [
         {
           "kind": "official-source",
@@ -4942,11 +4977,11 @@
       "category": "AI-модели",
       "subcategory": "Local coding model",
       "addedAt": "2026-08-21",
-      "description": "MIT GGUF text-generation model из семейства Ornith. Карточка существует и активно скачивается, но официальный metadata определяет её как text-generation, а не multimodal model; заявления о запуске на любом телефоне и автоматическом self-improvement требуют device benchmark.",
+      "description": "Ornith 1.5 9B GGUF — отдельная 9B-модель, не Qwen 35B на любом телефоне. Издатель заявляет мультимодальность и публикует mmproj; совместимость зависит от runtime. Большой контекст и авторские бенчмарки не доказывают качество на наших устройствах.",
       "useCases": [
-        "Local coding benchmark в AI Hub",
-        "Low-memory agent fixtures",
-        "Comparison with other 9B GGUF models"
+        "Русские выжимки и теги Library",
+        "Структурирование готовых расшифровок и черновики сцен Media",
+        "Локальный benchmark через существующий AI Hub / Sentinel"
       ],
       "platforms": [
         "GGUF",
@@ -4965,6 +5000,16 @@
             "kind": "license",
             "label": "Official model metadata",
             "url": "https://huggingface.co/ornith-ai/Ornith-1.5-9B-GGUF"
+          },
+          {
+            "kind": "source",
+            "label": "Уточнение от 07.10.2026",
+            "url": "https://huggingface.co/ornith-ai/Ornith-1.5-9B-GGUF/tree/main"
+          },
+          {
+            "kind": "source",
+            "label": "Уточнение от 07.10.2026",
+            "url": "https://ornith.ai/ornith_1_5.html"
           }
         ]
       },
@@ -4977,15 +5022,26 @@
       "decision": "roadmap",
       "riskLevel": "medium",
       "projects": [
+        "Eclipse Library",
+        "Eclipse Media",
         "Eclipse AI Hub",
-        "Hopson Sentinel",
-        "Educator-AI"
+        "Hopson Sentinel"
       ],
       "evidence": [
         {
           "kind": "official-source",
           "label": "Официальный источник",
           "url": "https://huggingface.co/ornith-ai/Ornith-1.5-9B-GGUF"
+        },
+        {
+          "kind": "source",
+          "label": "Уточнение от 07.10.2026",
+          "url": "https://huggingface.co/ornith-ai/Ornith-1.5-9B-GGUF/tree/main"
+        },
+        {
+          "kind": "source",
+          "label": "Уточнение от 07.10.2026",
+          "url": "https://ornith.ai/ornith_1_5.html"
         }
       ],
       "actions": {
@@ -5549,9 +5605,14 @@
         "original": "MIT для REA; условия движков, зависимостей и исследуемого приложения проверяются отдельно.",
         "spdx": "MIT",
         "kind": "open-source",
-        "status": "editor-reviewed",
+        "status": "source-declared",
         "requiresReview": false,
         "evidence": [
+          {
+            "kind": "license",
+            "label": "MIT license",
+            "url": "https://api.github.com/repos/morluto/rea/license"
+          },
           {
             "kind": "license",
             "label": "Лицензия REA",
@@ -5573,6 +5634,11 @@
           "kind": "official-source",
           "label": "Официальный источник",
           "url": "https://github.com/morluto/rea"
+        },
+        {
+          "kind": "license",
+          "label": "MIT license",
+          "url": "https://api.github.com/repos/morluto/rea/license"
         },
         {
           "kind": "license",
@@ -6374,67 +6440,6 @@
       }
     },
     {
-      "id": "tesseract-codex-editable-video",
-      "title": "Tesseract + Codex — редактируемый видеоролик",
-      "url": "https://mirage.app/tesseract/codex",
-      "type": "media",
-      "category": "Медиа и дизайн",
-      "subcategory": "Редактируемое видео",
-      "addedAt": "2026-10-11",
-      "description": "16-секундный пример: запись галереи Koboyo, нативные RU/EN титры, ambient; повторная правка текста, звука и видеовхода. .tsrct и MP4; контрольный кадр после распаковки совпал. Adobe-пакеты не включаются: нативная приёмка не выполнена.",
-      "useCases": [
-        "Короткая демонстрация интерфейса",
-        "Повторная правка титров без нового монтажа",
-        "Переносимый учебный проект с источниками и лицензиями"
-      ],
-      "platforms": [
-        "Windows"
-      ],
-      "license": {
-        "label": "Проприетарные условия Tesseract; отдельная проверка коммерческого допуска и прав на исходники. Лицензия конвертера не распространяется на runtime.",
-        "original": "Проприетарные условия Tesseract; отдельная проверка коммерческого допуска и прав на исходники. Лицензия конвертера не распространяется на runtime.",
-        "spdx": null,
-        "kind": "service-terms",
-        "status": "editor-reviewed",
-        "requiresReview": false,
-        "evidence": [
-          {
-            "kind": "license",
-            "label": "Условия Tesseract",
-            "url": "https://github.com/mirage-hq/Tesseract/blob/fbc945864d0d758ea510fe6f2b6ab06d2660d570/LICENSE"
-          }
-        ]
-      },
-      "access": {
-        "cost": "unknown",
-        "signup": "unknown",
-        "runtime": "local"
-      },
-      "trust": "official",
-      "decision": "reference",
-      "riskLevel": "medium",
-      "projects": [
-        "Eclipse Library"
-      ],
-      "evidence": [
-        {
-          "kind": "official-source",
-          "label": "Официальный источник",
-          "url": "https://mirage.app/tesseract/codex"
-        },
-        {
-          "kind": "license",
-          "label": "Условия Tesseract",
-          "url": "https://github.com/mirage-hq/Tesseract/blob/fbc945864d0d758ea510fe6f2b6ab06d2660d570/LICENSE"
-        }
-      ],
-      "actions": {
-        "openOfficialSource": true,
-        "installFromCatalog": false,
-        "mutateExternalSystems": false
-      }
-    },
-    {
       "id": "threeui-community-components",
       "title": "ThreeUI Community",
       "url": "https://github.com/MengTo/threeui",
@@ -7108,17 +7113,17 @@
     },
     {
       "id": "wangp-local-media-worker",
-      "title": "WanGP — локальная генерация видео, изображений и аудио",
-      "url": "https://github.com/deepbeepmeep/WanGP",
+      "title": "WanGP (formerly Wan2GP)",
+      "url": "https://github.com/deepbeepmeep/Wan2GP",
       "type": "media",
       "category": "AI Media",
       "subcategory": "Local video and image generation worker",
       "addedAt": "2026-08-25",
-      "description": "Приложение с web UI для запуска разных моделей на своём компьютере: видео по тексту или изображению, обработка изображений и аудио. Поддерживает очереди, LoRA и headless/API. Среди доступных семейств — Wan и LTX, включая LTX 2.5. Требования к памяти и диску зависят от выбранной модели и настроек.",
+      "description": "Локальный web/headless worker для video, image и audio pipelines: очереди, API, LoRA, mask tools и несколько model families. Формулировка «работает на 6 ГБ ОЗУ» неверна — для некоторых конфигураций заявлено 6 ГБ VRAM; коммерческое embedding, SaaS, API и white-label ограничены отдельной WanGP Community License.",
       "useCases": [
-        "Оживить изображение коротким видео",
-        "Сравнить модели и параметры генерации на своей GPU",
-        "Обрабатывать задания локальной очередью"
+        "Пилот локальной генерации для Eclipse Media",
+        "Headless worker для Shotforge в изолированной среде",
+        "Сравнить video models и VRAM profiles"
       ],
       "platforms": [
         "Python",
@@ -7136,23 +7141,18 @@
         "evidence": [
           {
             "kind": "license",
-            "label": "WanGP Community License 2.0",
-            "url": "https://github.com/deepbeepmeep/WanGP/blob/main/LICENSE.txt"
+            "label": "Other license",
+            "url": "https://api.github.com/repos/deepbeepmeep/wan2gp/license"
+          },
+          {
+            "kind": "license",
+            "label": "Official WanGP Community License 2.0",
+            "url": "https://github.com/deepbeepmeep/Wan2GP/blob/main/LICENSE.txt"
           },
           {
             "kind": "source",
-            "label": "Официальный сайт WanGP",
-            "url": "https://wangp.ai/"
-          },
-          {
-            "kind": "source",
-            "label": "Официальный репозиторий",
-            "url": "https://github.com/deepbeepmeep/WanGP"
-          },
-          {
-            "kind": "source",
-            "label": "Поддерживаемые модели",
-            "url": "https://github.com/deepbeepmeep/WanGP/blob/main/docs/MODELS.md"
+            "label": "Official repository",
+            "url": "https://github.com/deepbeepmeep/Wan2GP"
           }
         ]
       },
@@ -7162,29 +7162,29 @@
         "runtime": "local"
       },
       "trust": "official",
-      "decision": "reference",
+      "decision": "roadmap",
       "riskLevel": "high",
-      "projects": [],
+      "projects": [
+        "Eclipse Media",
+        "Shotforge",
+        "Eclipse AI Hub",
+        "Eclipse Library"
+      ],
       "evidence": [
         {
           "kind": "official-source",
           "label": "Официальный источник",
-          "url": "https://github.com/deepbeepmeep/WanGP"
+          "url": "https://github.com/deepbeepmeep/Wan2GP"
         },
         {
           "kind": "license",
-          "label": "WanGP Community License 2.0",
-          "url": "https://github.com/deepbeepmeep/WanGP/blob/main/LICENSE.txt"
+          "label": "Other license",
+          "url": "https://api.github.com/repos/deepbeepmeep/wan2gp/license"
         },
         {
-          "kind": "source",
-          "label": "Официальный сайт WanGP",
-          "url": "https://wangp.ai/"
-        },
-        {
-          "kind": "source",
-          "label": "Поддерживаемые модели",
-          "url": "https://github.com/deepbeepmeep/WanGP/blob/main/docs/MODELS.md"
+          "kind": "license",
+          "label": "Official WanGP Community License 2.0",
+          "url": "https://github.com/deepbeepmeep/Wan2GP/blob/main/LICENSE.txt"
         }
       ],
       "actions": {
@@ -11715,23 +11715,24 @@
     },
     {
       "id": "claude-skills-github-com",
-      "title": "claude-skills",
+      "title": "Claude Skills — выборочный справочник",
       "url": "https://github.com/alirezarezvani/claude-skills",
       "type": "skill",
-      "category": "AI & Claude Code",
-      "subcategory": "Оркестрация и агенты",
+      "category": "Практические ресурсы Eclipse Forge",
+      "subcategory": "Skills и ревью",
       "addedAt": null,
-      "description": "claude-skills — 230+ skills по категориям: дизайн, маркетинг, бизнес, копирайт, кибербез, Dev — установка из шаблона в терминале. Карточка помогает понять назначение ресурса и начать с небольшой безопасной проверки; условия использования ещё нужно сверить с официальным источником.",
+      "description": "Большая коллекция инструкций и скриптов для агентных задач. Для Codex рассматриваем только отдельные проверенные инструкции, без установщика всей коллекции и без Claude Code hooks.",
       "useCases": [
-        "Разобраться, подходит ли claude-skills для вашей задачи",
-        "Проверить возможности на небольшом тестовом сценарии до интеграции"
+        "Пилот code-reviewer и senior-qa на SM-404, CRM-144 и CRM-145",
+        "Сравнить время, повторные чтения и переделки с текущим процессом"
       ],
       "platforms": [
-        "Web"
+        "Codex — только после адаптации",
+        "Claude Code — исходный формат"
       ],
       "license": {
         "label": "MIT",
-        "original": "Нужно проверить в официальном источнике",
+        "original": "MIT",
         "spdx": "MIT",
         "kind": "open-source",
         "status": "source-declared",
@@ -11741,18 +11742,28 @@
             "kind": "license",
             "label": "MIT license",
             "url": "https://api.github.com/repos/alirezarezvani/claude-skills/license"
+          },
+          {
+            "kind": "license",
+            "label": "MIT license",
+            "url": "https://github.com/alirezarezvani/claude-skills/blob/19392f7a08264ed00486a251f5b2098321771f94/LICENSE"
           }
         ]
       },
       "access": {
         "cost": "free",
-        "signup": "unknown",
-        "runtime": "cloud"
+        "signup": "none",
+        "runtime": "local"
       },
       "trust": "community",
       "decision": "reference",
       "riskLevel": "medium",
-      "projects": [],
+      "projects": [
+        "StarMarket",
+        "StarCRM",
+        "Romark",
+        "Eclipse Forge"
+      ],
       "evidence": [
         {
           "kind": "official-source",
@@ -11763,6 +11774,11 @@
           "kind": "license",
           "label": "MIT license",
           "url": "https://api.github.com/repos/alirezarezvani/claude-skills/license"
+        },
+        {
+          "kind": "license",
+          "label": "MIT license",
+          "url": "https://github.com/alirezarezvani/claude-skills/blob/19392f7a08264ed00486a251f5b2098321771f94/LICENSE"
         }
       ],
       "actions": {
@@ -15589,85 +15605,6 @@
       }
     },
     {
-      "id": "ytsage",
-      "title": "YTSage",
-      "url": "https://github.com/oop7/YTSage",
-      "type": "media",
-      "category": "Подборка Eclipse",
-      "subcategory": "Media / download workflow",
-      "addedAt": "2026-08-04",
-      "description": "YTSage — MIT-licensed desktop GUI поверх yt-dlp для Windows, macOS и Linux. Он показывает доступные video/audio formats, умеет playlists, subtitles, chapters, trimming, SponsorBlock, history и dependency updates. Это удобный интерфейс для личного скачивания разрешённого контента, но не легальный способ копировать любые ролики: пользователь обязан соблюдать права автора и Terms источника.",
-      "useCases": [
-        "Взять для Eclipse Media понятный intake UX: ссылка → metadata → format table → очередь → progress → история",
-        "Добавить Dependency Doctor для yt-dlp, FFmpeg и optional Deno вместо непонятных ошибок пользователю",
-        "Спроектировать импорт subtitles, chapters и пользовательского trim-range для законно доступных исходников",
-        "Использовать в Shotforge только как reference для подготовки собственных или лицензированных видео-референсов"
-      ],
-      "platforms": [
-        "Windows",
-        "macOS",
-        "Linux",
-        "Python",
-        "PySide6",
-        "yt-dlp"
-      ],
-      "license": {
-        "label": "MIT",
-        "original": "MIT",
-        "spdx": "MIT",
-        "kind": "open-source",
-        "status": "source-declared",
-        "requiresReview": false,
-        "evidence": [
-          {
-            "kind": "license",
-            "label": "MIT license",
-            "url": "https://api.github.com/repos/oop7/ytsage/license"
-          },
-          {
-            "kind": "license",
-            "label": "YTSage MIT license",
-            "url": "https://github.com/oop7/YTSage/blob/main/LICENSE"
-          }
-        ]
-      },
-      "access": {
-        "cost": "free",
-        "signup": "none",
-        "runtime": "local"
-      },
-      "trust": "caution",
-      "decision": "reference",
-      "riskLevel": "high",
-      "projects": [
-        "Eclipse Media",
-        "Shotforge",
-        "Educator-AI"
-      ],
-      "evidence": [
-        {
-          "kind": "official-source",
-          "label": "Официальный источник",
-          "url": "https://github.com/oop7/YTSage"
-        },
-        {
-          "kind": "license",
-          "label": "MIT license",
-          "url": "https://api.github.com/repos/oop7/ytsage/license"
-        },
-        {
-          "kind": "license",
-          "label": "YTSage MIT license",
-          "url": "https://github.com/oop7/YTSage/blob/main/LICENSE"
-        }
-      ],
-      "actions": {
-        "openOfficialSource": true,
-        "installFromCatalog": false,
-        "mutateExternalSystems": false
-      }
-    },
-    {
       "id": "saleor-docs-docs-saleor-io",
       "title": "Saleor docs",
       "url": "https://docs.saleor.io",
@@ -15765,6 +15702,85 @@
           "kind": "official-source",
           "label": "Официальный источник",
           "url": "https://www.freecodecamp.org"
+        }
+      ],
+      "actions": {
+        "openOfficialSource": true,
+        "installFromCatalog": false,
+        "mutateExternalSystems": false
+      }
+    },
+    {
+      "id": "ytsage",
+      "title": "YTSage",
+      "url": "https://github.com/oop7/YTSage",
+      "type": "media",
+      "category": "Подборка Eclipse",
+      "subcategory": "Media / download workflow",
+      "addedAt": "2026-08-04",
+      "description": "YTSage — MIT-licensed desktop GUI поверх yt-dlp для Windows, macOS и Linux. Он показывает доступные video/audio formats, умеет playlists, subtitles, chapters, trimming, SponsorBlock, history и dependency updates. Это удобный интерфейс для личного скачивания разрешённого контента, но не легальный способ копировать любые ролики: пользователь обязан соблюдать права автора и Terms источника.",
+      "useCases": [
+        "Взять для Eclipse Media понятный intake UX: ссылка → metadata → format table → очередь → progress → история",
+        "Добавить Dependency Doctor для yt-dlp, FFmpeg и optional Deno вместо непонятных ошибок пользователю",
+        "Спроектировать импорт subtitles, chapters и пользовательского trim-range для законно доступных исходников",
+        "Использовать в Shotforge только как reference для подготовки собственных или лицензированных видео-референсов"
+      ],
+      "platforms": [
+        "Windows",
+        "macOS",
+        "Linux",
+        "Python",
+        "PySide6",
+        "yt-dlp"
+      ],
+      "license": {
+        "label": "MIT",
+        "original": "MIT",
+        "spdx": "MIT",
+        "kind": "open-source",
+        "status": "source-declared",
+        "requiresReview": false,
+        "evidence": [
+          {
+            "kind": "license",
+            "label": "MIT license",
+            "url": "https://api.github.com/repos/oop7/ytsage/license"
+          },
+          {
+            "kind": "license",
+            "label": "YTSage MIT license",
+            "url": "https://github.com/oop7/YTSage/blob/main/LICENSE"
+          }
+        ]
+      },
+      "access": {
+        "cost": "free",
+        "signup": "none",
+        "runtime": "local"
+      },
+      "trust": "caution",
+      "decision": "reference",
+      "riskLevel": "high",
+      "projects": [
+        "Eclipse Media",
+        "Shotforge",
+        "Educator-AI"
+      ],
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://github.com/oop7/YTSage"
+        },
+        {
+          "kind": "license",
+          "label": "MIT license",
+          "url": "https://api.github.com/repos/oop7/ytsage/license"
+        },
+        {
+          "kind": "license",
+          "label": "YTSage MIT license",
+          "url": "https://github.com/oop7/YTSage/blob/main/LICENSE"
         }
       ],
       "actions": {
@@ -17160,96 +17176,6 @@
       }
     },
     {
-      "id": "firecrawl-pdf-inspector",
-      "title": "Firecrawl PDF Inspector",
-      "url": "https://github.com/firecrawl/pdf-inspector",
-      "type": "oss",
-      "category": "AI и агенты",
-      "subcategory": "Document ingestion / PDF routing",
-      "addedAt": "2026-08-18",
-      "description": "Firecrawl PDF Inspector быстро определяет, содержит ли PDF нормальный текст или требует OCR, а затем извлекает структуру в Markdown. Это полезный первый этап document pipeline, но не волшебный парсер: сложная вёрстка, повреждённые шрифты и вредоносные файлы всё равно требуют ограничений и fallback.",
-      "useCases": [
-        "Маршрутизировать текстовые и сканированные PDF по разным ingestion pipelines",
-        "Извлекать таблицы, заголовки и порядок чтения перед RAG-индексацией",
-        "Снизить число документов, которые без необходимости отправляются в дорогой OCR"
-      ],
-      "platforms": [
-        "Rust",
-        "Node.js",
-        "Python",
-        "WebAssembly",
-        "CLI",
-        "Self-host"
-      ],
-      "license": {
-        "label": "MIT",
-        "original": "MIT; optional OCR runtimes, model files and downstream document services retain their own licenses and security boundaries",
-        "spdx": "MIT",
-        "kind": "open-source",
-        "status": "source-declared",
-        "requiresReview": false,
-        "evidence": [
-          {
-            "kind": "license",
-            "label": "MIT license",
-            "url": "https://api.github.com/repos/firecrawl/pdf-inspector/license"
-          },
-          {
-            "kind": "license",
-            "label": "Official MIT license",
-            "url": "https://github.com/firecrawl/pdf-inspector/blob/main/LICENSE"
-          },
-          {
-            "kind": "security",
-            "label": "Official security policy",
-            "url": "https://github.com/firecrawl/pdf-inspector/blob/main/SECURITY.md"
-          }
-        ]
-      },
-      "access": {
-        "cost": "free",
-        "signup": "none",
-        "runtime": "self-host"
-      },
-      "trust": "official",
-      "decision": "now",
-      "riskLevel": "high",
-      "projects": [
-        "Eclipse AI Hub",
-        "Educator-AI",
-        "Eclipse Library",
-        "Eclipse Webclaw",
-        "Hopson Sentinel"
-      ],
-      "evidence": [
-        {
-          "kind": "official-source",
-          "label": "Официальный источник",
-          "url": "https://github.com/firecrawl/pdf-inspector"
-        },
-        {
-          "kind": "license",
-          "label": "MIT license",
-          "url": "https://api.github.com/repos/firecrawl/pdf-inspector/license"
-        },
-        {
-          "kind": "license",
-          "label": "Official MIT license",
-          "url": "https://github.com/firecrawl/pdf-inspector/blob/main/LICENSE"
-        },
-        {
-          "kind": "security",
-          "label": "Official security policy",
-          "url": "https://github.com/firecrawl/pdf-inspector/blob/main/SECURITY.md"
-        }
-      ],
-      "actions": {
-        "openOfficialSource": true,
-        "installFromCatalog": false,
-        "mutateExternalSystems": false
-      }
-    },
-    {
       "id": "geo-seo-claude-github-com",
       "title": "geo-seo-claude",
       "url": "https://github.com/zubair-trabzada/geo-seo-claude",
@@ -17377,6 +17303,149 @@
       }
     },
     {
+      "id": "higgsfield-virality-predictor-higgsfield-ai",
+      "title": "Higgsfield Virality Predictor",
+      "url": "https://higgsfield.ai/apps/virality-predictor",
+      "type": "media",
+      "category": "SEO & Маркетинг",
+      "subcategory": "SEO & Маркетинг",
+      "addedAt": null,
+      "description": "Higgsfield Virality Predictor — Скоринг хука / удержания / виральности видео до релиза + Ad Reference перемонтаж. С оговоркой: \"карта зон мозга\" — маркетинговая обёртка (без EEG никаких реальных активационных карт), но как hook/retention heuristic годится. Free trial на момент находки. Карточка помогает понять назначение ресурса и начать с небольшой безопасной проверки; условия использования ещё нужно сверить с официальным источником.",
+      "useCases": [
+        "Разобраться, подходит ли Higgsfield Virality Predictor для вашей задачи",
+        "Проверить возможности на небольшом тестовом сценарии до интеграции"
+      ],
+      "platforms": [
+        "Web"
+      ],
+      "license": {
+        "label": "Нужно проверить в официальном источнике",
+        "original": "Нужно проверить в официальном источнике",
+        "spdx": null,
+        "kind": "unknown",
+        "status": "unverified",
+        "requiresReview": true,
+        "evidence": [
+          {
+            "kind": "official-source",
+            "label": "Официальный источник; точные условия ещё нужно сверить",
+            "url": "https://higgsfield.ai/apps/virality-predictor"
+          }
+        ]
+      },
+      "access": {
+        "cost": "free",
+        "signup": "unknown",
+        "runtime": "cloud"
+      },
+      "trust": "unknown",
+      "decision": "reference",
+      "riskLevel": "medium",
+      "projects": [],
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://higgsfield.ai/apps/virality-predictor"
+        }
+      ],
+      "actions": {
+        "openOfficialSource": true,
+        "installFromCatalog": false,
+        "mutateExternalSystems": false
+      }
+    },
+    {
+      "id": "firecrawl-pdf-inspector",
+      "title": "Firecrawl PDF Inspector",
+      "url": "https://github.com/firecrawl/pdf-inspector",
+      "type": "oss",
+      "category": "AI и агенты",
+      "subcategory": "Document ingestion / PDF routing",
+      "addedAt": "2026-08-18",
+      "description": "Firecrawl PDF Inspector быстро определяет, содержит ли PDF нормальный текст или требует OCR, а затем извлекает структуру в Markdown. Это полезный первый этап document pipeline, но не волшебный парсер: сложная вёрстка, повреждённые шрифты и вредоносные файлы всё равно требуют ограничений и fallback.",
+      "useCases": [
+        "Маршрутизировать текстовые и сканированные PDF по разным ingestion pipelines",
+        "Извлекать таблицы, заголовки и порядок чтения перед RAG-индексацией",
+        "Снизить число документов, которые без необходимости отправляются в дорогой OCR"
+      ],
+      "platforms": [
+        "Rust",
+        "Node.js",
+        "Python",
+        "WebAssembly",
+        "CLI",
+        "Self-host"
+      ],
+      "license": {
+        "label": "MIT",
+        "original": "MIT; optional OCR runtimes, model files and downstream document services retain their own licenses and security boundaries",
+        "spdx": "MIT",
+        "kind": "open-source",
+        "status": "source-declared",
+        "requiresReview": false,
+        "evidence": [
+          {
+            "kind": "license",
+            "label": "MIT license",
+            "url": "https://api.github.com/repos/firecrawl/pdf-inspector/license"
+          },
+          {
+            "kind": "license",
+            "label": "Official MIT license",
+            "url": "https://github.com/firecrawl/pdf-inspector/blob/main/LICENSE"
+          },
+          {
+            "kind": "security",
+            "label": "Official security policy",
+            "url": "https://github.com/firecrawl/pdf-inspector/blob/main/SECURITY.md"
+          }
+        ]
+      },
+      "access": {
+        "cost": "free",
+        "signup": "none",
+        "runtime": "self-host"
+      },
+      "trust": "official",
+      "decision": "now",
+      "riskLevel": "high",
+      "projects": [
+        "Eclipse AI Hub",
+        "Educator-AI",
+        "Eclipse Library",
+        "Eclipse Webclaw",
+        "Hopson Sentinel"
+      ],
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://github.com/firecrawl/pdf-inspector"
+        },
+        {
+          "kind": "license",
+          "label": "MIT license",
+          "url": "https://api.github.com/repos/firecrawl/pdf-inspector/license"
+        },
+        {
+          "kind": "license",
+          "label": "Official MIT license",
+          "url": "https://github.com/firecrawl/pdf-inspector/blob/main/LICENSE"
+        },
+        {
+          "kind": "security",
+          "label": "Official security policy",
+          "url": "https://github.com/firecrawl/pdf-inspector/blob/main/SECURITY.md"
+        }
+      ],
+      "actions": {
+        "openOfficialSource": true,
+        "installFromCatalog": false,
+        "mutateExternalSystems": false
+      }
+    },
+    {
       "id": "qwen3-8-max-cloud",
       "title": "Qwen3.8-Max",
       "url": "https://qwen.ai/blog?id=qwen3.8",
@@ -17448,59 +17517,6 @@
           "kind": "privacy",
           "label": "Qwen Cloud Privacy Policy",
           "url": "https://www.qwencloud.com/legal/privacy"
-        }
-      ],
-      "actions": {
-        "openOfficialSource": true,
-        "installFromCatalog": false,
-        "mutateExternalSystems": false
-      }
-    },
-    {
-      "id": "higgsfield-virality-predictor-higgsfield-ai",
-      "title": "Higgsfield Virality Predictor",
-      "url": "https://higgsfield.ai/apps/virality-predictor",
-      "type": "media",
-      "category": "SEO & Маркетинг",
-      "subcategory": "SEO & Маркетинг",
-      "addedAt": null,
-      "description": "Higgsfield Virality Predictor — Скоринг хука / удержания / виральности видео до релиза + Ad Reference перемонтаж. С оговоркой: \"карта зон мозга\" — маркетинговая обёртка (без EEG никаких реальных активационных карт), но как hook/retention heuristic годится. Free trial на момент находки. Карточка помогает понять назначение ресурса и начать с небольшой безопасной проверки; условия использования ещё нужно сверить с официальным источником.",
-      "useCases": [
-        "Разобраться, подходит ли Higgsfield Virality Predictor для вашей задачи",
-        "Проверить возможности на небольшом тестовом сценарии до интеграции"
-      ],
-      "platforms": [
-        "Web"
-      ],
-      "license": {
-        "label": "Нужно проверить в официальном источнике",
-        "original": "Нужно проверить в официальном источнике",
-        "spdx": null,
-        "kind": "unknown",
-        "status": "unverified",
-        "requiresReview": true,
-        "evidence": [
-          {
-            "kind": "official-source",
-            "label": "Официальный источник; точные условия ещё нужно сверить",
-            "url": "https://higgsfield.ai/apps/virality-predictor"
-          }
-        ]
-      },
-      "access": {
-        "cost": "free",
-        "signup": "unknown",
-        "runtime": "cloud"
-      },
-      "trust": "unknown",
-      "decision": "reference",
-      "riskLevel": "medium",
-      "projects": [],
-      "evidence": [
-        {
-          "kind": "official-source",
-          "label": "Официальный источник",
-          "url": "https://higgsfield.ai/apps/virality-predictor"
         }
       ],
       "actions": {
@@ -17805,6 +17821,146 @@
       }
     },
     {
+      "id": "localsend-github-com",
+      "title": "LocalSend",
+      "url": "https://github.com/localsend/localsend",
+      "type": "tool",
+      "category": "Productivity & Files",
+      "subcategory": "Локальная передача файлов",
+      "addedAt": null,
+      "description": "Cross-platform инструмент для передачи файлов и сообщений по локальной сети без облачного посредника и аккаунта. Полезен для Media/Shotforge/QA handoff и как UX-референс безопасного device discovery.",
+      "useCases": [
+        "Передача исходников между телефоном и Eclipse Media workstation",
+        "QA screenshots, recordings и device logs",
+        "On-prem handoff диагностических пакетов в Hopson Sentinel",
+        "Референс transfer UI с progress, retry и confirmation"
+      ],
+      "platforms": [
+        "Windows",
+        "macOS",
+        "Linux",
+        "Android",
+        "iOS"
+      ],
+      "license": {
+        "label": "Apache-2.0",
+        "original": "Apache License 2.0",
+        "spdx": "Apache-2.0",
+        "kind": "open-source",
+        "status": "source-declared",
+        "requiresReview": false,
+        "evidence": [
+          {
+            "kind": "license",
+            "label": "Apache-2.0 license",
+            "url": "https://api.github.com/repos/localsend/localsend/license"
+          },
+          {
+            "kind": "license",
+            "label": "Official Apache-2.0 license",
+            "url": "https://github.com/localsend/localsend/blob/main/LICENSE"
+          }
+        ]
+      },
+      "access": {
+        "cost": "free",
+        "signup": "none",
+        "runtime": "local"
+      },
+      "trust": "official",
+      "decision": "roadmap",
+      "riskLevel": "medium",
+      "projects": [
+        "Eclipse Media",
+        "Shotforge",
+        "Hopson Sentinel",
+        "Eclipse Chat"
+      ],
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://github.com/localsend/localsend"
+        },
+        {
+          "kind": "license",
+          "label": "Apache-2.0 license",
+          "url": "https://api.github.com/repos/localsend/localsend/license"
+        },
+        {
+          "kind": "license",
+          "label": "Official Apache-2.0 license",
+          "url": "https://github.com/localsend/localsend/blob/main/LICENSE"
+        }
+      ],
+      "actions": {
+        "openOfficialSource": true,
+        "installFromCatalog": false,
+        "mutateExternalSystems": false
+      }
+    },
+    {
+      "id": "github-store-github-com",
+      "title": "GitHub Store",
+      "url": "https://github.com/OpenHub-Store/GitHub-Store",
+      "type": "oss",
+      "category": "Dev Tools & CLI",
+      "subcategory": "Dev Tools & CLI",
+      "addedAt": null,
+      "description": "GitHub Store — Kotlin/Compose · App Store для GitHub — установка софта из Releases в 1 клик, авто-обновления, Android/Win/macOS/Linux. Карточка помогает понять назначение ресурса и начать с небольшой безопасной проверки; условия использования ещё нужно сверить с официальным источником.",
+      "useCases": [
+        "Разобраться, подходит ли GitHub Store для вашей задачи",
+        "Проверить возможности на небольшом тестовом сценарии до интеграции"
+      ],
+      "platforms": [
+        "macOS",
+        "Linux",
+        "Android",
+        "CLI"
+      ],
+      "license": {
+        "label": "Apache-2.0",
+        "original": "Нужно проверить в официальном источнике",
+        "spdx": "Apache-2.0",
+        "kind": "open-source",
+        "status": "source-declared",
+        "requiresReview": false,
+        "evidence": [
+          {
+            "kind": "license",
+            "label": "Apache-2.0 license",
+            "url": "https://api.github.com/repos/openhub-store/github-store/license"
+          }
+        ]
+      },
+      "access": {
+        "cost": "free",
+        "signup": "none",
+        "runtime": "local"
+      },
+      "trust": "community",
+      "decision": "reference",
+      "riskLevel": "medium",
+      "projects": [],
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://github.com/OpenHub-Store/GitHub-Store"
+        },
+        {
+          "kind": "license",
+          "label": "Apache-2.0 license",
+          "url": "https://api.github.com/repos/openhub-store/github-store/license"
+        }
+      ],
+      "actions": {
+        "openOfficialSource": true,
+        "installFromCatalog": false,
+        "mutateExternalSystems": false
+      }
+    },
+    {
       "id": "pc-tuning-valleyofdoom",
       "title": "PC-Tuning",
       "url": "https://github.com/valleyofdoom/PC-Tuning",
@@ -17875,6 +18031,65 @@
           "kind": "license",
           "label": "Official GPL-3.0 license",
           "url": "https://github.com/valleyofdoom/PC-Tuning/blob/main/LICENSE"
+        }
+      ],
+      "actions": {
+        "openOfficialSource": true,
+        "installFromCatalog": false,
+        "mutateExternalSystems": false
+      }
+    },
+    {
+      "id": "ghost-downloader-3-github-com",
+      "title": "Ghost Downloader 3",
+      "url": "https://github.com/XiaoYouChR/Ghost-Downloader-3",
+      "type": "media",
+      "category": "Dev Tools & CLI",
+      "subcategory": "Dev Tools & CLI",
+      "addedAt": null,
+      "description": "Ghost Downloader 3 — Python · Ускоритель загрузок +30% — параллельные части, AI-выбор сервера, Win/Linux/Mac. Карточка помогает понять назначение ресурса и начать с небольшой безопасной проверки; условия использования ещё нужно сверить с официальным источником.",
+      "useCases": [
+        "Разобраться, подходит ли Ghost Downloader 3 для вашей задачи",
+        "Проверить возможности на небольшом тестовом сценарии до интеграции"
+      ],
+      "platforms": [
+        "Linux",
+        "CLI"
+      ],
+      "license": {
+        "label": "GPL-3.0",
+        "original": "Нужно проверить в официальном источнике",
+        "spdx": "GPL-3.0",
+        "kind": "open-source",
+        "status": "source-declared",
+        "requiresReview": false,
+        "evidence": [
+          {
+            "kind": "license",
+            "label": "GPL-3.0 license",
+            "url": "https://api.github.com/repos/xiaoyouchr/ghost-downloader-3/license"
+          }
+        ]
+      },
+      "access": {
+        "cost": "free",
+        "signup": "none",
+        "runtime": "local"
+      },
+      "trust": "community",
+      "decision": "reference",
+      "riskLevel": "medium",
+      "projects": [],
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://github.com/XiaoYouChR/Ghost-Downloader-3"
+        },
+        {
+          "kind": "license",
+          "label": "GPL-3.0 license",
+          "url": "https://api.github.com/repos/xiaoyouchr/ghost-downloader-3/license"
         }
       ],
       "actions": {
@@ -17962,485 +18177,6 @@
       }
     },
     {
-      "id": "eclipse-skill-intake",
-      "title": "Eclipse Skill Intake",
-      "url": "https://library.eclipse-forge.ru/guides/august-2026-skills-voice-growth-rollout.md",
-      "type": "skill",
-      "category": "Skills",
-      "subcategory": "Supply-chain review",
-      "addedAt": "2026-08-20",
-      "description": "First-party Eclipse workflow для проверки внешнего skill до установки: canonical source, pinned revision, полный разбор инструкций и scripts, capability manifest, sandbox и отдельное решение allowlist.",
-      "useCases": [
-        "Проверить skill из skills.sh или GitHub",
-        "Зафиксировать permissions и telemetry",
-        "Выдать approved/restricted/reference/rejected решение"
-      ],
-      "platforms": [
-        "Codex",
-        "Claude Code",
-        "Repository review"
-      ],
-      "license": {
-        "label": "Eclipse Forge first-party editorial workflow; external candidates retain their own licenses",
-        "original": "Eclipse Forge first-party editorial workflow; external candidates retain their own licenses",
-        "spdx": null,
-        "kind": "custom",
-        "status": "editor-reviewed",
-        "requiresReview": false,
-        "evidence": [
-          {
-            "kind": "source",
-            "label": "First-party skill source",
-            "url": "https://library.eclipse-forge.ru/guides/august-2026-skills-voice-growth-rollout.md"
-          }
-        ]
-      },
-      "access": {
-        "cost": "free",
-        "signup": "none",
-        "runtime": "local"
-      },
-      "trust": "official",
-      "decision": "now",
-      "riskLevel": "low",
-      "projects": [
-        "Eclipse Library",
-        "Hopson Sentinel",
-        "Eclipse AI Hub",
-        "oh-my-claudecode"
-      ],
-      "evidence": [
-        {
-          "kind": "official-source",
-          "label": "Официальный источник",
-          "url": "https://library.eclipse-forge.ru/guides/august-2026-skills-voice-growth-rollout.md"
-        }
-      ],
-      "actions": {
-        "openOfficialSource": true,
-        "installFromCatalog": false,
-        "mutateExternalSystems": false
-      }
-    },
-    {
-      "id": "localsend-github-com",
-      "title": "LocalSend",
-      "url": "https://github.com/localsend/localsend",
-      "type": "tool",
-      "category": "Productivity & Files",
-      "subcategory": "Локальная передача файлов",
-      "addedAt": null,
-      "description": "Cross-platform инструмент для передачи файлов и сообщений по локальной сети без облачного посредника и аккаунта. Полезен для Media/Shotforge/QA handoff и как UX-референс безопасного device discovery.",
-      "useCases": [
-        "Передача исходников между телефоном и Eclipse Media workstation",
-        "QA screenshots, recordings и device logs",
-        "On-prem handoff диагностических пакетов в Hopson Sentinel",
-        "Референс transfer UI с progress, retry и confirmation"
-      ],
-      "platforms": [
-        "Windows",
-        "macOS",
-        "Linux",
-        "Android",
-        "iOS"
-      ],
-      "license": {
-        "label": "Apache-2.0",
-        "original": "Apache License 2.0",
-        "spdx": "Apache-2.0",
-        "kind": "open-source",
-        "status": "source-declared",
-        "requiresReview": false,
-        "evidence": [
-          {
-            "kind": "license",
-            "label": "Apache-2.0 license",
-            "url": "https://api.github.com/repos/localsend/localsend/license"
-          },
-          {
-            "kind": "license",
-            "label": "Official Apache-2.0 license",
-            "url": "https://github.com/localsend/localsend/blob/main/LICENSE"
-          }
-        ]
-      },
-      "access": {
-        "cost": "free",
-        "signup": "none",
-        "runtime": "local"
-      },
-      "trust": "official",
-      "decision": "roadmap",
-      "riskLevel": "medium",
-      "projects": [
-        "Eclipse Media",
-        "Shotforge",
-        "Hopson Sentinel",
-        "Eclipse Chat"
-      ],
-      "evidence": [
-        {
-          "kind": "official-source",
-          "label": "Официальный источник",
-          "url": "https://github.com/localsend/localsend"
-        },
-        {
-          "kind": "license",
-          "label": "Apache-2.0 license",
-          "url": "https://api.github.com/repos/localsend/localsend/license"
-        },
-        {
-          "kind": "license",
-          "label": "Official Apache-2.0 license",
-          "url": "https://github.com/localsend/localsend/blob/main/LICENSE"
-        }
-      ],
-      "actions": {
-        "openOfficialSource": true,
-        "installFromCatalog": false,
-        "mutateExternalSystems": false
-      }
-    },
-    {
-      "id": "reference-board-system-guide",
-      "title": "Reference Board System Guide",
-      "url": "https://docs.google.com/document/d/1mnm_Z-BCNY-_fSe0RgIe0kZZt8PDnOYFwrnA8NUqlWM/mobilebasic",
-      "type": "prompt",
-      "category": "Промпты",
-      "subcategory": "Consistent visual generation",
-      "addedAt": "2026-08-20",
-      "description": "Система из shot, object, location, pose, character и creature boards для согласованной генерации. В Eclipse используем только taxonomy и создаём собственные prompts, provenance и consent flow; близкий GPT Image2 document считается дублем, а не второй карточкой.",
-      "useCases": [
-        "Собрать visual bible проекта",
-        "Удерживать traits между кадрами",
-        "Подготовить campaign assets и storyboard"
-      ],
-      "platforms": [
-        "Google Docs",
-        "Image models",
-        "Eclipse Media"
-      ],
-      "license": {
-        "label": "Publicly shared guide with no explicit reuse license found; link and taxonomy are reference-only, prompt text must not be republished verbatim",
-        "original": "Publicly shared guide with no explicit reuse license found; link and taxonomy are reference-only, prompt text must not be republished verbatim",
-        "spdx": null,
-        "kind": "custom",
-        "status": "editor-reviewed",
-        "requiresReview": false,
-        "evidence": [
-          {
-            "kind": "source",
-            "label": "Owner-provided public document",
-            "url": "https://docs.google.com/document/d/1mnm_Z-BCNY-_fSe0RgIe0kZZt8PDnOYFwrnA8NUqlWM/mobilebasic"
-          }
-        ]
-      },
-      "access": {
-        "cost": "free",
-        "signup": "optional",
-        "runtime": "cloud"
-      },
-      "trust": "community",
-      "decision": "now",
-      "riskLevel": "high",
-      "projects": [
-        "Eclipse Media",
-        "Shotforge",
-        "Text2Image",
-        "Eclipse DnD Forge",
-        "Eclipse Forge Landing"
-      ],
-      "evidence": [
-        {
-          "kind": "official-source",
-          "label": "Официальный источник",
-          "url": "https://docs.google.com/document/d/1mnm_Z-BCNY-_fSe0RgIe0kZZt8PDnOYFwrnA8NUqlWM/mobilebasic"
-        }
-      ],
-      "actions": {
-        "openOfficialSource": true,
-        "installFromCatalog": false,
-        "mutateExternalSystems": false
-      }
-    },
-    {
-      "id": "github-store-github-com",
-      "title": "GitHub Store",
-      "url": "https://github.com/OpenHub-Store/GitHub-Store",
-      "type": "oss",
-      "category": "Dev Tools & CLI",
-      "subcategory": "Dev Tools & CLI",
-      "addedAt": null,
-      "description": "GitHub Store — Kotlin/Compose · App Store для GitHub — установка софта из Releases в 1 клик, авто-обновления, Android/Win/macOS/Linux. Карточка помогает понять назначение ресурса и начать с небольшой безопасной проверки; условия использования ещё нужно сверить с официальным источником.",
-      "useCases": [
-        "Разобраться, подходит ли GitHub Store для вашей задачи",
-        "Проверить возможности на небольшом тестовом сценарии до интеграции"
-      ],
-      "platforms": [
-        "macOS",
-        "Linux",
-        "Android",
-        "CLI"
-      ],
-      "license": {
-        "label": "Apache-2.0",
-        "original": "Нужно проверить в официальном источнике",
-        "spdx": "Apache-2.0",
-        "kind": "open-source",
-        "status": "source-declared",
-        "requiresReview": false,
-        "evidence": [
-          {
-            "kind": "license",
-            "label": "Apache-2.0 license",
-            "url": "https://api.github.com/repos/openhub-store/github-store/license"
-          }
-        ]
-      },
-      "access": {
-        "cost": "free",
-        "signup": "none",
-        "runtime": "local"
-      },
-      "trust": "community",
-      "decision": "reference",
-      "riskLevel": "medium",
-      "projects": [],
-      "evidence": [
-        {
-          "kind": "official-source",
-          "label": "Официальный источник",
-          "url": "https://github.com/OpenHub-Store/GitHub-Store"
-        },
-        {
-          "kind": "license",
-          "label": "Apache-2.0 license",
-          "url": "https://api.github.com/repos/openhub-store/github-store/license"
-        }
-      ],
-      "actions": {
-        "openOfficialSource": true,
-        "installFromCatalog": false,
-        "mutateExternalSystems": false
-      }
-    },
-    {
-      "id": "vengeance-ui",
-      "title": "Vengeance UI",
-      "url": "https://github.com/Ashutoshx7/VengeanceUI",
-      "type": "oss",
-      "category": "Инструменты",
-      "subcategory": "Animated React components",
-      "addedAt": "2026-08-20",
-      "description": "Vengeance UI — MIT-библиотека animated React/Next/shadcn components. Подходит для bounded marketing-surface pilot, но каждый компонент проходит provenance, keyboard, contrast, reduced-motion, mobile и bundle review.",
-      "useCases": [
-        "Добавить один выразительный showcase-блок",
-        "Изучить interaction patterns",
-        "Проверить shadcn registry workflow"
-      ],
-      "platforms": [
-        "React",
-        "Next.js",
-        "shadcn/ui",
-        "Web"
-      ],
-      "license": {
-        "label": "MIT",
-        "original": "MIT",
-        "spdx": "MIT",
-        "kind": "open-source",
-        "status": "source-declared",
-        "requiresReview": false,
-        "evidence": [
-          {
-            "kind": "license",
-            "label": "MIT license",
-            "url": "https://api.github.com/repos/ashutoshx7/vengeanceui/license"
-          },
-          {
-            "kind": "license",
-            "label": "Official MIT repository license",
-            "url": "https://github.com/Ashutoshx7/VengeanceUI/blob/main/LICENSE"
-          },
-          {
-            "kind": "source",
-            "label": "Official repository",
-            "url": "https://github.com/Ashutoshx7/VengeanceUI"
-          }
-        ]
-      },
-      "access": {
-        "cost": "free",
-        "signup": "none",
-        "runtime": "local"
-      },
-      "trust": "community",
-      "decision": "roadmap",
-      "riskLevel": "medium",
-      "projects": [
-        "Eclipse Forge Landing",
-        "Eclipse Library",
-        "Eclipse Media"
-      ],
-      "evidence": [
-        {
-          "kind": "official-source",
-          "label": "Официальный источник",
-          "url": "https://github.com/Ashutoshx7/VengeanceUI"
-        },
-        {
-          "kind": "license",
-          "label": "MIT license",
-          "url": "https://api.github.com/repos/ashutoshx7/vengeanceui/license"
-        },
-        {
-          "kind": "license",
-          "label": "Official MIT repository license",
-          "url": "https://github.com/Ashutoshx7/VengeanceUI/blob/main/LICENSE"
-        }
-      ],
-      "actions": {
-        "openOfficialSource": true,
-        "installFromCatalog": false,
-        "mutateExternalSystems": false
-      }
-    },
-    {
-      "id": "ghost-downloader-3-github-com",
-      "title": "Ghost Downloader 3",
-      "url": "https://github.com/XiaoYouChR/Ghost-Downloader-3",
-      "type": "media",
-      "category": "Dev Tools & CLI",
-      "subcategory": "Dev Tools & CLI",
-      "addedAt": null,
-      "description": "Ghost Downloader 3 — Python · Ускоритель загрузок +30% — параллельные части, AI-выбор сервера, Win/Linux/Mac. Карточка помогает понять назначение ресурса и начать с небольшой безопасной проверки; условия использования ещё нужно сверить с официальным источником.",
-      "useCases": [
-        "Разобраться, подходит ли Ghost Downloader 3 для вашей задачи",
-        "Проверить возможности на небольшом тестовом сценарии до интеграции"
-      ],
-      "platforms": [
-        "Linux",
-        "CLI"
-      ],
-      "license": {
-        "label": "GPL-3.0",
-        "original": "Нужно проверить в официальном источнике",
-        "spdx": "GPL-3.0",
-        "kind": "open-source",
-        "status": "source-declared",
-        "requiresReview": false,
-        "evidence": [
-          {
-            "kind": "license",
-            "label": "GPL-3.0 license",
-            "url": "https://api.github.com/repos/xiaoyouchr/ghost-downloader-3/license"
-          }
-        ]
-      },
-      "access": {
-        "cost": "free",
-        "signup": "none",
-        "runtime": "local"
-      },
-      "trust": "community",
-      "decision": "reference",
-      "riskLevel": "medium",
-      "projects": [],
-      "evidence": [
-        {
-          "kind": "official-source",
-          "label": "Официальный источник",
-          "url": "https://github.com/XiaoYouChR/Ghost-Downloader-3"
-        },
-        {
-          "kind": "license",
-          "label": "GPL-3.0 license",
-          "url": "https://api.github.com/repos/xiaoyouchr/ghost-downloader-3/license"
-        }
-      ],
-      "actions": {
-        "openOfficialSource": true,
-        "installFromCatalog": false,
-        "mutateExternalSystems": false
-      }
-    },
-    {
-      "id": "skiper-ui",
-      "title": "Skiper UI",
-      "url": "https://skiper-ui.com/",
-      "type": "tool",
-      "category": "Инструменты",
-      "subcategory": "React UI reference",
-      "addedAt": "2026-08-20",
-      "description": "Skiper UI предлагает free и paid React/shadcn components, но free attribution, general Terms и происхождение recreated interfaces создают противоречивый reuse boundary. Для Eclipse это visual reference, не production dependency.",
-      "useCases": [
-        "Изучить landing interactions",
-        "Сравнить component layouts",
-        "Сформировать оригинальное design direction"
-      ],
-      "platforms": [
-        "Web",
-        "React",
-        "Next.js",
-        "shadcn/ui"
-      ],
-      "license": {
-        "label": "Mixed service/component terms; free attribution and general no-copy language require component-level clarification",
-        "original": "Mixed service/component terms; free attribution and general no-copy language require component-level clarification",
-        "spdx": null,
-        "kind": "service-terms",
-        "status": "editor-reviewed",
-        "requiresReview": false,
-        "evidence": [
-          {
-            "kind": "terms",
-            "label": "Official Terms",
-            "url": "https://skiper-ui.com/docs/terms-of-service"
-          },
-          {
-            "kind": "official-source",
-            "label": "Official quick start",
-            "url": "https://skiper-ui.com/docs/quick-start"
-          }
-        ]
-      },
-      "access": {
-        "cost": "freemium",
-        "signup": "optional",
-        "runtime": "hybrid"
-      },
-      "trust": "caution",
-      "decision": "reference",
-      "riskLevel": "high",
-      "projects": [
-        "Eclipse Forge Landing",
-        "Eclipse Library",
-        "Eclipse Media"
-      ],
-      "evidence": [
-        {
-          "kind": "official-source",
-          "label": "Официальный источник",
-          "url": "https://skiper-ui.com/"
-        },
-        {
-          "kind": "terms",
-          "label": "Official Terms",
-          "url": "https://skiper-ui.com/docs/terms-of-service"
-        },
-        {
-          "kind": "official-source",
-          "label": "Official quick start",
-          "url": "https://skiper-ui.com/docs/quick-start"
-        }
-      ],
-      "actions": {
-        "openOfficialSource": true,
-        "installFromCatalog": false,
-        "mutateExternalSystems": false
-      }
-    },
-    {
       "id": "eclipse-claw-github-com",
       "title": "Eclipse Claw",
       "url": "https://github.com/PavelHopson/Eclipse-Claw",
@@ -18515,34 +18251,97 @@
       }
     },
     {
-      "id": "buildcool-open-source-inspiration",
-      "title": "Buildcoolshit",
-      "url": "https://buildcool.sh/",
-      "type": "tool",
-      "category": "Инструменты",
-      "subcategory": "Open-source discovery",
+      "id": "eclipse-skill-intake",
+      "title": "Eclipse Skill Intake",
+      "url": "https://library.eclipse-forge.ru/guides/august-2026-skills-voice-growth-rollout.md",
+      "type": "skill",
+      "category": "Skills",
+      "subcategory": "Supply-chain review",
       "addedAt": "2026-08-20",
-      "description": "Buildcoolshit — curated discovery gallery открытых проектов и expressive web work. Полезен как входящий источник Library, но shared pages и карточки не заменяют проверку canonical repository, license, activity и security.",
+      "description": "First-party Eclipse workflow для проверки внешнего skill до установки: canonical source, pinned revision, полный разбор инструкций и scripts, capability manifest, sandbox и отдельное решение allowlist.",
       "useCases": [
-        "Находить кандидатов для Library",
-        "Собирать visual references",
-        "Формировать manual review queue"
+        "Проверить skill из skills.sh или GitHub",
+        "Зафиксировать permissions и telemetry",
+        "Выдать approved/restricted/reference/rejected решение"
       ],
       "platforms": [
-        "Web"
+        "Codex",
+        "Claude Code",
+        "Repository review"
       ],
       "license": {
-        "label": "Directory/service terms; every linked project retains its own license",
-        "original": "Directory/service terms; every linked project retains its own license",
+        "label": "Eclipse Forge first-party editorial workflow; external candidates retain their own licenses",
+        "original": "Eclipse Forge first-party editorial workflow; external candidates retain their own licenses",
         "spdx": null,
-        "kind": "service-terms",
+        "kind": "custom",
         "status": "editor-reviewed",
         "requiresReview": false,
         "evidence": [
           {
-            "kind": "official-source",
-            "label": "Official directory",
-            "url": "https://buildcool.sh/"
+            "kind": "source",
+            "label": "First-party skill source",
+            "url": "https://library.eclipse-forge.ru/guides/august-2026-skills-voice-growth-rollout.md"
+          }
+        ]
+      },
+      "access": {
+        "cost": "free",
+        "signup": "none",
+        "runtime": "local"
+      },
+      "trust": "official",
+      "decision": "now",
+      "riskLevel": "low",
+      "projects": [
+        "Eclipse Library",
+        "Hopson Sentinel",
+        "Eclipse AI Hub",
+        "oh-my-claudecode"
+      ],
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://library.eclipse-forge.ru/guides/august-2026-skills-voice-growth-rollout.md"
+        }
+      ],
+      "actions": {
+        "openOfficialSource": true,
+        "installFromCatalog": false,
+        "mutateExternalSystems": false
+      }
+    },
+    {
+      "id": "reference-board-system-guide",
+      "title": "Reference Board System Guide",
+      "url": "https://docs.google.com/document/d/1mnm_Z-BCNY-_fSe0RgIe0kZZt8PDnOYFwrnA8NUqlWM/mobilebasic",
+      "type": "prompt",
+      "category": "Промпты",
+      "subcategory": "Consistent visual generation",
+      "addedAt": "2026-08-20",
+      "description": "Система из shot, object, location, pose, character и creature boards для согласованной генерации. В Eclipse используем только taxonomy и создаём собственные prompts, provenance и consent flow; близкий GPT Image2 document считается дублем, а не второй карточкой.",
+      "useCases": [
+        "Собрать visual bible проекта",
+        "Удерживать traits между кадрами",
+        "Подготовить campaign assets и storyboard"
+      ],
+      "platforms": [
+        "Google Docs",
+        "Image models",
+        "Eclipse Media"
+      ],
+      "license": {
+        "label": "Publicly shared guide with no explicit reuse license found; link and taxonomy are reference-only, prompt text must not be republished verbatim",
+        "original": "Publicly shared guide with no explicit reuse license found; link and taxonomy are reference-only, prompt text must not be republished verbatim",
+        "spdx": null,
+        "kind": "custom",
+        "status": "editor-reviewed",
+        "requiresReview": false,
+        "evidence": [
+          {
+            "kind": "source",
+            "label": "Owner-provided public document",
+            "url": "https://docs.google.com/document/d/1mnm_Z-BCNY-_fSe0RgIe0kZZt8PDnOYFwrnA8NUqlWM/mobilebasic"
           }
         ]
       },
@@ -18552,17 +18351,20 @@
         "runtime": "cloud"
       },
       "trust": "community",
-      "decision": "reference",
-      "riskLevel": "medium",
+      "decision": "now",
+      "riskLevel": "high",
       "projects": [
-        "Eclipse Library",
+        "Eclipse Media",
+        "Shotforge",
+        "Text2Image",
+        "Eclipse DnD Forge",
         "Eclipse Forge Landing"
       ],
       "evidence": [
         {
           "kind": "official-source",
           "label": "Официальный источник",
-          "url": "https://buildcool.sh/"
+          "url": "https://docs.google.com/document/d/1mnm_Z-BCNY-_fSe0RgIe0kZZt8PDnOYFwrnA8NUqlWM/mobilebasic"
         }
       ],
       "actions": {
@@ -18680,6 +18482,462 @@
           "kind": "license",
           "label": "BSD-3-Clause license",
           "url": "https://api.github.com/repos/d4vinci/scrapling/license"
+        }
+      ],
+      "actions": {
+        "openOfficialSource": true,
+        "installFromCatalog": false,
+        "mutateExternalSystems": false
+      }
+    },
+    {
+      "id": "vengeance-ui",
+      "title": "Vengeance UI",
+      "url": "https://github.com/Ashutoshx7/VengeanceUI",
+      "type": "oss",
+      "category": "Инструменты",
+      "subcategory": "Animated React components",
+      "addedAt": "2026-08-20",
+      "description": "Vengeance UI — MIT-библиотека animated React/Next/shadcn components. Подходит для bounded marketing-surface pilot, но каждый компонент проходит provenance, keyboard, contrast, reduced-motion, mobile и bundle review.",
+      "useCases": [
+        "Добавить один выразительный showcase-блок",
+        "Изучить interaction patterns",
+        "Проверить shadcn registry workflow"
+      ],
+      "platforms": [
+        "React",
+        "Next.js",
+        "shadcn/ui",
+        "Web"
+      ],
+      "license": {
+        "label": "MIT",
+        "original": "MIT",
+        "spdx": "MIT",
+        "kind": "open-source",
+        "status": "source-declared",
+        "requiresReview": false,
+        "evidence": [
+          {
+            "kind": "license",
+            "label": "MIT license",
+            "url": "https://api.github.com/repos/ashutoshx7/vengeanceui/license"
+          },
+          {
+            "kind": "license",
+            "label": "Official MIT repository license",
+            "url": "https://github.com/Ashutoshx7/VengeanceUI/blob/main/LICENSE"
+          },
+          {
+            "kind": "source",
+            "label": "Official repository",
+            "url": "https://github.com/Ashutoshx7/VengeanceUI"
+          }
+        ]
+      },
+      "access": {
+        "cost": "free",
+        "signup": "none",
+        "runtime": "local"
+      },
+      "trust": "community",
+      "decision": "roadmap",
+      "riskLevel": "medium",
+      "projects": [
+        "Eclipse Forge Landing",
+        "Eclipse Library",
+        "Eclipse Media"
+      ],
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://github.com/Ashutoshx7/VengeanceUI"
+        },
+        {
+          "kind": "license",
+          "label": "MIT license",
+          "url": "https://api.github.com/repos/ashutoshx7/vengeanceui/license"
+        },
+        {
+          "kind": "license",
+          "label": "Official MIT repository license",
+          "url": "https://github.com/Ashutoshx7/VengeanceUI/blob/main/LICENSE"
+        }
+      ],
+      "actions": {
+        "openOfficialSource": true,
+        "installFromCatalog": false,
+        "mutateExternalSystems": false
+      }
+    },
+    {
+      "id": "scraping-apis-github-com",
+      "title": "Scraping APIs",
+      "url": "https://github.com/cporter202/scraping-apis-for-devs",
+      "type": "api",
+      "category": "Dev Tools & CLI",
+      "subcategory": "Dev Tools & CLI",
+      "addedAt": null,
+      "description": "Scraping APIs — Каталог · 2622 API для парсинга — соцсети, маркетплейсы, новости, игры, БД и др.. Карточка помогает понять назначение ресурса и начать с небольшой безопасной проверки; условия использования ещё нужно сверить с официальным источником.",
+      "useCases": [
+        "Разобраться, подходит ли Scraping APIs для вашей задачи",
+        "Проверить возможности на небольшом тестовом сценарии до интеграции"
+      ],
+      "platforms": [
+        "CLI",
+        "API"
+      ],
+      "license": {
+        "label": "Нужно проверить в официальном источнике",
+        "original": "Нужно проверить в официальном источнике",
+        "spdx": null,
+        "kind": "unknown",
+        "status": "unverified",
+        "requiresReview": true,
+        "evidence": [
+          {
+            "kind": "official-source",
+            "label": "Официальный источник; точные условия ещё нужно сверить",
+            "url": "https://github.com/cporter202/scraping-apis-for-devs"
+          }
+        ]
+      },
+      "access": {
+        "cost": "free",
+        "signup": "unknown",
+        "runtime": "hybrid"
+      },
+      "trust": "community",
+      "decision": "reference",
+      "riskLevel": "medium",
+      "projects": [],
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://github.com/cporter202/scraping-apis-for-devs"
+        }
+      ],
+      "actions": {
+        "openOfficialSource": true,
+        "installFromCatalog": false,
+        "mutateExternalSystems": false
+      }
+    },
+    {
+      "id": "skiper-ui",
+      "title": "Skiper UI",
+      "url": "https://skiper-ui.com/",
+      "type": "tool",
+      "category": "Инструменты",
+      "subcategory": "React UI reference",
+      "addedAt": "2026-08-20",
+      "description": "Skiper UI предлагает free и paid React/shadcn components, но free attribution, general Terms и происхождение recreated interfaces создают противоречивый reuse boundary. Для Eclipse это visual reference, не production dependency.",
+      "useCases": [
+        "Изучить landing interactions",
+        "Сравнить component layouts",
+        "Сформировать оригинальное design direction"
+      ],
+      "platforms": [
+        "Web",
+        "React",
+        "Next.js",
+        "shadcn/ui"
+      ],
+      "license": {
+        "label": "Mixed service/component terms; free attribution and general no-copy language require component-level clarification",
+        "original": "Mixed service/component terms; free attribution and general no-copy language require component-level clarification",
+        "spdx": null,
+        "kind": "service-terms",
+        "status": "editor-reviewed",
+        "requiresReview": false,
+        "evidence": [
+          {
+            "kind": "terms",
+            "label": "Official Terms",
+            "url": "https://skiper-ui.com/docs/terms-of-service"
+          },
+          {
+            "kind": "official-source",
+            "label": "Official quick start",
+            "url": "https://skiper-ui.com/docs/quick-start"
+          }
+        ]
+      },
+      "access": {
+        "cost": "freemium",
+        "signup": "optional",
+        "runtime": "hybrid"
+      },
+      "trust": "caution",
+      "decision": "reference",
+      "riskLevel": "high",
+      "projects": [
+        "Eclipse Forge Landing",
+        "Eclipse Library",
+        "Eclipse Media"
+      ],
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://skiper-ui.com/"
+        },
+        {
+          "kind": "terms",
+          "label": "Official Terms",
+          "url": "https://skiper-ui.com/docs/terms-of-service"
+        },
+        {
+          "kind": "official-source",
+          "label": "Official quick start",
+          "url": "https://skiper-ui.com/docs/quick-start"
+        }
+      ],
+      "actions": {
+        "openOfficialSource": true,
+        "installFromCatalog": false,
+        "mutateExternalSystems": false
+      }
+    },
+    {
+      "id": "api-mega-list-github-com",
+      "title": "API-mega-list",
+      "url": "https://github.com/cporter202/API-mega-list",
+      "type": "shop",
+      "category": "Dev Tools & CLI",
+      "subcategory": "Dev Tools & CLI",
+      "addedAt": null,
+      "description": "API-mega-list — Каталог · 10498 API (тот же автор, что Scraping APIs) — сбор данных, автоматизация, аналитика, лиды, e-commerce, соцсети, недвижимость, рынок труда, AI-интеграции. Расширенный надмножество к строке выше — годится как reference для data-ingestion в Lead-Sniper / Eclipse-webclaw. Карточка помогает понять назначение ресурса и начать с небольшой безопасной проверки; условия использования ещё нужно сверить с официальным источником.",
+      "useCases": [
+        "Разобраться, подходит ли API-mega-list для вашей задачи",
+        "Проверить возможности на небольшом тестовом сценарии до интеграции"
+      ],
+      "platforms": [
+        "CLI",
+        "API"
+      ],
+      "license": {
+        "label": "Нужно проверить в официальном источнике",
+        "original": "Нужно проверить в официальном источнике",
+        "spdx": null,
+        "kind": "unknown",
+        "status": "unverified",
+        "requiresReview": true,
+        "evidence": [
+          {
+            "kind": "official-source",
+            "label": "Официальный источник; точные условия ещё нужно сверить",
+            "url": "https://github.com/cporter202/API-mega-list"
+          }
+        ]
+      },
+      "access": {
+        "cost": "free",
+        "signup": "unknown",
+        "runtime": "hybrid"
+      },
+      "trust": "community",
+      "decision": "reference",
+      "riskLevel": "medium",
+      "projects": [],
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://github.com/cporter202/API-mega-list"
+        }
+      ],
+      "actions": {
+        "openOfficialSource": true,
+        "installFromCatalog": false,
+        "mutateExternalSystems": false
+      }
+    },
+    {
+      "id": "buildcool-open-source-inspiration",
+      "title": "Buildcoolshit",
+      "url": "https://buildcool.sh/",
+      "type": "tool",
+      "category": "Инструменты",
+      "subcategory": "Open-source discovery",
+      "addedAt": "2026-08-20",
+      "description": "Buildcoolshit — curated discovery gallery открытых проектов и expressive web work. Полезен как входящий источник Library, но shared pages и карточки не заменяют проверку canonical repository, license, activity и security.",
+      "useCases": [
+        "Находить кандидатов для Library",
+        "Собирать visual references",
+        "Формировать manual review queue"
+      ],
+      "platforms": [
+        "Web"
+      ],
+      "license": {
+        "label": "Directory/service terms; every linked project retains its own license",
+        "original": "Directory/service terms; every linked project retains its own license",
+        "spdx": null,
+        "kind": "service-terms",
+        "status": "editor-reviewed",
+        "requiresReview": false,
+        "evidence": [
+          {
+            "kind": "official-source",
+            "label": "Official directory",
+            "url": "https://buildcool.sh/"
+          }
+        ]
+      },
+      "access": {
+        "cost": "free",
+        "signup": "optional",
+        "runtime": "cloud"
+      },
+      "trust": "community",
+      "decision": "reference",
+      "riskLevel": "medium",
+      "projects": [
+        "Eclipse Library",
+        "Eclipse Forge Landing"
+      ],
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://buildcool.sh/"
+        }
+      ],
+      "actions": {
+        "openOfficialSource": true,
+        "installFromCatalog": false,
+        "mutateExternalSystems": false
+      }
+    },
+    {
+      "id": "cyberscraper-2077-github-com",
+      "title": "CyberScraper 2077",
+      "url": "https://github.com/itsOwen/CyberScraper-2077",
+      "type": "prompt",
+      "category": "Dev Tools & CLI",
+      "subcategory": "Dev Tools & CLI",
+      "addedAt": null,
+      "description": "CyberScraper 2077 — Python · AI-парсер по промпту — описываешь что нужно, обход капчи/антибота, экспорт JSON/CSV/Excel. Карточка помогает понять назначение ресурса и начать с небольшой безопасной проверки; условия использования ещё нужно сверить с официальным источником.",
+      "useCases": [
+        "Разобраться, подходит ли CyberScraper 2077 для вашей задачи",
+        "Проверить возможности на небольшом тестовом сценарии до интеграции"
+      ],
+      "platforms": [
+        "CLI"
+      ],
+      "license": {
+        "label": "MIT",
+        "original": "Нужно проверить в официальном источнике",
+        "spdx": "MIT",
+        "kind": "open-source",
+        "status": "source-declared",
+        "requiresReview": false,
+        "evidence": [
+          {
+            "kind": "license",
+            "label": "MIT license",
+            "url": "https://api.github.com/repos/itsowen/cyberscraper-2077/license"
+          }
+        ]
+      },
+      "access": {
+        "cost": "free",
+        "signup": "none",
+        "runtime": "local"
+      },
+      "trust": "community",
+      "decision": "reference",
+      "riskLevel": "medium",
+      "projects": [],
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://github.com/itsOwen/CyberScraper-2077"
+        },
+        {
+          "kind": "license",
+          "label": "MIT license",
+          "url": "https://api.github.com/repos/itsowen/cyberscraper-2077/license"
+        }
+      ],
+      "actions": {
+        "openOfficialSource": true,
+        "installFromCatalog": false,
+        "mutateExternalSystems": false
+      }
+    },
+    {
+      "id": "scraperai-github-com",
+      "title": "ScraperAI",
+      "url": "https://github.com/scraperai/scraperai",
+      "type": "tool",
+      "category": "Dev Tools & CLI",
+      "subcategory": "Web extraction и browser automation",
+      "addedAt": "2026-08-06",
+      "description": "Community Python-инструмент для извлечения структурированных данных с веб-страниц при помощи Selenium и LLM. Может сокращать HTML и использовать локальные модели, но браузерная автоматизация, маскировка и произвольные URL создают заметную security и legal поверхность.",
+      "useCases": [
+        "Оставить как reference для extraction pipeline Eclipse Webclaw",
+        "Сравнить качество schema extraction на разрешённых тестовых сайтах",
+        "Изучить сокращение HTML перед передачей модели без копирования всего продукта"
+      ],
+      "platforms": [
+        "Python",
+        "CLI",
+        "Selenium",
+        "Self-host"
+      ],
+      "license": {
+        "label": "GPL-3.0",
+        "original": "GPL-3.0",
+        "spdx": "GPL-3.0",
+        "kind": "open-source",
+        "status": "source-declared",
+        "requiresReview": false,
+        "evidence": [
+          {
+            "kind": "license",
+            "label": "GPL-3.0 license",
+            "url": "https://api.github.com/repos/scraperai/scraperai/license"
+          },
+          {
+            "kind": "license",
+            "label": "Repository GPL-3.0 license",
+            "url": "https://github.com/scraperai/scraperai/blob/main/LICENSE"
+          }
+        ]
+      },
+      "access": {
+        "cost": "freemium",
+        "signup": "none",
+        "runtime": "self-host"
+      },
+      "trust": "community",
+      "decision": "reference",
+      "riskLevel": "high",
+      "projects": [
+        "Eclipse Webclaw",
+        "Hopson Sentinel",
+        "Eclipse AI Hub"
+      ],
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://github.com/scraperai/scraperai"
+        },
+        {
+          "kind": "license",
+          "label": "GPL-3.0 license",
+          "url": "https://api.github.com/repos/scraperai/scraperai/license"
+        },
+        {
+          "kind": "license",
+          "label": "Repository GPL-3.0 license",
+          "url": "https://github.com/scraperai/scraperai/blob/main/LICENSE"
         }
       ],
       "actions": {
@@ -18830,429 +19088,6 @@
       }
     },
     {
-      "id": "scraping-apis-github-com",
-      "title": "Scraping APIs",
-      "url": "https://github.com/cporter202/scraping-apis-for-devs",
-      "type": "api",
-      "category": "Dev Tools & CLI",
-      "subcategory": "Dev Tools & CLI",
-      "addedAt": null,
-      "description": "Scraping APIs — Каталог · 2622 API для парсинга — соцсети, маркетплейсы, новости, игры, БД и др.. Карточка помогает понять назначение ресурса и начать с небольшой безопасной проверки; условия использования ещё нужно сверить с официальным источником.",
-      "useCases": [
-        "Разобраться, подходит ли Scraping APIs для вашей задачи",
-        "Проверить возможности на небольшом тестовом сценарии до интеграции"
-      ],
-      "platforms": [
-        "CLI",
-        "API"
-      ],
-      "license": {
-        "label": "Нужно проверить в официальном источнике",
-        "original": "Нужно проверить в официальном источнике",
-        "spdx": null,
-        "kind": "unknown",
-        "status": "unverified",
-        "requiresReview": true,
-        "evidence": [
-          {
-            "kind": "official-source",
-            "label": "Официальный источник; точные условия ещё нужно сверить",
-            "url": "https://github.com/cporter202/scraping-apis-for-devs"
-          }
-        ]
-      },
-      "access": {
-        "cost": "free",
-        "signup": "unknown",
-        "runtime": "hybrid"
-      },
-      "trust": "community",
-      "decision": "reference",
-      "riskLevel": "medium",
-      "projects": [],
-      "evidence": [
-        {
-          "kind": "official-source",
-          "label": "Официальный источник",
-          "url": "https://github.com/cporter202/scraping-apis-for-devs"
-        }
-      ],
-      "actions": {
-        "openOfficialSource": true,
-        "installFromCatalog": false,
-        "mutateExternalSystems": false
-      }
-    },
-    {
-      "id": "api-mega-list-github-com",
-      "title": "API-mega-list",
-      "url": "https://github.com/cporter202/API-mega-list",
-      "type": "shop",
-      "category": "Dev Tools & CLI",
-      "subcategory": "Dev Tools & CLI",
-      "addedAt": null,
-      "description": "API-mega-list — Каталог · 10498 API (тот же автор, что Scraping APIs) — сбор данных, автоматизация, аналитика, лиды, e-commerce, соцсети, недвижимость, рынок труда, AI-интеграции. Расширенный надмножество к строке выше — годится как reference для data-ingestion в Lead-Sniper / Eclipse-webclaw. Карточка помогает понять назначение ресурса и начать с небольшой безопасной проверки; условия использования ещё нужно сверить с официальным источником.",
-      "useCases": [
-        "Разобраться, подходит ли API-mega-list для вашей задачи",
-        "Проверить возможности на небольшом тестовом сценарии до интеграции"
-      ],
-      "platforms": [
-        "CLI",
-        "API"
-      ],
-      "license": {
-        "label": "Нужно проверить в официальном источнике",
-        "original": "Нужно проверить в официальном источнике",
-        "spdx": null,
-        "kind": "unknown",
-        "status": "unverified",
-        "requiresReview": true,
-        "evidence": [
-          {
-            "kind": "official-source",
-            "label": "Официальный источник; точные условия ещё нужно сверить",
-            "url": "https://github.com/cporter202/API-mega-list"
-          }
-        ]
-      },
-      "access": {
-        "cost": "free",
-        "signup": "unknown",
-        "runtime": "hybrid"
-      },
-      "trust": "community",
-      "decision": "reference",
-      "riskLevel": "medium",
-      "projects": [],
-      "evidence": [
-        {
-          "kind": "official-source",
-          "label": "Официальный источник",
-          "url": "https://github.com/cporter202/API-mega-list"
-        }
-      ],
-      "actions": {
-        "openOfficialSource": true,
-        "installFromCatalog": false,
-        "mutateExternalSystems": false
-      }
-    },
-    {
-      "id": "cyberscraper-2077-github-com",
-      "title": "CyberScraper 2077",
-      "url": "https://github.com/itsOwen/CyberScraper-2077",
-      "type": "prompt",
-      "category": "Dev Tools & CLI",
-      "subcategory": "Dev Tools & CLI",
-      "addedAt": null,
-      "description": "CyberScraper 2077 — Python · AI-парсер по промпту — описываешь что нужно, обход капчи/антибота, экспорт JSON/CSV/Excel. Карточка помогает понять назначение ресурса и начать с небольшой безопасной проверки; условия использования ещё нужно сверить с официальным источником.",
-      "useCases": [
-        "Разобраться, подходит ли CyberScraper 2077 для вашей задачи",
-        "Проверить возможности на небольшом тестовом сценарии до интеграции"
-      ],
-      "platforms": [
-        "CLI"
-      ],
-      "license": {
-        "label": "MIT",
-        "original": "Нужно проверить в официальном источнике",
-        "spdx": "MIT",
-        "kind": "open-source",
-        "status": "source-declared",
-        "requiresReview": false,
-        "evidence": [
-          {
-            "kind": "license",
-            "label": "MIT license",
-            "url": "https://api.github.com/repos/itsowen/cyberscraper-2077/license"
-          }
-        ]
-      },
-      "access": {
-        "cost": "free",
-        "signup": "none",
-        "runtime": "local"
-      },
-      "trust": "community",
-      "decision": "reference",
-      "riskLevel": "medium",
-      "projects": [],
-      "evidence": [
-        {
-          "kind": "official-source",
-          "label": "Официальный источник",
-          "url": "https://github.com/itsOwen/CyberScraper-2077"
-        },
-        {
-          "kind": "license",
-          "label": "MIT license",
-          "url": "https://api.github.com/repos/itsowen/cyberscraper-2077/license"
-        }
-      ],
-      "actions": {
-        "openOfficialSource": true,
-        "installFromCatalog": false,
-        "mutateExternalSystems": false
-      }
-    },
-    {
-      "id": "jarvis-claude-code-guide",
-      "title": "Jarvis Claude Code Guide",
-      "url": "https://claude-code-guide-one-nu.vercel.app/jarvis",
-      "type": "learn",
-      "category": "Курсы и гайды",
-      "subcategory": "Voice OS architecture reference",
-      "addedAt": "2026-08-20",
-      "description": "Email-gated community guide про Claude Code engine, Markdown memory, local voice и единый HUD. Это не Anthropic product и не reusable code source; идеи применяем в Sentinel/Chat только через собственную architecture с approval и kill switch.",
-      "useCases": [
-        "Спроектировать voice command room",
-        "Показать memory sources and receipts",
-        "Собрать local-first push-to-talk flow"
-      ],
-      "platforms": [
-        "Web",
-        "Claude Code concept"
-      ],
-      "license": {
-        "label": "No public repository or reuse license established; lead-magnet content is reference-only",
-        "original": "No public repository or reuse license established; lead-magnet content is reference-only",
-        "spdx": null,
-        "kind": "custom",
-        "status": "editor-reviewed",
-        "requiresReview": false,
-        "evidence": [
-          {
-            "kind": "official-source",
-            "label": "Clean public landing URL",
-            "url": "https://claude-code-guide-one-nu.vercel.app/jarvis"
-          }
-        ]
-      },
-      "access": {
-        "cost": "free",
-        "signup": "required",
-        "runtime": "cloud"
-      },
-      "trust": "caution",
-      "decision": "reference",
-      "riskLevel": "high",
-      "projects": [
-        "Hopson Sentinel",
-        "Eclipse Chat"
-      ],
-      "evidence": [
-        {
-          "kind": "official-source",
-          "label": "Официальный источник",
-          "url": "https://claude-code-guide-one-nu.vercel.app/jarvis"
-        }
-      ],
-      "actions": {
-        "openOfficialSource": true,
-        "installFromCatalog": false,
-        "mutateExternalSystems": false
-      }
-    },
-    {
-      "id": "eclipse-automation-playbook-45",
-      "title": "Eclipse Automation Playbook · 45 bounded workflows",
-      "url": "https://library.eclipse-forge.ru/guides/eclipse-automation-playbook-45.md",
-      "type": "learn",
-      "category": "Курсы и гайды",
-      "subcategory": "Growth and operations automation",
-      "addedAt": "2026-08-20",
-      "description": "First-party разбор 45 офисных AI-сценариев: что можно выполнять read-only, что должно оставаться draft, а где нужен понятный diff и ручное подтверждение перед отправкой, публикацией, изменением файлов или финансовым действием.",
-      "useCases": [
-        "Выбрать безопасные автоматизации для Growth OS",
-        "Спроектировать approval и receipt states",
-        "Распределить сценарии между Chat, AI Hub, Library и Sentinel"
-      ],
-      "platforms": [
-        "Eclipse Forge",
-        "Web",
-        "Agent workflows"
-      ],
-      "license": {
-        "label": "Eclipse Forge first-party editorial guide; external products and source materials retain their own rights",
-        "original": "Eclipse Forge first-party editorial guide; external products and source materials retain their own rights",
-        "spdx": null,
-        "kind": "custom",
-        "status": "editor-reviewed",
-        "requiresReview": false,
-        "evidence": [
-          {
-            "kind": "source",
-            "label": "First-party guide",
-            "url": "https://library.eclipse-forge.ru/guides/eclipse-automation-playbook-45.md"
-          }
-        ]
-      },
-      "access": {
-        "cost": "free",
-        "signup": "none",
-        "runtime": "local"
-      },
-      "trust": "official",
-      "decision": "now",
-      "riskLevel": "medium",
-      "projects": [
-        "Eclipse Growth OS",
-        "Eclipse Chat",
-        "Eclipse AI Hub",
-        "Eclipse Library",
-        "Hopson Sentinel"
-      ],
-      "evidence": [
-        {
-          "kind": "official-source",
-          "label": "Официальный источник",
-          "url": "https://library.eclipse-forge.ru/guides/eclipse-automation-playbook-45.md"
-        }
-      ],
-      "actions": {
-        "openOfficialSource": true,
-        "installFromCatalog": false,
-        "mutateExternalSystems": false
-      }
-    },
-    {
-      "id": "scraperai-github-com",
-      "title": "ScraperAI",
-      "url": "https://github.com/scraperai/scraperai",
-      "type": "tool",
-      "category": "Dev Tools & CLI",
-      "subcategory": "Web extraction и browser automation",
-      "addedAt": "2026-08-06",
-      "description": "Community Python-инструмент для извлечения структурированных данных с веб-страниц при помощи Selenium и LLM. Может сокращать HTML и использовать локальные модели, но браузерная автоматизация, маскировка и произвольные URL создают заметную security и legal поверхность.",
-      "useCases": [
-        "Оставить как reference для extraction pipeline Eclipse Webclaw",
-        "Сравнить качество schema extraction на разрешённых тестовых сайтах",
-        "Изучить сокращение HTML перед передачей модели без копирования всего продукта"
-      ],
-      "platforms": [
-        "Python",
-        "CLI",
-        "Selenium",
-        "Self-host"
-      ],
-      "license": {
-        "label": "GPL-3.0",
-        "original": "GPL-3.0",
-        "spdx": "GPL-3.0",
-        "kind": "open-source",
-        "status": "source-declared",
-        "requiresReview": false,
-        "evidence": [
-          {
-            "kind": "license",
-            "label": "GPL-3.0 license",
-            "url": "https://api.github.com/repos/scraperai/scraperai/license"
-          },
-          {
-            "kind": "license",
-            "label": "Repository GPL-3.0 license",
-            "url": "https://github.com/scraperai/scraperai/blob/main/LICENSE"
-          }
-        ]
-      },
-      "access": {
-        "cost": "freemium",
-        "signup": "none",
-        "runtime": "self-host"
-      },
-      "trust": "community",
-      "decision": "reference",
-      "riskLevel": "high",
-      "projects": [
-        "Eclipse Webclaw",
-        "Hopson Sentinel",
-        "Eclipse AI Hub"
-      ],
-      "evidence": [
-        {
-          "kind": "official-source",
-          "label": "Официальный источник",
-          "url": "https://github.com/scraperai/scraperai"
-        },
-        {
-          "kind": "license",
-          "label": "GPL-3.0 license",
-          "url": "https://api.github.com/repos/scraperai/scraperai/license"
-        },
-        {
-          "kind": "license",
-          "label": "Repository GPL-3.0 license",
-          "url": "https://github.com/scraperai/scraperai/blob/main/LICENSE"
-        }
-      ],
-      "actions": {
-        "openOfficialSource": true,
-        "installFromCatalog": false,
-        "mutateExternalSystems": false
-      }
-    },
-    {
-      "id": "prozavlly-frontend-motion-references",
-      "title": "Prozavlly · Frontend motion references",
-      "url": "https://www.instagram.com/prozavlly/",
-      "type": "learn",
-      "category": "Курсы и гайды",
-      "subcategory": "Frontend UI inspiration",
-      "addedAt": "2026-08-20",
-      "description": "Instagram-профиль с концептами mobile navigation и UI motion. Для Eclipse это direction board: каждый конкретный паттерн требует canonical source, license evidence, keyboard/touch/reduced-motion и performance QA до реализации.",
-      "useCases": [
-        "Собирать mobile navigation references",
-        "Обсуждать interaction direction",
-        "Формировать оригинальные Eclipse prototypes"
-      ],
-      "platforms": [
-        "Instagram",
-        "Web",
-        "Mobile UI"
-      ],
-      "license": {
-        "label": "Instagram content; no code, asset or composition reuse license established",
-        "original": "Instagram content; no code, asset or composition reuse license established",
-        "spdx": null,
-        "kind": "custom",
-        "status": "unverified",
-        "requiresReview": true,
-        "evidence": [
-          {
-            "kind": "official-source",
-            "label": "Creator profile",
-            "url": "https://www.instagram.com/prozavlly/"
-          }
-        ]
-      },
-      "access": {
-        "cost": "free",
-        "signup": "optional",
-        "runtime": "cloud"
-      },
-      "trust": "community",
-      "decision": "reference",
-      "riskLevel": "medium",
-      "projects": [
-        "Eclipse Library",
-        "Eclipse Forge Landing",
-        "Eclipse Media",
-        "Eclipse DnD Forge"
-      ],
-      "evidence": [
-        {
-          "kind": "official-source",
-          "label": "Официальный источник",
-          "url": "https://www.instagram.com/prozavlly/"
-        }
-      ],
-      "actions": {
-        "openOfficialSource": true,
-        "installFromCatalog": false,
-        "mutateExternalSystems": false
-      }
-    },
-    {
       "id": "tgspyder-github-com",
       "title": "TGSpyder",
       "url": "https://github.com/Darksight-Analytics/tgspyder",
@@ -19302,67 +19137,6 @@
           "kind": "license",
           "label": "MIT license",
           "url": "https://api.github.com/repos/darksight-analytics/tgspyder/license"
-        }
-      ],
-      "actions": {
-        "openOfficialSource": true,
-        "installFromCatalog": false,
-        "mutateExternalSystems": false
-      }
-    },
-    {
-      "id": "frontendjoe-ui-animation-references",
-      "title": "FrontendJoe · UI animation references",
-      "url": "https://www.instagram.com/frontendjoe/",
-      "type": "learn",
-      "category": "Курсы и гайды",
-      "subcategory": "Frontend UI inspiration",
-      "addedAt": "2026-08-20",
-      "description": "Community-профиль с короткими HTML/CSS/React примерами: glass footer, expandable sidebar и people-card accordion. Фрагменты полезны для обсуждения interaction, но hover-only и layout-heavy snippets нельзя переносить в Eclipse без самостоятельной реализации и QA.",
-      "useCases": [
-        "Изучать sidebar and accordion interactions",
-        "Планировать Landing project showcase",
-        "Находить кандидатов для isolated prototypes"
-      ],
-      "platforms": [
-        "Instagram",
-        "Web",
-        "React"
-      ],
-      "license": {
-        "label": "Instagram content; canonical repository and code reuse license must be established per example",
-        "original": "Instagram content; canonical repository and code reuse license must be established per example",
-        "spdx": null,
-        "kind": "custom",
-        "status": "unverified",
-        "requiresReview": true,
-        "evidence": [
-          {
-            "kind": "official-source",
-            "label": "Creator profile",
-            "url": "https://www.instagram.com/frontendjoe/"
-          }
-        ]
-      },
-      "access": {
-        "cost": "free",
-        "signup": "optional",
-        "runtime": "cloud"
-      },
-      "trust": "community",
-      "decision": "reference",
-      "riskLevel": "medium",
-      "projects": [
-        "Eclipse Forge Landing",
-        "Eclipse Library",
-        "Eclipse AI Hub",
-        "Hopson Sentinel"
-      ],
-      "evidence": [
-        {
-          "kind": "official-source",
-          "label": "Официальный источник",
-          "url": "https://www.instagram.com/frontendjoe/"
         }
       ],
       "actions": {
@@ -19422,6 +19196,64 @@
           "kind": "license",
           "label": "MIT license",
           "url": "https://api.github.com/repos/jarvis2f/telegram-files/license"
+        }
+      ],
+      "actions": {
+        "openOfficialSource": true,
+        "installFromCatalog": false,
+        "mutateExternalSystems": false
+      }
+    },
+    {
+      "id": "jarvis-claude-code-guide",
+      "title": "Jarvis Claude Code Guide",
+      "url": "https://claude-code-guide-one-nu.vercel.app/jarvis",
+      "type": "learn",
+      "category": "Курсы и гайды",
+      "subcategory": "Voice OS architecture reference",
+      "addedAt": "2026-08-20",
+      "description": "Email-gated community guide про Claude Code engine, Markdown memory, local voice и единый HUD. Это не Anthropic product и не reusable code source; идеи применяем в Sentinel/Chat только через собственную architecture с approval и kill switch.",
+      "useCases": [
+        "Спроектировать voice command room",
+        "Показать memory sources and receipts",
+        "Собрать local-first push-to-talk flow"
+      ],
+      "platforms": [
+        "Web",
+        "Claude Code concept"
+      ],
+      "license": {
+        "label": "No public repository or reuse license established; lead-magnet content is reference-only",
+        "original": "No public repository or reuse license established; lead-magnet content is reference-only",
+        "spdx": null,
+        "kind": "custom",
+        "status": "editor-reviewed",
+        "requiresReview": false,
+        "evidence": [
+          {
+            "kind": "official-source",
+            "label": "Clean public landing URL",
+            "url": "https://claude-code-guide-one-nu.vercel.app/jarvis"
+          }
+        ]
+      },
+      "access": {
+        "cost": "free",
+        "signup": "required",
+        "runtime": "cloud"
+      },
+      "trust": "caution",
+      "decision": "reference",
+      "riskLevel": "high",
+      "projects": [
+        "Hopson Sentinel",
+        "Eclipse Chat"
+      ],
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://claude-code-guide-one-nu.vercel.app/jarvis"
         }
       ],
       "actions": {
@@ -19543,6 +19375,68 @@
       }
     },
     {
+      "id": "eclipse-automation-playbook-45",
+      "title": "Eclipse Automation Playbook · 45 bounded workflows",
+      "url": "https://library.eclipse-forge.ru/guides/eclipse-automation-playbook-45.md",
+      "type": "learn",
+      "category": "Курсы и гайды",
+      "subcategory": "Growth and operations automation",
+      "addedAt": "2026-08-20",
+      "description": "First-party разбор 45 офисных AI-сценариев: что можно выполнять read-only, что должно оставаться draft, а где нужен понятный diff и ручное подтверждение перед отправкой, публикацией, изменением файлов или финансовым действием.",
+      "useCases": [
+        "Выбрать безопасные автоматизации для Growth OS",
+        "Спроектировать approval и receipt states",
+        "Распределить сценарии между Chat, AI Hub, Library и Sentinel"
+      ],
+      "platforms": [
+        "Eclipse Forge",
+        "Web",
+        "Agent workflows"
+      ],
+      "license": {
+        "label": "Eclipse Forge first-party editorial guide; external products and source materials retain their own rights",
+        "original": "Eclipse Forge first-party editorial guide; external products and source materials retain their own rights",
+        "spdx": null,
+        "kind": "custom",
+        "status": "editor-reviewed",
+        "requiresReview": false,
+        "evidence": [
+          {
+            "kind": "source",
+            "label": "First-party guide",
+            "url": "https://library.eclipse-forge.ru/guides/eclipse-automation-playbook-45.md"
+          }
+        ]
+      },
+      "access": {
+        "cost": "free",
+        "signup": "none",
+        "runtime": "local"
+      },
+      "trust": "official",
+      "decision": "now",
+      "riskLevel": "medium",
+      "projects": [
+        "Eclipse Growth OS",
+        "Eclipse Chat",
+        "Eclipse AI Hub",
+        "Eclipse Library",
+        "Hopson Sentinel"
+      ],
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://library.eclipse-forge.ru/guides/eclipse-automation-playbook-45.md"
+        }
+      ],
+      "actions": {
+        "openOfficialSource": true,
+        "installFromCatalog": false,
+        "mutateExternalSystems": false
+      }
+    },
+    {
       "id": "hackingtool-github-com",
       "title": "hackingtool",
       "url": "https://github.com/Z4nzu/hackingtool",
@@ -19559,17 +19453,17 @@
         "CLI"
       ],
       "license": {
-        "label": "MIT",
+        "label": "Нужно проверить в официальном источнике",
         "original": "Нужно проверить в официальном источнике",
-        "spdx": "MIT",
-        "kind": "open-source",
-        "status": "source-declared",
-        "requiresReview": false,
+        "spdx": null,
+        "kind": "unknown",
+        "status": "unverified",
+        "requiresReview": true,
         "evidence": [
           {
-            "kind": "license",
-            "label": "MIT license",
-            "url": "https://api.github.com/repos/z4nzu/hackingtool/license"
+            "kind": "official-source",
+            "label": "Официальный источник; точные условия ещё нужно сверить",
+            "url": "https://github.com/Z4nzu/hackingtool"
           }
         ]
       },
@@ -19587,11 +19481,128 @@
           "kind": "official-source",
           "label": "Официальный источник",
           "url": "https://github.com/Z4nzu/hackingtool"
-        },
+        }
+      ],
+      "actions": {
+        "openOfficialSource": true,
+        "installFromCatalog": false,
+        "mutateExternalSystems": false
+      }
+    },
+    {
+      "id": "prozavlly-frontend-motion-references",
+      "title": "Prozavlly · Frontend motion references",
+      "url": "https://www.instagram.com/prozavlly/",
+      "type": "learn",
+      "category": "Курсы и гайды",
+      "subcategory": "Frontend UI inspiration",
+      "addedAt": "2026-08-20",
+      "description": "Instagram-профиль с концептами mobile navigation и UI motion. Для Eclipse это direction board: каждый конкретный паттерн требует canonical source, license evidence, keyboard/touch/reduced-motion и performance QA до реализации.",
+      "useCases": [
+        "Собирать mobile navigation references",
+        "Обсуждать interaction direction",
+        "Формировать оригинальные Eclipse prototypes"
+      ],
+      "platforms": [
+        "Instagram",
+        "Web",
+        "Mobile UI"
+      ],
+      "license": {
+        "label": "Instagram content; no code, asset or composition reuse license established",
+        "original": "Instagram content; no code, asset or composition reuse license established",
+        "spdx": null,
+        "kind": "custom",
+        "status": "unverified",
+        "requiresReview": true,
+        "evidence": [
+          {
+            "kind": "official-source",
+            "label": "Creator profile",
+            "url": "https://www.instagram.com/prozavlly/"
+          }
+        ]
+      },
+      "access": {
+        "cost": "free",
+        "signup": "optional",
+        "runtime": "cloud"
+      },
+      "trust": "community",
+      "decision": "reference",
+      "riskLevel": "medium",
+      "projects": [
+        "Eclipse Library",
+        "Eclipse Forge Landing",
+        "Eclipse Media",
+        "Eclipse DnD Forge"
+      ],
+      "evidence": [
         {
-          "kind": "license",
-          "label": "MIT license",
-          "url": "https://api.github.com/repos/z4nzu/hackingtool/license"
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://www.instagram.com/prozavlly/"
+        }
+      ],
+      "actions": {
+        "openOfficialSource": true,
+        "installFromCatalog": false,
+        "mutateExternalSystems": false
+      }
+    },
+    {
+      "id": "frontendjoe-ui-animation-references",
+      "title": "FrontendJoe · UI animation references",
+      "url": "https://www.instagram.com/frontendjoe/",
+      "type": "learn",
+      "category": "Курсы и гайды",
+      "subcategory": "Frontend UI inspiration",
+      "addedAt": "2026-08-20",
+      "description": "Community-профиль с короткими HTML/CSS/React примерами: glass footer, expandable sidebar и people-card accordion. Фрагменты полезны для обсуждения interaction, но hover-only и layout-heavy snippets нельзя переносить в Eclipse без самостоятельной реализации и QA.",
+      "useCases": [
+        "Изучать sidebar and accordion interactions",
+        "Планировать Landing project showcase",
+        "Находить кандидатов для isolated prototypes"
+      ],
+      "platforms": [
+        "Instagram",
+        "Web",
+        "React"
+      ],
+      "license": {
+        "label": "Instagram content; canonical repository and code reuse license must be established per example",
+        "original": "Instagram content; canonical repository and code reuse license must be established per example",
+        "spdx": null,
+        "kind": "custom",
+        "status": "unverified",
+        "requiresReview": true,
+        "evidence": [
+          {
+            "kind": "official-source",
+            "label": "Creator profile",
+            "url": "https://www.instagram.com/frontendjoe/"
+          }
+        ]
+      },
+      "access": {
+        "cost": "free",
+        "signup": "optional",
+        "runtime": "cloud"
+      },
+      "trust": "community",
+      "decision": "reference",
+      "riskLevel": "medium",
+      "projects": [
+        "Eclipse Forge Landing",
+        "Eclipse Library",
+        "Eclipse AI Hub",
+        "Hopson Sentinel"
+      ],
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://www.instagram.com/frontendjoe/"
         }
       ],
       "actions": {
@@ -20083,88 +20094,6 @@
       }
     },
     {
-      "id": "openreply-instagram-comment-dm",
-      "title": "OpenReply",
-      "url": "https://github.com/diwenne/openreply",
-      "type": "oss",
-      "category": "Автоматизация",
-      "subcategory": "Instagram comment-to-DM",
-      "addedAt": "2026-08-22",
-      "description": "OpenReply — MIT-проект для self-hosted Instagram comment-to-DM через официальный Meta API. Это кандидат для Growth OS, но не «бесплатный ManyChat в один клик»: нужны web app, постоянно работающий worker, PostgreSQL, Redis, Meta App Review и строгие approval gates.",
-      "useCases": [
-        "Прототипировать keyword comment-to-DM",
-        "Хранить кампании и delivery receipts",
-        "Сравнить TCO с managed automation"
-      ],
-      "platforms": [
-        "Next.js",
-        "Node.js",
-        "PostgreSQL",
-        "Redis",
-        "Meta Graph API"
-      ],
-      "license": {
-        "label": "MIT",
-        "original": "MIT",
-        "spdx": "MIT",
-        "kind": "open-source",
-        "status": "source-declared",
-        "requiresReview": false,
-        "evidence": [
-          {
-            "kind": "license",
-            "label": "MIT license",
-            "url": "https://api.github.com/repos/diwenne/openreply/license"
-          },
-          {
-            "kind": "license",
-            "label": "Official MIT license",
-            "url": "https://github.com/diwenne/openreply/blob/main/LICENSE"
-          },
-          {
-            "kind": "source",
-            "label": "Official repository",
-            "url": "https://github.com/diwenne/openreply"
-          }
-        ]
-      },
-      "access": {
-        "cost": "free",
-        "signup": "required",
-        "runtime": "self-host"
-      },
-      "trust": "community",
-      "decision": "roadmap",
-      "riskLevel": "high",
-      "projects": [
-        "Eclipse Growth OS",
-        "Eclipse Social",
-        "Hopson Sentinel"
-      ],
-      "evidence": [
-        {
-          "kind": "official-source",
-          "label": "Официальный источник",
-          "url": "https://github.com/diwenne/openreply"
-        },
-        {
-          "kind": "license",
-          "label": "MIT license",
-          "url": "https://api.github.com/repos/diwenne/openreply/license"
-        },
-        {
-          "kind": "license",
-          "label": "Official MIT license",
-          "url": "https://github.com/diwenne/openreply/blob/main/LICENSE"
-        }
-      ],
-      "actions": {
-        "openOfficialSource": true,
-        "installFromCatalog": false,
-        "mutateExternalSystems": false
-      }
-    },
-    {
       "id": "tada-huggingface-co",
       "title": "TADA",
       "url": "https://huggingface.co/collections/HumeAI/tada",
@@ -20229,77 +20158,6 @@
           "kind": "model-card",
           "label": "Official TADA codec model card",
           "url": "https://huggingface.co/HumeAI/tada-codec"
-        }
-      ],
-      "actions": {
-        "openOfficialSource": true,
-        "installFromCatalog": false,
-        "mutateExternalSystems": false
-      }
-    },
-    {
-      "id": "awesome-claude-skills-composio",
-      "title": "Awesome Claude Skills by Composio",
-      "url": "https://github.com/ComposioHQ/awesome-claude-skills",
-      "type": "skill",
-      "category": "Skills",
-      "subcategory": "Curated skill collection",
-      "addedAt": "2026-08-22",
-      "description": "Коллекция skills и ссылок для Claude-совместимых агентов. Eclipse использует её только как discovery source: SKILL.md объясняет «как», а connect-apps/Composio даёт OAuth-действия — это разные границы доверия и разные решения approval.",
-      "useCases": [
-        "Найти skill-кандидаты",
-        "Сравнить workflow patterns",
-        "Передать кандидата в Eclipse Skill Intake"
-      ],
-      "platforms": [
-        "Claude Code",
-        "Codex",
-        "GitHub",
-        "Composio"
-      ],
-      "license": {
-        "label": "No repository-wide license verified; each linked skill and connector keeps its own terms",
-        "original": "No repository-wide license verified; each linked skill and connector keeps its own terms",
-        "spdx": null,
-        "kind": "service-terms",
-        "status": "editor-reviewed",
-        "requiresReview": false,
-        "evidence": [
-          {
-            "kind": "source",
-            "label": "Official repository",
-            "url": "https://github.com/ComposioHQ/awesome-claude-skills"
-          },
-          {
-            "kind": "official-source",
-            "label": "Composio toolkits",
-            "url": "https://composio.dev/toolkits"
-          }
-        ]
-      },
-      "access": {
-        "cost": "freemium",
-        "signup": "optional",
-        "runtime": "hybrid"
-      },
-      "trust": "community",
-      "decision": "reference",
-      "riskLevel": "high",
-      "projects": [
-        "Eclipse Library",
-        "Eclipse AI Hub",
-        "Hopson Sentinel"
-      ],
-      "evidence": [
-        {
-          "kind": "official-source",
-          "label": "Официальный источник",
-          "url": "https://github.com/ComposioHQ/awesome-claude-skills"
-        },
-        {
-          "kind": "official-source",
-          "label": "Composio toolkits",
-          "url": "https://composio.dev/toolkits"
         }
       ],
       "actions": {
@@ -20421,6 +20279,333 @@
       }
     },
     {
+      "id": "cosyvoice-3-github-com",
+      "title": "CosyVoice 3",
+      "url": "https://github.com/FunAudioLLM/CosyVoice",
+      "type": "media",
+      "category": "Media & Download",
+      "subcategory": "Media & Download",
+      "addedAt": null,
+      "description": "CosyVoice 3 — Python / Alibaba · Мини-TTS 0.5B — 9 языков (русский!), zero-shot клон голоса за 3 сек, 150ms стриминг, запускается на слабом железе. Карточка помогает понять назначение ресурса и начать с небольшой безопасной проверки; условия использования ещё нужно сверить с официальным источником.",
+      "useCases": [
+        "Разобраться, подходит ли CosyVoice 3 для вашей задачи",
+        "Проверить возможности на небольшом тестовом сценарии до интеграции"
+      ],
+      "platforms": [
+        "Web"
+      ],
+      "license": {
+        "label": "Apache-2.0",
+        "original": "Нужно проверить в официальном источнике",
+        "spdx": "Apache-2.0",
+        "kind": "open-source",
+        "status": "source-declared",
+        "requiresReview": false,
+        "evidence": [
+          {
+            "kind": "license",
+            "label": "Apache-2.0 license",
+            "url": "https://api.github.com/repos/funaudiollm/cosyvoice/license"
+          }
+        ]
+      },
+      "access": {
+        "cost": "free",
+        "signup": "unknown",
+        "runtime": "cloud"
+      },
+      "trust": "community",
+      "decision": "reference",
+      "riskLevel": "medium",
+      "projects": [],
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://github.com/FunAudioLLM/CosyVoice"
+        },
+        {
+          "kind": "license",
+          "label": "Apache-2.0 license",
+          "url": "https://api.github.com/repos/funaudiollm/cosyvoice/license"
+        }
+      ],
+      "actions": {
+        "openOfficialSource": true,
+        "installFromCatalog": false,
+        "mutateExternalSystems": false
+      }
+    },
+    {
+      "id": "frame-github-com",
+      "title": "Frame",
+      "url": "https://github.com/66HEX/frame",
+      "type": "media",
+      "category": "Media & Download",
+      "subcategory": "Media & Download",
+      "addedAt": null,
+      "description": "Frame — Electron / FFmpeg · GUI-комбайн для видео — сжатие, конвертация, апскейл, русский язык, Win/Mac. Карточка помогает понять назначение ресурса и начать с небольшой безопасной проверки; условия использования ещё нужно сверить с официальным источником.",
+      "useCases": [
+        "Разобраться, подходит ли Frame для вашей задачи",
+        "Проверить возможности на небольшом тестовом сценарии до интеграции"
+      ],
+      "platforms": [
+        "Web"
+      ],
+      "license": {
+        "label": "GPL-3.0",
+        "original": "Нужно проверить в официальном источнике",
+        "spdx": "GPL-3.0",
+        "kind": "open-source",
+        "status": "source-declared",
+        "requiresReview": false,
+        "evidence": [
+          {
+            "kind": "license",
+            "label": "GPL-3.0 license",
+            "url": "https://api.github.com/repos/66hex/frame/license"
+          }
+        ]
+      },
+      "access": {
+        "cost": "free",
+        "signup": "unknown",
+        "runtime": "cloud"
+      },
+      "trust": "community",
+      "decision": "reference",
+      "riskLevel": "medium",
+      "projects": [],
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://github.com/66HEX/frame"
+        },
+        {
+          "kind": "license",
+          "label": "GPL-3.0 license",
+          "url": "https://api.github.com/repos/66hex/frame/license"
+        }
+      ],
+      "actions": {
+        "openOfficialSource": true,
+        "installFromCatalog": false,
+        "mutateExternalSystems": false
+      }
+    },
+    {
+      "id": "openreply-instagram-comment-dm",
+      "title": "OpenReply",
+      "url": "https://github.com/diwenne/openreply",
+      "type": "oss",
+      "category": "Автоматизация",
+      "subcategory": "Instagram comment-to-DM",
+      "addedAt": "2026-08-22",
+      "description": "OpenReply — MIT-проект для self-hosted Instagram comment-to-DM через официальный Meta API. Это кандидат для Growth OS, но не «бесплатный ManyChat в один клик»: нужны web app, постоянно работающий worker, PostgreSQL, Redis, Meta App Review и строгие approval gates.",
+      "useCases": [
+        "Прототипировать keyword comment-to-DM",
+        "Хранить кампании и delivery receipts",
+        "Сравнить TCO с managed automation"
+      ],
+      "platforms": [
+        "Next.js",
+        "Node.js",
+        "PostgreSQL",
+        "Redis",
+        "Meta Graph API"
+      ],
+      "license": {
+        "label": "MIT",
+        "original": "MIT",
+        "spdx": "MIT",
+        "kind": "open-source",
+        "status": "source-declared",
+        "requiresReview": false,
+        "evidence": [
+          {
+            "kind": "license",
+            "label": "MIT license",
+            "url": "https://api.github.com/repos/diwenne/openreply/license"
+          },
+          {
+            "kind": "license",
+            "label": "Official MIT license",
+            "url": "https://github.com/diwenne/openreply/blob/main/LICENSE"
+          },
+          {
+            "kind": "source",
+            "label": "Official repository",
+            "url": "https://github.com/diwenne/openreply"
+          }
+        ]
+      },
+      "access": {
+        "cost": "free",
+        "signup": "required",
+        "runtime": "self-host"
+      },
+      "trust": "community",
+      "decision": "roadmap",
+      "riskLevel": "high",
+      "projects": [
+        "Eclipse Growth OS",
+        "Eclipse Social",
+        "Hopson Sentinel"
+      ],
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://github.com/diwenne/openreply"
+        },
+        {
+          "kind": "license",
+          "label": "MIT license",
+          "url": "https://api.github.com/repos/diwenne/openreply/license"
+        },
+        {
+          "kind": "license",
+          "label": "Official MIT license",
+          "url": "https://github.com/diwenne/openreply/blob/main/LICENSE"
+        }
+      ],
+      "actions": {
+        "openOfficialSource": true,
+        "installFromCatalog": false,
+        "mutateExternalSystems": false
+      }
+    },
+    {
+      "id": "awesome-claude-skills-composio",
+      "title": "Awesome Claude Skills by Composio",
+      "url": "https://github.com/ComposioHQ/awesome-claude-skills",
+      "type": "skill",
+      "category": "Skills",
+      "subcategory": "Curated skill collection",
+      "addedAt": "2026-08-22",
+      "description": "Коллекция skills и ссылок для Claude-совместимых агентов. Eclipse использует её только как discovery source: SKILL.md объясняет «как», а connect-apps/Composio даёт OAuth-действия — это разные границы доверия и разные решения approval.",
+      "useCases": [
+        "Найти skill-кандидаты",
+        "Сравнить workflow patterns",
+        "Передать кандидата в Eclipse Skill Intake"
+      ],
+      "platforms": [
+        "Claude Code",
+        "Codex",
+        "GitHub",
+        "Composio"
+      ],
+      "license": {
+        "label": "No repository-wide license verified; each linked skill and connector keeps its own terms",
+        "original": "No repository-wide license verified; each linked skill and connector keeps its own terms",
+        "spdx": null,
+        "kind": "service-terms",
+        "status": "editor-reviewed",
+        "requiresReview": false,
+        "evidence": [
+          {
+            "kind": "source",
+            "label": "Official repository",
+            "url": "https://github.com/ComposioHQ/awesome-claude-skills"
+          },
+          {
+            "kind": "official-source",
+            "label": "Composio toolkits",
+            "url": "https://composio.dev/toolkits"
+          }
+        ]
+      },
+      "access": {
+        "cost": "freemium",
+        "signup": "optional",
+        "runtime": "hybrid"
+      },
+      "trust": "community",
+      "decision": "reference",
+      "riskLevel": "high",
+      "projects": [
+        "Eclipse Library",
+        "Eclipse AI Hub",
+        "Hopson Sentinel"
+      ],
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://github.com/ComposioHQ/awesome-claude-skills"
+        },
+        {
+          "kind": "official-source",
+          "label": "Composio toolkits",
+          "url": "https://composio.dev/toolkits"
+        }
+      ],
+      "actions": {
+        "openOfficialSource": true,
+        "installFromCatalog": false,
+        "mutateExternalSystems": false
+      }
+    },
+    {
+      "id": "linly-dubbing-github-com",
+      "title": "Linly-Dubbing",
+      "url": "https://github.com/Kedreamix/Linly-Dubbing",
+      "type": "media",
+      "category": "Media & Download",
+      "subcategory": "Media & Download",
+      "addedAt": null,
+      "description": "Linly-Dubbing — Python / ML · AI-дубляж видео на 100+ языков — перевод речи, клон голоса, липсинк, авто-субтитры. Карточка помогает понять назначение ресурса и начать с небольшой безопасной проверки; условия использования ещё нужно сверить с официальным источником.",
+      "useCases": [
+        "Разобраться, подходит ли Linly-Dubbing для вашей задачи",
+        "Проверить возможности на небольшом тестовом сценарии до интеграции"
+      ],
+      "platforms": [
+        "Web"
+      ],
+      "license": {
+        "label": "Apache-2.0",
+        "original": "Нужно проверить в официальном источнике",
+        "spdx": "Apache-2.0",
+        "kind": "open-source",
+        "status": "source-declared",
+        "requiresReview": false,
+        "evidence": [
+          {
+            "kind": "license",
+            "label": "Apache-2.0 license",
+            "url": "https://api.github.com/repos/kedreamix/linly-dubbing/license"
+          }
+        ]
+      },
+      "access": {
+        "cost": "free",
+        "signup": "unknown",
+        "runtime": "cloud"
+      },
+      "trust": "community",
+      "decision": "reference",
+      "riskLevel": "medium",
+      "projects": [],
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://github.com/Kedreamix/Linly-Dubbing"
+        },
+        {
+          "kind": "license",
+          "label": "Apache-2.0 license",
+          "url": "https://api.github.com/repos/kedreamix/linly-dubbing/license"
+        }
+      ],
+      "actions": {
+        "openOfficialSource": true,
+        "installFromCatalog": false,
+        "mutateExternalSystems": false
+      }
+    },
+    {
       "id": "screenpipe-local-computer-history",
       "title": "Screenpipe",
       "url": "https://github.com/screenpipe/screenpipe",
@@ -20491,424 +20676,6 @@
           "kind": "license",
           "label": "Official current license",
           "url": "https://github.com/screenpipe/screenpipe/blob/main/LICENSE.md"
-        }
-      ],
-      "actions": {
-        "openOfficialSource": true,
-        "installFromCatalog": false,
-        "mutateExternalSystems": false
-      }
-    },
-    {
-      "id": "cosyvoice-3-github-com",
-      "title": "CosyVoice 3",
-      "url": "https://github.com/FunAudioLLM/CosyVoice",
-      "type": "media",
-      "category": "Media & Download",
-      "subcategory": "Media & Download",
-      "addedAt": null,
-      "description": "CosyVoice 3 — Python / Alibaba · Мини-TTS 0.5B — 9 языков (русский!), zero-shot клон голоса за 3 сек, 150ms стриминг, запускается на слабом железе. Карточка помогает понять назначение ресурса и начать с небольшой безопасной проверки; условия использования ещё нужно сверить с официальным источником.",
-      "useCases": [
-        "Разобраться, подходит ли CosyVoice 3 для вашей задачи",
-        "Проверить возможности на небольшом тестовом сценарии до интеграции"
-      ],
-      "platforms": [
-        "Web"
-      ],
-      "license": {
-        "label": "Apache-2.0",
-        "original": "Нужно проверить в официальном источнике",
-        "spdx": "Apache-2.0",
-        "kind": "open-source",
-        "status": "source-declared",
-        "requiresReview": false,
-        "evidence": [
-          {
-            "kind": "license",
-            "label": "Apache-2.0 license",
-            "url": "https://api.github.com/repos/funaudiollm/cosyvoice/license"
-          }
-        ]
-      },
-      "access": {
-        "cost": "free",
-        "signup": "unknown",
-        "runtime": "cloud"
-      },
-      "trust": "community",
-      "decision": "reference",
-      "riskLevel": "medium",
-      "projects": [],
-      "evidence": [
-        {
-          "kind": "official-source",
-          "label": "Официальный источник",
-          "url": "https://github.com/FunAudioLLM/CosyVoice"
-        },
-        {
-          "kind": "license",
-          "label": "Apache-2.0 license",
-          "url": "https://api.github.com/repos/funaudiollm/cosyvoice/license"
-        }
-      ],
-      "actions": {
-        "openOfficialSource": true,
-        "installFromCatalog": false,
-        "mutateExternalSystems": false
-      }
-    },
-    {
-      "id": "twenty-open-crm",
-      "title": "Twenty CRM",
-      "url": "https://github.com/twentyhq/twenty",
-      "type": "oss",
-      "category": "Бизнес",
-      "subcategory": "CRM platform",
-      "addedAt": "2026-08-22",
-      "description": "Twenty — self-hostable CRM и кандидат для сравнения со StarCRM, а не автоматическая замена. Большая часть проекта AGPL-3.0 с исключением для приложений, отдельные файлы Enterprise и SDK/UI-пакеты с собственными лицензиями требуют component-level review.",
-      "useCases": [
-        "Сравнить CRM UX и data model",
-        "Оценить self-host TCO",
-        "Изучить API, webhooks и app platform"
-      ],
-      "platforms": [
-        "Web",
-        "PostgreSQL",
-        "Docker",
-        "GraphQL",
-        "REST"
-      ],
-      "license": {
-        "label": "Mostly AGPL-3.0 with Twenty Application Exception; some Enterprise-licensed files and MIT packages",
-        "original": "Mostly AGPL-3.0 with Twenty Application Exception; some Enterprise-licensed files and MIT packages",
-        "spdx": null,
-        "kind": "custom",
-        "status": "editor-reviewed",
-        "requiresReview": false,
-        "evidence": [
-          {
-            "kind": "license",
-            "label": "Other license",
-            "url": "https://api.github.com/repos/twentyhq/twenty/license"
-          },
-          {
-            "kind": "license",
-            "label": "Official mixed license",
-            "url": "https://github.com/twentyhq/twenty/blob/main/LICENSE"
-          },
-          {
-            "kind": "source",
-            "label": "Official repository",
-            "url": "https://github.com/twentyhq/twenty"
-          }
-        ]
-      },
-      "access": {
-        "cost": "freemium",
-        "signup": "none",
-        "runtime": "self-host"
-      },
-      "trust": "official",
-      "decision": "reference",
-      "riskLevel": "high",
-      "projects": [
-        "StarCRM",
-        "Eclipse Growth OS"
-      ],
-      "evidence": [
-        {
-          "kind": "official-source",
-          "label": "Официальный источник",
-          "url": "https://github.com/twentyhq/twenty"
-        },
-        {
-          "kind": "license",
-          "label": "Other license",
-          "url": "https://api.github.com/repos/twentyhq/twenty/license"
-        },
-        {
-          "kind": "license",
-          "label": "Official mixed license",
-          "url": "https://github.com/twentyhq/twenty/blob/main/LICENSE"
-        }
-      ],
-      "actions": {
-        "openOfficialSource": true,
-        "installFromCatalog": false,
-        "mutateExternalSystems": false
-      }
-    },
-    {
-      "id": "frame-github-com",
-      "title": "Frame",
-      "url": "https://github.com/66HEX/frame",
-      "type": "media",
-      "category": "Media & Download",
-      "subcategory": "Media & Download",
-      "addedAt": null,
-      "description": "Frame — Electron / FFmpeg · GUI-комбайн для видео — сжатие, конвертация, апскейл, русский язык, Win/Mac. Карточка помогает понять назначение ресурса и начать с небольшой безопасной проверки; условия использования ещё нужно сверить с официальным источником.",
-      "useCases": [
-        "Разобраться, подходит ли Frame для вашей задачи",
-        "Проверить возможности на небольшом тестовом сценарии до интеграции"
-      ],
-      "platforms": [
-        "Web"
-      ],
-      "license": {
-        "label": "GPL-3.0",
-        "original": "Нужно проверить в официальном источнике",
-        "spdx": "GPL-3.0",
-        "kind": "open-source",
-        "status": "source-declared",
-        "requiresReview": false,
-        "evidence": [
-          {
-            "kind": "license",
-            "label": "GPL-3.0 license",
-            "url": "https://api.github.com/repos/66hex/frame/license"
-          }
-        ]
-      },
-      "access": {
-        "cost": "free",
-        "signup": "unknown",
-        "runtime": "cloud"
-      },
-      "trust": "community",
-      "decision": "reference",
-      "riskLevel": "medium",
-      "projects": [],
-      "evidence": [
-        {
-          "kind": "official-source",
-          "label": "Официальный источник",
-          "url": "https://github.com/66HEX/frame"
-        },
-        {
-          "kind": "license",
-          "label": "GPL-3.0 license",
-          "url": "https://api.github.com/repos/66hex/frame/license"
-        }
-      ],
-      "actions": {
-        "openOfficialSource": true,
-        "installFromCatalog": false,
-        "mutateExternalSystems": false
-      }
-    },
-    {
-      "id": "nocodb-self-hosted-table-database",
-      "title": "NocoDB",
-      "url": "https://github.com/nocodb/nocodb",
-      "type": "oss",
-      "category": "Данные",
-      "subcategory": "Table database UI",
-      "addedAt": "2026-08-22",
-      "description": "Self-hosted no-code слой над SQL-базой: табличные представления, формы, связи и API. В Eclipse полезен как внутренняя операционная панель для Library intake и Growth OS, но Sustainable Use License не позволяет считать его беспрепятственно встраиваемой коммерческой зависимостью.",
-      "useCases": [
-        "Очередь intake → license review → security review → публикация в Eclipse Library",
-        "Контент-календарь и experiment tracker Eclipse Growth OS",
-        "Внутренний reference/admin prototype для StarCRM",
-        "Реестр моделей и eval-запусков Eclipse AI Hub"
-      ],
-      "platforms": [
-        "Web",
-        "Database",
-        "Docker"
-      ],
-      "license": {
-        "label": "Sustainable Use License 1.0 for master/develop; other branches may be unlicensed",
-        "original": "Sustainable Use License 1.0 for master/develop; other branches may be unlicensed",
-        "spdx": null,
-        "kind": "custom",
-        "status": "editor-reviewed",
-        "requiresReview": false,
-        "evidence": [
-          {
-            "kind": "license",
-            "label": "Other license",
-            "url": "https://api.github.com/repos/nocodb/nocodb/license"
-          },
-          {
-            "kind": "license",
-            "label": "Official current license",
-            "url": "https://github.com/nocodb/nocodb/blob/develop/LICENSE.md"
-          },
-          {
-            "kind": "source",
-            "label": "Official repository",
-            "url": "https://github.com/nocodb/nocodb"
-          }
-        ]
-      },
-      "access": {
-        "cost": "freemium",
-        "signup": "none",
-        "runtime": "self-host"
-      },
-      "trust": "official",
-      "decision": "reference",
-      "riskLevel": "medium",
-      "projects": [
-        "Eclipse Library",
-        "Eclipse Growth OS",
-        "StarCRM",
-        "Eclipse AI Hub"
-      ],
-      "evidence": [
-        {
-          "kind": "official-source",
-          "label": "Официальный источник",
-          "url": "https://github.com/nocodb/nocodb"
-        },
-        {
-          "kind": "license",
-          "label": "Other license",
-          "url": "https://api.github.com/repos/nocodb/nocodb/license"
-        },
-        {
-          "kind": "license",
-          "label": "Official current license",
-          "url": "https://github.com/nocodb/nocodb/blob/develop/LICENSE.md"
-        }
-      ],
-      "actions": {
-        "openOfficialSource": true,
-        "installFromCatalog": false,
-        "mutateExternalSystems": false
-      }
-    },
-    {
-      "id": "linly-dubbing-github-com",
-      "title": "Linly-Dubbing",
-      "url": "https://github.com/Kedreamix/Linly-Dubbing",
-      "type": "media",
-      "category": "Media & Download",
-      "subcategory": "Media & Download",
-      "addedAt": null,
-      "description": "Linly-Dubbing — Python / ML · AI-дубляж видео на 100+ языков — перевод речи, клон голоса, липсинк, авто-субтитры. Карточка помогает понять назначение ресурса и начать с небольшой безопасной проверки; условия использования ещё нужно сверить с официальным источником.",
-      "useCases": [
-        "Разобраться, подходит ли Linly-Dubbing для вашей задачи",
-        "Проверить возможности на небольшом тестовом сценарии до интеграции"
-      ],
-      "platforms": [
-        "Web"
-      ],
-      "license": {
-        "label": "Apache-2.0",
-        "original": "Нужно проверить в официальном источнике",
-        "spdx": "Apache-2.0",
-        "kind": "open-source",
-        "status": "source-declared",
-        "requiresReview": false,
-        "evidence": [
-          {
-            "kind": "license",
-            "label": "Apache-2.0 license",
-            "url": "https://api.github.com/repos/kedreamix/linly-dubbing/license"
-          }
-        ]
-      },
-      "access": {
-        "cost": "free",
-        "signup": "unknown",
-        "runtime": "cloud"
-      },
-      "trust": "community",
-      "decision": "reference",
-      "riskLevel": "medium",
-      "projects": [],
-      "evidence": [
-        {
-          "kind": "official-source",
-          "label": "Официальный источник",
-          "url": "https://github.com/Kedreamix/Linly-Dubbing"
-        },
-        {
-          "kind": "license",
-          "label": "Apache-2.0 license",
-          "url": "https://api.github.com/repos/kedreamix/linly-dubbing/license"
-        }
-      ],
-      "actions": {
-        "openOfficialSource": true,
-        "installFromCatalog": false,
-        "mutateExternalSystems": false
-      }
-    },
-    {
-      "id": "voicebox-local-ai-voice-studio",
-      "title": "Voicebox",
-      "url": "https://github.com/jamiepine/voicebox",
-      "type": "oss",
-      "category": "Медиа",
-      "subcategory": "Local AI voice studio",
-      "addedAt": "2026-08-22",
-      "description": "Voicebox — MIT local-first voice studio для TTS, диктовки и работы с голосами. Кандидат для Eclipse Media и Chat, но клонирование голоса допускается только с документированным согласием владельца и заметной маркировкой синтетического аудио.",
-      "useCases": [
-        "Локальная озвучка прототипов",
-        "Диктовка в Eclipse Chat",
-        "Сравнение TTS engines"
-      ],
-      "platforms": [
-        "Desktop",
-        "Local AI",
-        "TTS",
-        "STT"
-      ],
-      "license": {
-        "label": "MIT",
-        "original": "MIT",
-        "spdx": "MIT",
-        "kind": "open-source",
-        "status": "source-declared",
-        "requiresReview": false,
-        "evidence": [
-          {
-            "kind": "license",
-            "label": "MIT license",
-            "url": "https://api.github.com/repos/jamiepine/voicebox/license"
-          },
-          {
-            "kind": "license",
-            "label": "Official MIT license",
-            "url": "https://github.com/jamiepine/voicebox/blob/main/LICENSE"
-          },
-          {
-            "kind": "source",
-            "label": "Official repository",
-            "url": "https://github.com/jamiepine/voicebox"
-          }
-        ]
-      },
-      "access": {
-        "cost": "free",
-        "signup": "none",
-        "runtime": "local"
-      },
-      "trust": "community",
-      "decision": "roadmap",
-      "riskLevel": "high",
-      "projects": [
-        "Eclipse Media",
-        "Eclipse Chat",
-        "Educator-AI"
-      ],
-      "evidence": [
-        {
-          "kind": "official-source",
-          "label": "Официальный источник",
-          "url": "https://github.com/jamiepine/voicebox"
-        },
-        {
-          "kind": "license",
-          "label": "MIT license",
-          "url": "https://api.github.com/repos/jamiepine/voicebox/license"
-        },
-        {
-          "kind": "license",
-          "label": "Official MIT license",
-          "url": "https://github.com/jamiepine/voicebox/blob/main/LICENSE"
         }
       ],
       "actions": {
@@ -21034,67 +20801,78 @@
       }
     },
     {
-      "id": "arcads-agent-skills",
-      "title": "Arcads Agent Skills",
-      "url": "https://github.com/arcads-ai/skills",
-      "type": "skill",
-      "category": "Медиа",
-      "subcategory": "Paid UGC generation connector",
+      "id": "twenty-open-crm",
+      "title": "Twenty CRM",
+      "url": "https://github.com/twentyhq/twenty",
+      "type": "oss",
+      "category": "Бизнес",
+      "subcategory": "CRM platform",
       "addedAt": "2026-08-22",
-      "description": "Официальный небольшой набор skills для управления Arcads UGC workflows. Это paid action surface с внешними аккаунтами, кредитами, лицами и продуктами; Library хранит ссылку и policy, но не запускает генерацию и не авторизует MCP автоматически.",
+      "description": "Twenty — self-hostable CRM и кандидат для сравнения со StarCRM, а не автоматическая замена. Большая часть проекта AGPL-3.0 с исключением для приложений, отдельные файлы Enterprise и SDK/UI-пакеты с собственными лицензиями требуют component-level review.",
       "useCases": [
-        "Изучить UGC workflow schema",
-        "Подготовить human-approved ad brief",
-        "Оценить платный pilot Arcads"
+        "Сравнить CRM UX и data model",
+        "Оценить self-host TCO",
+        "Изучить API, webhooks и app platform"
       ],
       "platforms": [
-        "Arcads",
-        "Claude-compatible agents",
-        "MCP"
+        "Web",
+        "PostgreSQL",
+        "Docker",
+        "GraphQL",
+        "REST"
       ],
       "license": {
-        "label": "No repository-wide license verified; Arcads service terms and skill files require separate review",
-        "original": "No repository-wide license verified; Arcads service terms and skill files require separate review",
+        "label": "Mostly AGPL-3.0 with Twenty Application Exception; some Enterprise-licensed files and MIT packages",
+        "original": "Mostly AGPL-3.0 with Twenty Application Exception; some Enterprise-licensed files and MIT packages",
         "spdx": null,
-        "kind": "service-terms",
+        "kind": "custom",
         "status": "editor-reviewed",
         "requiresReview": false,
         "evidence": [
           {
-            "kind": "source",
-            "label": "Official Arcads skills repository",
-            "url": "https://github.com/arcads-ai/skills"
+            "kind": "license",
+            "label": "Other license",
+            "url": "https://api.github.com/repos/twentyhq/twenty/license"
           },
           {
-            "kind": "official-source",
-            "label": "Arcads MCP endpoint",
-            "url": "https://mcp.arcads.ai"
+            "kind": "license",
+            "label": "Official mixed license",
+            "url": "https://github.com/twentyhq/twenty/blob/main/LICENSE"
+          },
+          {
+            "kind": "source",
+            "label": "Official repository",
+            "url": "https://github.com/twentyhq/twenty"
           }
         ]
       },
       "access": {
-        "cost": "paid",
-        "signup": "required",
-        "runtime": "cloud"
+        "cost": "freemium",
+        "signup": "none",
+        "runtime": "self-host"
       },
       "trust": "official",
       "decision": "reference",
       "riskLevel": "high",
       "projects": [
-        "Eclipse Media",
-        "Shotforge",
+        "StarCRM",
         "Eclipse Growth OS"
       ],
       "evidence": [
         {
           "kind": "official-source",
           "label": "Официальный источник",
-          "url": "https://github.com/arcads-ai/skills"
+          "url": "https://github.com/twentyhq/twenty"
         },
         {
-          "kind": "official-source",
-          "label": "Arcads MCP endpoint",
-          "url": "https://mcp.arcads.ai"
+          "kind": "license",
+          "label": "Other license",
+          "url": "https://api.github.com/repos/twentyhq/twenty/license"
+        },
+        {
+          "kind": "license",
+          "label": "Official mixed license",
+          "url": "https://github.com/twentyhq/twenty/blob/main/LICENSE"
         }
       ],
       "actions": {
@@ -21162,27 +20940,28 @@
       }
     },
     {
-      "id": "wan21-open-video-model",
-      "title": "Wan 2.1",
-      "url": "https://github.com/Wan-Video/Wan2.1",
+      "id": "nocodb-self-hosted-table-database",
+      "title": "NocoDB",
+      "url": "https://github.com/nocodb/nocodb",
       "type": "oss",
-      "category": "Модели",
-      "subcategory": "Open video generation",
+      "category": "Данные",
+      "subcategory": "Table database UI",
       "addedAt": "2026-08-22",
-      "description": "Wan 2.1 — Apache-2.0 repository for open video-generation models. Это реальный кандидат для local media experiments, но «бесплатно» означает только отсутствие SaaS-подписки: нужны совместимое железо, model-weight license/provenance review и безопасная очередь генерации.",
+      "description": "Self-hosted no-code слой над SQL-базой: табличные представления, формы, связи и API. В Eclipse полезен как внутренняя операционная панель для Library intake и Growth OS, но Sustainable Use License не позволяет считать его беспрепятственно встраиваемой коммерческой зависимостью.",
       "useCases": [
-        "Локальные video-generation experiments",
-        "Сравнить качество и стоимость с cloud APIs",
-        "Создать owned B-roll"
+        "Очередь intake → license review → security review → публикация в Eclipse Library",
+        "Контент-календарь и experiment tracker Eclipse Growth OS",
+        "Внутренний reference/admin prototype для StarCRM",
+        "Реестр моделей и eval-запусков Eclipse AI Hub"
       ],
       "platforms": [
-        "Python",
-        "GPU",
-        "Local AI"
+        "Web",
+        "Database",
+        "Docker"
       ],
       "license": {
-        "label": "Apache-2.0 repository; model weights and bundled components must be checked separately",
-        "original": "Apache-2.0 repository; model weights and bundled components must be checked separately",
+        "label": "Sustainable Use License 1.0 for master/develop; other branches may be unlicensed",
+        "original": "Sustainable Use License 1.0 for master/develop; other branches may be unlicensed",
         "spdx": null,
         "kind": "custom",
         "status": "editor-reviewed",
@@ -21190,49 +20969,50 @@
         "evidence": [
           {
             "kind": "license",
-            "label": "Apache-2.0 license",
-            "url": "https://api.github.com/repos/wan-video/wan2.1/license"
+            "label": "Other license",
+            "url": "https://api.github.com/repos/nocodb/nocodb/license"
           },
           {
             "kind": "license",
-            "label": "Official Apache-2.0 license",
-            "url": "https://github.com/Wan-Video/Wan2.1/blob/main/LICENSE.txt"
+            "label": "Official current license",
+            "url": "https://github.com/nocodb/nocodb/blob/develop/LICENSE.md"
           },
           {
             "kind": "source",
             "label": "Official repository",
-            "url": "https://github.com/Wan-Video/Wan2.1"
+            "url": "https://github.com/nocodb/nocodb"
           }
         ]
       },
       "access": {
-        "cost": "free",
+        "cost": "freemium",
         "signup": "none",
-        "runtime": "local"
+        "runtime": "self-host"
       },
       "trust": "official",
-      "decision": "roadmap",
-      "riskLevel": "high",
+      "decision": "reference",
+      "riskLevel": "medium",
       "projects": [
-        "Eclipse Media",
-        "Shotforge",
-        "Text2Image"
+        "Eclipse Library",
+        "Eclipse Growth OS",
+        "StarCRM",
+        "Eclipse AI Hub"
       ],
       "evidence": [
         {
           "kind": "official-source",
           "label": "Официальный источник",
-          "url": "https://github.com/Wan-Video/Wan2.1"
+          "url": "https://github.com/nocodb/nocodb"
         },
         {
           "kind": "license",
-          "label": "Apache-2.0 license",
-          "url": "https://api.github.com/repos/wan-video/wan2.1/license"
+          "label": "Other license",
+          "url": "https://api.github.com/repos/nocodb/nocodb/license"
         },
         {
           "kind": "license",
-          "label": "Official Apache-2.0 license",
-          "url": "https://github.com/Wan-Video/Wan2.1/blob/main/LICENSE.txt"
+          "label": "Official current license",
+          "url": "https://github.com/nocodb/nocodb/blob/develop/LICENSE.md"
         }
       ],
       "actions": {
@@ -21300,23 +21080,24 @@
       }
     },
     {
-      "id": "scrapegraph-mcp-server",
-      "title": "ScrapeGraph MCP",
-      "url": "https://github.com/ScrapeGraphAI/scrapegraph-mcp",
+      "id": "voicebox-local-ai-voice-studio",
+      "title": "Voicebox",
+      "url": "https://github.com/jamiepine/voicebox",
       "type": "oss",
-      "category": "Парсинг",
-      "subcategory": "Hosted scraping MCP",
+      "category": "Медиа",
+      "subcategory": "Local AI voice studio",
       "addedAt": "2026-08-22",
-      "description": "ScrapeGraph MCP — MIT MCP-сервер для вызова ScrapeGraph API из агента. Это отдельный ресурс от Python-библиотеки ScrapeGraphAI: сервер требует API key и может передавать URL/контент внешнему сервису, поэтому подходит для разрешённых публичных источников, а не для скрытого обхода платформ.",
+      "description": "Voicebox — MIT local-first voice studio для TTS, диктовки и работы с голосами. Кандидат для Eclipse Media и Chat, но клонирование голоса допускается только с документированным согласием владельца и заметной маркировкой синтетического аудио.",
       "useCases": [
-        "Структурировать публичные страницы",
-        "Получить schema-shaped extraction",
-        "Сравнить MCP и local library"
+        "Локальная озвучка прототипов",
+        "Диктовка в Eclipse Chat",
+        "Сравнение TTS engines"
       ],
       "platforms": [
-        "MCP",
-        "Node.js",
-        "ScrapeGraph API"
+        "Desktop",
+        "Local AI",
+        "TTS",
+        "STT"
       ],
       "license": {
         "label": "MIT",
@@ -21329,48 +21110,48 @@
           {
             "kind": "license",
             "label": "MIT license",
-            "url": "https://api.github.com/repos/scrapegraphai/scrapegraph-mcp/license"
+            "url": "https://api.github.com/repos/jamiepine/voicebox/license"
           },
           {
             "kind": "license",
             "label": "Official MIT license",
-            "url": "https://github.com/ScrapeGraphAI/scrapegraph-mcp/blob/main/LICENSE"
+            "url": "https://github.com/jamiepine/voicebox/blob/main/LICENSE"
           },
           {
             "kind": "source",
             "label": "Official repository",
-            "url": "https://github.com/ScrapeGraphAI/scrapegraph-mcp"
+            "url": "https://github.com/jamiepine/voicebox"
           }
         ]
       },
       "access": {
-        "cost": "freemium",
-        "signup": "required",
-        "runtime": "cloud"
+        "cost": "free",
+        "signup": "none",
+        "runtime": "local"
       },
-      "trust": "official",
+      "trust": "community",
       "decision": "roadmap",
       "riskLevel": "high",
       "projects": [
-        "Eclipse Library",
-        "Eclipse Growth OS",
-        "Eclipse AI Hub"
+        "Eclipse Media",
+        "Eclipse Chat",
+        "Educator-AI"
       ],
       "evidence": [
         {
           "kind": "official-source",
           "label": "Официальный источник",
-          "url": "https://github.com/ScrapeGraphAI/scrapegraph-mcp"
+          "url": "https://github.com/jamiepine/voicebox"
         },
         {
           "kind": "license",
           "label": "MIT license",
-          "url": "https://api.github.com/repos/scrapegraphai/scrapegraph-mcp/license"
+          "url": "https://api.github.com/repos/jamiepine/voicebox/license"
         },
         {
           "kind": "license",
           "label": "Official MIT license",
-          "url": "https://github.com/ScrapeGraphAI/scrapegraph-mcp/blob/main/LICENSE"
+          "url": "https://github.com/jamiepine/voicebox/blob/main/LICENSE"
         }
       ],
       "actions": {
@@ -21438,57 +21219,67 @@
       }
     },
     {
-      "id": "claude-code-guide-community-collection",
-      "title": "Claude Code Guide Community Collection",
-      "url": "https://claude-code-guide-one-nu.vercel.app/",
-      "type": "learn",
-      "category": "Курсы и гайды",
-      "subcategory": "Community prompt collection",
+      "id": "arcads-agent-skills",
+      "title": "Arcads Agent Skills",
+      "url": "https://github.com/arcads-ai/skills",
+      "type": "skill",
+      "category": "Медиа",
+      "subcategory": "Paid UGC generation connector",
       "addedAt": "2026-08-22",
-      "description": "Большая community-библиотека prompt playbooks про агентов, дизайн, медиа, маршрутизацию моделей и автоматизацию. Это не официальная документация Anthropic: Library хранит источник и собственный разбор, но не принимает команды, версии моделей, цены и benchmark claims за факты.",
+      "description": "Официальный небольшой набор skills для управления Arcads UGC workflows. Это paid action surface с внешними аккаунтами, кредитами, лицами и продуктами; Library хранит ссылку и policy, но не запускает генерацию и не авторизует MCP автоматически.",
       "useCases": [
-        "Находить идеи для product epics",
-        "Извлекать reusable architecture patterns",
-        "Создавать verification queue"
+        "Изучить UGC workflow schema",
+        "Подготовить human-approved ad brief",
+        "Оценить платный pilot Arcads"
       ],
       "platforms": [
-        "Web",
-        "Claude Code concepts"
+        "Arcads",
+        "Claude-compatible agents",
+        "MCP"
       ],
       "license": {
-        "label": "No public reuse license established; summarize and link, do not republish prompt text verbatim",
-        "original": "No public reuse license established; summarize and link, do not republish prompt text verbatim",
+        "label": "No repository-wide license verified; Arcads service terms and skill files require separate review",
+        "original": "No repository-wide license verified; Arcads service terms and skill files require separate review",
         "spdx": null,
-        "kind": "custom",
+        "kind": "service-terms",
         "status": "editor-reviewed",
         "requiresReview": false,
         "evidence": [
           {
+            "kind": "source",
+            "label": "Official Arcads skills repository",
+            "url": "https://github.com/arcads-ai/skills"
+          },
+          {
             "kind": "official-source",
-            "label": "Community collection landing",
-            "url": "https://claude-code-guide-one-nu.vercel.app/"
+            "label": "Arcads MCP endpoint",
+            "url": "https://mcp.arcads.ai"
           }
         ]
       },
       "access": {
-        "cost": "free",
-        "signup": "optional",
+        "cost": "paid",
+        "signup": "required",
         "runtime": "cloud"
       },
-      "trust": "caution",
+      "trust": "official",
       "decision": "reference",
       "riskLevel": "high",
       "projects": [
-        "Eclipse Library",
-        "Eclipse AI Hub",
-        "Eclipse Growth OS",
-        "Eclipse Media"
+        "Eclipse Media",
+        "Shotforge",
+        "Eclipse Growth OS"
       ],
       "evidence": [
         {
           "kind": "official-source",
           "label": "Официальный источник",
-          "url": "https://claude-code-guide-one-nu.vercel.app/"
+          "url": "https://github.com/arcads-ai/skills"
+        },
+        {
+          "kind": "official-source",
+          "label": "Arcads MCP endpoint",
+          "url": "https://mcp.arcads.ai"
         }
       ],
       "actions": {
@@ -21610,6 +21401,166 @@
       }
     },
     {
+      "id": "wan21-open-video-model",
+      "title": "Wan 2.1",
+      "url": "https://github.com/Wan-Video/Wan2.1",
+      "type": "oss",
+      "category": "Модели",
+      "subcategory": "Open video generation",
+      "addedAt": "2026-08-22",
+      "description": "Wan 2.1 — Apache-2.0 repository for open video-generation models. Это реальный кандидат для local media experiments, но «бесплатно» означает только отсутствие SaaS-подписки: нужны совместимое железо, model-weight license/provenance review и безопасная очередь генерации.",
+      "useCases": [
+        "Локальные video-generation experiments",
+        "Сравнить качество и стоимость с cloud APIs",
+        "Создать owned B-roll"
+      ],
+      "platforms": [
+        "Python",
+        "GPU",
+        "Local AI"
+      ],
+      "license": {
+        "label": "Apache-2.0 repository; model weights and bundled components must be checked separately",
+        "original": "Apache-2.0 repository; model weights and bundled components must be checked separately",
+        "spdx": null,
+        "kind": "custom",
+        "status": "editor-reviewed",
+        "requiresReview": false,
+        "evidence": [
+          {
+            "kind": "license",
+            "label": "Apache-2.0 license",
+            "url": "https://api.github.com/repos/wan-video/wan2.1/license"
+          },
+          {
+            "kind": "license",
+            "label": "Official Apache-2.0 license",
+            "url": "https://github.com/Wan-Video/Wan2.1/blob/main/LICENSE.txt"
+          },
+          {
+            "kind": "source",
+            "label": "Official repository",
+            "url": "https://github.com/Wan-Video/Wan2.1"
+          }
+        ]
+      },
+      "access": {
+        "cost": "free",
+        "signup": "none",
+        "runtime": "local"
+      },
+      "trust": "official",
+      "decision": "roadmap",
+      "riskLevel": "high",
+      "projects": [
+        "Eclipse Media",
+        "Shotforge",
+        "Text2Image"
+      ],
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://github.com/Wan-Video/Wan2.1"
+        },
+        {
+          "kind": "license",
+          "label": "Apache-2.0 license",
+          "url": "https://api.github.com/repos/wan-video/wan2.1/license"
+        },
+        {
+          "kind": "license",
+          "label": "Official Apache-2.0 license",
+          "url": "https://github.com/Wan-Video/Wan2.1/blob/main/LICENSE.txt"
+        }
+      ],
+      "actions": {
+        "openOfficialSource": true,
+        "installFromCatalog": false,
+        "mutateExternalSystems": false
+      }
+    },
+    {
+      "id": "scrapegraph-mcp-server",
+      "title": "ScrapeGraph MCP",
+      "url": "https://github.com/ScrapeGraphAI/scrapegraph-mcp",
+      "type": "oss",
+      "category": "Парсинг",
+      "subcategory": "Hosted scraping MCP",
+      "addedAt": "2026-08-22",
+      "description": "ScrapeGraph MCP — MIT MCP-сервер для вызова ScrapeGraph API из агента. Это отдельный ресурс от Python-библиотеки ScrapeGraphAI: сервер требует API key и может передавать URL/контент внешнему сервису, поэтому подходит для разрешённых публичных источников, а не для скрытого обхода платформ.",
+      "useCases": [
+        "Структурировать публичные страницы",
+        "Получить schema-shaped extraction",
+        "Сравнить MCP и local library"
+      ],
+      "platforms": [
+        "MCP",
+        "Node.js",
+        "ScrapeGraph API"
+      ],
+      "license": {
+        "label": "MIT",
+        "original": "MIT",
+        "spdx": "MIT",
+        "kind": "open-source",
+        "status": "source-declared",
+        "requiresReview": false,
+        "evidence": [
+          {
+            "kind": "license",
+            "label": "MIT license",
+            "url": "https://api.github.com/repos/scrapegraphai/scrapegraph-mcp/license"
+          },
+          {
+            "kind": "license",
+            "label": "Official MIT license",
+            "url": "https://github.com/ScrapeGraphAI/scrapegraph-mcp/blob/main/LICENSE"
+          },
+          {
+            "kind": "source",
+            "label": "Official repository",
+            "url": "https://github.com/ScrapeGraphAI/scrapegraph-mcp"
+          }
+        ]
+      },
+      "access": {
+        "cost": "freemium",
+        "signup": "required",
+        "runtime": "cloud"
+      },
+      "trust": "official",
+      "decision": "roadmap",
+      "riskLevel": "high",
+      "projects": [
+        "Eclipse Library",
+        "Eclipse Growth OS",
+        "Eclipse AI Hub"
+      ],
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://github.com/ScrapeGraphAI/scrapegraph-mcp"
+        },
+        {
+          "kind": "license",
+          "label": "MIT license",
+          "url": "https://api.github.com/repos/scrapegraphai/scrapegraph-mcp/license"
+        },
+        {
+          "kind": "license",
+          "label": "Official MIT license",
+          "url": "https://github.com/ScrapeGraphAI/scrapegraph-mcp/blob/main/LICENSE"
+        }
+      ],
+      "actions": {
+        "openOfficialSource": true,
+        "installFromCatalog": false,
+        "mutateExternalSystems": false
+      }
+    },
+    {
       "id": "translatebookswithllms-github-com",
       "title": "TranslateBooksWithLLMs",
       "url": "https://github.com/hydropix/TranslateBooksWithLLMs",
@@ -21659,6 +21610,66 @@
           "kind": "license",
           "label": "AGPL-3.0 license",
           "url": "https://api.github.com/repos/hydropix/translatebookswithllms/license"
+        }
+      ],
+      "actions": {
+        "openOfficialSource": true,
+        "installFromCatalog": false,
+        "mutateExternalSystems": false
+      }
+    },
+    {
+      "id": "claude-code-guide-community-collection",
+      "title": "Claude Code Guide Community Collection",
+      "url": "https://claude-code-guide-one-nu.vercel.app/",
+      "type": "learn",
+      "category": "Курсы и гайды",
+      "subcategory": "Community prompt collection",
+      "addedAt": "2026-08-22",
+      "description": "Большая community-библиотека prompt playbooks про агентов, дизайн, медиа, маршрутизацию моделей и автоматизацию. Это не официальная документация Anthropic: Library хранит источник и собственный разбор, но не принимает команды, версии моделей, цены и benchmark claims за факты.",
+      "useCases": [
+        "Находить идеи для product epics",
+        "Извлекать reusable architecture patterns",
+        "Создавать verification queue"
+      ],
+      "platforms": [
+        "Web",
+        "Claude Code concepts"
+      ],
+      "license": {
+        "label": "No public reuse license established; summarize and link, do not republish prompt text verbatim",
+        "original": "No public reuse license established; summarize and link, do not republish prompt text verbatim",
+        "spdx": null,
+        "kind": "custom",
+        "status": "editor-reviewed",
+        "requiresReview": false,
+        "evidence": [
+          {
+            "kind": "official-source",
+            "label": "Community collection landing",
+            "url": "https://claude-code-guide-one-nu.vercel.app/"
+          }
+        ]
+      },
+      "access": {
+        "cost": "free",
+        "signup": "optional",
+        "runtime": "cloud"
+      },
+      "trust": "caution",
+      "decision": "reference",
+      "riskLevel": "high",
+      "projects": [
+        "Eclipse Library",
+        "Eclipse AI Hub",
+        "Eclipse Growth OS",
+        "Eclipse Media"
+      ],
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://claude-code-guide-one-nu.vercel.app/"
         }
       ],
       "actions": {
@@ -22628,110 +22639,471 @@
       }
     },
     {
-      "id": "mixkit-free-media",
-      "title": "Mixkit — бесплатные видео, музыка и звуки для монтажа",
-      "url": "https://mixkit.co/",
+      "id": "brag-launch-video",
+      "title": "/brag — ролик о запуске",
+      "url": "https://github.com/latent-spaces/brag",
       "type": "media",
-      "category": "Медиа и дизайн",
-      "subcategory": "Стоковые материалы и шаблоны монтажа",
-      "addedAt": "2026-10-14",
-      "description": "Библиотека готовых видеокадров, фоновой музыки, звуковых эффектов и монтажных шаблонов от Envato. Материалы можно скачивать без регистрации и обязательного указания автора. Подходит для дополнения собственных роликов: звуковой атмосферы, титров, переходов и видеовставок. Допустимое использование зависит от лицензии конкретного материала.",
+      "category": "Практические ресурсы Eclipse Forge",
+      "subcategory": "Видео",
+      "addedAt": "2026-09-29",
+      "description": "Skill для подготовки короткого ролика о проекте. Для StarMarket пока готовим только раскадровку на подтверждённых сценариях; рендер и права на медиа проверяются отдельно.",
       "useCases": [
-        "Добавить музыку и звуки среды к короткому ролику",
-        "Оформить видео титрами, переходами и заставкой",
-        "Подобрать дополнительные кадры для видео или интернет-рекламы"
+        "Согласовать реальные экраны и медиа для 35-секундной раскадровки.",
+        "Сверить применимость на ограниченном пилоте без подключения к production"
       ],
       "platforms": [
-        "Web",
-        "Premiere Pro",
-        "After Effects",
-        "DaVinci Resolve",
-        "Final Cut Pro"
+        "Web"
       ],
       "license": {
-        "label": "Mixkit Licenses и User Terms; отдельные условия для видео, музыки, звуков и шаблонов",
-        "original": "Mixkit Licenses и User Terms; отдельные условия для видео, музыки, звуков и шаблонов",
-        "spdx": null,
-        "kind": "service-terms",
-        "status": "editor-reviewed",
+        "label": "MIT",
+        "original": "MIT для кода; музыка, SFX и изображения требуют отдельных прав",
+        "spdx": "MIT",
+        "kind": "open-source",
+        "status": "source-declared",
         "requiresReview": false,
         "evidence": [
           {
             "kind": "license",
-            "label": "Лицензии по типам материалов",
-            "url": "https://mixkit.co/license/"
-          },
+            "label": "MIT license",
+            "url": "https://api.github.com/repos/latent-spaces/brag/license"
+          }
+        ]
+      },
+      "access": {
+        "cost": "unknown",
+        "signup": "unknown",
+        "runtime": "hybrid"
+      },
+      "trust": "community",
+      "decision": "reference",
+      "riskLevel": "medium",
+      "projects": [
+        "StarMarket",
+        "Eclipse Media"
+      ],
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://github.com/latent-spaces/brag"
+        },
+        {
+          "kind": "license",
+          "label": "MIT license",
+          "url": "https://api.github.com/repos/latent-spaces/brag/license"
+        }
+      ],
+      "actions": {
+        "openOfficialSource": true,
+        "installFromCatalog": false,
+        "mutateExternalSystems": false
+      }
+    },
+    {
+      "id": "disktree-disk-usage",
+      "title": "DiskTree — карта занятого места",
+      "url": "https://github.com/tobi/disktree",
+      "type": "tool",
+      "category": "Практические ресурсы Eclipse Forge",
+      "subcategory": "Диагностика диска",
+      "addedAt": "2026-09-29",
+      "description": "Локальная treemap-утилита показывает, что занимает место на диске. Текущий Windows-хост поддерживается проектом, но бинарник в доступном PATH не найден; диагностика не выполнена.",
+      "useCases": [
+        "После отдельного согласования установки проверить только занятую ёмкость согласованной папки.",
+        "Сверить применимость на ограниченном пилоте без подключения к production"
+      ],
+      "platforms": [
+        "Windows",
+        "Local"
+      ],
+      "license": {
+        "label": "MIT",
+        "original": "MIT",
+        "spdx": "MIT",
+        "kind": "open-source",
+        "status": "source-declared",
+        "requiresReview": false,
+        "evidence": [
           {
-            "kind": "terms",
-            "label": "Условия использования",
-            "url": "https://mixkit.co/terms/"
-          },
-          {
-            "kind": "source",
-            "label": "Видео и FAQ о Free / Restricted License",
-            "url": "https://mixkit.co/free-stock-video/"
-          },
-          {
-            "kind": "source",
-            "label": "Музыка и ограничения использования",
-            "url": "https://mixkit.co/free-stock-music/"
-          },
-          {
-            "kind": "source",
-            "label": "Звуковые эффекты",
-            "url": "https://mixkit.co/free-sound-effects/"
-          },
-          {
-            "kind": "source",
-            "label": "Шаблоны для видеоредакторов",
-            "url": "https://mixkit.co/free-video-templates/"
+            "kind": "license",
+            "label": "MIT license",
+            "url": "https://api.github.com/repos/tobi/disktree/license"
           }
         ]
       },
       "access": {
         "cost": "free",
         "signup": "none",
-        "runtime": "cloud"
+        "runtime": "local"
       },
-      "trust": "official",
+      "trust": "community",
       "decision": "reference",
       "riskLevel": "medium",
-      "projects": [],
+      "projects": [
+        "Eclipse Sentinel"
+      ],
       "evidence": [
         {
           "kind": "official-source",
           "label": "Официальный источник",
-          "url": "https://mixkit.co/"
+          "url": "https://github.com/tobi/disktree"
         },
         {
           "kind": "license",
-          "label": "Лицензии по типам материалов",
-          "url": "https://mixkit.co/license/"
+          "label": "MIT license",
+          "url": "https://api.github.com/repos/tobi/disktree/license"
+        }
+      ],
+      "actions": {
+        "openOfficialSource": true,
+        "installFromCatalog": false,
+        "mutateExternalSystems": false
+      }
+    },
+    {
+      "id": "english-developer-knowledgefxg",
+      "title": "Английский для разработчика",
+      "url": "https://en.knowledgefxg.com/",
+      "type": "learn",
+      "category": "Практические ресурсы Eclipse Forge",
+      "subcategory": "Обучение",
+      "addedAt": "2026-09-29",
+      "description": "Каталог ссылок на материалы по английскому. Собственная подборка из пяти официальных бесплатных ресурсов помогает читать документацию и тренировать техническую речь без копирования чужих материалов.",
+      "useCases": [
+        "Пройти два маршрута из гайда: чтение технической документации и аудирование.",
+        "Сверить применимость на ограниченном пилоте без подключения к production"
+      ],
+      "platforms": [
+        "Web"
+      ],
+      "license": {
+        "label": "Условия сайта; открытая лицензия каталога не подтверждена",
+        "original": "Условия сайта; открытая лицензия каталога не подтверждена",
+        "spdx": null,
+        "kind": "service-terms",
+        "status": "unverified",
+        "requiresReview": true,
+        "evidence": [
+          {
+            "kind": "official-source",
+            "label": "Официальный источник; точные условия ещё нужно сверить",
+            "url": "https://en.knowledgefxg.com/"
+          }
+        ]
+      },
+      "access": {
+        "cost": "freemium",
+        "signup": "unknown",
+        "runtime": "cloud"
+      },
+      "trust": "community",
+      "decision": "reference",
+      "riskLevel": "low",
+      "projects": [
+        "Eclipse Library",
+        "Educator-AI"
+      ],
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://en.knowledgefxg.com/"
+        }
+      ],
+      "actions": {
+        "openOfficialSource": true,
+        "installFromCatalog": false,
+        "mutateExternalSystems": false
+      }
+    },
+    {
+      "id": "reef-harness-pilot",
+      "title": "Reef — эксперимент с инструкцией",
+      "url": "https://github.com/Human-Agent-Society/reef",
+      "type": "agent",
+      "category": "Практические ресурсы Eclipse Forge",
+      "subcategory": "Оценка агентов",
+      "addedAt": "2026-09-29",
+      "description": "Инфраструктура для обновления агентных артефактов. Рассматриваем лишь изолированное сравнение копии одной инструкции Library на отложенных заданиях с ручным принятием и откатом.",
+      "useCases": [
+        "Подготовить baseline и копию одной инструкции; запуск согласовать отдельно.",
+        "Сверить применимость на ограниченном пилоте без подключения к production"
+      ],
+      "platforms": [
+        "Web"
+      ],
+      "license": {
+        "label": "Apache-2.0",
+        "original": "Apache-2.0",
+        "spdx": "Apache-2.0",
+        "kind": "open-source",
+        "status": "source-declared",
+        "requiresReview": false,
+        "evidence": [
+          {
+            "kind": "license",
+            "label": "Apache-2.0 license",
+            "url": "https://api.github.com/repos/human-agent-society/reef/license"
+          }
+        ]
+      },
+      "access": {
+        "cost": "freemium",
+        "signup": "unknown",
+        "runtime": "self-host"
+      },
+      "trust": "community",
+      "decision": "reference",
+      "riskLevel": "medium",
+      "projects": [
+        "Eclipse Library"
+      ],
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://github.com/Human-Agent-Society/reef"
         },
         {
-          "kind": "terms",
-          "label": "Условия использования",
-          "url": "https://mixkit.co/terms/"
+          "kind": "license",
+          "label": "Apache-2.0 license",
+          "url": "https://api.github.com/repos/human-agent-society/reef/license"
+        }
+      ],
+      "actions": {
+        "openOfficialSource": true,
+        "installFromCatalog": false,
+        "mutateExternalSystems": false
+      }
+    },
+    {
+      "id": "gemini-38-tts-pilot",
+      "title": "Gemini 3.8 Flash / Flash-Lite TTS",
+      "url": "https://ai.google.dev/gemini-api/docs/speech-generation",
+      "type": "api",
+      "category": "Практические ресурсы Eclipse Forge",
+      "subcategory": "Синтез речи",
+      "addedAt": "2026-09-29",
+      "description": "Официальные TTS-модели Google для озвучки. План — сравнить два точных model ID на одном русском тексте 30–60 секунд для AI Creator и ролика StarMarket; вызовов пока не было.",
+      "useCases": [
+        "После согласования вызовов провести по три прогона каждой модели на одном тексте.",
+        "Сверить применимость на ограниченном пилоте без подключения к production"
+      ],
+      "platforms": [
+        "Web"
+      ],
+      "license": {
+        "label": "Условия Gemini API",
+        "original": "Условия Gemini API",
+        "spdx": null,
+        "kind": "custom",
+        "status": "editor-reviewed",
+        "requiresReview": false,
+        "evidence": [
+          {
+            "kind": "official-source",
+            "label": "Официальный источник; точные условия ещё нужно сверить",
+            "url": "https://ai.google.dev/gemini-api/docs/speech-generation"
+          }
+        ]
+      },
+      "access": {
+        "cost": "freemium",
+        "signup": "required",
+        "runtime": "cloud"
+      },
+      "trust": "community",
+      "decision": "reference",
+      "riskLevel": "medium",
+      "projects": [
+        "AI Creator",
+        "Eclipse Media",
+        "StarMarket"
+      ],
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://ai.google.dev/gemini-api/docs/speech-generation"
+        }
+      ],
+      "actions": {
+        "openOfficialSource": true,
+        "installFromCatalog": false,
+        "mutateExternalSystems": false
+      }
+    },
+    {
+      "id": "concat-local-video-pilot",
+      "title": "Concat (ранее WolfCut)",
+      "url": "https://github.com/jub0t/Concat",
+      "type": "media",
+      "category": "Практические ресурсы Eclipse Forge",
+      "subcategory": "Видеомонтаж",
+      "addedAt": "2026-09-29",
+      "description": "Локальный видеоредактор с заявленным MCP/API. WolfCut перенаправляет на Concat. Планируем отдельный Windows-пилот вертикального ролика, кириллицы, субтитров, двух аудиодорожек и сохранения проекта.",
+      "useCases": [
+        "После отдельного согласования установки импортировать синтетический ролик и пройти чеклист экспорта.",
+        "Сверить применимость на ограниченном пилоте без подключения к production"
+      ],
+      "platforms": [
+        "Windows",
+        "Local"
+      ],
+      "license": {
+        "label": "AGPL-3.0",
+        "original": "AGPL-3.0-or-later с plugin exception; объём исключения требует отдельной проверки",
+        "spdx": "AGPL-3.0",
+        "kind": "open-source",
+        "status": "source-declared",
+        "requiresReview": false,
+        "evidence": [
+          {
+            "kind": "license",
+            "label": "AGPL-3.0 license",
+            "url": "https://api.github.com/repos/jub0t/concat/license"
+          }
+        ]
+      },
+      "access": {
+        "cost": "free",
+        "signup": "none",
+        "runtime": "local"
+      },
+      "trust": "community",
+      "decision": "reference",
+      "riskLevel": "medium",
+      "projects": [
+        "Eclipse Media",
+        "StarMarket"
+      ],
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://github.com/jub0t/Concat"
         },
         {
-          "kind": "source",
-          "label": "Видео и FAQ о Free / Restricted License",
-          "url": "https://mixkit.co/free-stock-video/"
-        },
+          "kind": "license",
+          "label": "AGPL-3.0 license",
+          "url": "https://api.github.com/repos/jub0t/concat/license"
+        }
+      ],
+      "actions": {
+        "openOfficialSource": true,
+        "installFromCatalog": false,
+        "mutateExternalSystems": false
+      }
+    },
+    {
+      "id": "nemotron-3-diarization",
+      "title": "Nemotron 3 Diarization",
+      "url": "https://huggingface.co/nvidia/Nemotron-3-Diarization",
+      "type": "model",
+      "category": "Практические ресурсы Eclipse Forge",
+      "subcategory": "Разметка говорящих",
+      "addedAt": "2026-09-29",
+      "description": "Модель NVIDIA размечает интервалы говорящих в аудио. Для звонков StarCRM и созвонов Eclipse сначала проверяются каналы и права на записи; слова и личности она не устанавливает.",
+      "useCases": [
+        "Установить источник тестовых записей и каналов; затем отдельно согласовать локальный запуск.",
+        "Сверить применимость на ограниченном пилоте без подключения к production"
+      ],
+      "platforms": [
+        "Windows",
+        "Local"
+      ],
+      "license": {
+        "label": "OpenMDW-1.1",
+        "original": "OpenMDW-1.1",
+        "spdx": null,
+        "kind": "custom",
+        "status": "editor-reviewed",
+        "requiresReview": false,
+        "evidence": [
+          {
+            "kind": "official-source",
+            "label": "Официальный источник; точные условия ещё нужно сверить",
+            "url": "https://huggingface.co/nvidia/Nemotron-3-Diarization"
+          }
+        ]
+      },
+      "access": {
+        "cost": "unknown",
+        "signup": "unknown",
+        "runtime": "local"
+      },
+      "trust": "community",
+      "decision": "reference",
+      "riskLevel": "low",
+      "projects": [
+        "StarCRM",
+        "Eclipse Chat",
+        "Eclipse Media"
+      ],
+      "evidence": [
         {
-          "kind": "source",
-          "label": "Музыка и ограничения использования",
-          "url": "https://mixkit.co/free-stock-music/"
-        },
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://huggingface.co/nvidia/Nemotron-3-Diarization"
+        }
+      ],
+      "actions": {
+        "openOfficialSource": true,
+        "installFromCatalog": false,
+        "mutateExternalSystems": false
+      }
+    },
+    {
+      "id": "the-cartel-notcartel",
+      "title": "The Cartel — AI-контент и практические приёмы",
+      "url": "https://www.youtube.com/@notcartel",
+      "type": "learn",
+      "category": "Практические ресурсы Eclipse Forge",
+      "subcategory": "Персонажи и AI-контент",
+      "addedAt": "2026-10-02",
+      "description": "Канал с короткими приёмами для изображений, персонажей и видео. Обзор 30 последних тем и четырёх расшифровок; полезные идеи отделены от рекламных обещаний и не проверенных тарифов.",
+      "useCases": [
+        "Подбор тем для собственных гайдов Eclipse и контента AI Creator.",
+        "Изучение перехода от референса к раскадровке и контролю результата."
+      ],
+      "platforms": [
+        "Web",
+        "Local"
+      ],
+      "license": {
+        "label": "Лицензия повторного использования не указана; локальный справочный архив, права на публикацию требуют проверки.",
+        "original": "Лицензия повторного использования не указана; локальный справочный архив, права на публикацию требуют проверки.",
+        "spdx": null,
+        "kind": "unknown",
+        "status": "unverified",
+        "requiresReview": true,
+        "evidence": [
+          {
+            "kind": "official-source",
+            "label": "Официальный источник; точные условия ещё нужно сверить",
+            "url": "https://www.youtube.com/@notcartel"
+          }
+        ]
+      },
+      "access": {
+        "cost": "unknown",
+        "signup": "optional",
+        "runtime": "hybrid"
+      },
+      "trust": "community",
+      "decision": "reference",
+      "riskLevel": "medium",
+      "projects": [
+        "Eclipse Library",
+        "Eclipse Media",
+        "Eclipse AI Creator",
+        "Ultron"
+      ],
+      "evidence": [
         {
-          "kind": "source",
-          "label": "Звуковые эффекты",
-          "url": "https://mixkit.co/free-sound-effects/"
-        },
-        {
-          "kind": "source",
-          "label": "Шаблоны для видеоредакторов",
-          "url": "https://mixkit.co/free-video-templates/"
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://www.youtube.com/@notcartel"
         }
       ],
       "actions": {
@@ -22800,6 +23172,122 @@
           "kind": "source",
           "label": "BuildCores asset-use FAQ",
           "url": "https://www.buildcores.com/faq"
+        }
+      ],
+      "actions": {
+        "openOfficialSource": true,
+        "installFromCatalog": false,
+        "mutateExternalSystems": false
+      }
+    },
+    {
+      "id": "the-cartel-character-sheet",
+      "title": "The Cartel — карточка персонажа: исходники и адаптация",
+      "url": "https://www.youtube.com/watch?v=dPHOl0fkkOA",
+      "type": "prompt",
+      "category": "Практические ресурсы Eclipse Forge",
+      "subcategory": "Персонажи и AI-контент",
+      "addedAt": "2026-10-02",
+      "description": "Простой лист с портретом и четырьмя ракурсами. Исходники локально сохранены без изменений, промпт уточнён; сохранение внешности в наших сценах и право перепубликации пока не проверены.",
+      "useCases": [
+        "Подготовка утверждаемого эталона AI Creator.",
+        "Сравнение исходного и адаптированного промптов на одинаковых сценах."
+      ],
+      "platforms": [
+        "Web",
+        "Local"
+      ],
+      "license": {
+        "label": "Лицензия повторного использования не указана; локальный справочный архив, права на публикацию требуют проверки.",
+        "original": "Лицензия повторного использования не указана; локальный справочный архив, права на публикацию требуют проверки.",
+        "spdx": null,
+        "kind": "unknown",
+        "status": "unverified",
+        "requiresReview": true,
+        "evidence": [
+          {
+            "kind": "official-source",
+            "label": "Официальный источник; точные условия ещё нужно сверить",
+            "url": "https://www.youtube.com/watch?v=dPHOl0fkkOA"
+          }
+        ]
+      },
+      "access": {
+        "cost": "unknown",
+        "signup": "optional",
+        "runtime": "hybrid"
+      },
+      "trust": "community",
+      "decision": "reference",
+      "riskLevel": "medium",
+      "projects": [
+        "Eclipse Library",
+        "Eclipse Media",
+        "Eclipse AI Creator",
+        "Ultron"
+      ],
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://www.youtube.com/watch?v=dPHOl0fkkOA"
+        }
+      ],
+      "actions": {
+        "openOfficialSource": true,
+        "installFromCatalog": false,
+        "mutateExternalSystems": false
+      }
+    },
+    {
+      "id": "erida-character-bible-v1",
+      "title": "ERIDA (Erida Vice) — Character Bible v1.0",
+      "url": "https://github.com/PavelHopson/eclipse-library/blob/master/guides/erida-character-bible-v1.md",
+      "type": "ours",
+      "category": "Практические ресурсы Eclipse Forge",
+      "subcategory": "Персонажи и AI-контент",
+      "addedAt": "2026-10-02",
+      "description": "Erida Vice — публичный псевдоним Эриды, 27-летней виртуальной бимбо-готки и IRL creator Eclipse Forge. Канонический паспорт и выбранные references; @eridavice желаемый, аккаунт не переименован.",
+      "useCases": [
+        "Единый источник решений для EF-03.",
+        "Проверка identity и continuity гардероба."
+      ],
+      "platforms": [
+        "Local"
+      ],
+      "license": {
+        "label": "Пользовательский авторский паспорт и предоставленные AI-изображения; внешняя лицензия не назначена, права исходных референсов и генераторов не проверены.",
+        "original": "Пользовательский авторский паспорт и предоставленные AI-изображения; внешняя лицензия не назначена, права исходных референсов и генераторов не проверены.",
+        "spdx": null,
+        "kind": "custom",
+        "status": "unverified",
+        "requiresReview": true,
+        "evidence": [
+          {
+            "kind": "official-source",
+            "label": "Официальный источник; точные условия ещё нужно сверить",
+            "url": "https://github.com/PavelHopson/eclipse-library/blob/master/guides/erida-character-bible-v1.md"
+          }
+        ]
+      },
+      "access": {
+        "cost": "unknown",
+        "signup": "none",
+        "runtime": "local"
+      },
+      "trust": "community",
+      "decision": "now",
+      "riskLevel": "medium",
+      "projects": [
+        "Eclipse Library",
+        "Eclipse Media",
+        "Eclipse AI Creator"
+      ],
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://github.com/PavelHopson/eclipse-library/blob/master/guides/erida-character-bible-v1.md"
         }
       ],
       "actions": {
@@ -44010,70 +44498,6 @@
           "kind": "official-source",
           "label": "Официальный источник",
           "url": "https://library.eclipse-forge.ru/guides/repository-architecture-map.md"
-        }
-      ],
-      "actions": {
-        "openOfficialSource": true,
-        "installFromCatalog": false,
-        "mutateExternalSystems": false
-      }
-    },
-    {
-      "id": "onepromptdesign-visual-prompts",
-      "title": "OnePromptDesign — промпты и визуальные референсы",
-      "url": "https://onepromptdesign.com/",
-      "type": "prompt",
-      "category": "Дизайн и визуал",
-      "subcategory": "Промпты для изображений",
-      "addedAt": "2026-10-14",
-      "description": "Каталог промптов и визуальных референсов для изображений, постеров, рекламы, мокапов и фонов. Помогает задать палитру, состав сцены, плотность деталей, свободное место под текст и формат кадра. Промпт нужно применить в отдельном генераторе изображений; результат зависит от выбранной модели.",
-      "useCases": [
-        "Подготовить визуальное задание для постера или обложки",
-        "Создать фон с заранее выделенным местом под заголовок",
-        "Сравнить варианты палитры и композиции по одному заданию"
-      ],
-      "platforms": [
-        "Web"
-      ],
-      "license": {
-        "label": "Нужно проверить условия сайта и права на промпты и изображения-референсы; открытая лицензия не подтверждена",
-        "original": "Нужно проверить условия сайта и права на промпты и изображения-референсы; открытая лицензия не подтверждена",
-        "spdx": null,
-        "kind": "service-terms",
-        "status": "unverified",
-        "requiresReview": true,
-        "evidence": [
-          {
-            "kind": "source",
-            "label": "Официальный каталог: назначение и категории",
-            "url": "https://onepromptdesign.com/"
-          },
-          {
-            "kind": "source",
-            "label": "Проверенный полный промпт Portal in Pink Fields; наличие открытой лицензии не установлено",
-            "url": "https://onepromptdesign.com/prompt/5099dbc8-915b-4a2c-a835-ea8179b864ec/portal-in-pink-fields"
-          }
-        ]
-      },
-      "access": {
-        "cost": "free",
-        "signup": "none",
-        "runtime": "cloud"
-      },
-      "trust": "official",
-      "decision": "reference",
-      "riskLevel": "medium",
-      "projects": [],
-      "evidence": [
-        {
-          "kind": "official-source",
-          "label": "Официальный источник",
-          "url": "https://onepromptdesign.com/"
-        },
-        {
-          "kind": "source",
-          "label": "Проверенный полный промпт Portal in Pink Fields; наличие открытой лицензии не установлено",
-          "url": "https://onepromptdesign.com/prompt/5099dbc8-915b-4a2c-a835-ea8179b864ec/portal-in-pink-fields"
         }
       ],
       "actions": {
