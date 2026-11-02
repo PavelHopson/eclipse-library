@@ -880,3 +880,43 @@ body.library-nav-open { overflow: hidden; }
   color: var(--library-text);
 }
 .sidebar-primary { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+
+/* Learning workspace: syllabus and working document share the library shell. */
+body.learning-mode .content > :not(#learningView) { display: none !important; }
+body.learning-mode #catalogInspector { display: none !important; }
+.learning-title { font-size: clamp(1.5rem, 3vw, 2.35rem); line-height: 1.25; margin: 20px 0 14px; }
+#learningView { max-width: 1100px; padding: 24px 0 56px; color: var(--library-text); }
+#learningView[hidden] { display: none; }
+#learningView a { color: var(--library-accent); text-underline-offset: 4px; }
+#learningView p { line-height: 1.7; }
+.learning-intro, .learning-footnote, .learning-field small { color: var(--library-muted); }
+.learning-courses article { padding: 25px 0; border-top: 1px solid var(--library-line); }
+.learning-courses h2 { font-size: 1.25rem; margin: 10px 0; }
+.learning-meta { font: 12px/1.5 'JetBrains Mono', monospace; color: var(--library-muted); }
+.learning-tools { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; margin: 20px 0 28px; }
+#learningView button, .learning-file { border: 1px solid var(--library-line-strong); background: var(--library-panel-2); color: var(--library-text); border-radius: 6px; padding: 11px 14px; font: inherit; cursor: pointer; min-height: 44px; }
+#learningView button:disabled { opacity: .5; cursor: not-allowed; }
+#learningView button:hover:not(:disabled) { border-color: var(--library-accent); }
+#learningView :focus-visible { outline: 2px solid var(--library-accent); outline-offset: 4px; }
+.learning-file { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
+.learning-file input { max-width: 210px; min-width: 0; font: inherit; font-size: 12px; }
+.learning-layout { display: grid; grid-template-columns: 250px minmax(0, 1fr); gap: 36px; border-top: 1px solid var(--library-line); padding-top: 24px; }
+.learning-outline { display: flex; flex-direction: column; gap: 4px; align-self: start; }
+.learning-outline a { padding: 12px; line-height: 1.5; text-decoration: none; border-left: 2px solid transparent; font-size: 13px; }
+.learning-outline a[aria-current] { border-color: var(--library-accent); background: var(--library-accent-soft); color: var(--library-text) !important; }
+.learning-lesson { min-width: 0; }
+.learning-lesson h2 { font-size: 1.5rem; line-height: 1.4; }
+.learning-lesson h3 { font-size: 1rem; margin-top: 28px; }
+.learning-body { white-space: pre-wrap; overflow-wrap: anywhere; }
+.learning-field { display: grid; gap: 10px; margin: 24px 0; }
+.learning-field textarea { width: 100%; box-sizing: border-box; resize: vertical; min-height: 130px; border: 1px solid var(--library-line-strong); background: var(--library-panel); color: var(--library-text); padding: 14px; font: inherit; line-height: 1.6; border-radius: 6px; }
+.learning-check { display: flex; align-items: flex-start; gap: 12px; padding: 12px 0; line-height: 1.6; cursor: pointer; }
+.learning-check input { margin-top: 5px; width: 18px; height: 18px; flex: 0 0 18px; accent-color: var(--library-accent); }
+.learning-review { border-top: 1px solid var(--library-line); margin-top: 28px; padding-top: 8px; }
+.learning-status { color: var(--library-success); overflow-wrap: anywhere; }
+.learning-status:empty { display: none; }
+#learningView .is-error, .learning-errors { color: #ffb6b6; }
+.learning-deck { border-top: 1px solid var(--library-line); padding: 24px 0; margin-top: 24px; overflow-wrap: anywhere; }
+.learning-deck summary { cursor: pointer; padding: 12px 0; font-weight: 700; }
+.learning-footnote { border-top: 1px solid var(--library-line); padding-top: 24px; margin-top: 36px; font-size: 13px; }
+@media (max-width: 760px) { .learning-layout { grid-template-columns: minmax(0, 1fr); gap: 24px; } .learning-outline { border-bottom: 1px solid var(--library-line); padding-bottom: 16px; } .learning-tools { align-items: stretch; } .learning-file { width: 100%; box-sizing: border-box; } #learningView { padding-top: 12px; } }

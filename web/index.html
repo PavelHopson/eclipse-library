@@ -17,7 +17,7 @@
   <link rel="stylesheet" href="styles.css?v=30" />
   <link rel="stylesheet" href="navigator.css?v=3" />
   <link rel="stylesheet" href="review.css?v=2" />
-  <link rel="stylesheet" href="library-v2.css?v=1" />
+  <link rel="stylesheet" href="library-v2.css?v=2" />
 </head>
 <body data-visual-profile="knowledge-bento">
   <a class="skip" href="#results">Перейти к каталогу</a>
@@ -38,6 +38,7 @@
       <nav class="primary-nav" aria-label="Главная навигация">
         <a href="#catalogStart" data-view-link="catalog">Каталог</a>
         <a href="#guidesFeat">Гайды</a>
+        <a href="#learn" data-view-link="learn">Практика</a>
         <a href="#projects" data-view-link="projects">Проекты</a>
         <a href="candidate-review.html">Проверить кандидат</a>
         <a class="animation-nav-link" href="animations.html">Анимации</a>
@@ -63,6 +64,7 @@
       <nav class="sidebar-primary" aria-label="Основные разделы">
         <a href="#catalogStart" data-view-link="catalog">Каталог</a>
         <a href="#guidesFeat">Гайды</a>
+        <a href="#learn" data-view-link="learn">Практика</a>
         <a href="#projects" data-view-link="projects">Проекты</a>
         <a href="candidate-review.html">Проверить кандидат</a>
         <a class="animation-nav-link" href="animations.html">Анимации</a>
@@ -77,6 +79,7 @@
     </aside>
 
     <main class="content">
+      <section id="learningView" hidden aria-label="Практика"></section>
       <section id="hero" class="hero" aria-labelledby="hero-h1">
         <div class="hero-grid">
           <div class="hero-copy">
@@ -385,7 +388,10 @@
   <script src="catalog-review.js?v=2"></script>
   <script src="catalog-search.js?v=1"></script>
   <script src="cursor-light.js?v=1"></script>
-  <script src="app.js?v=49"></script>
+  <script src="learning-content.js?v=1"></script>
+  <script src="learning-runtime.js?v=1"></script>
+  <script src="learning-view.js?v=1"></script>
+  <script src="app.js?v=50"></script>
   <script src="library-shell.js?v=1"></script>
   <script type="module" src="library-mascot.mjs?v=1"></script>
 </body>

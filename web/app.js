@@ -1439,7 +1439,7 @@
       `<div id="guideDirectoryGrid" class="gf-grid"></div>` +
       `<div id="guideDirectoryEmpty" class="guide-directory-empty" hidden><b>Гайд не найден</b><span>Попробуйте другое слово или откройте соседнюю тему.</span></div>` +
       `<button id="guideDirectoryMore" class="guide-directory-more" type="button" hidden></button>` +
-      `<div class="guide-directory-secondary"><span>Специализированные разделы</span><a href="registry.html">Реестр решений</a><a href="animations.html">Лаборатория анимаций</a></div>`;
+      `<div class="guide-directory-secondary"><a href="#learn">Практика: задания и прогресс →</a><span>Специализированные разделы</span><a href="registry.html">Реестр решений</a><a href="animations.html">Лаборатория анимаций</a></div>`;
 
     const search = $('#guideDirectorySearch');
     const grid = $('#guideDirectoryGrid');
@@ -1872,6 +1872,8 @@
   function closeGuide() { const v = $('#guideView'); if (v.hidden) return; v.hidden = true; document.body.classList.remove('noscroll'); if (guideTocObs) { guideTocObs.disconnect(); guideTocObs = null; } }
   function route() {
     const h = location.hash;
+    if (/^#learn(?:\/|$)/.test(h)) { closeGuide(); closeItem(); closeCompare(); window.EclipseLearningView.open(h); return; }
+    window.EclipseLearningView.close();
     if (/^#guide\//.test(h)) { openGuide(decodeURIComponent(h.slice(7))); return; }
     if (/^#item\//.test(h)) { openItem(decodeURIComponent(h.slice(6))); return; }
     if (h === '#projects') { closeGuide(); closeItem(); closeCompare(); clearTopicRoute(); setView('projects'); window.scrollTo({ top: 0 }); return; }
@@ -1979,7 +1981,11 @@
       ]);
       render(categoriesFromStructuredCatalog(structuredItems));
       renderGuides(guidesManifest);
-      requestAnimationFrame(route);
+      requestAnimationFrame(() => {
+        // The local lesson can already be open while catalogue requests settle.
+        if (/^#learn(?:\/|$)/.test(location.hash) && document.body.classList.contains('learning-mode')) return;
+        route();
+      });
     }
     catch (e) {
       const status = $('#status');
@@ -1996,6 +2002,12 @@
   const navSearch = $('#navSearch');
   let timer;
   function runSearch(value) {
+    if (document.body.classList.contains('learning-mode')) {
+      window.EclipseLearningView.close();
+      clearTopicRoute();
+      setView('catalog');
+      history.replaceState(null, '', '#catalog');
+    }
     query = value.slice(0, 160);
     search.value = query;
     if (heroSearch) heroSearch.value = query;
@@ -2198,5 +2210,6 @@
   }, { rootMargin: '-600px 0px 0px 0px' });
   topObserver.observe($('#hero'));
 
+  if (/^#learn(?:\/|$)/.test(location.hash)) route();
   load();
 })();

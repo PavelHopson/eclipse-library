@@ -81,6 +81,10 @@ jobs:
 
       - name: Validate static payload
         run: |
+          node --check web/learning-content.js
+          node --check web/learning-runtime.js
+          node --check web/learning-view.js
+          node --test scripts/learning-runtime.test.mjs scripts/learning-view.test.mjs
           node --test scripts/image-prompt-codes.test.mjs scripts/coffee-cat.test.mjs
           node --test scripts/character-heroes.test.mjs scripts/artefakt.test.mjs
           node --check web/experiments/character-heroes/script.mjs
