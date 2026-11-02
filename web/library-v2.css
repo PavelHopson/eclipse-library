@@ -935,3 +935,12 @@ body.learning-mode #catalogInspector { display: none !important; }
 .game-inventory { border-left: 2px solid var(--library-line-strong); padding: 1px 0 1px 18px; margin-top: 24px; overflow-wrap: anywhere; }
 .game-inventory h3 { font-size: 14px; color: var(--library-muted); }
 .game-result { color: var(--library-success); font-size: 1.1rem; }
+
+.course-reader, .course-example { overflow-wrap: anywhere; }
+.course-example { white-space: pre-wrap; max-width: 100%; padding: 16px; box-sizing: border-box; border-left: 2px solid var(--library-line-strong); background: var(--library-panel); font: 13px/1.7 'JetBrains Mono', monospace; }
+.course-question { border-bottom: 1px solid var(--library-line); padding: 12px 0; }
+.course-question summary { cursor: pointer; line-height: 1.6; min-height: 44px; overflow-wrap: anywhere; }
+.learning-outline h3 { font-size: 12px; line-height: 1.6; color: var(--library-muted); margin: 16px 12px 8px; overflow-wrap: anywhere; }
+.learning-courses article > .learning-meta { display: block; margin-bottom: 14px; }
+.course-outline summary { min-height: 44px; padding: 10px 0; box-sizing: border-box; cursor: pointer; color: var(--library-muted); font-size: 13px; line-height: 1.6; }
+#learningView .course-save-retry[hidden] { display: none; }

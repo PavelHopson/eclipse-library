@@ -68,7 +68,7 @@
   }
   function overview() {
     host.append(el('h1', 'Практика', 'learning-title'), el('p', 'От инструкции к результату: выполните задание, сохраните доказательства и проверьте себя.', 'learning-intro'));
-    host.append(link('Учебные игры: викторины и квесты →', '#learn/games'));
+    host.append(link('Учебные игры: викторины и квесты →', '#learn/games'), el('br'), link('Мои курсы: импорт и чтение →', '#learn/courses'));
     const list = el('div', undefined, 'learning-courses');
     courses.forEach(course => {
       const loaded = readProgress(course); const count = Object.values(loaded.state.lessons).filter(l => l.completed).length;

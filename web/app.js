@@ -1873,6 +1873,8 @@
   function route() {
     const h = location.hash;
     if (!window.EclipseLearningGameView.leave(h)) return;
+    if (/^#learn\/courses(?:\/|$)/.test(h)) { closeGuide(); closeItem(); closeCompare(); window.EclipseLearningView.close(); window.EclipseLearningCourseView.open(h); return; }
+    window.EclipseLearningCourseView.close();
     if (/^#learn\/games(?:\/|$)/.test(h)) { closeGuide(); closeItem(); closeCompare(); window.EclipseLearningView.close(); window.EclipseLearningGameView.open(h); return; }
     if (/^#learn(?:\/|$)/.test(h)) { closeGuide(); closeItem(); closeCompare(); window.EclipseLearningView.open(h); return; }
     window.EclipseLearningView.close();
@@ -2006,6 +2008,7 @@
   function runSearch(value) {
     if (document.body.classList.contains('learning-mode')) {
       if (!window.EclipseLearningGameView.leave('#catalog')) return;
+      window.EclipseLearningCourseView.close();
       window.EclipseLearningView.close();
       clearTopicRoute();
       setView('catalog');
