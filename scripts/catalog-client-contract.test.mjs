@@ -43,4 +43,8 @@ test('changed assets carry an explicit cache-bust version', async () => {
   assert.match(html, /library-v2\.css\?v=4/);
   assert.match(html, /app\.js\?v=52/);
   assert.match(html, /library-shell\.js\?v=1/);
+  assert.match(html, /learning-games\.js\?v=2/);
+  assert.match(html, /learning-game-view\.js\?v=2/);
+  assert.ok(html.indexOf('learning-games.js?v=2') < html.indexOf('learning-game-progress.js?v=1'));
+  assert.ok(html.indexOf('learning-game-progress.js?v=1') < html.indexOf('learning-game-view.js?v=2'));
 });

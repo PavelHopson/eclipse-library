@@ -164,14 +164,22 @@
     var scene = sceneFor(game, choice.nextSceneId);
     return { sceneId: scene.id, inventory: pickup(scene, state.inventory), history: state.history.concat(choiceIndex), ended: scene.choices.length === 0 };
   }
-  function moveEscape(game, state, choiceIndex) {
+  function cloneState(game, state) {
+    if (game.type === 'QUIZ') {
+      quizState(game, state);
+      return freeze({ index: state.index, answers: state.answers.map(function (answer) { return { questionId: answer.questionId, optionId: answer.optionId }; }), complete: state.complete });
+    }
     requireGame(game, 'ESCAPE_ROOM'); record(state, ['sceneId', 'inventory', 'history', 'ended']);
     list(state.history, 0, MAX_HISTORY); list(state.inventory, 0, 40);
     var replay = initialEscape(game);
     state.history.forEach(function (index) { replay = step(game, replay, index); });
     if (state.sceneId !== replay.sceneId || state.ended !== replay.ended || JSON.stringify(state.inventory) !== JSON.stringify(replay.inventory)) fail('Состояние не соответствует истории прохождения');
+    return freeze(replay);
+  }
+  function moveEscape(game, state, choiceIndex) {
+    requireGame(game, 'ESCAPE_ROOM'); var replay = cloneState(game, state);
     if (state.history.length >= MAX_HISTORY) fail('Достигнут предел 512 переходов. Начните игру заново');
     return freeze(step(game, replay, choiceIndex));
   }
-  return { MAX_BYTES: MAX_BYTES, MAX_HISTORY: MAX_HISTORY, parseGame: parseGame, initialQuiz: initialQuiz, answerQuiz: answerQuiz, nextQuiz: nextQuiz, quizResult: quizResult, initialEscape: initialEscape, moveEscape: moveEscape };
+  return { MAX_BYTES: MAX_BYTES, MAX_HISTORY: MAX_HISTORY, parseGame: parseGame, initialQuiz: initialQuiz, answerQuiz: answerQuiz, nextQuiz: nextQuiz, quizResult: quizResult, initialEscape: initialEscape, moveEscape: moveEscape, cloneState: cloneState };
 }));
