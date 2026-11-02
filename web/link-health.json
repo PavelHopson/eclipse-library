@@ -1,19 +1,24 @@
 {
   "schemaVersion": 1,
-  "checkedAt": "2026-10-26T10:09:51.816Z",
+  "checkedAt": "2026-11-02T12:27:14.164Z",
   "totals": {
-    "extracted": 819,
-    "unique": 814,
-    "checked": 814,
-    "ok": 770,
-    "restricted": 33,
-    "broken": 3,
+    "extracted": 820,
+    "unique": 815,
+    "checked": 815,
+    "ok": 773,
+    "restricted": 31,
+    "broken": 2,
     "unavailable": 1,
-    "unknown": 7,
+    "unknown": 8,
     "blocked": 0,
     "skipped": 0
   },
   "links": [
+    {
+      "url": "https://huggingface.co/datasets/scenario-labs/3d-collection",
+      "status": "ok",
+      "httpStatus": 200
+    },
     {
       "url": "https://github.com/morluto/rea",
       "status": "ok",
@@ -396,8 +401,8 @@
     },
     {
       "url": "https://bookracy.com/",
-      "status": "restricted",
-      "httpStatus": 403
+      "status": "unknown",
+      "httpStatus": null
     },
     {
       "url": "https://github.com/aghyad97/browserytools",
@@ -821,8 +826,8 @@
     },
     {
       "url": "https://dos.zone/",
-      "status": "ok",
-      "httpStatus": 200
+      "status": "unknown",
+      "httpStatus": null
     },
     {
       "url": "https://draper.chat/use-cases/idea-validation",
@@ -1086,8 +1091,8 @@
     },
     {
       "url": "https://tass.ru/nauka/27878487",
-      "status": "restricted",
-      "httpStatus": 403
+      "status": "ok",
+      "httpStatus": 200
     },
     {
       "url": "https://github.com/XiaoYouChR/Ghost-Downloader-3",
@@ -2771,8 +2776,8 @@
     },
     {
       "url": "https://support.apple.com/en-us/120340",
-      "status": "broken",
-      "httpStatus": 404
+      "status": "ok",
+      "httpStatus": 200
     },
     {
       "url": "https://www.oo-software.com/en/shutup10",
@@ -2926,8 +2931,8 @@
     },
     {
       "url": "https://www.awwwards.com/",
-      "status": "unknown",
-      "httpStatus": null
+      "status": "ok",
+      "httpStatus": 200
     },
     {
       "url": "https://www.cosmos.so/",
