@@ -68,10 +68,11 @@
   }
   function overview() {
     host.append(el('h1', 'Практика', 'learning-title'), el('p', 'От инструкции к результату: выполните задание, сохраните доказательства и проверьте себя.', 'learning-intro'));
+    host.append(link('Учебные игры: викторины и квесты →', '#learn/games'));
     const list = el('div', undefined, 'learning-courses');
     courses.forEach(course => {
       const loaded = readProgress(course); const count = Object.values(loaded.state.lessons).filter(l => l.completed).length;
-      const row = el('article'); row.append(el('span', String(course.lessons.length).padStart(2, '0') + ' уроков · ' + count + ' завершено', 'learning-meta'), el('h2', course.title), el('p', course.summary), link(count ? 'Продолжить →' : 'Открыть практику →', '#learn/' + course.id));
+      const row = el('article'); row.append(el('span', String(course.lessons.length).padStart(2, '0') + (course.lessons.length === 1 ? ' урок · ' : course.lessons.length < 5 ? ' урока · ' : ' уроков · ') + count + ' завершено', 'learning-meta'), el('h2', course.title), el('p', course.summary), link(count ? 'Продолжить →' : 'Открыть практику →', '#learn/' + course.id));
       if (loaded.error) row.append(el('p', 'Есть ошибка сохранённых данных. Откройте курс для восстановления.', 'is-error'));
       list.append(row);
     }); host.append(list, deckPanel());

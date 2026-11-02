@@ -920,3 +920,18 @@ body.learning-mode #catalogInspector { display: none !important; }
 .learning-deck summary { cursor: pointer; padding: 12px 0; font-weight: 700; }
 .learning-footnote { border-top: 1px solid var(--library-line); padding-top: 24px; margin-top: 36px; font-size: 13px; }
 @media (max-width: 760px) { .learning-layout { grid-template-columns: minmax(0, 1fr); gap: 24px; } .learning-outline { border-bottom: 1px solid var(--library-line); padding-bottom: 16px; } .learning-tools { align-items: stretch; } .learning-file { width: 100%; box-sizing: border-box; } #learningView { padding-top: 12px; } }
+
+.game-content { max-width: 760px; border-top: 1px solid var(--library-line); padding: 28px 0; }
+.game-content h2 { font-size: clamp(1.2rem, 2.5vw, 1.6rem); line-height: 1.5; overflow-wrap: anywhere; }
+.game-options { border: 0; margin: 24px 0; padding: 0; min-width: 0; }
+.game-options legend { color: var(--library-muted); margin-bottom: 12px; }
+.game-option { display: flex; align-items: flex-start; gap: 12px; padding: 16px 0; border-bottom: 1px solid var(--library-line); line-height: 1.6; cursor: pointer; flex-wrap: wrap; overflow-wrap: anywhere; }
+.game-option input { width: 18px; height: 18px; flex: 0 0 18px; margin-top: 4px; accent-color: var(--library-accent); }
+.game-option > span { flex: 1; min-width: 0; }
+.game-answer-note { color: var(--library-success); font-size: 12px; }
+.game-choices { display: grid; gap: 12px; margin-top: 24px; }
+.game-choices button { text-align: left; overflow-wrap: anywhere; }
+.game-choices small { display: block; margin-top: 8px; }
+.game-inventory { border-left: 2px solid var(--library-line-strong); padding: 1px 0 1px 18px; margin-top: 24px; overflow-wrap: anywhere; }
+.game-inventory h3 { font-size: 14px; color: var(--library-muted); }
+.game-result { color: var(--library-success); font-size: 1.1rem; }

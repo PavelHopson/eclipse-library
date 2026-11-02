@@ -1872,6 +1872,8 @@
   function closeGuide() { const v = $('#guideView'); if (v.hidden) return; v.hidden = true; document.body.classList.remove('noscroll'); if (guideTocObs) { guideTocObs.disconnect(); guideTocObs = null; } }
   function route() {
     const h = location.hash;
+    if (!window.EclipseLearningGameView.leave(h)) return;
+    if (/^#learn\/games(?:\/|$)/.test(h)) { closeGuide(); closeItem(); closeCompare(); window.EclipseLearningView.close(); window.EclipseLearningGameView.open(h); return; }
     if (/^#learn(?:\/|$)/.test(h)) { closeGuide(); closeItem(); closeCompare(); window.EclipseLearningView.open(h); return; }
     window.EclipseLearningView.close();
     if (/^#guide\//.test(h)) { openGuide(decodeURIComponent(h.slice(7))); return; }
@@ -2003,6 +2005,7 @@
   let timer;
   function runSearch(value) {
     if (document.body.classList.contains('learning-mode')) {
+      if (!window.EclipseLearningGameView.leave('#catalog')) return;
       window.EclipseLearningView.close();
       clearTopicRoute();
       setView('catalog');

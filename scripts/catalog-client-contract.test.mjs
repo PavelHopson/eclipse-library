@@ -40,7 +40,7 @@ test('product motion stays bounded and respects the operating-system preference'
 test('changed assets carry an explicit cache-bust version', async () => {
   const html = await readFile(indexUrl, 'utf8');
   assert.match(html, /styles\.css\?v=30/);
-  assert.match(html, /library-v2\.css\?v=2/);
-  assert.match(html, /app\.js\?v=50/);
+  assert.match(html, /library-v2\.css\?v=3/);
+  assert.match(html, /app\.js\?v=51/);
   assert.match(html, /library-shell\.js\?v=1/);
 });
