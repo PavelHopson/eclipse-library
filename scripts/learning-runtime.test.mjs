@@ -96,3 +96,79 @@ test('browser UMD installs globals without CommonJS or network', () => {
   assert.equal(vm.runInContext('EclipseLearningRuntime.emptyProgress(EclipseLearningContent.courses[0]).version', context), 1);
   assert.equal(typeof context.fetch, 'undefined');
 });
+
+test('optional practicum goals preserve legacy version-one progress and survive portable restore', () => {
+  for (const c of courses.slice(0, 2)) {
+    const legacy = filled(c); delete legacy.goal;
+    const loaded = R.importProgress(c, JSON.stringify(legacy));
+    assert.equal(loaded.version, 1); assert.equal(loaded.goal, '');
+    assert.deepEqual(loaded.lessons, legacy.lessons);
+    const state = R.editGoal(c, loaded, 'Проверить повторную попытку без потери данных.');
+    const storage = memory(); assert.equal(R.saveProgress(c, state, storage).ok, true);
+    assert.deepEqual(R.loadProgress(c, storage).state, state);
+    assert.deepEqual(R.importProgress(c, R.exportProgress(c, state)), state);
+    assert.equal(loaded.goal, '');
+  }
+  for (const c of courses.slice(2)) {
+    assert.equal(R.supportsGoal(c), false);
+    assert.equal(Object.hasOwn(R.emptyProgress(c), 'goal'), false);
+    assert.throws(() => R.editGoal(c, filled(c), 'Другая цель'), /только для практикумов/);
+    assert.throws(() => R.importProgress(c, JSON.stringify({ ...filled(c), goal: '' })), /неизвестное поле/);
+  }
+});
+
+test('goal bounds and types fail before a saved answer can be overwritten', () => {
+  const storage = memory(), initial = R.editGoal(course, filled(), 'Прежняя цель');
+  R.saveProgress(course, initial, storage);
+  const raw = storage.getItem(R.storageKey(course));
+  for (const goal of [null, 42, {}, undefined, 'x'.repeat(R.MAX_GOAL + 1), 'bad\u0000goal']) {
+    assert.throws(() => R.editGoal(course, initial, goal));
+    const invalid = { ...initial, goal };
+    assert.equal(R.saveProgress(course, invalid, storage).ok, false);
+    assert.equal(storage.getItem(R.storageKey(course)), raw);
+  }
+  for (const goal of ['', 'x'.repeat(R.MAX_GOAL), '<img src=x onerror=alert(1)>']) {
+    assert.equal(R.importProgress(course, R.exportProgress(course, R.editGoal(course, initial, goal))).goal, goal);
+  }
+});
+
+test('changing or clearing a goal keeps the completed answer and explicit self-assessment', () => {
+  const completed = R.completeLesson(course, R.setAssessment(course, filled(), lesson.id, [0, 1, 2, 3]), lesson.id);
+  const changed = R.editGoal(course, completed, 'Другой контекст для того же навыка');
+  assert.deepEqual(changed.lessons, completed.lessons);
+  assert.notEqual(changed.lessons, completed.lessons);
+  assert.equal(changed.lessons[lesson.id].completed, true);
+  assert.equal(completed.goal, '');
+  assert.deepEqual(R.editGoal(course, changed, '').lessons, completed.lessons);
+});
+
+test('manual practicum planning supports only explicit directions and validates the goal', () => {
+  assert.deepEqual(R.planPracticum('  Отработка ошибок формы  ', 'accessible-form'), { courseId: 'practice-form', goal: 'Отработка ошибок формы' });
+  assert.deepEqual(R.planPracticum('Баланс обращений', 'support-analysis'), { courseId: 'practice-support', goal: 'Баланс обращений' });
+  for (const focus of ['other', '', 'constructor', '__proto__', null]) assert.throws(() => R.planPracticum('Моя цель', focus), /пока нет/);
+  for (const goal of ['', ' \n ', null, 17, 'x'.repeat(R.MAX_GOAL + 1), '\u0000']) assert.throws(() => R.planPracticum(goal, 'accessible-form'));
+});
+
+test('plain practicum report covers empty, partial and completed answers without claiming certification', () => {
+  const emptyReport = R.practicumReport(course, R.emptyProgress(course));
+  assert.match(emptyReport, /Не указана — свободная практика/);
+  assert.match(emptyReport, /Ответ пока не заполнен/);
+  assert.match(emptyReport, /Статус: Не завершён/);
+  assert.match(emptyReport, /самооценка пользователя, не независимая проверка и не сертификат/);
+  assert.equal((emptyReport.match(/\[ \]/g) || []).length, lesson.criteria.length);
+  let partial = R.editGoal(course, filled(), 'Проверить доступность');
+  partial = R.setAssessment(course, partial, lesson.id, [1]);
+  const partialReport = R.practicumReport(course, partial);
+  assert.match(partialReport, /Цель обучения: Проверить доступность/);
+  assert.ok(partialReport.includes(partial.lessons[lesson.id].answers.answer));
+  assert.ok(partialReport.includes('[x] ' + lesson.criteria[1]));
+  assert.ok(partialReport.includes('[ ] ' + lesson.criteria[0]));
+  assert.ok(partialReport.includes(lesson.transfer));
+  const complete = R.completeLesson(course, R.setAssessment(course, partial, lesson.id, [0, 1, 2, 3]), lesson.id);
+  assert.match(R.practicumReport(course, complete), /Завершён по самооценке/);
+  assert.equal((R.practicumReport(course, complete).match(/\[x\]/g) || []).length, 4);
+  const support = R.practicumReport(courses[1], filled(courses[1]));
+  assert.ok(support.includes(courses[1].lessons[0].task));
+  assert.throws(() => R.practicumReport(courses[2], filled(courses[2])), /только для практикумов/);
+  assert.throws(() => R.practicumReport(course, { ...complete, courseId: 'practice-support' }));
+});

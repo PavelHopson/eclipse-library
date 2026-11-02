@@ -93,3 +93,54 @@ test('browser UMD uses native SHA-256 without network', async () => {
   context.raw = JSON.stringify(fixture()); const id = await vm.runInContext('EclipseLearningCourses.parseCourse(raw).then(e=>e.id)', context);
   assert.equal(id, (await R.parseCourse(fixture())).id);
 });
+
+test('Markdown export includes all course content and keeps portable progress unchanged', async () => {
+  const data = fixture();
+  data.modules.push({ title: 'Практика', lessons: [{ heading: 'Третий', content: 'Самостоятельная работа' }] });
+  const e = await R.parseCourse(data), p = R.completeLesson(e, R.initialProgress(e), '0:0');
+  const bundle = R.exportBundle(e, p), restored = await R.importBundle(bundle);
+  const md = R.courseToMarkdown(restored);
+  for (const expected of ['# Курс', 'Уровень: Начальный', 'Учимся локально', '## 1. Основы', '### Первый', '### Второй', 'Пример:', '```text\nПример\n```', 'Вопрос 1: Как?', 'Ответ: Так', '## 2. Практика', '### Третий', 'Самостоятельная работа']) assert.ok(md.includes(expected), expected);
+  assert.equal(md, R.courseToMarkdown(e));
+  assert.equal(R.exportBundle(restored, restored.progress), bundle);
+});
+
+test('Markdown export treats imported HTML, links, headings and markup as plain text', async () => {
+  const data = fixture();
+  data.title = 'Title\n# forged';
+  data.level = 'level\r\n## forged';
+  data.modules[0].title = 'Module\t---';
+  data.modules[0].lessons[0].heading = 'Lesson\n<script>alert(1)</script>';
+  data.summary = '<img src=x onerror=alert(1)> &amp;';
+  data.modules[0].lessons[0].content = '[click](javascript:alert(1))\n![image](https://example.com/track)\n<a href="https://example.com">link</a>\n# Heading\n---\nhttps://example.com\nname@example.com\n**bold** | ~strike~';
+  data.modules[0].quiz[0] = { question: '<script>ask()</script>', answer: '[link](javascript:alert(1))' };
+  const e = await R.parseCourse(data), md = R.courseToMarkdown(e);
+  assert.ok(md.includes('# Title \\# forged'));
+  assert.ok(md.includes('Уровень: level \\#\\# forged'));
+  assert.ok(md.includes('&lt;img src=x onerror=alert\\(1\\)&gt; &amp;amp;'));
+  assert.ok(md.includes('\\[click\\]\\(javascript\\:alert\\(1\\)\\)'));
+  assert.ok(md.includes('\\!\\[image\\]\\(https\\://example\\.com/track\\)'));
+  assert.ok(md.includes('https\\://example\\.com'));
+  assert.ok(md.includes('name\\@example\\.com'));
+  assert.ok(md.includes('\\*\\*bold\\*\\* \\| \\~strike\\~'));
+  assert.ok(!md.includes('<script>')); assert.ok(!md.includes('<img'));
+  assert.ok(!md.includes('\n# forged')); assert.ok(!md.includes('\n---'));
+  assert.deepEqual(e.course, data);
+});
+
+test('example fence always exceeds embedded backtick runs and preserves literal examples', async () => {
+  const data = fixture();
+  data.modules[0].lessons[0].example = 'before\n```\n<script>alert(1)</script>\n`````\n[link](javascript:alert(1))\nafter';
+  const md = R.courseToMarkdown(await R.parseCourse(data));
+  assert.ok(md.includes('``````text\n' + data.modules[0].lessons[0].example + '\n``````'));
+  assert.equal((md.match(/^``````(?:text)?$/gm) || []).length, 2);
+});
+
+test('Markdown requires a validated runtime entry, including entries restored from storage', async () => {
+  const e = await R.parseCourse(fixture());
+  for (const value of [null, undefined, { ...e }, { course: fixture() }, JSON.parse(JSON.stringify(e))]) assert.throws(() => R.courseToMarkdown(value), /Сначала загрузите курс/);
+  const storage = memory();
+  await R.saveCollection(storage, [{ ...e, progress: R.initialProgress(e) }], null);
+  const loaded = await R.loadCollection(storage);
+  assert.equal(R.courseToMarkdown(loaded.entries[0]), R.courseToMarkdown(e));
+});

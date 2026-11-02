@@ -20,7 +20,7 @@
   else root.EclipseLearningRuntime = api;
 }(typeof globalThis !== 'undefined' ? globalThis : this, function () {
   'use strict';
-  var VERSION = 1, MAX_ANSWER = 8000, MAX_PROGRESS_BYTES = 512 * 1024;
+  var VERSION = 1, MAX_ANSWER = 8000, MAX_GOAL = 600, MAX_PROGRESS_BYTES = 512 * 1024;
   var controls = /[\u0000-\u0008\u000b\u000c\u000e-\u001f\u007f]/;
   function fail(message) { throw new Error(message); }
   function record(value, allowed, label) {
@@ -55,6 +55,7 @@
     });
     return course;
   }
+  function supportsGoal(course) { return !!course && ['practice-form', 'practice-support'].includes(course.id); }
   function emptyProgress(course) {
     schema(course);
     var lessons = {};
@@ -62,7 +63,9 @@
       var answers = {}; lesson.fields.forEach(function (field) { answers[field.id] = ''; });
       lessons[lesson.id] = { answers: answers, assessment: [], completed: false };
     });
-    return { version: VERSION, courseId: course.id, lessons: lessons };
+    var result = { version: VERSION, courseId: course.id, lessons: lessons };
+    if (supportsGoal(course)) result.goal = '';
+    return result;
   }
   function validateLesson(lesson, state) {
     var errors = [];
@@ -74,11 +77,12 @@
   }
   function normalize(course, value) {
     schema(course);
-    record(value, ['version', 'courseId', 'lessons'], 'Прогресс');
+    record(value, supportsGoal(course) ? ['version', 'courseId', 'lessons', 'goal'] : ['version', 'courseId', 'lessons'], 'Прогресс');
     if (value.version !== VERSION || value.courseId !== course.id) fail('Версия или курс файла не совпадает');
     var lessonIds = course.lessons.map(function (lesson) { return lesson.id; });
     record(value.lessons, lessonIds, 'Уроки');
     var result = emptyProgress(course);
+    if (Object.hasOwn(value, 'goal')) result.goal = text(value.goal, 0, MAX_GOAL, 'Цель');
     course.lessons.forEach(function (lesson) {
       var row = record(value.lessons[lesson.id], ['answers', 'assessment', 'completed'], 'Урок');
       var fields = lesson.fields.map(function (field) { return field.id; });
@@ -140,6 +144,37 @@
     next.lessons[lessonId].completed = true;
     return normalize(course, next);
   }
+  function editGoal(course, state, value) {
+    if (!supportsGoal(course)) fail('Цель доступна только для практикумов');
+    var next = normalize(course, state);
+    next.goal = text(value, 0, MAX_GOAL, 'Цель');
+    return next;
+  }
+  function planPracticum(goal, focus) {
+    var requirement = text(goal, 0, MAX_GOAL, 'Цель').trim();
+    if (!requirement) fail('Добавьте цель, которую хотите отработать');
+    var courseId = focus === 'accessible-form' ? 'practice-form' : focus === 'support-analysis' ? 'practice-support' : null;
+    if (!courseId) fail('Выберите одно из двух направлений. Для другого навыка подходящего практикума пока нет');
+    return { courseId: courseId, goal: requirement };
+  }
+  function practicumReport(course, state) {
+    if (!supportsGoal(course)) fail('Отчёт доступен только для практикумов');
+    var progress = normalize(course, state);
+    var lines = ['УЧЕБНЫЙ ПРАКТИКУМ: ' + course.title, '',
+      'Вымышленное упражнение. Это самооценка пользователя, не независимая проверка и не сертификат.', '',
+      'Цель обучения: ' + (progress.goal.trim() || 'Не указана — свободная практика.'), '',
+      'Практикум выбран пользователем. Выполнение не подтверждает достижение цели автоматически.', ''];
+    course.lessons.forEach(function (lesson) {
+      var row = progress.lessons[lesson.id];
+      lines.push('Урок: ' + lesson.title, '', 'Ситуация: ' + lesson.body, '', 'Задание: ' + lesson.task, '',
+        'Статус: ' + (row.completed ? 'Завершён по самооценке' : 'Не завершён'), '');
+      lesson.fields.forEach(function (field) { lines.push(field.label + ':', row.answers[field.id].trim() ? row.answers[field.id] : 'Ответ пока не заполнен.', ''); });
+      lines.push('Критерии (отметки пользователя):');
+      lesson.criteria.forEach(function (criterion, index) { lines.push((row.assessment.includes(index) ? '[x] ' : '[ ] ') + criterion); });
+      lines.push('', 'Следующий самостоятельный шаг: ' + lesson.transfer, '');
+    });
+    return lines.join('\n');
+  }
   function dateTime(value, label) {
     text(value, 10, 64, label);
     if (!/^\d{4}-\d{2}-\d{2}T/.test(value) || !Number.isFinite(Date.parse(value))) fail(label + ': некорректная дата');
@@ -177,5 +212,5 @@
     if (deck.input.evidenceUrls.length) lines.push('## Источники', '', deck.input.evidenceUrls.join('\n'));
     return lines.join('\n');
   }
-  return Object.freeze({ VERSION: VERSION, MAX_ANSWER: MAX_ANSWER, MAX_PROGRESS_BYTES: MAX_PROGRESS_BYTES, emptyProgress: emptyProgress, loadProgress: loadProgress, saveProgress: saveProgress, validateLesson: validateLesson, editAnswer: editAnswer, setAssessment: setAssessment, completeLesson: completeLesson, importProgress: importProgress, exportProgress: exportProgress, storageKey: storageKey, parseApprovedDeckJob: parseApprovedDeckJob, deckToLessonMarkdown: deckToLessonMarkdown });
+  return Object.freeze({ VERSION: VERSION, MAX_ANSWER: MAX_ANSWER, MAX_GOAL: MAX_GOAL, MAX_PROGRESS_BYTES: MAX_PROGRESS_BYTES, supportsGoal: supportsGoal, emptyProgress: emptyProgress, loadProgress: loadProgress, saveProgress: saveProgress, validateLesson: validateLesson, editAnswer: editAnswer, editGoal: editGoal, planPracticum: planPracticum, practicumReport: practicumReport, setAssessment: setAssessment, completeLesson: completeLesson, importProgress: importProgress, exportProgress: exportProgress, storageKey: storageKey, parseApprovedDeckJob: parseApprovedDeckJob, deckToLessonMarkdown: deckToLessonMarkdown });
 }));

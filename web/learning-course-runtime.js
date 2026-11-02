@@ -98,6 +98,33 @@
   function exportBundle(entry, progress) {
     return encode({ schemaVersion: 1, id: entry.id, course: entry.course, progress: validateProgress(entry, progress) }, MAX_BUNDLE_BYTES);
   }
+  function markdownText(value) {
+    // Imported content is plain text, including HTML, links and Markdown syntax.
+    return value.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
+      .replace(/[\\`*_{}\[\]()#+.!|~:\-@]/g, '\\$&');
+  }
+  function markdownHeading(value) { return markdownText(value.replace(/[\r\n\t]+/g, ' ')); }
+  function courseToMarkdown(entry) {
+    if (!entries.has(entry)) fail('Сначала загрузите курс');
+    var course = entry.course;
+    var lines = ['# ' + markdownHeading(course.title), '', 'Уровень: ' + markdownHeading(course.level), '', markdownText(course.summary), ''];
+    course.modules.forEach(function (module, index) {
+      lines.push('## ' + (index + 1) + '. ' + markdownHeading(module.title), '');
+      module.lessons.forEach(function (lesson) {
+        lines.push('### ' + markdownHeading(lesson.heading), '', markdownText(lesson.content), '');
+        if (lesson.example) {
+          var runs = lesson.example.match(/`+/g) || [];
+          var fence = '`'.repeat(Math.max(3, runs.reduce(function (length, run) { return Math.max(length, run.length + 1); }, 0)));
+          lines.push('Пример:', '', fence + 'text', lesson.example, fence, '');
+        }
+      });
+      if (module.quiz && module.quiz.length) {
+        lines.push('### Самопроверка', '');
+        module.quiz.forEach(function (item, questionIndex) { lines.push('Вопрос ' + (questionIndex + 1) + ': ' + markdownText(item.question), '', 'Ответ: ' + markdownText(item.answer), ''); });
+      }
+    });
+    return lines.join('\n');
+  }
   async function importBundle(raw) {
     var bundle = record(decode(raw, MAX_BUNDLE_BYTES), ['schemaVersion', 'id', 'course', 'progress']);
     if (bundle.schemaVersion !== 1 || typeof bundle.id !== 'string' || !/^[a-f0-9]{64}$/.test(bundle.id)) fail('Неизвестная версия или ID курса');
@@ -150,5 +177,5 @@
       return { ok: true, raw: raw, revision: previous.revision + 1, error: null, code: null };
     } catch (error) { return { ok: false, raw: expectedRaw, error: error.message, code: error.code || 'INVALID' }; }
   }
-  return { MAX_BYTES: MAX_BYTES, MAX_BUNDLE_BYTES: MAX_BUNDLE_BYTES, MAX_COURSES: MAX_COURSES, STORAGE_KEY: STORAGE_KEY, parseCourse: parseCourse, initialProgress: initialProgress, setCurrent: setCurrent, completeLesson: completeLesson, exportBundle: exportBundle, importBundle: importBundle, loadCollection: loadCollection, saveCollection: saveCollection };
+  return { MAX_BYTES: MAX_BYTES, MAX_BUNDLE_BYTES: MAX_BUNDLE_BYTES, MAX_COURSES: MAX_COURSES, STORAGE_KEY: STORAGE_KEY, parseCourse: parseCourse, initialProgress: initialProgress, setCurrent: setCurrent, completeLesson: completeLesson, exportBundle: exportBundle, courseToMarkdown: courseToMarkdown, importBundle: importBundle, loadCollection: loadCollection, saveCollection: saveCollection };
 }));

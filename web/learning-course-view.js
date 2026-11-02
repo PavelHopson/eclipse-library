@@ -29,9 +29,10 @@
     }).catch(error => { loadError = error.message; status(error.message, true); return { ok: false }; });
     return queue;
   }
-  function download(entry) {
-    const raw = R.exportBundle(trusted(entry), entry.progress); const href = URL.createObjectURL(new Blob([raw], { type: 'application/json' })); const a = link('Курс', href); a.download = 'course-' + entry.id.slice(0, 12) + '.json'; document.body.append(a); a.click(); a.remove(); setTimeout(() => URL.revokeObjectURL(href), 1000);
+  function downloadFile(name, raw, type) {
+    const href = URL.createObjectURL(new Blob([raw], { type })); const a = link('Курс', href); a.download = name; document.body.append(a); a.click(); a.remove(); setTimeout(() => URL.revokeObjectURL(href), 1000);
   }
+  function download(entry) { downloadFile('course-' + entry.id.slice(0, 12) + '.json', R.exportBundle(trusted(entry), entry.progress), 'application/json'); }
   function close() { revision++; activeHash = ''; if (controller) controller.abort(); controller = null; }
   function shell(title) {
     host.replaceChildren(); host.append(link('← Практикумы', '#learn'), el('h1', title, 'learning-title'));
@@ -92,8 +93,28 @@
       return result;
     }).catch(error => { status(error.message, true); return { ok: false }; });
     return queue;
-  }  function tools(entry) {
-    const row = el('div', undefined, 'learning-tools'); const retry = button('Повторить сохранение', save); retry.className = 'course-save-retry'; retry.hidden = !dirty && !loadError; row.append(button('Скачать курс и прогресс', () => download(entry)), retry, button('Удалить курс', () => remove(entry))); return row;
+  }
+  function exportTools(entry) {
+    const panel = el('details', undefined, 'course-question learning-export'); panel.append(el('summary', 'Экспорт курса'));
+    panel.append(el('p', 'JSON — для переноса курса и прогресса. Markdown — для чтения и заметок.', 'learning-export-note'));
+    const actions = el('div', undefined, 'learning-tools');
+    const message = el('p', '', 'learning-export-note'); message.setAttribute('role', 'status'); message.setAttribute('aria-live', 'polite');
+    const notify = (text, error = false) => { message.textContent = text; message.classList.toggle('is-error', error); };
+    const copy = button('Скопировать Markdown', async () => {
+      const token = revision; copy.disabled = true; notify('Копирую…');
+      try {
+        if (!window.navigator?.clipboard?.writeText) throw new Error('Clipboard unavailable');
+        await window.navigator.clipboard.writeText(R.courseToMarkdown(trusted(entry)));
+        if (token === revision && activeHash && host.contains(panel)) notify('Markdown скопирован.');
+      } catch (_) { if (token === revision && activeHash && host.contains(panel)) notify('Не удалось скопировать. Скачайте курс .md.', true); }
+      finally { copy.disabled = false; }
+    });
+    actions.append(button('Скачать курс и прогресс', () => { try { download(entry); } catch (error) { notify(error.message, true); } }), button('Скачать курс .md', () => {
+      try { downloadFile('course-' + entry.id.slice(0, 12) + '.md', R.courseToMarkdown(trusted(entry)), 'text/markdown;charset=utf-8'); } catch (error) { notify(error.message, true); }
+    }), copy); panel.append(actions, message); return panel;
+  }
+  function tools(entry) {
+    const row = el('div', undefined, 'learning-tools'); const retry = button('Повторить сохранение', save); retry.className = 'course-save-retry'; retry.hidden = !dirty && !loadError; row.append(exportTools(entry), retry, button('Удалить курс', () => remove(entry))); return row;
   }
   function renderList() {
     shell('Мои курсы'); host.append(el('p', 'Готовые материалы без внешнего ИИ. Прогресс отмечает прочтение, а не подтверждённые знания.', 'learning-intro'));

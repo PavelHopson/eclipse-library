@@ -66,6 +66,41 @@
       preview.append(label, exportButton); notice('Материал проверен по формату. Проверьте содержание ниже.');
     }), preview); return details;
   }
+  function goalPlanner() {
+    const details = el('details', undefined, 'learning-deck'); details.append(el('summary', 'Подобрать практикум'));
+    details.append(el('p', 'Выберите навык и запишите, что хотите отработать. Цель и прежние ответы сохранятся вместе.'));
+    const form = el('form');
+    const goalLabel = el('label', undefined, 'learning-field'); goalLabel.append(el('span', 'Что хотите отработать?'));
+    const goal = el('textarea'); goal.name = 'practice-goal'; goal.rows = 3; goal.maxLength = R.MAX_GOAL; goal.required = true; goalLabel.append(goal, el('small', 'До 600 символов. Без паролей и личных данных.'));
+    const focusLabel = el('label', undefined, 'learning-field'); focusLabel.append(el('span', 'Направление'));
+    const focus = el('select'); focus.name = 'practice-focus';
+    [['accessible-form', 'Доступная форма'], ['support-analysis', 'Очередь поддержки'], ['other', 'Другое']].forEach(([value, title]) => { const option = el('option', title); option.value = value; focus.append(option); }); focusLabel.append(focus);
+    const submit = el('button', 'Открыть подходящий практикум'); submit.type = 'submit';
+    form.append(goalLabel, focusLabel, submit);
+    form.addEventListener('submit', event => {
+      event.preventDefault();
+      try {
+        const plan = R.planPracticum(goal.value, focus.value); const course = courses.find(c => c.id === plan.courseId);
+        const loaded = readProgress(course);
+        if (loaded.error) { notice(loaded.error + ' Откройте практикум и восстановите прогресс перед изменением цели.', true); return; }
+        const next = R.editGoal(course, loaded.state, plan.goal); const saved = R.saveProgress(course, next);
+        updatePending(course, saved.ok ? null : next);
+        location.hash = '#learn/' + course.id;
+      } catch (error) { notice(error.message, true); }
+    }); details.append(form); return details;
+  }
+  function goalAndReport(course) {
+    const details = el('details', undefined, 'learning-deck'); details.append(el('summary', 'Цель и отчёт'));
+    const label = el('label', undefined, 'learning-field'); label.append(el('span', 'Моя цель обучения'));
+    const goal = el('textarea'); goal.name = 'learning-goal'; goal.rows = 3; goal.maxLength = R.MAX_GOAL; goal.value = state.goal || ''; goal.disabled = blocked;
+    label.append(goal, el('small', 'Необязательно. Изменение цели сохраняет ответы и самооценку.'));
+    const report = el('details', undefined, 'course-question'); report.append(el('summary', 'Предпросмотр отчёта'));
+    const preview = el('pre', '', 'learning-body'); report.append(preview);
+    const refresh = () => { preview.textContent = blocked ? 'Сначала восстановите сохранённый прогресс, чтобы получить отчёт.' : R.practicumReport(course, state); };
+    goal.addEventListener('input', () => { try { state = R.editGoal(course, state, goal.value); persist(); refresh(); } catch (error) { notice(error.message, true); } });
+    const exportButton = button('Скачать отчёт .txt', () => { if (blocked) return; try { download(course.id + '-report.txt', R.practicumReport(course, state), 'text/plain;charset=utf-8'); } catch (error) { notice(error.message, true); } }); exportButton.disabled = blocked;
+    details.append(label, exportButton, report); refresh(); return { node: details, refresh };
+  }
   function overview() {
     host.append(el('h1', 'Практика', 'learning-title'), el('p', 'От инструкции к результату: выполните задание, сохраните доказательства и проверьте себя.', 'learning-intro'));
     host.append(link('Учебные игры: викторины и квесты →', '#learn/games'), el('br'), link('Мои курсы: импорт и чтение →', '#learn/courses'));
@@ -75,7 +110,7 @@
       const row = el('article'); row.append(el('span', String(course.lessons.length).padStart(2, '0') + (course.lessons.length === 1 ? ' урок · ' : course.lessons.length < 5 ? ' урока · ' : ' уроков · ') + count + ' завершено', 'learning-meta'), el('h2', course.title), el('p', course.summary), link(count ? 'Продолжить →' : 'Открыть практику →', '#learn/' + course.id));
       if (loaded.error) row.append(el('p', 'Есть ошибка сохранённых данных. Откройте курс для восстановления.', 'is-error'));
       list.append(row);
-    }); host.append(list, deckPanel());
+    }); host.append(goalPlanner(), list, deckPanel());
   }
   function courseView(course, lessonId) {
     activeCourse = course; const loaded = readProgress(course); state = loaded.state; blocked = !!loaded.error;
@@ -92,6 +127,9 @@
       if (!window.confirm('Удалить ответы и прогресс этого курса в этом браузере? Сначала можно скачать копию.')) return;
       const saved = R.saveProgress(course, R.emptyProgress(course)); if (!saved.ok) { notice(saved.error, true); return; } updatePending(course, null); open(location.hash); notice('Прогресс сброшен');
     })); host.append(tools);
+    const reporting = R.supportsGoal(course) ? goalAndReport(course) : null;
+    const refreshReport = () => { if (reporting) reporting.refresh(); };
+    if (reporting) host.append(reporting.node);
     const layout = el('div', undefined, 'learning-layout'); const nav = el('nav', undefined, 'learning-outline'); nav.setAttribute('aria-label', 'Уроки курса');
     course.lessons.forEach((l, index) => { const a = link(String(index + 1).padStart(2, '0') + '  ' + l.title + (state.lessons[l.id].completed ? ' · выполнено' : ''), '#learn/' + course.id + '/' + l.id); if (l.id === lesson.id) a.setAttribute('aria-current', 'step'); nav.append(a); });
     const article = el('article', undefined, 'learning-lesson'); article.append(el('span', 'УРОК ' + (course.lessons.indexOf(lesson) + 1) + ' / ' + course.lessons.length, 'learning-meta'), el('h2', lesson.title), el('p', lesson.body, 'learning-body'), el('h3', 'Задание'), el('p', lesson.task, 'learning-body'));
@@ -102,15 +140,15 @@
       const label = el('label', undefined, 'learning-field'); label.append(el('span', field.label));
       const input = el('textarea'); input.name = field.id; input.rows = 5; input.maxLength = R.MAX_ANSWER; input.value = answer.answers[field.id] || ''; input.disabled = blocked;
       const hint = el('small', 'Минимум ' + field.minLength + ' символов. Без паролей и личных данных.'); hint.id = 'learn-hint-' + field.id; input.setAttribute('aria-describedby', hint.id);
-      input.addEventListener('input', () => { state = R.editAnswer(course, state, lesson.id, field.id, input.value); review.hidden = true; review.querySelectorAll('input').forEach(c => { c.checked = false; }); errors.replaceChildren(); persist(); });
+      input.addEventListener('input', () => { state = R.editAnswer(course, state, lesson.id, field.id, input.value); review.hidden = true; review.querySelectorAll('input').forEach(c => { c.checked = false; }); errors.replaceChildren(); persist(); refreshReport(); });
       label.append(input, hint); form.append(label);
     });
     const submit = el('button', 'Сохранить и открыть разбор'); submit.type = 'submit'; submit.disabled = blocked; form.append(errors, submit);
     form.addEventListener('submit', event => { event.preventDefault(); errors.replaceChildren(); const result = R.validateLesson(lesson, state.lessons[lesson.id]); if (!result.ok) { result.errors.forEach(e => errors.append(el('p', e))); errors.tabIndex = -1; errors.focus(); return; } if (!persist()) return; review.hidden = false; review.tabIndex = -1; review.focus(); });
     review.append(el('h3', 'Разбор'), el('p', lesson.debrief, 'learning-body'), el('h3', 'Самопроверка'), el('p', 'Это ваша оценка по критериям, а не проверка преподавателя или ИИ.'));
     const checks = [];
-    lesson.criteria.forEach((criterion, index) => { const label = el('label', undefined, 'learning-check'); const check = el('input'); check.type = 'checkbox'; check.checked = answer.assessment.includes(index); check.disabled = blocked; checks.push(check); check.addEventListener('change', () => { state = R.setAssessment(course, state, lesson.id, checks.flatMap((c, i) => c.checked ? [i] : [])); persist(); }); label.append(check, el('span', criterion)); review.append(label); });
-    review.append(el('h3', 'Применение'), el('p', lesson.transfer, 'learning-body'), button('Завершить урок', () => { try { state = R.completeLesson(course, state, lesson.id); if (!persist()) return; const next = course.lessons[course.lessons.indexOf(lesson) + 1]; if (next) location.hash = '#learn/' + course.id + '/' + next.id; else { open(location.hash); notice('Практикум завершён по вашей самооценке. Прогресс можно скачать.'); } } catch (e) { notice(e.message, true); } }));
+    lesson.criteria.forEach((criterion, index) => { const label = el('label', undefined, 'learning-check'); const check = el('input'); check.type = 'checkbox'; check.checked = answer.assessment.includes(index); check.disabled = blocked; checks.push(check); check.addEventListener('change', () => { state = R.setAssessment(course, state, lesson.id, checks.flatMap((c, i) => c.checked ? [i] : [])); persist(); refreshReport(); }); label.append(check, el('span', criterion)); review.append(label); });
+    review.append(el('h3', 'Применение'), el('p', lesson.transfer, 'learning-body'), button('Завершить урок', () => { try { state = R.completeLesson(course, state, lesson.id); refreshReport(); if (!persist()) return; const next = course.lessons[course.lessons.indexOf(lesson) + 1]; if (next) location.hash = '#learn/' + course.id + '/' + next.id; else { open(location.hash); notice('Практикум завершён по вашей самооценке. Прогресс можно скачать.'); } } catch (e) { notice(e.message, true); } }));
     article.append(form, review); layout.append(nav, article); host.append(layout);
     if (blocked) notice(loaded.error + ' Импортируйте копию или сбросьте данные. Исходная запись не изменена.', true);
   }
