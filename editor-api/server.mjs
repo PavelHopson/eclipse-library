@@ -96,7 +96,7 @@ async function handle(req, res) {
   }
   if (!path.startsWith('/api/editor/prompts')) return json(res, 404, { error: 'not_found' });
   const account = await requireEditor(req, res); if (!account) return;
-  if (path === '/api/editor/prompts' && req.method === 'GET') { const { rows } = await pool.query('select id,title,project,description,prompt,format,image_path,image_mime,status,updated_at from image_prompt_examples order by updated_at desc'); return json(res, 200, { examples: rows.map((row) => ({ ...row, imageUrl: row.image_path ? `/editor-api/api/public/image-examples/${encodeURIComponent(row.id)}/image` : null })) }); }
+  if (path === '/api/editor/prompts' && req.method === 'GET') { const { rows } = await pool.query('select id,title,project,description,prompt,format,image_path,image_mime,status,updated_at from image_prompt_examples order by updated_at desc'); return json(res, 200, { examples: rows.map((row) => ({ ...row, imageUrl: row.image_path ? `/editor-api/api/editor/prompts/${encodeURIComponent(row.id)}/image` : null })) }); }
   if (path === '/api/editor/prompts' && req.method === 'POST') {
     const body = await readJson(req); const required = ['id','title','project','description','prompt','format'];
     if (required.some((key) => typeof body[key] !== 'string' || !body[key].trim()) || !['draft','published'].includes(body.status || 'draft')) return json(res, 400, { error: 'invalid_prompt' });
@@ -104,6 +104,11 @@ async function handle(req, res) {
     emit('prompt.changed', rows[0]); return json(res, 201, { example: rows[0] });
   }
   const id = path.split('/').filter(Boolean).at(-1);
+  if (id && path.endsWith('/image') && req.method === 'GET') {
+    const promptId = path.split('/').filter(Boolean).at(-2); const { rows } = await pool.query('select image_path,image_mime from image_prompt_examples where id = $1', [promptId]);
+    if (!rows[0]?.image_path) return json(res, 404, { error: 'image_not_found' });
+    try { const body = await fs.readFile(rows[0].image_path); res.writeHead(200, { 'content-type': rows[0].image_mime, 'cache-control': 'private, max-age=60' }); return res.end(body); } catch { return json(res, 404, { error: 'image_not_found' }); }
+  }
   if (id && path.endsWith('/image') && req.method === 'POST') {
     const promptId = path.split('/').filter(Boolean).at(-2); const body = await readJson(req, 8 * 1024 * 1024);
     const match = String(body.dataUrl || '').match(/^data:(image\/(?:png|jpeg|webp|gif));base64,([A-Za-z0-9+/=]+)$/);
