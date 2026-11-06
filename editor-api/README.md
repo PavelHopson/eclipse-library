@@ -18,3 +18,4 @@ DATABASE_URL=postgres://... EDITOR_EMAIL=editor@example.com EDITOR_PASSWORD='set
 - `GET/POST /api/editor/prompts`, `PATCH/DELETE /api/editor/prompts/:id`;
 - `GET /api/editor/events` — SSE для realtime-обновлений.
 - `POST /api/editor/prompts/:id/image` — загрузить PNG/JPG/WebP/GIF до 6 МБ как пример изображения.
+- `DELETE /api/editor/prompts/:id/image` — удалить только пример изображения.

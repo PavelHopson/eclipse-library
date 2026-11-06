@@ -121,7 +121,17 @@ async function handle(req, res) {
     const { rows } = await pool.query(`update image_prompt_examples set ${sets.join(', ')}, updated_by = $${values.length - 1}, updated_at = now() where id = $${values.length} returning id,title,project,description,prompt,format,status,updated_at`, values);
     if (!rows[0]) return json(res, 404, { error: 'prompt_not_found' }); emit('prompt.changed', rows[0]); return json(res, 200, { example: rows[0] });
   }
-  if (id && req.method === 'DELETE') { const { rowCount } = await pool.query('delete from image_prompt_examples where id = $1', [id]); if (!rowCount) return json(res, 404, { error: 'prompt_not_found' }); emit('prompt.deleted', { id }); return json(res, 200, { ok: true }); }
+  if (id && path.endsWith('/image') && req.method === 'DELETE') {
+    const promptId = path.split('/').filter(Boolean).at(-2); const existing = await pool.query('select image_path from image_prompt_examples where id = $1', [promptId]);
+    if (!existing.rows[0]) return json(res, 404, { error: 'prompt_not_found' });
+    await pool.query('update image_prompt_examples set image_path = null, image_mime = null, updated_at = now(), updated_by = $1 where id = $2', [account.id, promptId]);
+    if (existing.rows[0].image_path) await fs.rm(existing.rows[0].image_path, { force: true }); emit('prompt.changed', { id: promptId, imageUrl: null }); return json(res, 200, { ok: true });
+  }
+  if (id && req.method === 'DELETE') {
+    const { rows } = await pool.query('delete from image_prompt_examples where id = $1 returning image_path', [id]);
+    if (!rows[0]) return json(res, 404, { error: 'prompt_not_found' });
+    if (rows[0].image_path) await fs.rm(rows[0].image_path, { force: true }); emit('prompt.deleted', { id }); return json(res, 200, { ok: true });
+  }
   return json(res, 405, { error: 'method_not_allowed' });
 }
 
