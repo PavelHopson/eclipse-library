@@ -17,7 +17,7 @@
     </section>
     <section id="editor-view" class="editor-panel" hidden>
       <div class="editor-toolbar"><div><p class="eyebrow">IMAGE PROMPTS</p><h1>Примеры проектов</h1></div><span id="connection" class="editor-status">Подключение…</span></div>
-      <form id="prompt-form" class="editor-form prompt-create-form"><label class="upload-dropzone"><input name="image" type="file" accept="image/png,image/jpeg,image/webp,image/gif" required><span class="upload-dropzone__icon">＋</span><strong>Загрузить изображение</strong><small>PNG, JPG или WebP · до 6 МБ</small></label><label class="prompt-field"><span>Промпт для генерации</span><textarea name="prompt" placeholder="Например: кинематографичный портрет в мягком боковом свете, тёмный фон, формат 16:9…" required></textarea></label><button type="submit">Сохранить пример</button><p id="save-error" class="editor-error" role="alert"></p></form>
+      <form id="prompt-form" class="editor-form prompt-create-form"><label id="upload-dropzone" class="upload-dropzone"><input id="image-file" name="image" type="file" accept="image/png,image/jpeg,image/webp,image/gif" required><span class="upload-dropzone__icon">＋</span><strong id="upload-label">Загрузить изображение</strong><small id="upload-hint">Перетащите файл сюда или выберите его · до 6 МБ</small></label><label class="prompt-field"><span>Промпт для генерации</span><textarea name="prompt" placeholder="Например: кинематографичный портрет в мягком боковом свете, тёмный фон, формат 16:9…" required></textarea></label><button type="submit">Сохранить пример</button><p id="save-error" class="editor-error" role="alert"></p></form>
       <div id="prompt-list" class="editor-list" aria-live="polite"></div>
     </section>
   </main>
