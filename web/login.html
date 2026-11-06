@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Вход редактора — Eclipse Library</title>
+  <link rel="stylesheet" href="library.css">
+  <link rel="stylesheet" href="editor.css">
+</head>
+<body>
+  <main class="editor-page login-page" data-editor-api="/editor-api">
+    <header class="editor-header"><a href="/">Eclipse Library</a><span>Закрытая зона</span></header>
+    <section class="editor-panel login-panel">
+      <p class="eyebrow">LIBRARY EDITOR</p>
+      <h1>Вход редактора</h1>
+      <p class="login-lead">Управляйте примерами изображений, промптами и публикацией из одной панели.</p>
+      <form id="login-form" class="editor-form" autocomplete="on">
+        <label>Email<input name="email" type="email" autocomplete="username" placeholder="editor@eclipse-forge.ru" required></label>
+        <label>Пароль<input name="password" type="password" autocomplete="current-password" required minlength="12"></label>
+        <button type="submit">Войти в админку</button>
+        <p id="login-error" class="editor-error" role="alert"></p>
+      </form>
+      <p class="login-back"><a href="/images.html">Вернуться к промптам</a></p>
+    </section>
+  </main>
+  <script type="module" src="login.mjs"></script>
+</body>
+</html>
