@@ -159,8 +159,12 @@ if (typeof document !== 'undefined') {
         else media.append(el('span', 'Пример изображения пока не загружен', 'image-project-example__placeholder'));
         const body = el('div', undefined, 'image-project-example__body');
         body.append(head, el('h3', example.title), el('p', example.description || example.check || '')); 
+        const promptDetails = el('details', undefined, 'image-project-example__prompt-details');
+        const promptSummary = el('summary', undefined, 'image-project-example__prompt-summary');
+        promptSummary.append(el('span', 'Открыть полный промпт'), el('span', `${example.prompt.length} знаков`, 'image-project-example__prompt-size'));
         const prompt = el('pre', example.prompt, 'image-project-example__prompt');
-        body.append(prompt);
+        promptDetails.append(promptSummary, prompt);
+        body.append(promptDetails);
         const note = el('p', undefined, 'image-project-example__check');
         note.append(el('strong', 'Проверка: '), document.createTextNode(example.check));
         body.append(note, copyButton('Скопировать промпт', example.prompt, `Копировать промпт: ${example.project}`));
