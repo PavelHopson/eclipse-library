@@ -8,8 +8,8 @@
   <link rel="icon" type="image/svg+xml" href="assets/brand/eclipse-library-favicon.svg">
   <link rel="stylesheet" href="styles.css?v=30">
   <link rel="stylesheet" href="library-v2.css?v=1">
-  <link rel="stylesheet" href="image-prompts.css?v=1">
-  <script type="module" src="image-prompts.mjs?v=1"></script>
+  <link rel="stylesheet" href="image-prompts.css?v=2">
+  <script type="module" src="image-prompts.mjs?v=2"></script>
 </head>
 <body class="image-codebook" data-visual-profile="knowledge-bento">
   <a class="skip" href="#codebook">Перейти к справочнику</a>
@@ -63,5 +63,9 @@
   </main>
   <p id="copy-status" class="image-copy-status" role="status" aria-live="polite"></p>
   <dialog id="copy-dialog" aria-labelledby="copy-title"><h2 id="copy-title">Скопируйте вручную</h2><p>Браузер не разрешил запись в буфер. Текст ниже можно выделить и скопировать.</p><label for="copy-text">Текст для копирования</label><textarea id="copy-text" rows="7" readonly></textarea><form method="dialog"><button class="btn" type="submit">Закрыть</button></form></dialog>
+  <dialog id="image-lightbox" class="image-lightbox" aria-label="Полноразмерное изображение">
+    <button id="image-lightbox-close" class="image-lightbox__close" type="button" aria-label="Закрыть просмотр">×</button>
+    <img id="image-lightbox-preview" alt="">
+  </dialog>
 </body>
 </html>

@@ -41,6 +41,8 @@ if (typeof document !== 'undefined') {
   let projectExamples;
   let messageTimer;
   let copyTrigger;
+  const lightbox = $('image-lightbox');
+  const lightboxPreview = $('image-lightbox-preview');
   const el = (tag, text, className) => {
     const node = document.createElement(tag);
     if (text !== undefined) node.textContent = text;
@@ -65,6 +67,9 @@ if (typeof document !== 'undefined') {
     }
   }
   $('copy-dialog').addEventListener('close', () => copyTrigger?.focus());
+  $('image-lightbox-close').addEventListener('click', () => lightbox.close());
+  lightbox.addEventListener('click', event => { if (event.target === lightbox) lightbox.close(); });
+  lightbox.addEventListener('cancel', event => { event.preventDefault(); lightbox.close(); });
   function copyButton(label, text, accessibleLabel) {
     const button = el('button', label, 'btn');
     button.type = 'button';
@@ -150,7 +155,7 @@ if (typeof document !== 'undefined') {
         const head = el('div', undefined, 'image-project-example__head');
         head.append(el('span', example.project, 'image-project-example__project'), el('span', example.format, 'image-project-example__format'));
         const media = el('div', undefined, 'image-project-example__media');
-        if (example.imageUrl) { const imageLink = el('a', undefined, 'image-project-example__image-link'); imageLink.href = example.imageUrl; imageLink.target = '_blank'; imageLink.rel = 'noopener'; imageLink.title = 'Открыть изображение в полном размере'; const image = el('img', undefined, 'image-project-example__image'); image.src = example.imageUrl; image.alt = `Пример изображения: ${example.title}. Нажмите, чтобы открыть полный размер`; image.loading = 'lazy'; imageLink.append(image); media.append(imageLink); }
+        if (example.imageUrl) { const imageLink = el('a', undefined, 'image-project-example__image-link'); imageLink.href = example.imageUrl; imageLink.title = 'Открыть изображение в полном размере'; const image = el('img', undefined, 'image-project-example__image'); image.src = example.imageUrl; image.alt = `Пример изображения: ${example.title}. Нажмите, чтобы открыть полный размер`; image.loading = 'lazy'; imageLink.append(image); imageLink.addEventListener('click', event => { event.preventDefault(); lightboxPreview.src = example.imageUrl; lightboxPreview.alt = image.alt; lightbox.showModal(); }); media.append(imageLink); }
         else media.append(el('span', 'Пример изображения пока не загружен', 'image-project-example__placeholder'));
         const body = el('div', undefined, 'image-project-example__body');
         body.append(head, el('h3', example.title), el('p', example.description || example.check || '')); 
