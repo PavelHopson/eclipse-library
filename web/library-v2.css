@@ -949,5 +949,46 @@ body.learning-mode .to-top { display: none; }
 .learning-export .learning-tools { margin: 12px 0; }
 .learning-outline h3 { font-size: 12px; line-height: 1.6; color: var(--library-muted); margin: 16px 12px 8px; overflow-wrap: anywhere; }
 .learning-courses article > .learning-meta { display: block; margin-bottom: 14px; }
+  .learning-progress { height: 6px; margin: 18px 0 8px; overflow: hidden; background: var(--library-panel-2); border: 1px solid var(--library-line); border-radius: 999px; }
+  .learning-progress span { display: block; height: 100%; background: var(--library-accent); border-radius: inherit; transition: width 180ms ease-out; }
+  .learning-progress__label { display: block; margin-bottom: 14px; color: var(--library-muted); font: 12px/1.5 'JetBrains Mono', monospace; }
+  @media (prefers-reduced-motion: reduce) { .learning-progress span { transition: none; } }
 .course-outline summary { min-height: 44px; padding: 10px 0; box-sizing: border-box; cursor: pointer; color: var(--library-muted); font-size: 13px; line-height: 1.6; }
 #learningView .course-save-retry[hidden] { display: none; }
+
+/* Shared scroll surfaces: quiet, visible and consistent on desktop and touch screens. */
+html {
+  scrollbar-width: thin;
+  scrollbar-color: var(--library-line-strong) var(--library-bg);
+}
+* {
+  scrollbar-color: var(--library-line-strong) transparent;
+  scrollbar-width: thin;
+}
+*::-webkit-scrollbar { width: 10px; height: 10px; }
+*::-webkit-scrollbar-track { background: rgba(13, 17, 24, .72); }
+*::-webkit-scrollbar-thumb {
+  min-height: 28px;
+  border: 2px solid transparent;
+  border-radius: 999px;
+  background: var(--library-line-strong);
+  background-clip: padding-box;
+}
+*::-webkit-scrollbar-thumb:hover { background: var(--library-accent); background-clip: padding-box; }
+*::-webkit-scrollbar-corner { background: var(--library-bg); }
+.hero-task-shortcuts,
+.guide-directory-filters {
+  scrollbar-width: thin;
+  scrollbar-color: var(--library-line-strong) var(--library-panel);
+}
+.hero-task-shortcuts::-webkit-scrollbar,
+.guide-directory-filters::-webkit-scrollbar { display: block; height: 8px; }
+
+@media (max-width: 680px) {
+  html, body { max-width: 100%; overflow-x: clip; }
+  .layout, .topbar-inner, #learningView { min-width: 0; }
+  .hero-task-shortcuts,
+  .guide-directory-filters { padding-bottom: 8px; }
+  .learning-layout { min-width: 0; }
+  .learning-outline { min-width: 0; overflow-x: auto; }
+}

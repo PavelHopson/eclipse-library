@@ -39,6 +39,19 @@ test('overview lists every real course and approved deck import', () => {
   content.courses.forEach(course => assert.ok(anchors.some(a => a.href === '#learn/' + course.id)));
   assert.ok(host.querySelectorAll('summary').some(n => n.textContent.includes('Импорт')));
 });
+test('overview exposes accessible course progress without opening the course', () => {
+  const { api, host } = setup(); api.open('#learn');
+  const meters = host.querySelectorAll('.learning-progress');
+  assert.equal(meters.length, content.courses.length);
+  meters.forEach((meter, index) => {
+    assert.equal(meter.attrs.role, 'progressbar');
+    assert.equal(meter.attrs['aria-valuemin'], '0');
+    assert.equal(meter.attrs['aria-valuemax'], String(content.courses[index].lessons.length));
+    assert.equal(meter.attrs['aria-valuenow'], '0');
+    assert.equal(meter.attrs['aria-label'], 'Прогресс курса: 0%');
+  });
+  assert.equal(host.querySelectorAll('.learning-progress__label').every(label => label.textContent === '0% курса'), true);
+});
 test('answer is saved, debrief opens, self-assessment completes the lesson', () => {
   const { api, host, store } = setup(); api.open('#learn/practice-form');
   const input = host.querySelector('form').querySelector('textarea'); input.value = 'Проверены поля формы, ошибки, клавиатура и подписи. Результат записан в отчёт, исправлены обнаруженные проблемы.';

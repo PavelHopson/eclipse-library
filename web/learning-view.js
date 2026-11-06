@@ -101,13 +101,21 @@
     const exportButton = button('Скачать отчёт .txt', () => { if (blocked) return; try { download(course.id + '-report.txt', R.practicumReport(course, state), 'text/plain;charset=utf-8'); } catch (error) { notice(error.message, true); } }); exportButton.disabled = blocked;
     details.append(label, exportButton, report); refresh(); return { node: details, refresh };
   }
+  function progressSummary(course, state) {
+    const total = course.lessons.length;
+    const completed = Object.values(state.lessons).filter(lesson => lesson.completed).length;
+    return { total, completed, percent: total ? Math.round((completed / total) * 100) : 0 };
+  }
   function overview() {
     host.append(el('h1', 'Практика', 'learning-title'), el('p', 'От инструкции к результату: выполните задание, сохраните доказательства и проверьте себя.', 'learning-intro'));
     host.append(link('Учебные игры: викторины и квесты →', '#learn/games'), el('br'), link('Мои курсы: импорт и чтение →', '#learn/courses'));
     const list = el('div', undefined, 'learning-courses');
     courses.forEach(course => {
-      const loaded = readProgress(course); const count = Object.values(loaded.state.lessons).filter(l => l.completed).length;
-      const row = el('article'); row.append(el('span', String(course.lessons.length).padStart(2, '0') + (course.lessons.length === 1 ? ' урок · ' : course.lessons.length < 5 ? ' урока · ' : ' уроков · ') + count + ' завершено', 'learning-meta'), el('h2', course.title), el('p', course.summary), link(count ? 'Продолжить →' : 'Открыть практику →', '#learn/' + course.id));
+      const loaded = readProgress(course); const progress = progressSummary(course, loaded.state);
+      const row = el('article');
+      row.append(el('span', String(progress.total).padStart(2, '0') + (progress.total === 1 ? ' урок · ' : progress.total < 5 ? ' урока · ' : ' уроков · ') + progress.completed + ' завершено', 'learning-meta'), el('h2', course.title), el('p', course.summary));
+      const meter = el('div', undefined, 'learning-progress'); meter.setAttribute('role', 'progressbar'); meter.setAttribute('aria-valuemin', '0'); meter.setAttribute('aria-valuemax', String(progress.total)); meter.setAttribute('aria-valuenow', String(progress.completed)); meter.setAttribute('aria-label', 'Прогресс курса: ' + progress.percent + '%');
+      const fill = el('span'); fill.setAttribute('style', 'width:' + progress.percent + '%'); meter.append(fill); row.append(meter, el('span', progress.percent + '% курса', 'learning-progress__label'), link(progress.completed ? 'Продолжить →' : 'Открыть практику →', '#learn/' + course.id));
       if (loaded.error) row.append(el('p', 'Есть ошибка сохранённых данных. Откройте курс для восстановления.', 'is-error'));
       list.append(row);
     }); host.append(goalPlanner(), list, deckPanel());
