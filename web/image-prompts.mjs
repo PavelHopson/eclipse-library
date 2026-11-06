@@ -150,7 +150,7 @@ if (typeof document !== 'undefined') {
         const head = el('div', undefined, 'image-project-example__head');
         head.append(el('span', example.project, 'image-project-example__project'), el('span', example.format, 'image-project-example__format'));
         const media = el('div', undefined, 'image-project-example__media');
-        if (example.imageUrl) { const image = el('img', undefined, 'image-project-example__image'); image.src = example.imageUrl; image.alt = `Пример изображения: ${example.title}`; image.loading = 'lazy'; media.append(image); }
+        if (example.imageUrl) { const imageLink = el('a', undefined, 'image-project-example__image-link'); imageLink.href = example.imageUrl; imageLink.target = '_blank'; imageLink.rel = 'noopener'; imageLink.title = 'Открыть изображение в полном размере'; const image = el('img', undefined, 'image-project-example__image'); image.src = example.imageUrl; image.alt = `Пример изображения: ${example.title}. Нажмите, чтобы открыть полный размер`; image.loading = 'lazy'; imageLink.append(image); media.append(imageLink); }
         else media.append(el('span', 'Пример изображения пока не загружен', 'image-project-example__placeholder'));
         const body = el('div', undefined, 'image-project-example__body');
         body.append(head, el('h3', example.title), el('p', example.description || example.check || '')); 
@@ -176,7 +176,7 @@ if (typeof document !== 'undefined') {
   search.addEventListener('input', () => render());
   group.addEventListener('change', () => render());
   $('reset-filters').addEventListener('click', () => { search.value = ''; group.value = ''; render(); search.focus(); });
-  $('retry-load').addEventListener('click', load);
+  $('retry-load').addEventListener('click', async (event) => { event.preventDefault(); const scrollY = window.scrollY; await load(); window.scrollTo({ top: scrollY, left: 0, behavior: 'instant' }); });
   window.addEventListener('popstate', () => { if (data) { applyUrl(); render(false); } });
   load();
 }

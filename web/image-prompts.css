@@ -46,7 +46,8 @@
 .image-project-examples { display: grid; gap: 18px; margin-top: 24px; }
 .image-project-example { min-width: 0; display: grid; grid-template-columns: minmax(260px, .9fr) minmax(0, 1.1fr); gap: 0; overflow: hidden; border: 1px solid var(--library-line); border-radius: var(--r-card); background: linear-gradient(140deg, rgba(17,23,34,.96), rgba(8,11,16,.98)); }
 .image-project-example__media { min-height: 280px; background: #080b10; border-right: 1px solid var(--library-line); display: flex; align-items: flex-start; justify-content: center; overflow: hidden; }
-.image-project-example__image { display: block; width: 100%; height: auto; min-height: 0; object-fit: contain; }
+.image-project-example__image-link { display: block; width: 100%; line-height: 0; cursor: zoom-in; }
+.image-project-example__image { display: block; width: 100% !important; height: auto !important; min-height: 0 !important; max-height: none !important; object-fit: contain !important; }
 .image-project-example__placeholder { padding: 24px; color: var(--library-dim); font: 700 11px/1.5 var(--mono); text-align: center; text-transform: uppercase; letter-spacing: .1em; }
 .image-project-example__body { min-width: 0; padding: 22px; }
 .image-project-example__head { display: flex; justify-content: space-between; gap: 12px; align-items: baseline; margin-bottom: 16px; }
