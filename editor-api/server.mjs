@@ -1,5 +1,7 @@
 import http from 'node:http';
 import crypto from 'node:crypto';
+import fs from 'node:fs/promises';
+import pathModule from 'node:path';
 import { Pool } from 'pg';
 import { clearSessionCookie, createSessionToken, hashPassword, hashSessionToken, normalizeEmail, parseCookie, sessionCookie, verifyPassword } from './auth.mjs';
 import { json, readJson, requestPath, setCors } from './http.mjs';
@@ -9,6 +11,7 @@ const allowedOrigin = process.env.ALLOWED_ORIGIN || 'https://library.eclipse-for
 const databaseUrl = process.env.DATABASE_URL;
 const editorEmail = normalizeEmail(process.env.EDITOR_EMAIL);
 const editorPassword = process.env.EDITOR_PASSWORD;
+const imageDir = process.env.IMAGE_DIR || '/var/lib/eclipse-library-editor/images';
 if (!databaseUrl || !editorEmail || !editorPassword) throw new Error('DATABASE_URL, EDITOR_EMAIL and EDITOR_PASSWORD are required');
 
 const pool = new Pool({ connectionString: databaseUrl, max: 5, idleTimeoutMillis: 30_000, ssl: process.env.DATABASE_SSL === 'true' ? { rejectUnauthorized: true } : undefined });
@@ -17,6 +20,7 @@ const sessions = new Map();
 const rate = new Map();
 
 async function bootstrap() {
+  await fs.mkdir(imageDir, { recursive: true });
   const client = await pool.connect();
   try {
     await client.query('begin');
@@ -61,8 +65,14 @@ async function handle(req, res) {
   const path = requestPath(req);
   if (path === '/healthz' && req.method === 'GET') return json(res, 200, { ok: true });
   if (path === '/api/public/image-examples' && req.method === 'GET') {
-    const { rows } = await pool.query('select id,title,project,description,prompt,format,updated_at from image_prompt_examples where status = $1 order by updated_at desc', ['published']);
-    return json(res, 200, { schemaVersion: 1, examples: rows.map((row) => ({ ...row, check: row.description })) });
+    const { rows } = await pool.query('select id,title,project,description,prompt,format,image_path,updated_at from image_prompt_examples where status = $1 order by updated_at desc', ['published']);
+    return json(res, 200, { schemaVersion: 1, examples: rows.map((row) => ({ ...row, check: row.description, imageUrl: row.image_path ? `/editor-api/api/public/image-examples/${encodeURIComponent(row.id)}/image` : null })) });
+  }
+  const publicImageMatch = path.match(/^\/api\/public\/image-examples\/([^/]+)\/image$/);
+  if (publicImageMatch && req.method === 'GET') {
+    const { rows } = await pool.query('select image_path,image_mime from image_prompt_examples where id = $1 and status = $2', [decodeURIComponent(publicImageMatch[1]), 'published']);
+    if (!rows[0]?.image_path) return json(res, 404, { error: 'image_not_found' });
+    try { const body = await fs.readFile(rows[0].image_path); res.writeHead(200, { 'content-type': rows[0].image_mime, 'cache-control': 'public, max-age=300' }); return res.end(body); } catch { return json(res, 404, { error: 'image_not_found' }); }
   }
   if (path === '/api/editor/login' && req.method === 'POST') {
     if (!limited(`login:${req.socket.remoteAddress}`, 8)) return json(res, 429, { error: 'rate_limited' });
@@ -86,7 +96,7 @@ async function handle(req, res) {
   }
   if (!path.startsWith('/api/editor/prompts')) return json(res, 404, { error: 'not_found' });
   const account = await requireEditor(req, res); if (!account) return;
-  if (path === '/api/editor/prompts' && req.method === 'GET') { const { rows } = await pool.query('select id,title,project,description,prompt,format,status,updated_at from image_prompt_examples order by updated_at desc'); return json(res, 200, { examples: rows }); }
+  if (path === '/api/editor/prompts' && req.method === 'GET') { const { rows } = await pool.query('select id,title,project,description,prompt,format,image_path,image_mime,status,updated_at from image_prompt_examples order by updated_at desc'); return json(res, 200, { examples: rows.map((row) => ({ ...row, imageUrl: row.image_path ? `/editor-api/api/public/image-examples/${encodeURIComponent(row.id)}/image` : null })) }); }
   if (path === '/api/editor/prompts' && req.method === 'POST') {
     const body = await readJson(req); const required = ['id','title','project','description','prompt','format'];
     if (required.some((key) => typeof body[key] !== 'string' || !body[key].trim()) || !['draft','published'].includes(body.status || 'draft')) return json(res, 400, { error: 'invalid_prompt' });
@@ -94,6 +104,16 @@ async function handle(req, res) {
     emit('prompt.changed', rows[0]); return json(res, 201, { example: rows[0] });
   }
   const id = path.split('/').filter(Boolean).at(-1);
+  if (id && path.endsWith('/image') && req.method === 'POST') {
+    const promptId = path.split('/').filter(Boolean).at(-2); const body = await readJson(req, 8 * 1024 * 1024);
+    const match = String(body.dataUrl || '').match(/^data:(image\/(?:png|jpeg|webp|gif));base64,([A-Za-z0-9+/=]+)$/);
+    if (!match) return json(res, 400, { error: 'invalid_image' });
+    const buffer = Buffer.from(match[2], 'base64'); if (!buffer.length || buffer.length > 6 * 1024 * 1024) return json(res, 413, { error: 'image_too_large' });
+    const safeId = promptId.replace(/[^a-zA-Z0-9_-]/g, '_'); const ext = match[1].split('/')[1].replace('jpeg', 'jpg'); const filename = `${safeId}.${ext}`; const target = pathModule.join(imageDir, filename);
+    await fs.writeFile(target, buffer, { flag: 'w' });
+    const { rows } = await pool.query('update image_prompt_examples set image_path = $1, image_mime = $2, updated_at = now(), updated_by = $3 where id = $4 returning id,title,project,description,prompt,format,status,updated_at', [target, match[1], account.id, promptId]);
+    if (!rows[0]) return json(res, 404, { error: 'prompt_not_found' }); emit('prompt.changed', rows[0]); return json(res, 200, { ok: true, imageUrl: `/editor-api/api/public/image-examples/${encodeURIComponent(promptId)}/image` });
+  }
   if (id && req.method === 'PATCH') {
     const body = await readJson(req); const fields = ['title','project','description','prompt','format','status']; const values = []; const sets = [];
     for (const field of fields) if (body[field] !== undefined) { if (field === 'status' && !['draft','published'].includes(body[field])) return json(res, 400, { error: 'invalid_status' }); if (typeof body[field] !== 'string' || !body[field].trim()) return json(res, 400, { error: 'invalid_prompt' }); values.push(body[field].trim()); sets.push(`${field} = $${values.length}`); }

@@ -149,10 +149,17 @@ if (typeof document !== 'undefined') {
         const article = el('article', undefined, 'image-project-example');
         const head = el('div', undefined, 'image-project-example__head');
         head.append(el('span', example.project, 'image-project-example__project'), el('span', example.format, 'image-project-example__format'));
-        article.append(head, el('h3', example.title), el('p', example.prompt));
+        const media = el('div', undefined, 'image-project-example__media');
+        if (example.imageUrl) { const image = el('img', undefined, 'image-project-example__image'); image.src = example.imageUrl; image.alt = `Пример изображения: ${example.title}`; image.loading = 'lazy'; media.append(image); }
+        else media.append(el('span', 'Пример изображения пока не загружен', 'image-project-example__placeholder'));
+        const body = el('div', undefined, 'image-project-example__body');
+        body.append(head, el('h3', example.title), el('p', example.description || example.check || '')); 
+        const prompt = el('pre', example.prompt, 'image-project-example__prompt');
+        body.append(prompt);
         const note = el('p', undefined, 'image-project-example__check');
         note.append(el('strong', 'Проверка: '), document.createTextNode(example.check));
-        article.append(note, copyButton('Скопировать промпт', example.prompt, `Копировать промпт: ${example.project}`));
+        body.append(note, copyButton('Скопировать промпт', example.prompt, `Копировать промпт: ${example.project}`));
+        article.append(media, body);
         return article;
       }));
       $('source-details').replaceChildren(el('p', `${data.source.title} · ${data.source.author} · статья: ${data.source.publishedAt} · проверено: ${data.source.checkedAt}.`), el('p', data.source.verification), el('p', data.source.rights));
