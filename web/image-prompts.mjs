@@ -38,6 +38,7 @@ if (typeof document !== 'undefined') {
   const search = $('code-search');
   const group = $('code-group');
   let data;
+  let projectExamples;
   let messageTimer;
   let copyTrigger;
   const el = (tag, text, className) => {
@@ -121,6 +122,11 @@ if (typeof document !== 'undefined') {
       const response = await fetch('image-prompt-codes.json', { signal: controller.signal });
       if (!response.ok) throw new Error(`HTTP ${response.status}`);
       data = validateCodebook(await response.json());
+      const examplesResponse = await fetch('image-project-examples.json', { signal: controller.signal });
+      if (!examplesResponse.ok) throw new Error(`HTTP ${examplesResponse.status}`);
+      const examplesPayload = await examplesResponse.json();
+      if (examplesPayload.schemaVersion !== 1 || !Array.isArray(examplesPayload.examples) || examplesPayload.examples.length !== 6) throw new Error('Неверная структура примеров');
+      projectExamples = examplesPayload.examples;
       group.replaceChildren(new Option('Все группы', ''));
       data.groups.forEach(item => group.append(new Option(item.title, item.id)));
       [search, group, $('reset-filters')].forEach(node => { node.disabled = false; });
@@ -129,6 +135,17 @@ if (typeof document !== 'undefined') {
       $('recipe-list').replaceChildren(...data.recipes.map(recipe => {
         const article = el('article', undefined, 'image-recipe');
         article.append(el('h3', recipe.title), el('code', recipe.codes.join(' ')), el('p', recipe.prompt), copyButton('Скопировать рецепт', recipe.prompt, `Копировать рецепт: ${recipe.title}`));
+        return article;
+      }));
+      $('project-example-count').textContent = `${projectExamples.length} примеров`;
+      $('project-example-list').replaceChildren(...projectExamples.map(example => {
+        const article = el('article', undefined, 'image-project-example');
+        const head = el('div', undefined, 'image-project-example__head');
+        head.append(el('span', example.project, 'image-project-example__project'), el('span', example.format, 'image-project-example__format'));
+        article.append(head, el('h3', example.title), el('p', example.prompt));
+        const note = el('p', undefined, 'image-project-example__check');
+        note.append(el('strong', 'Проверка: '), document.createTextNode(example.check));
+        article.append(note, copyButton('Скопировать промпт', example.prompt, `Копировать промпт: ${example.project}`));
         return article;
       }));
       $('source-details').replaceChildren(el('p', `${data.source.title} · ${data.source.author} · статья: ${data.source.publishedAt} · проверено: ${data.source.checkedAt}.`), el('p', data.source.verification), el('p', data.source.rights));

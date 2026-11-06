@@ -1,0 +1,28 @@
+services:
+  library-editor-db:
+    image: postgres:16-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: library_editor
+      POSTGRES_USER: library_editor
+      POSTGRES_PASSWORD: change-me-in-server-secret-store
+    volumes:
+      - library-editor-db:/var/lib/postgresql/data
+      - ./schema.sql:/docker-entrypoint-initdb.d/001-schema.sql:ro
+
+  library-editor-api:
+    build: .
+    restart: unless-stopped
+    depends_on:
+      - library-editor-db
+    environment:
+      PORT: 8787
+      DATABASE_URL: postgres://library_editor:change-me-in-server-secret-store@library-editor-db:5432/library_editor
+      EDITOR_EMAIL: editor@example.com
+      EDITOR_PASSWORD: set-only-in-server-secret-store
+      ALLOWED_ORIGIN: https://library.eclipse-forge.ru
+    ports:
+      - "127.0.0.1:8787:8787"
+
+volumes:
+  library-editor-db:

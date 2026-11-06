@@ -73,6 +73,17 @@ test('five recipes use 2–4 existing codes and original Russian prompts', () =>
     assert.ok(recipe.prompt.length > 100);
   }
 });
+test('project examples cover the active Eclipse products with safe copyable prompts', async () => {
+  const examples = JSON.parse(await read('web/image-project-examples.json'));
+  assert.equal(examples.schemaVersion, 1);
+  assert.equal(examples.examples.length, 6);
+  assert.deepEqual(examples.examples.map(example => example.project), ['Eclipse DnD Forge', 'Eclipse Premium Rent', 'Eclipse Library', 'Eclipse Chat', 'Shotforge', 'Eclipse Media']);
+  for (const example of examples.examples) {
+    assert.match(example.prompt, /[А-Яа-яЁё]/);
+    assert.ok(example.prompt.length > 120);
+    assert.match(example.check, /[А-Яа-яЁё]/);
+  }
+});
 test('source, dates, canonical card, guide and both navigation entries exist', async () => {
   assert.equal(data.source.author, 'Abhijay Arora Vuyyuru');
   assert.equal(data.source.publishedAt, '2026-08-31');
@@ -89,6 +100,8 @@ test('source, dates, canonical card, guide and both navigation entries exist', a
   // Only these two local guide destinations are allowlisted; no broad URL rewrite.
   const app = await read('web/app.js');
   assert.ok(app.includes("if (u === '/images.html' || u === '/image-prompt-codes.json') return u;"));
+  assert.match(await read('web/images.html'), /id="project-examples"/);
+  assert.match(await read('web/image-prompts.mjs'), /image-project-examples\.json/);
 });
 test('UI uses safe DOM, shared styles, loading/retry, manual-copy fallback and reduced motion', async () => {
   const html = await read('web/images.html');

@@ -124,6 +124,10 @@ Production endpoints:
 
 Static exports предназначены для server-side или controlled consumers. Для browser-to-browser cross-origin чтения нужно отдельно подтвердить CORS configuration на production proxy.
 
+### Редактор Library
+
+Редакторская панель доступна по [`/editor.html`](web/editor.html). Она рассчитана на отдельный сервис [`editor-api/`](editor-api/): отдельный аккаунт, PostgreSQL и SSE-обновления. Статический сайт не хранит пароль, сессию или изменения в `localStorage`; продакшен-подключение API требует отдельного HTTPS reverse proxy и серверных секретов.
+
 ### Safety contract
 
 - Каталог никогда не устанавливает инструмент сам.
