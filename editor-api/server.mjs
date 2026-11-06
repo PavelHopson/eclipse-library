@@ -60,6 +60,10 @@ async function handle(req, res) {
   if (req.method === 'OPTIONS') { res.writeHead(204, { 'access-control-allow-methods': 'GET,POST,PATCH,DELETE,OPTIONS', 'access-control-allow-headers': 'content-type', 'access-control-max-age': '600' }); return res.end(); }
   const path = requestPath(req);
   if (path === '/healthz' && req.method === 'GET') return json(res, 200, { ok: true });
+  if (path === '/api/public/image-examples' && req.method === 'GET') {
+    const { rows } = await pool.query('select id,title,project,description,prompt,format,updated_at from image_prompt_examples where status = $1 order by updated_at desc', ['published']);
+    return json(res, 200, { schemaVersion: 1, examples: rows.map((row) => ({ ...row, check: row.description })) });
+  }
   if (path === '/api/editor/login' && req.method === 'POST') {
     if (!limited(`login:${req.socket.remoteAddress}`, 8)) return json(res, 429, { error: 'rate_limited' });
     const body = await readJson(req); const email = normalizeEmail(body.email);

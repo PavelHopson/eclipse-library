@@ -102,6 +102,7 @@ test('source, dates, canonical card, guide and both navigation entries exist', a
   assert.ok(app.includes("if (u === '/images.html' || u === '/image-prompt-codes.json') return u;"));
   assert.match(await read('web/images.html'), /id="project-examples"/);
   assert.match(await read('web/image-prompts.mjs'), /image-project-examples\.json/);
+  assert.match(await read('web/image-prompts.mjs'), /\/editor-api\/api\/public\/image-examples/);
 });
 test('UI uses safe DOM, shared styles, loading/retry, manual-copy fallback and reduced motion', async () => {
   const html = await read('web/images.html');

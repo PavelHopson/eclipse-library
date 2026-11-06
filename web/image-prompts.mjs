@@ -127,6 +127,13 @@ if (typeof document !== 'undefined') {
       const examplesPayload = await examplesResponse.json();
       if (examplesPayload.schemaVersion !== 1 || !Array.isArray(examplesPayload.examples) || examplesPayload.examples.length !== 6) throw new Error('Неверная структура примеров');
       projectExamples = examplesPayload.examples;
+      try {
+        const liveResponse = await fetch('/editor-api/api/public/image-examples', { signal: controller.signal });
+        if (liveResponse.ok) {
+          const livePayload = await liveResponse.json();
+          if (livePayload.schemaVersion === 1 && Array.isArray(livePayload.examples)) projectExamples = livePayload.examples;
+        }
+      } catch { /* статический набор остаётся резервом при недоступности API */ }
       group.replaceChildren(new Option('Все группы', ''));
       data.groups.forEach(item => group.append(new Option(item.title, item.id)));
       [search, group, $('reset-filters')].forEach(node => { node.disabled = false; });
