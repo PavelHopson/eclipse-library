@@ -24,7 +24,7 @@ create table if not exists image_prompt_examples (
   format text not null,
   image_path text,
   image_mime text,
-  status text not null default 'draft' check (status in ('draft', 'published')),
+  status text not null default 'draft' check (status in ('draft', 'published', 'archived')),
   updated_at timestamptz not null default now(),
   updated_by uuid not null references editor_accounts(id)
 );
@@ -33,3 +33,5 @@ create index if not exists editor_sessions_expiry_idx on editor_sessions (expire
 create index if not exists image_prompt_examples_status_idx on image_prompt_examples (status, updated_at desc);
 alter table image_prompt_examples add column if not exists image_path text;
 alter table image_prompt_examples add column if not exists image_mime text;
+alter table image_prompt_examples drop constraint if exists image_prompt_examples_status_check;
+alter table image_prompt_examples add constraint image_prompt_examples_status_check check (status in ('draft', 'published', 'archived'));

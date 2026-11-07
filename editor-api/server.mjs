@@ -99,7 +99,7 @@ async function handle(req, res) {
   if (path === '/api/editor/prompts' && req.method === 'GET') { const { rows } = await pool.query('select id,title,project,description,prompt,format,image_path,image_mime,status,updated_at from image_prompt_examples order by updated_at desc'); return json(res, 200, { examples: rows.map((row) => ({ ...row, imageUrl: row.image_path ? `/editor-api/api/editor/prompts/${encodeURIComponent(row.id)}/image` : null })) }); }
   if (path === '/api/editor/prompts' && req.method === 'POST') {
     const body = await readJson(req); const required = ['id','title','project','description','prompt','format'];
-    if (required.some((key) => typeof body[key] !== 'string' || !body[key].trim()) || !['draft','published'].includes(body.status || 'draft')) return json(res, 400, { error: 'invalid_prompt' });
+    if (required.some((key) => typeof body[key] !== 'string' || !body[key].trim()) || !['draft','published','archived'].includes(body.status || 'draft')) return json(res, 400, { error: 'invalid_prompt' });
     const { rows } = await pool.query(`insert into image_prompt_examples (id,title,project,description,prompt,format,status,updated_by) values ($1,$2,$3,$4,$5,$6,$7,$8) returning id,title,project,description,prompt,format,status,updated_at`, [body.id.trim(), body.title.trim(), body.project.trim(), body.description.trim(), body.prompt.trim(), body.format.trim(), body.status || 'draft', account.id]);
     emit('prompt.changed', rows[0]); return json(res, 201, { example: rows[0] });
   }
@@ -121,7 +121,7 @@ async function handle(req, res) {
   }
   if (id && req.method === 'PATCH') {
     const body = await readJson(req); const fields = ['title','project','description','prompt','format','status']; const values = []; const sets = [];
-    for (const field of fields) if (body[field] !== undefined) { if (field === 'status' && !['draft','published'].includes(body[field])) return json(res, 400, { error: 'invalid_status' }); if (typeof body[field] !== 'string' || !body[field].trim()) return json(res, 400, { error: 'invalid_prompt' }); values.push(body[field].trim()); sets.push(`${field} = $${values.length}`); }
+    for (const field of fields) if (body[field] !== undefined) { if (field === 'status' && !['draft','published','archived'].includes(body[field])) return json(res, 400, { error: 'invalid_status' }); if (typeof body[field] !== 'string' || !body[field].trim()) return json(res, 400, { error: 'invalid_prompt' }); values.push(body[field].trim()); sets.push(`${field} = $${values.length}`); }
     if (!sets.length) return json(res, 400, { error: 'no_changes' }); values.push(account.id, id);
     const { rows } = await pool.query(`update image_prompt_examples set ${sets.join(', ')}, updated_by = $${values.length - 1}, updated_at = now() where id = $${values.length} returning id,title,project,description,prompt,format,status,updated_at`, values);
     if (!rows[0]) return json(res, 404, { error: 'prompt_not_found' }); emit('prompt.changed', rows[0]); return json(res, 200, { example: rows[0] });
