@@ -59,7 +59,7 @@ test('grant encryption is authenticated and bound to its Library row',()=>{
 });
 test('provider outage preserves session for retry; definitive revocation removes it',async()=>{
  let deleted=false,fail=true;
- const row={id:'account',session_id:'s',identity_link_id:'l',issuer,subject:'editor-1',expires_at:new Date(Date.now()+3600000)};
+ const row={id:'account',role:'editor',session_id:'s',identity_link_id:'l',issuer,subject:'editor-1',expires_at:new Date(Date.now()+3600000)};
  const pool={query:async sql=>sql.startsWith('delete')?(deleted=true,{rows:[]}):({rows:[row]})};
  const identity={enabled:true,issuer,clientId:'eclipse-library',sessionRequest:async()=>{if(fail)throw Object.assign(new Error('identity_unavailable'),{statusCode:503});return {active:false};}};
  const store=new LibrarySessionStore({pool,identity,env:{LIBRARY_IDENTITY_STORAGE_KEY_B64:randomBytes(32).toString('base64')}});
@@ -67,4 +67,14 @@ test('provider outage preserves session for retry; definitive revocation removes
  const req={headers:{cookie:'library_editor_session=test'}};
  await assert.rejects(()=>store.account(req),/identity_unavailable/);assert.equal(deleted,false);
  fail=false;assert.equal(await store.account(req),null);assert.equal(deleted,true);
+});
+
+test('disabled and unknown roles cannot use even an active Chat-linked session',async()=>{
+ for(const role of ['disabled','administrator',undefined]) {
+  let inspected=false;
+  const pool={query:async()=>({rows:[{id:'test-account',role,identity_link_id:'test-link'}]})};
+  const store=new LibrarySessionStore({pool,identity:{enabled:false,sessionRequest:async()=>{inspected=true;return {active:true};}}});
+  assert.equal(await store.account({headers:{cookie:'library_editor_session=test'}}),null);
+  assert.equal(inspected,false);
+ }
 });

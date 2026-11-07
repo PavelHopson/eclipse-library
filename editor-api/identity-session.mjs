@@ -40,7 +40,7 @@ export class LibrarySessionStore {
     return rows[0] || null;
   }
   async account(req) {
-    const row = await this.row(req); if (!row) return null;
+    const row = await this.row(req); if (!row || !['owner','editor','viewer'].includes(row.role)) return null;
     if (row.identity_link_id) {
       if (!this.identity.enabled || row.issuer !== this.identity.issuer) return null;
       let grant; try { grant = this.cipher.open(row.chat_grant, this.binding(row)); } catch { return null; }

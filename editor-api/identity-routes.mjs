@@ -6,7 +6,7 @@ import { json, readJson } from './http.mjs';
 
 export function createIdentityRoutes({ pool, origin, env = process.env, fetchImpl = fetch, identity = new LibraryIdentity({ env, origin, fetchImpl }), sessionStore = new LibrarySessionStore({ pool, identity, env }) }) {
   async function localSession(tokenHash) {
-    const { rows } = await pool.query(`select a.id from editor_sessions s join editor_accounts a on a.id=s.account_id where s.token_hash=$1 and s.expires_at>now() and s.identity_link_id is null and a.role='editor'`, [tokenHash]);
+    const { rows } = await pool.query(`select a.id from editor_sessions s join editor_accounts a on a.id=s.account_id where s.token_hash=$1 and s.expires_at>now() and s.identity_link_id is null and a.role in ('owner','editor','viewer')`, [tokenHash]);
     return rows[0];
   }
   function redirect(res, location, cookies) {
@@ -53,7 +53,7 @@ export function createIdentityRoutes({ pool, origin, env = process.env, fetchImp
           redirect(res, '/editor.html?identity=linked', [clearFlowCookie]);
           return true;
         }
-        const { rows } = await pool.query(`select l.id,l.account_id from editor_identity_links l join editor_accounts a on a.id=l.account_id where l.issuer=$1 and l.subject=$2 and l.revoked_at is null and a.role='editor'`, [verified.issuer, verified.subject]);
+        const { rows } = await pool.query(`select l.id,l.account_id from editor_identity_links l join editor_accounts a on a.id=l.account_id where l.issuer=$1 and l.subject=$2 and l.revoked_at is null and a.role in ('owner','editor','viewer')`, [verified.issuer, verified.subject]);
         if (!rows[0]) throw new Error('identity_access_denied');
         const token = createSessionToken();
         const expiresAt = verified.sessionExpiresAt;

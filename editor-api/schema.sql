@@ -57,3 +57,29 @@ create table if not exists editor_identity_links (
 alter table editor_sessions add column if not exists identity_link_id uuid references editor_identity_links(id) on delete cascade;
 
 alter table editor_sessions add column if not exists chat_grant text;
+
+-- Library-local permissions; Chat never supplies a Library role.
+alter table editor_accounts drop constraint if exists editor_accounts_role_check;
+alter table editor_accounts add constraint editor_accounts_role_check check (role in ('owner','editor','viewer','disabled'));
+create table if not exists editor_prompt_history (
+ id bigint generated always as identity primary key,
+ prompt_id text not null,
+ actor_id uuid not null references editor_accounts(id),
+ saved_at timestamptz not null default now(),
+ snapshot jsonb not null
+);
+create index if not exists editor_prompt_history_prompt_idx on editor_prompt_history(prompt_id,id desc);
+create or replace function library_record_prompt_revision() returns trigger language plpgsql as $$
+begin
+ insert into editor_prompt_history(prompt_id,actor_id,snapshot)
+ values(new.id,new.updated_by,to_jsonb(new) - 'image_path' - 'image_mime');
+ return new;
+end $$;
+drop trigger if exists library_prompt_revision on image_prompt_examples;
+create trigger library_prompt_revision after insert or update on image_prompt_examples
+ for each row execute function library_record_prompt_revision();
+
+-- Capture the current text before the first edit after migration; safe to reapply.
+insert into editor_prompt_history(prompt_id,actor_id,snapshot)
+ select p.id,p.updated_by,to_jsonb(p)-'image_path'-'image_mime' from image_prompt_examples p
+ where not exists(select 1 from editor_prompt_history h where h.prompt_id=p.id);

@@ -1,12 +1,18 @@
 <!doctype html>
 <html lang="ru">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta http-equiv="refresh" content="0; url=/login.html">
-  <title>Eclipse Library — админка</title>
-</head>
-<body>
-  <p>Открываем <a href="/login.html">вход в админку Eclipse Library</a>…</p>
-</body>
-</html>
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Управление — Eclipse Library</title>
+<link rel="stylesheet" href="styles.css?v=30"><link rel="stylesheet" href="library-v2.css?v=7"><link rel="stylesheet" href="library-shell.css?v=2"><link rel="stylesheet" href="editor.css?v=3"><link rel="stylesheet" href="admin.css"></head>
+<body><main class="editor-page admin-page" data-editor-api="/editor-api">
+<header class="editor-header"><a href="/">Eclipse Library</a><a href="/images.html">Открыть библиотеку</a><div class="admin-session-actions"><button id="admin-logout" hidden>Выйти из Library</button><button id="logout-eclipse" hidden>Выйти из Eclipse</button></div></header>
+<section class="admin-heading"><p class="admin-eyebrow">Управление Eclipse</p><h1>Рабочая панель</h1><p id="account-info">Проверяем доступ…</p></section>
+<p id="admin-message" role="status" aria-live="polite"></p><button id="admin-retry" hidden>Повторить загрузку</button>
+<div id="admin-content" hidden>
+<details class="identity-link" data-identity-link hidden><summary>Общий аккаунт Eclipse</summary><p>Свяжите аккаунт Library с Chat для общего входа.</p><button type="button" data-identity-start data-link="true">Подключить мой аккаунт Chat</button><p data-identity-error role="status"></p></details><p id="login-error" role="alert"></p>
+<nav class="admin-nav" aria-label="Управление"><a href="#materials">Материалы</a><a href="#projects">Проекты</a><a href="#accounts" id="accounts-link" hidden>Доступ</a></nav>
+<section id="materials" class="admin-section"><div class="admin-section-head"><h2>Материалы Library</h2><a id="edit-link" class="admin-primary" href="/editor.html">Добавить пример</a></div><div id="admin-counts" class="admin-counts"></div><p class="admin-muted">Выберите материал, чтобы посмотреть текстовые версии.</p><label>Найти материал<input type="search" id="material-search" placeholder="Название примера"></label><div id="admin-recent" class="admin-recent"></div></section>
+<section id="projects" class="admin-section"><h2>Проекты Eclipse</h2><p class="admin-muted">Здесь управляется Library. Остальные ссылки открывают отдельные продукты.</p><div id="admin-projects" class="admin-projects"></div></section>
+<section id="accounts" class="admin-section" hidden><h2>Доступ к Library</h2><p class="admin-muted">Владелец управляет доступом. Редактор меняет и публикует примеры. Просмотр позволяет читать материалы и историю без изменений. Эти права не распространяются на другие проекты.</p><div id="admin-accounts"></div>
+<details class="admin-add"><summary>Добавить аккаунт</summary><form id="account-form"><label>Email<input name="email" type="email" autocomplete="off" required maxlength="254"></label><label>Пароль<input name="password" type="password" autocomplete="new-password" minlength="16" maxlength="128" required><small>От 16 символов. Передайте пароль человеку лично.</small></label><label>Доступ<select name="role"><option value="editor">Редактор</option><option value="viewer">Просмотр</option></select></label><button type="submit">Создать аккаунт</button><p id="account-message" role="status"></p></form></details></section>
+</div>
+<dialog id="history-dialog" aria-labelledby="history-title"><div class="admin-section-head"><h2 id="history-title">История материала</h2><button id="history-close" autofocus>Закрыть</button></div><p>Восстанавливается только текст. Изображение и статус публикации сохраняются.</p><p id="history-message" role="status"></p><div id="history-list"></div></dialog>
+</main><script type="module" src="admin.mjs"></script><script type="module" src="identity-login.mjs"></script></body></html>

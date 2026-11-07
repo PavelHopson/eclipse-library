@@ -3,6 +3,7 @@ import crypto from 'node:crypto';
 import fs from 'node:fs/promises';
 import pathModule from 'node:path';
 import pg from 'pg';
+import { createAdminRoutes } from './admin-routes.mjs';
 import { LibraryIdentity } from './identity.mjs';
 import { LibrarySessionStore } from './identity-session.mjs';
 import { createIdentityRoutes } from './identity-routes.mjs';
@@ -31,8 +32,8 @@ async function bootstrap() {
   try {
     await client.query('begin');
     const { salt, hash } = hashPassword(editorPassword);
-    await client.query(`insert into editor_accounts (id, email, password_salt, password_hash) values ($1, $2, $3, $4)
-      on conflict (email) do update set password_salt = excluded.password_salt, password_hash = excluded.password_hash`, [crypto.randomUUID(), editorEmail, salt, hash]);
+    await client.query(`insert into editor_accounts (id, email, password_salt, password_hash, role) values ($1, $2, $3, $4, 'owner')
+      on conflict (email) do update set password_salt = excluded.password_salt, password_hash = excluded.password_hash, role = 'owner'`, [crypto.randomUUID(), editorEmail, salt, hash]);
     await client.query('commit');
   } catch (error) { await client.query('rollback'); throw error; } finally { client.release(); }
 }
@@ -47,7 +48,8 @@ async function accountFromRequest(req) { return sessionStore.account(req); }
 
 async function requireEditor(req, res) {
   const account = await accountFromRequest(req);
-  if (!account || account.role !== 'editor') { json(res, 401, { error: 'editor_auth_required' }); return null; }
+  if (!account) { json(res, 401, { error: 'editor_auth_required' }); return null; }
+  if (!['owner','editor'].includes(account.role) && req.method !== 'GET') { json(res,403,{error:'permission_denied'}); return null; }
   return account;
 }
 
@@ -56,6 +58,8 @@ function emit(event, payload) {
   for (const res of subscribers) res.write(data);
 }
 
+const adminRoutes = createAdminRoutes({pool, accountFromRequest, emit});
+
 async function handle(req, res) {
   setCors(res, req.headers.origin, allowedOrigin);
   if (req.method === 'OPTIONS') { res.writeHead(204, { 'access-control-allow-methods': 'GET,POST,PATCH,DELETE,OPTIONS', 'access-control-allow-headers': 'content-type', 'access-control-max-age': '600' }); return res.end(); }
@@ -63,6 +67,8 @@ async function handle(req, res) {
   if (path.startsWith('/api/editor/') && !['GET','HEAD','OPTIONS'].includes(req.method) && req.headers.origin !== allowedOrigin) return json(res,403,{error:'origin_rejected'});
   if (path === '/api/editor/identity/start' && !limited(`identity:${req.socket.remoteAddress}`, 8)) return json(res,429,{error:'rate_limited'});
   if (await identityRoutes(req, res, path)) return;
+  if (path === '/api/editor/admin/accounts' && req.method === 'POST' && !limited(`accounts:${req.socket.remoteAddress}`, 8)) return json(res,429,{error:'rate_limited'});
+  if (await adminRoutes(req, res, path)) return;
   if (path === '/healthz' && req.method === 'GET') return json(res, 200, { ok: true });
   if (path === '/api/public/image-examples' && req.method === 'GET') {
     const { rows } = await pool.query('select id,title,project,description,prompt,negative_prompt,settings,source_url,rights_note,format,style_code,image_path,updated_at from image_prompt_examples where status = $1 order by updated_at desc', ['published']);
@@ -78,7 +84,7 @@ async function handle(req, res) {
     if (!limited(`login:${req.socket.remoteAddress}`, 8)) return json(res, 429, { error: 'rate_limited' });
     const body = await readJson(req); const email = normalizeEmail(body.email);
     const { rows } = await pool.query('select id, email, role, password_salt, password_hash from editor_accounts where email = $1', [email]);
-    if (!rows[0] || !verifyPassword(body.password, rows[0].password_salt, rows[0].password_hash)) return json(res, 401, { error: 'invalid_credentials' });
+    if (!rows[0] || rows[0].role === 'disabled' || !verifyPassword(body.password, rows[0].password_salt, rows[0].password_hash)) return json(res, 401, { error: 'invalid_credentials' });
     const token = createSessionToken(); const tokenHash = hashSessionToken(token); const expiresAt = new Date(Date.now() + 7 * 86400_000);
     await pool.query('insert into editor_sessions (id, account_id, token_hash, expires_at) values ($1,$2,$3,$4)', [crypto.randomUUID(), rows[0].id, tokenHash, expiresAt]);
     const account = { id: rows[0].id, email: rows[0].email, role: rows[0].role };
@@ -147,7 +153,7 @@ async function handle(req, res) {
   return json(res, 405, { error: 'method_not_allowed' });
 }
 
-const server = http.createServer((req, res) => handle(req, res).catch((error) => { console.error(error); if (!res.headersSent) json(res, error.statusCode || 500, { error: error.message === 'identity_unavailable' ? 'identity_unavailable' : 'internal_error' }); else res.end(); }));
+const server = http.createServer((req, res) => handle(req, res).catch((error) => { console.error('editor_request_failed', {status: error.statusCode || 500}); if (!res.headersSent) json(res, error.statusCode || 500, { error: error.message === 'identity_unavailable' ? 'identity_unavailable' : 'internal_error' }); else res.end(); }));
 await bootstrap();
 server.listen(port, '127.0.0.1', () => console.log(`editor-api listening on 127.0.0.1:${port}`));
 process.on('SIGTERM', async () => { server.close(); await pool.end(); process.exit(0); });
