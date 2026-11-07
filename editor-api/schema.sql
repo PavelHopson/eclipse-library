@@ -39,3 +39,5 @@ alter table image_prompt_examples add column if not exists source_url text not n
 alter table image_prompt_examples add column if not exists rights_note text not null default '';
 alter table image_prompt_examples drop constraint if exists image_prompt_examples_status_check;
 alter table image_prompt_examples add constraint image_prompt_examples_status_check check (status in ('draft', 'published', 'archived'));
+
+alter table image_prompt_examples add column if not exists style_code text not null default '';

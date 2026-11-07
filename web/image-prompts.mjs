@@ -144,6 +144,7 @@ if (typeof document !== 'undefined') {
       const article = el('article', undefined, 'image-project-example');
       const head = el('div', undefined, 'image-project-example__head');
       head.append(el('span', example.project, 'image-project-example__project'), el('span', example.format, 'image-project-example__format'));
+      const style=data.entries.find(entry=>entry.code===example.styleCode);if(style){const link=el('a',style.code+' · '+style.title);link.href='images.html?q='+encodeURIComponent(style.code)+'#code-'+style.number;head.append(link);}
       const media = el('div', undefined, 'image-project-example__media');
       if (example.imageUrl) { const imageLink = el('a', undefined, 'image-project-example__image-link'); imageLink.href = example.imageUrl; imageLink.title = 'Открыть изображение в полном размере'; const image = el('img', undefined, 'image-project-example__image'); image.src = example.imageUrl; image.alt = `Пример изображения: ${example.title}. Нажмите, чтобы открыть полный размер`; image.loading = 'lazy'; imageLink.append(image); imageLink.addEventListener('click', event => { event.preventDefault(); lightboxPreview.src = example.imageUrl; lightboxPreview.alt = image.alt; lightbox.showModal(); }); media.append(imageLink); }
       else media.append(el('span', 'Пример изображения пока не загружен', 'image-project-example__placeholder'));
