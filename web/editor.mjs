@@ -29,15 +29,22 @@ function render(examples) {
   list.replaceChildren(...examples.map((example) => {
     const card = document.createElement('article'); card.className = 'editor-card'; card.dataset.id = example.id;
     const title = document.createElement('h3'); title.textContent = `${example.title} · ${example.status}`;
-    const meta = document.createElement('p'); meta.textContent = `${example.project} · ${example.format}`;
+    const meta = document.createElement('p'); meta.textContent = `${example.project} · ${example.format} · обновлено ${new Date(example.updated_at).toLocaleString('ru-RU')}`;
     const description = document.createElement('p'); description.textContent = example.description;
+    const metadata = document.createElement('details'); metadata.className = 'editor-card-metadata';
+    const metadataSummary = document.createElement('summary'); metadataSummary.textContent = 'Редактировать карточку';
+    const metadataGrid = document.createElement('div'); metadataGrid.className = 'editor-card-metadata-grid';
+    const titleField = document.createElement('label'); titleField.textContent = 'Название'; const titleInput = document.createElement('input'); titleInput.value = example.title; titleField.append(titleInput);
+    const projectField = document.createElement('label'); projectField.textContent = 'Продукт'; const projectInput = document.createElement('input'); projectInput.value = example.project; projectField.append(projectInput);
+    const descriptionField = document.createElement('label'); descriptionField.textContent = 'Описание'; const descriptionInput = document.createElement('textarea'); descriptionInput.rows = 3; descriptionInput.value = example.description; descriptionField.append(descriptionInput);
+    metadataGrid.append(titleField, projectField, descriptionField); metadata.append(metadataSummary, metadataGrid);
     if (example.imageUrl) { const image = document.createElement('img'); image.src = example.imageUrl; image.alt = `Пример: ${example.title}`; image.className = 'editor-card-image'; card.append(image); }
     const prompt = document.createElement('textarea'); prompt.value = example.prompt; prompt.setAttribute('aria-label', `Промпт ${example.title}`);
     const actions = document.createElement('div'); actions.className = 'editor-card-actions';
-    const save = document.createElement('button'); save.type = 'button'; save.textContent = 'Сохранить промпт'; save.addEventListener('click', async () => { save.disabled = true; try { await request(`/api/editor/prompts/${encodeURIComponent(example.id)}`, { method: 'PATCH', body: JSON.stringify({ prompt: prompt.value }) }); } catch (error) { alert(errorText(error)); } finally { save.disabled = false; } });
+    const save = document.createElement('button'); save.type = 'button'; save.textContent = 'Сохранить изменения'; save.addEventListener('click', async () => { save.disabled = true; try { await request(`/api/editor/prompts/${encodeURIComponent(example.id)}`, { method: 'PATCH', body: JSON.stringify({ title: titleInput.value, project: projectInput.value, description: descriptionInput.value, prompt: prompt.value }) }); await load(); } catch (error) { alert(errorText(error)); } finally { save.disabled = false; } });
     const upload = document.createElement('input'); upload.type = 'file'; upload.accept = 'image/png,image/jpeg,image/webp,image/gif'; upload.setAttribute('aria-label', `Загрузить изображение ${example.title}`); upload.addEventListener('change', async () => { const file = upload.files?.[0]; if (!file) return; const reader = new FileReader(); reader.onload = async () => { upload.disabled = true; try { await request(`/api/editor/prompts/${encodeURIComponent(example.id)}/image`, { method: 'POST', body: JSON.stringify({ dataUrl: reader.result }) }); await load(); } catch (error) { alert(errorText(error)); } finally { upload.disabled = false; } }; reader.readAsDataURL(file); });
     const publish = document.createElement('button'); publish.type = 'button'; publish.textContent = example.status === 'published' ? 'Снять с публикации' : 'Опубликовать'; publish.addEventListener('click', async () => { publish.disabled = true; try { await request(`/api/editor/prompts/${encodeURIComponent(example.id)}`, { method: 'PATCH', body: JSON.stringify({ status: example.status === 'published' ? 'draft' : 'published' }) }); await load(); } catch (error) { alert(errorText(error)); } finally { publish.disabled = false; } });
-    actions.append(save, publish, upload); card.append(title, meta, description, prompt, actions); return card;
+    actions.append(save, publish, upload); card.append(title, meta, description, metadata, prompt, actions); return card;
   }));
 }
 
