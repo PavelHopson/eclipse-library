@@ -39,6 +39,8 @@ if (typeof document !== 'undefined') {
   const group = $('code-group');
   let data;
   let projectExamples;
+  let projectQuery = '';
+  let projectProduct = '';
   let messageTimer;
   let copyTrigger;
   const lightbox = $('image-lightbox');
@@ -116,6 +118,35 @@ if (typeof document !== 'undefined') {
     search.value = params.get('q') || '';
     group.value = data.groups.some(item => item.id === params.get('group')) ? params.get('group') : '';
   }
+  function renderProjectExamples() {
+    const query = normalizeSearch(projectQuery);
+    const matches = projectExamples.filter(example => {
+      if (projectProduct && example.project !== projectProduct) return false;
+      return !query || normalizeSearch([example.title, example.project, example.description, example.prompt].join(' ')).includes(query);
+    });
+    $('project-example-count').textContent = `${matches.length} из ${projectExamples.length} примеров`;
+    $('project-example-empty').hidden = matches.length !== 0;
+    $('project-example-list').replaceChildren(...matches.map(example => {
+      const article = el('article', undefined, 'image-project-example');
+      const head = el('div', undefined, 'image-project-example__head');
+      head.append(el('span', example.project, 'image-project-example__project'), el('span', example.format, 'image-project-example__format'));
+      const media = el('div', undefined, 'image-project-example__media');
+      if (example.imageUrl) { const imageLink = el('a', undefined, 'image-project-example__image-link'); imageLink.href = example.imageUrl; imageLink.title = 'Открыть изображение в полном размере'; const image = el('img', undefined, 'image-project-example__image'); image.src = example.imageUrl; image.alt = `Пример изображения: ${example.title}. Нажмите, чтобы открыть полный размер`; image.loading = 'lazy'; imageLink.append(image); imageLink.addEventListener('click', event => { event.preventDefault(); lightboxPreview.src = example.imageUrl; lightboxPreview.alt = image.alt; lightbox.showModal(); }); media.append(imageLink); }
+      else media.append(el('span', 'Пример изображения пока не загружен', 'image-project-example__placeholder'));
+      const body = el('div', undefined, 'image-project-example__body');
+      body.append(head, el('h3', example.title), el('p', example.description || example.check || ''));
+      const promptDetails = el('details', undefined, 'image-project-example__prompt-details');
+      const promptSummary = el('summary', undefined, 'image-project-example__prompt-summary');
+      promptSummary.append(el('span', 'Открыть полный промпт'), el('span', `${example.prompt.length} знаков`, 'image-project-example__prompt-size'));
+      promptDetails.append(promptSummary, el('pre', example.prompt, 'image-project-example__prompt'));
+      body.append(promptDetails);
+      const note = el('p', undefined, 'image-project-example__check');
+      note.append(el('strong', 'Проверка: '), document.createTextNode(example.check || example.description || ''));
+      body.append(note, copyButton('Скопировать промпт', example.prompt, `Копировать промпт: ${example.project}`));
+      article.append(media, body);
+      return article;
+    }));
+  }
   async function load() {
     $('load-error').hidden = true;
     $('retry-load').disabled = true;
@@ -149,28 +180,9 @@ if (typeof document !== 'undefined') {
         article.append(el('h3', recipe.title), el('code', recipe.codes.join(' ')), el('p', recipe.prompt), copyButton('Скопировать рецепт', recipe.prompt, `Копировать рецепт: ${recipe.title}`));
         return article;
       }));
-      $('project-example-count').textContent = `${projectExamples.length} примеров`;
-      $('project-example-list').replaceChildren(...projectExamples.map(example => {
-        const article = el('article', undefined, 'image-project-example');
-        const head = el('div', undefined, 'image-project-example__head');
-        head.append(el('span', example.project, 'image-project-example__project'), el('span', example.format, 'image-project-example__format'));
-        const media = el('div', undefined, 'image-project-example__media');
-        if (example.imageUrl) { const imageLink = el('a', undefined, 'image-project-example__image-link'); imageLink.href = example.imageUrl; imageLink.title = 'Открыть изображение в полном размере'; const image = el('img', undefined, 'image-project-example__image'); image.src = example.imageUrl; image.alt = `Пример изображения: ${example.title}. Нажмите, чтобы открыть полный размер`; image.loading = 'lazy'; imageLink.append(image); imageLink.addEventListener('click', event => { event.preventDefault(); lightboxPreview.src = example.imageUrl; lightboxPreview.alt = image.alt; lightbox.showModal(); }); media.append(imageLink); }
-        else media.append(el('span', 'Пример изображения пока не загружен', 'image-project-example__placeholder'));
-        const body = el('div', undefined, 'image-project-example__body');
-        body.append(head, el('h3', example.title), el('p', example.description || example.check || '')); 
-        const promptDetails = el('details', undefined, 'image-project-example__prompt-details');
-        const promptSummary = el('summary', undefined, 'image-project-example__prompt-summary');
-        promptSummary.append(el('span', 'Открыть полный промпт'), el('span', `${example.prompt.length} знаков`, 'image-project-example__prompt-size'));
-        const prompt = el('pre', example.prompt, 'image-project-example__prompt');
-        promptDetails.append(promptSummary, prompt);
-        body.append(promptDetails);
-        const note = el('p', undefined, 'image-project-example__check');
-        note.append(el('strong', 'Проверка: '), document.createTextNode(example.check));
-        body.append(note, copyButton('Скопировать промпт', example.prompt, `Копировать промпт: ${example.project}`));
-        article.append(media, body);
-        return article;
-      }));
+      const products = [...new Set(projectExamples.map(example => example.project).filter(Boolean))].sort((a, b) => a.localeCompare(b, 'ru'));
+      $('project-example-project').replaceChildren(new Option('Все продукты', ''), ...products.map(product => new Option(product, product)));
+      renderProjectExamples();
       $('source-details').replaceChildren(el('p', `${data.source.title} · ${data.source.author} · статья: ${data.source.publishedAt} · проверено: ${data.source.checkedAt}.`), el('p', data.source.verification), el('p', data.source.rights));
     } catch {
       $('load-error').hidden = false;
@@ -184,6 +196,9 @@ if (typeof document !== 'undefined') {
   $('image-filters').addEventListener('submit', event => { event.preventDefault(); if (data) render(); });
   search.addEventListener('input', () => render());
   group.addEventListener('change', () => render());
+  $('project-example-search').addEventListener('input', event => { projectQuery = event.target.value; renderProjectExamples(); });
+  $('project-example-project').addEventListener('change', event => { projectProduct = event.target.value; renderProjectExamples(); });
+  $('project-example-reset').addEventListener('click', () => { projectQuery = ''; projectProduct = ''; $('project-example-search').value = ''; $('project-example-project').value = ''; renderProjectExamples(); });
   $('reset-filters').addEventListener('click', () => { search.value = ''; group.value = ''; render(); search.focus(); });
   $('retry-load').addEventListener('click', async (event) => { event.preventDefault(); const scrollY = window.scrollY; await load(); window.scrollTo({ top: scrollY, left: 0, behavior: 'instant' }); });
   window.addEventListener('popstate', () => { if (data) { applyUrl(); render(false); } });
