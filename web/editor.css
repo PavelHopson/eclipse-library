@@ -45,3 +45,5 @@
 .eclipse-projects a:hover{border-color:var(--library-accent,#d4a75f)}
 .identity-login button:focus-visible,.identity-link button:focus-visible,.eclipse-projects a:focus-visible,.eclipse-projects summary:focus-visible{outline:2px solid var(--library-accent,#d4a75f);outline-offset:3px}
 @media(max-width:500px){.eclipse-projects ul{grid-template-columns:1fr}.editor-header{flex-wrap:wrap}}
+/* Keep full thumbnails stable while large originals load progressively. */
+.editor-list-row>.editor-list-thumb{position:relative;display:grid;place-items:center;flex:0 0 88px;width:88px;min-width:88px;height:80px;background:#080c12;border-radius:6px;overflow:hidden}.editor-list-row .editor-list-thumb img{display:block;width:100%;height:80px;min-height:0;max-height:80px;object-fit:contain;flex:none;visibility:hidden}.editor-list-row .editor-list-thumb.is-ready img{visibility:visible}.editor-list-thumb small{position:absolute;font-size:10px;text-align:center}.editor-list-row>span:not(.editor-list-thumb){flex:1}.editor-list-thumb [hidden]{display:none}@media(max-width:500px){.editor-list-row>.editor-list-thumb{flex-basis:60px;width:60px;min-width:60px;height:80px}}

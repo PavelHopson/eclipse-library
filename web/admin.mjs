@@ -1,7 +1,8 @@
+import { pagePosition } from './page-position.mjs';
 const $=s=>document.querySelector(s);
 const roles={owner:'Владелец',editor:'Редактор',viewer:'Просмотр',disabled:'Отключён'};
 const statuses={draft:'Черновики',published:'Опубликовано',archived:'Архив'};
-let state,loading=false;
+let state,loading=false,position;
 const errors={permission_denied:'Недостаточно прав. Обновите панель.',account_exists:'Аккаунт с таким email уже есть.',invalid_account:'Проверьте email и пароль (от 16 до 128 символов).',protected_account:'Доступ владельца изменить нельзя.',edit_conflict:'Материал изменился. Закройте историю и загрузите её заново.',identity_unavailable:'Chat временно недоступен. Повторите проверку входа позже.'};
 function text(tag,value){const e=document.createElement(tag);e.textContent=value;return e;}
 function message(e){return errors[e.message]||'Не удалось выполнить действие. Попробуйте ещё раз.';}
@@ -25,16 +26,16 @@ async function history(item){
  }catch(e){$('#history-message').textContent=message(e);}
 }
 async function load(){if(loading)return;loading=true;$('#admin-message').textContent='Обновляем панель…';$('#admin-retry').hidden=true;
- try{state=await api('admin/overview');$('#account-info').textContent=state.account.email+' · '+roles[state.account.role];$('#admin-content').hidden=false;document.dispatchEvent(new Event('editor:session'));$('#admin-logout').hidden=false;$('#edit-link').hidden=!state.permissions.edit;$('#accounts').hidden=!state.permissions.manageAccounts;$('#accounts-link').hidden=!state.permissions.manageAccounts;
+ try{state=await api('admin/overview');position ||= pagePosition('library:admin-position:'+state.account.id,()=>({query:$('#material-search').value}),s=>{$('#material-search').value=typeof s.query==='string'?s.query:'';});$('#account-info').textContent=state.account.email+' · '+roles[state.account.role];$('#admin-content').hidden=false;document.dispatchEvent(new Event('editor:session'));$('#admin-logout').hidden=false;$('#edit-link').hidden=!state.permissions.edit;$('#accounts').hidden=!state.permissions.manageAccounts;$('#accounts-link').hidden=!state.permissions.manageAccounts;
  $('#admin-counts').replaceChildren(...Object.entries(statuses).map(([k,label])=>{const p=document.createElement('p');p.append(text('strong',String(state.counts[k]||0)),text('span',label));return p;}));
  $('#admin-recent').replaceChildren();for(const item of state.recent){const b=action('',()=>history(item));b.append(text('strong',item.title),text('small',(statuses[item.status]||item.status)+' · '+new Date(item.updated_at).toLocaleString('ru-RU')));b.dataset.title=item.title.toLocaleLowerCase();$('#admin-recent').append(b);}if(!state.recent.length)$('#admin-recent').append(text('p','Примеров пока нет. Добавьте изображение и промпт.'));
  $('#admin-projects').replaceChildren();for(const project of state.projects){const a=document.createElement('a');a.href=project.managed?(state.permissions.edit?project.url:'/images.html'):project.url;a.append(text('strong',project.name),text('small',project.managed?(state.permissions.edit?'Открыть редактор':'Открыть библиотеку'):'Открыть отдельный продукт ↗'));$('#admin-projects').append(a);}
- if(state.permissions.manageAccounts)await accounts();$('#admin-message').textContent='';
+ if(state.permissions.manageAccounts)await accounts();$('#admin-message').textContent='';$('#material-search').dispatchEvent(new Event('input'));await position.restore();
  }catch(e){$('#admin-message').textContent=message(e);$('#admin-retry').hidden=false;}finally{loading=false;}}
 $('#history-close').addEventListener('click',()=>$('#history-dialog').close());
 $('#admin-retry').addEventListener('click',load);
-$('#admin-logout').addEventListener('click',async()=>{const b=$('#admin-logout');b.disabled=true;try{await api('logout',{method:'POST'});location.assign('/login.html');}catch(e){$('#admin-message').textContent=message(e);}finally{b.disabled=false;}});
+$('#admin-logout').addEventListener('click',async()=>{const b=$('#admin-logout');b.disabled=true;try{await api('logout',{method:'POST'});position?.clear();location.assign('/login.html');}catch(e){$('#admin-message').textContent=message(e);}finally{b.disabled=false;}});
 $('#account-form').addEventListener('submit',async e=>{e.preventDefault();const form=e.currentTarget,b=form.querySelector('button');b.disabled=true;$('#account-message').textContent='Создаём аккаунт…';try{await api('admin/accounts',{method:'POST',body:JSON.stringify(Object.fromEntries(new FormData(form)))});form.reset();await accounts();$('#account-message').textContent='Аккаунт создан. Пользователь может войти в Library и самостоятельно связать Chat.';}catch(err){$('#account-message').textContent=message(err);}finally{b.disabled=false;}});
 $('#material-search').addEventListener('input',()=>{for(const row of $('#admin-recent').children)row.hidden=!!row.dataset.title&&!row.dataset.title.includes($('#material-search').value.trim().toLocaleLowerCase());});
-$('#logout-eclipse').addEventListener('click',async()=>{if(!confirm('Завершить связанную сессию Chat и вход в Library? Другие устройства останутся подключены.'))return;const b=$('#logout-eclipse');b.disabled=true;try{await api('identity/logout',{method:'POST'});location.assign('/login.html');}catch(e){$('#admin-message').textContent=message(e);}finally{b.disabled=false;}});
+$('#logout-eclipse').addEventListener('click',async()=>{if(!confirm('Завершить связанную сессию Chat и вход в Library? Другие устройства останутся подключены.'))return;const b=$('#logout-eclipse');b.disabled=true;try{await api('identity/logout',{method:'POST'});position?.clear();location.assign('/login.html');}catch(e){$('#admin-message').textContent=message(e);}finally{b.disabled=false;}});
 load();

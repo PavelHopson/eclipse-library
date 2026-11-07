@@ -1,3 +1,4 @@
+import { pagePosition } from './page-position.mjs';
 const root = document.querySelector('.editor-page');
 const api = root.dataset.editorApi.replace(/\/$/, '');
 const loginView = document.querySelector('#login-view');
@@ -12,6 +13,7 @@ const imageFile = document.querySelector('#image-file');
 const dropzone = document.querySelector('#upload-dropzone');
 const uploadLabel = document.querySelector('#upload-label');
 const uploadHint = document.querySelector('#upload-hint');
+let position;
 let events, previewUrl, pendingId, saving = false, selectedId = null, rows = [];
 const dirtyCards = new Set();
 const notice = document.createElement('p'); notice.className = 'editor-feedback'; notice.setAttribute('role','status'); connection.after(notice);
@@ -36,7 +38,7 @@ async function request(path, options = {}) {
   return payload;
 }
 
-function showEditor(account) { if(account?.role === 'viewer'){location.replace('/admin.html');return;} loginView.hidden = true; editorView.hidden = false; logout.hidden = false; document.dispatchEvent(new Event('editor:session')); }
+function showEditor(account) { position ||= pagePosition('library:editor-position:'+account.id,()=>({query:search.value,status:status.value}),s=>{search.value=typeof s.query==='string'?s.query:'';status.value=['draft','published','archived'].includes(s.status)?s.status:'';}); if(account?.role === 'viewer'){location.replace('/admin.html');return;} loginView.hidden = true; editorView.hidden = false; logout.hidden = false; document.dispatchEvent(new Event('editor:session')); }
 function showLogin() { loginView.hidden = false; editorView.hidden = true; logout.hidden = true; logoutEclipse.hidden = true; }
 
 
@@ -66,10 +68,10 @@ function renderList() {
  list.replaceChildren();
  if(!filtered.length){const empty=document.createElement('p');empty.textContent=rows.length?'Ничего не найдено. Измените поиск или статус.':'Добавьте первый пример выше.';list.append(empty);}
  for(const example of filtered){const row=button('',()=>{selectedId=example.id;renderPanel(example);panel.showModal();});row.className='editor-list-row';
- if(example.imageUrl){const image=document.createElement('img');image.src=example.imageUrl;image.alt='';image.loading='lazy';row.append(image);}
+ if(example.imageUrl){const thumb=document.createElement('span');thumb.className='editor-list-thumb';const hint=document.createElement('small');hint.textContent='Загрузка';const image=document.createElement('img');image.alt='';image.loading='lazy';image.decoding='async';image.addEventListener('load',()=>{thumb.classList.add('is-ready');hint.hidden=true;});image.addEventListener('error',()=>{hint.textContent='Нет превью';});image.src=example.imageUrl;thumb.append(image,hint);row.append(thumb);}
  const info=document.createElement('span');const title=document.createElement('strong');title.textContent=example.title;const meta=document.createElement('small');meta.textContent=(statusLabels[example.status]||example.status)+' · '+new Date(example.updated_at).toLocaleDateString('ru-RU');const excerpt=document.createElement('span');excerpt.textContent=example.prompt;excerpt.className='editor-list-excerpt';info.append(title,meta,excerpt);row.append(info);list.append(row);}
 }
-search.addEventListener('input',renderList);status.addEventListener('change',renderList);
+search.addEventListener('input',()=>{renderList();position?.save();});status.addEventListener('change',()=>{renderList();position?.save();});
 
 function render(examples) { rows=examples;renderList();if(selectedId){const e=rows.find(e=>e.id===selectedId);if(e)renderPanel(e);else closePanel();} }
 function renderPanel(example) {
@@ -106,7 +108,7 @@ function renderPanel(example) {
   }));
 }
 
-async function load() { if (dirtyCards.size) { notice.textContent = 'Есть изменения на сервере. Сначала сохраните свои правки.'; } const payload = await request('/api/editor/prompts'); rows=payload.examples||[]; if (dirtyCards.size) return; render(payload.examples || []); }
+async function load() { if (dirtyCards.size) { notice.textContent = 'Есть изменения на сервере. Сначала сохраните свои правки.'; } const payload = await request('/api/editor/prompts'); rows=payload.examples||[]; if (dirtyCards.size) return; render(payload.examples || []); await position?.restore(); }
 function connectEvents() { events?.close(); events = new EventSource(`${api}/api/editor/events`, { withCredentials: true }); events.onopen = () => { connection.textContent = 'Realtime подключён'; }; events.onerror = () => { connection.textContent = 'Переподключение…'; }; events.addEventListener('prompt.changed', () => { if (!saving) load().catch(err => { notice.textContent = errorText(err); }); }); events.addEventListener('prompt.deleted', () => load().catch(err => { notice.textContent = errorText(err); })); }
 
 loginForm.addEventListener('submit', async (event) => { event.preventDefault(); const error = document.querySelector('#login-error'); error.textContent = ''; try { const form = new FormData(loginForm); const session = await request('/api/editor/login', { method: 'POST', body: JSON.stringify({ email: form.get('email'), password: form.get('password') }) }); showEditor(session.account); if(session.account.role==='viewer')return; await load(); connectEvents(); } catch (err) { error.textContent = errorText(err); } });
@@ -123,7 +125,7 @@ async function endSession(global = false) {
   logout.disabled = logoutEclipse.disabled = true; button.textContent = 'Выходим…';
   try {
     await request(global ? '/api/editor/identity/logout' : '/api/editor/logout', { method: 'POST', body: '{}' });
-    events?.close(); dirtyCards.clear(); selectedId=null;panel.close();viewer.close();list.replaceChildren();rows=[];promptForm.reset();clearPreview();pendingId=null;showLogin();
+    position?.clear();position=null;events?.close(); dirtyCards.clear(); selectedId=null;panel.close();viewer.close();list.replaceChildren();rows=[];promptForm.reset();clearPreview();pendingId=null;showLogin();
   } catch(err) { notice.textContent = errorText(err); }
   finally { logout.disabled = logoutEclipse.disabled = false; button.textContent = previous; }
 }
