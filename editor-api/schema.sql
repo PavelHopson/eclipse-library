@@ -41,3 +41,19 @@ alter table image_prompt_examples drop constraint if exists image_prompt_example
 alter table image_prompt_examples add constraint image_prompt_examples_status_check check (status in ('draft', 'published', 'archived'));
 
 alter table image_prompt_examples add column if not exists style_code text not null default '';
+
+
+-- Explicitly linked identities; never grant an editor role by matching email.
+create table if not exists editor_identity_links (
+  id uuid primary key,
+  account_id uuid not null references editor_accounts(id) on delete cascade,
+  issuer text not null,
+  subject text not null,
+  revoked_at timestamptz,
+  created_at timestamptz not null default now(),
+  unique (issuer, subject),
+  unique (account_id, issuer)
+);
+alter table editor_sessions add column if not exists identity_link_id uuid references editor_identity_links(id) on delete cascade;
+
+alter table editor_sessions add column if not exists chat_grant text;

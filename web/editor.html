@@ -7,21 +7,34 @@
   <link rel="stylesheet" href="styles.css?v=30">
   <link rel="stylesheet" href="library-v2.css?v=7">
   <link rel="stylesheet" href="library-shell.css?v=2">
-  <link rel="stylesheet" href="editor.css?v=2">
+  <link rel="stylesheet" href="editor.css?v=3">
 </head>
 <body>
   <main class="editor-page" data-editor-api="/editor-api">
-    <header class="editor-header"><a href="/">Eclipse Library</a><span>Редактор</span><div class="library-subpage-tools"><a class="editor-home-link" href="/images.html">← К примерам</a><button id="logout" hidden>Выйти</button></div></header>
+    <header class="editor-header"><a href="/">Eclipse Library</a><span>Редактор</span><div class="library-subpage-tools"><a class="editor-home-link" href="/images.html">← К примерам</a><button id="logout" hidden>Выйти из Library</button><button id="logout-eclipse" hidden title="Завершить связанную сессию Chat и подключённых проектов">Выйти из Eclipse</button></div></header>
     <section id="login-view" class="editor-panel">
       <p class="eyebrow">PRIVATE EDITOR</p><h1>Редактор промптов</h1>
+      <div class="identity-login" data-identity-login hidden><button type="button" data-identity-start>Войти через Eclipse Chat</button><p>Вход через общий аккаунт. Редакторский доступ выдаётся отдельно.</p><p data-identity-error role="alert"></p></div>
       <form id="login-form" class="editor-form"><label>Email<input name="email" type="email" autocomplete="username" required></label><label>Пароль<input name="password" type="password" autocomplete="current-password" required minlength="12"></label><button type="submit">Войти</button><p id="login-error" class="editor-error" role="alert"></p></form>
     </section>
     <section id="editor-view" class="editor-panel" hidden>
+      <details class="identity-link" data-identity-link hidden><summary>Общий аккаунт Eclipse</summary><p>Свяжите этот редакторский аккаунт с Chat. Понадобится действующий вход по паролю Library и подтверждение в Chat.</p><button type="button" data-identity-start data-link="true">Подключить мой аккаунт Chat</button><p data-identity-error role="status"></p></details>
       <div class="editor-toolbar"><div><p class="eyebrow">IMAGE PROMPTS</p><h1>Примеры проектов</h1></div><span id="connection" class="editor-status">Подключение…</span></div>
       <form id="prompt-form" class="editor-form prompt-create-form"><label id="upload-dropzone" class="upload-dropzone"><input id="image-file" name="image" type="file" accept="image/png,image/jpeg,image/webp,image/gif" required><span class="upload-dropzone__icon">＋</span><strong id="upload-label">Загрузить изображение</strong><small id="upload-hint">Перетащите файл сюда или выберите его · до 6 МБ</small></label><details class="editor-optional"><summary>Название, продукт и права</summary><div class="editor-optional-grid"><label><span>Название</span><input name="title" type="text" placeholder="Например: Eclipse Media — субтитры"></label><label><span>Продукт</span><input name="project" type="text" value="Eclipse Library" placeholder="Eclipse Media"></label><label><span>Короткое описание</span><textarea name="description" rows="3" placeholder="Что показывает этот пример"></textarea></label><label><span>Источник изображения</span><input name="sourceUrl" type="url" placeholder="https://…"></label><label><span>Права и примечание</span><input name="rightsNote" type="text" placeholder="Собственное изображение / разрешение получено"></label></div></details><label class="prompt-field"><span>Полный промпт</span><textarea name="prompt" placeholder="Вставьте полный текст промпта целиком…" required></textarea></label><button type="submit">Сохранить пример</button><p id="save-error" class="editor-error" role="alert"></p></form>
       <div id="prompt-list" class="editor-list" aria-live="polite"></div>
     </section>
+  <nav class="eclipse-projects" aria-label="Проекты Eclipse"><details><summary>Проекты Eclipse</summary><p>Переходы между проектами. Редакторский доступ подключается отдельно.</p><ul>
+<li><a href="https://app.star-crm.ru/eclipse-chat/">Eclipse Chat</a></li>
+<li><a href="https://library.eclipse-forge.ru/">Eclipse Library</a></li>
+<li><a href="https://dnd.eclipse-forge.ru/">Eclipse DnD Forge</a></li>
+<li><a href="https://media.eclipse-forge.ru/">Eclipse Media</a></li>
+<li><a href="https://github.com/PavelHopson/eclipse-ai-hub">AI Hub · репозиторий</a></li>
+<li><a href="https://github.com/PavelHopson/eclipse-hopson-sentinel">Hopson Sentinel · репозиторий</a></li>
+<li><a href="https://github.com/PavelHopson/Eclipse-webclaw">Eclipse Claw · репозиторий</a></li>
+<li><a href="https://eclipse-premiumrent.pages.dev/">Premium Rent</a></li>
+</ul></details></nav>
   </main>
-  <script type="module" src="editor.mjs?v=2"></script>
+  <script type="module" src="editor.mjs?v=3"></script>
+  <script type="module" src="identity-login.mjs?v=2"></script>
 </body>
 </html>

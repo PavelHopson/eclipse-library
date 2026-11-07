@@ -32,3 +32,16 @@
 .editor-detail-dialog>button{position:sticky;top:0;z-index:2;box-shadow:0 4px 16px #080c12}
 .editor-card>button,.editor-replace-upload{display:inline-flex;align-items:center;justify-content:center;min-height:44px;box-sizing:border-box;border:1px solid var(--library-line-strong);border-radius:8px;background:#101722;color:var(--library-text);padding:10px 14px;font:inherit;cursor:pointer}
 .editor-replace-upload{position:relative}.editor-replace-upload input{position:absolute;width:1px;height:1px;opacity:0}.editor-replace-upload:focus-within{outline:2px solid var(--library-accent);outline-offset:3px}.editor-card-metadata-grid select{box-sizing:border-box;width:100%;min-width:0;padding:10px;background:#080c12;color:var(--library-text);border:1px solid var(--library-line-strong);border-radius:8px;font:inherit}
+
+.identity-login,.identity-link{margin:0 0 24px;padding:16px 0;border-bottom:1px solid var(--library-line,#273040)}
+.identity-login p,.identity-link p,.eclipse-projects p{font-size:14px;line-height:1.6;color:var(--library-muted,#aab6c8)}
+.identity-login button,.identity-link button{min-height:44px;max-width:100%;padding:12px 16px;border:1px solid var(--library-line-strong,#40516a);border-radius:8px;background:#101722;color:var(--library-text,#f5f7fb);font:inherit;cursor:pointer}
+.identity-login button:disabled,.identity-link button:disabled{opacity:.6;cursor:wait}
+.identity-login [role=alert],.identity-link [role=status]{color:var(--library-text,#f5f7fb)}
+.eclipse-projects{margin-top:32px;border-top:1px solid var(--library-line,#273040);padding-top:16px}
+.eclipse-projects summary,.identity-link summary{cursor:pointer;min-height:44px;align-content:center;font-weight:600}
+.eclipse-projects ul{list-style:none;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+.eclipse-projects a{display:block;padding:12px;min-height:44px;box-sizing:border-box;color:var(--library-text,#f5f7fb);border:1px solid var(--library-line,#273040);border-radius:8px;text-decoration:none;overflow-wrap:anywhere}
+.eclipse-projects a:hover{border-color:var(--library-accent,#d4a75f)}
+.identity-login button:focus-visible,.identity-link button:focus-visible,.eclipse-projects a:focus-visible,.eclipse-projects summary:focus-visible{outline:2px solid var(--library-accent,#d4a75f);outline-offset:3px}
+@media(max-width:500px){.eclipse-projects ul{grid-template-columns:1fr}.editor-header{flex-wrap:wrap}}

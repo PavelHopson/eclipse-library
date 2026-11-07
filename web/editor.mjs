@@ -6,6 +6,7 @@ const loginForm = document.querySelector('#login-form');
 const promptForm = document.querySelector('#prompt-form');
 const list = document.querySelector('#prompt-list');
 const logout = document.querySelector('#logout');
+const logoutEclipse = document.querySelector('#logout-eclipse');
 const connection = document.querySelector('#connection');
 const imageFile = document.querySelector('#image-file');
 const dropzone = document.querySelector('#upload-dropzone');
@@ -16,7 +17,7 @@ const dirtyCards = new Set();
 const notice = document.createElement('p'); notice.className = 'editor-feedback'; notice.setAttribute('role','status'); connection.after(notice);
 const preview = document.createElement('img'); preview.className = 'upload-preview'; preview.alt = 'Предпросмотр выбранного изображения'; preview.hidden = true; dropzone.append(preview);
 const statusLabels = { draft: 'Черновик', published: 'Опубликовано', archived: 'В архиве' };
-const messages = { edit_conflict: 'Пример изменён в другой вкладке. Скопируйте свои правки и откройте карточку заново.', editor_auth_required: 'Сессия завершена. Войдите снова.', invalid_credentials: 'Неверный email или пароль.', image_too_large: 'Изображение должно быть не больше 6 МБ.', invalid_image: 'Выберите PNG, JPG, WebP или GIF.', invalid_prompt: 'Заполните промпт и обязательные поля карточки.' };
+const messages = { identity_unavailable: 'Не удалось проверить вход в Chat. Изменения остались в форме — повторите позже.', chat_session_required: 'Сессия Chat уже завершена. Войдите снова.', edit_conflict: 'Пример изменён в другой вкладке. Скопируйте свои правки и откройте карточку заново.', editor_auth_required: 'Сессия завершена. Войдите снова.', invalid_credentials: 'Неверный email или пароль.', image_too_large: 'Изображение должно быть не больше 6 МБ.', invalid_image: 'Выберите PNG, JPG, WebP или GIF.', invalid_prompt: 'Заполните промпт и обязательные поля карточки.' };
 const errorText = error => messages[error?.message] || (error?.name === 'TimeoutError' ? 'Сервер не ответил. Текст сохранён в форме — попробуйте снова.' : 'Не удалось выполнить действие. Проверьте соединение и повторите.');
 function validateFile(file) { if (!file || !['image/png','image/jpeg','image/webp','image/gif'].includes(file.type)) throw new Error('invalid_image'); if(file.size > 6 * 1024 * 1024) throw new Error('image_too_large'); }
 function clearPreview() { if(previewUrl) URL.revokeObjectURL(previewUrl); previewUrl = null; preview.removeAttribute('src'); preview.hidden = true; }
@@ -35,8 +36,8 @@ async function request(path, options = {}) {
   return payload;
 }
 
-function showEditor() { loginView.hidden = true; editorView.hidden = false; logout.hidden = false; }
-function showLogin() { loginView.hidden = false; editorView.hidden = true; logout.hidden = true; }
+function showEditor() { loginView.hidden = true; editorView.hidden = false; logout.hidden = false; document.dispatchEvent(new Event('editor:session')); }
+function showLogin() { loginView.hidden = false; editorView.hidden = true; logout.hidden = true; logoutEclipse.hidden = true; }
 
 
 let styleEntries = [];
@@ -114,6 +115,19 @@ imageFile.addEventListener('change', () => setImageFile(imageFile.files?.[0]));
 ['dragenter', 'dragover'].forEach((eventName) => dropzone.addEventListener(eventName, (event) => { event.preventDefault(); dropzone.classList.add('is-dragging'); }));
 ['dragleave', 'drop'].forEach((eventName) => dropzone.addEventListener(eventName, (event) => { event.preventDefault(); dropzone.classList.remove('is-dragging'); }));
 dropzone.addEventListener('drop', (event) => setImageFile(event.dataTransfer.files?.[0]));
-logout.addEventListener('click', async () => { if ((dirtyCards.size || imageFile.files.length || promptForm.querySelector('[name=prompt]').value.trim()) && !confirm('Выйти без сохранения изменений?')) return; try { await request('/api/editor/logout', { method: 'POST', body: '{}' }); events?.close(); dirtyCards.clear(); selectedId=null;panel.close();viewer.close();list.replaceChildren();rows=[];promptForm.reset();clearPreview();pendingId=null;showLogin(); } catch(err) { notice.textContent = errorText(err); } });
+async function endSession(global = false) {
+  const dirty = dirtyCards.size || imageFile.files.length || promptForm.querySelector('[name=prompt]').value.trim();
+  if (global && !confirm('Завершить связанную сессию Chat и подключённых проектов? Другие устройства останутся в системе.' + (dirty ? ' Несохранённые изменения будут потеряны.' : ''))) return;
+  if (!global && dirty && !confirm('Выйти без сохранения изменений?')) return;
+  const button = global ? logoutEclipse : logout; const previous = button.textContent;
+  logout.disabled = logoutEclipse.disabled = true; button.textContent = 'Выходим…';
+  try {
+    await request(global ? '/api/editor/identity/logout' : '/api/editor/logout', { method: 'POST', body: '{}' });
+    events?.close(); dirtyCards.clear(); selectedId=null;panel.close();viewer.close();list.replaceChildren();rows=[];promptForm.reset();clearPreview();pendingId=null;showLogin();
+  } catch(err) { notice.textContent = errorText(err); }
+  finally { logout.disabled = logoutEclipse.disabled = false; button.textContent = previous; }
+}
+logout.addEventListener('click', () => void endSession());
+logoutEclipse.addEventListener('click', () => void endSession(true));
 
 request('/api/editor/me').then(async () => { showEditor(); await load(); connectEvents(); }).catch(() => showLogin());

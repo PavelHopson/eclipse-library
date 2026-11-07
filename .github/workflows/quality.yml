@@ -12,6 +12,7 @@ on:
       - 'guides/**'
       - 'prompts/**'
       - 'web/**'
+      - 'editor-api/**'
       - 'scripts/**'
       - '.github/workflows/quality.yml'
       - '.github/workflows/deploy-vps.yml'
@@ -52,6 +53,13 @@ jobs:
           node --check web/experiments/anura/motion.js
           node --check scripts/review-preview-policy.mjs
           node --check scripts/review-preview.mjs
+      - name: Validate editor identity boundary
+        run: |
+          node --check editor-api/server.mjs
+          node --check editor-api/identity-routes.mjs
+          node --check editor-api/identity-session.mjs
+          node --check web/identity-login.mjs
+          node --test editor-api/test/auth.test.mjs editor-api/test/identity.test.mjs
       - name: Validate structured catalog
         run: |
           node --test scripts/guide-loading.test.mjs

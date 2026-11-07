@@ -3,6 +3,9 @@ import crypto from 'node:crypto';
 import fs from 'node:fs/promises';
 import pathModule from 'node:path';
 import pg from 'pg';
+import { LibraryIdentity } from './identity.mjs';
+import { LibrarySessionStore } from './identity-session.mjs';
+import { createIdentityRoutes } from './identity-routes.mjs';
 import { clearSessionCookie, createSessionToken, hashPassword, hashSessionToken, normalizeEmail, parseCookie, sessionCookie, verifyPassword } from './auth.mjs';
 import { json, readJson, requestPath, setCors } from './http.mjs';
 
@@ -16,8 +19,10 @@ const imageDir = process.env.IMAGE_DIR || '/var/lib/eclipse-library-editor/image
 if (!databaseUrl || !editorEmail || !editorPassword) throw new Error('DATABASE_URL, EDITOR_EMAIL and EDITOR_PASSWORD are required');
 
 const pool = new Pool({ connectionString: databaseUrl, max: 5, idleTimeoutMillis: 30_000, ssl: process.env.DATABASE_SSL === 'true' ? { rejectUnauthorized: true } : undefined });
+const identity = new LibraryIdentity({ origin: allowedOrigin });
+const sessionStore = new LibrarySessionStore({ pool, identity });
+const identityRoutes = createIdentityRoutes({ pool, origin: allowedOrigin, identity, sessionStore });
 const subscribers = new Set();
-const sessions = new Map();
 const rate = new Map();
 
 async function bootstrap() {
@@ -38,16 +43,7 @@ function limited(key, max = 10, windowMs = 60_000) {
   item.count += 1; return item.count <= max;
 }
 
-async function accountFromRequest(req) {
-  const token = parseCookie(req.headers.cookie).library_editor_session;
-  if (!token) return null;
-  const tokenHash = hashSessionToken(token); const cached = sessions.get(tokenHash);
-  if (cached && cached.expiresAt > Date.now()) return cached.account;
-  const { rows } = await pool.query(`select a.id, a.email, a.role, s.expires_at from editor_sessions s join editor_accounts a on a.id = s.account_id where s.token_hash = $1 and s.expires_at > now()`, [tokenHash]);
-  if (!rows[0]) return null;
-  const account = { id: rows[0].id, email: rows[0].email, role: rows[0].role };
-  sessions.set(tokenHash, { account, expiresAt: new Date(rows[0].expires_at).getTime() }); return account;
-}
+async function accountFromRequest(req) { return sessionStore.account(req); }
 
 async function requireEditor(req, res) {
   const account = await accountFromRequest(req);
@@ -64,6 +60,9 @@ async function handle(req, res) {
   setCors(res, req.headers.origin, allowedOrigin);
   if (req.method === 'OPTIONS') { res.writeHead(204, { 'access-control-allow-methods': 'GET,POST,PATCH,DELETE,OPTIONS', 'access-control-allow-headers': 'content-type', 'access-control-max-age': '600' }); return res.end(); }
   const path = requestPath(req);
+  if (path.startsWith('/api/editor/') && !['GET','HEAD','OPTIONS'].includes(req.method) && req.headers.origin !== allowedOrigin) return json(res,403,{error:'origin_rejected'});
+  if (path === '/api/editor/identity/start' && !limited(`identity:${req.socket.remoteAddress}`, 8)) return json(res,429,{error:'rate_limited'});
+  if (await identityRoutes(req, res, path)) return;
   if (path === '/healthz' && req.method === 'GET') return json(res, 200, { ok: true });
   if (path === '/api/public/image-examples' && req.method === 'GET') {
     const { rows } = await pool.query('select id,title,project,description,prompt,negative_prompt,settings,source_url,rights_note,format,style_code,image_path,updated_at from image_prompt_examples where status = $1 order by updated_at desc', ['published']);
@@ -82,18 +81,22 @@ async function handle(req, res) {
     if (!rows[0] || !verifyPassword(body.password, rows[0].password_salt, rows[0].password_hash)) return json(res, 401, { error: 'invalid_credentials' });
     const token = createSessionToken(); const tokenHash = hashSessionToken(token); const expiresAt = new Date(Date.now() + 7 * 86400_000);
     await pool.query('insert into editor_sessions (id, account_id, token_hash, expires_at) values ($1,$2,$3,$4)', [crypto.randomUUID(), rows[0].id, tokenHash, expiresAt]);
-    const account = { id: rows[0].id, email: rows[0].email, role: rows[0].role }; sessions.set(tokenHash, { account, expiresAt: expiresAt.getTime() });
+    const account = { id: rows[0].id, email: rows[0].email, role: rows[0].role };
     return json(res, 200, { account }, { 'set-cookie': sessionCookie(token, 7 * 86400) });
   }
   if (path === '/api/editor/logout' && req.method === 'POST') {
     const token = parseCookie(req.headers.cookie).library_editor_session;
-    if (token) { const tokenHash = hashSessionToken(token); await pool.query('delete from editor_sessions where token_hash = $1', [tokenHash]); sessions.delete(tokenHash); }
+    if (token) { const tokenHash = hashSessionToken(token); await pool.query('delete from editor_sessions where token_hash = $1', [tokenHash]); }
     return json(res, 200, { ok: true }, { 'set-cookie': clearSessionCookie() });
   }
   if (path === '/api/editor/me' && req.method === 'GET') { const account = await accountFromRequest(req); return json(res, account ? 200 : 401, account ? { account } : { error: 'editor_auth_required' }); }
   if (path === '/api/editor/events' && req.method === 'GET') {
     if (!await requireEditor(req, res)) return;
-    res.writeHead(200, { 'content-type': 'text/event-stream', 'cache-control': 'no-cache', connection: 'keep-alive' }); res.write(': connected\n\n'); subscribers.add(res); req.on('close', () => subscribers.delete(res)); return;
+    res.writeHead(200, { 'content-type': 'text/event-stream', 'cache-control': 'no-cache', connection: 'keep-alive' }); res.write(': connected\n\n'); subscribers.add(res);
+    const recheck = setInterval(async () => {
+      try { if (!await accountFromRequest(req)) { subscribers.delete(res); res.end(); } } catch { subscribers.delete(res); res.end(); }
+    }, 15_000);
+    req.on('close', () => { clearInterval(recheck); subscribers.delete(res); }); return;
   }
   if (!path.startsWith('/api/editor/prompts')) return json(res, 404, { error: 'not_found' });
   const account = await requireEditor(req, res); if (!account) return;
@@ -144,7 +147,7 @@ async function handle(req, res) {
   return json(res, 405, { error: 'method_not_allowed' });
 }
 
-const server = http.createServer((req, res) => handle(req, res).catch((error) => { console.error(error); if (!res.headersSent) json(res, error.statusCode || 500, { error: 'internal_error' }); else res.end(); }));
+const server = http.createServer((req, res) => handle(req, res).catch((error) => { console.error(error); if (!res.headersSent) json(res, error.statusCode || 500, { error: error.message === 'identity_unavailable' ? 'identity_unavailable' : 'internal_error' }); else res.end(); }));
 await bootstrap();
 server.listen(port, '127.0.0.1', () => console.log(`editor-api listening on 127.0.0.1:${port}`));
 process.on('SIGTERM', async () => { server.close(); await pool.end(); process.exit(0); });

@@ -7,7 +7,7 @@
   <link rel="stylesheet" href="styles.css?v=30">
   <link rel="stylesheet" href="library-v2.css?v=7">
   <link rel="stylesheet" href="library-shell.css?v=2">
-  <link rel="stylesheet" href="editor.css?v=2">
+  <link rel="stylesheet" href="editor.css?v=3">
 </head>
 <body>
   <main class="editor-page login-page" data-editor-api="/editor-api">
@@ -16,6 +16,7 @@
       <p class="eyebrow">LIBRARY EDITOR</p>
       <h1>Вход редактора</h1>
       <p class="login-lead">Управляйте примерами изображений, промптами и публикацией из одной панели.</p>
+      <div class="identity-login" data-identity-login hidden><button type="button" data-identity-start>Войти через Eclipse Chat</button><p>Вход через общий аккаунт. Редакторский доступ выдаётся отдельно.</p><p data-identity-error role="alert"></p></div>
       <form id="login-form" class="editor-form" autocomplete="on">
         <label>Email<input name="email" type="email" autocomplete="username" placeholder="editor@eclipse-forge.ru" required></label>
         <label>Пароль<input name="password" type="password" autocomplete="current-password" required minlength="12"></label>
@@ -24,7 +25,18 @@
       </form>
       <p class="login-back"><a href="/images.html">Вернуться к промптам</a></p>
     </section>
+  <nav class="eclipse-projects" aria-label="Проекты Eclipse"><details><summary>Проекты Eclipse</summary><p>Переходы между проектами. Редакторский доступ подключается отдельно.</p><ul>
+<li><a href="https://app.star-crm.ru/eclipse-chat/">Eclipse Chat</a></li>
+<li><a href="https://library.eclipse-forge.ru/">Eclipse Library</a></li>
+<li><a href="https://dnd.eclipse-forge.ru/">Eclipse DnD Forge</a></li>
+<li><a href="https://media.eclipse-forge.ru/">Eclipse Media</a></li>
+<li><a href="https://github.com/PavelHopson/eclipse-ai-hub">AI Hub · репозиторий</a></li>
+<li><a href="https://github.com/PavelHopson/eclipse-hopson-sentinel">Hopson Sentinel · репозиторий</a></li>
+<li><a href="https://github.com/PavelHopson/Eclipse-webclaw">Eclipse Claw · репозиторий</a></li>
+<li><a href="https://eclipse-premiumrent.pages.dev/">Premium Rent</a></li>
+</ul></details></nav>
   </main>
   <script type="module" src="login.mjs"></script>
+  <script type="module" src="identity-login.mjs?v=2"></script>
 </body>
 </html>
