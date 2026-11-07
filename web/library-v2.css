@@ -873,6 +873,40 @@ body.library-nav-open { overflow: hidden; }
   .library-nav-open .sidebar { transform: none !important; }
 }
 
+/* Header refinement: one clear navigation rail and a quieter utility zone. */
+.topbar { background: rgba(7, 9, 13, .92); border-bottom: 1px solid rgba(219,228,240,.14); box-shadow: 0 10px 34px rgba(0,0,0,.18); backdrop-filter: blur(18px) saturate(130%); }
+.topbar-inner { min-height: 76px; max-width: 1360px; gap: 12px; padding: 10px 22px; }
+.brand { min-width: 222px; }
+.brand-mark { width: 40px; height: 40px; border-radius: 12px; background: #0e141d; border-color: rgba(129,169,255,.22); }
+.sections-open { border-color: rgba(219,228,240,.16); background: rgba(13,17,24,.86); }
+.primary-nav { flex: 1 1 auto; min-width: 0; justify-content: center; gap: 3px; padding: 4px; border: 1px solid rgba(219,228,240,.1); border-radius: 14px; background: rgba(13,17,24,.72); }
+.primary-nav a { min-height: 36px; padding: 8px 11px; border-radius: 9px; font-size: 12px; }
+.primary-nav a:hover { background: rgba(129,169,255,.08); }
+.primary-nav a.active { color: var(--library-text); background: #172233; box-shadow: inset 0 0 0 1px rgba(129,169,255,.24); }
+.primary-nav .animation-nav-link { color: #dce8ff; }
+.search-wrap { flex: 0 1 218px; max-width: 218px; }
+#search { min-height: 40px; padding-right: 48px; background: rgba(13,17,24,.72); }
+.search-wrap kbd { right: 9px; opacity: .72; }
+.guide-open { min-height: 40px; border-color: rgba(129,169,255,.22); background: #111a28; }
+@media (max-width: 1260px) {
+  .brand { min-width: 200px; }
+  .primary-nav a { padding-inline: 8px; }
+  .primary-nav a[href="candidate-review.html"] { display: none; }
+}
+@media (max-width: 680px) {
+  .topbar-inner { display: grid; grid-template-columns: minmax(0, 1fr) auto auto; gap: 8px; padding: 9px 12px; }
+  .brand { min-width: 0; grid-column: 1; }
+  .brand-text { min-width: 0; }
+  .brand-text small { display: none; }
+  .sections-open { grid-column: 2; padding-inline: 10px; }
+  .sections-open span { display: none; }
+  .guide-open { grid-column: 3; padding-inline: 10px; font-size: 0; }
+  .guide-open::after { content: 'Гайд'; font-size: 11px; }
+  .primary-nav { display: none; }
+  .search-wrap { grid-column: 1 / -1; grid-row: 2; width: 100%; max-width: none; }
+  .search-wrap kbd { display: none; }
+}
+
 .primary-nav .animation-nav-link,
 .sidebar-primary .animation-nav-link {
   border: 1px solid var(--library-line-strong);
