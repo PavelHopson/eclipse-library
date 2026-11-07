@@ -116,5 +116,6 @@ test('UI uses safe DOM, shared styles, loading/retry, manual-copy fallback and r
   assert.match(js, /textContent/); assert.doesNotMatch(js, /innerHTML|eval\(|new Function/);
   assert.match(js, /await navigator\.clipboard\.writeText/);
   assert.match(js, /showModal\(/); assert.match(js, /copyTrigger\?\.focus/);
+  assert.match(js, /scrollRestoration = 'manual'/); assert.match(js, /sessionStorage\.setItem\(scrollKey/); assert.match(js, /window\.scrollTo\(\{ top: saved/);
   assert.match(css, /prefers-reduced-motion/); assert.match(css, /focus-visible/);
 });

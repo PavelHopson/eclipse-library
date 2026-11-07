@@ -35,6 +35,20 @@ export function validateCodebook(data) {
 
 if (typeof document !== 'undefined') {
   const $ = id => document.getElementById(id);
+  const scrollKey = `library-scroll:${location.pathname}${location.search}${location.hash}`;
+  let scrollSaveTimer;
+  let scrollRestored = false;
+  if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
+  function rememberScroll() { sessionStorage.setItem(scrollKey, String(Math.round(window.scrollY))); }
+  function restoreScroll() {
+    if (scrollRestored) return;
+    const saved = Number(sessionStorage.getItem(scrollKey));
+    if (!Number.isFinite(saved) || saved <= 0) return;
+    scrollRestored = true;
+    requestAnimationFrame(() => requestAnimationFrame(() => window.scrollTo({ top: saved, left: 0, behavior: 'auto' })));
+  }
+  window.addEventListener('scroll', () => { clearTimeout(scrollSaveTimer); scrollSaveTimer = setTimeout(rememberScroll, 120); }, { passive: true });
+  window.addEventListener('pagehide', rememberScroll);
   const search = $('code-search');
   const group = $('code-group');
   let data;
@@ -191,6 +205,7 @@ if (typeof document !== 'undefined') {
       clearTimeout(timeout);
       $('retry-load').disabled = false;
       $('code-list').setAttribute('aria-busy', 'false');
+      restoreScroll();
     }
   }
   $('image-filters').addEventListener('submit', event => { event.preventDefault(); if (data) render(); });
