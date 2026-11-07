@@ -984,7 +984,7 @@ body.learning-mode .to-top { display: none; }
 .learning-outline h3 { font-size: 12px; line-height: 1.6; color: var(--library-muted); margin: 16px 12px 8px; overflow-wrap: anywhere; }
 .learning-courses article > .learning-meta { display: block; margin-bottom: 14px; }
   .learning-progress { height: 6px; margin: 18px 0 8px; overflow: hidden; background: var(--library-panel-2); border: 1px solid var(--library-line); border-radius: 999px; }
-  .learning-progress span { display: block; height: 100%; background: var(--library-accent); border-radius: inherit; transition: width 180ms ease-out; }
+  .learning-progress span { display: block; width: 100%; height: 100%; background: var(--library-accent); border-radius: inherit; transform: scaleX(var(--progress, 0)); transform-origin: left center; transition: transform 180ms ease-out; }
   .learning-progress__label { display: block; margin-bottom: 14px; color: var(--library-muted); font: 12px/1.5 'JetBrains Mono', monospace; }
   @media (prefers-reduced-motion: reduce) { .learning-progress span { transition: none; } }
 .course-outline summary { min-height: 44px; padding: 10px 0; box-sizing: border-box; cursor: pointer; color: var(--library-muted); font-size: 13px; line-height: 1.6; }

@@ -6,11 +6,12 @@
   <title>Library — редактор</title>
   <link rel="stylesheet" href="styles.css?v=30">
   <link rel="stylesheet" href="library-v2.css?v=1">
+  <link rel="stylesheet" href="library-shell.css?v=1">
   <link rel="stylesheet" href="editor.css">
 </head>
 <body>
   <main class="editor-page" data-editor-api="/editor-api">
-    <header class="editor-header"><a href="/">Eclipse Library</a><span>Редактор</span><button id="logout" hidden>Выйти</button></header>
+    <header class="editor-header"><a href="/">Eclipse Library</a><span>Редактор</span><div class="library-subpage-tools"><a class="editor-home-link" href="/images.html">← К примерам</a><button id="logout" hidden>Выйти</button></div></header>
     <section id="login-view" class="editor-panel">
       <p class="eyebrow">PRIVATE EDITOR</p><h1>Редактор промптов</h1>
       <form id="login-form" class="editor-form"><label>Email<input name="email" type="email" autocomplete="username" required></label><label>Пароль<input name="password" type="password" autocomplete="current-password" required minlength="12"></label><button type="submit">Войти</button><p id="login-error" class="editor-error" role="alert"></p></form>

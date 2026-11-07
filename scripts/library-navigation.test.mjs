@@ -10,7 +10,7 @@ const app = read('web/app.js');
 const shell = read('web/library-shell.js');
 const css = read('web/library-v2.css');
 
-assert.match(html, /library-v2\.css\?v=5/);
+assert.match(html, /library-v2\.css\?v=6/);
 assert.match(html, /library-shell\.js\?v=1/);
 assert.ok(html.indexOf('app.js?v=52') >= 0 && html.indexOf('app.js?v=52') < html.indexOf('library-shell.js?v=1'));
 assert.doesNotMatch(html, /class="view-switcher"/);

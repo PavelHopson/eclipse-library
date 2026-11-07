@@ -102,4 +102,11 @@
 @media (prefers-reduced-motion: reduce) {
   .image-codebook *, .image-codebook *::before, .image-codebook *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
 }
+
+/* Keep the shared page navigation useful on narrow screens instead of wrapping into a tall header. */
+.image-codebook .library-context-nav { flex: 1 1 auto; min-width: 0; margin-left: 0; }
+@media (max-width: 680px) {
+  .image-codebook .library-context-nav { flex-wrap: nowrap; overflow-x: auto; overscroll-behavior-inline: contain; scrollbar-width: thin; }
+  .image-codebook .library-context-nav a { flex: 0 0 auto; }
+}
 .image-project-example__image{display:block;width:100%;height:auto;max-height:none;object-fit:contain;border:1px solid var(--line,#273040);border-radius:10px;margin:12px 0 0}

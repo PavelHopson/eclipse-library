@@ -115,7 +115,7 @@
       const row = el('article');
       row.append(el('span', String(progress.total).padStart(2, '0') + (progress.total === 1 ? ' урок · ' : progress.total < 5 ? ' урока · ' : ' уроков · ') + progress.completed + ' завершено', 'learning-meta'), el('h2', course.title), el('p', course.summary));
       const meter = el('div', undefined, 'learning-progress'); meter.setAttribute('role', 'progressbar'); meter.setAttribute('aria-valuemin', '0'); meter.setAttribute('aria-valuemax', String(progress.total)); meter.setAttribute('aria-valuenow', String(progress.completed)); meter.setAttribute('aria-label', 'Прогресс курса: ' + progress.percent + '%');
-      const fill = el('span'); fill.setAttribute('style', 'width:' + progress.percent + '%'); meter.append(fill); row.append(meter, el('span', progress.percent + '% курса', 'learning-progress__label'), link(progress.completed ? 'Продолжить →' : 'Открыть практику →', '#learn/' + course.id));
+      const fill = el('span'); fill.setAttribute('style', '--progress:' + (progress.percent / 100)); meter.append(fill); row.append(meter, el('span', progress.percent + '% курса', 'learning-progress__label'), link(progress.completed ? 'Продолжить →' : 'Открыть практику →', '#learn/' + course.id));
       if (loaded.error) row.append(el('p', 'Есть ошибка сохранённых данных. Откройте курс для восстановления.', 'is-error'));
       list.append(row);
     }); host.append(goalPlanner(), list, deckPanel());
