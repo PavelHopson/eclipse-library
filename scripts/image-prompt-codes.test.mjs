@@ -103,7 +103,7 @@ test('source, dates, canonical card, guide and both navigation entries exist', a
   assert.match(await read('web/images.html'), /id="project-examples"/);
   assert.match(await read('web/image-prompts.mjs'), /image-project-examples\.json/);
   assert.match(await read('web/image-prompts.mjs'), /\/editor-api\/api\/public\/image-examples/);
-  assert.match(await read('web/image-prompts.mjs'), /Открыть промпт/);
+  assert.match(await read('web/image-prompts.mjs'), /Открыть полный промпт/);
   assert.match(await read('web/image-prompts.css'), /image-project-example__prompt-details/);
 });
 test('UI uses safe DOM, shared styles, loading/retry, manual-copy fallback and reduced motion', async () => {
