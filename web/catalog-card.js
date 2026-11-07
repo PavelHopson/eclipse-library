@@ -30,6 +30,17 @@
     card.appendChild(title);
     card.appendChild(el('p', 'desc', esc(resource.simpleDescription)));
 
+    const proof = el('div', 'card-proof');
+    const proofStatus = resource.reviewStatus === 'verified' ? 'Проверено редактором' : 'Описание подготовлено';
+    const proofFreshness = resource.freshness === 'fresh' ? 'Актуально' : (resource.freshness === 'stale' ? 'Нужна перепроверка' : 'Дата проверки уточняется');
+    const evidenceCount = Array.isArray(resource.evidence) ? resource.evidence.length : 0;
+    proof.append(
+      el('span', 'card-proof-item', proofStatus),
+      el('span', 'card-proof-item', proofFreshness),
+      el('span', 'card-proof-item', evidenceCount ? `${evidenceCount} источн.` : 'Источник не добавлен'),
+    );
+    card.appendChild(proof);
+
     const use = el('p', 'card-use');
     use.innerHTML = `<b>Когда пригодится:</b> ${esc(resource.useCases[0] || 'для небольшой тестовой задачи')}`;
     card.appendChild(use);

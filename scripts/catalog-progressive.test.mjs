@@ -119,8 +119,8 @@ test('app wires lazy descriptors and modules before the main bundle', () => {
   assert.match(html, /catalog-workflow\.js\?v=1/);
   assert.ok(workflowScript > 0 && cardScript > workflowScript && editorialScript > cardScript && progressiveScript > editorialScript && inspectorScript > progressiveScript && reviewScript > inspectorScript && searchScript > reviewScript && appScript > searchScript);
   const navigatorCss = fs.readFileSync(path.join(root, 'web', 'navigator.css'), 'utf8');
-  assert.match(navigatorCss, /\.catalog-inspector::-webkit-scrollbar \{[^}]*display: none;[^}]*\}/);
-  assert.match(navigatorCss, /scrollbar-width: none;/);
+  assert.match(navigatorCss, /\.catalog-inspector::-webkit-scrollbar \{[^}]*width: 9px;[^}]*\}/);
+  assert.match(navigatorCss, /\.catalog-inspector \{[\s\S]*scrollbar-width: thin;/);
   assert.match(navigatorCss, /data-catalog-layout="compact"/);
   assert.match(app, /ensureInspectorSelection\(visibleCards\)/);
   assert.doesNotMatch(fs.readFileSync(path.join(root, 'web', 'catalog-card.js'), 'utf8'), /shields\.io/);

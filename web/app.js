@@ -976,6 +976,71 @@
     });
   }
 
+  function updateCatalogContext(matched) {
+    const box = $('#catalogContext');
+    if (!box) return;
+    const parts = [];
+    if (query.trim()) parts.push({ label: `Поиск: ${query.trim()}`, value: 'query' });
+    if (activeTask && TASK_ROUTES[activeTask]) parts.push({ label: `Задача: ${TASK_ROUTES[activeTask].label}`, value: 'task' });
+    if (activeTopic && TOPIC_ROUTES[activeTopic]) parts.push({ label: `Раздел: ${TOPIC_ROUTES[activeTopic].title}`, value: 'topic' });
+    if (activeType && TYPE_GROUPS[activeType]) parts.push({ label: `Тип: ${TYPE_GROUPS[activeType].label}`, value: 'type' });
+    const advanced = [
+      ['cost', activeCost && (activeCost === 'free-start' ? 'Можно начать бесплатно' : COST[activeCost])],
+      ['signup', activeSignup && SIGNUP[activeSignup]],
+      ['runtime', activeRuntime && (activeRuntime === 'local-start' ? 'На своём устройстве или сервере' : RUNTIME[activeRuntime])],
+      ['platform', activePlatform], ['license', activeLicense && LICENSE_GROUPS[activeLicense]],
+      ['trust', activeTrust && TRUST[activeTrust]], ['project', activeProject],
+      ['freshness', activeFreshness && FRESHNESS[activeFreshness]], ['repository', activeRepositoryState && REPOSITORY_STATE[activeRepositoryState]],
+    ];
+    advanced.filter(([, label]) => label).forEach(([value, label]) => parts.push({ label, value }));
+    if (activeFavorites) parts.push({ label: 'Только избранное', value: 'favorites' });
+    if (activeWorkflowStatus) parts.push({ label: workflowStatusLabel(activeWorkflowStatus), value: 'workflow' });
+    if (!parts.length) {
+      box.hidden = true;
+      box.replaceChildren();
+      return;
+    }
+    box.hidden = false;
+    box.replaceChildren(
+      el('span', 'catalog-context-label', 'Сейчас показываем'),
+      ...parts.map((part) => {
+        const chip = el('button', 'catalog-context-chip');
+        chip.textContent = part.label;
+        chip.type = 'button';
+        chip.title = 'Нажмите, чтобы сбросить это условие';
+        chip.tabIndex = 0;
+        chip.dataset.contextValue = part.value;
+        return chip;
+      }),
+      el('span', 'catalog-context-count', `${matched} ${matched === 1 ? 'материал' : 'материалов'}`),
+    );
+    box.querySelectorAll('[data-context-value]').forEach((chip) => {
+      const clearPart = () => {
+        if (chip.dataset.contextValue === 'query') { query = ''; if (search) search.value = ''; const heroSearch = $('#heroSearch'); if (heroSearch) heroSearch.value = ''; }
+        else if (chip.dataset.contextValue === 'task') activeTask = '';
+        else if (chip.dataset.contextValue === 'topic') clearTopicRoute();
+        else if (chip.dataset.contextValue === 'type') activeType = null;
+        else if (chip.dataset.contextValue === 'favorites') activeFavorites = false;
+        else if (chip.dataset.contextValue === 'workflow') activeWorkflowStatus = '';
+        else if (chip.dataset.contextValue === 'cost') activeCost = '';
+        else if (chip.dataset.contextValue === 'signup') activeSignup = '';
+        else if (chip.dataset.contextValue === 'runtime') activeRuntime = '';
+        else if (chip.dataset.contextValue === 'platform') activePlatform = '';
+        else if (chip.dataset.contextValue === 'license') activeLicense = '';
+        else if (chip.dataset.contextValue === 'trust') activeTrust = '';
+        else if (chip.dataset.contextValue === 'project') activeProject = '';
+        else if (chip.dataset.contextValue === 'freshness') activeFreshness = '';
+        else if (chip.dataset.contextValue === 'repository') activeRepositoryState = '';
+        $('#costFilter').value = activeCost; $('#signupFilter').value = activeSignup; $('#runtimeFilter').value = activeRuntime;
+        $('#platformFilter').value = activePlatform; $('#licenseFilter').value = activeLicense; $('#trustFilter').value = activeTrust;
+        $('#projectFilter').value = activeProject; $('#freshnessFilter').value = activeFreshness; $('#repositoryFilter').value = activeRepositoryState;
+        updateTaskState(); updateChipState(); updateFavoritesUI(); applyFilters();
+      };
+      chip.addEventListener('click', clearPart);
+      chip.addEventListener('keydown', (event) => { if (event.key === 'Enter' || event.key === ' ') { event.preventDefault(); clearPart(); } });
+    });
+  }
+
   function selectHasValue(id, value) {
     return value && [...$(id).options].some((option) => option.value === value) ? value : '';
   }
@@ -1155,6 +1220,7 @@
     if (recentEditorial) recentEditorial.hidden = filtering || currentView !== 'catalog';
     const shown = Math.min(matched, visibleLimit);
     $('#resultcount').textContent = shown < matched ? `${shown} из ${matched}` : `${matched} ${matched === 1 ? 'материал' : 'материалов'}`;
+    updateCatalogContext(matched);
     const expansion = $('#searchExpansion');
     if (expansion) {
       expansion.hidden = !q || queryPlan.related.length === 0;

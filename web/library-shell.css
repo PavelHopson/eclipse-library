@@ -1,4 +1,31 @@
 /* Shared navigation and orientation layer for Library subpages. */
+:root {
+  --library-motion-fast: 160ms;
+  --library-motion-base: 220ms;
+  --library-motion-slow: 360ms;
+  --library-motion-ease: cubic-bezier(.2, .75, .2, 1);
+  --library-scroll-thumb: rgba(121, 184, 255, .42);
+  --library-scroll-thumb-hover: rgba(168, 211, 255, .72);
+  --library-scroll-track: rgba(255, 255, 255, .045);
+}
+
+html {
+  scroll-behavior: smooth;
+  scrollbar-color: var(--library-scroll-thumb) var(--library-scroll-track);
+  scrollbar-width: thin;
+}
+* { scrollbar-color: var(--library-scroll-thumb) transparent; scrollbar-width: thin; }
+*::-webkit-scrollbar { width: 9px; height: 9px; }
+*::-webkit-scrollbar-track { background: var(--library-scroll-track); }
+*::-webkit-scrollbar-thumb {
+  border: 2px solid transparent;
+  border-radius: 999px;
+  background: var(--library-scroll-thumb);
+  background-clip: padding-box;
+}
+*::-webkit-scrollbar-thumb:hover { background: var(--library-scroll-thumb-hover); background-clip: padding-box; }
+*::-webkit-scrollbar-corner { background: transparent; }
+::selection { background: rgba(121, 184, 255, .28); color: #f4f8ff; }
 .library-context-nav {
   display: flex;
   align-items: center;
@@ -21,6 +48,7 @@
   line-height: 1.2;
   text-decoration: none;
   white-space: nowrap;
+  transition: color var(--library-motion-fast) var(--library-motion-ease), background-color var(--library-motion-fast) var(--library-motion-ease), box-shadow var(--library-motion-fast) var(--library-motion-ease);
 }
 .library-context-nav a:hover { color: var(--text, #f2f5f9); background: rgba(129, 169, 255, .08); }
 .library-context-nav a[aria-current="page"] {
@@ -43,6 +71,7 @@
   font-weight: 750;
   text-decoration: none;
   white-space: nowrap;
+  transition: color var(--library-motion-fast) var(--library-motion-ease), background-color var(--library-motion-fast) var(--library-motion-ease), border-color var(--library-motion-fast) var(--library-motion-ease);
 }
 .library-back-link:hover { border-color: rgba(129, 169, 255, .46); background: #172233; }
 .library-page-rail {
@@ -78,5 +107,6 @@
   .registry-page .library-context-nav { display: flex; }
 }
 @media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
   .library-context-nav *, .library-page-rail * { scroll-behavior: auto !important; transition: none !important; }
 }

@@ -130,8 +130,10 @@
   .registry-summary > div:nth-child(-n+2) { border-top: 0; }
   .registry-summary > div:nth-child(3) { border-right: 1px solid var(--line); }
   .registry-summary > div:nth-child(2n) { border-right: 0; }
-  .registry-products { display: flex; overflow-x: auto; overscroll-behavior-inline: contain; scrollbar-width: none; -ms-overflow-style: none; }
-  .registry-products::-webkit-scrollbar { display: none; }
+  .registry-products { display: flex; overflow-x: auto; overscroll-behavior-inline: contain; scrollbar-width: thin; scrollbar-color: rgba(121, 184, 255, .42) transparent; }
+  .registry-products::-webkit-scrollbar { height: 8px; }
+  .registry-products::-webkit-scrollbar-track { background: transparent; }
+  .registry-products::-webkit-scrollbar-thumb { border-radius: 999px; background: rgba(121, 184, 255, .42); }
   .registry-product { flex: 0 0 210px; }
   .registry-filter-row { grid-template-columns: 1fr; }
   .registry-entry { grid-template-columns: 46px minmax(0, 1fr); }

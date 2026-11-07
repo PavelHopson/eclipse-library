@@ -2,10 +2,11 @@ import http from 'node:http';
 import crypto from 'node:crypto';
 import fs from 'node:fs/promises';
 import pathModule from 'node:path';
-import { Pool } from 'pg';
+import pg from 'pg';
 import { clearSessionCookie, createSessionToken, hashPassword, hashSessionToken, normalizeEmail, parseCookie, sessionCookie, verifyPassword } from './auth.mjs';
 import { json, readJson, requestPath, setCors } from './http.mjs';
 
+const { Pool } = pg;
 const port = Number(process.env.PORT || 8787);
 const allowedOrigin = process.env.ALLOWED_ORIGIN || 'https://library.eclipse-forge.ru';
 const databaseUrl = process.env.DATABASE_URL;

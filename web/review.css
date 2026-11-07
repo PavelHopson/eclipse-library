@@ -7,10 +7,13 @@
   background:
     radial-gradient(760px 420px at 78% -10%, rgba(121, 184, 255, .12), transparent 62%),
     #080a0f;
-  scrollbar-width: none;
-  -ms-overflow-style: none;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(121, 184, 255, .42) transparent;
 }
-.review-overlay::-webkit-scrollbar { width: 0; height: 0; display: none; }
+.review-overlay::-webkit-scrollbar { width: 9px; height: 9px; }
+.review-overlay::-webkit-scrollbar-track { background: transparent; }
+.review-overlay::-webkit-scrollbar-thumb { border: 2px solid transparent; border-radius: 999px; background: rgba(121, 184, 255, .42); background-clip: padding-box; }
+.review-overlay::-webkit-scrollbar-thumb:hover { background: rgba(168, 211, 255, .72); background-clip: padding-box; }
 body.review-open { overflow: hidden; }
 .review-head {
   position: sticky;
