@@ -16,6 +16,8 @@ const uploadHint = document.querySelector('#upload-hint');
 let position;
 let events, previewUrl, pendingId, saving = false, selectedId = null, rows = [];
 const dirtyCards = new Set();
+const selectedExamples = new Set();
+let bulkBusy=false,bulkStop=false;
 const notice = document.createElement('p'); notice.className = 'editor-feedback'; notice.setAttribute('role','status'); connection.after(notice);
 const preview = document.createElement('img'); preview.className = 'upload-preview'; preview.alt = 'Предпросмотр выбранного изображения'; preview.hidden = true; dropzone.append(preview);
 const statusLabels = { draft: 'Черновик', published: 'Опубликовано', archived: 'В архиве' };
@@ -62,16 +64,56 @@ function showPreview(example, values = {}) {
   const text=document.createElement('p');text.textContent=values.description||example.description;
   const details=document.createElement('details');const label=document.createElement('summary');label.textContent='Полный промпт';const pre=document.createElement('pre');pre.textContent=values.prompt||example.prompt;details.append(label,pre);viewer.append(title,text,details);viewer.showModal();
 }
+function visibleExamples(){return rows.filter(e=>(!status.value||e.status===status.value)&&[e.title,e.prompt,e.project].join(' ').toLocaleLowerCase().includes(search.value.trim().toLocaleLowerCase()));}
+const bulk=document.createElement('div');bulk.className='editor-bulk';bulk.setAttribute('aria-label','Действия с выбранными примерами');
+const selectedCount=document.createElement('span');selectedCount.setAttribute('role','status');
+const selectAll=button('Выбрать всё',()=>{for(const e of visibleExamples())selectedExamples.add(e.id);syncSelection();});
+const clearSelection=button('Снять выбор',()=>{selectedExamples.clear();syncSelection();});
+const bulkPublish=button('Опубликовать выбранные',()=>void changeSelectedStatus('published'));
+const bulkUnpublish=button('Снять с публикации',()=>void changeSelectedStatus('draft'));
+const stopBulk=button('Остановить',()=>{bulkStop=true;stopBulk.disabled=true;});stopBulk.hidden=true;
+const bulkFeedback=document.createElement('p');bulkFeedback.setAttribute('role','status');bulkFeedback.className='editor-feedback';
+bulk.append(selectedCount,selectAll,clearSelection,bulkPublish,bulkUnpublish,stopBulk,bulkFeedback);list.before(bulk);
+function syncSelection(){
+ for(const id of selectedExamples)if(!rows.some(e=>e.id===id))selectedExamples.delete(id);
+ selectedCount.textContent='Выбрано: '+selectedExamples.size;
+ for(const checkbox of list.querySelectorAll('[data-select-id]'))checkbox.checked=selectedExamples.has(checkbox.dataset.selectId);
+ selectAll.disabled=bulkBusy||!visibleExamples().length;clearSelection.disabled=bulkBusy||!selectedExamples.size;
+ bulkPublish.disabled=bulkBusy||!rows.some(e=>selectedExamples.has(e.id)&&e.status!=='published');
+ bulkUnpublish.disabled=bulkBusy||!rows.some(e=>selectedExamples.has(e.id)&&e.status==='published');
+ search.disabled=status.disabled=bulkBusy;list.inert=bulkBusy;stopBulk.hidden=!bulkBusy;
+}
+async function changeSelectedStatus(target){
+ if(bulkBusy||!selectedExamples.size)return;
+ if(dirtyCards.size){bulkFeedback.textContent='Сначала сохраните или отмените изменения открытой карточки.';return;}
+ const jobs=rows.filter(e=>selectedExamples.has(e.id)&&(target==='published'?e.status!=='published':e.status==='published'));
+ if(!jobs.length)return;
+ if(!confirm((target==='published'?'Опубликовать':'Снять с публикации')+' выбранные примеры: '+jobs.length+'?'))return;
+ bulkBusy=true;bulkStop=false;stopBulk.disabled=false;saving=true;syncSelection();
+ let done=0,failed=0;const failures=[];
+ try{
+  for(const e of jobs){
+   if(bulkStop)break;
+   bulkFeedback.textContent='Обработано: '+(done+failed)+' из '+jobs.length;
+   try{await request('/api/editor/prompts/'+encodeURIComponent(e.id),{method:'PATCH',body:JSON.stringify({status:target,expectedUpdatedAt:e.updated_at})});selectedExamples.delete(e.id);done++;}
+   catch(err){failed++;failures.push(e.title+': '+errorText(err));if(err.message==='editor_auth_required'||err.message==='identity_unavailable'){bulkStop=true;}}
+  }
+  await load();
+  bulkFeedback.textContent=(target==='published'?'Опубликовано: ':'Снято с публикации: ')+done+'. Ошибок: '+failed+'.'+(bulkStop?' Обработка остановлена.':'')+(selectedExamples.size?' Оставшиеся карточки отмечены.':'')+(failures.length?' '+failures.slice(0,3).join(' · '):'');
+ }catch(err){bulkFeedback.textContent='Изменено: '+done+'. Не удалось обновить список. '+errorText(err);}
+ finally{bulkBusy=false;saving=false;syncSelection();}
+}
 function renderList() {
- const filtered=rows.filter(e=>(!status.value||e.status===status.value)&&[e.title,e.prompt,e.project].join(' ').toLocaleLowerCase().includes(search.value.trim().toLocaleLowerCase()));
+ const filtered=visibleExamples();
  summary.textContent=filtered.length+' из '+rows.length;
  list.replaceChildren();
  if(!filtered.length){const empty=document.createElement('p');empty.textContent=rows.length?'Ничего не найдено. Измените поиск или статус.':'Добавьте первый пример выше.';list.append(empty);}
  for(const example of filtered){const row=button('',()=>{selectedId=example.id;renderPanel(example);panel.showModal();});row.className='editor-list-row';
  if(example.imageUrl){const thumb=document.createElement('span');thumb.className='editor-list-thumb';const hint=document.createElement('small');hint.textContent='Загрузка';const image=document.createElement('img');image.alt='';image.loading='lazy';image.decoding='async';image.addEventListener('load',()=>{thumb.classList.add('is-ready');hint.hidden=true;});image.addEventListener('error',()=>{hint.textContent='Нет превью';});image.src=example.imageUrl;thumb.append(image,hint);row.append(thumb);}
- const info=document.createElement('span');const title=document.createElement('strong');title.textContent=example.title;const meta=document.createElement('small');meta.textContent=(statusLabels[example.status]||example.status)+' · '+new Date(example.updated_at).toLocaleDateString('ru-RU');const excerpt=document.createElement('span');excerpt.textContent=example.prompt;excerpt.className='editor-list-excerpt';info.append(title,meta,excerpt);row.append(info);list.append(row);}
+ const info=document.createElement('span');const title=document.createElement('strong');title.textContent=example.title;const meta=document.createElement('small');meta.textContent=(statusLabels[example.status]||example.status)+' · '+new Date(example.updated_at).toLocaleDateString('ru-RU');const excerpt=document.createElement('span');excerpt.textContent=example.prompt;excerpt.className='editor-list-excerpt';info.append(title,meta,excerpt);row.append(info);const item=document.createElement('div');item.className='editor-list-item';const choice=document.createElement('input');choice.type='checkbox';choice.dataset.selectId=example.id;choice.setAttribute('aria-label','Выбрать: '+example.title);choice.checked=selectedExamples.has(example.id);choice.addEventListener('change',()=>{if(choice.checked)selectedExamples.add(example.id);else selectedExamples.delete(example.id);syncSelection();});item.append(choice,row);list.append(item);}
+ syncSelection();
 }
-search.addEventListener('input',()=>{renderList();position?.save();});status.addEventListener('change',()=>{renderList();position?.save();});
+search.addEventListener('input',()=>{selectedExamples.clear();bulkFeedback.textContent='';renderList();position?.save();});status.addEventListener('change',()=>{selectedExamples.clear();bulkFeedback.textContent='';renderList();position?.save();});
 
 function render(examples) { rows=examples;renderList();if(selectedId){const e=rows.find(e=>e.id===selectedId);if(e)renderPanel(e);else closePanel();} }
 function renderPanel(example) {
@@ -109,7 +151,7 @@ function renderPanel(example) {
 }
 
 async function load() { if (dirtyCards.size) { notice.textContent = 'Есть изменения на сервере. Сначала сохраните свои правки.'; } const payload = await request('/api/editor/prompts'); rows=payload.examples||[]; if (dirtyCards.size) return; render(payload.examples || []); await position?.restore(); }
-function connectEvents() { events?.close(); events = new EventSource(`${api}/api/editor/events`, { withCredentials: true }); events.onopen = () => { connection.textContent = 'Realtime подключён'; }; events.onerror = () => { connection.textContent = 'Переподключение…'; }; events.addEventListener('prompt.changed', () => { if (!saving) load().catch(err => { notice.textContent = errorText(err); }); }); events.addEventListener('prompt.deleted', () => load().catch(err => { notice.textContent = errorText(err); })); }
+function connectEvents() { events?.close(); events = new EventSource(`${api}/api/editor/events`, { withCredentials: true }); events.onopen = () => { connection.textContent = 'Realtime подключён'; }; events.onerror = () => { connection.textContent = 'Переподключение…'; }; events.addEventListener('prompt.changed', () => { if (!saving) load().catch(err => { notice.textContent = errorText(err); }); }); events.addEventListener('prompt.deleted', () => {if(!saving)load().catch(err => { notice.textContent = errorText(err); });}); }
 
 loginForm.addEventListener('submit', async (event) => { event.preventDefault(); const error = document.querySelector('#login-error'); error.textContent = ''; try { const form = new FormData(loginForm); const session = await request('/api/editor/login', { method: 'POST', body: JSON.stringify({ email: form.get('email'), password: form.get('password') }) }); showEditor(session.account); if(session.account.role==='viewer')return; await load(); connectEvents(); } catch (err) { error.textContent = errorText(err); } });
 promptForm.addEventListener('submit', async (event) => { event.preventDefault(); const error = document.querySelector('#save-error'); error.textContent = ''; const button = promptForm.querySelector('button[type="submit"]'); button.disabled = true; button.textContent = 'Сохраняем…'; saving = true; try { const file = imageFile.files?.[0]; const form = new FormData(promptForm); promptForm.inert = true; const prompt = String(form.get('prompt') || '').trim(); validateFile(file); const id = `prompt-${Date.now()}`; const title = String(form.get('title') || '').trim() || file.name.replace(/\.[^.]+$/, '') || 'Новый пример'; const project = String(form.get('project') || '').trim() || 'Eclipse Library'; const description = String(form.get('description') || '').trim() || 'Пример изображения из редакторской панели.'; const format = ({'image/png':'PNG','image/webp':'WebP','image/gif':'GIF','image/jpeg':'JPG'})[file.type]; const data = { id, title, project, description, prompt, sourceUrl: String(form.get('sourceUrl') || '').trim(), rightsNote: String(form.get('rightsNote') || '').trim(), format, status: 'draft' }; if (!pendingId) { const created = await request('/api/editor/prompts', { method: 'POST', body: JSON.stringify(data) }); pendingId = created.example.id; } else { await request(`/api/editor/prompts/${encodeURIComponent(pendingId)}`, { method: 'PATCH', body: JSON.stringify({ title, project, description, prompt, format }) }); } await request(`/api/editor/prompts/${encodeURIComponent(pendingId)}/image`, { method: 'POST', body: JSON.stringify({ dataUrl: await fileAsDataUrl(file) }) }); pendingId = null; promptForm.reset(); clearPreview(); notice.textContent = 'Пример сохранён как черновик. Опубликуйте его, когда будете готовы.'; promptForm.querySelector('[name="project"]').value = 'Eclipse Library'; uploadLabel.textContent = 'Загрузить изображение'; uploadHint.textContent = 'Перетащите файл сюда или выберите его · до 6 МБ'; dropzone.classList.remove('has-file'); await load(); } catch (err) { error.textContent = errorText(err); } finally { button.disabled = false; button.textContent = 'Сохранить пример'; promptForm.inert = false; saving = false; } });
@@ -125,7 +167,7 @@ async function endSession(global = false) {
   logout.disabled = logoutEclipse.disabled = true; button.textContent = 'Выходим…';
   try {
     await request(global ? '/api/editor/identity/logout' : '/api/editor/logout', { method: 'POST', body: '{}' });
-    position?.clear();position=null;events?.close(); dirtyCards.clear(); selectedId=null;panel.close();viewer.close();list.replaceChildren();rows=[];promptForm.reset();clearPreview();pendingId=null;showLogin();
+    position?.clear();position=null;selectedExamples.clear();events?.close(); dirtyCards.clear(); selectedId=null;panel.close();viewer.close();list.replaceChildren();rows=[];promptForm.reset();clearPreview();pendingId=null;showLogin();
   } catch(err) { notice.textContent = errorText(err); }
   finally { logout.disabled = logoutEclipse.disabled = false; button.textContent = previous; }
 }
