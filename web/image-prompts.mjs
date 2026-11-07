@@ -149,11 +149,17 @@ if (typeof document !== 'undefined') {
       else media.append(el('span', 'Пример изображения пока не загружен', 'image-project-example__placeholder'));
       const body = el('div', undefined, 'image-project-example__body');
       body.append(head, el('h3', example.title), el('p', example.description || example.check || ''));
+      const promptSections = [['Основной промпт', example.prompt], ['Negative prompt', example.negativePrompt || example.negative_prompt], ['Настройки', example.settings]].filter(([, text]) => String(text || '').trim());
       const promptDetails = el('details', undefined, 'image-project-example__prompt-details');
       const promptSummary = el('summary', undefined, 'image-project-example__prompt-summary');
-      promptSummary.append(el('span', 'Открыть полный промпт'), el('span', `${example.prompt.length} знаков`, 'image-project-example__prompt-size'));
-      promptDetails.append(promptSummary, el('pre', example.prompt, 'image-project-example__prompt'));
+      promptSummary.append(el('span', 'Открыть промпт'), el('span', `${promptSections.length} блока`, 'image-project-example__prompt-size'));
+      const promptBody = el('div', undefined, 'image-project-example__prompt-body');
+      promptSections.forEach(([label, text]) => { const section = el('section', undefined, 'image-project-example__prompt-section'); section.append(el('h4', label), el('pre', text)); promptBody.append(section); });
+      promptDetails.append(promptSummary, promptBody);
       body.append(promptDetails);
+      const source = example.sourceUrl || example.source_url;
+      const rights = example.rightsNote || example.rights_note;
+      if (source || rights) { const provenance = el('p', undefined, 'image-project-example__provenance'); if (source) provenance.append(el('a', 'Источник ↗')); provenance.querySelector('a')?.setAttribute('href', source); provenance.querySelector('a')?.setAttribute('target', '_blank'); provenance.querySelector('a')?.setAttribute('rel', 'noopener'); if (rights) provenance.append(document.createTextNode(`${source ? ' · ' : ''}${rights}`)); body.append(provenance); }
       const note = el('p', undefined, 'image-project-example__check');
       note.append(el('strong', 'Проверка: '), document.createTextNode(example.check || example.description || ''));
       body.append(note, copyButton('Скопировать промпт', example.prompt, `Копировать промпт: ${example.project}`));
