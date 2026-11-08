@@ -1,3 +1,4 @@
+import { exampleCategories, categoryLabel, filterExamples } from './example-categories.mjs';
 export function normalizeSearch(value) {
   return String(value ?? '').normalize('NFKC').toLocaleLowerCase('ru').replaceAll('ё', 'е').trim();
 }
@@ -55,6 +56,8 @@ if (typeof document !== 'undefined') {
   let projectExamples;
   let projectQuery = '';
   let projectProduct = '';
+  let projectCategory = '';
+  $('project-example-category').append(...exampleCategories.map(([id,label])=>new Option(label,id)), new Option('Без категории','uncategorized'));
   let messageTimer;
   let copyTrigger;
   const lightbox = $('image-lightbox');
@@ -133,17 +136,13 @@ if (typeof document !== 'undefined') {
     group.value = data.groups.some(item => item.id === params.get('group')) ? params.get('group') : '';
   }
   function renderProjectExamples() {
-    const query = normalizeSearch(projectQuery);
-    const matches = projectExamples.filter(example => {
-      if (projectProduct && example.project !== projectProduct) return false;
-      return !query || normalizeSearch([example.title, example.project, example.description, example.prompt].join(' ')).includes(query);
-    });
+    const matches = filterExamples(projectExamples, {query:projectQuery, product:projectProduct, category:projectCategory});
     $('project-example-count').textContent = `${matches.length} из ${projectExamples.length} примеров`;
     $('project-example-empty').hidden = matches.length !== 0;
     $('project-example-list').replaceChildren(...matches.map(example => {
       const article = el('article', undefined, 'image-project-example');
       const head = el('div', undefined, 'image-project-example__head');
-      head.append(el('span', example.project, 'image-project-example__project'), el('span', example.format, 'image-project-example__format'));
+      head.append(el('span', example.category ? categoryLabel(example.category) : example.project, 'image-project-example__project'), el('span', example.format, 'image-project-example__format'));
       const style=data.entries.find(entry=>entry.code===example.styleCode);if(style){const link=el('a',style.code+' · '+style.title);link.href='images.html?q='+encodeURIComponent(style.code)+'#code-'+style.number;head.append(link);}
       const media = el('div', undefined, 'image-project-example__media');
       if (example.imageUrl) { const imageLink = el('a', undefined, 'image-project-example__image-link'); imageLink.href = example.imageUrl; imageLink.title = 'Открыть изображение в полном размере'; const image = el('img', undefined, 'image-project-example__image'); image.src = example.imageUrl; image.alt = `Пример изображения: ${example.title}. Нажмите, чтобы открыть полный размер`; image.loading = 'lazy'; imageLink.append(image); imageLink.addEventListener('click', event => { event.preventDefault(); lightboxPreview.src = example.imageUrl; lightboxPreview.alt = image.alt; lightbox.showModal(); }); media.append(imageLink); }
@@ -217,9 +216,11 @@ if (typeof document !== 'undefined') {
   $('image-filters').addEventListener('submit', event => { event.preventDefault(); if (data) render(); });
   search.addEventListener('input', () => render());
   group.addEventListener('change', () => render());
+  $('project-example-filters').addEventListener('submit', event=>event.preventDefault());
+  $('project-example-category').addEventListener('change', event=>{projectCategory=event.target.value;renderProjectExamples();});
   $('project-example-search').addEventListener('input', event => { projectQuery = event.target.value; renderProjectExamples(); });
   $('project-example-project').addEventListener('change', event => { projectProduct = event.target.value; renderProjectExamples(); });
-  $('project-example-reset').addEventListener('click', () => { projectQuery = ''; projectProduct = ''; $('project-example-search').value = ''; $('project-example-project').value = ''; renderProjectExamples(); });
+  $('project-example-reset').addEventListener('click', () => { projectQuery = ''; projectProduct = ''; projectCategory=''; $('project-example-category').value=''; $('project-example-search').value = ''; $('project-example-project').value = ''; renderProjectExamples(); });
   $('reset-filters').addEventListener('click', () => { search.value = ''; group.value = ''; render(); search.focus(); });
   $('retry-load').addEventListener('click', async (event) => { event.preventDefault(); const scrollY = window.scrollY; await load(); window.scrollTo({ top: scrollY, left: 0, behavior: 'instant' }); });
   window.addEventListener('popstate', () => { if (data) { applyUrl(); render(false); } });

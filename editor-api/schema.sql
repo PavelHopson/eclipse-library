@@ -83,3 +83,5 @@ create trigger library_prompt_revision after insert or update on image_prompt_ex
 insert into editor_prompt_history(prompt_id,actor_id,snapshot)
  select p.id,p.updated_by,to_jsonb(p)-'image_path'-'image_mime' from image_prompt_examples p
  where not exists(select 1 from editor_prompt_history h where h.prompt_id=p.id);
+
+alter table image_prompt_examples add column if not exists category text not null default '';

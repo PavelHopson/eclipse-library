@@ -27,15 +27,17 @@ test('Library admin: actual PostgreSQL and HTTP permissions/history', {skip:!dat
   editor=await call('login','POST',{email:'editor@example.test',password});viewer=await call('login','POST',{email:'viewer@example.test',password});assert.equal(editor.status,200);assert.equal(viewer.status,200);
  });
  await t.test('editor/viewer cannot manage accounts or self-escalate',async()=>{for(const a of [editor,viewer]){assert.equal((await call('admin/accounts','GET',undefined,a.cookie)).status,403);assert.equal((await call('admin/accounts/'+vid,'PATCH',{role:'editor'},a.cookie)).status,403);assert.equal((await call('admin/accounts','POST',{},a.cookie)).status,403);}});
- const example={id:'admin-qa',title:'Проверка панели',project:'Library',description:'Тест',prompt:'Первая версия',format:'PNG',status:'draft'};
+ const example={id:'admin-qa',title:'Проверка панели',project:'Library',description:'Тест',prompt:'Первая версия',format:'PNG',status:'draft',category:'portrait'};
  await t.test('viewer reads dashboard but cannot mutate prompts or upload',async()=>{assert.equal((await call('admin/overview','GET',undefined,viewer.cookie)).status,200);for(const [p,m] of [['prompts','POST'],['prompts/admin-qa','PATCH'],['prompts/admin-qa','DELETE'],['prompts/admin-qa/image','POST'],['prompts/admin-qa/image','DELETE']])assert.equal((await call(p,m,example,viewer.cookie)).status,403);});
  await t.test('editor saves prompt; migration/reapplication does not duplicate baseline',async()=>{const a=await call('prompts','POST',example,editor.cookie);assert.equal(a.status,201);await pool.query(schema);const h=await call('admin/history/admin-qa','GET',undefined,editor.cookie);assert.equal(h.data.revisions.length,1);revision=h.data.revisions[0].id;assert.equal(h.data.revisions[0].snapshot.image_path,undefined);});
  await t.test('history records edits atomically, restore preserves status and image',async()=>{
-  const changed=await call('prompts/admin-qa','PATCH',{prompt:'Вторая версия',status:'archived'},editor.cookie);assert.equal(changed.status,200);version=changed.data.example.updated_at;
+  const changed=await call('prompts/admin-qa','PATCH',{prompt:'Вторая версия',status:'archived',category:'cinema'},editor.cookie);assert.equal(changed.status,200);version=changed.data.example.updated_at;
   assert.equal((await call('admin/history/admin-qa/'+revision+'/restore','POST',{expectedUpdatedAt:version},viewer.cookie)).status,403);
   const restored=await call('admin/history/admin-qa/'+revision+'/restore','POST',{expectedUpdatedAt:version},editor.cookie);assert.equal(restored.status,200);assert.equal(restored.data.example.status,'archived');
   assert.equal((await call('admin/history/admin-qa/'+revision+'/restore','POST',{expectedUpdatedAt:version},editor.cookie)).status,409);
-  const data=await call('prompts','GET',undefined,editor.cookie);assert.equal(data.data.examples[0].prompt,'Первая версия');
+  const data=await call('prompts','GET',undefined,editor.cookie);assert.equal(data.data.examples[0].prompt,'Первая версия');assert.equal(data.data.examples[0].category,'portrait');
+  for(const category of ['invalid',{},null])assert.equal((await call('prompts/admin-qa','PATCH',{category},editor.cookie)).status,400);
+  const publicRows=await (await fetch(base+'/api/public/image-examples')).json();assert(!publicRows.examples.some(e=>e.id==='admin-qa'));
   const history=await call('admin/history/admin-qa','GET',undefined,editor.cookie);assert.equal(history.data.revisions.length,3);
  });
  await t.test('owner cannot be demoted; role change invalidates existing sessions',async()=>{

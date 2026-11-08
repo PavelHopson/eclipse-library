@@ -1,7 +1,7 @@
 import crypto from 'node:crypto';
 import {hashPassword,normalizeEmail} from './auth.mjs';
 import {json,readJson} from './http.mjs';
-const editable=['title','project','description','prompt','negative_prompt','settings','source_url','rights_note','format','style_code'];
+const editable=['title','project','description','prompt','negative_prompt','settings','source_url','rights_note','format','style_code','category'];
 export function createAdminRoutes({pool,accountFromRequest,emit}) {
  return async (req,res,path) => {
   if(!path.startsWith('/api/editor/admin/')) return false;
@@ -53,7 +53,7 @@ export function createAdminRoutes({pool,accountFromRequest,emit}) {
    const values=editable.map(k=>old.rows[0].snapshot[k]??'');
    values.push(account.id,id,body.expectedUpdatedAt);
    // Restore text only. Never republish an archived/draft example or replace its image.
-   const result=await pool.query(`update image_prompt_examples set ${editable.map((k,i)=>`${k}=$${i+1}`).join(',')},updated_by=$11,updated_at=now() where id=$12 and date_trunc('milliseconds',updated_at)=$13::timestamptz returning id,title,status,updated_at`,values);
+   const result=await pool.query(`update image_prompt_examples set ${editable.map((k,i)=>`${k}=$${i+1}`).join(',')},updated_by=$12,updated_at=now() where id=$13 and date_trunc('milliseconds',updated_at)=$14::timestamptz returning id,title,status,updated_at`,values);
    if(!result.rows.length)return reply(409,{error:'edit_conflict'});
    emit('prompt.changed',result.rows[0]);return reply(200,{example:result.rows[0]});
   }

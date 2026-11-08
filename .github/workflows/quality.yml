@@ -59,7 +59,7 @@ jobs:
           node --check editor-api/identity-routes.mjs
           node --check editor-api/identity-session.mjs
           node --check web/identity-login.mjs
-          node --test editor-api/test/auth.test.mjs editor-api/test/identity.test.mjs
+          node --test editor-api/test/auth.test.mjs editor-api/test/identity.test.mjs scripts/example-categories.test.mjs
       - name: Validate structured catalog
         run: |
           node --test scripts/guide-loading.test.mjs

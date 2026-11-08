@@ -1,3 +1,4 @@
+import { exampleCategories } from './example-categories.mjs';
 import { pagePosition } from './page-position.mjs';
 const root = document.querySelector('.editor-page');
 const api = root.dataset.editorApi.replace(/\/$/, '');
@@ -40,7 +41,7 @@ async function request(path, options = {}) {
   return payload;
 }
 
-function showEditor(account) { position ||= pagePosition('library:editor-position:'+account.id,()=>({query:search.value,status:status.value}),s=>{search.value=typeof s.query==='string'?s.query:'';status.value=['draft','published','archived'].includes(s.status)?s.status:'';}); if(account?.role === 'viewer'){location.replace('/admin.html');return;} loginView.hidden = true; editorView.hidden = false; logout.hidden = false; document.dispatchEvent(new Event('editor:session')); }
+function showEditor(account) { position ||= pagePosition('library:editor-position:'+account.id,()=>({query:search.value,status:status.value,category:categoryFilter.value}),s=>{search.value=typeof s.query==='string'?s.query:'';categoryFilter.value=s.category||'';status.value=['draft','published','archived'].includes(s.status)?s.status:'';}); if(account?.role === 'viewer'){location.replace('/admin.html');return;} loginView.hidden = true; editorView.hidden = false; logout.hidden = false; document.dispatchEvent(new Event('editor:session')); }
 function showLogin() { loginView.hidden = false; editorView.hidden = true; logout.hidden = true; logoutEclipse.hidden = true; }
 
 
@@ -51,7 +52,9 @@ const search = document.createElement('input'); search.type = 'search'; search.p
 const status = document.createElement('select'); status.setAttribute('aria-label','Статус примеров');
 for (const [value,label] of [['','Все статусы'],['draft','Черновики'],['published','Опубликованные'],['archived','Архив']]) { const option = document.createElement('option'); option.value=value; option.textContent=label; status.append(option); }
 const summary = document.createElement('p'); summary.setAttribute('role','status');
-filters.append(search,status,summary); list.before(filters);
+const categoryFilter=document.createElement('select');categoryFilter.setAttribute('aria-label','Категория примеров');categoryFilter.append(new Option('Все категории',''),...exampleCategories.map(([id,label])=>new Option(label,id)),new Option('Без категории','uncategorized'));
+categoryFilter.addEventListener('change',()=>{selectedExamples.clear();bulkFeedback.textContent='';renderList();position?.save();});
+filters.append(search,status,categoryFilter,summary); list.before(filters);
 const panel = document.createElement('dialog'); panel.className = 'editor-detail-dialog'; panel.setAttribute('aria-label','Редактирование примера'); root.append(panel);
 const viewer = document.createElement('dialog'); viewer.className = 'editor-preview-dialog'; viewer.setAttribute('aria-label','Предпросмотр карточки'); root.append(viewer);
 function button(text,action) { const b=document.createElement('button'); b.type='button'; b.textContent=text; b.addEventListener('click',action); return b; }
@@ -64,7 +67,7 @@ function showPreview(example, values = {}) {
   const text=document.createElement('p');text.textContent=values.description||example.description;
   const details=document.createElement('details');const label=document.createElement('summary');label.textContent='Полный промпт';const pre=document.createElement('pre');pre.textContent=values.prompt||example.prompt;details.append(label,pre);viewer.append(title,text,details);viewer.showModal();
 }
-function visibleExamples(){return rows.filter(e=>(!status.value||e.status===status.value)&&[e.title,e.prompt,e.project].join(' ').toLocaleLowerCase().includes(search.value.trim().toLocaleLowerCase()));}
+function visibleExamples(){return rows.filter(e=>(!categoryFilter.value||(categoryFilter.value==='uncategorized'?!e.category:e.category===categoryFilter.value))&&(!status.value||e.status===status.value)&&[e.title,e.prompt,e.project].join(' ').toLocaleLowerCase().includes(search.value.trim().toLocaleLowerCase()));}
 const bulk=document.createElement('div');bulk.className='editor-bulk';bulk.setAttribute('aria-label','Действия с выбранными примерами');
 const selectedCount=document.createElement('span');selectedCount.setAttribute('role','status');
 const selectAll=button('Выбрать всё',()=>{for(const e of visibleExamples())selectedExamples.add(e.id);syncSelection();});
@@ -81,7 +84,7 @@ function syncSelection(){
  selectAll.disabled=bulkBusy||!visibleExamples().length;clearSelection.disabled=bulkBusy||!selectedExamples.size;
  bulkPublish.disabled=bulkBusy||!rows.some(e=>selectedExamples.has(e.id)&&e.status!=='published');
  bulkUnpublish.disabled=bulkBusy||!rows.some(e=>selectedExamples.has(e.id)&&e.status==='published');
- search.disabled=status.disabled=bulkBusy;list.inert=bulkBusy;stopBulk.hidden=!bulkBusy;
+ search.disabled=status.disabled=categoryFilter.disabled=bulkBusy;list.inert=bulkBusy;stopBulk.hidden=!bulkBusy;
 }
 async function changeSelectedStatus(target){
  if(bulkBusy||!selectedExamples.size)return;
@@ -135,11 +138,12 @@ function renderPanel(example) {
     const sourceField = document.createElement('label'); sourceField.textContent = 'Источник'; const sourceInput = document.createElement('input'); sourceInput.type = 'url'; sourceInput.value = example.source_url || ''; sourceField.append(sourceInput);
     const rightsField = document.createElement('label'); rightsField.textContent = 'Права'; const rightsInput = document.createElement('input'); rightsInput.value = example.rights_note || ''; rightsField.append(rightsInput);
     const styleField=document.createElement('label');styleField.textContent='Стиль из каталога';const styleSelect=document.createElement('select');const choices=[{code:'',title:'Без привязки'},...styleEntries];if(example.style_code&&!choices.some(e=>e.code===example.style_code))choices.push({code:example.style_code,title:example.style_code});for(const e of choices){const o=document.createElement('option');o.value=e.code;o.textContent=e.code?e.code+' — '+e.title:e.title;styleSelect.append(o);}styleSelect.value=example.style_code||'';styleField.append(styleSelect);
-    metadataGrid.append(titleField, projectField, descriptionField, sourceField, rightsField,styleField); metadata.append(metadataSummary, metadataGrid);
+    const categoryField=document.createElement('label');categoryField.textContent='Категория';const categoryInput=document.createElement('select');categoryInput.append(new Option('Без категории',''),...exampleCategories.map(([id,label])=>new Option(label,id)));categoryInput.value=example.category||'';categoryField.append(categoryInput);
+    metadataGrid.append(categoryField,titleField, projectField, descriptionField, sourceField, rightsField,styleField); metadata.append(metadataSummary, metadataGrid);
     if (example.imageUrl) { const image = document.createElement('img'); image.src = example.imageUrl; image.alt = `Пример: ${example.title}`; image.className = 'editor-card-image'; const open=button('Открыть изображение',()=>showPreview(example)); card.append(image,open); }
     const prompt = document.createElement('textarea'); prompt.value = example.prompt; prompt.setAttribute('aria-label', `Промпт ${example.title}`);
     const actions = document.createElement('div'); actions.className = 'editor-card-actions';
-    const save = document.createElement('button'); save.type = 'button'; save.textContent = 'Сохранить изменения'; save.addEventListener('click', async () => { save.disabled = true; card.inert = true; feedback.textContent = 'Сохраняем…'; try { await request(`/api/editor/prompts/${encodeURIComponent(example.id)}`, { method: 'PATCH', body: JSON.stringify({ title: titleInput.value, project: projectInput.value, description: descriptionInput.value, style_code: styleSelect.value, expectedUpdatedAt: example.updated_at, prompt: prompt.value, source_url: sourceInput.value, rights_note: rightsInput.value }) }); dirtyCards.delete(example.id); feedback.textContent = 'Изменения сохранены'; publish.disabled = false; archive.disabled = false; upload.disabled = false; await load(); } catch (error) { feedback.textContent = errorText(error); } finally { save.disabled = false; card.inert = false; } });
+    const save = document.createElement('button'); save.type = 'button'; save.textContent = 'Сохранить изменения'; save.addEventListener('click', async () => { save.disabled = true; card.inert = true; feedback.textContent = 'Сохраняем…'; try { await request(`/api/editor/prompts/${encodeURIComponent(example.id)}`, { method: 'PATCH', body: JSON.stringify({ title: titleInput.value, project: projectInput.value, description: descriptionInput.value, style_code: styleSelect.value, category: categoryInput.value, expectedUpdatedAt: example.updated_at, prompt: prompt.value, source_url: sourceInput.value, rights_note: rightsInput.value }) }); dirtyCards.delete(example.id); feedback.textContent = 'Изменения сохранены'; publish.disabled = false; archive.disabled = false; upload.disabled = false; await load(); } catch (error) { feedback.textContent = errorText(error); } finally { save.disabled = false; card.inert = false; } });
     const upload = document.createElement('input'); upload.type = 'file'; upload.accept = 'image/png,image/jpeg,image/webp,image/gif'; upload.setAttribute('aria-label', `Загрузить изображение ${example.title}`); upload.addEventListener('change', async () => { const file = upload.files?.[0]; if (!file) return; try { validateFile(file); } catch(err) { feedback.textContent = errorText(err); upload.value = ''; return; } const reader = new FileReader(); reader.onload = async () => { upload.disabled = true; try { await request(`/api/editor/prompts/${encodeURIComponent(example.id)}/image`, { method: 'POST', body: JSON.stringify({ dataUrl: reader.result }) }); await load(); } catch (error) { feedback.textContent = errorText(error); } finally { upload.disabled = false; } }; reader.readAsDataURL(file); });
     const publish = document.createElement('button'); publish.type = 'button'; publish.textContent = example.status === 'published' ? 'Снять с публикации' : 'Опубликовать'; publish.addEventListener('click', async () => { publish.disabled = true; try { await request(`/api/editor/prompts/${encodeURIComponent(example.id)}`, { method: 'PATCH', body: JSON.stringify({ status: example.status === 'published' ? 'draft' : 'published' }) }); await load(); } catch (error) { feedback.textContent = errorText(error); } finally { publish.disabled = false; } });
     const archive = document.createElement('button'); archive.type = 'button'; archive.textContent = example.status === 'archived' ? 'Восстановить' : 'В архив'; archive.addEventListener('click', async () => { archive.disabled = true; try { await request(`/api/editor/prompts/${encodeURIComponent(example.id)}`, { method: 'PATCH', body: JSON.stringify({ status: example.status === 'archived' ? 'draft' : 'archived' }) }); await load(); } catch (error) { feedback.textContent = errorText(error); } finally { archive.disabled = false; } });
