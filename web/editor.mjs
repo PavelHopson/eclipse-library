@@ -74,9 +74,12 @@ const selectAll=button('Выбрать всё',()=>{for(const e of visibleExampl
 const clearSelection=button('Снять выбор',()=>{selectedExamples.clear();syncSelection();});
 const bulkPublish=button('Опубликовать выбранные',()=>void changeSelectedStatus('published'));
 const bulkUnpublish=button('Снять с публикации',()=>void changeSelectedStatus('draft'));
+const bulkCategory=document.createElement('select');bulkCategory.setAttribute('aria-label','Категория для выбранных');bulkCategory.append(new Option('Выберите категорию',''),...exampleCategories.map(([id,label])=>new Option(label,id)));
+const applyCategory=button('Назначить категорию',()=>void changeSelectedStatus(null,bulkCategory.value));
+bulkCategory.addEventListener('change',syncSelection);
 const stopBulk=button('Остановить',()=>{bulkStop=true;stopBulk.disabled=true;});stopBulk.hidden=true;
 const bulkFeedback=document.createElement('p');bulkFeedback.setAttribute('role','status');bulkFeedback.className='editor-feedback';
-bulk.append(selectedCount,selectAll,clearSelection,bulkPublish,bulkUnpublish,stopBulk,bulkFeedback);list.before(bulk);
+bulk.append(selectedCount,selectAll,clearSelection,bulkPublish,bulkUnpublish,bulkCategory,applyCategory,stopBulk,bulkFeedback);list.before(bulk);
 function syncSelection(){
  for(const id of selectedExamples)if(!rows.some(e=>e.id===id))selectedExamples.delete(id);
  selectedCount.textContent='Выбрано: '+selectedExamples.size;
@@ -84,25 +87,28 @@ function syncSelection(){
  selectAll.disabled=bulkBusy||!visibleExamples().length;clearSelection.disabled=bulkBusy||!selectedExamples.size;
  bulkPublish.disabled=bulkBusy||!rows.some(e=>selectedExamples.has(e.id)&&e.status!=='published');
  bulkUnpublish.disabled=bulkBusy||!rows.some(e=>selectedExamples.has(e.id)&&e.status==='published');
+ bulkCategory.disabled=bulkBusy;applyCategory.disabled=bulkBusy||!bulkCategory.value||!rows.some(e=>selectedExamples.has(e.id)&&e.category!==bulkCategory.value);
  search.disabled=status.disabled=categoryFilter.disabled=bulkBusy;list.inert=bulkBusy;stopBulk.hidden=!bulkBusy;
 }
-async function changeSelectedStatus(target){
+async function changeSelectedStatus(target,category=null){
+ if(category!==null&&!exampleCategories.some(([id])=>id===category))return;
  if(bulkBusy||!selectedExamples.size)return;
  if(dirtyCards.size){bulkFeedback.textContent='Сначала сохраните или отмените изменения открытой карточки.';return;}
- const jobs=rows.filter(e=>selectedExamples.has(e.id)&&(target==='published'?e.status!=='published':e.status==='published'));
+ const jobs=rows.filter(e=>selectedExamples.has(e.id)&&(category!==null?e.category!==category:(target==='published'?e.status!=='published':e.status==='published')));
  if(!jobs.length)return;
- if(!confirm((target==='published'?'Опубликовать':'Снять с публикации')+' выбранные примеры: '+jobs.length+'?'))return;
+ const action=category!==null?'Назначить категорию «'+exampleCategories.find(([id])=>id===category)[1]+'»':(target==='published'?'Опубликовать':'Снять с публикации');
+ if(!confirm(action+' выбранным примерам: '+jobs.length+'?'))return;
  bulkBusy=true;bulkStop=false;stopBulk.disabled=false;saving=true;syncSelection();
  let done=0,failed=0;const failures=[];
  try{
   for(const e of jobs){
    if(bulkStop)break;
    bulkFeedback.textContent='Обработано: '+(done+failed)+' из '+jobs.length;
-   try{await request('/api/editor/prompts/'+encodeURIComponent(e.id),{method:'PATCH',body:JSON.stringify({status:target,expectedUpdatedAt:e.updated_at})});selectedExamples.delete(e.id);done++;}
+   try{await request('/api/editor/prompts/'+encodeURIComponent(e.id),{method:'PATCH',body:JSON.stringify({...(category!==null?{category}:{status:target}),expectedUpdatedAt:e.updated_at})});selectedExamples.delete(e.id);done++;}
    catch(err){failed++;failures.push(e.title+': '+errorText(err));if(err.message==='editor_auth_required'||err.message==='identity_unavailable'){bulkStop=true;}}
   }
   await load();
-  bulkFeedback.textContent=(target==='published'?'Опубликовано: ':'Снято с публикации: ')+done+'. Ошибок: '+failed+'.'+(bulkStop?' Обработка остановлена.':'')+(selectedExamples.size?' Оставшиеся карточки отмечены.':'')+(failures.length?' '+failures.slice(0,3).join(' · '):'');
+  bulkFeedback.textContent=(category!==null?'Категория назначена: ':(target==='published'?'Опубликовано: ':'Снято с публикации: '))+done+'. Ошибок: '+failed+'.'+(bulkStop?' Обработка остановлена.':'')+(selectedExamples.size?' Оставшиеся карточки отмечены.':'')+(failures.length?' '+failures.slice(0,3).join(' · '):'');
  }catch(err){bulkFeedback.textContent='Изменено: '+done+'. Не удалось обновить список. '+errorText(err);}
  finally{bulkBusy=false;saving=false;syncSelection();}
 }
