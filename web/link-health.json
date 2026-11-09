@@ -1,15 +1,15 @@
 {
   "schemaVersion": 1,
-  "checkedAt": "2026-11-02T12:27:14.164Z",
+  "checkedAt": "2026-11-09T12:54:54.722Z",
   "totals": {
     "extracted": 820,
     "unique": 815,
     "checked": 815,
-    "ok": 773,
-    "restricted": 31,
-    "broken": 2,
+    "ok": 771,
+    "restricted": 32,
+    "broken": 5,
     "unavailable": 1,
-    "unknown": 8,
+    "unknown": 6,
     "blocked": 0,
     "skipped": 0
   },
@@ -281,8 +281,8 @@
     },
     {
       "url": "https://github.com/AIDotNet/auto-prompt",
-      "status": "ok",
-      "httpStatus": 200
+      "status": "broken",
+      "httpStatus": 404
     },
     {
       "url": "https://github.com/karpathy/autoresearch",
@@ -826,8 +826,8 @@
     },
     {
       "url": "https://dos.zone/",
-      "status": "unknown",
-      "httpStatus": null
+      "status": "ok",
+      "httpStatus": 200
     },
     {
       "url": "https://draper.chat/use-cases/idea-validation",
@@ -926,8 +926,8 @@
     },
     {
       "url": "https://epicure.kaikaku.ai/",
-      "status": "ok",
-      "httpStatus": 200
+      "status": "unavailable",
+      "httpStatus": 530
     },
     {
       "url": "https://github.com/viveknaskar/everything-ai-ml",
@@ -1646,8 +1646,8 @@
     },
     {
       "url": "https://console.mistral.ai/",
-      "status": "unknown",
-      "httpStatus": null
+      "status": "restricted",
+      "httpStatus": 401
     },
     {
       "url": "https://github.com/huggingface/ml-intern",
@@ -2126,8 +2126,8 @@
     },
     {
       "url": "https://robokassa.com",
-      "status": "unavailable",
-      "httpStatus": 503
+      "status": "ok",
+      "httpStatus": 200
     },
     {
       "url": "https://sakana.ai/fugu/",
@@ -2776,8 +2776,8 @@
     },
     {
       "url": "https://support.apple.com/en-us/120340",
-      "status": "ok",
-      "httpStatus": 200
+      "status": "broken",
+      "httpStatus": 404
     },
     {
       "url": "https://www.oo-software.com/en/shutup10",
@@ -4066,8 +4066,8 @@
     },
     {
       "url": "https://github.com/PavelHopson/task-manager",
-      "status": "ok",
-      "httpStatus": 200
+      "status": "broken",
+      "httpStatus": 404
     },
     {
       "url": "https://eclipse-media.pages.dev",
