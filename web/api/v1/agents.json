@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "consumer": "generic-agent",
-  "catalogVersion": "f4aebfb41de0f8158d7404580167613074077c9533c179434bf9d397559b00f4",
+  "catalogVersion": "3867ec9542ee284080a0ac7fd268209260f1c368fa350321046e294447f316fd",
   "generatedAt": null,
   "policy": {
     "greyResourcesExcluded": true,
@@ -10195,14 +10195,9 @@
         "original": "LGPL-3.0-or-later",
         "spdx": "LGPL-3.0-or-later",
         "kind": "open-source",
-        "status": "source-declared",
+        "status": "editor-reviewed",
         "requiresReview": false,
         "evidence": [
-          {
-            "kind": "license",
-            "label": "Other license",
-            "url": "https://api.github.com/repos/aidotnet/auto-prompt/license"
-          },
           {
             "kind": "license",
             "label": "Official repository license file reviewed 2026-08-17",
@@ -10224,11 +10219,6 @@
           "kind": "official-source",
           "label": "Официальный источник",
           "url": "https://github.com/AIDotNet/auto-prompt"
-        },
-        {
-          "kind": "license",
-          "label": "Other license",
-          "url": "https://api.github.com/repos/aidotnet/auto-prompt/license"
         },
         {
           "kind": "license",
@@ -37917,7 +37907,7 @@
         "evidence": [
           {
             "kind": "license",
-            "label": "Other license",
+            "label": "AGPL-3.0 license",
             "url": "https://api.github.com/repos/fincept-corporation/finceptterminal/license"
           }
         ]
@@ -37944,7 +37934,7 @@
         },
         {
           "kind": "license",
-          "label": "Other license",
+          "label": "AGPL-3.0 license",
           "url": "https://api.github.com/repos/fincept-corporation/finceptterminal/license"
         }
       ],
