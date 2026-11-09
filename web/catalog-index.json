@@ -1,20 +1,20 @@
 {
   "schemaVersion": 2,
-  "sourceHash": "fe4c34072116cc20a4bc0307c1d031d072b0a32d2a000aab15662f1f920a8926",
+  "sourceHash": "f4aebfb41de0f8158d7404580167613074077c9533c179434bf9d397559b00f4",
   "policy": {
     "canonicalSource": "catalog/resources.json",
     "directInstallForbidden": true,
     "greyResourcesExcludedFromAgentRecommendations": true
   },
   "totals": {
-    "all": 787,
-    "verified": 419,
+    "all": 795,
+    "verified": 427,
     "inferred": 368,
     "licenseReviewRequired": 216,
-    "agentSafe": 685,
+    "agentSafe": 693,
     "agentExcluded": 102,
     "grey": 88,
-    "withAddedAt": 508
+    "withAddedAt": 516
   },
   "items": [
     {
@@ -40324,6 +40324,877 @@
       }
     },
     {
+      "id": "purge-mac",
+      "url": "https://purgemac.com/",
+      "title": "Purge — очистка диска macOS",
+      "type": "tool",
+      "category": "Desktop & OS",
+      "subcategory": "Очистка диска",
+      "simpleDescription": "Бесплатная утилита для macOS 13+: находит кэш приложений, остатки удалённых программ, крупные файлы и данные инструментов разработки. Перед очисткой показывает найденные объекты. Большинство файлов перемещает в корзину; отдельные системные данные удаляет без неё.",
+      "useCases": [
+        "Найти крупные файлы на Mac",
+        "Очистить кэш Xcode, Homebrew и других инструментов",
+        "Проверить остатки удалённых приложений"
+      ],
+      "platforms": [
+        "macOS"
+      ],
+      "license": "MIT",
+      "licenseEvidence": [
+        {
+          "kind": "license",
+          "label": "MIT — лицензия репозитория",
+          "url": "https://github.com/jithin-sabu/purge-app/blob/main/LICENSE"
+        },
+        {
+          "kind": "source",
+          "label": "Возможности и исключения очистки",
+          "url": "https://github.com/jithin-sabu/purge-app"
+        }
+      ],
+      "pricing": "Бесплатно, без платного тарифа по заявлению автора.",
+      "access": {
+        "cost": "free",
+        "signup": "none",
+        "runtime": "local"
+      },
+      "trust": "caution",
+      "trustReason": "08.11.2026: сверены официальный сайт, README и лицензия. Приложение не устанавливалось, очистка на Mac и аудит исходного кода не выполнялись.",
+      "projects": [],
+      "decision": "reference",
+      "riskLevel": "medium",
+      "risks": [
+        "Симуляторы iOS, снимки Time Machine и некоторые операции пакетных менеджеров удаляют данные без корзины; проверяйте список перед подтверждением.",
+        "Удаление моделей Apple Intelligence в README описано для macOS 27 на Apple silicon. Объём освобождаемого места зависит от устройства.",
+        "Для расширенного поиска может потребоваться Full Disk Access. Windows не поддерживается."
+      ],
+      "verifiedAt": "2026-11-08",
+      "addedAt": "2026-11-08",
+      "reviewStatus": "verified",
+      "quickStart": [
+        "Откройте официальный сайт и проверьте требования к вашему Mac.",
+        "Скачайте приложение по официальной ссылке; начните со сканирования без удаления.",
+        "Просмотрите найденные объекты и исключите нужные файлы. Не включайте автоматическую очистку до проверки.",
+        "Подтверждайте только понятные операции. Корзину очищайте отдельно, после проверки результата."
+      ],
+      "source": {
+        "file": "catalog/resources.json",
+        "key": "purge-mac",
+        "legacy": {
+          "file": "catalog/resources.json",
+          "key": "purge-mac",
+          "category": "Desktop & OS",
+          "subcategory": "Очистка диска"
+        }
+      },
+      "verification": {
+        "scope": "Official website, README and license review only; no code audit or runtime test.",
+        "runtimeTested": false,
+        "installed": false,
+        "sources": [
+          "https://purgemac.com/",
+          "https://github.com/jithin-sabu/purge-app",
+          "https://github.com/jithin-sabu/purge-app/blob/main/LICENSE"
+        ]
+      },
+      "catalogOrder": 788,
+      "licenseInfo": {
+        "label": "MIT",
+        "original": "MIT",
+        "spdx": "MIT",
+        "kind": "open-source",
+        "status": "editor-reviewed",
+        "requiresReview": false,
+        "evidence": [
+          {
+            "kind": "license",
+            "label": "MIT — лицензия репозитория",
+            "url": "https://github.com/jithin-sabu/purge-app/blob/main/LICENSE"
+          },
+          {
+            "kind": "source",
+            "label": "Возможности и исключения очистки",
+            "url": "https://github.com/jithin-sabu/purge-app"
+          }
+        ]
+      },
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://purgemac.com/"
+        },
+        {
+          "kind": "license",
+          "label": "MIT — лицензия репозитория",
+          "url": "https://github.com/jithin-sabu/purge-app/blob/main/LICENSE"
+        },
+        {
+          "kind": "source",
+          "label": "Возможности и исключения очистки",
+          "url": "https://github.com/jithin-sabu/purge-app"
+        }
+      ],
+      "agentEligibility": {
+        "eligible": true,
+        "reasons": [],
+        "installAllowed": false
+      }
+    },
+    {
+      "id": "awesome-rea",
+      "url": "https://github.com/reacher-z/Awesome-REA",
+      "title": "Awesome REA — каталог обратной разработки",
+      "type": "learn",
+      "category": "Разработка и исследования",
+      "subcategory": "Справочники и практика",
+      "simpleDescription": "Подборка инструментов, кейсов и научных работ по анализу сайтов, игр, приложений, бинарных файлов, прошивок и протоколов. Есть раздел агентов и MCP. Это каталог ссылок: не все проекты используют ИИ или связаны с REA.",
+      "useCases": [
+        "Выбрать инструменты анализа JavaScript и приложений",
+        "Изучить кейсы совместимости и восстановления программ",
+        "Найти исследования и MCP для анализа ПО"
+      ],
+      "platforms": [
+        "Web"
+      ],
+      "license": "MIT",
+      "licenseEvidence": [
+        {
+          "kind": "source",
+          "label": "Первоисточник",
+          "url": "https://github.com/reacher-z/Awesome-REA"
+        },
+        {
+          "kind": "license",
+          "label": "Первоисточник",
+          "url": "https://github.com/reacher-z/Awesome-REA/blob/main/LICENSE"
+        }
+      ],
+      "pricing": "Каталог или учебный сайт доступен для просмотра без оплаты; условия сторонних инструментов проверяются отдельно.",
+      "access": {
+        "cost": "free",
+        "signup": "none",
+        "runtime": "cloud"
+      },
+      "trust": "caution",
+      "trustReason": "08.11.2026: проверены README и структура каталога; инструменты и игровые порты не запускались, аудит кода не выполнялся.",
+      "projects": [],
+      "decision": "reference",
+      "riskLevel": "medium",
+      "risks": [
+        "Индекс обнаруженных репозиториев включает непроверенные записи; не путайте их с отобранными материалами.",
+        "Описание кейса не подтверждает полноту порта или наличие прав на игровые ассеты.",
+        "Запускайте выбранные инструменты только после проверки источника и разрешений, на своих или разрешённых для исследования материалах."
+      ],
+      "verifiedAt": "2026-11-08",
+      "addedAt": "2026-11-08",
+      "reviewStatus": "verified",
+      "quickStart": [
+        "Выберите раздел по задаче: сайты, приложения, бинарные файлы или протоколы.",
+        "Откройте полный разбор и исходный репозиторий выбранного инструмента.",
+        "Сверьте лицензию, требования и статус проекта; начните с собственного тестового примера."
+      ],
+      "source": {
+        "file": "catalog/resources.json",
+        "key": "awesome-rea",
+        "legacy": {
+          "file": "catalog/resources.json",
+          "key": "awesome-rea",
+          "category": "Разработка и исследования",
+          "subcategory": "Справочники и практика"
+        }
+      },
+      "verification": {
+        "scope": "08.11.2026: проверены README и структура каталога; инструменты и игровые порты не запускались, аудит кода не выполнялся.",
+        "runtimeTested": false,
+        "installed": false,
+        "sources": [
+          "https://github.com/reacher-z/Awesome-REA",
+          "https://github.com/reacher-z/Awesome-REA/blob/main/LICENSE"
+        ]
+      },
+      "catalogOrder": 789,
+      "licenseInfo": {
+        "label": "MIT",
+        "original": "MIT для репозитория каталога; лицензии перечисленных инструментов и материалов проверяются отдельно.",
+        "spdx": "MIT",
+        "kind": "open-source",
+        "status": "editor-reviewed",
+        "requiresReview": false,
+        "evidence": [
+          {
+            "kind": "source",
+            "label": "Первоисточник",
+            "url": "https://github.com/reacher-z/Awesome-REA"
+          },
+          {
+            "kind": "license",
+            "label": "Первоисточник",
+            "url": "https://github.com/reacher-z/Awesome-REA/blob/main/LICENSE"
+          }
+        ]
+      },
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://github.com/reacher-z/Awesome-REA"
+        },
+        {
+          "kind": "license",
+          "label": "Первоисточник",
+          "url": "https://github.com/reacher-z/Awesome-REA/blob/main/LICENSE"
+        }
+      ],
+      "agentEligibility": {
+        "eligible": true,
+        "reasons": [],
+        "installAllowed": false
+      }
+    },
+    {
+      "id": "protocol-explorer",
+      "url": "https://protocol-explorer-alpha.vercel.app/",
+      "title": "Protocol Explorer — наглядные сетевые протоколы",
+      "type": "learn",
+      "category": "Обучение IT",
+      "subcategory": "Справочники и практика",
+      "simpleDescription": "Интерактивный учебный сайт со схемой сети, последовательностями обмена и таблицей пакетов. Помогает проследить DNS, установление TCP-соединения и HTTP-запрос. Есть русский интерфейс и разделы безопасности, почты, VPN и других сетевых технологий.",
+      "useCases": [
+        "Разобрать путь от адреса сайта до HTTP-ответа",
+        "Сравнить назначение TCP, UDP и DNS",
+        "Изучить сообщения и участников сетевого обмена"
+      ],
+      "platforms": [
+        "Web"
+      ],
+      "license": "Лицензия на код и визуализации не установлена. Использовать ссылку на сайт; копирование и встраивание требуют отдельной проверки.",
+      "licenseEvidence": [
+        {
+          "kind": "source",
+          "label": "Первоисточник",
+          "url": "https://protocol-explorer-alpha.vercel.app/"
+        }
+      ],
+      "pricing": "Каталог или учебный сайт доступен для просмотра без оплаты; условия сторонних инструментов проверяются отдельно.",
+      "access": {
+        "cost": "free",
+        "signup": "none",
+        "runtime": "cloud"
+      },
+      "trust": "caution",
+      "trustReason": "08.11.2026: сайт открыт в Chromium, подтверждены русский интерфейс, 33 раздела, схема и таблица HTTP-пакетов. Все уроки и интерактивные сценарии не проверены.",
+      "projects": [],
+      "decision": "reference",
+      "riskLevel": "medium",
+      "risks": [
+        "Схемы учебные и упрощённые: это не захват реального трафика и не замена спецификациям.",
+        "Нужен JavaScript; точность всех уроков и работа всех анимаций не проверены.",
+        "Права на перенос визуализаций в другие продукты не подтверждены."
+      ],
+      "verifiedAt": "2026-11-08",
+      "addedAt": "2026-11-08",
+      "reviewStatus": "verified",
+      "quickStart": [
+        "Откройте HTTP и изучите участников на схеме сети.",
+        "Сопоставьте DNS, TCP и HTTP с сообщениями в таблице пакетов.",
+        "Перейдите к отдельным протоколам и сравните их назначение; сверяйте детали со ссылками на RFC."
+      ],
+      "source": {
+        "file": "catalog/resources.json",
+        "key": "protocol-explorer",
+        "legacy": {
+          "file": "catalog/resources.json",
+          "key": "protocol-explorer",
+          "category": "Обучение IT",
+          "subcategory": "Справочники и практика"
+        }
+      },
+      "verification": {
+        "scope": "08.11.2026: сайт открыт в Chromium, подтверждены русский интерфейс, 33 раздела, схема и таблица HTTP-пакетов. Все уроки и интерактивные сценарии не проверены.",
+        "runtimeTested": false,
+        "installed": false,
+        "sources": [
+          "https://protocol-explorer-alpha.vercel.app/"
+        ]
+      },
+      "catalogOrder": 790,
+      "licenseInfo": {
+        "label": "Лицензия на код и визуализации не установлена. Использовать ссылку на сайт; копирование и встраивание требуют отдельной проверки.",
+        "original": "Лицензия на код и визуализации не установлена. Использовать ссылку на сайт; копирование и встраивание требуют отдельной проверки.",
+        "spdx": null,
+        "kind": "custom",
+        "status": "editor-reviewed",
+        "requiresReview": false,
+        "evidence": [
+          {
+            "kind": "source",
+            "label": "Первоисточник",
+            "url": "https://protocol-explorer-alpha.vercel.app/"
+          }
+        ]
+      },
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://protocol-explorer-alpha.vercel.app/"
+        }
+      ],
+      "agentEligibility": {
+        "eligible": true,
+        "reasons": [],
+        "installAllowed": false
+      }
+    },
+    {
+      "id": "cinecode",
+      "url": "https://github.com/sarpstar/cinecode",
+      "title": "Cinecode — видео из кода",
+      "type": "tool",
+      "category": "Медиа и дизайн",
+      "subcategory": "Программная анимация и видео",
+      "simpleDescription": "Набор инструкций и локальных скриптов для создания видео из HTML, Canvas и Three.js. Рендерит кадры через Chrome и собирает MP4 с помощью FFmpeg. Подходит для анимированных схем, заставок и продуктовых роликов; полный фильм требует сценария, материалов и проверки результата.",
+      "useCases": [
+        "Анимированные схемы и короткие объяснения",
+        "Заставки и продуктовые ролики",
+        "Локальный рендер сцен, написанных агентом"
+      ],
+      "platforms": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "license": "MIT",
+      "licenseEvidence": [
+        {
+          "kind": "license",
+          "label": "Лицензия MIT",
+          "url": "https://github.com/sarpstar/cinecode/blob/main/LICENSE"
+        },
+        {
+          "kind": "source",
+          "label": "Возможности и требования",
+          "url": "https://github.com/sarpstar/cinecode/blob/main/README.en.md"
+        }
+      ],
+      "pricing": "Код доступен бесплатно. Работа coding-агента, внешняя озвучка и сторонние API могут требовать оплаты; локальный рендер использует ресурсы компьютера.",
+      "access": {
+        "cost": "free",
+        "signup": "optional",
+        "runtime": "local"
+      },
+      "trust": "caution",
+      "trustReason": "08.11.2026: через Codex на Windows собран локальный пилот 15 секунд, 1280×720, 30 fps со звуком. Проверены повторяемость кадра и декодирование MP4. Использован capture.mjs с windowsHide; полный workflow, 3D и внешняя озвучка не проверены.",
+      "projects": [
+        "Eclipse Media"
+      ],
+      "decision": "reference",
+      "riskLevel": "medium",
+      "risks": [
+        "README описывает Claude Code и Cursor; полный workflow с Codex отдельно не подтверждён.",
+        "Нужны Node.js 22+, Python 3.9+, FFmpeg и Chrome/Chromium; сложные сцены требуют GPU и места на диске.",
+        "Озвучка может обращаться к внешним провайдерам; ключи и оплачиваемые запросы настраиваются отдельно.",
+        "Чужие HTML-сцены выполняют JavaScript: проверяйте их код и внешние зависимости перед рендером."
+      ],
+      "verifiedAt": "2026-11-08",
+      "addedAt": "2026-11-08",
+      "reviewStatus": "verified",
+      "quickStart": [
+        "Изучите README и выбранный скрипт; не подключайте сторонние hooks автоматически.",
+        "Подготовьте отдельную папку с простой локальной сценой без внешних API.",
+        "Сначала проверьте несколько кадров и повторяемость рендера, затем соберите короткий MP4.",
+        "Проверьте движение, читаемость и звук перед использованием в продукте."
+      ],
+      "source": {
+        "file": "catalog/resources.json",
+        "key": "cinecode",
+        "legacy": {
+          "file": "catalog/resources.json",
+          "key": "cinecode",
+          "category": "Медиа и дизайн",
+          "subcategory": "Программная анимация и видео"
+        }
+      },
+      "verification": {
+        "scope": "Scoped Windows Canvas 2D capture pilot passed: 15s H.264/AAC, deterministic frame and decode. Original scene authored by Codex; renderer from Cinecode with windowsHide patch. Full skill workflow, 3D and narration untested.",
+        "runtimeTested": false,
+        "installed": false,
+        "upstreamCommit": "67f9807112b97ae253d4a5f0eccaccc46c3b2633",
+        "sources": [
+          "https://github.com/sarpstar/cinecode/blob/main/README.en.md",
+          "https://github.com/sarpstar/cinecode/blob/main/LICENSE"
+        ]
+      },
+      "catalogOrder": 791,
+      "licenseInfo": {
+        "label": "MIT",
+        "original": "MIT",
+        "spdx": "MIT",
+        "kind": "open-source",
+        "status": "editor-reviewed",
+        "requiresReview": false,
+        "evidence": [
+          {
+            "kind": "license",
+            "label": "Лицензия MIT",
+            "url": "https://github.com/sarpstar/cinecode/blob/main/LICENSE"
+          },
+          {
+            "kind": "source",
+            "label": "Возможности и требования",
+            "url": "https://github.com/sarpstar/cinecode/blob/main/README.en.md"
+          }
+        ]
+      },
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://github.com/sarpstar/cinecode"
+        },
+        {
+          "kind": "license",
+          "label": "Лицензия MIT",
+          "url": "https://github.com/sarpstar/cinecode/blob/main/LICENSE"
+        },
+        {
+          "kind": "source",
+          "label": "Возможности и требования",
+          "url": "https://github.com/sarpstar/cinecode/blob/main/README.en.md"
+        }
+      ],
+      "agentEligibility": {
+        "eligible": true,
+        "reasons": [],
+        "installAllowed": false
+      }
+    },
+    {
+      "id": "deep-live-cam",
+      "url": "https://github.com/hacksider/Deep-Live-Cam",
+      "title": "Deep-Live-Cam — замена лица в видео и трансляциях",
+      "type": "tool",
+      "category": "Медиа и дизайн",
+      "subcategory": "Видеоэффекты и обработка лица",
+      "simpleDescription": "Приложение для замены лица по фотографии в видеопотоке и видео. README описывает сохранение области рта и назначение разных лиц нескольким людям в кадре. Есть CPU-режим и GPU-ускорение; плавность и задержка зависят от оборудования и настроек.",
+      "useCases": [
+        "Творческие видеоэффекты с согласия участников",
+        "Проверка замены лица на собственном тестовом видео",
+        "Эксперименты с несколькими персонажами в кадре"
+      ],
+      "platforms": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "license": "AGPL-3.0",
+      "licenseEvidence": [
+        {
+          "kind": "license",
+          "label": "Лицензия кода Deep-Live-Cam",
+          "url": "https://github.com/hacksider/Deep-Live-Cam/blob/main/LICENSE"
+        },
+        {
+          "kind": "license",
+          "label": "Условия моделей InsightFace и inswapper",
+          "url": "https://github.com/deepinsight/insightface#license"
+        },
+        {
+          "kind": "source",
+          "label": "Возможности и установка",
+          "url": "https://github.com/hacksider/Deep-Live-Cam#readme"
+        }
+      ],
+      "pricing": "Исходный код доступен открыто. Готовые сборки Ultimate и лицензии моделей имеют отдельные условия; бесплатность коммерческого использования всего комплекта не подтверждена.",
+      "access": {
+        "cost": "unknown",
+        "signup": "optional",
+        "runtime": "local"
+      },
+      "trust": "caution",
+      "trustReason": "08.11.2026: проверены README, лицензия репозитория и условия InsightFace. Программа не устанавливалась; качество, FPS, задержка и безопасность кода не проверены.",
+      "projects": [],
+      "decision": "reference",
+      "riskLevel": "medium",
+      "risks": [
+        "CPU-режим может быть слишком медленным для плавной трансляции. «Три клика» относятся к уже настроенной программе.",
+        "Лицензия приложения не заменяет лицензию моделей. Перед коммерческим внедрением нужно проверить оба набора условий.",
+        "Используйте лицо реального человека с его согласия; при публикации обозначайте замену лица, как требует README проекта.",
+        "Фото лиц и видеопоток чувствительны: проверяйте сборку, источники моделей и доступ к камере."
+      ],
+      "verifiedAt": "2026-11-08",
+      "addedAt": "2026-11-08",
+      "reviewStatus": "verified",
+      "quickStart": [
+        "Откройте официальный репозиторий и изучите требования к вашей платформе.",
+        "Проверьте лицензии кода и выбранных моделей под свой сценарий.",
+        "Начните с короткого собственного видео и согласованного изображения, без подключения к звонкам.",
+        "Оцените результат, задержку и поведение при поворотах лица; только затем решайте, нужен ли live-режим."
+      ],
+      "source": {
+        "file": "catalog/resources.json",
+        "key": "deep-live-cam",
+        "legacy": {
+          "file": "catalog/resources.json",
+          "key": "deep-live-cam",
+          "category": "Медиа и дизайн",
+          "subcategory": "Видеоэффекты и обработка лица"
+        }
+      },
+      "verification": {
+        "scope": "Primary README and code/model license documentation review only. No installation, model download, code security audit or runtime test.",
+        "runtimeTested": false,
+        "installed": false,
+        "sources": [
+          "https://github.com/hacksider/Deep-Live-Cam",
+          "https://github.com/deepinsight/insightface#license"
+        ]
+      },
+      "catalogOrder": 792,
+      "licenseInfo": {
+        "label": "AGPL-3.0",
+        "original": "AGPL-3.0 для кода Deep-Live-Cam. Модели InsightFace лицензируются отдельно: опубликованные модели ограничены некоммерческими исследованиями; для inswapper автор предлагает согласовать лицензию.",
+        "spdx": "AGPL-3.0",
+        "kind": "open-source",
+        "status": "editor-reviewed",
+        "requiresReview": false,
+        "evidence": [
+          {
+            "kind": "license",
+            "label": "Лицензия кода Deep-Live-Cam",
+            "url": "https://github.com/hacksider/Deep-Live-Cam/blob/main/LICENSE"
+          },
+          {
+            "kind": "license",
+            "label": "Условия моделей InsightFace и inswapper",
+            "url": "https://github.com/deepinsight/insightface#license"
+          },
+          {
+            "kind": "source",
+            "label": "Возможности и установка",
+            "url": "https://github.com/hacksider/Deep-Live-Cam#readme"
+          }
+        ]
+      },
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://github.com/hacksider/Deep-Live-Cam"
+        },
+        {
+          "kind": "license",
+          "label": "Лицензия кода Deep-Live-Cam",
+          "url": "https://github.com/hacksider/Deep-Live-Cam/blob/main/LICENSE"
+        },
+        {
+          "kind": "license",
+          "label": "Условия моделей InsightFace и inswapper",
+          "url": "https://github.com/deepinsight/insightface#license"
+        },
+        {
+          "kind": "source",
+          "label": "Возможности и установка",
+          "url": "https://github.com/hacksider/Deep-Live-Cam#readme"
+        }
+      ],
+      "agentEligibility": {
+        "eligible": true,
+        "reasons": [],
+        "installAllowed": false
+      }
+    },
+    {
+      "id": "livliv-player",
+      "url": "https://github.com/livliv-dev/player",
+      "title": "LivLiv Player — лёгкий веб-аватар с lip-sync и face tracking",
+      "type": "tool",
+      "category": "Медиа и дизайн",
+      "subcategory": "Веб-аватары и трансляции",
+      "simpleDescription": "Лёгкий WebGL2-плеер для 2.5D-персонажей: синхронизация губ, отслеживание лица через MediaPipe, PNGTuber и VRM через единый API. Подходит для браузерного аватара, OBS Browser Source и интерфейсов Eclipse Chat/Media.",
+      "useCases": [
+        "Веб-аватар для Eclipse Chat или Eclipse Media",
+        "OBS Browser Source без тяжёлого отдельного клиента",
+        "Локальный тест lip-sync и face tracking на собственном персонаже"
+      ],
+      "platforms": [
+        "Web",
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "license": "Apache-2.0",
+      "licenseEvidence": [
+        {
+          "kind": "license",
+          "label": "Лицензия кода LivLiv Player",
+          "url": "https://github.com/livliv-dev/player/blob/main/LICENSE"
+        },
+        {
+          "kind": "source",
+          "label": "README, API и условия персонажей",
+          "url": "https://github.com/livliv-dev/player#readme"
+        },
+        {
+          "kind": "source",
+          "label": "Официальный demo и OBS iframe",
+          "url": "https://livliv-dev.github.io/player/"
+        }
+      ],
+      "pricing": "Плеер опубликован открыто. Условия готовых персонажей и сервисов создания персонажей нужно проверять отдельно.",
+      "access": {
+        "cost": "unknown",
+        "signup": "optional",
+        "runtime": "local"
+      },
+      "trust": "caution",
+      "trustReason": "09.11.2026: проверены официальный README, лицензия кода, условия персонажей и browser-support. На телефонах и в наших продуктах не тестировался.",
+      "projects": [
+        "Eclipse Chat",
+        "Eclipse Media"
+      ],
+      "decision": "reference",
+      "riskLevel": "medium",
+      "risks": [
+        "Face tracking требует разрешения камеры, а lip-sync — доступа к микрофону или аудио.",
+        "На мобильных устройствах официальный README пока не подтверждает тестирование.",
+        "Лицензии персонажей отличаются от лицензии кода; для коммерческого использования нужны отдельные проверки.",
+        "Необходимо явно сообщать пользователю о работе камеры и не отправлять кадры наружу без отдельного согласия."
+      ],
+      "verifiedAt": "2026-11-09",
+      "addedAt": "2026-11-09",
+      "reviewStatus": "verified",
+      "quickStart": [
+        "Откройте официальный demo и проверьте WebGL2 в целевом браузере.",
+        "Начните с собственного PNGTuber или VRM-персонажа, сохраняя его лицензию рядом с asset.",
+        "Проверьте camera/microphone permission, задержку и поведение при отключении устройств.",
+        "Только после desktop-проверки повторите сценарий на мобильном браузере и в OBS Browser Source."
+      ],
+      "source": {
+        "file": "catalog/resources.json",
+        "key": "livliv-player",
+        "legacy": {
+          "file": "catalog/resources.json",
+          "key": "livliv-player",
+          "category": "Медиа и дизайн",
+          "subcategory": "Веб-аватары и трансляции"
+        }
+      },
+      "metadata": {
+        "officialStars": 1400,
+        "officialForks": 145,
+        "officialLicense": "Apache-2.0",
+        "runtime": "browser-local",
+        "browserSupport": "WebGL2; desktop browsers listed by README; phones not yet tested",
+        "reviewScope": "README, API, LICENSE, character terms and official demo; no integration"
+      },
+      "verification": {
+        "sourceChecked": true,
+        "runtimeTested": false,
+        "installed": false,
+        "primarySources": [
+          "https://github.com/livliv-dev/player#readme",
+          "https://github.com/livliv-dev/player/blob/main/LICENSE",
+          "https://livliv-dev.github.io/player/"
+        ]
+      },
+      "tags": [
+        "avatar",
+        "lip-sync",
+        "face-tracking",
+        "webgl2",
+        "obs",
+        "reference"
+      ],
+      "catalogOrder": 793,
+      "licenseInfo": {
+        "label": "Apache-2.0",
+        "original": "Apache-2.0 для кода плеера. Готовые персонажи имеют отдельные лицензии и ограничения; их нельзя автоматически считать коммерчески свободными.",
+        "spdx": "Apache-2.0",
+        "kind": "open-source",
+        "status": "editor-reviewed",
+        "requiresReview": false,
+        "evidence": [
+          {
+            "kind": "license",
+            "label": "Лицензия кода LivLiv Player",
+            "url": "https://github.com/livliv-dev/player/blob/main/LICENSE"
+          },
+          {
+            "kind": "source",
+            "label": "README, API и условия персонажей",
+            "url": "https://github.com/livliv-dev/player#readme"
+          },
+          {
+            "kind": "source",
+            "label": "Официальный demo и OBS iframe",
+            "url": "https://livliv-dev.github.io/player/"
+          }
+        ]
+      },
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://github.com/livliv-dev/player"
+        },
+        {
+          "kind": "license",
+          "label": "Лицензия кода LivLiv Player",
+          "url": "https://github.com/livliv-dev/player/blob/main/LICENSE"
+        },
+        {
+          "kind": "source",
+          "label": "README, API и условия персонажей",
+          "url": "https://github.com/livliv-dev/player#readme"
+        },
+        {
+          "kind": "source",
+          "label": "Официальный demo и OBS iframe",
+          "url": "https://livliv-dev.github.io/player/"
+        }
+      ],
+      "agentEligibility": {
+        "eligible": true,
+        "reasons": [],
+        "installAllowed": false
+      }
+    },
+    {
+      "id": "gradientdeck-ui",
+      "url": "https://ui.gradientdeck.com/",
+      "title": "GradientDeck UI — библиотека DESIGN.md для веб-референсов",
+      "type": "reference",
+      "category": "Дизайн и UI",
+      "subcategory": "Дизайн-системы и референсы",
+      "simpleDescription": "Каталог из более чем 1 295 визуальных референсов сайтов с DESIGN.md: палитры, типографика, композиция и правила интерфейса. Подходит для поиска направления перед работой агента над Eclipse Library, Chat, Media и лендингами.",
+      "useCases": [
+        "Поиск референса под новый экран Eclipse",
+        "Сбор собственной дизайн-системы из палитр, шрифтов и сеток",
+        "Подготовка DESIGN.md для Codex без копирования чужого бренда"
+      ],
+      "platforms": [
+        "Web",
+        "Codex",
+        "Claude Code",
+        "Cursor"
+      ],
+      "license": "Условия конкретных сайтов и брендов нужно проверять отдельно. DESIGN.md используется как референс; чужие логотипы, тексты и фирменные элементы не переносить без разрешения.",
+      "licenseEvidence": [
+        {
+          "kind": "source",
+          "label": "Официальный каталог GradientDeck UI",
+          "url": "https://ui.gradientdeck.com/"
+        },
+        {
+          "kind": "source",
+          "label": "Раздел DESIGN.md для агентов",
+          "url": "https://ui.gradientdeck.com/#design-md"
+        }
+      ],
+      "pricing": "Каталог доступен без регистрации. Условия использования отдельных референсов и исходных сайтов могут различаться.",
+      "access": {
+        "cost": "free",
+        "signup": "none",
+        "runtime": "local"
+      },
+      "trust": "caution",
+      "trustReason": "09.11.2026: проверена официальная страница каталога. Количество карточек и состав библиотеки могут меняться; качество отдельных DESIGN.md нужно проверять по месту.",
+      "projects": [
+        "Eclipse Library",
+        "Eclipse Chat",
+        "Eclipse Media",
+        "Eclipse Forge Landing"
+      ],
+      "decision": "reference",
+      "riskLevel": "low",
+      "risks": [
+        "Референс может содержать чужие фирменные элементы или тексты.",
+        "Не переносите исходные изображения, логотипы и уникальные композиции без проверки прав.",
+        "Не считать DESIGN.md готовой спецификацией продукта: её нужно адаптировать под существующие токены Eclipse и accessibility."
+      ],
+      "verifiedAt": "2026-11-09",
+      "addedAt": "2026-11-09",
+      "reviewStatus": "verified",
+      "quickStart": [
+        "Выберите 2–3 референса по задаче и теме, а не один сайт целиком.",
+        "Сравните палитру, типографику, плотность и состояния интерфейса.",
+        "Соберите собственный DESIGN.md для конкретного экрана Eclipse.",
+        "Проверьте адаптивность, контраст, клавиатурный фокус и визуальный QA до публикации."
+      ],
+      "source": {
+        "file": "catalog/resources.json",
+        "key": "gradientdeck-ui",
+        "legacy": {
+          "file": "catalog/resources.json",
+          "key": "gradientdeck-ui",
+          "category": "Дизайн и UI",
+          "subcategory": "Дизайн-системы и референсы"
+        }
+      },
+      "metadata": {
+        "officialCount": 1295,
+        "format": "DESIGN.md",
+        "signup": "none",
+        "reviewScope": "official catalog page only; individual reference rights not audited"
+      },
+      "verification": {
+        "sourceChecked": true,
+        "runtimeTested": false,
+        "installed": false,
+        "primarySources": [
+          "https://ui.gradientdeck.com/"
+        ]
+      },
+      "tags": [
+        "design-system",
+        "design-md",
+        "references",
+        "typography",
+        "palette",
+        "visual-qa"
+      ],
+      "catalogOrder": 794,
+      "licenseInfo": {
+        "label": "Условия конкретных сайтов и брендов нужно проверять отдельно. DESIGN.md используется как референс; чужие логотипы, тексты и фирменные элементы не переносить без разрешения.",
+        "original": "Условия конкретных сайтов и брендов нужно проверять отдельно. DESIGN.md используется как референс; чужие логотипы, тексты и фирменные элементы не переносить без разрешения.",
+        "spdx": null,
+        "kind": "custom",
+        "status": "editor-reviewed",
+        "requiresReview": false,
+        "evidence": [
+          {
+            "kind": "source",
+            "label": "Официальный каталог GradientDeck UI",
+            "url": "https://ui.gradientdeck.com/"
+          },
+          {
+            "kind": "source",
+            "label": "Раздел DESIGN.md для агентов",
+            "url": "https://ui.gradientdeck.com/#design-md"
+          }
+        ]
+      },
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://ui.gradientdeck.com/"
+        },
+        {
+          "kind": "source",
+          "label": "Раздел DESIGN.md для агентов",
+          "url": "https://ui.gradientdeck.com/#design-md"
+        }
+      ],
+      "agentEligibility": {
+        "eligible": true,
+        "reasons": [],
+        "installAllowed": false
+      }
+    },
+    {
       "id": "claude-code-game-studios-github-com",
       "url": "https://github.com/Donchitos/Claude-Code-Game-Studios",
       "title": "Claude Code Game Studios",
@@ -40397,6 +41268,172 @@
           "kind": "license",
           "label": "MIT license",
           "url": "https://api.github.com/repos/donchitos/claude-code-game-studios/license"
+        }
+      ],
+      "agentEligibility": {
+        "eligible": true,
+        "reasons": [],
+        "installAllowed": false
+      }
+    },
+    {
+      "id": "figma-console-mcp",
+      "url": "https://github.com/southleft/figma-console-mcp",
+      "title": "Figma Console MCP — дизайн-система Figma как API",
+      "type": "tool",
+      "category": "Дизайн и UI",
+      "subcategory": "MCP и дизайн-системы",
+      "simpleDescription": "MCP-сервер для связи Codex и Figma: читает и создаёт компоненты, работает с переменными и токенами, делает screenshots, проверки accessibility и design-code parity. Полный локальный режим заявляет 130 инструментов.",
+      "useCases": [
+        "Синхронизация дизайн-токенов Eclipse между Figma и кодом",
+        "Проверка визуального соответствия компонентов Library и Landing",
+        "Генерация и обновление фреймов и компонентов после согласования"
+      ],
+      "platforms": [
+        "Windows",
+        "macOS",
+        "Linux",
+        "Figma Desktop",
+        "Codex"
+      ],
+      "license": "MIT",
+      "licenseEvidence": [
+        {
+          "kind": "license",
+          "label": "MIT license",
+          "url": "https://github.com/southleft/figma-console-mcp/blob/main/LICENSE"
+        },
+        {
+          "kind": "source",
+          "label": "Официальный README и capability matrix",
+          "url": "https://github.com/southleft/figma-console-mcp#readme"
+        },
+        {
+          "kind": "source",
+          "label": "Setup для Codex и Figma Desktop",
+          "url": "https://docs.figma-console-mcp.southleft.com/setup"
+        }
+      ],
+      "pricing": "Репозиторий открыт. Для Figma Desktop, аккаунта и доступных функций Figma действуют отдельные условия.",
+      "access": {
+        "cost": "unknown",
+        "signup": "optional",
+        "runtime": "local"
+      },
+      "trust": "caution",
+      "trustReason": "09.11.2026: проверены официальный README, MIT и setup. Полный runtime, токены и права доступа в наших Figma-файлах не тестировались.",
+      "projects": [
+        "Eclipse Library",
+        "Eclipse Forge Landing",
+        "Eclipse Chat",
+        "Eclipse Media"
+      ],
+      "decision": "reference",
+      "riskLevel": "medium",
+      "risks": [
+        "Запись в Figma доступна только в локальном/Cloud режиме после pairing; Remote SSE read-only.",
+        "Персональный Figma token — секрет: хранить только в локальном менеджере окружения и выдавать минимальные scopes.",
+        "MCP получает доступ к содержимому макетов, комментариям и переменным; перед подключением выбрать отдельный тестовый файл.",
+        "130 инструментов не означают одинаковые возможности во всех режимах: Cloud заявляет 105, Remote — read-only subset."
+      ],
+      "verifiedAt": "2026-11-09",
+      "addedAt": "2026-11-09",
+      "reviewStatus": "verified",
+      "quickStart": [
+        "Начать с Remote/read-only режима или отдельного тестового Figma-файла.",
+        "Выдать только нужные file_content, file_versions и library read scopes; write scopes добавлять после проверки.",
+        "Проверить screenshot, tokens и design-code parity на одном компоненте Eclipse.",
+        "Только после ревью diff включать запись фреймов, переменных и комментариев."
+      ],
+      "source": {
+        "file": "catalog/resources.json",
+        "key": "figma-console-mcp",
+        "legacy": {
+          "file": "catalog/resources.json",
+          "key": "figma-console-mcp",
+          "category": "Дизайн и UI",
+          "subcategory": "MCP и дизайн-системы"
+        }
+      },
+      "metadata": {
+        "officialStars": 3200,
+        "officialForks": 297,
+        "officialLicense": "MIT",
+        "toolModes": {
+          "local": 130,
+          "cloud": 105,
+          "remote": "read-only subset"
+        },
+        "requires": [
+          "Node.js 18+",
+          "Figma Desktop",
+          "MCP client"
+        ],
+        "reviewScope": "README, setup and capability matrix; no token, plugin install or write test"
+      },
+      "verification": {
+        "sourceChecked": true,
+        "runtimeTested": false,
+        "installed": false,
+        "primarySources": [
+          "https://github.com/southleft/figma-console-mcp#readme",
+          "https://docs.figma-console-mcp.southleft.com/setup"
+        ]
+      },
+      "tags": [
+        "figma",
+        "mcp",
+        "design-system",
+        "tokens",
+        "accessibility",
+        "reference"
+      ],
+      "catalogOrder": 795,
+      "licenseInfo": {
+        "label": "MIT",
+        "original": "MIT для репозитория. Доступ к макетам и токенам регулируется Figma token scopes и правами конкретного файла.",
+        "spdx": "MIT",
+        "kind": "open-source",
+        "status": "editor-reviewed",
+        "requiresReview": false,
+        "evidence": [
+          {
+            "kind": "license",
+            "label": "MIT license",
+            "url": "https://github.com/southleft/figma-console-mcp/blob/main/LICENSE"
+          },
+          {
+            "kind": "source",
+            "label": "Официальный README и capability matrix",
+            "url": "https://github.com/southleft/figma-console-mcp#readme"
+          },
+          {
+            "kind": "source",
+            "label": "Setup для Codex и Figma Desktop",
+            "url": "https://docs.figma-console-mcp.southleft.com/setup"
+          }
+        ]
+      },
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://github.com/southleft/figma-console-mcp"
+        },
+        {
+          "kind": "license",
+          "label": "MIT license",
+          "url": "https://github.com/southleft/figma-console-mcp/blob/main/LICENSE"
+        },
+        {
+          "kind": "source",
+          "label": "Официальный README и capability matrix",
+          "url": "https://github.com/southleft/figma-console-mcp#readme"
+        },
+        {
+          "kind": "source",
+          "label": "Setup для Codex и Figma Desktop",
+          "url": "https://docs.figma-console-mcp.southleft.com/setup"
         }
       ],
       "agentEligibility": {

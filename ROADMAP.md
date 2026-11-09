@@ -1435,3 +1435,80 @@
 - All six task forms now use their visible 3D card as a strict layout boundary: Vault, Guardian Login, Upload Queue, AI Progress and both OTP variants keep decorative depth, controls and status content inside the frame.
 - Vault chamber height follows available `100dvh`; the remaining demos use `100dvh`, capped responsive widths and shrink-safe rows/columns instead of negative backplate insets.
 - Exact browser regression at 626×586, 500×520, 690×578, 783×541, 523×455, 590×455 and 390×844 confirms containment in normal and reduced-motion modes, zero document overflow and zero console/page errors.
+
+### 2026-11-09 — Figma bridge и веб-аватары
+
+- [ ] Провести read-only аудит [Figma Console MCP](https://github.com/southleft/figma-console-mcp): проверить официальный setup, список доступных операций, права Figma Desktop Bridge, лицензии и границы доступа к макетам. Кандидат для Eclipse Library и единой дизайн-системы Eclipse; не устанавливать до отдельного решения.
+- [ ] Провести read-only аудит [LivLiv Player](https://github.com/livliv-dev/player): подтвердить размер и заявленные возможности по README, проверить lip-sync, face tracking, OBS Browser Source, лицензию и работу на мобильных экранах. Кандидат для Eclipse Chat/Media как лёгкий веб-аватар; не добавлять реальный аватарный runtime до проверки приватности камеры и производительности.
+- [ ] После аудита подготовить две reference-карточки с источниками, ограничениями, безопасным quick start и решением: внедрять, оставить reference или отклонить.
+- [ ] Свести эти кандидаты с уже собранным пакетом новостей (Purge, Awesome REA, Protocol Explorer, Cinecode, Deep-Live-Cam) в один приоритизированный backlog; публикацию выполнять только после отдельного review и согласия.
+### 2026-11-09 — TokenEconomizer: пилот экономии токенов
+
+- [ ] Провести изолированный P1-пилот [TokenEconomizer](https://github.com/microsoft/TokenEconomizer) на копии одного Eclipse-репозитория без глобального подключения.
+- [ ] Сверить поддерживаемую версию Codex, поведение hooks и изменения `.codex/config.toml`; проверить обратимое отключение через `TE_DISABLE=1`.
+- [ ] Сравнить baseline и TokenEconomizer по стоимости, времени, числу вызовов, Pass@1 и качеству результата на повторяемых задачах.
+- [ ] Отдельно проверить локальное хранение данных, micro-skills, tool pruning и loop guard; не включать micro-skills без измерения дополнительных model calls.
+- [ ] После пилота принять решение: оставить reference, включить только для отдельных репозиториев или подключать шире. Глобальная установка и изменение рабочих проектов пока запрещены.
+### 2026-11-09 — Gemini Notebook: учебные сценарии для Library
+
+- [ ] Изучить подтверждённые сценарии Gemini Notebook: ответы с inline-цитатами, study guides, flashcards, practice quizzes и прогресс обучения.
+- [ ] Перенести полезные UX-идеи в Eclipse Library без внешнего AI на первом этапе: источник → конспект → карточки → проверка знаний → прогресс.
+- [ ] Добавить к каждому материалу явную привязку ответа к источнику и статус проверки, чтобы учебный результат можно было перепроверить.
+- [ ] Не копировать учебники и закрытые материалы; использовать только материалы с понятными правами и собственный контент Library.
+- [ ] После UX-прототипа отдельно решить, нужен ли внешний AI-провайдер и какие ограничения по регионам, аккаунтам и стоимости действуют.
+### 2026-11-09 — ReelMimic и Argus
+
+- [ ] Провести P1-пилот ReelMimic внутри Eclipse Media: взять собственный короткий ролик, получить разбор ритма и storyboard, собрать одну 2D-сцену и измерить время, расход токенов и качество review.
+- [ ] Проверить требования ReelMimic (Node.js, Python, FFmpeg, Chrome), локальное хранение, сторонние API-ключи и лицензии ассетов; не использовать чужие видео, персонажей, музыку и логотипы без прав.
+- [ ] Не возобновлять Shotforge как отдельный продукт: использовать его перенесённые storyboard/previs/media-сценарии внутри Eclipse Media.
+- [ ] Добавить Argus как reference для Eclipse Hopson Sentinel: процессы, службы, сеть, GPU, батарея, история нагрузки и поиск удерживающего файл процесса.
+- [ ] Перед любым использованием Argus изучить AGPL-3.0, границы возможного встраивания и отдельный privileged service; не копировать код в Sentinel без license review.
+- [ ] Проверить Argus в отдельной Windows-песочнице и не считать рекламное заявление о «15× быстрее» подтверждённым без собственного benchmark.
+### 2026-11-09 — Полный план внедрения новостных находок
+
+**Этап 1. Публикация каталога**
+
+- [ ] Закоммитить и отправить проверенные reference-карточки: Purge Mac, Awesome REA, Protocol Explorer, Cinecode, Deep-Live-Cam, LivLiv Player, GradientDeck UI и Figma Console MCP.
+- [ ] Дождаться CI validation, link audit и штатного deploy; проверить live-поиск, карточки, источники и адаптацию на 390/1440 px.
+- [ ] Не считать карточку разрешением на установку: каждая установка и интеграция проходит отдельный review.
+
+**Этап 2. Аудит и безопасные пилоты**
+
+- [ ] Для каждого кандидата закрепить источник, версию, лицензию, права на данные, требования, стоимость и обратимое отключение.
+- [ ] Запускать только в disposable sandbox или копии проекта; не использовать production secrets и реальные пользовательские данные.
+- [ ] Снимать baseline до изменения: время, токены, качество, ошибки, размер артефактов, сетевые обращения и права процесса.
+- [ ] После пилота принять решение `integrate`, `reference` или `reject`; не переносить код автоматически.
+
+**Этап 3. Распределение по продуктам**
+
+- [ ] Eclipse Library: улучшить карточки источников, учебные сценарии, цитаты, flashcards, quizzes и backlog полезных инструментов.
+- [ ] Eclipse Media: использовать ReelMimic и перенесённые функции Shotforge для storyboard, AI-previs, сцен, таймкодов, субтитров и media review.
+- [ ] Eclipse Chat: проверить LivLiv Player как опциональный веб-аватар с явным разрешением камеры/микрофона и отключённым по умолчанию runtime.
+- [ ] Eclipse Forge Landing и общий дизайн: использовать GradientDeck и Figma Console MCP только как референсы и инструменты design-system parity; не копировать бренды и ассеты.
+- [ ] Eclipse Hopson Sentinel: изучить Argus как внешний reference для Windows-мониторинга; не встраивать AGPL-код без отдельного license review.
+- [ ] Codex/Eclipse repositories: провести TokenEconomizer только на одном выбранном репозитории и включать шире лишь при доказанной экономии без регрессий.
+
+**Этап 4. Интеграция и продуктовая проверка**
+
+- [ ] Сначала добавить capability behind flag или отдельный экран, затем проверить loading, empty, error, permission, disabled и recovery states.
+- [ ] Для медиа проверить human playback, декодирование, субтитры, лицензии ассетов и повторяемость результата.
+- [ ] Для камеры и микрофона проверить разрешения, индикатор активности, локальность обработки, отказ устройства и мобильные браузеры.
+- [ ] Для MCP и локальных утилит проверить scopes, hooks, сетевые обращения, запись конфигурации и полное удаление/отключение.
+
+**Этап 5. QA и rollout**
+
+- [ ] Запустить unit/build, license/security checks, link audit и browser QA на desktop/mobile.
+- [ ] Проверить реальный пользовательский путь на staging: открыть, выполнить действие, увидеть результат, обновить страницу и восстановиться после ошибки.
+- [ ] Для каждого продукта зафиксировать release evidence, production smoke и rollback plan.
+- [ ] Публиковать интеграции пакетами только после отдельного согласия на commit/push/deploy; backlog и reference-карточки не считать production-включением.
+
+**Порядок приоритета:**
+
+1. Публикация восьми проверенных карточек.
+2. ReelMimic → Eclipse Media.
+3. LivLiv Player → sandbox Eclipse Chat/Media.
+4. Figma Console MCP и GradientDeck → дизайн-система Eclipse.
+5. TokenEconomizer → измеряемый P1-пилот.
+6. Gemini Notebook → UX Library без внешнего AI.
+7. Argus → reference и Windows sandbox для Hopson Sentinel.
+8. Остальные новости — только после отдельного аудита и подтверждения ценности.
