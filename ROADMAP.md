@@ -1,6 +1,6 @@
 # Eclipse Library Roadmap
 
-Последнее обновление: **25.08.2026**
+Последнее обновление: **09.11.2026**
 
 ### 2026-10-23 — Webclaw → Library read-only candidate intake
 
@@ -1438,10 +1438,10 @@
 
 ### 2026-11-09 — Figma bridge и веб-аватары
 
-- [ ] Провести read-only аудит [Figma Console MCP](https://github.com/southleft/figma-console-mcp): проверить официальный setup, список доступных операций, права Figma Desktop Bridge, лицензии и границы доступа к макетам. Кандидат для Eclipse Library и единой дизайн-системы Eclipse; не устанавливать до отдельного решения.
-- [ ] Провести read-only аудит [LivLiv Player](https://github.com/livliv-dev/player): подтвердить размер и заявленные возможности по README, проверить lip-sync, face tracking, OBS Browser Source, лицензию и работу на мобильных экранах. Кандидат для Eclipse Chat/Media как лёгкий веб-аватар; не добавлять реальный аватарный runtime до проверки приватности камеры и производительности.
-- [ ] После аудита подготовить две reference-карточки с источниками, ограничениями, безопасным quick start и решением: внедрять, оставить reference или отклонить.
-- [ ] Свести эти кандидаты с уже собранным пакетом новостей (Purge, Awesome REA, Protocol Explorer, Cinecode, Deep-Live-Cam) в один приоритизированный backlog; публикацию выполнять только после отдельного review и согласия.
+- [x] Провести read-only аудит [Figma Console MCP](https://github.com/southleft/figma-console-mcp): проверить официальный setup, список доступных операций, права Figma Desktop Bridge, лицензии и границы доступа к макетам. Кандидат для Eclipse Library и единой дизайн-системы Eclipse; не устанавливать до отдельного решения.
+- [x] Провести read-only аудит [LivLiv Player](https://github.com/livliv-dev/player): подтвердить размер и заявленные возможности по README, проверить lip-sync, face tracking, OBS Browser Source, лицензию и работу на мобильных экранах. Кандидат для Eclipse Chat/Media как лёгкий веб-аватар; не добавлять реальный аватарный runtime до проверки приватности камеры и производительности.
+- [x] После аудита подготовить две reference-карточки с источниками, ограничениями, безопасным quick start и решением: внедрять, оставить reference или отклонить.
+- [x] Свести эти кандидаты с уже собранным пакетом новостей (Purge, Awesome REA, Protocol Explorer, Cinecode, Deep-Live-Cam) в один приоритизированный backlog; публикацию выполнять только после отдельного review и согласия.
 ### 2026-11-09 — TokenEconomizer: пилот экономии токенов
 
 - [ ] Провести изолированный P1-пилот [TokenEconomizer](https://github.com/microsoft/TokenEconomizer) на копии одного Eclipse-репозитория без глобального подключения.
@@ -1466,10 +1466,12 @@
 - [ ] Проверить Argus в отдельной Windows-песочнице и не считать рекламное заявление о «15× быстрее» подтверждённым без собственного benchmark.
 ### 2026-11-09 — Полный план внедрения новостных находок
 
+**Статус на 09.11.2026:** восемь reference-карточек опубликованы в `master`, CI зелёный. Интеграции и установки ещё не выполнялись; следующий шаг — безопасный пилот ReelMimic в Eclipse Media.
+
 **Этап 1. Публикация каталога**
 
-- [ ] Закоммитить и отправить проверенные reference-карточки: Purge Mac, Awesome REA, Protocol Explorer, Cinecode, Deep-Live-Cam, LivLiv Player, GradientDeck UI и Figma Console MCP.
-- [ ] Дождаться CI validation, link audit и штатного deploy; проверить live-поиск, карточки, источники и адаптацию на 390/1440 px.
+- [x] Закоммитить и отправить проверенные reference-карточки: Purge Mac, Awesome REA, Protocol Explorer, Cinecode, Deep-Live-Cam, LivLiv Player, GradientDeck UI и Figma Console MCP.
+- [ ] Дождаться финального production smoke после завершения deploy; CI validation пройден, payload передан на VPS, live-поиск и адаптацию нужно закрыть отдельной проверкой.
 - [ ] Не считать карточку разрешением на установку: каждая установка и интеграция проходит отдельный review.
 
 **Этап 2. Аудит и безопасные пилоты**
