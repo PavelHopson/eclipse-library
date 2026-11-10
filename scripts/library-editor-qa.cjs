@@ -53,7 +53,7 @@ let browser, api, server, pgStarted = false;
     await page.locator('[name=email]').fill(email); await page.locator('[name=password]').fill('wrong-password-for-qa');
     await page.locator('#login-form button').click(); await page.getByText('Неверный email или пароль.').waitFor(); report.checks.push('wrong password rejected');
     await page.locator('[name=password]').fill(password); await page.locator('#login-form button').click();
-    await page.waitForURL('**/editor.html'); await page.locator('#editor-view').waitFor(); report.checks.push('login through UI');
+    await page.waitForURL('**/admin.html'); await page.goto(base + '/editor.html'); await page.locator('#editor-view').waitFor(); report.checks.push('login through UI');
     await page.locator('#image-file').setInputFiles({name:'large.png',mimeType:'image/png',buffer:Buffer.alloc(6*1024*1024+1)});
     await page.getByText('Изображение должно быть не больше 6 МБ.',{exact:true}).waitFor();
     assert.equal(await page.locator('#image-file').evaluate(el=>el.files.length),0); report.checks.push('oversized upload rejected before save');
