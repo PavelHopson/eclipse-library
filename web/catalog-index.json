@@ -1,20 +1,20 @@
 {
   "schemaVersion": 2,
-  "sourceHash": "3867ec9542ee284080a0ac7fd268209260f1c368fa350321046e294447f316fd",
+  "sourceHash": "7b7660d79c4019fec48da9d0b99cfa3b3c891abfbc95f745892b7c5965a77e86",
   "policy": {
     "canonicalSource": "catalog/resources.json",
     "directInstallForbidden": true,
     "greyResourcesExcludedFromAgentRecommendations": true
   },
   "totals": {
-    "all": 795,
-    "verified": 427,
+    "all": 799,
+    "verified": 431,
     "inferred": 368,
     "licenseReviewRequired": 216,
-    "agentSafe": 693,
+    "agentSafe": 697,
     "agentExcluded": 102,
     "grey": 88,
-    "withAddedAt": 516
+    "withAddedAt": 520
   },
   "items": [
     {
@@ -41424,6 +41424,456 @@
           "kind": "source",
           "label": "Setup для Codex и Figma Desktop",
           "url": "https://docs.figma-console-mcp.southleft.com/setup"
+        }
+      ],
+      "agentEligibility": {
+        "eligible": true,
+        "reasons": [],
+        "installAllowed": false
+      }
+    },
+    {
+      "id": "reelmimic",
+      "url": "https://github.com/edenfunf/reelmimic",
+      "title": "ReelMimic — AI-студия для повторения визуального стиля видео",
+      "type": "tool",
+      "category": "Медиа и дизайн",
+      "subcategory": "Сториборды и анимация",
+      "simpleDescription": "Локальный workflow анализирует референсное видео, собирает план, оригинальных персонажей и сцены, а затем помогает выпустить ролик в выбранной 2D-стилистике. Полезен для раскадровок и коротких анимационных прототипов; он не копирует исходные кадры, лица, логотипы или музыку.",
+      "useCases": [
+        "Разбирать темп, монтаж и визуальный язык референса",
+        "Собирать оригинальные анимационные ролики для Eclipse Media и Shotforge"
+      ],
+      "platforms": [
+        "Windows",
+        "macOS",
+        "Linux",
+        "Node.js",
+        "Python",
+        "FFmpeg"
+      ],
+      "license": "MIT",
+      "licenseEvidence": [
+        {
+          "kind": "license",
+          "label": "Официальная MIT-лицензия",
+          "url": "https://github.com/edenfunf/reelmimic/blob/main/LICENSE"
+        },
+        {
+          "kind": "source",
+          "label": "README и ограничения workflow",
+          "url": "https://github.com/edenfunf/reelmimic/blob/main/README.md"
+        }
+      ],
+      "pricing": "Код бесплатен; запуск использует лимиты Claude Code или Codex, локальные ресурсы и опциональные ключи медиа-сервисов.",
+      "access": {
+        "cost": "free",
+        "signup": "optional",
+        "runtime": "local"
+      },
+      "trust": "official",
+      "trustReason": "Официальный репозиторий и README проверены 10.11.2026; заявленные сроки рендера, поддержка платформ и качество не подтверждались независимым бенчмарком.",
+      "projects": [
+        "Eclipse Media",
+        "Shotforge"
+      ],
+      "decision": "roadmap",
+      "riskLevel": "medium",
+      "risks": [
+        "Референсы, персонажи, музыка и найденные ассеты требуют отдельной проверки прав.",
+        "Рендер 30–60 секунд может занимать часы и расходовать лимиты агента.",
+        "macOS и Linux заявлены, но тестирование в проекте в основном Windows."
+      ],
+      "verifiedAt": "2026-11-10",
+      "addedAt": "2026-11-10",
+      "reviewStatus": "verified",
+      "quickStart": [
+        "Начать с собственного или лицензированного короткого референса в отдельной папке.",
+        "Сначала принять план и проверить раскадровку, затем запускать полный рендер.",
+        "Сохранить provenance ассетов и вручную проверить финальный ролик перед публикацией."
+      ],
+      "source": {
+        "file": "catalog/resources.json",
+        "key": "reelmimic",
+        "legacy": {
+          "file": "catalog/resources.json",
+          "key": "reelmimic",
+          "category": "Медиа и дизайн",
+          "subcategory": "Сториборды и анимация"
+        }
+      },
+      "catalogOrder": 796,
+      "licenseInfo": {
+        "label": "MIT",
+        "original": "MIT для кода; сторонние навыки и ассеты сохраняют собственные условия",
+        "spdx": "MIT",
+        "kind": "open-source",
+        "status": "editor-reviewed",
+        "requiresReview": false,
+        "evidence": [
+          {
+            "kind": "license",
+            "label": "Официальная MIT-лицензия",
+            "url": "https://github.com/edenfunf/reelmimic/blob/main/LICENSE"
+          },
+          {
+            "kind": "source",
+            "label": "README и ограничения workflow",
+            "url": "https://github.com/edenfunf/reelmimic/blob/main/README.md"
+          }
+        ]
+      },
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://github.com/edenfunf/reelmimic"
+        },
+        {
+          "kind": "license",
+          "label": "Официальная MIT-лицензия",
+          "url": "https://github.com/edenfunf/reelmimic/blob/main/LICENSE"
+        },
+        {
+          "kind": "source",
+          "label": "README и ограничения workflow",
+          "url": "https://github.com/edenfunf/reelmimic/blob/main/README.md"
+        }
+      ],
+      "agentEligibility": {
+        "eligible": true,
+        "reasons": [],
+        "installAllowed": false
+      }
+    },
+    {
+      "id": "tokeneconomizer",
+      "url": "https://github.com/microsoft/TokenEconomizer",
+      "title": "TokenEconomizer — контроль стоимости coding-агентов",
+      "type": "tool",
+      "category": "AI & Claude Code",
+      "subcategory": "Экономия токенов и память репозитория",
+      "simpleDescription": "Плагин для Claude Code, Codex, GitHub Copilot CLI и Pi, который запоминает подтверждённые особенности репозитория, убирает неиспользуемые инструменты и помогает выйти из повторяющегося цикла ошибок. Он работает локально, обратим и не меняет модель агента.",
+      "useCases": [
+        "Снизить повторное чтение одних и тех же инструкций в Eclipse-репозиториях",
+        "Собрать измеримый baseline стоимости до и после подключения"
+      ],
+      "platforms": [
+        "Python 3.10+",
+        "Claude Code",
+        "Codex",
+        "GitHub Copilot CLI",
+        "Pi"
+      ],
+      "license": "Apache-2.0",
+      "licenseEvidence": [
+        {
+          "kind": "license",
+          "label": "Apache-2.0 license",
+          "url": "https://github.com/microsoft/TokenEconomizer/blob/main/LICENSE"
+        },
+        {
+          "kind": "source",
+          "label": "Официальный README",
+          "url": "https://github.com/microsoft/TokenEconomizer"
+        }
+      ],
+      "pricing": "Код бесплатен; внутренние model calls плагина расходуют лимиты подключённого агента.",
+      "access": {
+        "cost": "free",
+        "signup": "required",
+        "runtime": "local"
+      },
+      "trust": "official",
+      "trustReason": "Официальный репозиторий Microsoft и README проверены 10.11.2026. Процент экономии — результат опубликованного SWE-Bench эксперимента, не измерение Eclipse.",
+      "projects": [
+        "Eclipse Chat",
+        "Eclipse Library",
+        "Eclipse AI Hub",
+        "Hopson Sentinel"
+      ],
+      "decision": "roadmap",
+      "riskLevel": "medium",
+      "risks": [
+        "Обученные факты и журналы сохраняются локально и требуют контроля приватности.",
+        "Удаление инструментов должно оставаться обратимым и проверяться на каждом репозитории.",
+        "Бенчмарки Microsoft не заменяют замер на наших сценариях."
+      ],
+      "verifiedAt": "2026-11-10",
+      "addedAt": "2026-11-10",
+      "reviewStatus": "verified",
+      "quickStart": [
+        "Сначала включить только status и собрать baseline нескольких задач.",
+        "Не включать глобальную конфигурацию до проверки одного Eclipse-репозитория.",
+        "Сравнить стоимость, время и качество на одинаковом наборе задач; при проблеме восстановить инструменты."
+      ],
+      "source": {
+        "file": "catalog/resources.json",
+        "key": "tokeneconomizer",
+        "legacy": {
+          "file": "catalog/resources.json",
+          "key": "tokeneconomizer",
+          "category": "AI & Claude Code",
+          "subcategory": "Экономия токенов и память репозитория"
+        }
+      },
+      "catalogOrder": 797,
+      "licenseInfo": {
+        "label": "Apache-2.0",
+        "original": "Apache-2.0",
+        "spdx": "Apache-2.0",
+        "kind": "open-source",
+        "status": "editor-reviewed",
+        "requiresReview": false,
+        "evidence": [
+          {
+            "kind": "license",
+            "label": "Apache-2.0 license",
+            "url": "https://github.com/microsoft/TokenEconomizer/blob/main/LICENSE"
+          },
+          {
+            "kind": "source",
+            "label": "Официальный README",
+            "url": "https://github.com/microsoft/TokenEconomizer"
+          }
+        ]
+      },
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://github.com/microsoft/TokenEconomizer"
+        },
+        {
+          "kind": "license",
+          "label": "Apache-2.0 license",
+          "url": "https://github.com/microsoft/TokenEconomizer/blob/main/LICENSE"
+        }
+      ],
+      "agentEligibility": {
+        "eligible": true,
+        "reasons": [],
+        "installAllowed": false
+      }
+    },
+    {
+      "id": "argus-task-manager",
+      "url": "https://github.com/Ray-lea/Argus",
+      "title": "Argus — современный диспетчер задач Windows",
+      "type": "tool",
+      "category": "Разработка и тестирование",
+      "subcategory": "Мониторинг Windows",
+      "simpleDescription": "Открытый диспетчер задач для Windows на Rust и GPUI: процессы, нагрузка CPU/GPU, службы, автозагрузка и системные графики в одном интерфейсе. Подходит для локальной диагностики тяжёлых процессов; это не агент для автоматического удаления или остановки сервисов.",
+      "useCases": [
+        "Проверять, что грузит Eclipse Media и локальные AI-инструменты",
+        "Сравнить удобство мониторинга с системным Диспетчером задач"
+      ],
+      "platforms": [
+        "Windows 11",
+        "Rust",
+        "GPUI"
+      ],
+      "license": "AGPL-3.0",
+      "licenseEvidence": [
+        {
+          "kind": "license",
+          "label": "Официальная AGPL-3.0-лицензия",
+          "url": "https://github.com/Ray-lea/Argus/blob/main/LICENSE"
+        },
+        {
+          "kind": "source",
+          "label": "Официальный README",
+          "url": "https://github.com/Ray-lea/Argus/blob/main/README.ru.md"
+        }
+      ],
+      "pricing": "Бесплатный open-source проект; сборка и драйверные модули имеют отдельные требования.",
+      "access": {
+        "cost": "free",
+        "signup": "optional",
+        "runtime": "local"
+      },
+      "trust": "official",
+      "trustReason": "Официальный репозиторий, README и лицензия проверены 10.11.2026; на рабочей машине Argus не устанавливался.",
+      "projects": [
+        "Hopson Sentinel",
+        "Eclipse Media"
+      ],
+      "decision": "reference",
+      "riskLevel": "medium",
+      "risks": [
+        "Некоторые сенсоры используют дополнительные драйверы и требуют отдельной проверки.",
+        "AGPL-3.0 нужно учитывать при распространении изменённой версии.",
+        "Показания температуры и GPU зависят от оборудования и vendor API."
+      ],
+      "verifiedAt": "2026-11-10",
+      "addedAt": "2026-11-10",
+      "reviewStatus": "verified",
+      "quickStart": [
+        "Сначала использовать официальный portable/release-вариант на тестовой Windows-машине.",
+        "Проверить права, сенсоры и отсутствие лишних фоновых сервисов.",
+        "Не включать автоматическое завершение процессов без ручного подтверждения."
+      ],
+      "source": {
+        "file": "catalog/resources.json",
+        "key": "argus-task-manager",
+        "legacy": {
+          "file": "catalog/resources.json",
+          "key": "argus-task-manager",
+          "category": "Разработка и тестирование",
+          "subcategory": "Мониторинг Windows"
+        }
+      },
+      "catalogOrder": 798,
+      "licenseInfo": {
+        "label": "AGPL-3.0",
+        "original": "AGPL-3.0-or-later",
+        "spdx": "AGPL-3.0",
+        "kind": "open-source",
+        "status": "editor-reviewed",
+        "requiresReview": false,
+        "evidence": [
+          {
+            "kind": "license",
+            "label": "Официальная AGPL-3.0-лицензия",
+            "url": "https://github.com/Ray-lea/Argus/blob/main/LICENSE"
+          },
+          {
+            "kind": "source",
+            "label": "Официальный README",
+            "url": "https://github.com/Ray-lea/Argus/blob/main/README.ru.md"
+          }
+        ]
+      },
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://github.com/Ray-lea/Argus"
+        },
+        {
+          "kind": "license",
+          "label": "Официальная AGPL-3.0-лицензия",
+          "url": "https://github.com/Ray-lea/Argus/blob/main/LICENSE"
+        },
+        {
+          "kind": "source",
+          "label": "Официальный README",
+          "url": "https://github.com/Ray-lea/Argus/blob/main/README.ru.md"
+        }
+      ],
+      "agentEligibility": {
+        "eligible": true,
+        "reasons": [],
+        "installAllowed": false
+      }
+    },
+    {
+      "id": "mago-studio",
+      "url": "https://github.com/MagoStudio/MagoStudio",
+      "title": "Mago Studio — локальная AI-киностудия",
+      "type": "tool",
+      "category": "Медиа и дизайн",
+      "subcategory": "Генерация и монтаж видео",
+      "simpleDescription": "Desktop-редактор для сценария, раскадровки, последовательных сцен и стилизации видео. Локальный режим использует ComfyUI и GPU, а облачные модели включаются отдельно; проект подходит для исследования пайплайнов кино и медиапрототипов, но требует проверки моделей и лицензий.",
+      "useCases": [
+        "Сравнить сценарный и shot-based workflow с Eclipse Media",
+        "Собирать локальные прототипы сцен и проверять consistency персонажей"
+      ],
+      "platforms": [
+        "Windows",
+        "macOS",
+        "Linux",
+        "ComfyUI",
+        "Node.js 24",
+        "NVIDIA GPU"
+      ],
+      "license": "AGPL-3.0-only для приложения; модели и node packs имеют отдельные лицензии",
+      "licenseEvidence": [
+        {
+          "kind": "license",
+          "label": "Официальная AGPL-3.0-лицензия",
+          "url": "https://github.com/MagoStudio/MagoStudio/blob/main/LICENSE"
+        },
+        {
+          "kind": "source",
+          "label": "Официальная архитектура и установка",
+          "url": "https://github.com/MagoStudio/MagoStudio/blob/main/README.md"
+        }
+      ],
+      "pricing": "Локальный режим бесплатен, облачные модели и аккаунт Mago могут быть платными; для Windows local render заявлены около 63 GB и NVIDIA GPU от 8 GB VRAM.",
+      "access": {
+        "cost": "freemium",
+        "signup": "optional",
+        "runtime": "local"
+      },
+      "trust": "official",
+      "trustReason": "Официальный репозиторий, README и архитектурная документация проверены 10.11.2026; скачивание и установка не выполнялись.",
+      "projects": [
+        "Eclipse Media",
+        "Shotforge",
+        "Text2Image"
+      ],
+      "decision": "roadmap",
+      "riskLevel": "high",
+      "risks": [
+        "Скачивание моделей и node packs — большая supply-chain и disk surface.",
+        "Cloud render отправляет выбранные материалы на сервер; локальный режим требует отдельной GPU-машины.",
+        "Модели MiniMax H3 и сторонние компоненты имеют собственные условия."
+      ],
+      "verifiedAt": "2026-11-10",
+      "addedAt": "2026-11-10",
+      "reviewStatus": "verified",
+      "quickStart": [
+        "Не скачивать на рабочую машину до проверки GPU, свободного места и лицензий моделей.",
+        "Сначала изучить архитектуру и запустить только локальный тестовый проект без личных материалов.",
+        "Зафиксировать model hashes и отключить cloud render для приватных исходников."
+      ],
+      "source": {
+        "file": "catalog/resources.json",
+        "key": "mago-studio",
+        "legacy": {
+          "file": "catalog/resources.json",
+          "key": "mago-studio",
+          "category": "Медиа и дизайн",
+          "subcategory": "Генерация и монтаж видео"
+        }
+      },
+      "catalogOrder": 799,
+      "licenseInfo": {
+        "label": "AGPL-3.0-only для приложения; модели и node packs имеют отдельные лицензии",
+        "original": "AGPL-3.0-only для приложения; модели и node packs имеют отдельные лицензии",
+        "spdx": null,
+        "kind": "custom",
+        "status": "editor-reviewed",
+        "requiresReview": false,
+        "evidence": [
+          {
+            "kind": "license",
+            "label": "Официальная AGPL-3.0-лицензия",
+            "url": "https://github.com/MagoStudio/MagoStudio/blob/main/LICENSE"
+          },
+          {
+            "kind": "source",
+            "label": "Официальная архитектура и установка",
+            "url": "https://github.com/MagoStudio/MagoStudio/blob/main/README.md"
+          }
+        ]
+      },
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://github.com/MagoStudio/MagoStudio"
+        },
+        {
+          "kind": "license",
+          "label": "Официальная AGPL-3.0-лицензия",
+          "url": "https://github.com/MagoStudio/MagoStudio/blob/main/LICENSE"
+        },
+        {
+          "kind": "source",
+          "label": "Официальная архитектура и установка",
+          "url": "https://github.com/MagoStudio/MagoStudio/blob/main/README.md"
         }
       ],
       "agentEligibility": {

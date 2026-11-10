@@ -2,7 +2,8 @@
   "schemaVersion": 1,
   "migratedAt": "2026-08-03",
   "totals": {
-    "items": 795
+    "items": 795,
+    "all": 799
   },
   "items": [
     {
@@ -13,15 +14,37 @@
       "category": "Медиа и дизайн",
       "subcategory": "3D-ассеты и датасеты",
       "simpleDescription": "Коллекция готовых AI-generated 3D-ассетов, а не бесплатный неограниченный генератор Scenario. По карточке автора: 1342 примера, 1500 выходных файлов, около 39 ГБ с превью и доступными исходниками. Форматы: 1271 GLB, 137 Blender, 41 SPZ, 23 PLY, 21 VOX и 7 FBX. Начните с одного подходящего файла.",
-      "useCases": ["Прототип игровой сцены из выбранных GLB", "Учебная 3D-сцена с проверкой материалов и масштаба", "Предметная визуализация или медиаматериал после проверки ассета"],
-      "platforms": ["Web", "Blender", "Windows", "Linux", "macOS"],
+      "useCases": [
+        "Прототип игровой сцены из выбранных GLB",
+        "Учебная 3D-сцена с проверкой материалов и масштаба",
+        "Предметная визуализация или медиаматериал после проверки ассета"
+      ],
+      "platforms": [
+        "Web",
+        "Blender",
+        "Windows",
+        "Linux",
+        "macOS"
+      ],
       "license": "CC BY 4.0. Авторство: Scenario. Сохраняйте источник, ссылку на лицензию и описание изменений; права на сторонние бренды и персонажей отдельно не гарантированы.",
       "licenseEvidence": [
-        {"kind": "source", "label": "Карточка коллекции: состав, метаданные и ограничения", "url": "https://huggingface.co/datasets/scenario-labs/3d-collection/blob/55b4c002b4c1529fc48da3dff98516c3069bfa3f/README.md"},
-        {"kind": "license", "label": "CC BY 4.0 — условия атрибуции", "url": "https://creativecommons.org/licenses/by/4.0/"}
+        {
+          "kind": "source",
+          "label": "Карточка коллекции: состав, метаданные и ограничения",
+          "url": "https://huggingface.co/datasets/scenario-labs/3d-collection/blob/55b4c002b4c1529fc48da3dff98516c3069bfa3f/README.md"
+        },
+        {
+          "kind": "license",
+          "label": "CC BY 4.0 — условия атрибуции",
+          "url": "https://creativecommons.org/licenses/by/4.0/"
+        }
       ],
       "pricing": "Файлы основной коллекции доступны бесплатно. Это не бесплатный доступ к генерации в Scenario; хранение и обработка требуют собственных ресурсов.",
-      "access": {"cost": "free", "signup": "none", "runtime": "local"},
+      "access": {
+        "cost": "free",
+        "signup": "none",
+        "runtime": "local"
+      },
       "trust": "caution",
       "trustReason": "26.10.2026: сверены официальная карточка, метаданные примеров и CC BY 4.0. Это документальная проверка: файлы нами не открывались и не рендерились. Автор сообщает о структурных проверках и одной Blender-сцене с двумя отсутствующими текстурами, но не сертифицирует качество рендера и анимации.",
       "projects": [],
@@ -44,17 +67,42 @@
         "Откройте копию в поддерживающем формат просмотрщике; проверьте материалы, масштаб и ресурсы. Для Blender отключите автоматическое выполнение скриптов; проверка источника не означает проверку безопасности файла",
         "В титрах или документации укажите: Scenario — Scenario 3D Collection; ID ассета; URL источника; https://creativecommons.org/licenses/by/4.0/; Изменения: нет либо перечень правок. Сохраните эту запись рядом с экспортом"
       ],
-      "source": {"file": "catalog/resources.json", "key": "scenario-3d-collection", "category": "Медиа и дизайн", "subcategory": "3D-ассеты и датасеты"},
+      "source": {
+        "file": "catalog/resources.json",
+        "key": "scenario-3d-collection",
+        "category": "Медиа и дизайн",
+        "subcategory": "3D-ассеты и датасеты"
+      },
       "verification": {
         "scope": "Primary dataset card and license documentation review only; no asset download, installation, rendering or runtime validation.",
         "runtimeTested": false,
         "installed": false,
         "eventDate": null,
         "upstreamCommit": "55b4c002b4c1529fc48da3dff98516c3069bfa3f",
-        "sources": ["https://huggingface.co/datasets/scenario-labs/3d-collection", "https://creativecommons.org/licenses/by/4.0/"],
-        "dataset": {"examples": 1342, "outputFiles": 1500, "approximateGB": 39, "formats": {"glb": 1271, "blend": 137, "spz": 41, "ply": 23, "vox": 21, "fbx": 7}}
+        "sources": [
+          "https://huggingface.co/datasets/scenario-labs/3d-collection",
+          "https://creativecommons.org/licenses/by/4.0/"
+        ],
+        "dataset": {
+          "examples": 1342,
+          "outputFiles": 1500,
+          "approximateGB": 39,
+          "formats": {
+            "glb": 1271,
+            "blend": 137,
+            "spz": 41,
+            "ply": 23,
+            "vox": 21,
+            "fbx": 7
+          }
+        }
       },
-      "correctionHistory": [{"date": "2026-10-26", "change": "Добавлена карточка основной коллекции с документальной проверкой, выборочным скачиванием и атрибуцией; Hunyuan и качество отдельных моделей не включены в вывод о проверке."}]
+      "correctionHistory": [
+        {
+          "date": "2026-10-26",
+          "change": "Добавлена карточка основной коллекции с документальной проверкой, выборочным скачиванием и атрибуцией; Hunyuan и качество отдельных моделей не включены в вывод о проверке."
+        }
+      ]
     },
     {
       "id": "rea-owned-application-analysis",
@@ -64,24 +112,59 @@
       "category": "Разработка и агенты",
       "subcategory": "Анализ приложений",
       "simpleDescription": "CLI и MCP для исследования приложений: структура модулей, связи и доказательства. Гайд показывает путь от разрешённого набора файлов до спецификации одной функции и тестов, без обещания клонировать любую программу.",
-      "useCases": ["Проверка состава собственной сборки", "Восстановление поведения старой собственной версии", "Сопоставление наблюдений со спецификацией и тестами"],
-      "platforms": ["Windows", "Linux", "macOS", "Codex"],
+      "useCases": [
+        "Проверка состава собственной сборки",
+        "Восстановление поведения старой собственной версии",
+        "Сопоставление наблюдений со спецификацией и тестами"
+      ],
+      "platforms": [
+        "Windows",
+        "Linux",
+        "macOS",
+        "Codex"
+      ],
       "license": "MIT для REA; условия движков, зависимостей и исследуемого приложения проверяются отдельно.",
-      "licenseEvidence": [{"kind": "license", "label": "Лицензия REA", "url": "https://github.com/morluto/rea/blob/main/LICENSE"}],
+      "licenseEvidence": [
+        {
+          "kind": "license",
+          "label": "Лицензия REA",
+          "url": "https://github.com/morluto/rea/blob/main/LICENSE"
+        }
+      ],
       "pricing": "Код REA открыт; отдельные движки и модель могут требовать оплаты.",
-      "access": {"cost": "free", "signup": "none", "runtime": "local"},
+      "access": {
+        "cost": "free",
+        "signup": "none",
+        "runtime": "local"
+      },
       "trust": "caution",
       "trustReason": "11.10.2026: README, CLI и Security Policy проверены. Статический CLI и облачный агент — разные границы данных. REA не является песочницей; документация main может отличаться от установленного пакета.",
       "projects": [],
       "decision": "reference",
       "riskLevel": "high",
-      "risks": ["Результаты MCP могут передаваться провайдеру модели", "Анализ неизвестных файлов требует отдельной среды", "Поддержка зависит от формата, движка, версии и ОС", "Лицензия инструмента не предоставляет права на чужое приложение", "Наличие модуля не доказывает его использование, безопасность или полноту реконструкции"],
+      "risks": [
+        "Результаты MCP могут передаваться провайдеру модели",
+        "Анализ неизвестных файлов требует отдельной среды",
+        "Поддержка зависит от формата, движка, версии и ОС",
+        "Лицензия инструмента не предоставляет права на чужое приложение",
+        "Наличие модуля не доказывает его использование, безопасность или полноту реконструкции"
+      ],
       "verifiedAt": "2026-10-11",
       "addedAt": "2026-10-11",
       "reviewStatus": "verified",
       "guide": "rea-owned-application-analysis",
-      "quickStart": ["Откройте гайд и выберите одну функцию собственной сборки", "Согласуйте список файлов, версию и SHA-256; исключите секреты", "Начните со статического анализа копии без регистрации MCP", "Сопоставьте доказательства с тестами, отметьте неизвестное"],
-      "source": {"file": "guides/rea-owned-application-analysis.md", "line": 1, "category": "Разработка и агенты", "subcategory": "Анализ приложений"}
+      "quickStart": [
+        "Откройте гайд и выберите одну функцию собственной сборки",
+        "Согласуйте список файлов, версию и SHA-256; исключите секреты",
+        "Начните со статического анализа копии без регистрации MCP",
+        "Сопоставьте доказательства с тестами, отметьте неизвестное"
+      ],
+      "source": {
+        "file": "guides/rea-owned-application-analysis.md",
+        "line": 1,
+        "category": "Разработка и агенты",
+        "subcategory": "Анализ приложений"
+      }
     },
     {
       "id": "koboyo-page-mascot",
@@ -205,27 +288,91 @@
       "category": "Security и privacy",
       "subcategory": "Проверяемое происхождение media",
       "simpleDescription": "Проверка поддерживаемых AI-меток как дополнительный сигнал перед публикацией. Не универсальный детектор фейков, авторства или прав. Гайд и локальный отчёт с SHA-256; реальная проверка файла не выполнена.",
-      "useCases": ["Ручная проверка чужого медиа перед публикацией", "Паспорт собственного исходника и производных экспортов", "Отчёт с тремя статусами без выдуманной уверенности"],
-      "platforms": ["Web"],
+      "useCases": [
+        "Ручная проверка чужого медиа перед публикацией",
+        "Паспорт собственного исходника и производных экспортов",
+        "Отчёт с тремя статусами без выдуманной уверенности"
+      ],
+      "platforms": [
+        "Web"
+      ],
       "license": "Условия сервиса Google; открытая лицензия Detector не подтверждена. Права на загружаемый файл проверяются отдельно.",
-      "licenseEvidence": [{"kind": "source", "label": "Официальный Detector", "url": "https://synthid.com/"}],
+      "licenseEvidence": [
+        {
+          "kind": "source",
+          "label": "Официальный Detector",
+          "url": "https://synthid.com/"
+        }
+      ],
       "pricing": "Стоимость, квоты и условия API нового Detector в этой проверке не установлены.",
-      "access": {"cost": "unknown", "signup": "unknown", "runtime": "cloud"},
+      "access": {
+        "cost": "unknown",
+        "signup": "unknown",
+        "runtime": "cloud"
+      },
       "trust": "official",
       "trustReason": "08.10.2026 сверены анонс Google от 07.10.2026, DeepMind и отдельная справка Gemini. Прочитан receipt A-00 публичного welcome notice Detector от 12:36:09Z: условия хранения заявлены Google, независимое удаление не проверено. Загрузки файла не было. Покрытие конкретных моделей и старых файлов не гарантируется.",
-      "projects": ["Eclipse Library", "Eclipse Media", "Ultron", "AI Creator"],
+      "projects": [
+        "Eclipse Library",
+        "Eclipse Media",
+        "Ultron",
+        "AI Creator"
+      ],
       "decision": "reference",
       "riskLevel": "medium",
-      "risks": ["По notice Google оригинал удаляется после результата, digital signature связана с user identifier и хранится до 24 часов; независимый аудит удаления не выполнен", "Third-party sign-in передаёт базовые идентификаторы; загрузка файла требует отдельного разрешения", "Additional Terms запрещают frontend-as-API, bulk verification, обход квот и adversarial-подбор преобразований против обнаружения метки", "Отсутствие метки не доказывает отсутствие AI", "Обнаружение метки не доказывает истинность, авторство или права", "Результат нельзя переносить на изменённые байты или другой экспорт"],
+      "risks": [
+        "По notice Google оригинал удаляется после результата, digital signature связана с user identifier и хранится до 24 часов; независимый аудит удаления не выполнен",
+        "Third-party sign-in передаёт базовые идентификаторы; загрузка файла требует отдельного разрешения",
+        "Additional Terms запрещают frontend-as-API, bulk verification, обход квот и adversarial-подбор преобразований против обнаружения метки",
+        "Отсутствие метки не доказывает отсутствие AI",
+        "Обнаружение метки не доказывает истинность, авторство или права",
+        "Результат нельзя переносить на изменённые байты или другой экспорт"
+      ],
       "verifiedAt": "2026-10-08",
-      "quickStart": ["Откройте гайд и зафиксируйте источник, права и SHA-256", "До загрузки проверьте условия сервиса и отдельное разрешение на передачу файла", "Сохраните точный ответ, дату и доказательство; ошибку отмечайте not_checked"],
+      "quickStart": [
+        "Откройте гайд и зафиксируйте источник, права и SHA-256",
+        "До загрузки проверьте условия сервиса и отдельное разрешение на передачу файла",
+        "Сохраните точный ответ, дату и доказательство; ошибку отмечайте not_checked"
+      ],
       "reviewStatus": "verified",
       "addedAt": "2026-10-08",
       "guide": "synthid-media-provenance-checklist",
-      "relatedResources": ["c2pa-content-credentials"],
-      "source": {"file": "guides/synthid-media-provenance-checklist.md", "line": 1, "category": "Security и privacy", "subcategory": "Проверяемое происхождение media"},
-      "verification": {"scope": "Official documentation and A-00 public UI receipt reviewed; local asset hash computed without external upload", "runtimeTested": false, "fileVerificationStatus": "not_checked", "eventDate": "2026-10-07", "publicNoticeObservedAt": "2026-10-08T12:36:09.919Z", "publicNoticeHttpStatus": 200, "deletionIndependentlyVerified": false, "sources": ["https://blog.google/innovation-and-ai/models-and-research/google-deepmind/synth-id-ai-content/", "https://deepmind.google/models/synthid/", "https://support.google.com/gemini/answer/16722517?hl=en", "https://synthid.com/", "https://policies.google.com/terms", "https://policies.google.com/privacy"]},
-      "correctionHistory": [{"date": "2026-10-08", "change": "Создана карточка IDEA-025. Разделены Detector, Gemini и C2PA. На момент первой редакции API, retention, квоты и реальная проверка файла не подтверждены."}, {"date": "2026-10-08", "change": "По receipt A-00 от 12:36:09Z уточнён прочитанный welcome Privacy Notice: удаление оригинала после результата, signature/user identifier до 24ч, basic sign-in identifiers. Это заявление Google, не аудит удаления. Зафиксированы запреты adversarial optimization, frontend-as-API/bulk и обхода квот. API, тарифы, квоты, форматы и проверка файла по-прежнему не подтверждены; not_checked."}]
+      "relatedResources": [
+        "c2pa-content-credentials"
+      ],
+      "source": {
+        "file": "guides/synthid-media-provenance-checklist.md",
+        "line": 1,
+        "category": "Security и privacy",
+        "subcategory": "Проверяемое происхождение media"
+      },
+      "verification": {
+        "scope": "Official documentation and A-00 public UI receipt reviewed; local asset hash computed without external upload",
+        "runtimeTested": false,
+        "fileVerificationStatus": "not_checked",
+        "eventDate": "2026-10-07",
+        "publicNoticeObservedAt": "2026-10-08T12:36:09.919Z",
+        "publicNoticeHttpStatus": 200,
+        "deletionIndependentlyVerified": false,
+        "sources": [
+          "https://blog.google/innovation-and-ai/models-and-research/google-deepmind/synth-id-ai-content/",
+          "https://deepmind.google/models/synthid/",
+          "https://support.google.com/gemini/answer/16722517?hl=en",
+          "https://synthid.com/",
+          "https://policies.google.com/terms",
+          "https://policies.google.com/privacy"
+        ]
+      },
+      "correctionHistory": [
+        {
+          "date": "2026-10-08",
+          "change": "Создана карточка IDEA-025. Разделены Detector, Gemini и C2PA. На момент первой редакции API, retention, квоты и реальная проверка файла не подтверждены."
+        },
+        {
+          "date": "2026-10-08",
+          "change": "По receipt A-00 от 12:36:09Z уточнён прочитанный welcome Privacy Notice: удаление оригинала после результата, signature/user identifier до 24ч, basic sign-in identifiers. Это заявление Google, не аудит удаления. Зафиксированы запреты adversarial optimization, frontend-as-API/bulk и обхода квот. API, тарифы, квоты, форматы и проверка файла по-прежнему не подтверждены; not_checked."
+        }
+      ]
     },
     {
       "id": "flowsint-self-audit-evidence-graph",
@@ -235,26 +382,74 @@
       "category": "Security & Privacy",
       "subcategory": "Defensive self-audit",
       "simpleDescription": "Графовый OSINT-инструмент как референс для аудита собственных доменов и аккаунтов. Локальное хранение не отменяет раскрытие данных внешним API; связи требуют источника, даты и ручной проверки.",
-      "useCases": ["Прочитать гайд об аудите собственного цифрового следа", "Подготовить ограниченный локальный пилот Sentinel с отдельным разрешением на каждый запрос", "Использовать граф доказательств без автоматического объединения людей"],
-      "platforms": ["Self-host", "Docker"],
+      "useCases": [
+        "Прочитать гайд об аудите собственного цифрового следа",
+        "Подготовить ограниченный локальный пилот Sentinel с отдельным разрешением на каждый запрос",
+        "Использовать граф доказательств без автоматического объединения людей"
+      ],
+      "platforms": [
+        "Self-host",
+        "Docker"
+      ],
       "license": "Apache-2.0 в проверенном репозитории; условия API и зависимости проверяются отдельно.",
-      "licenseEvidence": [{"kind": "license", "label": "Flowsint LICENSE", "url": "https://github.com/reconurge/flowsint/blob/main/LICENSE"}],
+      "licenseEvidence": [
+        {
+          "kind": "license",
+          "label": "Flowsint LICENSE",
+          "url": "https://github.com/reconurge/flowsint/blob/main/LICENSE"
+        }
+      ],
       "pricing": "Открытый код; инфраструктура и сторонние API могут требовать оплаты.",
-      "access": {"cost": "freemium", "signup": "optional", "runtime": "hybrid"},
+      "access": {
+        "cost": "freemium",
+        "signup": "optional",
+        "runtime": "hybrid"
+      },
       "trust": "caution",
       "trustReason": "08.10.2026 проверены README, Docker-конфигурация и официальный каталог источников. Flowsint не установлен и не протестирован в runtime; полный цифровой след не гарантируется. Исключён из автоматических рекомендаций агентам: только ручной defensive self-audit.",
-      "projects": ["Eclipse Library", "Hopson Sentinel", "Eclipse Media"],
+      "projects": [
+        "Eclipse Library",
+        "Hopson Sentinel",
+        "Eclipse Media"
+      ],
       "decision": "reference",
       "riskLevel": "high",
-      "risks": ["Запрос может раскрывать идентификатор внешнему провайдеру", "Совпадение ника не доказывает личность", "Docker socket и сетевые порты требуют отдельного аудита до установки", "Проверять только собственные или явно разрешённые объекты; не использовать для doxxing"],
+      "risks": [
+        "Запрос может раскрывать идентификатор внешнему провайдеру",
+        "Совпадение ника не доказывает личность",
+        "Docker socket и сетевые порты требуют отдельного аудита до установки",
+        "Проверять только собственные или явно разрешённые объекты; не использовать для doxxing"
+      ],
       "verifiedAt": "2026-10-08",
-      "quickStart": ["Прочитайте гайд и определите цели/источники/срок хранения", "Начните с локального учебного графа Sentinel без сети", "Перед реальным запросом проверьте точный адрес, поля и получателя; дайте одноразовое согласие"],
+      "quickStart": [
+        "Прочитайте гайд и определите цели/источники/срок хранения",
+        "Начните с локального учебного графа Sentinel без сети",
+        "Перед реальным запросом проверьте точный адрес, поля и получателя; дайте одноразовое согласие"
+      ],
       "reviewStatus": "verified",
       "addedAt": "2026-10-08",
       "guide": "own-digital-footprint-audit",
-      "source": {"file": "guides/own-digital-footprint-audit.md", "line": 1, "category": "Security & Privacy", "subcategory": "Defensive self-audit"},
-      "verification": {"scope": "Official documentation and deployment configuration only", "runtimeTested": false, "sources": ["https://www.flowsint.io/docs/sources/available-enrichers", "https://github.com/reconurge/flowsint/blob/main/docker-compose.prod.yml", "https://github.com/reconurge/flowsint/blob/main/ETHICS.md"]},
-      "correctionHistory": [{"date": "2026-10-08", "change": "Создана карточка после проверки отсутствия дубля. Полный цифровой след и полностью офлайн-работа не заявляются. Только defensive self-audit и ручная проверка связей."}]
+      "source": {
+        "file": "guides/own-digital-footprint-audit.md",
+        "line": 1,
+        "category": "Security & Privacy",
+        "subcategory": "Defensive self-audit"
+      },
+      "verification": {
+        "scope": "Official documentation and deployment configuration only",
+        "runtimeTested": false,
+        "sources": [
+          "https://www.flowsint.io/docs/sources/available-enrichers",
+          "https://github.com/reconurge/flowsint/blob/main/docker-compose.prod.yml",
+          "https://github.com/reconurge/flowsint/blob/main/ETHICS.md"
+        ]
+      },
+      "correctionHistory": [
+        {
+          "date": "2026-10-08",
+          "change": "Создана карточка после проверки отсутствия дубля. Полный цифровой след и полностью офлайн-работа не заявляются. Только defensive self-audit и ручная проверка связей."
+        }
+      ]
     },
     {
       "id": "image-generation-visual-codebook",
@@ -46788,7 +46983,7 @@
           "https://github.com/deepinsight/insightface#license"
         ]
       }
-    },
+    },
     {
       "id": "livliv-player",
       "url": "https://github.com/livliv-dev/player",
@@ -47087,6 +47282,273 @@
         "accessibility",
         "reference"
       ]
+    },
+    {
+      "id": "reelmimic",
+      "url": "https://github.com/edenfunf/reelmimic",
+      "title": "ReelMimic — AI-студия для повторения визуального стиля видео",
+      "type": "tool",
+      "category": "Медиа и дизайн",
+      "subcategory": "Сториборды и анимация",
+      "simpleDescription": "Локальный workflow анализирует референсное видео, собирает план, оригинальных персонажей и сцены, а затем помогает выпустить ролик в выбранной 2D-стилистике. Полезен для раскадровок и коротких анимационных прототипов; он не копирует исходные кадры, лица, логотипы или музыку.",
+      "useCases": [
+        "Разбирать темп, монтаж и визуальный язык референса",
+        "Собирать оригинальные анимационные ролики для Eclipse Media и Shotforge"
+      ],
+      "platforms": [
+        "Windows",
+        "macOS",
+        "Linux",
+        "Node.js",
+        "Python",
+        "FFmpeg"
+      ],
+      "license": "MIT для кода; сторонние навыки и ассеты сохраняют собственные условия",
+      "licenseEvidence": [
+        {
+          "kind": "license",
+          "label": "Официальная MIT-лицензия",
+          "url": "https://github.com/edenfunf/reelmimic/blob/main/LICENSE"
+        },
+        {
+          "kind": "source",
+          "label": "README и ограничения workflow",
+          "url": "https://github.com/edenfunf/reelmimic/blob/main/README.md"
+        }
+      ],
+      "pricing": "Код бесплатен; запуск использует лимиты Claude Code или Codex, локальные ресурсы и опциональные ключи медиа-сервисов.",
+      "access": {
+        "cost": "free",
+        "signup": "optional",
+        "runtime": "local"
+      },
+      "trust": "official",
+      "trustReason": "Официальный репозиторий и README проверены 10.11.2026; заявленные сроки рендера, поддержка платформ и качество не подтверждались независимым бенчмарком.",
+      "projects": [
+        "Eclipse Media",
+        "Shotforge"
+      ],
+      "decision": "roadmap",
+      "riskLevel": "medium",
+      "risks": [
+        "Референсы, персонажи, музыка и найденные ассеты требуют отдельной проверки прав.",
+        "Рендер 30–60 секунд может занимать часы и расходовать лимиты агента.",
+        "macOS и Linux заявлены, но тестирование в проекте в основном Windows."
+      ],
+      "verifiedAt": "2026-11-10",
+      "addedAt": "2026-11-10",
+      "reviewStatus": "verified",
+      "quickStart": [
+        "Начать с собственного или лицензированного короткого референса в отдельной папке.",
+        "Сначала принять план и проверить раскадровку, затем запускать полный рендер.",
+        "Сохранить provenance ассетов и вручную проверить финальный ролик перед публикацией."
+      ],
+      "source": {
+        "file": "catalog/resources.json",
+        "key": "reelmimic",
+        "category": "Медиа и дизайн",
+        "subcategory": "Сториборды и анимация"
+      }
+    },
+    {
+      "id": "tokeneconomizer",
+      "url": "https://github.com/microsoft/TokenEconomizer",
+      "title": "TokenEconomizer — контроль стоимости coding-агентов",
+      "type": "tool",
+      "category": "AI & Claude Code",
+      "subcategory": "Экономия токенов и память репозитория",
+      "simpleDescription": "Плагин для Claude Code, Codex, GitHub Copilot CLI и Pi, который запоминает подтверждённые особенности репозитория, убирает неиспользуемые инструменты и помогает выйти из повторяющегося цикла ошибок. Он работает локально, обратим и не меняет модель агента.",
+      "useCases": [
+        "Снизить повторное чтение одних и тех же инструкций в Eclipse-репозиториях",
+        "Собрать измеримый baseline стоимости до и после подключения"
+      ],
+      "platforms": [
+        "Python 3.10+",
+        "Claude Code",
+        "Codex",
+        "GitHub Copilot CLI",
+        "Pi"
+      ],
+      "license": "Apache-2.0",
+      "licenseEvidence": [
+        {
+          "kind": "license",
+          "label": "Apache-2.0 license",
+          "url": "https://github.com/microsoft/TokenEconomizer/blob/main/LICENSE"
+        },
+        {
+          "kind": "source",
+          "label": "Официальный README",
+          "url": "https://github.com/microsoft/TokenEconomizer"
+        }
+      ],
+      "pricing": "Код бесплатен; внутренние model calls плагина расходуют лимиты подключённого агента.",
+      "access": {
+        "cost": "free",
+        "signup": "required",
+        "runtime": "local"
+      },
+      "trust": "official",
+      "trustReason": "Официальный репозиторий Microsoft и README проверены 10.11.2026. Процент экономии — результат опубликованного SWE-Bench эксперимента, не измерение Eclipse.",
+      "projects": [
+        "Eclipse Chat",
+        "Eclipse Library",
+        "Eclipse AI Hub",
+        "Hopson Sentinel"
+      ],
+      "decision": "roadmap",
+      "riskLevel": "medium",
+      "risks": [
+        "Обученные факты и журналы сохраняются локально и требуют контроля приватности.",
+        "Удаление инструментов должно оставаться обратимым и проверяться на каждом репозитории.",
+        "Бенчмарки Microsoft не заменяют замер на наших сценариях."
+      ],
+      "verifiedAt": "2026-11-10",
+      "addedAt": "2026-11-10",
+      "reviewStatus": "verified",
+      "quickStart": [
+        "Сначала включить только status и собрать baseline нескольких задач.",
+        "Не включать глобальную конфигурацию до проверки одного Eclipse-репозитория.",
+        "Сравнить стоимость, время и качество на одинаковом наборе задач; при проблеме восстановить инструменты."
+      ],
+      "source": {
+        "file": "catalog/resources.json",
+        "key": "tokeneconomizer",
+        "category": "AI & Claude Code",
+        "subcategory": "Экономия токенов и память репозитория"
+      }
+    },
+    {
+      "id": "argus-task-manager",
+      "url": "https://github.com/Ray-lea/Argus",
+      "title": "Argus — современный диспетчер задач Windows",
+      "type": "tool",
+      "category": "Разработка и тестирование",
+      "subcategory": "Мониторинг Windows",
+      "simpleDescription": "Открытый диспетчер задач для Windows на Rust и GPUI: процессы, нагрузка CPU/GPU, службы, автозагрузка и системные графики в одном интерфейсе. Подходит для локальной диагностики тяжёлых процессов; это не агент для автоматического удаления или остановки сервисов.",
+      "useCases": [
+        "Проверять, что грузит Eclipse Media и локальные AI-инструменты",
+        "Сравнить удобство мониторинга с системным Диспетчером задач"
+      ],
+      "platforms": [
+        "Windows 11",
+        "Rust",
+        "GPUI"
+      ],
+      "license": "AGPL-3.0-or-later",
+      "licenseEvidence": [
+        {
+          "kind": "license",
+          "label": "Официальная AGPL-3.0-лицензия",
+          "url": "https://github.com/Ray-lea/Argus/blob/main/LICENSE"
+        },
+        {
+          "kind": "source",
+          "label": "Официальный README",
+          "url": "https://github.com/Ray-lea/Argus/blob/main/README.ru.md"
+        }
+      ],
+      "pricing": "Бесплатный open-source проект; сборка и драйверные модули имеют отдельные требования.",
+      "access": {
+        "cost": "free",
+        "signup": "optional",
+        "runtime": "local"
+      },
+      "trust": "official",
+      "trustReason": "Официальный репозиторий, README и лицензия проверены 10.11.2026; на рабочей машине Argus не устанавливался.",
+      "projects": [
+        "Hopson Sentinel",
+        "Eclipse Media"
+      ],
+      "decision": "reference",
+      "riskLevel": "medium",
+      "risks": [
+        "Некоторые сенсоры используют дополнительные драйверы и требуют отдельной проверки.",
+        "AGPL-3.0 нужно учитывать при распространении изменённой версии.",
+        "Показания температуры и GPU зависят от оборудования и vendor API."
+      ],
+      "verifiedAt": "2026-11-10",
+      "addedAt": "2026-11-10",
+      "reviewStatus": "verified",
+      "quickStart": [
+        "Сначала использовать официальный portable/release-вариант на тестовой Windows-машине.",
+        "Проверить права, сенсоры и отсутствие лишних фоновых сервисов.",
+        "Не включать автоматическое завершение процессов без ручного подтверждения."
+      ],
+      "source": {
+        "file": "catalog/resources.json",
+        "key": "argus-task-manager",
+        "category": "Разработка и тестирование",
+        "subcategory": "Мониторинг Windows"
+      }
+    },
+    {
+      "id": "mago-studio",
+      "url": "https://github.com/MagoStudio/MagoStudio",
+      "title": "Mago Studio — локальная AI-киностудия",
+      "type": "tool",
+      "category": "Медиа и дизайн",
+      "subcategory": "Генерация и монтаж видео",
+      "simpleDescription": "Desktop-редактор для сценария, раскадровки, последовательных сцен и стилизации видео. Локальный режим использует ComfyUI и GPU, а облачные модели включаются отдельно; проект подходит для исследования пайплайнов кино и медиапрототипов, но требует проверки моделей и лицензий.",
+      "useCases": [
+        "Сравнить сценарный и shot-based workflow с Eclipse Media",
+        "Собирать локальные прототипы сцен и проверять consistency персонажей"
+      ],
+      "platforms": [
+        "Windows",
+        "macOS",
+        "Linux",
+        "ComfyUI",
+        "Node.js 24",
+        "NVIDIA GPU"
+      ],
+      "license": "AGPL-3.0-only для приложения; модели и node packs имеют отдельные лицензии",
+      "licenseEvidence": [
+        {
+          "kind": "license",
+          "label": "Официальная AGPL-3.0-лицензия",
+          "url": "https://github.com/MagoStudio/MagoStudio/blob/main/LICENSE"
+        },
+        {
+          "kind": "source",
+          "label": "Официальная архитектура и установка",
+          "url": "https://github.com/MagoStudio/MagoStudio/blob/main/README.md"
+        }
+      ],
+      "pricing": "Локальный режим бесплатен, облачные модели и аккаунт Mago могут быть платными; для Windows local render заявлены около 63 GB и NVIDIA GPU от 8 GB VRAM.",
+      "access": {
+        "cost": "freemium",
+        "signup": "optional",
+        "runtime": "local"
+      },
+      "trust": "official",
+      "trustReason": "Официальный репозиторий, README и архитектурная документация проверены 10.11.2026; скачивание и установка не выполнялись.",
+      "projects": [
+        "Eclipse Media",
+        "Shotforge",
+        "Text2Image"
+      ],
+      "decision": "roadmap",
+      "riskLevel": "high",
+      "risks": [
+        "Скачивание моделей и node packs — большая supply-chain и disk surface.",
+        "Cloud render отправляет выбранные материалы на сервер; локальный режим требует отдельной GPU-машины.",
+        "Модели MiniMax H3 и сторонние компоненты имеют собственные условия."
+      ],
+      "verifiedAt": "2026-11-10",
+      "addedAt": "2026-11-10",
+      "reviewStatus": "verified",
+      "quickStart": [
+        "Не скачивать на рабочую машину до проверки GPU, свободного места и лицензий моделей.",
+        "Сначала изучить архитектуру и запустить только локальный тестовый проект без личных материалов.",
+        "Зафиксировать model hashes и отключить cloud render для приватных исходников."
+      ],
+      "source": {
+        "file": "catalog/resources.json",
+        "key": "mago-studio",
+        "category": "Медиа и дизайн",
+        "subcategory": "Генерация и монтаж видео"
+      }
     }
   ]
 }
