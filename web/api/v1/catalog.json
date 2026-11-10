@@ -1,18 +1,18 @@
 {
   "schemaVersion": 2,
-  "sourceHash": "f502eebe58e05954ed88d0b023594c641804069834b31e4761da880e327799a1",
+  "sourceHash": "8222a829280af8ff4e01be3f17a025e1b576b92fe290f822337bfd73ec2437b7",
   "policy": {
     "directInstallForbidden": true
   },
   "totals": {
-    "all": 809,
-    "verified": 441,
+    "all": 810,
+    "verified": 442,
     "inferred": 368,
     "licenseReviewRequired": 217,
-    "agentSafe": 707,
+    "agentSafe": 708,
     "agentExcluded": 102,
     "grey": 88,
-    "withAddedAt": 530
+    "withAddedAt": 531
   },
   "items": [
     {
@@ -43145,6 +43145,114 @@
           "kind": "official-source",
           "label": "Официальный источник",
           "url": "https://github.com/JuneYaooo/rea-video"
+        }
+      ],
+      "agentEligibility": {
+        "eligible": true,
+        "reasons": [],
+        "installAllowed": false
+      }
+    },
+    {
+      "id": "fireperf",
+      "url": "https://www.ipfire.org/fireperf",
+      "title": "fireperf — тестирование пропускной способности и соединений",
+      "type": "tool",
+      "category": "Разработка и тестирование",
+      "subcategory": "Сетевой benchmark",
+      "simpleDescription": "Утилита IPFire для измерения пропускной способности, времени установки соединений, ошибок и числа новых соединений в секунду. Дополняет iperf3 и выводит результаты в JSON и терминальный график.",
+      "useCases": [
+        "Проверять сетевой путь для Eclipse Media и self-hosted сервисов",
+        "Сравнивать throughput и connection rate на тестовом стенде"
+      ],
+      "platforms": [
+        "Linux",
+        "TCP",
+        "JSON",
+        "CLI"
+      ],
+      "license": "Проверить лицензию IPFire и пакетный источник перед установкой",
+      "licenseEvidence": [
+        {
+          "kind": "source",
+          "label": "Официальная страница fireperf",
+          "url": "https://www.ipfire.org/fireperf"
+        },
+        {
+          "kind": "docs",
+          "label": "Официальная документация fireperf",
+          "url": "https://man-pages.ipfire.org/fireperf/fireperf.html"
+        }
+      ],
+      "pricing": "Бесплатная open-source утилита; нужен собственный тестовый хост и сеть.",
+      "access": {
+        "cost": "free",
+        "signup": "optional",
+        "runtime": "local"
+      },
+      "trust": "official",
+      "trustReason": "Официальная страница и man page проверены 10.11.2026; на Eclipse-серверах не запускалась.",
+      "projects": [
+        "Eclipse Media",
+        "Eclipse VPN",
+        "Hopson Sentinel"
+      ],
+      "decision": "roadmap",
+      "riskLevel": "medium",
+      "risks": [
+        "Нагрузка теста может повлиять на production-сеть.",
+        "Результаты зависят от маршрута, firewall и аппаратного TCP stack.",
+        "Пакет нужно устанавливать только из доверенного репозитория и с pin версии."
+      ],
+      "verifiedAt": "2026-11-10",
+      "addedAt": "2026-11-10",
+      "reviewStatus": "verified",
+      "quickStart": [
+        "Запускать только на отдельном стенде или в согласованное окно.",
+        "Начать с короткого read-only benchmark без saturation.",
+        "Сохранить JSON и сравнивать результаты на одинаковых параметрах."
+      ],
+      "source": {
+        "file": "catalog/resources.json",
+        "key": "fireperf",
+        "legacy": {
+          "file": "catalog/resources.json",
+          "key": "fireperf",
+          "category": "Разработка и тестирование",
+          "subcategory": "Сетевой benchmark"
+        }
+      },
+      "catalogOrder": 810,
+      "licenseInfo": {
+        "label": "Проверить лицензию IPFire и пакетный источник перед установкой",
+        "original": "Проверить лицензию IPFire и пакетный источник перед установкой",
+        "spdx": null,
+        "kind": "custom",
+        "status": "editor-reviewed",
+        "requiresReview": false,
+        "evidence": [
+          {
+            "kind": "source",
+            "label": "Официальная страница fireperf",
+            "url": "https://www.ipfire.org/fireperf"
+          },
+          {
+            "kind": "docs",
+            "label": "Официальная документация fireperf",
+            "url": "https://man-pages.ipfire.org/fireperf/fireperf.html"
+          }
+        ]
+      },
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://www.ipfire.org/fireperf"
+        },
+        {
+          "kind": "docs",
+          "label": "Официальная документация fireperf",
+          "url": "https://man-pages.ipfire.org/fireperf/fireperf.html"
         }
       ],
       "agentEligibility": {

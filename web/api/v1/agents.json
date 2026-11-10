@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "consumer": "generic-agent",
-  "catalogVersion": "f502eebe58e05954ed88d0b023594c641804069834b31e4761da880e327799a1",
+  "catalogVersion": "8222a829280af8ff4e01be3f17a025e1b576b92fe290f822337bfd73ec2437b7",
   "generatedAt": null,
   "policy": {
     "greyResourcesExcluded": true,
@@ -9,7 +9,7 @@
     "externalMutationsRequireHumanApproval": true
   },
   "totals": {
-    "items": 707
+    "items": 708
   },
   "items": [
     {
@@ -25076,6 +25076,76 @@
           "kind": "official-source",
           "label": "Официальный источник",
           "url": "https://github.com/JuneYaooo/rea-video"
+        }
+      ],
+      "actions": {
+        "openOfficialSource": true,
+        "installFromCatalog": false,
+        "mutateExternalSystems": false
+      }
+    },
+    {
+      "id": "fireperf",
+      "title": "fireperf — тестирование пропускной способности и соединений",
+      "url": "https://www.ipfire.org/fireperf",
+      "type": "tool",
+      "category": "Разработка и тестирование",
+      "subcategory": "Сетевой benchmark",
+      "addedAt": "2026-11-10",
+      "description": "Утилита IPFire для измерения пропускной способности, времени установки соединений, ошибок и числа новых соединений в секунду. Дополняет iperf3 и выводит результаты в JSON и терминальный график.",
+      "useCases": [
+        "Проверять сетевой путь для Eclipse Media и self-hosted сервисов",
+        "Сравнивать throughput и connection rate на тестовом стенде"
+      ],
+      "platforms": [
+        "Linux",
+        "TCP",
+        "JSON",
+        "CLI"
+      ],
+      "license": {
+        "label": "Проверить лицензию IPFire и пакетный источник перед установкой",
+        "original": "Проверить лицензию IPFire и пакетный источник перед установкой",
+        "spdx": null,
+        "kind": "custom",
+        "status": "editor-reviewed",
+        "requiresReview": false,
+        "evidence": [
+          {
+            "kind": "source",
+            "label": "Официальная страница fireperf",
+            "url": "https://www.ipfire.org/fireperf"
+          },
+          {
+            "kind": "docs",
+            "label": "Официальная документация fireperf",
+            "url": "https://man-pages.ipfire.org/fireperf/fireperf.html"
+          }
+        ]
+      },
+      "access": {
+        "cost": "free",
+        "signup": "optional",
+        "runtime": "local"
+      },
+      "trust": "official",
+      "decision": "roadmap",
+      "riskLevel": "medium",
+      "projects": [
+        "Eclipse Media",
+        "Eclipse VPN",
+        "Hopson Sentinel"
+      ],
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://www.ipfire.org/fireperf"
+        },
+        {
+          "kind": "docs",
+          "label": "Официальная документация fireperf",
+          "url": "https://man-pages.ipfire.org/fireperf/fireperf.html"
         }
       ],
       "actions": {
