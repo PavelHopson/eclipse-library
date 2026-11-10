@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "consumer": "Eclipse AI",
-  "catalogVersion": "7045881cb9879da3aaa49ab1344b0778b26ceeab38ed830ae5f70d7dc5f7a54a",
+  "catalogVersion": "f7305cf503c9624f4c5ee5db5bc72e71485b697aa9bd1f6973e5d4c447a43da0",
   "generatedAt": null,
   "policy": {
     "greyResourcesExcluded": true,
@@ -9,7 +9,7 @@
     "externalMutationsRequireHumanApproval": true
   },
   "totals": {
-    "items": 701
+    "items": 705
   },
   "items": [
     {
@@ -24618,6 +24618,274 @@
           "kind": "official-source",
           "label": "Официальный источник",
           "url": "https://github.com/NiazMorshed2007/reanimate"
+        }
+      ],
+      "actions": {
+        "openOfficialSource": true,
+        "installFromCatalog": false,
+        "mutateExternalSystems": false
+      }
+    },
+    {
+      "id": "mika-android-agent",
+      "title": "Mika — локальный AI-агент для Android",
+      "url": "https://github.com/wangzan101/Mika",
+      "type": "agent",
+      "category": "AI & Claude Code",
+      "subcategory": "Мобильная автоматизация",
+      "addedAt": "2026-11-10",
+      "description": "On-device агент для Android, который читает экран, открывает приложения, печатает, работает с вебом и передаёт пользователю логины, коды и платежи. Полезен как исследовательский reference для мобильных сценариев Eclipse, но требует отдельной модели, разрешений и контроля приватности.",
+      "useCases": [
+        "Изучить безопасный mobile-agent UX для будущего Eclipse-приложения",
+        "Прототипировать повторяемые действия на тестовом Android-устройстве"
+      ],
+      "platforms": [
+        "Android",
+        "APK",
+        "Wireless debugging"
+      ],
+      "license": {
+        "label": "Проверить лицензию репозитория и условия моделей отдельно",
+        "original": "Проверить лицензию репозитория и условия моделей отдельно",
+        "spdx": null,
+        "kind": "custom",
+        "status": "editor-reviewed",
+        "requiresReview": false,
+        "evidence": [
+          {
+            "kind": "source",
+            "label": "Официальный репозиторий Mika",
+            "url": "https://github.com/wangzan101/Mika"
+          },
+          {
+            "kind": "release",
+            "label": "Официальные релизы",
+            "url": "https://github.com/wangzan101/Mika/releases"
+          }
+        ]
+      },
+      "access": {
+        "cost": "free",
+        "signup": "optional",
+        "runtime": "local"
+      },
+      "trust": "official",
+      "decision": "roadmap",
+      "riskLevel": "high",
+      "projects": [
+        "Eclipse Chat",
+        "Eclipse AI Hub",
+        "Hopson Sentinel"
+      ],
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://github.com/wangzan101/Mika"
+        },
+        {
+          "kind": "release",
+          "label": "Официальные релизы",
+          "url": "https://github.com/wangzan101/Mika/releases"
+        }
+      ],
+      "actions": {
+        "openOfficialSource": true,
+        "installFromCatalog": false,
+        "mutateExternalSystems": false
+      }
+    },
+    {
+      "id": "craft-anything",
+      "title": "Craft Anything — clean-room исследование и воссоздание интерфейсов",
+      "url": "https://github.com/storytold/craft-anything",
+      "type": "tool",
+      "category": "Разработка и тестирование",
+      "subcategory": "Clean-room reverse engineering",
+      "addedAt": "2026-11-10",
+      "description": "Rust-инструмент изучает сайты, приложения и игры через реальные inspection-инструменты, затем помогает собрать собственную реализацию, сравнивает её с оригиналом и уточняет результат. Использовать только на принадлежащих пользователю или разрешённых объектах.",
+      "useCases": [
+        "Проверять layout и responsive-поведение собственных Eclipse-сайтов",
+        "Строить clean-room прототипы интерфейсов без копирования бренда и контента"
+      ],
+      "platforms": [
+        "Rust",
+        "CLI",
+        "MCP",
+        "Desktop"
+      ],
+      "license": {
+        "label": "Проверить LICENSE и отдельные условия скачиваемых компонентов",
+        "original": "Проверить LICENSE и отдельные условия скачиваемых компонентов",
+        "spdx": null,
+        "kind": "custom",
+        "status": "editor-reviewed",
+        "requiresReview": false,
+        "evidence": [
+          {
+            "kind": "source",
+            "label": "Официальный репозиторий Craft Anything",
+            "url": "https://github.com/storytold/craft-anything"
+          },
+          {
+            "kind": "status",
+            "label": "Официальный статус проекта",
+            "url": "https://github.com/storytold/craft-anything/blob/main/docs/STATUS.md"
+          }
+        ]
+      },
+      "access": {
+        "cost": "free",
+        "signup": "optional",
+        "runtime": "local"
+      },
+      "trust": "official",
+      "decision": "reference",
+      "riskLevel": "high",
+      "projects": [
+        "Eclipse Forge Landing",
+        "Eclipse Library",
+        "Eclipse Premium Rent"
+      ],
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://github.com/storytold/craft-anything"
+        },
+        {
+          "kind": "status",
+          "label": "Официальный статус проекта",
+          "url": "https://github.com/storytold/craft-anything/blob/main/docs/STATUS.md"
+        }
+      ],
+      "actions": {
+        "openOfficialSource": true,
+        "installFromCatalog": false,
+        "mutateExternalSystems": false
+      }
+    },
+    {
+      "id": "autopilot-game-testing",
+      "title": "Autopilot — автономный playtesting игр",
+      "url": "https://github.com/ramenvr/autopilot",
+      "type": "agent",
+      "category": "Разработка и тестирование",
+      "subcategory": "Игровой QA",
+      "addedAt": "2026-11-10",
+      "description": "Агент исследует игру, создаёт harness для decision model, проходит уровни, проверяет цели и формирует отчёт. Подходит для исследовательского QA в игровых проектах, но первые запуски могут быть нестабильными и требуют sandbox.",
+      "useCases": [
+        "Проверять конкретные фичи в Eclipse DnD Forge и игровых прототипах",
+        "Собирать отчёты о доступности уровней и повторяющихся игровых багах"
+      ],
+      "platforms": [
+        "Unreal Engine",
+        "Unity",
+        "Godot",
+        "Roblox",
+        "Claude Code",
+        "Codex"
+      ],
+      "license": {
+        "label": "Apache-2.0",
+        "original": "Apache-2.0",
+        "spdx": "Apache-2.0",
+        "kind": "open-source",
+        "status": "editor-reviewed",
+        "requiresReview": false,
+        "evidence": [
+          {
+            "kind": "license",
+            "label": "Apache-2.0 license",
+            "url": "https://github.com/ramenvr/autopilot/blob/main/LICENSE"
+          },
+          {
+            "kind": "source",
+            "label": "Официальный README",
+            "url": "https://github.com/ramenvr/autopilot"
+          }
+        ]
+      },
+      "access": {
+        "cost": "freemium",
+        "signup": "required",
+        "runtime": "local"
+      },
+      "trust": "official",
+      "decision": "roadmap",
+      "riskLevel": "high",
+      "projects": [
+        "Eclipse DnD Forge",
+        "modern-2048"
+      ],
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://github.com/ramenvr/autopilot"
+        },
+        {
+          "kind": "license",
+          "label": "Apache-2.0 license",
+          "url": "https://github.com/ramenvr/autopilot/blob/main/LICENSE"
+        }
+      ],
+      "actions": {
+        "openOfficialSource": true,
+        "installFromCatalog": false,
+        "mutateExternalSystems": false
+      }
+    },
+    {
+      "id": "blackbird-username-search",
+      "title": "Blackbird — поиск цифрового следа по username",
+      "url": "https://cranefomo.github.io/blackbird/",
+      "type": "privacy",
+      "category": "Безопасность и приватность",
+      "subcategory": "OSINT и собственный digital footprint",
+      "addedAt": "2026-11-10",
+      "description": "Веб-инструмент проверяет username по большому списку сайтов и экспортирует найденные совпадения. Для Eclipse это только личная проверка собственных аккаунтов и обучение privacy hygiene; массовый поиск людей и публикация результатов запрещены.",
+      "useCases": [
+        "Проверить собственный username и забытые аккаунты",
+        "Составить privacy-чеклист для Eclipse-профилей"
+      ],
+      "platforms": [
+        "Web",
+        "CSV",
+        "JSON"
+      ],
+      "license": {
+        "label": "Условия веб-инструмента и права источников нужно проверить перед использованием",
+        "original": "Условия веб-инструмента и права источников нужно проверить перед использованием",
+        "spdx": null,
+        "kind": "unknown",
+        "status": "unverified",
+        "requiresReview": true,
+        "evidence": [
+          {
+            "kind": "source",
+            "label": "Официальная страница Blackbird",
+            "url": "https://cranefomo.github.io/blackbird/"
+          }
+        ]
+      },
+      "access": {
+        "cost": "free",
+        "signup": "optional",
+        "runtime": "cloud"
+      },
+      "trust": "caution",
+      "decision": "reference",
+      "riskLevel": "high",
+      "projects": [
+        "Eclipse Chat",
+        "Eclipse Library"
+      ],
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://cranefomo.github.io/blackbird/"
         }
       ],
       "actions": {
