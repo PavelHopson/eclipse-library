@@ -1,18 +1,18 @@
 {
   "schemaVersion": 2,
-  "sourceHash": "7b7660d79c4019fec48da9d0b99cfa3b3c891abfbc95f745892b7c5965a77e86",
+  "sourceHash": "7045881cb9879da3aaa49ab1344b0778b26ceeab38ed830ae5f70d7dc5f7a54a",
   "policy": {
     "directInstallForbidden": true
   },
   "totals": {
-    "all": 799,
-    "verified": 431,
+    "all": 803,
+    "verified": 435,
     "inferred": 368,
     "licenseReviewRequired": 216,
-    "agentSafe": 697,
+    "agentSafe": 701,
     "agentExcluded": 102,
     "grey": 88,
-    "withAddedAt": 520
+    "withAddedAt": 524
   },
   "items": [
     {
@@ -41881,6 +41881,223 @@
       }
     },
     {
+      "id": "kensaku",
+      "url": "https://github.com/yjid/kensaku",
+      "title": "Kensaku — локальный поиск по файлам и скриншотам",
+      "type": "tool",
+      "category": "Разработка и тестирование",
+      "subcategory": "Локальный поиск и OCR",
+      "simpleDescription": "Локальный launcher индексирует названия и содержимое документов, кода и скриншотов, поддерживает OCR, семантический поиск и read-only MCP-доступ для агентов.",
+      "useCases": [
+        "Быстро находить материалы на E:\\projects и локальные документы",
+        "Дать агенту read-only поиск без отправки индекса в облако"
+      ],
+      "platforms": [
+        "Windows",
+        "macOS",
+        "Linux",
+        "OCR",
+        "MCP"
+      ],
+      "license": "Open-source; точную лицензию нужно сверить перед распространением",
+      "licenseEvidence": [
+        {
+          "kind": "source",
+          "label": "Официальный репозиторий",
+          "url": "https://github.com/yjid/kensaku"
+        },
+        {
+          "kind": "docs",
+          "label": "Официальное руководство по поиску",
+          "url": "https://github.com/yjid/kensaku/blob/master/docs/USAGE.md"
+        }
+      ],
+      "pricing": "Бесплатный локальный проект; индексирование использует диск и CPU.",
+      "access": {
+        "cost": "free",
+        "signup": "optional",
+        "runtime": "local"
+      },
+      "trust": "official",
+      "trustReason": "Официальный репозиторий и usage-документация проверены 10.11.2026; установка в Eclipse-среду не выполнялась.",
+      "projects": [
+        "Eclipse Library",
+        "Hopson Sentinel",
+        "Eclipse Chat"
+      ],
+      "decision": "roadmap",
+      "riskLevel": "medium",
+      "risks": [
+        "OCR и семантический индекс могут содержать личные или секретные данные.",
+        "MCP должен оставаться read-only и работать с allowlist каталогов.",
+        "Точные условия распространения нужно проверить до встраивания."
+      ],
+      "verifiedAt": "2026-11-10",
+      "addedAt": "2026-11-10",
+      "reviewStatus": "verified",
+      "quickStart": [
+        "Сначала индексировать отдельную тестовую папку без секретов.",
+        "Проверить исключения, размер индекса и качество OCR на русских документах.",
+        "Подключать MCP только read-only и с явным списком каталогов."
+      ],
+      "source": {
+        "file": "catalog/resources.json",
+        "key": "kensaku",
+        "legacy": {
+          "file": "catalog/resources.json",
+          "key": "kensaku",
+          "category": "Разработка и тестирование",
+          "subcategory": "Локальный поиск и OCR"
+        }
+      },
+      "catalogOrder": 800,
+      "licenseInfo": {
+        "label": "Open-source; точную лицензию нужно сверить перед распространением",
+        "original": "Open-source; точную лицензию нужно сверить перед распространением",
+        "spdx": null,
+        "kind": "custom",
+        "status": "editor-reviewed",
+        "requiresReview": false,
+        "evidence": [
+          {
+            "kind": "source",
+            "label": "Официальный репозиторий",
+            "url": "https://github.com/yjid/kensaku"
+          },
+          {
+            "kind": "docs",
+            "label": "Официальное руководство по поиску",
+            "url": "https://github.com/yjid/kensaku/blob/master/docs/USAGE.md"
+          }
+        ]
+      },
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://github.com/yjid/kensaku"
+        },
+        {
+          "kind": "docs",
+          "label": "Официальное руководство по поиску",
+          "url": "https://github.com/yjid/kensaku/blob/master/docs/USAGE.md"
+        }
+      ],
+      "agentEligibility": {
+        "eligible": true,
+        "reasons": [],
+        "installAllowed": false
+      }
+    },
+    {
+      "id": "dsh-superagent-prototype",
+      "url": "https://github.com/deepseek-ai/dsh-superagent-prototype",
+      "title": "DeepSeek Superagent Prototype — автономная работа с GitHub-задачами",
+      "type": "agent",
+      "category": "AI & Claude Code",
+      "subcategory": "Оркестрация coding-агентов",
+      "simpleDescription": "Исследовательский прототип для одного GitHub-репозитория: слушает разрешённые события, создаёт рабочую сессию и отдельный каталог, готовит изменения и показывает человеку действия, требующие участия.",
+      "useCases": [
+        "Изучить admission, tickets и approval-потоки для Eclipse Claw",
+        "Сравнить автономные PR-workflows с текущими ручными gate"
+      ],
+      "platforms": [
+        "TypeScript",
+        "Node.js",
+        "GitHub",
+        "Feishu"
+      ],
+      "license": "MIT",
+      "licenseEvidence": [
+        {
+          "kind": "license",
+          "label": "MIT license",
+          "url": "https://github.com/deepseek-ai/dsh-superagent-prototype/blob/main/LICENSE"
+        },
+        {
+          "kind": "source",
+          "label": "Официальный README",
+          "url": "https://github.com/deepseek-ai/dsh-superagent-prototype"
+        }
+      ],
+      "pricing": "Код бесплатен; нужны GitHub/Feishu интеграции и отдельная инфраструктура.",
+      "access": {
+        "cost": "free",
+        "signup": "required",
+        "runtime": "self-host"
+      },
+      "trust": "official",
+      "trustReason": "Официальный репозиторий и README проверены 10.11.2026. Проект прямо обозначен авторами как research prototype, не production-ready.",
+      "projects": [
+        "Eclipse Claw",
+        "Eclipse Chat",
+        "Eclipse AI Hub"
+      ],
+      "decision": "roadmap",
+      "riskLevel": "high",
+      "risks": [
+        "GitHub-аккаунт агента расширяет поверхность доступа к репозиториям.",
+        "Автономные действия должны проходить admission и human approval.",
+        "Нужны отдельные worktrees, allowlists, лимиты и журнал receipts."
+      ],
+      "verifiedAt": "2026-11-10",
+      "addedAt": "2026-11-10",
+      "reviewStatus": "verified",
+      "quickStart": [
+        "Изучить документы 000–008 без запуска production-интеграции.",
+        "Проверить только read-only observe mode в тестовом репозитории.",
+        "Не выдавать агенту доступ к рабочим репозиториям до security review."
+      ],
+      "source": {
+        "file": "catalog/resources.json",
+        "key": "dsh-superagent-prototype",
+        "legacy": {
+          "file": "catalog/resources.json",
+          "key": "dsh-superagent-prototype",
+          "category": "AI & Claude Code",
+          "subcategory": "Оркестрация coding-агентов"
+        }
+      },
+      "catalogOrder": 801,
+      "licenseInfo": {
+        "label": "MIT",
+        "original": "MIT",
+        "spdx": "MIT",
+        "kind": "open-source",
+        "status": "editor-reviewed",
+        "requiresReview": false,
+        "evidence": [
+          {
+            "kind": "license",
+            "label": "MIT license",
+            "url": "https://github.com/deepseek-ai/dsh-superagent-prototype/blob/main/LICENSE"
+          },
+          {
+            "kind": "source",
+            "label": "Официальный README",
+            "url": "https://github.com/deepseek-ai/dsh-superagent-prototype"
+          }
+        ]
+      },
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://github.com/deepseek-ai/dsh-superagent-prototype"
+        },
+        {
+          "kind": "license",
+          "label": "MIT license",
+          "url": "https://github.com/deepseek-ai/dsh-superagent-prototype/blob/main/LICENSE"
+        }
+      ],
+      "agentEligibility": {
+        "eligible": true,
+        "reasons": [],
+        "installAllowed": false
+      }
+    },
+    {
       "id": "visualstorywriting-github-com",
       "url": "https://github.com/m-damien/VisualStoryWriting",
       "title": "VisualStoryWriting",
@@ -41963,6 +42180,99 @@
       }
     },
     {
+      "id": "pixelfx",
+      "url": "https://github.com/patch-gg/pixelfx",
+      "title": "PixelFX — библиотека пиксельных эффектов",
+      "type": "tool",
+      "category": "Медиа и дизайн",
+      "subcategory": "Pixel-art и игровые эффекты",
+      "simpleDescription": "Библиотека из 244 программных pixel-art эффектов и анимаций: огонь, взрывы, магия, UI и pickup-сцены. В комплекте есть skill для создания новых эффектов и экспорт sprite sheets.",
+      "useCases": [
+        "Добавить оригинальные эффекты в Eclipse DnD Forge и portfolio games",
+        "Собрать sprite sheets для Godot и web-прототипов"
+      ],
+      "platforms": [
+        "JavaScript",
+        "Canvas",
+        "Godot",
+        "Web"
+      ],
+      "license": "Проверить LICENSE и условия отдельных эффектов перед распространением",
+      "licenseEvidence": [
+        {
+          "kind": "source",
+          "label": "Официальный репозиторий и каталог",
+          "url": "https://github.com/patch-gg/pixelfx"
+        }
+      ],
+      "pricing": "Код и каталог доступны публично; условия отдельных адаптированных эффектов нужно сверить.",
+      "access": {
+        "cost": "free",
+        "signup": "optional",
+        "runtime": "local"
+      },
+      "trust": "official",
+      "trustReason": "Официальный репозиторий и README проверены 10.11.2026; импорт в игровые проекты не выполнялся.",
+      "projects": [
+        "Eclipse DnD Forge",
+        "modern-2048",
+        "Eclipse Media"
+      ],
+      "decision": "roadmap",
+      "riskLevel": "medium",
+      "risks": [
+        "Часть эффектов адаптирует чужие техники и требует проверки attribution.",
+        "Sprite sheets и character animations могут иметь отдельные условия.",
+        "Нужно проверить производительность и reduced-motion режим."
+      ],
+      "verifiedAt": "2026-11-10",
+      "addedAt": "2026-11-10",
+      "reviewStatus": "verified",
+      "quickStart": [
+        "Взять один эффект в отдельный sandbox и проверить исходный LICENSE.",
+        "Собрать sprite sheet, проверить FPS и масштабирование на мобильном экране.",
+        "Не переносить чужие ассеты без provenance и attribution."
+      ],
+      "source": {
+        "file": "catalog/resources.json",
+        "key": "pixelfx",
+        "legacy": {
+          "file": "catalog/resources.json",
+          "key": "pixelfx",
+          "category": "Медиа и дизайн",
+          "subcategory": "Pixel-art и игровые эффекты"
+        }
+      },
+      "catalogOrder": 802,
+      "licenseInfo": {
+        "label": "Проверить LICENSE и условия отдельных эффектов перед распространением",
+        "original": "Проверить LICENSE и условия отдельных эффектов перед распространением",
+        "spdx": null,
+        "kind": "custom",
+        "status": "editor-reviewed",
+        "requiresReview": false,
+        "evidence": [
+          {
+            "kind": "source",
+            "label": "Официальный репозиторий и каталог",
+            "url": "https://github.com/patch-gg/pixelfx"
+          }
+        ]
+      },
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://github.com/patch-gg/pixelfx"
+        }
+      ],
+      "agentEligibility": {
+        "eligible": true,
+        "reasons": [],
+        "installAllowed": false
+      }
+    },
+    {
       "id": "viga-github-com",
       "url": "https://github.com/Fugtemypt123/VIGA",
       "title": "VIGA",
@@ -42036,6 +42346,100 @@
           "kind": "license",
           "label": "MIT license",
           "url": "https://api.github.com/repos/fugtemypt123/viga/license"
+        }
+      ],
+      "agentEligibility": {
+        "eligible": true,
+        "reasons": [],
+        "installAllowed": false
+      }
+    },
+    {
+      "id": "reanimate-skill",
+      "url": "https://github.com/NiazMorshed2007/reanimate",
+      "title": "Reanimate — покадровое воспроизведение веб-анимаций",
+      "type": "tool",
+      "category": "Медиа и дизайн",
+      "subcategory": "Visual QA и motion reverse engineering",
+      "simpleDescription": "Skill записывает референс в headless browser, разбирает кадры и CSS/Web Animations, а затем сравнивает собственную реализацию с оригиналом. Полезен как инструмент visual QA и clean-room анализа движения.",
+      "useCases": [
+        "Проверять анимации Eclipse Forge на одинаковом viewport",
+        "Воссоздавать только оригинальные motion-паттерны без копирования ассетов"
+      ],
+      "platforms": [
+        "Bun",
+        "Playwright",
+        "macOS",
+        "Linux",
+        "Windows untested"
+      ],
+      "license": "Проверить лицензию репозитория и права на анализируемые сайты",
+      "licenseEvidence": [
+        {
+          "kind": "source",
+          "label": "Официальный репозиторий",
+          "url": "https://github.com/NiazMorshed2007/reanimate"
+        }
+      ],
+      "pricing": "Skill публичный; первый запуск скачивает локальный FFmpeg и Chromium.",
+      "access": {
+        "cost": "free",
+        "signup": "optional",
+        "runtime": "local"
+      },
+      "trust": "official",
+      "trustReason": "Официальный README проверен 10.11.2026; на Windows и в Eclipse-проектах skill не запускался.",
+      "projects": [
+        "Eclipse Forge Landing",
+        "Eclipse Library",
+        "Eclipse Media"
+      ],
+      "decision": "reference",
+      "riskLevel": "high",
+      "risks": [
+        "Анализ чужих сайтов не даёт права копировать код, контент или бренд.",
+        "Windows заявлен как untested; нужен отдельный sandbox.",
+        "Запись и trace WebGL могут быть тяжёлыми и содержать пользовательские данные."
+      ],
+      "verifiedAt": "2026-11-10",
+      "addedAt": "2026-11-10",
+      "reviewStatus": "verified",
+      "quickStart": [
+        "Использовать только owned/staging URL или разрешённые референсы.",
+        "Запускать в disposable profile без cookies и production secrets.",
+        "Сохранять только motion metrics и собственную реализацию."
+      ],
+      "source": {
+        "file": "catalog/resources.json",
+        "key": "reanimate-skill",
+        "legacy": {
+          "file": "catalog/resources.json",
+          "key": "reanimate-skill",
+          "category": "Медиа и дизайн",
+          "subcategory": "Visual QA и motion reverse engineering"
+        }
+      },
+      "catalogOrder": 803,
+      "licenseInfo": {
+        "label": "Проверить лицензию репозитория и права на анализируемые сайты",
+        "original": "Проверить лицензию репозитория и права на анализируемые сайты",
+        "spdx": null,
+        "kind": "custom",
+        "status": "editor-reviewed",
+        "requiresReview": false,
+        "evidence": [
+          {
+            "kind": "source",
+            "label": "Официальный репозиторий",
+            "url": "https://github.com/NiazMorshed2007/reanimate"
+          }
+        ]
+      },
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://github.com/NiazMorshed2007/reanimate"
         }
       ],
       "agentEligibility": {
