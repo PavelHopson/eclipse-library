@@ -1,15 +1,15 @@
 {
   "schemaVersion": 1,
-  "sourceHash": "3867ec9542ee284080a0ac7fd268209260f1c368fa350321046e294447f316fd",
+  "sourceHash": "8222a829280af8ff4e01be3f17a025e1b576b92fe290f822337bfd73ec2437b7",
   "policy": {
     "automaticApprovalForbidden": true,
     "directInstallForbidden": true,
     "missingLicenseMeansNoReusePermission": true
   },
   "totals": {
-    "reviewRequired": 216,
+    "reviewRequired": 217,
     "byPriority": {
-      "P1": 0,
+      "P1": 1,
       "P2": 179,
       "P3": 37
     },
@@ -18,10 +18,31 @@
       "grey-reference": 37,
       "manual-other": 25,
       "repository-license-not-detected": 25,
-      "service-terms": 93
+      "service-terms": 94
     }
   },
   "items": [
+    {
+      "id": "blackbird-username-search",
+      "title": "Blackbird — поиск цифрового следа по username",
+      "type": "privacy",
+      "url": "https://cranefomo.github.io/blackbird/",
+      "decision": "reference",
+      "riskLevel": "high",
+      "currentLicense": "Условия веб-инструмента и права источников нужно проверить перед использованием",
+      "reviewStatus": "verified",
+      "bucket": "service-terms",
+      "priority": "P1",
+      "reason": "A service page is not a license grant; current Terms, Privacy/DPA and pricing conditions control use.",
+      "nextStep": "Capture direct Terms and Privacy URLs, retention/subprocessor terms and the exact plan used by Eclipse.",
+      "evidence": [
+        {
+          "kind": "source",
+          "label": "Официальная страница Blackbird",
+          "url": "https://cranefomo.github.io/blackbird/"
+        }
+      ]
+    },
     {
       "id": "2r-ru-анализатор-hh-2r-ru",
       "title": "2r.ru — анализатор HH",
