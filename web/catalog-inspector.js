@@ -49,7 +49,7 @@
       sourceDomain: sourceHref ? new URL(sourceHref).hostname.replace(/^www\./, '') : '',
       detailHref: '#item/' + encodeURIComponent(String(resource?.id || '')),
       evidenceCount: Array.isArray(resource?.evidence) ? resource.evidence.length : 0,
-      reviewStatus: resource?.reviewStatus === 'verified' ? 'Проверено редактором' : 'Описание сформировано автоматически',
+      reviewStatus: resource?.reviewStatus === 'verified' ? 'Источники проверены; запуск не подтверждён' : 'Описание требует проверки',
       licenseStatus: resource?.licenseInfo?.requiresReview === false ? 'Условия проверены' : 'Условия нужно сверить',
       linkStatus: labels.linkHealth?.[resource?.linkHealth?.status] || labels.linkHealth?.unchecked || 'Ссылка не проверена',
       verifiedAt: formatDate(resource?.verifiedAt),

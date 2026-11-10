@@ -28,10 +28,19 @@
     const title = el('h4', 'card-title');
     title.innerHTML = '<a href="#item/' + encodeURIComponent(resource.id) + '">' + esc(resource.title) + '<span class="ext" aria-hidden="true">→</span></a>';
     card.appendChild(title);
-    card.appendChild(el('p', 'desc', esc(resource.simpleDescription)));
+
+    const description = String(resource.simpleDescription || resource.rawText || '').trim();
+    if (description) {
+      const preview = description.length > 220
+        ? description.slice(0, 220).replace(/\s+\S*$/, '') + '…'
+        : description;
+      const summary = el('p', 'desc card-description');
+      summary.textContent = preview;
+      card.appendChild(summary);
+    }
 
     const proof = el('div', 'card-proof');
-    const proofStatus = resource.reviewStatus === 'verified' ? 'Проверено редактором' : 'Описание подготовлено';
+    const proofStatus = resource.reviewStatus === 'verified' ? 'Источники проверены' : 'Требует проверки';
     const proofFreshness = resource.freshness === 'fresh' ? 'Актуально' : (resource.freshness === 'stale' ? 'Нужна перепроверка' : 'Дата проверки уточняется');
     const evidenceCount = Array.isArray(resource.evidence) ? resource.evidence.length : 0;
     proof.append(

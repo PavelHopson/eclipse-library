@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "sourceHash": "8222a829280af8ff4e01be3f17a025e1b576b92fe290f822337bfd73ec2437b7",
+  "sourceHash": "a5efc7be6d1a6de3e009e4a2847d680b6adb7d998c8d4d7e9695164c507ed545",
   "policy": {
     "canonicalSource": "catalog/resources.json",
     "directInstallForbidden": true,
@@ -8,11 +8,11 @@
   },
   "totals": {
     "all": 810,
-    "verified": 442,
-    "inferred": 368,
+    "verified": 441,
+    "inferred": 369,
     "licenseReviewRequired": 217,
-    "agentSafe": 708,
-    "agentExcluded": 102,
+    "agentSafe": 707,
+    "agentExcluded": 103,
     "grey": 88,
     "withAddedAt": 531
   },
@@ -41439,10 +41439,10 @@
       "type": "tool",
       "category": "Медиа и дизайн",
       "subcategory": "Сториборды и анимация",
-      "simpleDescription": "Локальный workflow анализирует референсное видео, собирает план, оригинальных персонажей и сцены, а затем помогает выпустить ролик в выбранной 2D-стилистике. Полезен для раскадровок и коротких анимационных прототипов; он не копирует исходные кадры, лица, логотипы или музыку.",
+      "simpleDescription": "Workflow для анализа визуального стиля видео, планирования сцен и создания оригинальной анимации с агентом. Подходит для раскадровок и коротких прототипов. Права на референсы и итоговые ассеты проверяются отдельно; отсутствие копирования нельзя гарантировать автоматически.",
       "useCases": [
         "Разбирать темп, монтаж и визуальный язык референса",
-        "Собирать оригинальные анимационные ролики для Eclipse Media и Shotforge"
+        "Собирать оригинальные анимационные ролики для собственных медиапроектов"
       ],
       "platforms": [
         "Windows",
@@ -41472,12 +41472,11 @@
         "runtime": "local"
       },
       "trust": "official",
-      "trustReason": "Официальный репозиторий и README проверены 10.11.2026; заявленные сроки рендера, поддержка платформ и качество не подтверждались независимым бенчмарком.",
+      "trustReason": "Официальный репозиторий и README проверены 10.11.2026; заявленные сроки рендера, поддержка платформ и качество не подтверждались независимым бенчмарком. Аудит карточки 10.11.2026: проверка документации не означает установку или испытание инструмента.",
       "projects": [
-        "Eclipse Media",
-        "Shotforge"
+        "Eclipse Media"
       ],
-      "decision": "roadmap",
+      "decision": "reference",
       "riskLevel": "medium",
       "risks": [
         "Референсы, персонажи, музыка и найденные ассеты требуют отдельной проверки прав.",
@@ -41555,7 +41554,7 @@
       "subcategory": "Экономия токенов и память репозитория",
       "simpleDescription": "Плагин для Claude Code, Codex, GitHub Copilot CLI и Pi, который запоминает подтверждённые особенности репозитория, убирает неиспользуемые инструменты и помогает выйти из повторяющегося цикла ошибок. Он работает локально, обратим и не меняет модель агента.",
       "useCases": [
-        "Снизить повторное чтение одних и тех же инструкций в Eclipse-репозиториях",
+        "Снизить повторное чтение одних и тех же инструкций в рабочих репозиториях",
         "Собрать измеримый baseline стоимости до и после подключения"
       ],
       "platforms": [
@@ -41585,26 +41584,26 @@
         "runtime": "local"
       },
       "trust": "official",
-      "trustReason": "Официальный репозиторий Microsoft и README проверены 10.11.2026. Процент экономии — результат опубликованного SWE-Bench эксперимента, не измерение Eclipse.",
+      "trustReason": "Официальный репозиторий Microsoft и README проверены 10.11.2026. Процент экономии — результат опубликованного SWE-Bench эксперимента, не измерение Eclipse. Аудит карточки 10.11.2026: проверка документации не означает установку или испытание инструмента.",
       "projects": [
         "Eclipse Chat",
         "Eclipse Library",
         "Eclipse AI Hub",
         "Hopson Sentinel"
       ],
-      "decision": "roadmap",
+      "decision": "reference",
       "riskLevel": "medium",
       "risks": [
         "Обученные факты и журналы сохраняются локально и требуют контроля приватности.",
         "Удаление инструментов должно оставаться обратимым и проверяться на каждом репозитории.",
-        "Бенчмарки Microsoft не заменяют замер на наших сценариях."
+        "Бенчмарки Microsoft не заменяют замер на собственных сценариях."
       ],
       "verifiedAt": "2026-11-10",
       "addedAt": "2026-11-10",
       "reviewStatus": "verified",
       "quickStart": [
         "Сначала включить только status и собрать baseline нескольких задач.",
-        "Не включать глобальную конфигурацию до проверки одного Eclipse-репозитория.",
+        "Не включать глобальную конфигурацию до проверки одного тестового репозитория.",
         "Сравнить стоимость, время и качество на одинаковом наборе задач; при проблеме восстановить инструменты."
       ],
       "source": {
@@ -41665,11 +41664,12 @@
       "subcategory": "Мониторинг Windows",
       "simpleDescription": "Открытый диспетчер задач для Windows на Rust и GPUI: процессы, нагрузка CPU/GPU, службы, автозагрузка и системные графики в одном интерфейсе. Подходит для локальной диагностики тяжёлых процессов; это не агент для автоматического удаления или остановки сервисов.",
       "useCases": [
-        "Проверять, что грузит Eclipse Media и локальные AI-инструменты",
+        "Проверять, что грузит медиаредактор и локальные AI-инструменты",
         "Сравнить удобство мониторинга с системным Диспетчером задач"
       ],
       "platforms": [
-        "Windows 11",
+        "Windows 10 22H2+ x64",
+        "Windows 11 x64",
         "Rust",
         "GPUI"
       ],
@@ -41693,7 +41693,7 @@
         "runtime": "local"
       },
       "trust": "official",
-      "trustReason": "Официальный репозиторий, README и лицензия проверены 10.11.2026; на рабочей машине Argus не устанавливался.",
+      "trustReason": "Официальный репозиторий, README и лицензия проверены 10.11.2026; на рабочей машине Argus не устанавливался. Аудит карточки 10.11.2026: проверка документации не означает установку или испытание инструмента.",
       "projects": [
         "Hopson Sentinel",
         "Eclipse Media"
@@ -41776,7 +41776,7 @@
       "subcategory": "Генерация и монтаж видео",
       "simpleDescription": "Desktop-редактор для сценария, раскадровки, последовательных сцен и стилизации видео. Локальный режим использует ComfyUI и GPU, а облачные модели включаются отдельно; проект подходит для исследования пайплайнов кино и медиапрототипов, но требует проверки моделей и лицензий.",
       "useCases": [
-        "Сравнить сценарный и shot-based workflow с Eclipse Media",
+        "Сравнить сценарный и shot-based workflow с медиаредактор",
         "Собирать локальные прототипы сцен и проверять consistency персонажей"
       ],
       "platforms": [
@@ -41807,13 +41807,11 @@
         "runtime": "local"
       },
       "trust": "official",
-      "trustReason": "Официальный репозиторий, README и архитектурная документация проверены 10.11.2026; скачивание и установка не выполнялись.",
+      "trustReason": "Официальный репозиторий, README и архитектурная документация проверены 10.11.2026; скачивание и установка не выполнялись. Аудит карточки 10.11.2026: проверка документации не означает установку или испытание инструмента.",
       "projects": [
-        "Eclipse Media",
-        "Shotforge",
-        "Text2Image"
+        "Eclipse Media"
       ],
-      "decision": "roadmap",
+      "decision": "reference",
       "riskLevel": "high",
       "risks": [
         "Скачивание моделей и node packs — большая supply-chain и disk surface.",
@@ -41901,8 +41899,13 @@
         "OCR",
         "MCP"
       ],
-      "license": "Open-source; точную лицензию нужно сверить перед распространением",
+      "license": "MIT",
       "licenseEvidence": [
+        {
+          "kind": "license",
+          "label": "Лицензия в официальном источнике",
+          "url": "https://github.com/yjid/kensaku/blob/master/LICENSE"
+        },
         {
           "kind": "source",
           "label": "Официальный репозиторий",
@@ -41921,13 +41924,13 @@
         "runtime": "local"
       },
       "trust": "official",
-      "trustReason": "Официальный репозиторий и usage-документация проверены 10.11.2026; установка в Eclipse-среду не выполнялась.",
+      "trustReason": "Официальный репозиторий и usage-документация проверены 10.11.2026; установка в Eclipse-среду не выполнялась. Аудит карточки 10.11.2026: проверка документации не означает установку или испытание инструмента.",
       "projects": [
         "Eclipse Library",
         "Hopson Sentinel",
         "Eclipse Chat"
       ],
-      "decision": "roadmap",
+      "decision": "reference",
       "riskLevel": "medium",
       "risks": [
         "OCR и семантический индекс могут содержать личные или секретные данные.",
@@ -41954,13 +41957,18 @@
       },
       "catalogOrder": 800,
       "licenseInfo": {
-        "label": "Open-source; точную лицензию нужно сверить перед распространением",
-        "original": "Open-source; точную лицензию нужно сверить перед распространением",
-        "spdx": null,
-        "kind": "custom",
+        "label": "MIT",
+        "original": "MIT",
+        "spdx": "MIT",
+        "kind": "open-source",
         "status": "editor-reviewed",
         "requiresReview": false,
         "evidence": [
+          {
+            "kind": "license",
+            "label": "Лицензия в официальном источнике",
+            "url": "https://github.com/yjid/kensaku/blob/master/LICENSE"
+          },
           {
             "kind": "source",
             "label": "Официальный репозиторий",
@@ -41978,6 +41986,11 @@
           "kind": "official-source",
           "label": "Официальный источник",
           "url": "https://github.com/yjid/kensaku"
+        },
+        {
+          "kind": "license",
+          "label": "Лицензия в официальном источнике",
+          "url": "https://github.com/yjid/kensaku/blob/master/LICENSE"
         },
         {
           "kind": "docs",
@@ -42029,13 +42042,13 @@
         "runtime": "self-host"
       },
       "trust": "official",
-      "trustReason": "Официальный репозиторий и README проверены 10.11.2026. Проект прямо обозначен авторами как research prototype, не production-ready.",
+      "trustReason": "Официальный репозиторий и README проверены 10.11.2026. Проект прямо обозначен авторами как research prototype, не production-ready. Аудит карточки 10.11.2026: проверка документации не означает установку или испытание инструмента.",
       "projects": [
         "Eclipse Claw",
         "Eclipse Chat",
         "Eclipse AI Hub"
       ],
-      "decision": "roadmap",
+      "decision": "reference",
       "riskLevel": "high",
       "risks": [
         "GitHub-аккаунт агента расширяет поверхность доступа к репозиториям.",
@@ -42046,9 +42059,9 @@
       "addedAt": "2026-11-10",
       "reviewStatus": "verified",
       "quickStart": [
-        "Изучить документы 000–008 без запуска production-интеграции.",
-        "Проверить только read-only observe mode в тестовом репозитории.",
-        "Не выдавать агенту доступ к рабочим репозиториям до security review."
+        "Изучить README и схему разрешений до подключения GitHub.",
+        "Использовать тестовый репозиторий и минимальные права; не считать наличие режима только чтения подтверждённым.",
+        "Проверить создаваемые сессии и действия перед выдачей доступа к рабочему коду."
       ],
       "source": {
         "file": "catalog/resources.json",
@@ -42199,8 +42212,13 @@
         "Godot",
         "Web"
       ],
-      "license": "Проверить LICENSE и условия отдельных эффектов перед распространением",
+      "license": "MIT",
       "licenseEvidence": [
+        {
+          "kind": "license",
+          "label": "Лицензия в официальном источнике",
+          "url": "https://github.com/patch-gg/pixelfx/blob/main/LICENSE"
+        },
         {
           "kind": "source",
           "label": "Официальный репозиторий и каталог",
@@ -42214,13 +42232,13 @@
         "runtime": "local"
       },
       "trust": "official",
-      "trustReason": "Официальный репозиторий и README проверены 10.11.2026; импорт в игровые проекты не выполнялся.",
+      "trustReason": "Официальный репозиторий и README проверены 10.11.2026; импорт в игровые проекты не выполнялся. Аудит карточки 10.11.2026: проверка документации не означает установку или испытание инструмента.",
       "projects": [
         "Eclipse DnD Forge",
         "modern-2048",
         "Eclipse Media"
       ],
-      "decision": "roadmap",
+      "decision": "reference",
       "riskLevel": "medium",
       "risks": [
         "Часть эффектов адаптирует чужие техники и требует проверки attribution.",
@@ -42247,13 +42265,18 @@
       },
       "catalogOrder": 802,
       "licenseInfo": {
-        "label": "Проверить LICENSE и условия отдельных эффектов перед распространением",
-        "original": "Проверить LICENSE и условия отдельных эффектов перед распространением",
-        "spdx": null,
-        "kind": "custom",
+        "label": "MIT",
+        "original": "MIT — код и эффекты; сохранять уведомления об авторстве",
+        "spdx": "MIT",
+        "kind": "open-source",
         "status": "editor-reviewed",
         "requiresReview": false,
         "evidence": [
+          {
+            "kind": "license",
+            "label": "Лицензия в официальном источнике",
+            "url": "https://github.com/patch-gg/pixelfx/blob/main/LICENSE"
+          },
           {
             "kind": "source",
             "label": "Официальный репозиторий и каталог",
@@ -42266,6 +42289,11 @@
           "kind": "official-source",
           "label": "Официальный источник",
           "url": "https://github.com/patch-gg/pixelfx"
+        },
+        {
+          "kind": "license",
+          "label": "Лицензия в официальном источнике",
+          "url": "https://github.com/patch-gg/pixelfx/blob/main/LICENSE"
         }
       ],
       "agentEligibility": {
@@ -42369,14 +42397,19 @@
         "Воссоздавать только оригинальные motion-паттерны без копирования ассетов"
       ],
       "platforms": [
-        "Bun",
-        "Playwright",
         "macOS",
         "Linux",
-        "Windows untested"
+        "Bun 1.1+",
+        "FFmpeg",
+        "Playwright"
       ],
-      "license": "Проверить лицензию репозитория и права на анализируемые сайты",
+      "license": "MIT",
       "licenseEvidence": [
+        {
+          "kind": "license",
+          "label": "Лицензия в официальном источнике",
+          "url": "https://github.com/NiazMorshed2007/reanimate/blob/main/LICENSE"
+        },
         {
           "kind": "source",
           "label": "Официальный репозиторий",
@@ -42390,7 +42423,7 @@
         "runtime": "local"
       },
       "trust": "official",
-      "trustReason": "Официальный README проверен 10.11.2026; на Windows и в Eclipse-проектах skill не запускался.",
+      "trustReason": "Официальный README проверен 10.11.2026; на Windows и в Eclipse-проектах skill не запускался. Аудит карточки 10.11.2026: проверка документации не означает установку или испытание инструмента.",
       "projects": [
         "Eclipse Forge Landing",
         "Eclipse Library",
@@ -42401,7 +42434,8 @@
       "risks": [
         "Анализ чужих сайтов не даёт права копировать код, контент или бренд.",
         "Windows заявлен как untested; нужен отдельный sandbox.",
-        "Запись и trace WebGL могут быть тяжёлыми и содержать пользовательские данные."
+        "Запись и trace WebGL могут быть тяжёлыми и содержать пользовательские данные.",
+        "Windows не протестирован автором; работа с Codex отдельно не подтверждена, тестирование автора выполнено с Claude Code."
       ],
       "verifiedAt": "2026-11-10",
       "addedAt": "2026-11-10",
@@ -42423,13 +42457,18 @@
       },
       "catalogOrder": 803,
       "licenseInfo": {
-        "label": "Проверить лицензию репозитория и права на анализируемые сайты",
-        "original": "Проверить лицензию репозитория и права на анализируемые сайты",
-        "spdx": null,
-        "kind": "custom",
+        "label": "MIT",
+        "original": "MIT для кода; права на референсы проверяются отдельно",
+        "spdx": "MIT",
+        "kind": "open-source",
         "status": "editor-reviewed",
         "requiresReview": false,
         "evidence": [
+          {
+            "kind": "license",
+            "label": "Лицензия в официальном источнике",
+            "url": "https://github.com/NiazMorshed2007/reanimate/blob/main/LICENSE"
+          },
           {
             "kind": "source",
             "label": "Официальный репозиторий",
@@ -42442,6 +42481,11 @@
           "kind": "official-source",
           "label": "Официальный источник",
           "url": "https://github.com/NiazMorshed2007/reanimate"
+        },
+        {
+          "kind": "license",
+          "label": "Лицензия в официальном источнике",
+          "url": "https://github.com/NiazMorshed2007/reanimate/blob/main/LICENSE"
         }
       ],
       "agentEligibility": {
@@ -42457,7 +42501,7 @@
       "type": "agent",
       "category": "AI & Claude Code",
       "subcategory": "Мобильная автоматизация",
-      "simpleDescription": "On-device агент для Android, который читает экран, открывает приложения, печатает, работает с вебом и передаёт пользователю логины, коды и платежи. Полезен как исследовательский reference для мобильных сценариев Eclipse, но требует отдельной модели, разрешений и контроля приватности.",
+      "simpleDescription": "Android-приложение для управления интерфейсом телефона через AI-модель: чтение экрана, открытие приложений и ввод текста. Модель может быть внешней или доступной в локальной сети; данные экрана не обязательно остаются на телефоне.",
       "useCases": [
         "Изучить безопасный mobile-agent UX для будущего Eclipse-приложения",
         "Прототипировать повторяемые действия на тестовом Android-устройстве"
@@ -42467,8 +42511,13 @@
         "APK",
         "Wireless debugging"
       ],
-      "license": "Проверить лицензию репозитория и условия моделей отдельно",
+      "license": "Apache-2.0",
       "licenseEvidence": [
+        {
+          "kind": "license",
+          "label": "Лицензия в официальном источнике",
+          "url": "https://github.com/wangzan101/Mika/blob/main/LICENSE"
+        },
         {
           "kind": "source",
           "label": "Официальный репозиторий Mika",
@@ -42484,16 +42533,16 @@
       "access": {
         "cost": "free",
         "signup": "optional",
-        "runtime": "local"
+        "runtime": "hybrid"
       },
       "trust": "official",
-      "trustReason": "Репозиторий, документация установки и релизы проверены 10.11.2026; на Android не устанавливался.",
+      "trustReason": "Репозиторий, документация установки и релизы проверены 10.11.2026; на Android не устанавливался. Аудит карточки 10.11.2026: проверка документации не означает установку или испытание инструмента.",
       "projects": [
         "Eclipse Chat",
         "Eclipse AI Hub",
         "Hopson Sentinel"
       ],
-      "decision": "roadmap",
+      "decision": "reference",
       "riskLevel": "high",
       "risks": [
         "Доступ к экрану и приложениям может раскрыть личные данные и коды подтверждения.",
@@ -42520,13 +42569,18 @@
       },
       "catalogOrder": 804,
       "licenseInfo": {
-        "label": "Проверить лицензию репозитория и условия моделей отдельно",
-        "original": "Проверить лицензию репозитория и условия моделей отдельно",
-        "spdx": null,
-        "kind": "custom",
+        "label": "Apache-2.0",
+        "original": "Apache-2.0 для приложения; модели имеют отдельные условия",
+        "spdx": "Apache-2.0",
+        "kind": "open-source",
         "status": "editor-reviewed",
         "requiresReview": false,
         "evidence": [
+          {
+            "kind": "license",
+            "label": "Лицензия в официальном источнике",
+            "url": "https://github.com/wangzan101/Mika/blob/main/LICENSE"
+          },
           {
             "kind": "source",
             "label": "Официальный репозиторий Mika",
@@ -42544,6 +42598,11 @@
           "kind": "official-source",
           "label": "Официальный источник",
           "url": "https://github.com/wangzan101/Mika"
+        },
+        {
+          "kind": "license",
+          "label": "Лицензия в официальном источнике",
+          "url": "https://github.com/wangzan101/Mika/blob/main/LICENSE"
         },
         {
           "kind": "release",
@@ -42575,11 +42634,11 @@
         "MCP",
         "Desktop"
       ],
-      "license": "Проверить LICENSE и отдельные условия скачиваемых компонентов",
+      "license": "MIT OR Apache-2.0; сторонние компоненты имеют отдельные условия",
       "licenseEvidence": [
         {
-          "kind": "source",
-          "label": "Официальный репозиторий Craft Anything",
+          "kind": "license",
+          "label": "Лицензия в официальном источнике",
           "url": "https://github.com/storytold/craft-anything"
         },
         {
@@ -42595,7 +42654,7 @@
         "runtime": "local"
       },
       "trust": "official",
-      "trustReason": "Официальный README и STATUS проверены 10.11.2026; запуск и clean-room workflow в Eclipse не выполнялись.",
+      "trustReason": "Официальный README и STATUS проверены 10.11.2026; запуск и clean-room workflow в Eclipse не выполнялись. Аудит карточки 10.11.2026: проверка документации не означает установку или испытание инструмента.",
       "projects": [
         "Eclipse Forge Landing",
         "Eclipse Library",
@@ -42628,16 +42687,16 @@
       },
       "catalogOrder": 805,
       "licenseInfo": {
-        "label": "Проверить LICENSE и отдельные условия скачиваемых компонентов",
-        "original": "Проверить LICENSE и отдельные условия скачиваемых компонентов",
+        "label": "MIT OR Apache-2.0; сторонние компоненты имеют отдельные условия",
+        "original": "MIT OR Apache-2.0; сторонние компоненты имеют отдельные условия",
         "spdx": null,
         "kind": "custom",
         "status": "editor-reviewed",
         "requiresReview": false,
         "evidence": [
           {
-            "kind": "source",
-            "label": "Официальный репозиторий Craft Anything",
+            "kind": "license",
+            "label": "Лицензия в официальном источнике",
             "url": "https://github.com/storytold/craft-anything"
           },
           {
@@ -42705,12 +42764,12 @@
         "runtime": "local"
       },
       "trust": "official",
-      "trustReason": "Официальный репозиторий и README проверены 10.11.2026; в Eclipse-играх не запускался.",
+      "trustReason": "Официальный репозиторий и README проверены 10.11.2026; в Eclipse-играх не запускался. Аудит карточки 10.11.2026: проверка документации не означает установку или испытание инструмента.",
       "projects": [
         "Eclipse DnD Forge",
         "modern-2048"
       ],
-      "decision": "roadmap",
+      "decision": "reference",
       "riskLevel": "high",
       "risks": [
         "Агент читает код проекта и запускает игру; нужен отдельный sandbox без production secrets.",
@@ -42781,10 +42840,10 @@
       "type": "privacy",
       "category": "Безопасность и приватность",
       "subcategory": "OSINT и собственный digital footprint",
-      "simpleDescription": "Веб-инструмент проверяет username по большому списку сайтов и экспортирует найденные совпадения. Для Eclipse это только личная проверка собственных аккаунтов и обучение privacy hygiene; массовый поиск людей и публикация результатов запрещены.",
+      "simpleDescription": "Веб-страница для поиска совпадений username на разных сайтах. Совпадение имени не доказывает принадлежность аккаунта человеку. Доступность страницы подтверждена, но точность поиска и экспорт в этом аудите не проверялись.",
       "useCases": [
-        "Проверить собственный username и забытые аккаунты",
-        "Составить privacy-чеклист для Eclipse-профилей"
+        "Найти забытые собственные аккаунты",
+        "Составить личный список настроек приватности для проверки"
       ],
       "platforms": [
         "Web",
@@ -42806,7 +42865,7 @@
         "runtime": "cloud"
       },
       "trust": "caution",
-      "trustReason": "Официальная страница проверена 10.11.2026; provenance базы и точность совпадений не подтверждались независимым аудитом.",
+      "trustReason": "10.11.2026 страница вернула HTTP 200. Точность результатов, экспорт и лицензия исходного кода не подтверждены. Аудит карточки 10.11.2026: проверка документации не означает установку или испытание инструмента.",
       "projects": [
         "Eclipse Chat",
         "Eclipse Library"
@@ -42818,9 +42877,9 @@
         "Нельзя искать других людей без законного основания и согласия.",
         "Экспорт CSV/JSON нужно хранить локально и удалять после проверки."
       ],
-      "verifiedAt": "2026-11-10",
+      "verifiedAt": null,
       "addedAt": "2026-11-10",
-      "reviewStatus": "verified",
+      "reviewStatus": "inferred",
       "quickStart": [
         "Проверять только собственные usernames и тестовые данные.",
         "Не загружать результаты в облачные сервисы или общие чаты.",
@@ -42860,8 +42919,10 @@
         }
       ],
       "agentEligibility": {
-        "eligible": true,
-        "reasons": [],
+        "eligible": false,
+        "reasons": [
+          "unverified-high-risk"
+        ],
         "installAllowed": false
       }
     },
@@ -42964,8 +43025,8 @@
       "subcategory": "Локальная генерация image/video/audio",
       "simpleDescription": "Набор приложений и workflow поверх ComfyUI для генерации изображений, видео, VFX и аудио на открытых весах. Каждое приложение показывает модель, лицензию, требования VRAM и способ запуска локально или через Modal.",
       "useCases": [
-        "Исследовать локальные media-пайплайны для Eclipse Media",
-        "Сравнить модели и VRAM-профили перед добавлением генерации в Text2Image"
+        "Исследовать локальные media-пайплайны для медиаредактор",
+        "Сравнить модели и VRAM-профили перед добавлением генерации в редактор изображений"
       ],
       "platforms": [
         "ComfyUI",
@@ -42973,8 +43034,13 @@
         "GPU",
         "Modal"
       ],
-      "license": "Код и модели имеют отдельные лицензии; каждую модель нужно проверять отдельно",
+      "license": "MIT для кода; лицензии каждой модели и сторонних узлов проверяются отдельно",
       "licenseEvidence": [
+        {
+          "kind": "license",
+          "label": "Лицензия в официальном источнике",
+          "url": "https://github.com/neuregex/freefield/blob/main/LICENSE"
+        },
         {
           "kind": "source",
           "label": "Официальный репозиторий Freefield",
@@ -42993,13 +43059,11 @@
         "runtime": "hybrid"
       },
       "trust": "official",
-      "trustReason": "Официальный README проверен 10.11.2026; установка и GPU-запуск не выполнялись.",
+      "trustReason": "Официальный README проверен 10.11.2026; установка и GPU-запуск не выполнялись. Аудит карточки 10.11.2026: проверка документации не означает установку или испытание инструмента.",
       "projects": [
-        "Eclipse Media",
-        "Text2Image",
-        "Shotforge"
+        "Eclipse Media"
       ],
-      "decision": "roadmap",
+      "decision": "reference",
       "riskLevel": "high",
       "risks": [
         "Модели и node packs имеют отдельные лицензии и supply-chain риск.",
@@ -43026,13 +43090,18 @@
       },
       "catalogOrder": 808,
       "licenseInfo": {
-        "label": "Код и модели имеют отдельные лицензии; каждую модель нужно проверять отдельно",
-        "original": "Код и модели имеют отдельные лицензии; каждую модель нужно проверять отдельно",
+        "label": "MIT для кода; лицензии каждой модели и сторонних узлов проверяются отдельно",
+        "original": "MIT для кода; лицензии каждой модели и сторонних узлов проверяются отдельно",
         "spdx": null,
         "kind": "custom",
         "status": "editor-reviewed",
         "requiresReview": false,
         "evidence": [
+          {
+            "kind": "license",
+            "label": "Лицензия в официальном источнике",
+            "url": "https://github.com/neuregex/freefield/blob/main/LICENSE"
+          },
           {
             "kind": "source",
             "label": "Официальный репозиторий Freefield",
@@ -43050,6 +43119,11 @@
           "kind": "official-source",
           "label": "Официальный источник",
           "url": "https://github.com/neuregex/freefield"
+        },
+        {
+          "kind": "license",
+          "label": "Лицензия в официальном источнике",
+          "url": "https://github.com/neuregex/freefield/blob/main/LICENSE"
         },
         {
           "kind": "docs",
@@ -43070,10 +43144,10 @@
       "type": "tool",
       "category": "Медиа и дизайн",
       "subcategory": "Анализ видео и монтажные референсы",
-      "simpleDescription": "Skill разбирает видео по кадрам и сценам: определяет live-action, AI и code-generated элементы, фиксирует монтаж, субтитры, музыку, голос, свет и предлагает план clean-room пересоздания.",
+      "simpleDescription": "Skill для покадрового разбора видео и подготовки плана сцен: монтаж, субтитры, звук, свет и предполагаемые способы создания кадров. Выводы модели требуют ручной проверки; подключённый внешний endpoint может получать видео или кадры.",
       "useCases": [
-        "Разбирать собственные рекламные и product-видео для Eclipse Media",
-        "Составлять shot list и монтажный план для Shotforge без копирования исходных ассетов"
+        "Разбирать собственные рекламные и product-видео для медиаредактор",
+        "Составлять shot list и монтажный план для раскадровки без копирования исходных ассетов"
       ],
       "platforms": [
         "Python 3.10+",
@@ -43081,8 +43155,13 @@
         "Codex",
         "Claude Code"
       ],
-      "license": "Проверить LICENSE и права на каждый анализируемый референс",
+      "license": "Apache-2.0",
       "licenseEvidence": [
+        {
+          "kind": "license",
+          "label": "Лицензия в официальном источнике",
+          "url": "https://github.com/JuneYaooo/rea-video/blob/main/LICENSE"
+        },
         {
           "kind": "source",
           "label": "Официальный репозиторий rea-video",
@@ -43093,13 +43172,12 @@
       "access": {
         "cost": "free",
         "signup": "optional",
-        "runtime": "local"
+        "runtime": "hybrid"
       },
       "trust": "official",
-      "trustReason": "Официальный README проверен 10.11.2026; установка и полный отчёт на наших видео не выполнялись.",
+      "trustReason": "Официальный README проверен 10.11.2026; установка и полный отчёт на наших видео не выполнялись. Аудит карточки 10.11.2026: проверка документации не означает установку или испытание инструмента.",
       "projects": [
-        "Eclipse Media",
-        "Shotforge"
+        "Eclipse Media"
       ],
       "decision": "reference",
       "riskLevel": "high",
@@ -43128,13 +43206,18 @@
       },
       "catalogOrder": 809,
       "licenseInfo": {
-        "label": "Проверить LICENSE и права на каждый анализируемый референс",
-        "original": "Проверить LICENSE и права на каждый анализируемый референс",
-        "spdx": null,
-        "kind": "custom",
+        "label": "Apache-2.0",
+        "original": "Apache-2.0 для кода; права на видео и условия моделей проверяются отдельно",
+        "spdx": "Apache-2.0",
+        "kind": "open-source",
         "status": "editor-reviewed",
         "requiresReview": false,
         "evidence": [
+          {
+            "kind": "license",
+            "label": "Лицензия в официальном источнике",
+            "url": "https://github.com/JuneYaooo/rea-video/blob/main/LICENSE"
+          },
           {
             "kind": "source",
             "label": "Официальный репозиторий rea-video",
@@ -43147,6 +43230,11 @@
           "kind": "official-source",
           "label": "Официальный источник",
           "url": "https://github.com/JuneYaooo/rea-video"
+        },
+        {
+          "kind": "license",
+          "label": "Лицензия в официальном источнике",
+          "url": "https://github.com/JuneYaooo/rea-video/blob/main/LICENSE"
         }
       ],
       "agentEligibility": {
@@ -43164,8 +43252,8 @@
       "subcategory": "Сетевой benchmark",
       "simpleDescription": "Утилита IPFire для измерения пропускной способности, времени установки соединений, ошибок и числа новых соединений в секунду. Дополняет iperf3 и выводит результаты в JSON и терминальный график.",
       "useCases": [
-        "Проверять сетевой путь для Eclipse Media и self-hosted сервисов",
-        "Сравнивать throughput и connection rate на тестовом стенде"
+        "Проверять сетевой путь между клиентом и собственным сервером",
+        "Сравнивать пропускную способность и число соединений на тестовом стенде"
       ],
       "platforms": [
         "Linux",
@@ -43173,11 +43261,11 @@
         "JSON",
         "CLI"
       ],
-      "license": "Проверить лицензию IPFire и пакетный источник перед установкой",
+      "license": "GPL-3.0-or-later",
       "licenseEvidence": [
         {
-          "kind": "source",
-          "label": "Официальная страница fireperf",
+          "kind": "license",
+          "label": "Лицензия в официальном источнике",
           "url": "https://www.ipfire.org/fireperf"
         },
         {
@@ -43193,13 +43281,12 @@
         "runtime": "local"
       },
       "trust": "official",
-      "trustReason": "Официальная страница и man page проверены 10.11.2026; на Eclipse-серверах не запускалась.",
+      "trustReason": "Официальная страница и man page проверены 10.11.2026; на Eclipse-серверах не запускалась. Аудит карточки 10.11.2026: проверка документации не означает установку или испытание инструмента.",
       "projects": [
         "Eclipse Media",
-        "Eclipse VPN",
         "Hopson Sentinel"
       ],
-      "decision": "roadmap",
+      "decision": "reference",
       "riskLevel": "medium",
       "risks": [
         "Нагрузка теста может повлиять на production-сеть.",
@@ -43210,9 +43297,9 @@
       "addedAt": "2026-11-10",
       "reviewStatus": "verified",
       "quickStart": [
-        "Запускать только на отдельном стенде или в согласованное окно.",
-        "Начать с короткого read-only benchmark без saturation.",
-        "Сохранить JSON и сравнивать результаты на одинаковых параметрах."
+        "На двух тестовых хостах сверить версию и параметры клиента и сервера по официальной man page.",
+        "Начать с короткого теста с ограниченной скоростью и числом соединений: тест создаёт реальный трафик.",
+        "Сохранить JSON, длительность и параметры; сравнивать результаты на одном маршруте."
       ],
       "source": {
         "file": "catalog/resources.json",
@@ -43226,16 +43313,16 @@
       },
       "catalogOrder": 810,
       "licenseInfo": {
-        "label": "Проверить лицензию IPFire и пакетный источник перед установкой",
-        "original": "Проверить лицензию IPFire и пакетный источник перед установкой",
+        "label": "GPL-3.0-or-later",
+        "original": "GPL-3.0-or-later",
         "spdx": null,
         "kind": "custom",
         "status": "editor-reviewed",
         "requiresReview": false,
         "evidence": [
           {
-            "kind": "source",
-            "label": "Официальная страница fireperf",
+            "kind": "license",
+            "label": "Лицензия в официальном источнике",
             "url": "https://www.ipfire.org/fireperf"
           },
           {

@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "sourceHash": "8222a829280af8ff4e01be3f17a025e1b576b92fe290f822337bfd73ec2437b7",
+  "sourceHash": "a5efc7be6d1a6de3e009e4a2847d680b6adb7d998c8d4d7e9695164c507ed545",
   "policy": {
     "automaticApprovalForbidden": true,
     "directInstallForbidden": true,
@@ -30,7 +30,7 @@
       "decision": "reference",
       "riskLevel": "high",
       "currentLicense": "Условия веб-инструмента и права источников нужно проверить перед использованием",
-      "reviewStatus": "verified",
+      "reviewStatus": "inferred",
       "bucket": "service-terms",
       "priority": "P1",
       "reason": "A service page is not a license grant; current Terms, Privacy/DPA and pricing conditions control use.",

@@ -58,7 +58,8 @@ test('inspector exposes evidence-first data and blocks unsafe source URLs', () =
   assert.equal(model.sourceHref, 'https://example.com/tool');
   assert.equal(model.decision, 'Внедрить сейчас');
   assert.equal(model.evidenceCount, 1);
-  assert.equal(model.reviewStatus, 'Проверено редактором');
+  assert.equal(model.reviewStatus, 'Источники проверены; запуск не подтверждён');
+  assert.equal(inspector.createInspectorModel({ ...resource, reviewStatus: 'inferred' }).reviewStatus, 'Описание требует проверки');
   assert.equal(model.licenseStatus, 'Условия проверены');
   assert.match(model.verifiedAt, /2026/);
   assert.equal(inspector.safeHttpUrl('javascript:alert(1)'), '');
