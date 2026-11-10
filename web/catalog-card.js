@@ -21,7 +21,7 @@
       repository.title = 'Проект больше не принимает обычные изменения; используйте как reference и ищите поддерживаемую альтернативу.';
       top.appendChild(repository);
     }
-    top.appendChild(compareButton(resource));
+    top.appendChild(compareButton(resource, true));
     top.appendChild(favoriteButton(resource));
     card.appendChild(top);
 
@@ -54,12 +54,6 @@
     use.innerHTML = `<b>Когда пригодится:</b> ${esc(resource.useCases[0] || 'для небольшой тестовой задачи')}`;
     card.appendChild(use);
 
-    const decision = el('div', `card-decision decision-${resource.decision}`);
-    decision.innerHTML =
-      `<span><small>Решение</small><b>${esc(decisions[resource.decision] || decisions.reference)}</b></span>` +
-      `<span><small>Куда применить</small><b>${esc(resource.projects[0] || 'Нужен отдельный выбор проекта')}</b></span>` +
-      `<span><small>Риск</small><b>${esc(risks[resource.riskLevel] || risks.medium)}</b></span>`;
-    card.appendChild(decision);
 
     const meta = el('div', 'card-meta');
     meta.appendChild(el('span', 'meta-chip', esc(runtime[resource.runtime] || runtime.unknown)));
@@ -67,17 +61,30 @@
     const license = el('span', 'meta-chip', esc(licenseGroups[licenseGroup(resource.license)]));
     license.title = `Точные условия: ${resource.license}`;
     meta.appendChild(license);
+    const risk = el('span', 'meta-chip', esc('Риск: ' + (risks[resource.riskLevel] || risks.medium)));
+    meta.appendChild(risk);
     card.appendChild(meta);
 
     const foot = el('div', 'card-foot');
-    const inspect = el('button', 'inspector-link', 'Быстрый обзор');
+    const inspect = el('button', 'inspector-link', 'Как начать');
     inspect.type = 'button';
     inspect.dataset.inspectId = resource.id;
     inspect.setAttribute('aria-pressed', 'false');
-    inspect.setAttribute('aria-label', 'Показать быстрый обзор: ' + resource.title);
-    const detail = el('a', 'detail-link', 'Полный анализ');
+    inspect.setAttribute('aria-label', 'Как начать: ' + resource.title);
+    const detail = el('a', 'detail-link', 'Подробнее');
     detail.href = '#item/' + encodeURIComponent(resource.id);
-    foot.append(inspect, detail, workflowControl(resource));
+    const sourceHref = resource.linkHealth?.status === 'blocked' ? '' : window.EclipseCatalogInspector.safeHttpUrl(resource.url);
+    if (sourceHref) {
+      const source = el('a', 'detail-link', 'Открыть источник ↗');
+      source.href = sourceHref;
+      source.target = '_blank';
+      source.rel = 'noopener noreferrer';
+      foot.appendChild(source);
+    }
+    foot.append(inspect, detail);
+    const personal = el('div', 'card-personal');
+    personal.appendChild(workflowControl(resource));
+    card.appendChild(personal);
     card.appendChild(foot);
     return card;
   }

@@ -97,8 +97,7 @@
 
     const decision = node('section', 'inspector-decision decision-' + model.decisionKey);
     decision.append(
-      node('span', '', 'Решение редакции'),
-      node('b', '', model.decision),
+      node('span', '', 'Когда пригодится'),
       node('p', '', model.useCase),
     );
     root.appendChild(decision);
@@ -125,13 +124,6 @@
     addFact(facts, 'Регистрация', model.signup);
     root.appendChild(facts);
 
-    const projectSection = node('section', 'inspector-section');
-    projectSection.appendChild(node('h3', '', 'Подходит для Eclipse'));
-    const projectList = node('div', 'inspector-projects');
-    const projects = model.projects.length ? model.projects : ['Нужен отдельный выбор проекта'];
-    projects.forEach((project) => projectList.appendChild(node('span', '', project)));
-    projectSection.appendChild(projectList);
-    root.appendChild(projectSection);
 
     const riskSection = node('section', 'inspector-section inspector-risk risk-' + model.riskKey);
     riskSection.append(
@@ -142,18 +134,18 @@
 
     const nextSection = node('section', 'inspector-section inspector-next');
     nextSection.append(
-      node('h3', '', 'Безопасный следующий шаг'),
+      node('h3', '', 'Как начать'),
       node('p', '', model.nextStep),
       node('small', '', String(model.evidenceCount) + ' evidence-ссылок в полном анализе'),
     );
-    root.appendChild(nextSection);
+    root.insertBefore(nextSection, passport);
 
     const actions = node('footer', 'inspector-actions');
     const detail = node('a', 'inspector-primary', 'Полный анализ');
     detail.href = model.detailHref;
     actions.appendChild(detail);
     if (model.sourceHref) {
-      const source = node('a', 'inspector-source', model.sourceDomain || 'Источник');
+      const source = node('a', 'inspector-source', 'Открыть источник ↗');
       source.href = model.sourceHref;
       source.target = '_blank';
       source.rel = 'noopener';

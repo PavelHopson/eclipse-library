@@ -1081,3 +1081,9 @@ body.noscroll { overflow: hidden; }
   .nav-active-rail, .view-switcher-indicator { transition: opacity .01ms linear !important; transform: none !important; }
   .view-switcher a, .nav a, .card { transform: none !important; }
 }
+
+/* Public catalog actions wrap without hiding their labels. */
+.card-foot { flex-wrap: wrap; justify-content: flex-start; }
+.card-foot > a, .card-foot > button { min-height: 44px; display: inline-flex; align-items: center; }
+.card-personal { margin-top: auto; }
+.card-top .compare-button-wide { margin-left: auto; }

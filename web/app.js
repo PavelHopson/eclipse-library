@@ -1824,9 +1824,6 @@
     sourceTop.hidden = sourceBlocked;
     if (sourceBlocked) sourceTop.removeAttribute('href'); else sourceTop.href = r.url;
     const trustClass = `trust-${r.trust}`;
-    const projectHtml = r.projects.length
-      ? `<div class="project-list">${r.projects.map((project) => `<span>${esc(project)}</span>`).join('')}</div>`
-      : '<p class="item-muted">Прямая применимость к проектам Eclipse Forge пока не подтверждена.</p>';
     const repositoryNotice = r.repositoryState === 'archived'
       ? '<div class="repository-notice"><b>Репозиторий архивирован.</b> Код остаётся доступен, но обычная разработка остановлена. Используйте материал как reference или выберите поддерживаемую альтернативу.</div>'
       : r.repositoryState === 'disabled'
@@ -1850,12 +1847,6 @@
         `<span class="verify-date">${esc(formatVerifiedAt(r.verifiedAt))}</span></div>` +
       `<h1 id="itemTitle">${esc(r.title)}</h1>` +
       `<p class="item-lead">${esc(r.simpleDescription)}</p>` +
-      `<div class="item-decision-panel decision-${r.decision}">` +
-        `<div><span>Редакторское решение</span><b>${esc(DECISIONS[r.decision] || DECISIONS.reference)}</b></div>` +
-        `<div><span>Куда применить</span><b>${esc(r.projects.slice(0, 2).join(', ') || 'Нужен отдельный выбор проекта')}</b></div>` +
-        `<div><span>Главный риск</span><b>${esc(r.risks[0] || 'Нужна проверка перед запуском')}</b></div>` +
-        `<div><span>Первый безопасный шаг</span><b>${esc(r.quickStart[0] || 'Открыть официальный источник и проверить условия')}</b></div>` +
-      `</div>` +
       repositoryNotice +
       mcpAuditNotice +
       `<div id="itemActionSlot" class="item-action-slot"></div>` +
@@ -1866,19 +1857,17 @@
         `<div><span>Нужна ли регистрация</span><b>${esc(SIGNUP[r.signup] || SIGNUP.unknown)}</b></div>` +
         `<div><span>Лицензия</span><b>${esc(r.licenseInfo?.label || r.license)}</b><small>${esc(licenseStatus)}</small></div>` +
         `<div><span>Добавлено в библиотеку</span><b>${esc(formatAddedAt(r.addedAt))}</b></div>` +
-        `<div><span>Решение Eclipse</span><b>${esc(DECISIONS[r.decision] || DECISIONS.reference)}</b></div>` +
         `<div><span>Актуальность</span><b>${esc(FRESHNESS[r.freshness] || FRESHNESS.unknown)}</b></div>` +
         `${r.repositoryState ? `<div><span>Состояние GitHub</span><b>${esc(REPOSITORY_STATE[r.repositoryState] || REPOSITORY_STATE.unknown)}</b><small>Автопроверка ${esc(formatAutomaticCheck(githubMetadataSnapshot?.checkedAt))}.</small></div>` : ''}` +
         `<div><span>Доступность ссылки</span><b>${esc(LINK_HEALTH[r.linkHealth.status] || LINK_HEALTH.unchecked)}</b><small>Автопроверка ${esc(formatAutomaticCheck(linkHealthSnapshot?.checkedAt))}; это не гарантия безопасности.</small></div>` +
       `</div>` +
       `<section class="item-section"><h2>Когда пригодится</h2>${itemList(r.useCases)}</section>` +
-      `<section class="item-section"><h2>Как начать безопасно</h2><ol>${r.quickStart.map((step) => `<li>${esc(step)}</li>`).join('')}</ol></section>` +
-      `<section class="item-section"><h2>Для каких проектов Eclipse</h2>${projectHtml}</section>` +
+      `<section class="item-section"><h2>Как начать</h2><ol>${r.quickStart.map((step) => `<li>${esc(step)}</li>`).join('')}</ol></section>` +
       `<section class="item-section item-risk-section"><h2>Что важно знать до запуска</h2>` +
         `<div class="risk-summary risk-${r.riskLevel}"><b>${esc(RISK[r.riskLevel] || RISK.medium)}</b><span>${esc(r.trustReason)}</span></div>` +
         `${itemList(r.risks)}</section>` +
       `<section class="item-section evidence-section"><h2>На чём основана карточка</h2><ul class="evidence-list">${evidenceHtml}</ul><p class="item-muted">Ссылка подтверждает источник или заявленные условия, но не заменяет security, privacy и legal review перед внедрением.</p></section>` +
-      `<section id="relatedSection" class="item-section related-section" hidden><div class="related-head"><div><span>Следующий шаг</span><h2>Похожие проверенные материалы</h2></div><p>Подобраны по общей задаче, платформе и проектам Eclipse.</p></div><div id="relatedGrid" class="related-grid"></div></section>` +
+      `<section id="relatedSection" class="item-section related-section" hidden><div class="related-head"><div><span>Следующий шаг</span><h2>Похожие проверенные материалы</h2></div><p>Подобраны по общей задаче и условиям использования.</p></div><div id="relatedGrid" class="related-grid"></div></section>` +
       `<details class="original-note"><summary>Показать исходное техническое описание</summary><p>${esc(plain(r.rawText))}</p></details>` +
       `<div class="catalog-safety-note"><b>Каталог ничего не устанавливает.</b><span>Он открывает официальный источник. Установку, permissions и команды проверяйте отдельно в sandbox.</span></div>` +
       `<div class="item-cta">${sourceBlocked ? '<strong class="blocked-source">Источник скрыт: автоматическая проверка обнаружила небезопасное назначение.</strong>' : `<a href="${escAttr(r.url)}" target="_blank" rel="noopener">Открыть официальный источник ↗</a>`}` +
