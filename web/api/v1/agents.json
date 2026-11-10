@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "consumer": "generic-agent",
-  "catalogVersion": "f7305cf503c9624f4c5ee5db5bc72e71485b697aa9bd1f6973e5d4c447a43da0",
+  "catalogVersion": "f502eebe58e05954ed88d0b023594c641804069834b31e4761da880e327799a1",
   "generatedAt": null,
   "policy": {
     "greyResourcesExcluded": true,
@@ -9,7 +9,7 @@
     "externalMutationsRequireHumanApproval": true
   },
   "totals": {
-    "items": 705
+    "items": 707
   },
   "items": [
     {
@@ -24947,6 +24947,135 @@
           "kind": "official-source",
           "label": "Официальный источник",
           "url": "https://azgaar.github.io/Fantasy-Map-Generator/"
+        }
+      ],
+      "actions": {
+        "openOfficialSource": true,
+        "installFromCatalog": false,
+        "mutateExternalSystems": false
+      }
+    },
+    {
+      "id": "freefield",
+      "title": "Freefield — open-source creative studio на ComfyUI",
+      "url": "https://github.com/neuregex/freefield",
+      "type": "tool",
+      "category": "Медиа и дизайн",
+      "subcategory": "Локальная генерация image/video/audio",
+      "addedAt": "2026-11-10",
+      "description": "Набор приложений и workflow поверх ComfyUI для генерации изображений, видео, VFX и аудио на открытых весах. Каждое приложение показывает модель, лицензию, требования VRAM и способ запуска локально или через Modal.",
+      "useCases": [
+        "Исследовать локальные media-пайплайны для Eclipse Media",
+        "Сравнить модели и VRAM-профили перед добавлением генерации в Text2Image"
+      ],
+      "platforms": [
+        "ComfyUI",
+        "Python",
+        "GPU",
+        "Modal"
+      ],
+      "license": {
+        "label": "Код и модели имеют отдельные лицензии; каждую модель нужно проверять отдельно",
+        "original": "Код и модели имеют отдельные лицензии; каждую модель нужно проверять отдельно",
+        "spdx": null,
+        "kind": "custom",
+        "status": "editor-reviewed",
+        "requiresReview": false,
+        "evidence": [
+          {
+            "kind": "source",
+            "label": "Официальный репозиторий Freefield",
+            "url": "https://github.com/neuregex/freefield"
+          },
+          {
+            "kind": "docs",
+            "label": "README с моделями и требованиями",
+            "url": "https://github.com/neuregex/freefield/blob/main/README.md"
+          }
+        ]
+      },
+      "access": {
+        "cost": "freemium",
+        "signup": "optional",
+        "runtime": "hybrid"
+      },
+      "trust": "official",
+      "decision": "roadmap",
+      "riskLevel": "high",
+      "projects": [
+        "Eclipse Media",
+        "Text2Image",
+        "Shotforge"
+      ],
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://github.com/neuregex/freefield"
+        },
+        {
+          "kind": "docs",
+          "label": "README с моделями и требованиями",
+          "url": "https://github.com/neuregex/freefield/blob/main/README.md"
+        }
+      ],
+      "actions": {
+        "openOfficialSource": true,
+        "installFromCatalog": false,
+        "mutateExternalSystems": false
+      }
+    },
+    {
+      "id": "rea-video",
+      "title": "Rea-video — покадровый разбор и план пересоздания видео",
+      "url": "https://github.com/JuneYaooo/rea-video",
+      "type": "tool",
+      "category": "Медиа и дизайн",
+      "subcategory": "Анализ видео и монтажные референсы",
+      "addedAt": "2026-11-10",
+      "description": "Skill разбирает видео по кадрам и сценам: определяет live-action, AI и code-generated элементы, фиксирует монтаж, субтитры, музыку, голос, свет и предлагает план clean-room пересоздания.",
+      "useCases": [
+        "Разбирать собственные рекламные и product-видео для Eclipse Media",
+        "Составлять shot list и монтажный план для Shotforge без копирования исходных ассетов"
+      ],
+      "platforms": [
+        "Python 3.10+",
+        "FFmpeg",
+        "Codex",
+        "Claude Code"
+      ],
+      "license": {
+        "label": "Проверить LICENSE и права на каждый анализируемый референс",
+        "original": "Проверить LICENSE и права на каждый анализируемый референс",
+        "spdx": null,
+        "kind": "custom",
+        "status": "editor-reviewed",
+        "requiresReview": false,
+        "evidence": [
+          {
+            "kind": "source",
+            "label": "Официальный репозиторий rea-video",
+            "url": "https://github.com/JuneYaooo/rea-video"
+          }
+        ]
+      },
+      "access": {
+        "cost": "free",
+        "signup": "optional",
+        "runtime": "local"
+      },
+      "trust": "official",
+      "decision": "reference",
+      "riskLevel": "high",
+      "projects": [
+        "Eclipse Media",
+        "Shotforge"
+      ],
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://github.com/JuneYaooo/rea-video"
         }
       ],
       "actions": {

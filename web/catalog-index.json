@@ -1,20 +1,20 @@
 {
   "schemaVersion": 2,
-  "sourceHash": "f7305cf503c9624f4c5ee5db5bc72e71485b697aa9bd1f6973e5d4c447a43da0",
+  "sourceHash": "f502eebe58e05954ed88d0b023594c641804069834b31e4761da880e327799a1",
   "policy": {
     "canonicalSource": "catalog/resources.json",
     "directInstallForbidden": true,
     "greyResourcesExcludedFromAgentRecommendations": true
   },
   "totals": {
-    "all": 807,
-    "verified": 439,
+    "all": 809,
+    "verified": 441,
     "inferred": 368,
     "licenseReviewRequired": 217,
-    "agentSafe": 705,
+    "agentSafe": 707,
     "agentExcluded": 102,
     "grey": 88,
-    "withAddedAt": 528
+    "withAddedAt": 530
   },
   "items": [
     {
@@ -42947,6 +42947,206 @@
           "kind": "official-source",
           "label": "Официальный источник",
           "url": "https://azgaar.github.io/Fantasy-Map-Generator/"
+        }
+      ],
+      "agentEligibility": {
+        "eligible": true,
+        "reasons": [],
+        "installAllowed": false
+      }
+    },
+    {
+      "id": "freefield",
+      "url": "https://github.com/neuregex/freefield",
+      "title": "Freefield — open-source creative studio на ComfyUI",
+      "type": "tool",
+      "category": "Медиа и дизайн",
+      "subcategory": "Локальная генерация image/video/audio",
+      "simpleDescription": "Набор приложений и workflow поверх ComfyUI для генерации изображений, видео, VFX и аудио на открытых весах. Каждое приложение показывает модель, лицензию, требования VRAM и способ запуска локально или через Modal.",
+      "useCases": [
+        "Исследовать локальные media-пайплайны для Eclipse Media",
+        "Сравнить модели и VRAM-профили перед добавлением генерации в Text2Image"
+      ],
+      "platforms": [
+        "ComfyUI",
+        "Python",
+        "GPU",
+        "Modal"
+      ],
+      "license": "Код и модели имеют отдельные лицензии; каждую модель нужно проверять отдельно",
+      "licenseEvidence": [
+        {
+          "kind": "source",
+          "label": "Официальный репозиторий Freefield",
+          "url": "https://github.com/neuregex/freefield"
+        },
+        {
+          "kind": "docs",
+          "label": "README с моделями и требованиями",
+          "url": "https://github.com/neuregex/freefield/blob/main/README.md"
+        }
+      ],
+      "pricing": "Локальный запуск использует собственную GPU; Modal и облачные модели могут быть платными.",
+      "access": {
+        "cost": "freemium",
+        "signup": "optional",
+        "runtime": "hybrid"
+      },
+      "trust": "official",
+      "trustReason": "Официальный README проверен 10.11.2026; установка и GPU-запуск не выполнялись.",
+      "projects": [
+        "Eclipse Media",
+        "Text2Image",
+        "Shotforge"
+      ],
+      "decision": "roadmap",
+      "riskLevel": "high",
+      "risks": [
+        "Модели и node packs имеют отдельные лицензии и supply-chain риск.",
+        "Некоторые графы требуют десятки гигабайт VRAM и диска.",
+        "Cloud/Modal отправляет выбранные материалы во внешнюю инфраструктуру."
+      ],
+      "verifiedAt": "2026-11-10",
+      "addedAt": "2026-11-10",
+      "reviewStatus": "verified",
+      "quickStart": [
+        "Сначала выбрать один open-weight workflow и проверить его лицензию.",
+        "Запустить локально на тестовом ассете без личных данных.",
+        "Сохранить model hashes, VRAM и время рендера перед интеграцией."
+      ],
+      "source": {
+        "file": "catalog/resources.json",
+        "key": "freefield",
+        "legacy": {
+          "file": "catalog/resources.json",
+          "key": "freefield",
+          "category": "Медиа и дизайн",
+          "subcategory": "Локальная генерация image/video/audio"
+        }
+      },
+      "catalogOrder": 808,
+      "licenseInfo": {
+        "label": "Код и модели имеют отдельные лицензии; каждую модель нужно проверять отдельно",
+        "original": "Код и модели имеют отдельные лицензии; каждую модель нужно проверять отдельно",
+        "spdx": null,
+        "kind": "custom",
+        "status": "editor-reviewed",
+        "requiresReview": false,
+        "evidence": [
+          {
+            "kind": "source",
+            "label": "Официальный репозиторий Freefield",
+            "url": "https://github.com/neuregex/freefield"
+          },
+          {
+            "kind": "docs",
+            "label": "README с моделями и требованиями",
+            "url": "https://github.com/neuregex/freefield/blob/main/README.md"
+          }
+        ]
+      },
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://github.com/neuregex/freefield"
+        },
+        {
+          "kind": "docs",
+          "label": "README с моделями и требованиями",
+          "url": "https://github.com/neuregex/freefield/blob/main/README.md"
+        }
+      ],
+      "agentEligibility": {
+        "eligible": true,
+        "reasons": [],
+        "installAllowed": false
+      }
+    },
+    {
+      "id": "rea-video",
+      "url": "https://github.com/JuneYaooo/rea-video",
+      "title": "Rea-video — покадровый разбор и план пересоздания видео",
+      "type": "tool",
+      "category": "Медиа и дизайн",
+      "subcategory": "Анализ видео и монтажные референсы",
+      "simpleDescription": "Skill разбирает видео по кадрам и сценам: определяет live-action, AI и code-generated элементы, фиксирует монтаж, субтитры, музыку, голос, свет и предлагает план clean-room пересоздания.",
+      "useCases": [
+        "Разбирать собственные рекламные и product-видео для Eclipse Media",
+        "Составлять shot list и монтажный план для Shotforge без копирования исходных ассетов"
+      ],
+      "platforms": [
+        "Python 3.10+",
+        "FFmpeg",
+        "Codex",
+        "Claude Code"
+      ],
+      "license": "Проверить LICENSE и права на каждый анализируемый референс",
+      "licenseEvidence": [
+        {
+          "kind": "source",
+          "label": "Официальный репозиторий rea-video",
+          "url": "https://github.com/JuneYaooo/rea-video"
+        }
+      ],
+      "pricing": "Код доступен публично; video-capable model endpoint может требовать отдельный ключ и оплату.",
+      "access": {
+        "cost": "free",
+        "signup": "optional",
+        "runtime": "local"
+      },
+      "trust": "official",
+      "trustReason": "Официальный README проверен 10.11.2026; установка и полный отчёт на наших видео не выполнялись.",
+      "projects": [
+        "Eclipse Media",
+        "Shotforge"
+      ],
+      "decision": "reference",
+      "riskLevel": "high",
+      "risks": [
+        "Разбор чужого ролика не даёт права копировать сценарий, музыку, логотипы или персонажей.",
+        "Видео и кадры могут содержать персональные данные.",
+        "FFmpeg и vision model увеличивают время и стоимость больших роликов."
+      ],
+      "verifiedAt": "2026-11-10",
+      "addedAt": "2026-11-10",
+      "reviewStatus": "verified",
+      "quickStart": [
+        "Использовать собственные или разрешённые референсы.",
+        "Сначала анализировать короткий ролик в изолированной папке.",
+        "Сохранять только shot plan и provenance, а не чужие исходные ассеты."
+      ],
+      "source": {
+        "file": "catalog/resources.json",
+        "key": "rea-video",
+        "legacy": {
+          "file": "catalog/resources.json",
+          "key": "rea-video",
+          "category": "Медиа и дизайн",
+          "subcategory": "Анализ видео и монтажные референсы"
+        }
+      },
+      "catalogOrder": 809,
+      "licenseInfo": {
+        "label": "Проверить LICENSE и права на каждый анализируемый референс",
+        "original": "Проверить LICENSE и права на каждый анализируемый референс",
+        "spdx": null,
+        "kind": "custom",
+        "status": "editor-reviewed",
+        "requiresReview": false,
+        "evidence": [
+          {
+            "kind": "source",
+            "label": "Официальный репозиторий rea-video",
+            "url": "https://github.com/JuneYaooo/rea-video"
+          }
+        ]
+      },
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://github.com/JuneYaooo/rea-video"
         }
       ],
       "agentEligibility": {

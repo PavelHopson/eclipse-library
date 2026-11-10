@@ -3,7 +3,7 @@
   "migratedAt": "2026-08-03",
   "totals": {
     "items": 795,
-    "all": 807
+    "all": 809
   },
   "items": [
     {
@@ -48061,6 +48061,132 @@
         "key": "blackbird-username-search",
         "category": "Безопасность и приватность",
         "subcategory": "OSINT и собственный digital footprint"
+      }
+    },
+    {
+      "id": "freefield",
+      "url": "https://github.com/neuregex/freefield",
+      "title": "Freefield — open-source creative studio на ComfyUI",
+      "type": "tool",
+      "category": "Медиа и дизайн",
+      "subcategory": "Локальная генерация image/video/audio",
+      "simpleDescription": "Набор приложений и workflow поверх ComfyUI для генерации изображений, видео, VFX и аудио на открытых весах. Каждое приложение показывает модель, лицензию, требования VRAM и способ запуска локально или через Modal.",
+      "useCases": [
+        "Исследовать локальные media-пайплайны для Eclipse Media",
+        "Сравнить модели и VRAM-профили перед добавлением генерации в Text2Image"
+      ],
+      "platforms": [
+        "ComfyUI",
+        "Python",
+        "GPU",
+        "Modal"
+      ],
+      "license": "Код и модели имеют отдельные лицензии; каждую модель нужно проверять отдельно",
+      "licenseEvidence": [
+        {
+          "kind": "source",
+          "label": "Официальный репозиторий Freefield",
+          "url": "https://github.com/neuregex/freefield"
+        },
+        {
+          "kind": "docs",
+          "label": "README с моделями и требованиями",
+          "url": "https://github.com/neuregex/freefield/blob/main/README.md"
+        }
+      ],
+      "pricing": "Локальный запуск использует собственную GPU; Modal и облачные модели могут быть платными.",
+      "access": {
+        "cost": "freemium",
+        "signup": "optional",
+        "runtime": "hybrid"
+      },
+      "trust": "official",
+      "trustReason": "Официальный README проверен 10.11.2026; установка и GPU-запуск не выполнялись.",
+      "projects": [
+        "Eclipse Media",
+        "Text2Image",
+        "Shotforge"
+      ],
+      "decision": "roadmap",
+      "riskLevel": "high",
+      "risks": [
+        "Модели и node packs имеют отдельные лицензии и supply-chain риск.",
+        "Некоторые графы требуют десятки гигабайт VRAM и диска.",
+        "Cloud/Modal отправляет выбранные материалы во внешнюю инфраструктуру."
+      ],
+      "verifiedAt": "2026-11-10",
+      "addedAt": "2026-11-10",
+      "reviewStatus": "verified",
+      "quickStart": [
+        "Сначала выбрать один open-weight workflow и проверить его лицензию.",
+        "Запустить локально на тестовом ассете без личных данных.",
+        "Сохранить model hashes, VRAM и время рендера перед интеграцией."
+      ],
+      "source": {
+        "file": "catalog/resources.json",
+        "key": "freefield",
+        "category": "Медиа и дизайн",
+        "subcategory": "Локальная генерация image/video/audio"
+      }
+    },
+    {
+      "id": "rea-video",
+      "url": "https://github.com/JuneYaooo/rea-video",
+      "title": "Rea-video — покадровый разбор и план пересоздания видео",
+      "type": "tool",
+      "category": "Медиа и дизайн",
+      "subcategory": "Анализ видео и монтажные референсы",
+      "simpleDescription": "Skill разбирает видео по кадрам и сценам: определяет live-action, AI и code-generated элементы, фиксирует монтаж, субтитры, музыку, голос, свет и предлагает план clean-room пересоздания.",
+      "useCases": [
+        "Разбирать собственные рекламные и product-видео для Eclipse Media",
+        "Составлять shot list и монтажный план для Shotforge без копирования исходных ассетов"
+      ],
+      "platforms": [
+        "Python 3.10+",
+        "FFmpeg",
+        "Codex",
+        "Claude Code"
+      ],
+      "license": "Проверить LICENSE и права на каждый анализируемый референс",
+      "licenseEvidence": [
+        {
+          "kind": "source",
+          "label": "Официальный репозиторий rea-video",
+          "url": "https://github.com/JuneYaooo/rea-video"
+        }
+      ],
+      "pricing": "Код доступен публично; video-capable model endpoint может требовать отдельный ключ и оплату.",
+      "access": {
+        "cost": "free",
+        "signup": "optional",
+        "runtime": "local"
+      },
+      "trust": "official",
+      "trustReason": "Официальный README проверен 10.11.2026; установка и полный отчёт на наших видео не выполнялись.",
+      "projects": [
+        "Eclipse Media",
+        "Shotforge"
+      ],
+      "decision": "reference",
+      "riskLevel": "high",
+      "risks": [
+        "Разбор чужого ролика не даёт права копировать сценарий, музыку, логотипы или персонажей.",
+        "Видео и кадры могут содержать персональные данные.",
+        "FFmpeg и vision model увеличивают время и стоимость больших роликов."
+      ],
+      "verifiedAt": "2026-11-10",
+      "addedAt": "2026-11-10",
+      "reviewStatus": "verified",
+      "quickStart": [
+        "Использовать собственные или разрешённые референсы.",
+        "Сначала анализировать короткий ролик в изолированной папке.",
+        "Сохранять только shot plan и provenance, а не чужие исходные ассеты."
+      ],
+      "source": {
+        "file": "catalog/resources.json",
+        "key": "rea-video",
+        "category": "Медиа и дизайн",
+        "subcategory": "Анализ видео и монтажные референсы"
       }
     }
   ]
