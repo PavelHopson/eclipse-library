@@ -469,6 +469,12 @@
     if (['/experiments/artefakt/index.html', '/experiments/artefakt/guide.html', '/experiments/artefakt/sources/original-prompt.txt', '/animations.html#artefakt-experiment'].includes(u)) return u;
     if (/^https?:\/\//.test(u)) return u;
     if (u.startsWith('#')) return REPO_URL + '/blob/master/README.md' + u;
+    // Guides live in guides/, so "../web/x.html" must resolve from there, not be glued to the repo root.
+    if (u.startsWith('../')) {
+      const path = new URL(u, 'https://repo.invalid/guides/').pathname;
+      // Published experiments are served by the Library itself; everything else is repository source.
+      return path.startsWith('/experiments/') ? path : `${REPO_URL}/blob/master${path}`;
+    }
     return `${REPO_URL}/blob/master/${u.replace(/^\.?\//, '')}`;
   }
   function inline(md) {

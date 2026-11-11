@@ -101,7 +101,7 @@ test для production integration пока не требуется.
 
 ## Primary sources
 
-- [Kimi K3 Help](https://www.kimi.com/code/docs/en/kimi-k3.html)
+- [Kimi Code Docs](https://www.kimi.com/code/docs/en/) (отдельная страница K3 удалена к 11.11.2026)
 - [Kimi API data security](https://platform.moonshot.ai/docs/guide/data-security)
 - [Kimi API model selection](https://platform.moonshot.ai/docs/guide/use-kimi-k3-model)
 - [TokenRouter](https://www.tokenrouter.com/)

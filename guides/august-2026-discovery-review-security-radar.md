@@ -131,4 +131,4 @@ generated artifacts и подключаемых providers.
 - [C2PA explainer](https://c2pa.org/specifications/specifications/2.2/explainer/Explainer.html)
 - [Roamers](https://roamers.dev/)
 - [Roamers privacy](https://roamers.dev/privacy)
-- [TabiToken](https://tabitoken.com/) — ссылка приведена как risk evidence, не рекомендация
+- TabiToken (tabitoken.com, сайт недоступен на 11.11.2026) — ссылка приведена как risk evidence, не рекомендация
