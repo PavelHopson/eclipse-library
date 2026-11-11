@@ -14,6 +14,22 @@ export function filterEntries(entries, groups, query = '', group = '') {
   });
 }
 
+// Связь справочника и галереи: styleCode примера — точный code приёма; пустой styleCode ни с чем не связан.
+export function filterByStyle(examples, code = '') {
+  return code ? examples.filter(example => example?.styleCode === code) : examples;
+}
+
+export function groupByStyle(examples, codes) {
+  const map = new Map();
+  for (const example of examples) {
+    const code = example?.styleCode;
+    if (typeof code !== 'string' || !codes.has(code)) continue;
+    if (!map.has(code)) map.set(code, []);
+    map.get(code).push(example);
+  }
+  return map;
+}
+
 export function expandedText(entry) {
   return `${entry.code} — ${entry.title}\nЧто меняется: ${entry.effect}\nКогда применять: ${entry.when}\nПример фрагмента: ${entry.example}\nОграничение: ${entry.limitation}\nЭто творческая подсказка, не команда генератора.`;
 }
@@ -45,11 +61,13 @@ if (typeof document !== 'undefined') {
   const scrollKey = `library-scroll:${location.pathname}${location.search}${location.hash}`;
   let scrollSaveTimer;
   let scrollRestored = false;
+  // Читаем до первых событий scroll: прокрутка к #якорю во время загрузки не должна подменять сохранённую позицию.
+  const savedScroll = Number(sessionStorage.getItem(scrollKey));
   if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
   function rememberScroll() { sessionStorage.setItem(scrollKey, String(Math.round(window.scrollY))); }
   function restoreScroll() {
     if (scrollRestored) return;
-    const saved = Number(sessionStorage.getItem(scrollKey));
+    const saved = savedScroll;
     if (!Number.isFinite(saved) || saved <= 0) return;
     scrollRestored = true;
     requestAnimationFrame(() => requestAnimationFrame(() => window.scrollTo({ top: saved, left: 0, behavior: 'auto' })));
@@ -64,7 +82,10 @@ if (typeof document !== 'undefined') {
   let projectProduct = '';
   let projectCategory = '';
   let projectSeries = validSeries(new URLSearchParams(location.search).get('series') || '') ? (new URLSearchParams(location.search).get('series') || '') : '';
+  let projectStyle = '';
+  let examplesByCode = new Map();
   let projectLimit = PAGE_SIZE;
+  const reducedMotion = () => window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   $('project-example-category').append(...exampleCategories.map(([id,label])=>new Option(label,id)), new Option('Без категории','uncategorized'));
   let messageTimer;
   let copyTrigger;
@@ -121,6 +142,56 @@ if (typeof document !== 'undefined') {
     figure.append(link, el('figcaption', 'Пример: сгенерировано в ChatGPT'));
     return figure;
   }
+  function openLightbox(src, alt) { lightboxPreview.src = src; lightboxPreview.alt = alt; lightbox.showModal(); }
+  function showSection(target, focusTarget = target) {
+    target.scrollIntoView({ behavior: reducedMotion() ? 'auto' : 'smooth', block: 'start' });
+    focusTarget.focus({ preventScroll: true });
+  }
+  function styleHref(code) {
+    const url = new URL(location.href);
+    url.searchParams.set('style', code);
+    url.hash = 'project-examples';
+    return url.pathname + url.search + url.hash;
+  }
+  function galleryBlock(entry, linked) {
+    const box = el('div', undefined, 'image-code-gallery');
+    const title = el('p', 'В галерее', 'image-code-gallery__title');
+    title.id = `code-${entry.number}-gallery`;
+    box.setAttribute('role', 'group');
+    box.setAttribute('aria-labelledby', title.id);
+    box.append(title);
+    const thumbs = linked.filter(example => example.imageUrl).slice(0, 3).map(example => {
+      const item = el('li');
+      const link = el('a', undefined, 'image-code-gallery__thumb');
+      link.href = example.imageUrl;
+      link.title = 'Открыть изображение в полном размере';
+      const image = el('img');
+      image.src = example.imageUrl;
+      image.alt = `Пример ${entry.code} в галерее: ${example.title || entry.title}`;
+      image.width = 96;
+      image.height = 96;
+      image.loading = 'lazy';
+      image.decoding = 'async';
+      link.append(image);
+      link.addEventListener('click', event => { event.preventDefault(); openLightbox(example.imageUrl, image.alt); });
+      item.append(link);
+      return item;
+    });
+    if (thumbs.length) { const list = el('ul', undefined, 'image-code-gallery__thumbs'); list.append(...thumbs); box.append(list); }
+    const all = el('a', `Все примеры (${linked.length})`, 'image-code-gallery__all');
+    all.href = styleHref(entry.code);
+    all.setAttribute('aria-label', `Все примеры приёма ${entry.code} в галерее: ${linked.length}`);
+    all.addEventListener('click', event => { event.preventDefault(); setStyle(entry.code); showSection($('project-examples'), $('project-examples-title')); });
+    box.append(all);
+    return box;
+  }
+  function openCodebookEntry(entry) {
+    search.value = entry.code;
+    group.value = '';
+    render();
+    const heading = $(`code-${entry.number}`);
+    if (heading) showSection($('codebook'), heading);
+  }
   function render(updateUrl = true) {
     const matches = filterEntries(data.entries, data.groups, search.value, group.value);
     const fragment = document.createDocumentFragment();
@@ -133,6 +204,7 @@ if (typeof document !== 'undefined') {
       meta.append(el('span', String(entry.number).padStart(2, '0')), el('code', entry.code), el('span', labels.get(entry.group)));
       const heading = el('h3', entry.title);
       heading.id = `code-${entry.number}`;
+      heading.tabIndex = -1;
       article.setAttribute('aria-labelledby', heading.id);
       const details = el('details');
       details.append(el('summary', 'Когда применять, пример и ограничения'));
@@ -142,7 +214,10 @@ if (typeof document !== 'undefined') {
       const actions = el('div', undefined, 'image-actions');
       actions.append(copyButton('Код', entry.code, `Копировать код ${entry.code}`), copyButton('Описание', expandedText(entry), `Копировать описание ${entry.code}`));
       if (entry.image) article.append(exampleFigure(entry));
-      article.append(meta, heading, el('p', entry.effect), details, actions);
+      article.append(meta, heading, el('p', entry.effect), details);
+      const linked = examplesByCode.get(entry.code);
+      if (linked?.length) article.append(galleryBlock(entry, linked));
+      article.append(actions);
       li.append(article);
       fragment.append(li);
     });
@@ -160,6 +235,21 @@ if (typeof document !== 'undefined') {
     const params = new URLSearchParams(location.search);
     search.value = params.get('q') || '';
     group.value = data.groups.some(item => item.id === params.get('group')) ? params.get('group') : '';
+    const style = params.get('style') || '';
+    projectStyle = data.entries.some(entry => entry.code === style) ? style : '';
+  }
+  function updateGalleryUrl() {
+    const params = new URLSearchParams(location.search);
+    if (projectSeries) params.set('series', projectSeries); else params.delete('series');
+    if (projectStyle) params.set('style', projectStyle); else params.delete('style');
+    const query = params.toString();
+    history.replaceState(history.state, '', `${location.pathname}${query ? '?' + query : ''}${location.hash}`);
+  }
+  function setStyle(code) {
+    projectStyle = data.entries.some(entry => entry.code === code) ? code : '';
+    projectLimit = PAGE_SIZE;
+    updateGalleryUrl();
+    renderProjectExamples();
   }
   function renderSeriesChips() {
     const counts = seriesCounts(projectExamples);
@@ -169,15 +259,23 @@ if (typeof document !== 'undefined') {
   function setSeries(id) {
     projectSeries = validSeries(id) ? id : '';
     projectLimit = PAGE_SIZE;
-    const params = new URLSearchParams(location.search);
-    if (projectSeries) params.set('series', projectSeries); else params.delete('series');
-    const query = params.toString();
-    history.replaceState(history.state, '', `${location.pathname}${query ? '?' + query : ''}${location.hash}`);
+    updateGalleryUrl();
     renderSeriesChips();
     renderProjectExamples();
   }
+  function renderStyleFilter() {
+    const note = $('project-example-style');
+    const entry = projectStyle && data.entries.find(item => item.code === projectStyle);
+    note.hidden = !entry;
+    if (!entry) { note.replaceChildren(); return; }
+    const link = el('a', `${entry.code} · ${entry.title}`);
+    link.href = `${location.pathname}?q=${encodeURIComponent(entry.code)}#code-${entry.number}`;
+    link.addEventListener('click', event => { event.preventDefault(); openCodebookEntry(entry); });
+    note.replaceChildren(document.createTextNode('Приём: '), link, document.createTextNode(' · «Сбросить» вернёт все примеры'));
+  }
   function renderProjectExamples() {
-    const matches = filterExamples(filterBySeries(projectExamples, projectSeries), {query:projectQuery, product:projectProduct, category:projectCategory});
+    renderStyleFilter();
+    const matches = filterExamples(filterBySeries(filterByStyle(projectExamples, projectStyle), projectSeries), {query:projectQuery, product:projectProduct, category:projectCategory});
     const visible = matches.slice(0, projectLimit);
     $('project-example-count').textContent = `${matches.length} из ${projectExamples.length} примеров`;
     $('project-example-empty').hidden = matches.length !== 0;
@@ -189,7 +287,7 @@ if (typeof document !== 'undefined') {
       const article = el('article', undefined, 'image-project-example');
       const head = el('div', undefined, 'image-project-example__head');
       head.append(el('span', example.category ? categoryLabel(example.category) : example.project, 'image-project-example__project'), el('span', example.format, 'image-project-example__format'));
-      const style=data.entries.find(entry=>entry.code===example.styleCode);if(style){const link=el('a',style.code+' · '+style.title);link.href='images.html?q='+encodeURIComponent(style.code)+'#code-'+style.number;head.append(link);}
+      const style=data.entries.find(entry=>entry.code===example.styleCode);if(style){const link=el('a',style.code+' · '+style.title,'image-project-example__style');link.href='images.html?q='+encodeURIComponent(style.code)+'#code-'+style.number;link.setAttribute('aria-label',`Приём ${style.code} в справочнике: ${style.title}`);link.addEventListener('click',event=>{event.preventDefault();openCodebookEntry(style);});head.append(link);}
       const media = el('div', undefined, 'image-project-example__media');
       if (example.imageUrl) { const imageLink = el('a', undefined, 'image-project-example__image-link'); imageLink.href = example.imageUrl; imageLink.title = 'Открыть изображение в полном размере'; const image = el('img', undefined, 'image-project-example__image'); image.src = example.imageUrl; image.alt = `Пример изображения: ${example.title}. Нажмите, чтобы открыть полный размер`; image.loading = 'lazy'; imageLink.append(image); imageLink.addEventListener('click', event => { event.preventDefault(); lightboxPreview.src = example.imageUrl; lightboxPreview.alt = image.alt; lightbox.showModal(); }); media.append(imageLink); }
       else media.append(el('span', 'Пример изображения пока не загружен', 'image-project-example__placeholder'));
@@ -222,6 +320,17 @@ if (typeof document !== 'undefined') {
       const response = await fetch('image-prompt-codes.json?v=4', { signal: controller.signal });
       if (!response.ok) throw new Error(`HTTP ${response.status}`);
       data = validateCodebook(await response.json());
+      group.replaceChildren(new Option('Все группы', ''));
+      data.groups.forEach(item => group.append(new Option(item.title, item.id)));
+      [search, group, $('reset-filters')].forEach(node => { node.disabled = false; });
+      applyUrl();
+      render(false);
+      $('recipe-list').replaceChildren(...data.recipes.map(recipe => {
+        const article = el('article', undefined, 'image-recipe');
+        article.append(el('h3', recipe.title), el('code', recipe.codes.join(' ')), el('p', recipe.prompt), copyButton('Скопировать рецепт', recipe.prompt, `Копировать рецепт: ${recipe.title}`));
+        return article;
+      }));
+      $('source-details').replaceChildren(el('p', `${data.source.title} · ${data.source.author} · статья: ${data.source.publishedAt} · проверено: ${data.source.checkedAt}.`), el('p', data.source.verification), el('p', data.source.rights));
       const examplesResponse = await fetch('image-project-examples.json', { signal: controller.signal });
       if (!examplesResponse.ok) throw new Error(`HTTP ${examplesResponse.status}`);
       const examplesPayload = await examplesResponse.json();
@@ -234,21 +343,15 @@ if (typeof document !== 'undefined') {
           if (livePayload.schemaVersion === 1 && Array.isArray(livePayload.examples)) projectExamples = livePayload.examples;
         }
       } catch { /* статический набор остаётся резервом при недоступности API */ }
-      group.replaceChildren(new Option('Все группы', ''));
-      data.groups.forEach(item => group.append(new Option(item.title, item.id)));
-      [search, group, $('reset-filters')].forEach(node => { node.disabled = false; });
-      applyUrl();
+      // Справочник уже показан; перерисовываем его, чтобы появились блоки «В галерее».
+      examplesByCode = groupByStyle(projectExamples, new Set(data.entries.map(entry => entry.code)));
       render(false);
-      $('recipe-list').replaceChildren(...data.recipes.map(recipe => {
-        const article = el('article', undefined, 'image-recipe');
-        article.append(el('h3', recipe.title), el('code', recipe.codes.join(' ')), el('p', recipe.prompt), copyButton('Скопировать рецепт', recipe.prompt, `Копировать рецепт: ${recipe.title}`));
-        return article;
-      }));
       const products = [...new Set(projectExamples.map(example => example.project).filter(Boolean))].sort((a, b) => a.localeCompare(b, 'ru'));
       $('project-example-project').replaceChildren(new Option('Все продукты', ''), ...products.map(product => new Option(product, product)));
       renderSeriesChips();
       renderProjectExamples();
-      $('source-details').replaceChildren(el('p', `${data.source.title} · ${data.source.author} · статья: ${data.source.publishedAt} · проверено: ${data.source.checkedAt}.`), el('p', data.source.verification), el('p', data.source.rights));
+      const anchor = location.hash.length > 1 && document.getElementById(decodeURIComponent(location.hash.slice(1)));
+      if (anchor && !(savedScroll > 0)) requestAnimationFrame(() => anchor.scrollIntoView({ block: 'start' }));
     } catch {
       $('load-error').hidden = false;
       $('result-count').textContent = 'Справочник не загружен';
@@ -268,9 +371,9 @@ if (typeof document !== 'undefined') {
   $('project-example-project').addEventListener('change', event => { projectProduct = event.target.value; projectLimit = PAGE_SIZE; renderProjectExamples(); });
   $('project-example-series').addEventListener('click', event => { const button = event.target.closest('[data-series]'); if (button) setSeries(button.dataset.series); });
   $('project-example-more').addEventListener('click', () => { const first = projectLimit; projectLimit += PAGE_SIZE; renderProjectExamples(); $('project-example-list').children[first]?.querySelector('a, button, summary')?.focus({ preventScroll: true }); });
-  $('project-example-reset').addEventListener('click', () => { projectQuery = ''; projectProduct = ''; projectCategory=''; projectLimit = PAGE_SIZE; if (projectSeries) setSeries(''); $('project-example-category').value=''; $('project-example-search').value = ''; $('project-example-project').value = ''; renderProjectExamples(); });
+  $('project-example-reset').addEventListener('click', () => { projectQuery = ''; projectProduct = ''; projectCategory=''; projectLimit = PAGE_SIZE; projectStyle = ''; projectSeries = ''; updateGalleryUrl(); renderSeriesChips(); $('project-example-category').value=''; $('project-example-search').value = ''; $('project-example-project').value = ''; renderProjectExamples(); });
   $('reset-filters').addEventListener('click', () => { search.value = ''; group.value = ''; render(); search.focus(); });
   $('retry-load').addEventListener('click', async (event) => { event.preventDefault(); const scrollY = window.scrollY; await load(); window.scrollTo({ top: scrollY, left: 0, behavior: 'instant' }); });
-  window.addEventListener('popstate', () => { if (data) { applyUrl(); render(false); } });
+  window.addEventListener('popstate', () => { if (data) { applyUrl(); render(false); if (projectExamples) renderProjectExamples(); } });
   load();
 }

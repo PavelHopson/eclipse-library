@@ -1,7 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { readFile } from 'node:fs/promises';
-import { filterEntries, expandedText, validateCodebook } from '../web/image-prompts.mjs';
+import { filterEntries, expandedText, validateCodebook, filterByStyle, groupByStyle } from '../web/image-prompts.mjs';
 
 const root = new URL('../', import.meta.url);
 const read = path => readFile(new URL(path, root), 'utf8');
@@ -118,6 +118,35 @@ test('UI uses safe DOM, shared styles, loading/retry, manual-copy fallback and r
   assert.match(js, /showModal\(/); assert.match(js, /copyTrigger\?\.focus/);
   assert.match(js, /scrollRestoration = 'manual'/); assert.match(js, /sessionStorage\.setItem\(scrollKey/); assert.match(js, /window\.scrollTo\(\{ top: saved/);
   assert.match(css, /prefers-reduced-motion/); assert.match(css, /focus-visible/);
+});
+
+test('gallery links by styleCode: filter, grouping, empty and unknown codes', () => {
+  const codes = new Set(data.entries.map(entry => entry.code));
+  const examples = [{ id: 'a', styleCode: '/eyelevel' }, { id: 'b', styleCode: '/eyelevel' }, { id: 'c', styleCode: '' }, { id: 'd' }, { id: 'e', styleCode: '/unknown' }, { id: 'f', styleCode: '/OTS' }];
+  assert.deepEqual(filterByStyle(examples, '/eyelevel').map(example => example.id), ['a', 'b']);
+  assert.equal(filterByStyle(examples, '').length, examples.length);
+  assert.equal(filterByStyle(examples, '/ots').length, 0, 'codes are case-sensitive');
+  const grouped = groupByStyle(examples, codes);
+  assert.deepEqual([...grouped.keys()], ['/eyelevel', '/OTS']);
+  assert.equal(grouped.get('/eyelevel').length, 2);
+  assert.equal(groupByStyle(examples.map(({ styleCode, ...rest }) => rest), codes).size, 0, 'empty styleCode shows no block');
+});
+test('codebook card has a gallery block and the gallery accepts ?style= with reset', async () => {
+  const js = await read('web/image-prompts.mjs');
+  const html = await read('web/images.html');
+  assert.match(js, /'В галерее'/);
+  assert.match(js, /Все примеры \(\$\{linked\.length\}\)/);
+  assert.match(js, /if \(linked\?\.length\) article\.append\(galleryBlock/);
+  assert.match(js, /slice\(0, 3\)/);
+  assert.match(js, /image\.loading = 'lazy'/);
+  assert.match(js, /params\.get\('style'\)/);
+  assert.match(js, /params\.set\('style', projectStyle\)/);
+  assert.match(js, /filterByStyle\(projectExamples, projectStyle\)/);
+  assert.match(js, /projectStyle = ''; projectSeries = ''; updateGalleryUrl\(\)/);
+  assert.match(js, /examplesByCode = groupByStyle\(projectExamples/);
+  assert.match(html, /id="project-example-style"/);
+  assert.match(html, /image-prompts\.mjs\?v=11/);
+  assert.match(html, /image-prompts\.css\?v=8/);
 });
 
 test('example images are local, sized and described', async () => {
