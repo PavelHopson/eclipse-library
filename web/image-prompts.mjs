@@ -197,7 +197,7 @@ if (typeof document !== 'undefined') {
     const controller = new AbortController();
     const timeout = setTimeout(() => controller.abort(), 10000);
     try {
-      const response = await fetch('image-prompt-codes.json?v=3', { signal: controller.signal });
+      const response = await fetch('image-prompt-codes.json?v=4', { signal: controller.signal });
       if (!response.ok) throw new Error(`HTTP ${response.status}`);
       data = validateCodebook(await response.json());
       const examplesResponse = await fetch('image-project-examples.json', { signal: controller.signal });
