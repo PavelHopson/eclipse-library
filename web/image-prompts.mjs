@@ -1,4 +1,5 @@
 import { exampleCategories, categoryLabel, filterExamples } from './example-categories.mjs';
+import { exampleSeries, filterBySeries, seriesCounts, validSeries, PAGE_SIZE } from './example-series.mjs';
 export function normalizeSearch(value) {
   return String(value ?? '').normalize('NFKC').toLocaleLowerCase('ru').replaceAll('ё', 'е').trim();
 }
@@ -62,6 +63,8 @@ if (typeof document !== 'undefined') {
   let projectQuery = '';
   let projectProduct = '';
   let projectCategory = '';
+  let projectSeries = validSeries(new URLSearchParams(location.search).get('series') || '') ? (new URLSearchParams(location.search).get('series') || '') : '';
+  let projectLimit = PAGE_SIZE;
   $('project-example-category').append(...exampleCategories.map(([id,label])=>new Option(label,id)), new Option('Без категории','uncategorized'));
   let messageTimer;
   let copyTrigger;
@@ -158,11 +161,31 @@ if (typeof document !== 'undefined') {
     search.value = params.get('q') || '';
     group.value = data.groups.some(item => item.id === params.get('group')) ? params.get('group') : '';
   }
+  function renderSeriesChips() {
+    const counts = seriesCounts(projectExamples);
+    const chip = (id, label, count) => { const button = el('button', undefined, 'project-series-chip'); button.type = 'button'; button.dataset.series = id; button.setAttribute('aria-pressed', String(projectSeries === id)); button.append(el('span', label), el('span', String(count), 'project-series-chip__count')); return button; };
+    $('project-example-series').replaceChildren(chip('', 'Все', projectExamples.length), ...exampleSeries.filter(([id]) => counts[id] > 0).map(([id, label]) => chip(id, label, counts[id])));
+  }
+  function setSeries(id) {
+    projectSeries = validSeries(id) ? id : '';
+    projectLimit = PAGE_SIZE;
+    const params = new URLSearchParams(location.search);
+    if (projectSeries) params.set('series', projectSeries); else params.delete('series');
+    const query = params.toString();
+    history.replaceState(history.state, '', `${location.pathname}${query ? '?' + query : ''}${location.hash}`);
+    renderSeriesChips();
+    renderProjectExamples();
+  }
   function renderProjectExamples() {
-    const matches = filterExamples(projectExamples, {query:projectQuery, product:projectProduct, category:projectCategory});
+    const matches = filterExamples(filterBySeries(projectExamples, projectSeries), {query:projectQuery, product:projectProduct, category:projectCategory});
+    const visible = matches.slice(0, projectLimit);
     $('project-example-count').textContent = `${matches.length} из ${projectExamples.length} примеров`;
     $('project-example-empty').hidden = matches.length !== 0;
-    $('project-example-list').replaceChildren(...matches.map(example => {
+    const more = $('project-example-more');
+    const rest = matches.length - visible.length;
+    more.hidden = rest <= 0;
+    more.textContent = `Показать ещё ${Math.min(rest, PAGE_SIZE)} · осталось ${rest}`;
+    $('project-example-list').replaceChildren(...visible.map(example => {
       const article = el('article', undefined, 'image-project-example');
       const head = el('div', undefined, 'image-project-example__head');
       head.append(el('span', example.category ? categoryLabel(example.category) : example.project, 'image-project-example__project'), el('span', example.format, 'image-project-example__format'));
@@ -182,9 +205,8 @@ if (typeof document !== 'undefined') {
       const source = example.sourceUrl || example.source_url;
       const rights = example.rightsNote || example.rights_note;
       if (source || rights) { const provenance = el('p', undefined, 'image-project-example__provenance'); if (source) provenance.append(el('a', 'Источник ↗')); provenance.querySelector('a')?.setAttribute('href', source); provenance.querySelector('a')?.setAttribute('target', '_blank'); provenance.querySelector('a')?.setAttribute('rel', 'noopener'); if (rights) provenance.append(document.createTextNode(`${source ? ' · ' : ''}${rights}`)); body.append(provenance); }
-      const note = el('p', undefined, 'image-project-example__check');
-      note.append(el('strong', 'Проверка: '), document.createTextNode(example.check || example.description || ''));
-      body.append(note, copyButton('Скопировать промпт', example.prompt, `Копировать промпт: ${example.project}`));
+      if (example.check && example.check !== example.description) { const note = el('p', undefined, 'image-project-example__check'); note.append(el('strong', 'Проверка: '), document.createTextNode(example.check)); body.append(note); }
+      body.append(copyButton('Скопировать промпт', example.prompt, `Копировать промпт: ${example.project}`));
       article.append(media, body);
       return article;
     }));
@@ -224,6 +246,7 @@ if (typeof document !== 'undefined') {
       }));
       const products = [...new Set(projectExamples.map(example => example.project).filter(Boolean))].sort((a, b) => a.localeCompare(b, 'ru'));
       $('project-example-project').replaceChildren(new Option('Все продукты', ''), ...products.map(product => new Option(product, product)));
+      renderSeriesChips();
       renderProjectExamples();
       $('source-details').replaceChildren(el('p', `${data.source.title} · ${data.source.author} · статья: ${data.source.publishedAt} · проверено: ${data.source.checkedAt}.`), el('p', data.source.verification), el('p', data.source.rights));
     } catch {
@@ -240,10 +263,12 @@ if (typeof document !== 'undefined') {
   search.addEventListener('input', () => render());
   group.addEventListener('change', () => render());
   $('project-example-filters').addEventListener('submit', event=>event.preventDefault());
-  $('project-example-category').addEventListener('change', event=>{projectCategory=event.target.value;renderProjectExamples();});
-  $('project-example-search').addEventListener('input', event => { projectQuery = event.target.value; renderProjectExamples(); });
-  $('project-example-project').addEventListener('change', event => { projectProduct = event.target.value; renderProjectExamples(); });
-  $('project-example-reset').addEventListener('click', () => { projectQuery = ''; projectProduct = ''; projectCategory=''; $('project-example-category').value=''; $('project-example-search').value = ''; $('project-example-project').value = ''; renderProjectExamples(); });
+  $('project-example-category').addEventListener('change', event=>{projectCategory=event.target.value;projectLimit=PAGE_SIZE;renderProjectExamples();});
+  $('project-example-search').addEventListener('input', event => { projectQuery = event.target.value; projectLimit = PAGE_SIZE; renderProjectExamples(); });
+  $('project-example-project').addEventListener('change', event => { projectProduct = event.target.value; projectLimit = PAGE_SIZE; renderProjectExamples(); });
+  $('project-example-series').addEventListener('click', event => { const button = event.target.closest('[data-series]'); if (button) setSeries(button.dataset.series); });
+  $('project-example-more').addEventListener('click', () => { const first = projectLimit; projectLimit += PAGE_SIZE; renderProjectExamples(); $('project-example-list').children[first]?.querySelector('a, button, summary')?.focus({ preventScroll: true }); });
+  $('project-example-reset').addEventListener('click', () => { projectQuery = ''; projectProduct = ''; projectCategory=''; projectLimit = PAGE_SIZE; if (projectSeries) setSeries(''); $('project-example-category').value=''; $('project-example-search').value = ''; $('project-example-project').value = ''; renderProjectExamples(); });
   $('reset-filters').addEventListener('click', () => { search.value = ''; group.value = ''; render(); search.focus(); });
   $('retry-load').addEventListener('click', async (event) => { event.preventDefault(); const scrollY = window.scrollY; await load(); window.scrollTo({ top: scrollY, left: 0, behavior: 'instant' }); });
   window.addEventListener('popstate', () => { if (data) { applyUrl(); render(false); } });
