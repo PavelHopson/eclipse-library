@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "consumer": "Eclipse CRM",
-  "catalogVersion": "fdaa1d043fbada5b69f3c569e60ba60a1289b7082f4cf6dcfdb612ffe80f6cf3",
+  "catalogVersion": "01e2f8561d1a8c9d946bc7dc30ab9abd1c4d3f603f40b001a9c9c30f1ced2f96",
   "generatedAt": null,
   "policy": {
     "greyResourcesExcluded": true,
@@ -7946,7 +7946,7 @@
     {
       "id": "github-models",
       "title": "GitHub Models",
-      "url": "https://github.com/marketplace/models",
+      "url": "https://docs.github.com/en/github-models",
       "type": "model",
       "category": "AI & Claude Code",
       "subcategory": "Бесплатные API",
@@ -7974,7 +7974,7 @@
           {
             "kind": "official-source",
             "label": "Официальный источник; точные условия ещё нужно сверить",
-            "url": "https://github.com/marketplace/models"
+            "url": "https://docs.github.com/en/github-models"
           }
         ]
       },
@@ -7995,7 +7995,7 @@
         {
           "kind": "official-source",
           "label": "Официальный источник",
-          "url": "https://github.com/marketplace/models"
+          "url": "https://docs.github.com/en/github-models"
         }
       ],
       "actions": {

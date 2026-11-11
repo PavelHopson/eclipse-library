@@ -1,5 +1,5 @@
 import { exampleCategories, categoryLabel, filterExamples } from './example-categories.mjs';
-import { exampleSeries, filterBySeries, seriesCounts, validSeries, PAGE_SIZE } from './example-series.mjs';
+import { exampleSeries, filterBySeries, seriesCounts, validSeries, PAGE_SIZE } from './example-series.mjs?v=2';
 export function normalizeSearch(value) {
   return String(value ?? '').normalize('NFKC').toLocaleLowerCase('ru').replaceAll('ё', 'е').trim();
 }
