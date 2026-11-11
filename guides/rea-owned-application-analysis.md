@@ -44,7 +44,7 @@ REA **не является песочницей**. Для неизвестны�
 
 Закрепите версию REA и сохраните lockfile. Не регистрируйте MCP автоматически во всех агентах. Для первого опыта достаточно локального CLI; установочные scripts и изменения общих настроек не нужны по умолчанию.
 
-У статического анализа JavaScript команда `analyze-javascript-application` принимает подготовленный каталог или ASAR. Для нативного файла выбирается отдельный provider. Успешный exit code ещё не означает полное покрытие: читайте предупреждения, ограничения и неразрешённые связи. [CLI и Evidence](https://github.com/morluto/rea/blob/main/docs/cli.md).
+У статического анализа JavaScript команда `analyze-javascript-application` принимает подготовленный каталог или ASAR. Для нативного файла выбирается отдельный provider. Успешный exit code ещё не означает полное покрытие: читайте предупреждения, ограничения и неразрешённые связи. [CLI и Evidence](https://github.com/morluto/rea/tree/main/docs).
 
 Для Tauri различайте нативную оболочку и web UI. Если интерфейс загружается по URL, содержимое desktop-пакета не доказывает состав текущего сайта. Зафиксируйте обе версии независимо.
 
@@ -98,7 +98,7 @@ REA **не является песочницей**. Для неизвестны�
 ## Источники и история
 
 - [REA: README и ограничения](https://github.com/morluto/rea).
-- [CLI и формат доказательств](https://github.com/morluto/rea/blob/main/docs/cli.md).
+- [CLI и формат доказательств](https://github.com/morluto/rea/tree/main/docs).
 - [Границы безопасности](https://github.com/morluto/rea/blob/main/SECURITY.md).
 - [Лицензия REA](https://github.com/morluto/rea/blob/main/LICENSE).
 

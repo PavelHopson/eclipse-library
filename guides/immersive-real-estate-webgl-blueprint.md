@@ -106,7 +106,7 @@ public/estate/
 - не оставляйте `preserveDrawingBuffer` включённым без необходимости.
 
 Официальные справки: [WebGLRenderer](https://threejs.org/docs/pages/WebGLRenderer.html) и
-[освобождение GPU‑ресурсов](https://threejs.org/manual/en/how-to-dispose-of-objects.html).
+[освобождение GPU‑ресурсов](https://threejs.org/manual/#en/how-to-dispose-of-objects).
 
 ### Урок 2. Единая сцена и ограниченный API
 

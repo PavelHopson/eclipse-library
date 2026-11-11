@@ -26,7 +26,7 @@ Page Mascot — React-компонент Kamran Ahmed. В изученном pac
 
 ### Урок 3. Готовый персонаж
 
-**[Открыть коллекцию Koboyo](/mascots/koboyo/index.html)** · [Скачать весь набор ZIP](/mascots/koboyo/downloads/koboyo-page-mascot.zip) · [Инструкция](/mascots/koboyo/README.md) · [Лицензия](/mascots/koboyo/LICENSE.txt).
+**[Открыть коллекцию Koboyo](/mascots/koboyo/index.html)** · [Скачать весь набор ZIP](/mascots/koboyo/downloads/koboyo-page-mascot.zip) · [Лицензия](/mascots/koboyo/LICENSE.txt).
 
 В коллекции **53 персонажа и 5 дополнительных стилей лисы — 58 вариантов, 116 WebP-файлов**. Это готовый набор Kamran Ahmed из официального репозитория, с сохранением авторства и MIT. Изображения весят 21,44 МБ, общий ZIP — около 21,43 МБ. Для одного персонажа нужны только два его листа.
 
