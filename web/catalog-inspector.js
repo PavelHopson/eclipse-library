@@ -33,7 +33,7 @@
       type: labels.types?.[resource?.type] || String(resource?.type || 'Материал'),
       trust: labels.trust?.[resource?.trust] || labels.trust?.unknown || 'Нужна проверка',
       linkHealth: labels.linkHealth?.[resource?.linkHealth?.status] || labels.linkHealth?.unchecked || 'Ссылка не проверена',
-      decision: labels.decisions?.[resource?.decision] || labels.decisions?.reference || 'Оставить как reference',
+      decision: labels.decisions?.[resource?.decision] || labels.decisions?.reference || 'Для справки',
       decisionKey: String(resource?.decision || 'reference'),
       risk: labels.risks?.[resource?.riskLevel] || labels.risks?.medium || 'Средний риск',
       riskKey: String(resource?.riskLevel || 'medium'),

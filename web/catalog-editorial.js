@@ -21,7 +21,7 @@
       `<div class="recent-editorial-list">${latest.map((card) => {
         const resource = card.resource;
         const projects = resource.projects.slice(0, 2).join(', ') || 'Применимость уточняется';
-        return `<a class="recent-editorial-item decision-${resource.decision}" href="#item/${encodeURIComponent(resource.id)}"><div class="recent-editorial-meta"><time datetime="${escAttr(resource.addedAt)}">${esc(formatAddedAt(resource.addedAt))}</time><span>${esc(decisions[resource.decision] || decisions.reference)}</span></div><h3>${esc(resource.title)}</h3><p>${esc(resource.simpleDescription)}</p><footer><span>Для: ${esc(projects)}</span><b>${esc(risks[resource.riskLevel] || risks.medium)}</b></footer></a>`;
+        return `<a class="recent-editorial-item decision-${resource.decision}" href="#item/${encodeURIComponent(resource.id)}"><div class="recent-editorial-meta"><time datetime="${escAttr(resource.addedAt)}">${esc(formatAddedAt(resource.addedAt))}</time><span>${esc(decisions[resource.decision] || decisions.reference)}</span></div><h3>${esc(resource.title)}</h3><p>${esc(resource.simpleDescription)}</p><footer><span>Для: ${esc(projects)}</span><b data-risk="${escAttr(resource.riskLevel || 'medium')}">${esc(risks[resource.riskLevel] || risks.medium)}</b></footer></a>`;
       }).join('')}</div>`;
   }
 

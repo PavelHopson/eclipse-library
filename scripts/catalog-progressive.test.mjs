@@ -114,7 +114,7 @@ test('app wires lazy descriptors and modules before the main bundle', () => {
   const reviewScript = html.indexOf('catalog-review.js');
   const searchScript = html.indexOf('catalog-search.js');
   assert.match(html, /catalog-review\.js\?v=2/);
-  assert.match(html, /review\.css\?v=2/);
+  assert.match(html, /review\.css\?v=3/);
   assert.match(reviewSource, /dataset\.reviewDownload/);
   const appScript = html.indexOf('app.js');
   assert.match(html, /catalog-workflow\.js\?v=1/);
@@ -133,10 +133,10 @@ test('adopts the versioned Eclipse Forge product visual profile locally', () => 
 
   assert.equal(tokens.schemaVersion, 'eclipse-forge.visual-system.v1');
   assert.ok(tokens.intensityProfiles.includes('product'));
-  assert.match(html, /styles\.css\?v=31/);
+  assert.match(html, /styles\.css\?v=32/);
   assert.match(html, /assets\/fonts\/inter-cyrillic\.woff2/);
   assert.doesNotMatch(html + css, /fonts\.googleapis\.com|fonts\.gstatic\.com/);
-  assert.match(css, /--bg: #05070a;/);
+  assert.match(css, /--bg: #050506;/);
   assert.match(css, /--gold: #d4af37;/);
   assert.match(css, /--display: 'Outfit'/);
   assert.doesNotMatch(css, /forgeOrbitPresence|animation:[^;]*infinite/);

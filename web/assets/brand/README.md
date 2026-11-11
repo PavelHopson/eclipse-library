@@ -1,6 +1,6 @@
 # Eclipse Library brand mark
 
-Production identity based on the approved concept: an eclipse crescent that becomes an open book.
+Production identity from the Eclipse Forge logo system A «Тень и корона» (2026-11-10): the open-book silhouette in front of its gold copy offset up-right.
 
 ## Files
 
@@ -11,8 +11,8 @@ Production identity based on the approved concept: an eclipse crescent that beco
 
 ## Rules
 
-- Keep the crescent, two page arcs and centred bookmark together.
-- Use the canonical Eclipse Forge palette: `#05070A`, `#F2F5F9`, `#6BA3FF`, `#D4AF37`.
+- Keep the dark book and its gold copy together; the offset is always up-right.
+- Palette: stage `#050506`, gold `#D4AF37`, icon body `#4A4A55`, paper `#F5F5F0`, ink `#0B0B0D`. No blue.
 - Do not recolour the mark purple, add heavy bloom, stretch it or place text inside the symbol.
 - Use the monochrome asset when colour reproduction or contrast cannot be guaranteed.
 - Keep clear space around the mark equal to at least one half of the bookmark width.

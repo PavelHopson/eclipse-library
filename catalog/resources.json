@@ -7,6 +7,259 @@
   },
   "items": [
     {
+      "id": "css-svg-gooey-effect",
+      "url": "https://css-tricks.com/gooey-effect/",
+      "title": "Gooey-эффект — «жидкие» лоадеры на CSS и SVG-фильтре",
+      "type": "learn",
+      "category": "Сайты-находки",
+      "subcategory": "Фронтенд и анимация",
+      "simpleDescription": "Разбор приёма, на котором построены популярные «жидкие» лоадеры из рилсов: фигуры двигаются CSS-анимацией, а SVG-фильтр (размытие плюс резкий порог прозрачности) склеивает их, как капли ртути. Без JavaScript. Статья Lucas Bebber на CSS-Tricks, 2015; приём работает и сейчас.",
+      "useCases": [
+        "Лоадер или экран загрузки в фирменном стиле",
+        "Индикатор «печатает…» в чате из сливающихся точек",
+        "Полоса отправки файла с «каплей»",
+        "Учебный разбор SVG-фильтров feGaussianBlur и feColorMatrix"
+      ],
+      "platforms": [
+        "Web",
+        "CSS",
+        "SVG"
+      ],
+      "license": "CSS-Tricks разрешает брать код и демо с сайта: «Take whatever code, design, and demos you find on this site». Текст статьи не копируйте, пишите своё.",
+      "licenseEvidence": [
+        {
+          "kind": "license",
+          "label": "CSS-Tricks — условия использования кода",
+          "url": "https://css-tricks.com/license/"
+        },
+        {
+          "kind": "source",
+          "label": "The Gooey Effect (Lucas Bebber, 04.02.2015)",
+          "url": "https://css-tricks.com/gooey-effect/"
+        },
+        {
+          "kind": "docs",
+          "label": "MDN: feColorMatrix",
+          "url": "https://developer.mozilla.org/en-US/docs/Web/SVG/Reference/Element/feColorMatrix"
+        }
+      ],
+      "pricing": "Бесплатно.",
+      "access": {
+        "cost": "free",
+        "signup": "none",
+        "runtime": "local"
+      },
+      "trust": "verified",
+      "trustReason": "10.11.2026: прочитаны статья и условия CSS-Tricks, сверены с MDN. Приём собран и открыт нами локально в цветах Eclipse (демо EF-gooey-loader-2026-11-10); в браузере проверен статичный кадр, производительность на телефонах не измерялась. Находка из рилса devbymansi (25.10.2026).",
+      "projects": [
+        "Eclipse Chat"
+      ],
+      "decision": "reference",
+      "riskLevel": "low",
+      "risks": [
+        "Фильтр тяжёлый на больших площадях и на слабых телефонах — держите его только на маленьком контейнере лоадера",
+        "Работает по альфа-каналу: фон внутри контейнера должен быть прозрачным, иначе эффект пропадёт",
+        "Нужен вариант для prefers-reduced-motion: без морфинга, только мягкая пульсация",
+        "Лоадер должен иметь role=status или progressbar и подпись для читалок"
+      ],
+      "verifiedAt": "2026-11-10",
+      "addedAt": "2026-11-10",
+      "reviewStatus": "verified",
+      "quickStart": [
+        "Положите на страницу SVG-фильтр: feGaussianBlur stdDeviation≈7–10, затем feColorMatrix с альфой 18–22 и смещением −7…−9",
+        "Повесьте filter:url(#goo) на родительский контейнер, а не на каждую фигуру; оставьте отступы",
+        "Анимируйте круги внутри через transform (translate/rotate)",
+        "Добавьте @media (prefers-reduced-motion: reduce) без фильтра и движения"
+      ],
+      "source": {
+        "file": "catalog/resources.json",
+        "key": "css-svg-gooey-effect",
+        "category": "Сайты-находки",
+        "subcategory": "Фронтенд и анимация"
+      },
+      "verification": {
+        "scope": "Article, site license page and MDN reviewed; technique rebuilt locally as a static demo; no mobile performance measurement.",
+        "runtimeTested": true,
+        "installed": false,
+        "eventDate": null,
+        "sources": [
+          "https://css-tricks.com/gooey-effect/",
+          "https://css-tricks.com/license/",
+          "https://developer.mozilla.org/en-US/docs/Web/SVG/Reference/Element/feColorMatrix",
+          "https://www.instagram.com/p/De7Gr83uYjT/"
+        ]
+      },
+      "correctionHistory": [
+        {
+          "date": "2026-11-10",
+          "change": "Добавлена карточка по рилсу devbymansi (Gooey Effect Loader); источник — исходная статья приёма."
+        }
+      ]
+    },
+    {
+      "id": "spaceplanner-browser-floor-plans",
+      "url": "https://spaceplanner.co/",
+      "title": "SpacePlanner — планировка дома в 2D и 3D прямо в браузере",
+      "type": "tool",
+      "category": "Сайты-находки",
+      "subcategory": "Дом, ремонт и планировка",
+      "simpleDescription": "Бесплатный онлайн-планировщик: рисуете стены, двери и окна в 2D с размерами, и из них сразу строится 3D-модель, по которой можно пройтись. Есть 31 готовый шаблон дома, сад, бассейн, этажи и лестницы, экспорт в PNG, PDF, SVG, JSON и DXF. Начать можно без регистрации.",
+      "useCases": [
+        "Прикинуть планировку квартиры или комнаты перед ремонтом",
+        "Расставить мебель и проверить проходы по размерам",
+        "Показать подрядчику или семье идею дома в 3D",
+        "Перевести фото или скан старого плана в редактируемый план (AI-импорт)"
+      ],
+      "platforms": [
+        "Web"
+      ],
+      "license": "Проприетарный онлайн-сервис. По Terms планы остаются вашими («You keep ownership of the plans you create»); условия использования AI-рендеров в Terms не описаны.",
+      "licenseEvidence": [
+        {
+          "kind": "terms",
+          "label": "SpacePlanner Terms",
+          "url": "https://spaceplanner.co/terms"
+        },
+        {
+          "kind": "source",
+          "label": "Главная: возможности, шаблоны, цены рендеров",
+          "url": "https://spaceplanner.co/"
+        }
+      ],
+      "pricing": "Черчение, 3D-вид, этажи, крыши, текстуры и PDF-экспорт бесплатно, без рекламы. Платные только фотореалистичные AI-рендеры за кредиты: Medium 1, High 2, 4K 4 кредита; пакеты от $3.99 за 4 кредита, разовая оплата.",
+      "access": {
+        "cost": "freemium",
+        "signup": "optional",
+        "runtime": "cloud"
+      },
+      "trust": "caution",
+      "trustReason": "10.11.2026: сверены главная и Terms. Оператор указан только как «SpacePlanner», юрисдикция и компания не названы; политика возврата за кредиты и обработка данных в AI-функциях в Terms не описаны. Сервис нами не тестировался руками, показан в рилсе rogich_ (21.10.2026).",
+      "projects": [],
+      "decision": "reference",
+      "riskLevel": "low",
+      "risks": [
+        "Компания-оператор и юрисдикция не раскрыты; не храните там единственную копию важного проекта, экспортируйте JSON/PDF",
+        "AI-импорт загружает ваш план или фото на сервер; не загружайте планы с адресом и личными данными",
+        "AI-рендер помечен самим сервисом как «AI impression, not to scale» — не использовать как рабочий чертёж",
+        "Для перепланировки и строительства нужен проект специалиста; планировщик даёт только эскиз"
+      ],
+      "verifiedAt": "2026-11-10",
+      "addedAt": "2026-11-10",
+      "reviewStatus": "verified",
+      "quickStart": [
+        "Откройте spaceplanner.co и нажмите Start Drawing — регистрация не нужна",
+        "Нарисуйте стены по реальным размерам в 2D, добавьте двери и окна",
+        "Переключитесь в 3D и пройдитесь по комнате",
+        "Если план нужно сохранить или поделиться, создайте бесплатный аккаунт или экспортируйте PDF/JSON"
+      ],
+      "source": {
+        "file": "catalog/resources.json",
+        "key": "spaceplanner-browser-floor-plans",
+        "category": "Сайты-находки",
+        "subcategory": "Дом, ремонт и планировка"
+      },
+      "verification": {
+        "scope": "Official homepage and Terms review only; no account, no AI import or paid render tested.",
+        "runtimeTested": false,
+        "installed": false,
+        "eventDate": null,
+        "sources": [
+          "https://spaceplanner.co/",
+          "https://spaceplanner.co/terms",
+          "https://www.instagram.com/p/DewaQDYMALS/"
+        ]
+      },
+      "correctionHistory": [
+        {
+          "date": "2026-11-10",
+          "change": "Добавлена карточка по рилсу rogich_ «Сайт-находка, часть 13»; факты сверены с сайтом и Terms."
+        }
+      ]
+    },
+    {
+      "id": "oqla-virtual-visa-cards",
+      "url": "https://oqla.ai/",
+      "title": "Oqla — виртуальные карты Visa для оплаты зарубежных сервисов (серая зона)",
+      "type": "grey",
+      "category": "Сайты-находки",
+      "subcategory": "Оплата зарубежных сервисов",
+      "simpleDescription": "Посредник, который выпускает предоплаченные виртуальные карты Visa в долларах с пополнением рублями через СБП или USDT. Оператор — компания из Дубая, сам не банк; эмитент в условиях не назван. Карточка справочная: мы сервис не рекомендуем и не проверяли деньгами.",
+      "useCases": [
+        "Справка: что за сервис показывают в рилсах про оплату подписок",
+        "Сравнение условий с другими способами оплаты перед решением",
+        "Проверка, какие риски и комиссии указаны в официальных условиях"
+      ],
+      "platforms": [
+        "Web",
+        "Apple Pay",
+        "Google Pay"
+      ],
+      "license": "Проприетарный финансовый сервис; использование по условиям POQPAY Fintech Technologies L.L.C-FZ (Дубай, ОАЭ, лицензия 2655065.01).",
+      "licenseEvidence": [
+        {
+          "kind": "terms",
+          "label": "Условия использования Oqla",
+          "url": "https://oqla.ai/terms"
+        },
+        {
+          "kind": "source",
+          "label": "Главная: тарифы и реквизиты оператора",
+          "url": "https://oqla.ai/"
+        }
+      ],
+      "pricing": "По условиям на 10.11.2026: выпуск $15 (подписки и реклама) или $25 (для путешествий), обслуживание $0, $0,30 за покупку, пополнение от $10; USDT — 3% плюс сеть, СБП — комиссия внутри итоговой суммы в рублях, курс может меняться в течение дня.",
+      "access": {
+        "cost": "paid",
+        "signup": "required",
+        "runtime": "cloud"
+      },
+      "trust": "caution",
+      "trustReason": "10.11.2026: сверены главная и Terms. Оператор не банк, эмитент не раскрыт, ответственность ограничена суммой комиссий за 12 месяцев, сервис «как есть». Scamadviser оценивает oqla.ai как «Very Likely Unsafe». Деньгами не проверяли; источник находки — рилс rogich_ (21.10.2026).",
+      "projects": [],
+      "decision": "no",
+      "riskLevel": "high",
+      "risks": [
+        "Финансовый посредник, не банк: эмитент не назван, вклады не страхуются; при блокировке карты эмитентом или Visa деньги могут зависнуть",
+        "Условия прямо запрещают обход санкций и валютного регулирования; использование из России может нарушать правила эмитента и закон — решение и риск на пользователе",
+        "Могут запросить документы личности и источника средств; без них за 14 дней карту закрывают",
+        "При использованной карте возвращается только 30% стоимости выпуска; споры по покупкам без гарантии результата",
+        "Независимая оценка Scamadviser — «Very Likely Unsafe»; не пополняйте больше, чем готовы потерять",
+        "Не финансовая и не юридическая рекомендация"
+      ],
+      "verifiedAt": "2026-11-10",
+      "addedAt": "2026-11-10",
+      "reviewStatus": "verified",
+      "quickStart": [
+        "Не используйте как рекомендацию: прочитайте раздел рисков",
+        "Если всё же рассматриваете — сначала полностью прочитайте oqla.ai/terms, особенно возвраты и запреты",
+        "Сравните с официальными способами оплаты конкретного сервиса"
+      ],
+      "source": {
+        "file": "catalog/resources.json",
+        "key": "oqla-virtual-visa-cards",
+        "category": "Сайты-находки",
+        "subcategory": "Оплата зарубежных сервисов"
+      },
+      "verification": {
+        "scope": "Official homepage and Terms review plus one third-party reputation check; no account, no payment, no card issued.",
+        "runtimeTested": false,
+        "installed": false,
+        "eventDate": null,
+        "sources": [
+          "https://oqla.ai/",
+          "https://oqla.ai/terms",
+          "https://www.scamadviser.com/check-website/oqla.ai",
+          "https://www.instagram.com/p/DewaQDYMALS/"
+        ]
+      },
+      "correctionHistory": [
+        {
+          "date": "2026-11-10",
+          "change": "Добавлена справочная карточка серой зоны по рилсу rogich_ «Сайт-находка, часть 13»; решение no, риски из официальных условий."
+        }
+      ]
+    },
+    {
       "id": "scenario-3d-collection",
       "url": "https://huggingface.co/datasets/scenario-labs/3d-collection",
       "title": "Scenario 3D Collection — готовые 3D-ассеты",

@@ -20,7 +20,7 @@ test('publishes the same versioned brand assets on catalog and registry pages', 
   for (const html of [indexHtml, registryHtml]) {
     assert.match(html, /href="assets\/brand\/eclipse-library-favicon\.svg"/);
     assert.match(html, /src="assets\/brand\/eclipse-library-mark\.svg"/);
-    assert.match(html, /href="styles\.css\?v=31"/);
+    assert.match(html, /href="styles\.css\?v=32"/);
     assert.doesNotMatch(html, /brand-orb|brand-spark|>⚡</u);
   }
 });
@@ -32,9 +32,9 @@ test('keeps SVG assets static, local and script-free', () => {
   }
 });
 
-test('uses only canonical Eclipse Library colours in the primary mark', () => {
+test('uses the Eclipse Forge «Shadow and corona» palette in the primary mark', () => {
   const colors = new Set(primaryMark.match(/#[0-9A-Fa-f]{6}/g)?.map((color) => color.toUpperCase()));
-  assert.deepEqual(colors, new Set(['#F2F5F9', '#D4AF37', '#6BA3FF']));
+  assert.deepEqual(colors, new Set(['#D4AF37', '#4A4A55']));
 });
 
 test('keeps brand motion bounded and reduced-motion safe', () => {

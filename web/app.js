@@ -30,10 +30,10 @@
   if (!workflowRuntime || !cardRuntime || !editorialRuntime || !progressiveRuntime || !inspectorRuntime || !reviewRuntime || !searchRuntime) throw new Error('catalog UI modules are required before app.js');
   const { canonicalUrl, githubRepoKey, groupsFromItems } = runtime;
   const DECISIONS = {
-    now: 'Внедрить сейчас',
-    roadmap: 'Добавить в roadmap',
-    reference: 'Оставить как reference',
-    no: 'Не использовать',
+    now: 'Советуем',
+    roadmap: 'Стоит попробовать',
+    reference: 'Для справки',
+    no: 'Не советуем',
   };
   const TRUST = {
     official: 'Официальный источник',
@@ -788,9 +788,9 @@
 
     // stats
     $('#stats').innerHTML =
-      stat(total, 'материалов для людей') + stat(catalogTotals.verified, 'проверено редактором') +
-      stat(catalogTotals.licenseReviewRequired, 'лицензий требуют проверки') +
-      stat(catalogTotals.agentSafe, 'доступно агентам');
+      stat(total, 'материалов') + stat(catalogTotals.verified, 'проверено вручную') +
+      stat(cats.length, 'разделов') +
+      stat(cards.filter((c) => Date.now() - Date.parse(c.resource.addedAt || 0) < 7 * 864e5).length, 'новых за неделю');
     renderHealthSummary();
 
     buildFilters(typeCounts);
@@ -1719,12 +1719,8 @@
     }
     const totals = linkHealthSnapshot.totals || {};
     const attention = (totals.broken || 0) + (totals.blocked || 0) + (totals.unavailable || 0) + (totals.unknown || 0);
-    const archived = githubMetadataSnapshot?.totals?.archived || 0;
-    const repositoryNote = githubMetadataSnapshot
-      ? ` ${archived} GitHub-репозитория архивированы и помечены отдельно.`
-      : ' Состояние GitHub-репозиториев сейчас не проверено.';
     node.className = `health-summary${attention ? ' health-summary-attention' : ''}`;
-    node.innerHTML = `<span class="health-summary-dot" aria-hidden="true"></span><span><b>${totals.ok || 0} ссылок работают.</b> ${attention} требуют внимания, ${totals.restricted || 0} отвечают с ограничением.${esc(repositoryNote)} Автопроверка: ${esc(formatAutomaticCheck(linkHealthSnapshot.checkedAt))}.</span>`;
+    node.innerHTML = `<span class="health-summary-dot" aria-hidden="true"></span><span><b>Ссылки проверены ${esc(formatAutomaticCheck(linkHealthSnapshot.checkedAt))}.</b> Работают ${totals.ok || 0}, ещё ${attention + (totals.restricted || 0)} помечены в карточках.</span>`;
   }
 
   function relatedCardsFor(entry, limit = 3) {
@@ -2138,7 +2134,9 @@
     if (e.key === 'Escape' && !$('#itemView').hidden) { closeItem(); history.replaceState(null, '', location.pathname + location.search); return; }
     if (e.key === 'Escape' && !$('#guideView').hidden) { closeGuide(); history.replaceState(null, '', location.pathname + location.search); return; }
     if (((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'k') || (e.key === '/' && !/input|textarea|select/i.test(document.activeElement?.tagName || ''))) {
-      e.preventDefault(); search.focus(); search.select();
+      e.preventDefault();
+      const searchTarget = document.body.classList.contains('hero-search-visible') && heroSearch ? heroSearch : search;
+      searchTarget.focus(); searchTarget.select();
     }
     if (e.key === 'Escape' && (document.activeElement === search || document.activeElement === heroSearch)) {
       runSearch('');
@@ -2146,6 +2144,13 @@
     }
     if (e.key === 'Escape' && document.activeElement === navSearch) { navSearch.value = ''; navQuery = ''; updateNavVisibility(); navSearch.blur(); }
   });
+  // Пока виден поиск первого экрана, верхний поиск в шапке спрятан (на десктопе), чтобы не было двух полей рядом.
+  const heroCommandNode = $('#heroCommand');
+  if (heroCommandNode && 'IntersectionObserver' in window) {
+    new IntersectionObserver(([entry]) => {
+      document.body.classList.toggle('hero-search-visible', entry.isIntersecting);
+    }, { rootMargin: '-72px 0px 0px 0px' }).observe(heroCommandNode);
+  }
   window.addEventListener('hashchange', route);
   $('#guideBack').addEventListener('click', () => { closeGuide(); history.replaceState(null, '', location.pathname + location.search); });
   $('#itemBack').addEventListener('click', () => { closeItem(); history.replaceState(null, '', location.pathname + location.search); });
