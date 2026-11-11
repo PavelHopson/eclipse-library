@@ -1,16 +1,16 @@
 /* Eclipse Library v2 — task-first knowledge workspace */
 
 :root {
-  --library-bg: #07090d;
-  --library-panel: #0d1118;
-  --library-panel-2: #111722;
-  --library-line: rgba(219, 228, 240, .12);
-  --library-line-strong: rgba(129, 169, 255, .34);
-  --library-text: #f4f7fb;
-  --library-muted: #a9b4c2;
-  --library-dim: #718094;
-  --library-accent: #81a9ff;
-  --library-accent-soft: rgba(129, 169, 255, .11);
+  --library-bg: #0B0A09;
+  --library-panel: #131211;
+  --library-panel-2: #1A1918;
+  --library-line: rgba(232,228,218, .12);
+  --library-line-strong: rgba(212,175,55, .34);
+  --library-text: #F5F5F0;
+  --library-muted: #B8B4AA;
+  --library-dim: #8C887E;
+  --library-accent: #D4AF37;
+  --library-accent-soft: rgba(212,175,55, .11);
   --library-success: #75d7a6;
   --maxw: 1240px;
   --r-card: 16px;
@@ -24,7 +24,7 @@ body::after { display: none; }
 body.library-nav-open { overflow: hidden; }
 
 .topbar {
-  background: rgba(7, 9, 13, .97);
+  background: rgba(11,10,9, .97);
   border-bottom-color: var(--library-line);
   box-shadow: none;
   backdrop-filter: none;
@@ -82,11 +82,11 @@ body.library-nav-open { overflow: hidden; }
   min-height: 42px;
   border-color: var(--library-line);
   border-radius: 11px;
-  background: #0b0f15;
+  background: #11100F;
 }
 #search:focus {
   border-color: var(--library-line-strong);
-  background: #0b0f15;
+  background: #11100F;
   box-shadow: 0 0 0 3px var(--library-accent-soft);
 }
 
@@ -106,8 +106,8 @@ body.library-nav-open { overflow: hidden; }
   padding: 18px;
   border: 0;
   border-right: 1px solid var(--library-line);
-  background: #090c11;
-  box-shadow: 28px 0 80px rgba(0, 0, 0, .45);
+  background: #0E0D0C;
+  box-shadow: 28px 0 80px rgba(0,0,0, .45);
   transform: translate3d(-102%, 0, 0);
   visibility: hidden;
   transition: transform .24s var(--ease), visibility 0s linear .24s;
@@ -168,13 +168,13 @@ body.library-nav-open { overflow: hidden; }
   background: var(--library-accent-soft);
   color: var(--library-text);
 }
-.side-tools { background: #090c11; }
+.side-tools { background: #0E0D0C; }
 .sidebar-scrim {
   position: fixed;
   inset: 0;
   z-index: 110;
   border: 0;
-  background: rgba(0, 0, 0, .68);
+  background: rgba(0,0,0, .68);
   cursor: default;
 }
 .sidebar-scrim[hidden] { display: none; }
@@ -238,7 +238,7 @@ body.library-nav-open { overflow: hidden; }
   min-height: 52px;
   border-color: var(--library-line);
   border-radius: 12px;
-  background: #080b10;
+  background: #0D0C0B;
   color: var(--library-text);
   font-size: 14px;
 }
@@ -252,7 +252,7 @@ body.library-nav-open { overflow: hidden; }
   border: 1px solid var(--library-accent);
   border-radius: 12px;
   background: var(--library-accent);
-  color: #07101f;
+  color: #131211;
   font-weight: 800;
   box-shadow: none;
 }
@@ -274,7 +274,7 @@ body.library-nav-open { overflow: hidden; }
   padding: 18px;
   border: 1px solid var(--library-line);
   border-radius: 14px;
-  background: #090d13;
+  background: #0F0E0D;
 }
 .hero-signal-head { margin-bottom: 12px; }
 .hero-signal-head span { color: var(--library-dim); }
@@ -352,14 +352,14 @@ body.library-nav-open { overflow: hidden; }
   padding: 15px;
   border-color: var(--library-line);
   border-radius: 13px;
-  background: #090d13;
+  background: #0F0E0D;
   box-shadow: none;
   transition: transform .18s var(--ease), opacity .18s var(--ease);
 }
 .quick-route::before { display: none; }
 .quick-route:hover {
   border-color: var(--library-line-strong);
-  background: #0b111a;
+  background: #131211;
   box-shadow: none;
   transform: translate3d(0, -2px, 0);
 }
@@ -378,7 +378,7 @@ body.library-nav-open { overflow: hidden; }
   display: block;
   border-color: var(--library-line);
   border-radius: 12px;
-  background: #090d13;
+  background: #0F0E0D;
   box-shadow: none;
 }
 
@@ -387,7 +387,7 @@ body.library-nav-open { overflow: hidden; }
   padding: 24px;
   border: 1px solid var(--library-line);
   border-radius: 16px;
-  background: #0a0e14;
+  background: #100F0E;
 }
 .orientation-panel[hidden] { display: none; }
 .orientation-panel header {
@@ -478,7 +478,7 @@ body.library-nav-open { overflow: hidden; }
   padding: 10px 12px;
   border: 1px solid var(--library-line);
   border-radius: 10px;
-  background: #080b10;
+  background: #0D0C0B;
   color: var(--library-text);
   font: 500 13px var(--font);
   outline: none;
@@ -534,13 +534,13 @@ body.library-nav-open { overflow: hidden; }
   padding: 16px;
   border-color: var(--library-line);
   border-radius: 12px;
-  background: #090d13;
+  background: #0F0E0D;
   box-shadow: none;
   transition: transform .18s var(--ease), opacity .18s var(--ease);
 }
 .guides-feat .course-card:hover {
   border-color: var(--library-line-strong);
-  background: #0b111a;
+  background: #131211;
   box-shadow: none;
   transform: translate3d(0, -2px, 0);
 }
@@ -636,7 +636,7 @@ body.library-nav-open { overflow: hidden; }
 }
 .task-picker {
   border-color: var(--library-line);
-  background: #090d13;
+  background: #0F0E0D;
 }
 .advanced-filters { border-color: var(--library-line); }
 
@@ -646,11 +646,11 @@ body.library-nav-open { overflow: hidden; }
   padding: 0;
   border: 1px solid var(--library-line);
   border-radius: 18px;
-  background: #0a0e14;
+  background: #100F0E;
   color: var(--library-text);
-  box-shadow: 0 32px 120px rgba(0, 0, 0, .62);
+  box-shadow: 0 32px 120px rgba(0,0,0, .62);
 }
-.library-guide-dialog::backdrop { background: rgba(0, 0, 0, .76); }
+.library-guide-dialog::backdrop { background: rgba(0,0,0, .76); }
 .library-guide-dialog[open] { animation: libraryDialogIn .22s var(--ease) both; }
 @keyframes libraryDialogIn {
   from { opacity: 0; transform: translate3d(0, 12px, 0); }
@@ -734,7 +734,7 @@ body.library-nav-open { overflow: hidden; }
 .library-guide-actions button:first-child {
   border-color: var(--library-accent);
   background: var(--library-accent);
-  color: #07101f;
+  color: #131211;
 }
 .library-guide-note {
   margin: 14px 0 0;
@@ -874,12 +874,12 @@ body.library-nav-open { overflow: hidden; }
 }
 
 /* Header refinement: one clear navigation rail and a quieter utility zone. */
-.topbar { background: rgba(7, 9, 13, .92); border-bottom: 1px solid rgba(219,228,240,.14); box-shadow: 0 10px 34px rgba(0,0,0,.18); backdrop-filter: blur(18px) saturate(130%); }
+.topbar { background: rgba(11,10,9, .92); border-bottom: 1px solid rgba(232,228,218,.14); box-shadow: 0 10px 34px rgba(0,0,0,.18); backdrop-filter: blur(18px) saturate(130%); }
 .topbar-inner { min-height: 76px; max-width: 1360px; gap: 12px; padding: 10px 22px; }
 .brand { min-width: 222px; }
-.brand-mark { width: 40px; height: 40px; border-radius: 12px; background: #0e141d; border-color: rgba(129,169,255,.22); }
-.sections-open { border-color: rgba(219,228,240,.16); background: rgba(13,17,24,.86); }
-.primary-nav { flex: 1 1 auto; min-width: 0; justify-content: center; gap: 3px; padding: 4px; border: 1px solid rgba(219,228,240,.1); border-radius: 14px; background: rgba(13,17,24,.72); }
+.brand-mark { width: 40px; height: 40px; border-radius: 12px; background: #161514; border-color: rgba(212,175,55,.22); }
+.sections-open { border-color: rgba(232,228,218,.16); background: rgba(19,18,17,.86); }
+.primary-nav { flex: 1 1 auto; min-width: 0; justify-content: center; gap: 3px; padding: 4px; border: 1px solid rgba(232,228,218,.1); border-radius: 14px; background: rgba(19,18,17,.72); }
 .primary-nav a { min-height: 36px; padding: 8px 11px; border-radius: 9px; font-size: 12px; }
 .topbar-inner > .sections-open,
 .topbar-inner > .guide-open { flex-shrink: 0; }
@@ -889,13 +889,13 @@ body.library-nav-open { overflow: hidden; }
   .topbar-inner > .primary-nav { display: none; }
   .topbar-inner > .search-wrap { flex: 1 1 240px; max-width: 520px; margin-left: auto; }
 }
-.primary-nav a:hover { background: rgba(129,169,255,.08); }
-.primary-nav a.active { color: var(--library-text); background: #172233; box-shadow: inset 0 0 0 1px rgba(129,169,255,.24); }
-.primary-nav .animation-nav-link { color: #dce8ff; }
+.primary-nav a:hover { background: rgba(212,175,55,.08); }
+.primary-nav a.active { color: var(--library-text); background: #252423; box-shadow: inset 0 0 0 1px rgba(212,175,55,.24); }
+.primary-nav .animation-nav-link { color: #F5F0DC; }
 .search-wrap { flex: 0 1 218px; max-width: 218px; }
-#search { min-height: 40px; padding-right: 48px; background: rgba(13,17,24,.72); }
+#search { min-height: 40px; padding-right: 48px; background: rgba(19,18,17,.72); }
 .search-wrap kbd { right: 9px; opacity: .72; }
-.guide-open { min-height: 40px; border-color: rgba(129,169,255,.22); background: #111a28; }
+.guide-open { min-height: 40px; border-color: rgba(212,175,55,.22); background: #1D1C1B; }
 @media (max-width: 1260px) {
   .brand { min-width: 200px; }
   .primary-nav a { padding-inline: 8px; }
@@ -1008,7 +1008,7 @@ html {
   scrollbar-width: thin;
 }
 *::-webkit-scrollbar { width: 10px; height: 10px; }
-*::-webkit-scrollbar-track { background: rgba(13, 17, 24, .72); }
+*::-webkit-scrollbar-track { background: rgba(19,18,17, .72); }
 *::-webkit-scrollbar-thumb {
   min-height: 28px;
   border: 2px solid transparent;
@@ -1034,3 +1034,82 @@ html {
   .learning-layout { min-width: 0; }
   .learning-outline { min-width: 0; overflow-x: auto; }
 }
+
+/* Eclipse Forge brand layer — black + gold, «Тень и корона» (2026-11-10) */
+:root {
+  --ink: #141108;
+  --gold-text: #E8CB6A;
+  --library-accent: #D4AF37;
+  --library-accent-soft: rgba(212, 175, 55, .1);
+  --library-line-strong: rgba(212, 175, 55, .34);
+}
+::selection { background: rgba(212, 175, 55, .32); color: #F5F5F0; }
+:focus-visible { outline: 2px solid #D4AF37; outline-offset: 3px; }
+
+/* золото несёт решение: текст на золотой заливке — тёмный */
+.btn-primary, button.primary, .hero-search button[type="submit"], .library-search-submit,
+[class*="search"] button[type="submit"] { color: var(--ink); }
+
+/* риск больше не делит цвет с акцентом бренда */
+.recent-editorial-item footer b[data-risk="high"] { color: #F08486; }
+.recent-editorial-item footer b[data-risk="medium"] { color: #E0A65A; }
+.recent-editorial-item footer b[data-risk="low"] { color: #8EDABF; }
+.risk-medium b { color: #E0A65A; }
+
+/* знак: тень и корона, без синего свечения */
+.brand-mark { background: #0E0E11; box-shadow: 0 0 0 1px rgba(212, 175, 55, .08) inset; }
+.brand-mark::before { display: none; }
+.brand-mark img { filter: none; }
+
+/* меньше рамок: первый экран открыт, панели — только там, где группируют действие */
+.hero { background: transparent; border-color: transparent; padding-left: 0; padding-right: 0; }
+.hero-signal { background: transparent; border: 0; border-left: 1px solid var(--library-line); border-radius: 0; padding-left: 28px; }
+.hero-signal .stat { background: transparent; border: 0; border-top: 1px solid var(--library-line); border-radius: 0; padding: 12px 0 0; }
+.hero-signal .stat b { font-family: 'Outfit', var(--font); font-weight: 400; font-size: 34px; letter-spacing: -.02em; color: #F5F5F0; }
+.hero-signal .stat:first-child b { color: var(--gold-text); }
+@media (max-width: 900px) {
+  .hero { padding-left: 4px; padding-right: 4px; }
+  .hero-signal { border-left: 0; border-top: 1px solid var(--library-line); padding-left: 0; padding-top: 20px; }
+}
+
+/* Этап 2 — структура (2026-11-11) */
+/* 1. В каталоге выбор задачи — строка чипов. Большая сетка задач остаётся одна: в первом экране. */
+.task-picker { display: block; padding: 0; margin-bottom: 12px; border: 0; background: transparent; }
+.task-picker > div:first-child { display: none; }
+.task-filters { display: flex; flex-wrap: wrap; gap: 8px; }
+.task-chip { flex: 0 0 auto; flex-direction: row; align-items: center; gap: 8px; min-height: 40px; padding: 8px 14px; border-radius: 999px; }
+.task-chip span { font-size: 13px; font-weight: 600; }
+.task-chip small { display: none; }
+.task-chip i { position: static; font-size: 11px; }
+.task-chip:hover { transform: none; }
+.task-chip.active { border-color: var(--gold); background: var(--gold-soft); color: var(--gold-text); }
+.task-chip.active i { color: var(--gold-text); }
+@media (max-width: 760px) {
+  .task-filters { flex-wrap: nowrap; overflow-x: auto; }
+  .task-chip { flex: 0 0 auto; min-height: 40px; }
+}
+
+/* 2. Секции без внешней коробки: заголовок на странице, рамки только у карточек внутри */
+.recent-editorial { border-color: transparent; background: transparent; box-shadow: none; border-radius: 0; overflow: visible; }
+.recent-editorial-head { padding-left: 0; padding-right: 0; }
+.recent-editorial-list { border: 1px solid var(--library-line); border-radius: 16px; overflow: hidden; }
+
+/* 3. «Три шага» — одна тихая строка вместо отдельной панели */
+.orientation-panel { padding: 0; border: 0; background: transparent; box-shadow: none; }
+.orientation-panel header { display: none; }
+.orientation-steps { gap: 0; border-top: 1px solid var(--library-line); border-bottom: 1px solid var(--library-line); }
+.orientation-steps li { border: 0; background: transparent; border-radius: 0; }
+.orientation-steps li + li { border-left: 1px solid var(--library-line); }
+.orientation-steps li > b { background: transparent; border: 1px solid var(--gold-line); color: var(--gold-text); }
+@media (max-width: 760px) { .orientation-steps li + li { border-left: 0; border-top: 1px solid var(--library-line); } }
+.guides-feat { border-color: transparent; background: transparent; box-shadow: none; padding-left: 0; padding-right: 0; }
+
+/* Один поиск за раз: пока виден поиск первого экрана, поле в шапке скрыто (десктоп; на телефоне шапка не меняет высоту) */
+@media (min-width: 901px) {
+  .topbar .search-wrap { transition: opacity .2s var(--ease), visibility .2s; }
+  body.hero-search-visible .topbar .search-wrap { opacity: 0; visibility: hidden; }
+}
+
+/* Телефон: в колонке flex-basis ширины превращался в высоту (сортировка 190px, «Скопировать подборку» 160px пустоты) */
+
+@media (max-width: 620px) { .catalog-actions > * { flex: 0 0 auto; } }

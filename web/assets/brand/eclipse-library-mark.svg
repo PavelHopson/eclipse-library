@@ -1,9 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-labelledby="title desc">
   <title id="title">Eclipse Library</title>
-  <desc id="desc">Затмение, переходящее в раскрытую книгу с синей закладкой.</desc>
-  <path fill="#F2F5F9" d="M69 8C34 8 8 35 8 69c0 27 17 49 42 58-19-13-30-34-28-57 2-27 22-47 48-49 23-2 43 12 50 32C116 27 96 8 69 8Z"/>
-  <path fill="none" stroke="#D4AF37" stroke-linecap="round" stroke-width="4" d="M69 10c13 0 25 4 34 12"/>
-  <path fill="none" stroke="#F2F5F9" stroke-linejoin="round" stroke-width="8" d="M20 78c18 0 33 7 44 22 11-15 26-22 44-22"/>
-  <path fill="none" stroke="#F2F5F9" stroke-linejoin="round" stroke-width="5.5" d="M23 91c17 1 30 7 41 21 11-14 24-20 41-21"/>
-  <path fill="#6BA3FF" d="M58.5 101.5 64 108l5.5-6.5V124l-5.5-4.5-5.5 4.5Z"/>
+  <desc id="desc">Знак Eclipse Forge «Тень и корона»: раскрытая книга перед своей золотой копией, смещённой вверх-вправо.</desc>
+  <g transform="translate(25.5 14.5)" fill="#D4AF37"><path d="M0 20 L40 30.72 L40 84 L0 73.28 Z"/><path d="M48 30.72 L88 20 L88 73.28 L48 84 Z"/></g>
+  <g transform="translate(14.5 25.5)" fill="#4A4A55"><path d="M0 20 L40 30.72 L40 84 L0 73.28 Z"/><path d="M48 30.72 L88 20 L88 73.28 L48 84 Z"/></g>
 </svg>

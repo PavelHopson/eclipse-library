@@ -10,9 +10,9 @@ const app = read('web/app.js');
 const shell = read('web/library-shell.js');
 const css = read('web/library-v2.css');
 
-assert.match(html, /library-v2\.css\?v=7/);
+assert.match(html, /library-v2\.css\?v=10/);
 assert.match(html, /library-shell\.js\?v=1/);
-assert.ok(html.indexOf('app.js?v=54') >= 0 && html.indexOf('app.js?v=54') < html.indexOf('library-shell.js?v=1'));
+assert.ok(html.indexOf('app.js?v=56') >= 0 && html.indexOf('app.js?v=56') < html.indexOf('library-shell.js?v=1'));
 assert.doesNotMatch(html, /class="view-switcher"/);
 assert.match(html, /id="orientationPanel"/);
 assert.match(html, /id="libraryGuideDialog"/);
