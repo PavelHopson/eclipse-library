@@ -12,7 +12,7 @@ const css = read('web/library-v2.css');
 
 assert.match(html, /library-v2\.css\?v=10/);
 assert.match(html, /library-shell\.js\?v=1/);
-assert.ok(html.indexOf('app.js?v=57') >= 0 && html.indexOf('app.js?v=57') < html.indexOf('library-shell.js?v=1'));
+assert.ok(html.indexOf('app.js?v=58') >= 0 && html.indexOf('app.js?v=58') < html.indexOf('library-shell.js?v=1'));
 assert.doesNotMatch(html, /class="view-switcher"/);
 assert.match(html, /id="orientationPanel"/);
 assert.match(html, /id="libraryGuideDialog"/);
