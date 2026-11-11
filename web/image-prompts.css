@@ -110,3 +110,17 @@
   .image-codebook .library-context-nav a { flex: 0 0 auto; }
 }
 .image-project-example__image{display:block;width:100%;height:auto;max-height:none;object-fit:contain;border:1px solid var(--line,#273040);border-radius:10px;margin:12px 0 0}
+
+/* Наглядные примеры приёмов (2026-11-11) */
+.image-code-example { margin: 0 0 14px; }
+.image-code-example__link { display: block; overflow: hidden; border: 1px solid var(--library-line); border-radius: 14px; background: var(--library-panel); }
+.image-code-example__link:focus-visible { outline: 2px solid var(--library-accent); outline-offset: 3px; }
+.image-code-example img { display: block; width: 100%; height: auto; aspect-ratio: 4 / 5; object-fit: cover; transition: transform .3s var(--ease, ease); }
+@media (hover: hover) { .image-code-example__link:hover img { transform: scale(1.02); } }
+@media (prefers-reduced-motion: reduce) { .image-code-example img { transition: none; } .image-code-example__link:hover img { transform: none; } }
+.image-code-example figcaption { margin-top: 6px; font: 500 11px/1.4 var(--mono, monospace); letter-spacing: .04em; color: var(--library-muted); }
+.image-code-list article:has(.image-code-example) { display: grid; grid-template-columns: 148px minmax(0, 1fr); column-gap: 20px; align-items: start; }
+.image-code-list article:has(.image-code-example) > :not(.image-code-example) { grid-column: 2; }
+.image-code-list article:has(.image-code-example) > .image-code-example { grid-column: 1; grid-row: 1 / span 6; margin: 0; }
+.image-code-example figcaption { font-size: 10px; }
+@media (max-width: 560px) { .image-code-list article:has(.image-code-example) { grid-template-columns: 104px minmax(0, 1fr); column-gap: 14px; } }

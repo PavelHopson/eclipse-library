@@ -28,6 +28,11 @@ export function validateCodebook(data) {
     for (const field of ['title', 'effect', 'when', 'example', 'limitation']) {
       if (typeof entry[field] !== 'string' || !entry[field].trim()) throw new Error('Неполная запись');
     }
+    if (entry.image !== undefined) {
+      const image = entry.image;
+      const local = /^assets\/image-codes\/[a-z0-9-]+\.webp$/;
+      if (!image || !local.test(image.src) || !local.test(image.full) || !Number.isInteger(image.width) || !Number.isInteger(image.height) || typeof image.alt !== 'string' || !image.alt.trim()) throw new Error('Неверный пример изображения');
+    }
   });
   if (!Array.isArray(data.recipes) || data.recipes.length !== 5 || data.recipes.some(recipe => !recipe.title || !recipe.prompt || !Array.isArray(recipe.codes) || recipe.codes.some(code => !codes.has(code)))) throw new Error('Неверные рецепты');
   if (!data.source?.title || !data.source.author || !data.source.publishedAt || !data.source.checkedAt || !data.source.rights || !data.source.verification) throw new Error('Нет сведений об источнике');
@@ -96,6 +101,23 @@ if (typeof document !== 'undefined') {
     button.addEventListener('click', () => copy(text, button));
     return button;
   }
+  function exampleFigure(entry) {
+    const figure = el('figure', undefined, 'image-code-example');
+    const link = el('a', undefined, 'image-code-example__link');
+    link.href = entry.image.full;
+    link.title = 'Открыть пример в полном размере';
+    const image = el('img');
+    image.src = entry.image.src;
+    image.alt = entry.image.alt;
+    image.width = entry.image.width;
+    image.height = entry.image.height;
+    image.loading = 'lazy';
+    image.decoding = 'async';
+    link.append(image);
+    link.addEventListener('click', event => { event.preventDefault(); lightboxPreview.src = entry.image.full; lightboxPreview.alt = entry.image.alt; lightbox.showModal(); });
+    figure.append(link, el('figcaption', 'Пример: сгенерировано в ChatGPT'));
+    return figure;
+  }
   function render(updateUrl = true) {
     const matches = filterEntries(data.entries, data.groups, search.value, group.value);
     const fragment = document.createDocumentFragment();
@@ -116,6 +138,7 @@ if (typeof document !== 'undefined') {
       details.append(dl);
       const actions = el('div', undefined, 'image-actions');
       actions.append(copyButton('Код', entry.code, `Копировать код ${entry.code}`), copyButton('Описание', expandedText(entry), `Копировать описание ${entry.code}`));
+      if (entry.image) article.append(exampleFigure(entry));
       article.append(meta, heading, el('p', entry.effect), details, actions);
       li.append(article);
       fragment.append(li);
@@ -174,7 +197,7 @@ if (typeof document !== 'undefined') {
     const controller = new AbortController();
     const timeout = setTimeout(() => controller.abort(), 10000);
     try {
-      const response = await fetch('image-prompt-codes.json', { signal: controller.signal });
+      const response = await fetch('image-prompt-codes.json?v=2', { signal: controller.signal });
       if (!response.ok) throw new Error(`HTTP ${response.status}`);
       data = validateCodebook(await response.json());
       const examplesResponse = await fetch('image-project-examples.json', { signal: controller.signal });

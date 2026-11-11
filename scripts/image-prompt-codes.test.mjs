@@ -119,3 +119,19 @@ test('UI uses safe DOM, shared styles, loading/retry, manual-copy fallback and r
   assert.match(js, /scrollRestoration = 'manual'/); assert.match(js, /sessionStorage\.setItem\(scrollKey/); assert.match(js, /window\.scrollTo\(\{ top: saved/);
   assert.match(css, /prefers-reduced-motion/); assert.match(css, /focus-visible/);
 });
+
+test('example images are local, sized and described', async () => {
+  const { readFile, stat } = await import('node:fs/promises');
+  const codebook = JSON.parse(await readFile(new URL('../web/image-prompt-codes.json', import.meta.url), 'utf8'));
+  const withImages = codebook.entries.filter(entry => entry.image);
+  assert.ok(withImages.length >= 20, 'at least 20 codes have a visual example');
+  for (const entry of withImages) {
+    for (const key of ['src', 'full']) {
+      assert.match(entry.image[key], /^assets\/image-codes\/[a-z0-9-]+\.webp$/);
+      const file = await stat(new URL(`../web/${entry.image[key]}`, import.meta.url));
+      assert.ok(file.size > 5_000 && file.size < 400_000, `${entry.image[key]} size`);
+    }
+    assert.ok(entry.image.width > 0 && entry.image.height > 0);
+    assert.match(entry.image.alt, /^Пример приёма \//);
+  }
+});
