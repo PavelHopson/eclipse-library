@@ -133,4 +133,21 @@
 .project-series-chip__count { color: var(--library-dim); font: 11px/1 var(--mono); }
 .project-series-chip[aria-pressed="true"] .project-series-chip__count { color: var(--library-accent); }
 .project-example-more { display: block; margin: 24px auto 0; }
+
+/* Связь справочника и галереи (2026-11-11) */
+.image-code-gallery { margin-top: 16px; padding-top: 12px; border-top: 1px solid var(--library-line); }
+.image-code-list .image-code-gallery__title { margin: 0 0 10px; color: var(--library-text); font: 700 11px/1.4 var(--mono); text-transform: uppercase; letter-spacing: .08em; }
+.image-code-gallery__thumbs { list-style: none; margin: 0 0 10px; padding: 0; display: flex; flex-wrap: wrap; gap: 8px; }
+.image-code-gallery__thumb { display: block; width: 72px; height: 72px; overflow: hidden; border: 1px solid var(--library-line-strong); border-radius: var(--r-sm); background: var(--library-panel); cursor: zoom-in; transition: border-color .18s var(--ease, ease); }
+.image-code-gallery__thumb img { display: block; width: 100%; height: 100%; object-fit: cover; }
+.image-code-gallery__thumb:hover { border-color: var(--library-accent); }
+.image-code-gallery__thumb:focus-visible, .image-code-gallery__all:focus-visible, .image-project-example__style:focus-visible, .project-example-style a:focus-visible { outline: 2px solid var(--library-accent); outline-offset: 3px; }
+.image-code-gallery__all { display: inline-block; padding-block: 6px; font: 600 13px/1.4 var(--font); }
+.image-project-example__head { flex-wrap: wrap; }
+.image-project-example__style { min-width: 0; font: 600 12px/1.4 var(--mono); overflow-wrap: anywhere; }
+.project-example-style { margin: 12px 0 0; padding: 10px 14px; border-left: 3px solid var(--library-accent); background: var(--library-panel); font-size: 13px; overflow-wrap: anywhere; }
+.image-codebook h2[tabindex="-1"]:focus, .image-code-list h3[tabindex="-1"]:focus { outline: none; }
+.image-codebook h2[tabindex="-1"]:focus-visible, .image-code-list h3[tabindex="-1"]:focus-visible { outline: 2px solid var(--library-accent); outline-offset: 4px; }
+@media (max-width: 560px) { .image-code-gallery__thumb { width: 64px; height: 64px; } }
+@media (prefers-reduced-motion: reduce) { .image-code-gallery__thumb { transition: none; } }
 @media (prefers-reduced-motion: reduce) { .project-series-chip { transition: none; } }
