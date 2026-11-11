@@ -1,19 +1,34 @@
 {
   "schemaVersion": 1,
-  "checkedAt": "2026-11-09T12:54:54.722Z",
+  "checkedAt": "2026-11-11T14:19:19.535Z",
   "totals": {
-    "extracted": 820,
-    "unique": 815,
-    "checked": 815,
-    "ok": 771,
-    "restricted": 32,
-    "broken": 5,
+    "extracted": 846,
+    "unique": 841,
+    "checked": 841,
+    "ok": 800,
+    "restricted": 29,
+    "broken": 4,
     "unavailable": 1,
-    "unknown": 6,
+    "unknown": 7,
     "blocked": 0,
     "skipped": 0
   },
   "links": [
+    {
+      "url": "https://css-tricks.com/gooey-effect/",
+      "status": "ok",
+      "httpStatus": 200
+    },
+    {
+      "url": "https://spaceplanner.co/",
+      "status": "ok",
+      "httpStatus": 200
+    },
+    {
+      "url": "https://oqla.ai/",
+      "status": "ok",
+      "httpStatus": 200
+    },
     {
       "url": "https://huggingface.co/datasets/scenario-labs/3d-collection",
       "status": "ok",
@@ -41,8 +56,8 @@
     },
     {
       "url": "https://abhijayvuyyuru.substack.com/p/try-these-100-code-that-make-your",
-      "status": "restricted",
-      "httpStatus": 403
+      "status": "ok",
+      "httpStatus": 200
     },
     {
       "url": "https://github.com/Moh4696/100-free-open-source-github-repos",
@@ -761,8 +776,8 @@
     },
     {
       "url": "https://deeplearning.ai/",
-      "status": "restricted",
-      "httpStatus": 403
+      "status": "ok",
+      "httpStatus": 200
     },
     {
       "url": "https://chat.deepseek.com/",
@@ -891,8 +906,8 @@
     },
     {
       "url": "https://nav.edumails.cn/",
-      "status": "ok",
-      "httpStatus": 200
+      "status": "unknown",
+      "httpStatus": null
     },
     {
       "url": "https://github.com/plannotator/effective-html",
@@ -926,8 +941,8 @@
     },
     {
       "url": "https://epicure.kaikaku.ai/",
-      "status": "unavailable",
-      "httpStatus": 530
+      "status": "ok",
+      "httpStatus": 200
     },
     {
       "url": "https://github.com/viveknaskar/everything-ai-ml",
@@ -1105,9 +1120,9 @@
       "httpStatus": 200
     },
     {
-      "url": "https://github.com/marketplace/models",
-      "status": "broken",
-      "httpStatus": 404
+      "url": "https://docs.github.com/en/github-models",
+      "status": "ok",
+      "httpStatus": 200
     },
     {
       "url": "https://github.com/github/github-mcp-server",
@@ -1261,8 +1276,8 @@
     },
     {
       "url": "https://ruben.substack.com/archive?sort=new",
-      "status": "restricted",
-      "httpStatus": 403
+      "status": "ok",
+      "httpStatus": 200
     },
     {
       "url": "https://huggingface.co/settings/tokens",
@@ -1301,8 +1316,8 @@
     },
     {
       "url": "https://www.hyperui.dev",
-      "status": "restricted",
-      "httpStatus": 403
+      "status": "ok",
+      "httpStatus": 200
     },
     {
       "url": "https://i-want-fable.vercel.app/",
@@ -2806,8 +2821,8 @@
     },
     {
       "url": "https://www.curseforge.com/minecraft/mc-mods/e4steam",
-      "status": "ok",
-      "httpStatus": 200
+      "status": "restricted",
+      "httpStatus": 403
     },
     {
       "url": "https://github.com/repowise-dev/repowise",
@@ -3096,8 +3111,8 @@
     },
     {
       "url": "https://tabitoken.com/",
-      "status": "restricted",
-      "httpStatus": 403
+      "status": "unavailable",
+      "httpStatus": 525
     },
     {
       "url": "https://github.com/petergyang/human-review",
@@ -3291,13 +3306,13 @@
     },
     {
       "url": "https://www.instagram.com/prozavlly/",
-      "status": "ok",
-      "httpStatus": 200
+      "status": "restricted",
+      "httpStatus": 429
     },
     {
       "url": "https://www.instagram.com/frontendjoe/",
-      "status": "ok",
-      "httpStatus": 200
+      "status": "restricted",
+      "httpStatus": 429
     },
     {
       "url": "https://github.com/vercel-labs/agent-skills/tree/main/skills/web-design-guidelines",
@@ -3596,8 +3611,8 @@
     },
     {
       "url": "https://www.fakecam.net/",
-      "status": "restricted",
-      "httpStatus": 403
+      "status": "ok",
+      "httpStatus": 200
     },
     {
       "url": "https://camloop.app/",
@@ -3946,6 +3961,121 @@
     },
     {
       "url": "https://github.com/PavelHopson/eclipse-library/blob/master/guides/erida-character-bible-v1.md",
+      "status": "ok",
+      "httpStatus": 200
+    },
+    {
+      "url": "https://purgemac.com/",
+      "status": "ok",
+      "httpStatus": 200
+    },
+    {
+      "url": "https://github.com/reacher-z/Awesome-REA",
+      "status": "ok",
+      "httpStatus": 200
+    },
+    {
+      "url": "https://protocol-explorer-alpha.vercel.app/",
+      "status": "ok",
+      "httpStatus": 200
+    },
+    {
+      "url": "https://github.com/sarpstar/cinecode",
+      "status": "ok",
+      "httpStatus": 200
+    },
+    {
+      "url": "https://github.com/hacksider/Deep-Live-Cam",
+      "status": "ok",
+      "httpStatus": 200
+    },
+    {
+      "url": "https://github.com/livliv-dev/player",
+      "status": "ok",
+      "httpStatus": 200
+    },
+    {
+      "url": "https://ui.gradientdeck.com/",
+      "status": "ok",
+      "httpStatus": 200
+    },
+    {
+      "url": "https://github.com/southleft/figma-console-mcp",
+      "status": "ok",
+      "httpStatus": 200
+    },
+    {
+      "url": "https://github.com/edenfunf/reelmimic",
+      "status": "ok",
+      "httpStatus": 200
+    },
+    {
+      "url": "https://github.com/microsoft/TokenEconomizer",
+      "status": "ok",
+      "httpStatus": 200
+    },
+    {
+      "url": "https://github.com/Ray-lea/Argus",
+      "status": "ok",
+      "httpStatus": 200
+    },
+    {
+      "url": "https://github.com/MagoStudio/MagoStudio",
+      "status": "ok",
+      "httpStatus": 200
+    },
+    {
+      "url": "https://github.com/yjid/kensaku",
+      "status": "ok",
+      "httpStatus": 200
+    },
+    {
+      "url": "https://github.com/deepseek-ai/dsh-superagent-prototype",
+      "status": "ok",
+      "httpStatus": 200
+    },
+    {
+      "url": "https://github.com/patch-gg/pixelfx",
+      "status": "ok",
+      "httpStatus": 200
+    },
+    {
+      "url": "https://github.com/NiazMorshed2007/reanimate",
+      "status": "ok",
+      "httpStatus": 200
+    },
+    {
+      "url": "https://github.com/wangzan101/Mika",
+      "status": "ok",
+      "httpStatus": 200
+    },
+    {
+      "url": "https://github.com/storytold/craft-anything",
+      "status": "ok",
+      "httpStatus": 200
+    },
+    {
+      "url": "https://github.com/ramenvr/autopilot",
+      "status": "ok",
+      "httpStatus": 200
+    },
+    {
+      "url": "https://cranefomo.github.io/blackbird/",
+      "status": "ok",
+      "httpStatus": 200
+    },
+    {
+      "url": "https://github.com/neuregex/freefield",
+      "status": "ok",
+      "httpStatus": 200
+    },
+    {
+      "url": "https://github.com/JuneYaooo/rea-video",
+      "status": "ok",
+      "httpStatus": 200
+    },
+    {
+      "url": "https://www.ipfire.org/fireperf",
       "status": "ok",
       "httpStatus": 200
     },

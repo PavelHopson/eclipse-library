@@ -1317,6 +1317,13 @@
     $('#projectEmpty').hidden = visible.length > 0;
   }
 
+  const narrowSearchQuery = window.matchMedia('(max-width: 680px)');
+  function syncSearchPlaceholder() {
+    const narrow = narrowSearchQuery.matches;
+    search.placeholder = currentView === 'projects'
+      ? (narrow ? 'Найти проект…' : 'Найти проект по задаче или технологии…')
+      : (narrow ? 'Найти в библиотеке…' : 'Найти инструмент, модель, skill или гайд…');
+  }
   function setView(view) {
     const nextView = view === 'projects' ? 'projects' : 'catalog';
     if (currentView !== nextView) {
@@ -1347,7 +1354,7 @@
     $('#loadMoreWrap').hidden = projectMode || Math.min(cards.length, visibleLimit) >= cards.length;
     $('#empty').hidden = true;
     document.querySelectorAll('[data-view-link]').forEach((link) => link.classList.toggle('active', link.dataset.viewLink === currentView));
-    search.placeholder = projectMode ? 'Найти проект по задаче или технологии…' : 'Найти инструмент, модель, skill или гайд…';
+    syncSearchPlaceholder();
     if (projectMode) renderProjects(); else applyFilters(false);
   }
 
@@ -2052,6 +2059,8 @@
 
   // ---- events ----
   const search = $('#search');
+  narrowSearchQuery.addEventListener('change', syncSearchPlaceholder);
+  syncSearchPlaceholder();
   const heroSearch = $('#heroSearch');
   const heroCommand = $('#heroCommand');
   const navSearch = $('#navSearch');

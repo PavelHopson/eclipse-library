@@ -5,6 +5,8 @@ export const exampleSeries = [
   ['erida', 'Эрида', isErida],
   ['seasons', 'Сезоны', example => isErida(example) && /Сезонная серия/i.test(text(example))],
   ['brands', 'Как у брендов', example => isErida(example) && /как у брендов/i.test(text(example))],
+  ['travel', 'Путешествия', example => isErida(example) && /Серия «Путешествия»/.test(text(example))],
+  ['streams', 'Стримы', example => isErida(example) && /Серия «Стримы»/.test(text(example))],
   ['catalog', 'Идеи из каталогов', example => /Идея из каталога/i.test(text(example))]
 ];
 export const validSeries = value => value === '' || exampleSeries.some(([id]) => id === value);
