@@ -193,6 +193,12 @@ async function checkUrl(resource, timeoutMs = 8000) {
       await response.body?.cancel();
       ({ response, finalUrl } = await auditRequest(resource.url, 'GET', timeoutMs));
     }
+    if (response.status === 404 || response.status === 410) {
+      // Some CDNs (support.apple.com) answer 404 intermittently for live pages: confirm once before flagging.
+      await response.body?.cancel();
+      await new Promise((resolve) => setTimeout(resolve, 1500));
+      ({ response, finalUrl } = await auditRequest(resource.url, 'GET', timeoutMs));
+    }
     const statusRestriction = response.ok ? null : responseStatusRestriction(resource.url, response.status);
     const restricted = allowlist.acceptedStatuses.includes(response.status) || Boolean(statusRestriction);
     const status = response.ok
