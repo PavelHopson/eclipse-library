@@ -1,18 +1,18 @@
 {
   "schemaVersion": 2,
-  "sourceHash": "01e2f8561d1a8c9d946bc7dc30ab9abd1c4d3f603f40b001a9c9c30f1ced2f96",
+  "sourceHash": "c08d52fe082f8a10601a54f9dea40c278d1464e157c61064f4f9beb7a7f4d133",
   "policy": {
     "directInstallForbidden": true
   },
   "totals": {
-    "all": 813,
-    "verified": 444,
+    "all": 814,
+    "verified": 445,
     "inferred": 369,
-    "licenseReviewRequired": 217,
-    "agentSafe": 709,
+    "licenseReviewRequired": 218,
+    "agentSafe": 710,
     "agentExcluded": 104,
     "grey": 89,
-    "withAddedAt": 534
+    "withAddedAt": 535
   },
   "items": [
     {
@@ -43732,6 +43732,132 @@
           "kind": "docs",
           "label": "Официальная документация fireperf",
           "url": "https://man-pages.ipfire.org/fireperf/fireperf.html"
+        }
+      ],
+      "agentEligibility": {
+        "eligible": true,
+        "reasons": [],
+        "installAllowed": false
+      }
+    },
+    {
+      "id": "designbookmark-motion",
+      "url": "https://designbookmark.com/motion",
+      "title": "DesignBookmark Motion — анимации интерфейса с промптом для Claude и Codex",
+      "type": "reference",
+      "category": "Сайты-находки",
+      "subcategory": "Фронтенд и анимация",
+      "simpleDescription": "Около 80 живых анимированных элементов интерфейса: кнопки, поля ввода, меню, карточки, AI-элементы (поле промпта, печатающийся ответ, индикатор «думаю») и текстовые эффекты. У каждой карточки кнопки «Claude», «Codex» и «Copy code»: копируете и вставляете агенту, он собирает элемент в вашем проекте. Сам сайт — каталог примерно 2200 дизайн-инструментов. Это анимации для сайтов и приложений, не для видеомонтажа.",
+      "useCases": [
+        "Подобрать микроанимацию для кнопки, поля, меню или карточки и отдать её агенту одним промптом",
+        "Элементы AI-интерфейса: поле промпта, потоковый ответ, подсказка-призрак, индикатор размышления",
+        "Текстовые эффекты для лендингов: scramble, word roll, weight wave",
+        "Быстро показать заказчику варианты интерактива для сайта"
+      ],
+      "platforms": [
+        "Web",
+        "Claude",
+        "Codex"
+      ],
+      "license": "Отдельная лицензия на код компонентов в условиях сайта не указана; часть карточек из открытой библиотеки Kokonut UI. Промпты используем как задание агенту и собираем свою реализацию в своём стиле.",
+      "licenseEvidence": [
+        {
+          "kind": "terms",
+          "label": "DesignBookmark — Terms",
+          "url": "https://designbookmark.com/terms"
+        },
+        {
+          "kind": "source",
+          "label": "DesignBookmark Motion",
+          "url": "https://designbookmark.com/motion"
+        }
+      ],
+      "pricing": "Бесплатно; просмотр без аккаунта, вход через Google нужен только для закладок.",
+      "access": {
+        "cost": "free",
+        "signup": "optional",
+        "runtime": "cloud"
+      },
+      "trust": "verified",
+      "trustReason": "14.11.2026: открыт раздел Motion (82 карточки, категории Buttons, Inputs, Navigation, Cards, AI, Text) и условия сайта. Содержимое промптов при копировании не проверялось; компоненты в наших проектах не собирались.",
+      "projects": [
+        "Eclipse Forge Landing",
+        "Eclipse Chat",
+        "Eclipse Library"
+      ],
+      "decision": "now",
+      "riskLevel": "low",
+      "risks": [
+        "Лицензия на код не указана — не переносить чужой код один в один в продукты заказчиков, собирать свою реализацию по промпту",
+        "Проверять у собранного элемента reduced-motion, клавиатуру и подписи для читалок: в карточках этого не гарантируют",
+        "Похожие паттерны уже есть в разделе «Анимации» библиотеки — сначала смотреть свои оригиналы"
+      ],
+      "verifiedAt": "2026-11-14",
+      "addedAt": "2026-11-14",
+      "reviewStatus": "verified",
+      "quickStart": [
+        "Откройте designbookmark.com/motion и выберите категорию",
+        "Нажмите «Claude» или «Codex» у нужной карточки — промпт скопируется",
+        "Вставьте промпт агенту в своём проекте и попросите собрать в вашей дизайн-системе",
+        "Проверьте reduced-motion, фокус с клавиатуры и мобильную версию"
+      ],
+      "source": {
+        "file": "catalog/resources.json",
+        "key": "designbookmark-motion",
+        "legacy": {
+          "file": "catalog/resources.json",
+          "key": "designbookmark-motion",
+          "category": "Сайты-находки",
+          "subcategory": "Фронтенд и анимация"
+        }
+      },
+      "verification": {
+        "scope": "Motion page and site terms reviewed in a browser; copied prompts not inspected; no component built.",
+        "runtimeTested": false,
+        "installed": false,
+        "eventDate": null,
+        "sources": [
+          "https://designbookmark.com/motion",
+          "https://designbookmark.com/terms"
+        ]
+      },
+      "correctionHistory": [
+        {
+          "date": "2026-11-14",
+          "change": "Добавлена карточка по рекламному посту о DesignBookmark Motion."
+        }
+      ],
+      "catalogOrder": 814,
+      "licenseInfo": {
+        "label": "Отдельная лицензия на код компонентов в условиях сайта не указана; часть карточек из открытой библиотеки Kokonut UI. Промпты используем как задание агенту и собираем свою реализацию в своём стиле.",
+        "original": "Отдельная лицензия на код компонентов в условиях сайта не указана; часть карточек из открытой библиотеки Kokonut UI. Промпты используем как задание агенту и собираем свою реализацию в своём стиле.",
+        "spdx": null,
+        "kind": "unknown",
+        "status": "unverified",
+        "requiresReview": true,
+        "evidence": [
+          {
+            "kind": "terms",
+            "label": "DesignBookmark — Terms",
+            "url": "https://designbookmark.com/terms"
+          },
+          {
+            "kind": "source",
+            "label": "DesignBookmark Motion",
+            "url": "https://designbookmark.com/motion"
+          }
+        ]
+      },
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://designbookmark.com/motion"
+        },
+        {
+          "kind": "terms",
+          "label": "DesignBookmark — Terms",
+          "url": "https://designbookmark.com/terms"
         }
       ],
       "agentEligibility": {
