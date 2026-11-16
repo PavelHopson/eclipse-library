@@ -1,15 +1,15 @@
 {
   "schemaVersion": 1,
-  "checkedAt": "2026-11-11T14:19:19.535Z",
+  "checkedAt": "2026-11-16T12:47:41.399Z",
   "totals": {
     "extracted": 846,
     "unique": 841,
     "checked": 841,
-    "ok": 800,
-    "restricted": 29,
+    "ok": 798,
+    "restricted": 33,
     "broken": 4,
-    "unavailable": 1,
-    "unknown": 7,
+    "unavailable": 0,
+    "unknown": 6,
     "blocked": 0,
     "skipped": 0
   },
@@ -441,8 +441,8 @@
     },
     {
       "url": "https://burnermail.io/",
-      "status": "ok",
-      "httpStatus": 200
+      "status": "restricted",
+      "httpStatus": 403
     },
     {
       "url": "https://github.com/chidiwilliams/buzz",
@@ -906,8 +906,8 @@
     },
     {
       "url": "https://nav.edumails.cn/",
-      "status": "unknown",
-      "httpStatus": null
+      "status": "ok",
+      "httpStatus": 200
     },
     {
       "url": "https://github.com/plannotator/effective-html",
@@ -1316,8 +1316,8 @@
     },
     {
       "url": "https://www.hyperui.dev",
-      "status": "ok",
-      "httpStatus": 200
+      "status": "restricted",
+      "httpStatus": 403
     },
     {
       "url": "https://i-want-fable.vercel.app/",
@@ -2677,7 +2677,7 @@
     {
       "url": "https://youtu.be/QkyTCTH2kWY",
       "status": "ok",
-      "httpStatus": 200
+      "httpStatus": 204
     },
     {
       "url": "https://zcode.z.ai/en",
@@ -2977,7 +2977,7 @@
     {
       "url": "https://saaspo.com/",
       "status": "restricted",
-      "httpStatus": 403
+      "httpStatus": 429
     },
     {
       "url": "https://layers.to/",
@@ -3111,8 +3111,8 @@
     },
     {
       "url": "https://tabitoken.com/",
-      "status": "unavailable",
-      "httpStatus": 525
+      "status": "restricted",
+      "httpStatus": 403
     },
     {
       "url": "https://github.com/petergyang/human-review",
@@ -3422,7 +3422,7 @@
     {
       "url": "https://www.youtube.com/watch?v=Uk7HHfF9n2Q",
       "status": "ok",
-      "httpStatus": 200
+      "httpStatus": 204
     },
     {
       "url": "https://abacus.ai/pricing",
@@ -3611,8 +3611,8 @@
     },
     {
       "url": "https://www.fakecam.net/",
-      "status": "ok",
-      "httpStatus": 200
+      "status": "restricted",
+      "httpStatus": 403
     },
     {
       "url": "https://camloop.app/",
@@ -3737,17 +3737,17 @@
     {
       "url": "https://www.youtube.com/watch?v=G_2XOHxOoiY",
       "status": "ok",
-      "httpStatus": 200
+      "httpStatus": 204
     },
     {
       "url": "https://www.youtube.com/watch?v=UPWlOvcFSEE",
       "status": "ok",
-      "httpStatus": 200
+      "httpStatus": 204
     },
     {
       "url": "https://www.youtube.com/watch?v=9VOXy8Rny8c",
       "status": "ok",
-      "httpStatus": 200
+      "httpStatus": 204
     },
     {
       "url": "https://github.com/Jackywine/Bella",
@@ -3957,7 +3957,7 @@
     {
       "url": "https://www.youtube.com/watch?v=dPHOl0fkkOA",
       "status": "ok",
-      "httpStatus": 200
+      "httpStatus": 204
     },
     {
       "url": "https://github.com/PavelHopson/eclipse-library/blob/master/guides/erida-character-bible-v1.md",
