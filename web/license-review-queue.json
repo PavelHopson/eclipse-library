@@ -1,22 +1,22 @@
 {
   "schemaVersion": 1,
-  "sourceHash": "01e2f8561d1a8c9d946bc7dc30ab9abd1c4d3f603f40b001a9c9c30f1ced2f96",
+  "sourceHash": "c08d52fe082f8a10601a54f9dea40c278d1464e157c61064f4f9beb7a7f4d133",
   "policy": {
     "automaticApprovalForbidden": true,
     "directInstallForbidden": true,
     "missingLicenseMeansNoReusePermission": true
   },
   "totals": {
-    "reviewRequired": 217,
+    "reviewRequired": 218,
     "byPriority": {
       "P1": 1,
-      "P2": 179,
+      "P2": 180,
       "P3": 37
     },
     "byBucket": {
       "content-terms": 36,
       "grey-reference": 37,
-      "manual-other": 25,
+      "manual-other": 26,
       "repository-license-not-detected": 25,
       "service-terms": 94
     }
@@ -1026,6 +1026,32 @@
           "kind": "official-source",
           "label": "Официальный источник; точные условия ещё нужно сверить",
           "url": "https://www.figma.com/community/plugin/1612814320994608244/design-md-generator"
+        }
+      ]
+    },
+    {
+      "id": "designbookmark-motion",
+      "title": "DesignBookmark Motion — анимации интерфейса с промптом для Claude и Codex",
+      "type": "reference",
+      "url": "https://designbookmark.com/motion",
+      "decision": "now",
+      "riskLevel": "low",
+      "currentLicense": "Отдельная лицензия на код компонентов в условиях сайта не указана; часть карточек из открытой библиотеки Kokonut UI. Промпты используем как задание агенту и собираем свою реализацию в своём стиле.",
+      "reviewStatus": "verified",
+      "bucket": "manual-other",
+      "priority": "P2",
+      "reason": "The current official source does not provide enough normalized license evidence.",
+      "nextStep": "Open the official source and record the exact grant, restrictions, owner and evidence URL.",
+      "evidence": [
+        {
+          "kind": "terms",
+          "label": "DesignBookmark — Terms",
+          "url": "https://designbookmark.com/terms"
+        },
+        {
+          "kind": "source",
+          "label": "DesignBookmark Motion",
+          "url": "https://designbookmark.com/motion"
         }
       ]
     },

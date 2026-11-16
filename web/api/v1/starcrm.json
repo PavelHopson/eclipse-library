@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "consumer": "Eclipse CRM",
-  "catalogVersion": "01e2f8561d1a8c9d946bc7dc30ab9abd1c4d3f603f40b001a9c9c30f1ced2f96",
+  "catalogVersion": "c08d52fe082f8a10601a54f9dea40c278d1464e157c61064f4f9beb7a7f4d133",
   "generatedAt": null,
   "policy": {
     "greyResourcesExcluded": true,
@@ -9,7 +9,7 @@
     "externalMutationsRequireHumanApproval": true
   },
   "totals": {
-    "items": 709
+    "items": 710
   },
   "items": [
     {
@@ -25286,6 +25286,77 @@
           "kind": "docs",
           "label": "Официальная документация fireperf",
           "url": "https://man-pages.ipfire.org/fireperf/fireperf.html"
+        }
+      ],
+      "actions": {
+        "openOfficialSource": true,
+        "installFromCatalog": false,
+        "mutateExternalSystems": false
+      }
+    },
+    {
+      "id": "designbookmark-motion",
+      "title": "DesignBookmark Motion — анимации интерфейса с промптом для Claude и Codex",
+      "url": "https://designbookmark.com/motion",
+      "type": "reference",
+      "category": "Сайты-находки",
+      "subcategory": "Фронтенд и анимация",
+      "addedAt": "2026-11-14",
+      "description": "Около 80 живых анимированных элементов интерфейса: кнопки, поля ввода, меню, карточки, AI-элементы (поле промпта, печатающийся ответ, индикатор «думаю») и текстовые эффекты. У каждой карточки кнопки «Claude», «Codex» и «Copy code»: копируете и вставляете агенту, он собирает элемент в вашем проекте. Сам сайт — каталог примерно 2200 дизайн-инструментов. Это анимации для сайтов и приложений, не для видеомонтажа.",
+      "useCases": [
+        "Подобрать микроанимацию для кнопки, поля, меню или карточки и отдать её агенту одним промптом",
+        "Элементы AI-интерфейса: поле промпта, потоковый ответ, подсказка-призрак, индикатор размышления",
+        "Текстовые эффекты для лендингов: scramble, word roll, weight wave",
+        "Быстро показать заказчику варианты интерактива для сайта"
+      ],
+      "platforms": [
+        "Web",
+        "Claude",
+        "Codex"
+      ],
+      "license": {
+        "label": "Отдельная лицензия на код компонентов в условиях сайта не указана; часть карточек из открытой библиотеки Kokonut UI. Промпты используем как задание агенту и собираем свою реализацию в своём стиле.",
+        "original": "Отдельная лицензия на код компонентов в условиях сайта не указана; часть карточек из открытой библиотеки Kokonut UI. Промпты используем как задание агенту и собираем свою реализацию в своём стиле.",
+        "spdx": null,
+        "kind": "unknown",
+        "status": "unverified",
+        "requiresReview": true,
+        "evidence": [
+          {
+            "kind": "terms",
+            "label": "DesignBookmark — Terms",
+            "url": "https://designbookmark.com/terms"
+          },
+          {
+            "kind": "source",
+            "label": "DesignBookmark Motion",
+            "url": "https://designbookmark.com/motion"
+          }
+        ]
+      },
+      "access": {
+        "cost": "free",
+        "signup": "optional",
+        "runtime": "cloud"
+      },
+      "trust": "verified",
+      "decision": "now",
+      "riskLevel": "low",
+      "projects": [
+        "Eclipse Forge Landing",
+        "Eclipse Chat",
+        "Eclipse Library"
+      ],
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://designbookmark.com/motion"
+        },
+        {
+          "kind": "terms",
+          "label": "DesignBookmark — Terms",
+          "url": "https://designbookmark.com/terms"
         }
       ],
       "actions": {
