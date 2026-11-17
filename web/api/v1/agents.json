@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "consumer": "generic-agent",
-  "catalogVersion": "01e2f8561d1a8c9d946bc7dc30ab9abd1c4d3f603f40b001a9c9c30f1ced2f96",
+  "catalogVersion": "d186fba111b9599ad4b9ff71dc627de3feb1e2d9b227136a73dc8e97898bb70c",
   "generatedAt": null,
   "policy": {
     "greyResourcesExcluded": true,
@@ -9,7 +9,7 @@
     "externalMutationsRequireHumanApproval": true
   },
   "totals": {
-    "items": 709
+    "items": 710
   },
   "items": [
     {
@@ -23541,9 +23541,14 @@
         "original": "MIT для репозитория каталога; лицензии перечисленных инструментов и материалов проверяются отдельно.",
         "spdx": "MIT",
         "kind": "open-source",
-        "status": "editor-reviewed",
+        "status": "source-declared",
         "requiresReview": false,
         "evidence": [
+          {
+            "kind": "license",
+            "label": "MIT license",
+            "url": "https://api.github.com/repos/reacher-z/awesome-rea/license"
+          },
           {
             "kind": "source",
             "label": "Первоисточник",
@@ -23570,6 +23575,11 @@
           "kind": "official-source",
           "label": "Официальный источник",
           "url": "https://github.com/reacher-z/Awesome-REA"
+        },
+        {
+          "kind": "license",
+          "label": "MIT license",
+          "url": "https://api.github.com/repos/reacher-z/awesome-rea/license"
         },
         {
           "kind": "license",
@@ -23661,9 +23671,14 @@
         "original": "MIT",
         "spdx": "MIT",
         "kind": "open-source",
-        "status": "editor-reviewed",
+        "status": "source-declared",
         "requiresReview": false,
         "evidence": [
+          {
+            "kind": "license",
+            "label": "MIT license",
+            "url": "https://api.github.com/repos/sarpstar/cinecode/license"
+          },
           {
             "kind": "license",
             "label": "Лицензия MIT",
@@ -23692,6 +23707,11 @@
           "kind": "official-source",
           "label": "Официальный источник",
           "url": "https://github.com/sarpstar/cinecode"
+        },
+        {
+          "kind": "license",
+          "label": "MIT license",
+          "url": "https://api.github.com/repos/sarpstar/cinecode/license"
         },
         {
           "kind": "license",
@@ -23792,9 +23812,14 @@
         "original": "AGPL-3.0 для кода Deep-Live-Cam. Модели InsightFace лицензируются отдельно: опубликованные модели ограничены некоммерческими исследованиями; для inswapper автор предлагает согласовать лицензию.",
         "spdx": "AGPL-3.0",
         "kind": "open-source",
-        "status": "editor-reviewed",
+        "status": "source-declared",
         "requiresReview": false,
         "evidence": [
+          {
+            "kind": "license",
+            "label": "AGPL-3.0 license",
+            "url": "https://api.github.com/repos/hacksider/deep-live-cam/license"
+          },
           {
             "kind": "license",
             "label": "Лицензия кода Deep-Live-Cam",
@@ -23826,6 +23851,11 @@
           "kind": "official-source",
           "label": "Официальный источник",
           "url": "https://github.com/hacksider/Deep-Live-Cam"
+        },
+        {
+          "kind": "license",
+          "label": "AGPL-3.0 license",
+          "url": "https://api.github.com/repos/hacksider/deep-live-cam/license"
         },
         {
           "kind": "license",
@@ -23874,9 +23904,14 @@
         "original": "Apache-2.0 для кода плеера. Готовые персонажи имеют отдельные лицензии и ограничения; их нельзя автоматически считать коммерчески свободными.",
         "spdx": "Apache-2.0",
         "kind": "open-source",
-        "status": "editor-reviewed",
+        "status": "source-declared",
         "requiresReview": false,
         "evidence": [
+          {
+            "kind": "license",
+            "label": "Apache-2.0 license",
+            "url": "https://api.github.com/repos/livliv-dev/player/license"
+          },
           {
             "kind": "license",
             "label": "Лицензия кода LivLiv Player",
@@ -23911,6 +23946,11 @@
           "kind": "official-source",
           "label": "Официальный источник",
           "url": "https://github.com/livliv-dev/player"
+        },
+        {
+          "kind": "license",
+          "label": "Apache-2.0 license",
+          "url": "https://api.github.com/repos/livliv-dev/player/license"
         },
         {
           "kind": "license",
@@ -24032,9 +24072,14 @@
         "original": "MIT для репозитория. Доступ к макетам и токенам регулируется Figma token scopes и правами конкретного файла.",
         "spdx": "MIT",
         "kind": "open-source",
-        "status": "editor-reviewed",
+        "status": "source-declared",
         "requiresReview": false,
         "evidence": [
+          {
+            "kind": "license",
+            "label": "MIT license",
+            "url": "https://api.github.com/repos/southleft/figma-console-mcp/license"
+          },
           {
             "kind": "license",
             "label": "MIT license",
@@ -24071,6 +24116,11 @@
           "kind": "official-source",
           "label": "Официальный источник",
           "url": "https://github.com/southleft/figma-console-mcp"
+        },
+        {
+          "kind": "license",
+          "label": "MIT license",
+          "url": "https://api.github.com/repos/southleft/figma-console-mcp/license"
         },
         {
           "kind": "license",
@@ -24120,9 +24170,14 @@
         "original": "MIT для кода; сторонние навыки и ассеты сохраняют собственные условия",
         "spdx": "MIT",
         "kind": "open-source",
-        "status": "editor-reviewed",
+        "status": "source-declared",
         "requiresReview": false,
         "evidence": [
+          {
+            "kind": "license",
+            "label": "MIT license",
+            "url": "https://api.github.com/repos/edenfunf/reelmimic/license"
+          },
           {
             "kind": "license",
             "label": "Официальная MIT-лицензия",
@@ -24151,6 +24206,11 @@
           "kind": "official-source",
           "label": "Официальный источник",
           "url": "https://github.com/edenfunf/reelmimic"
+        },
+        {
+          "kind": "license",
+          "label": "MIT license",
+          "url": "https://api.github.com/repos/edenfunf/reelmimic/license"
         },
         {
           "kind": "license",
@@ -24194,9 +24254,14 @@
         "original": "Apache-2.0",
         "spdx": "Apache-2.0",
         "kind": "open-source",
-        "status": "editor-reviewed",
+        "status": "source-declared",
         "requiresReview": false,
         "evidence": [
+          {
+            "kind": "license",
+            "label": "Apache-2.0 license",
+            "url": "https://api.github.com/repos/microsoft/tokeneconomizer/license"
+          },
           {
             "kind": "license",
             "label": "Apache-2.0 license",
@@ -24228,6 +24293,11 @@
           "kind": "official-source",
           "label": "Официальный источник",
           "url": "https://github.com/microsoft/TokenEconomizer"
+        },
+        {
+          "kind": "license",
+          "label": "Apache-2.0 license",
+          "url": "https://api.github.com/repos/microsoft/tokeneconomizer/license"
         },
         {
           "kind": "license",
@@ -24265,9 +24335,14 @@
         "original": "AGPL-3.0-or-later",
         "spdx": "AGPL-3.0",
         "kind": "open-source",
-        "status": "editor-reviewed",
+        "status": "source-declared",
         "requiresReview": false,
         "evidence": [
+          {
+            "kind": "license",
+            "label": "AGPL-3.0 license",
+            "url": "https://api.github.com/repos/ray-lea/argus/license"
+          },
           {
             "kind": "license",
             "label": "Официальная AGPL-3.0-лицензия",
@@ -24297,6 +24372,11 @@
           "kind": "official-source",
           "label": "Официальный источник",
           "url": "https://github.com/Ray-lea/Argus"
+        },
+        {
+          "kind": "license",
+          "label": "AGPL-3.0 license",
+          "url": "https://api.github.com/repos/ray-lea/argus/license"
         },
         {
           "kind": "license",
@@ -24404,6 +24484,11 @@
         "evidence": [
           {
             "kind": "license",
+            "label": "AGPL-3.0 license",
+            "url": "https://api.github.com/repos/magostudio/magostudio/license"
+          },
+          {
+            "kind": "license",
             "label": "Официальная AGPL-3.0-лицензия",
             "url": "https://github.com/MagoStudio/MagoStudio/blob/main/LICENSE"
           },
@@ -24430,6 +24515,11 @@
           "kind": "official-source",
           "label": "Официальный источник",
           "url": "https://github.com/MagoStudio/MagoStudio"
+        },
+        {
+          "kind": "license",
+          "label": "AGPL-3.0 license",
+          "url": "https://api.github.com/repos/magostudio/magostudio/license"
         },
         {
           "kind": "license",
@@ -24531,9 +24621,14 @@
         "original": "MIT",
         "spdx": "MIT",
         "kind": "open-source",
-        "status": "editor-reviewed",
+        "status": "source-declared",
         "requiresReview": false,
         "evidence": [
+          {
+            "kind": "license",
+            "label": "MIT license",
+            "url": "https://api.github.com/repos/yjid/kensaku/license"
+          },
           {
             "kind": "license",
             "label": "Лицензия в официальном источнике",
@@ -24569,6 +24664,11 @@
           "kind": "official-source",
           "label": "Официальный источник",
           "url": "https://github.com/yjid/kensaku"
+        },
+        {
+          "kind": "license",
+          "label": "MIT license",
+          "url": "https://api.github.com/repos/yjid/kensaku/license"
         },
         {
           "kind": "license",
@@ -24611,9 +24711,14 @@
         "original": "MIT",
         "spdx": "MIT",
         "kind": "open-source",
-        "status": "editor-reviewed",
+        "status": "source-declared",
         "requiresReview": false,
         "evidence": [
+          {
+            "kind": "license",
+            "label": "MIT license",
+            "url": "https://api.github.com/repos/deepseek-ai/dsh-superagent-prototype/license"
+          },
           {
             "kind": "license",
             "label": "MIT license",
@@ -24644,6 +24749,11 @@
           "kind": "official-source",
           "label": "Официальный источник",
           "url": "https://github.com/deepseek-ai/dsh-superagent-prototype"
+        },
+        {
+          "kind": "license",
+          "label": "MIT license",
+          "url": "https://api.github.com/repos/deepseek-ai/dsh-superagent-prototype/license"
         },
         {
           "kind": "license",
@@ -24681,9 +24791,14 @@
         "original": "MIT — код и эффекты; сохранять уведомления об авторстве",
         "spdx": "MIT",
         "kind": "open-source",
-        "status": "editor-reviewed",
+        "status": "source-declared",
         "requiresReview": false,
         "evidence": [
+          {
+            "kind": "license",
+            "label": "MIT license",
+            "url": "https://api.github.com/repos/patch-gg/pixelfx/license"
+          },
           {
             "kind": "license",
             "label": "Лицензия в официальном источнике",
@@ -24714,6 +24829,11 @@
           "kind": "official-source",
           "label": "Официальный источник",
           "url": "https://github.com/patch-gg/pixelfx"
+        },
+        {
+          "kind": "license",
+          "label": "MIT license",
+          "url": "https://api.github.com/repos/patch-gg/pixelfx/license"
         },
         {
           "kind": "license",
@@ -24752,9 +24872,14 @@
         "original": "MIT для кода; права на референсы проверяются отдельно",
         "spdx": "MIT",
         "kind": "open-source",
-        "status": "editor-reviewed",
+        "status": "source-declared",
         "requiresReview": false,
         "evidence": [
+          {
+            "kind": "license",
+            "label": "MIT license",
+            "url": "https://api.github.com/repos/niazmorshed2007/reanimate/license"
+          },
           {
             "kind": "license",
             "label": "Лицензия в официальном источнике",
@@ -24785,6 +24910,11 @@
           "kind": "official-source",
           "label": "Официальный источник",
           "url": "https://github.com/NiazMorshed2007/reanimate"
+        },
+        {
+          "kind": "license",
+          "label": "MIT license",
+          "url": "https://api.github.com/repos/niazmorshed2007/reanimate/license"
         },
         {
           "kind": "license",
@@ -24821,9 +24951,14 @@
         "original": "Apache-2.0 для приложения; модели имеют отдельные условия",
         "spdx": "Apache-2.0",
         "kind": "open-source",
-        "status": "editor-reviewed",
+        "status": "source-declared",
         "requiresReview": false,
         "evidence": [
+          {
+            "kind": "license",
+            "label": "Apache-2.0 license",
+            "url": "https://api.github.com/repos/wangzan101/mika/license"
+          },
           {
             "kind": "license",
             "label": "Лицензия в официальном источнике",
@@ -24859,6 +24994,11 @@
           "kind": "official-source",
           "label": "Официальный источник",
           "url": "https://github.com/wangzan101/Mika"
+        },
+        {
+          "kind": "license",
+          "label": "Apache-2.0 license",
+          "url": "https://api.github.com/repos/wangzan101/mika/license"
         },
         {
           "kind": "license",
@@ -24967,6 +25107,11 @@
         "evidence": [
           {
             "kind": "license",
+            "label": "Apache-2.0 license",
+            "url": "https://api.github.com/repos/storytold/craft-anything/license"
+          },
+          {
+            "kind": "license",
             "label": "Лицензия в официальном источнике",
             "url": "https://github.com/storytold/craft-anything"
           },
@@ -24995,6 +25140,11 @@
           "kind": "official-source",
           "label": "Официальный источник",
           "url": "https://github.com/storytold/craft-anything"
+        },
+        {
+          "kind": "license",
+          "label": "Apache-2.0 license",
+          "url": "https://api.github.com/repos/storytold/craft-anything/license"
         },
         {
           "kind": "status",
@@ -25034,9 +25184,14 @@
         "original": "Apache-2.0",
         "spdx": "Apache-2.0",
         "kind": "open-source",
-        "status": "editor-reviewed",
+        "status": "source-declared",
         "requiresReview": false,
         "evidence": [
+          {
+            "kind": "license",
+            "label": "Apache-2.0 license",
+            "url": "https://api.github.com/repos/ramenvr/autopilot/license"
+          },
           {
             "kind": "license",
             "label": "Apache-2.0 license",
@@ -25066,6 +25221,11 @@
           "kind": "official-source",
           "label": "Официальный источник",
           "url": "https://github.com/ramenvr/autopilot"
+        },
+        {
+          "kind": "license",
+          "label": "Apache-2.0 license",
+          "url": "https://api.github.com/repos/ramenvr/autopilot/license"
         },
         {
           "kind": "license",
@@ -25108,6 +25268,11 @@
         "evidence": [
           {
             "kind": "license",
+            "label": "MIT license",
+            "url": "https://api.github.com/repos/neuregex/freefield/license"
+          },
+          {
+            "kind": "license",
             "label": "Лицензия в официальном источнике",
             "url": "https://github.com/neuregex/freefield/blob/main/LICENSE"
           },
@@ -25139,6 +25304,11 @@
           "kind": "official-source",
           "label": "Официальный источник",
           "url": "https://github.com/neuregex/freefield"
+        },
+        {
+          "kind": "license",
+          "label": "MIT license",
+          "url": "https://api.github.com/repos/neuregex/freefield/license"
         },
         {
           "kind": "license",
@@ -25181,9 +25351,14 @@
         "original": "Apache-2.0 для кода; права на видео и условия моделей проверяются отдельно",
         "spdx": "Apache-2.0",
         "kind": "open-source",
-        "status": "editor-reviewed",
+        "status": "source-declared",
         "requiresReview": false,
         "evidence": [
+          {
+            "kind": "license",
+            "label": "Apache-2.0 license",
+            "url": "https://api.github.com/repos/juneyaooo/rea-video/license"
+          },
           {
             "kind": "license",
             "label": "Лицензия в официальном источнике",
@@ -25212,6 +25387,11 @@
           "kind": "official-source",
           "label": "Официальный источник",
           "url": "https://github.com/JuneYaooo/rea-video"
+        },
+        {
+          "kind": "license",
+          "label": "Apache-2.0 license",
+          "url": "https://api.github.com/repos/juneyaooo/rea-video/license"
         },
         {
           "kind": "license",
@@ -25286,6 +25466,77 @@
           "kind": "docs",
           "label": "Официальная документация fireperf",
           "url": "https://man-pages.ipfire.org/fireperf/fireperf.html"
+        }
+      ],
+      "actions": {
+        "openOfficialSource": true,
+        "installFromCatalog": false,
+        "mutateExternalSystems": false
+      }
+    },
+    {
+      "id": "anicraft",
+      "title": "AniCraft — открытый 2D-редактор анимации (альтернатива Adobe Animate)",
+      "url": "https://github.com/storytold/anicraft",
+      "type": "tool",
+      "category": "Медиа и дизайн",
+      "subcategory": "2D-анимация и векторная графика",
+      "addedAt": "2026-11-17",
+      "description": "Нативный редактор векторной 2D-анимации на Rust: таймлайн, слои, ключевые кадры, классические и shape-твины, onion skinning, символы. Открывает .fla/.xfl и SVG, экспортирует PNG, GIF, SVG, спрайтшиты, Lottie и MP4/WebM через ffmpeg. Есть CLI и MCP-сервер — агентом можно рисовать, анимировать и экспортировать. Ранняя альфа.",
+      "useCases": [
+        "Лёгкие векторные анимации (значки, логотип) с экспортом в Lottie для сайтов",
+        "Спрайтшиты и GIF для простых 2D-игр и демо",
+        "Пакетный рендер кадров из CLI или через агента по MCP"
+      ],
+      "platforms": [
+        "Windows",
+        "macOS",
+        "Linux",
+        "FreeBSD",
+        "WebAssembly (сборка вручную)",
+        "Claude Code (MCP)"
+      ],
+      "license": {
+        "label": "MIT или Apache-2.0 (двойная лицензия кода); права на импортируемые .fla и ассеты — отдельно",
+        "original": "MIT или Apache-2.0 (двойная лицензия кода); права на импортируемые .fla и ассеты — отдельно",
+        "spdx": null,
+        "kind": "custom",
+        "status": "editor-reviewed",
+        "requiresReview": false,
+        "evidence": [
+          {
+            "kind": "license",
+            "label": "Лицензии в официальном репозитории",
+            "url": "https://github.com/storytold/anicraft/tree/main/licenses"
+          },
+          {
+            "kind": "source",
+            "label": "Официальный репозиторий AniCraft",
+            "url": "https://github.com/storytold/anicraft"
+          }
+        ]
+      },
+      "access": {
+        "cost": "free",
+        "signup": "none",
+        "runtime": "local"
+      },
+      "trust": "official",
+      "decision": "reference",
+      "riskLevel": "medium",
+      "projects": [
+        "Eclipse Media"
+      ],
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://github.com/storytold/anicraft"
+        },
+        {
+          "kind": "license",
+          "label": "Лицензии в официальном репозитории",
+          "url": "https://github.com/storytold/anicraft/tree/main/licenses"
         }
       ],
       "actions": {
