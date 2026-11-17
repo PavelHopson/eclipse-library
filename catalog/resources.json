@@ -48532,6 +48532,73 @@
         "category": "Разработка и тестирование",
         "subcategory": "Сетевой benchmark"
       }
+    },
+    {
+      "id": "anicraft",
+      "url": "https://github.com/storytold/anicraft",
+      "title": "AniCraft — открытый 2D-редактор анимации (альтернатива Adobe Animate)",
+      "type": "tool",
+      "category": "Медиа и дизайн",
+      "subcategory": "2D-анимация и векторная графика",
+      "simpleDescription": "Нативный редактор векторной 2D-анимации на Rust: таймлайн, слои, ключевые кадры, классические и shape-твины, onion skinning, символы. Открывает .fla/.xfl и SVG, экспортирует PNG, GIF, SVG, спрайтшиты, Lottie и MP4/WebM через ffmpeg. Есть CLI и MCP-сервер — агентом можно рисовать, анимировать и экспортировать. Ранняя альфа.",
+      "useCases": [
+        "Лёгкие векторные анимации (значки, логотип) с экспортом в Lottie для сайтов",
+        "Спрайтшиты и GIF для простых 2D-игр и демо",
+        "Пакетный рендер кадров из CLI или через агента по MCP"
+      ],
+      "platforms": [
+        "Windows",
+        "macOS",
+        "Linux",
+        "FreeBSD",
+        "WebAssembly (сборка вручную)",
+        "Claude Code (MCP)"
+      ],
+      "license": "MIT или Apache-2.0 (двойная лицензия кода); права на импортируемые .fla и ассеты — отдельно",
+      "licenseEvidence": [
+        {
+          "kind": "license",
+          "label": "Лицензии в официальном репозитории",
+          "url": "https://github.com/storytold/anicraft/tree/main/licenses"
+        },
+        {
+          "kind": "source",
+          "label": "Официальный репозиторий AniCraft",
+          "url": "https://github.com/storytold/anicraft"
+        }
+      ],
+      "pricing": "Бесплатно, открытый код.",
+      "access": {
+        "cost": "free",
+        "signup": "none",
+        "runtime": "local"
+      },
+      "trust": "official",
+      "trustReason": "Официальный README и страница релизов проверены 17.11.2026 (последний релиз v0.2.1 от 12.11.2026, активные коммиты). Установка и испытание не выполнялись. Утверждение новостного канала про «обошла недавняя атака» в репозитории не подтверждено.",
+      "projects": [
+        "Eclipse Media"
+      ],
+      "decision": "reference",
+      "riskLevel": "medium",
+      "risks": [
+        "Авторы прямо пишут: ранняя альфа, не для продакшен-анимации.",
+        "Нет звуковых дорожек, GPU-рендера и полного ActionScript; проверено пока только на Windows.",
+        "MCP-сервер даёт агенту выполнять любые команды движка над документом — работать на копиях файлов."
+      ],
+      "verifiedAt": "2026-11-17",
+      "addedAt": "2026-11-17",
+      "reviewStatus": "verified",
+      "quickStart": [
+        "Скачать подписанную сборку со страницы релизов или с getartcraft.com.",
+        "Начать с примера (anicraft-cli gif --sample) и экспорта в Lottie на тестовой сцене.",
+        "Для агента: claude mcp add anicraft -- <путь>/anicraft-cli mcp; работать на копии проекта."
+      ],
+      "source": {
+        "file": "catalog/resources.json",
+        "key": "anicraft",
+        "category": "Медиа и дизайн",
+        "subcategory": "2D-анимация и векторная графика"
+      }
     }
   ]
 }
