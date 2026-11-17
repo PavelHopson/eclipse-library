@@ -48863,6 +48863,70 @@
         "category": "Инструменты",
         "subcategory": "Android-приложения на Windows"
       }
+    },
+    {
+      "id": "upscayl",
+      "url": "https://github.com/upscayl/upscayl",
+      "title": "Upscayl — локальный ИИ-апскейлер фото и рисунков",
+      "type": "tool",
+      "category": "Медиа и дизайн",
+      "subcategory": "Увеличение и улучшение изображений",
+      "simpleDescription": "Приложение для Windows, macOS и Linux: увеличивает изображения с низким разрешением и повышает чёткость с помощью моделей Real-ESRGAN. Всё считается на своём компьютере, файлы никуда не загружаются. Есть пакетная обработка.",
+      "useCases": [
+        "Подтянуть качество превью, иллюстраций и старых логотипов для сайтов",
+        "Пакетно увеличить исходники перед версткой обложек"
+      ],
+      "platforms": [
+        "Windows",
+        "macOS",
+        "Linux",
+        "GPU с поддержкой Vulkan"
+      ],
+      "license": "AGPL-3.0",
+      "licenseEvidence": [
+        {
+          "kind": "license",
+          "label": "Лицензия в репозитории",
+          "url": "https://github.com/upscayl/upscayl/blob/main/LICENSE"
+        },
+        {
+          "kind": "source",
+          "label": "Официальный репозиторий Upscayl",
+          "url": "https://github.com/upscayl/upscayl"
+        }
+      ],
+      "pricing": "Бесплатно.",
+      "access": {
+        "cost": "free",
+        "signup": "none",
+        "runtime": "local"
+      },
+      "trust": "official",
+      "trustReason": "README и релизы проверены 17.11.2026: 52.8k звёзд, AGPL-3.0, бэкенд upscayl-ncnn тоже открыт. Последний релиз v2.15.0 — декабрь 2024, коммиты продолжаются. Не запускался.",
+      "projects": [
+        "Eclipse Media"
+      ],
+      "decision": "reference",
+      "riskLevel": "low",
+      "risks": [
+        "Нужна видеокарта с Vulkan; на встроенной графике и CPU в основном не работает.",
+        "Модель дорисовывает детали — не использовать для фото товаров и для лиц, где важна точная внешность.",
+        "AGPL-3.0: при изменении и распространении программы нужно открывать исходники."
+      ],
+      "verifiedAt": "2026-11-17",
+      "addedAt": "2026-11-17",
+      "reviewStatus": "verified",
+      "quickStart": [
+        "Скачать сборку под свою ОС со страницы релизов.",
+        "Выбрать модель под тип картинки (фото или рисунок) и масштаб 2–4×.",
+        "Сравнить результат с оригиналом на 100% масштабе перед публикацией."
+      ],
+      "source": {
+        "file": "catalog/resources.json",
+        "key": "upscayl",
+        "category": "Медиа и дизайн",
+        "subcategory": "Увеличение и улучшение изображений"
+      }
     }
   ]
 }

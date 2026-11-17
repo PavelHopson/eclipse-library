@@ -1,18 +1,18 @@
 {
   "schemaVersion": 2,
-  "sourceHash": "a1920ead26c12e0c2d261da29af0ccdb630abf69d087059caa849a949870752d",
+  "sourceHash": "0b652f52ecbeb6e711df63a191ad2d3725e2dd71f96f99cfb87382c0657279c2",
   "policy": {
     "directInstallForbidden": true
   },
   "totals": {
-    "all": 818,
-    "verified": 449,
+    "all": 819,
+    "verified": 450,
     "inferred": 369,
     "licenseReviewRequired": 217,
-    "agentSafe": 714,
+    "agentSafe": 715,
     "agentExcluded": 104,
     "grey": 89,
-    "withAddedAt": 539
+    "withAddedAt": 540
   },
   "items": [
     {
@@ -44451,6 +44451,112 @@
           "kind": "license",
           "label": "Лицензия в репозитории",
           "url": "https://github.com/RoutineMiku/apkstart/blob/main/LICENSE"
+        }
+      ],
+      "agentEligibility": {
+        "eligible": true,
+        "reasons": [],
+        "installAllowed": false
+      }
+    },
+    {
+      "id": "upscayl",
+      "url": "https://github.com/upscayl/upscayl",
+      "title": "Upscayl — локальный ИИ-апскейлер фото и рисунков",
+      "type": "tool",
+      "category": "Медиа и дизайн",
+      "subcategory": "Увеличение и улучшение изображений",
+      "simpleDescription": "Приложение для Windows, macOS и Linux: увеличивает изображения с низким разрешением и повышает чёткость с помощью моделей Real-ESRGAN. Всё считается на своём компьютере, файлы никуда не загружаются. Есть пакетная обработка.",
+      "useCases": [
+        "Подтянуть качество превью, иллюстраций и старых логотипов для сайтов",
+        "Пакетно увеличить исходники перед версткой обложек"
+      ],
+      "platforms": [
+        "Windows",
+        "macOS",
+        "Linux",
+        "GPU с поддержкой Vulkan"
+      ],
+      "license": "AGPL-3.0",
+      "licenseEvidence": [
+        {
+          "kind": "license",
+          "label": "Лицензия в репозитории",
+          "url": "https://github.com/upscayl/upscayl/blob/main/LICENSE"
+        },
+        {
+          "kind": "source",
+          "label": "Официальный репозиторий Upscayl",
+          "url": "https://github.com/upscayl/upscayl"
+        }
+      ],
+      "pricing": "Бесплатно.",
+      "access": {
+        "cost": "free",
+        "signup": "none",
+        "runtime": "local"
+      },
+      "trust": "official",
+      "trustReason": "README и релизы проверены 17.11.2026: 52.8k звёзд, AGPL-3.0, бэкенд upscayl-ncnn тоже открыт. Последний релиз v2.15.0 — декабрь 2024, коммиты продолжаются. Не запускался.",
+      "projects": [
+        "Eclipse Media"
+      ],
+      "decision": "reference",
+      "riskLevel": "low",
+      "risks": [
+        "Нужна видеокарта с Vulkan; на встроенной графике и CPU в основном не работает.",
+        "Модель дорисовывает детали — не использовать для фото товаров и для лиц, где важна точная внешность.",
+        "AGPL-3.0: при изменении и распространении программы нужно открывать исходники."
+      ],
+      "verifiedAt": "2026-11-17",
+      "addedAt": "2026-11-17",
+      "reviewStatus": "verified",
+      "quickStart": [
+        "Скачать сборку под свою ОС со страницы релизов.",
+        "Выбрать модель под тип картинки (фото или рисунок) и масштаб 2–4×.",
+        "Сравнить результат с оригиналом на 100% масштабе перед публикацией."
+      ],
+      "source": {
+        "file": "catalog/resources.json",
+        "key": "upscayl",
+        "legacy": {
+          "file": "catalog/resources.json",
+          "key": "upscayl",
+          "category": "Медиа и дизайн",
+          "subcategory": "Увеличение и улучшение изображений"
+        }
+      },
+      "catalogOrder": 819,
+      "licenseInfo": {
+        "label": "AGPL-3.0",
+        "original": "AGPL-3.0",
+        "spdx": "AGPL-3.0",
+        "kind": "open-source",
+        "status": "editor-reviewed",
+        "requiresReview": false,
+        "evidence": [
+          {
+            "kind": "license",
+            "label": "Лицензия в репозитории",
+            "url": "https://github.com/upscayl/upscayl/blob/main/LICENSE"
+          },
+          {
+            "kind": "source",
+            "label": "Официальный репозиторий Upscayl",
+            "url": "https://github.com/upscayl/upscayl"
+          }
+        ]
+      },
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://github.com/upscayl/upscayl"
+        },
+        {
+          "kind": "license",
+          "label": "Лицензия в репозитории",
+          "url": "https://github.com/upscayl/upscayl/blob/main/LICENSE"
         }
       ],
       "agentEligibility": {

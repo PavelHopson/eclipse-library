@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "consumer": "Eclipse CRM",
-  "catalogVersion": "a1920ead26c12e0c2d261da29af0ccdb630abf69d087059caa849a949870752d",
+  "catalogVersion": "0b652f52ecbeb6e711df63a191ad2d3725e2dd71f96f99cfb87382c0657279c2",
   "generatedAt": null,
   "policy": {
     "greyResourcesExcluded": true,
@@ -9,7 +9,7 @@
     "externalMutationsRequireHumanApproval": true
   },
   "totals": {
-    "items": 714
+    "items": 715
   },
   "items": [
     {
@@ -25805,6 +25805,74 @@
           "kind": "license",
           "label": "Лицензия в репозитории",
           "url": "https://github.com/RoutineMiku/apkstart/blob/main/LICENSE"
+        }
+      ],
+      "actions": {
+        "openOfficialSource": true,
+        "installFromCatalog": false,
+        "mutateExternalSystems": false
+      }
+    },
+    {
+      "id": "upscayl",
+      "title": "Upscayl — локальный ИИ-апскейлер фото и рисунков",
+      "url": "https://github.com/upscayl/upscayl",
+      "type": "tool",
+      "category": "Медиа и дизайн",
+      "subcategory": "Увеличение и улучшение изображений",
+      "addedAt": "2026-11-17",
+      "description": "Приложение для Windows, macOS и Linux: увеличивает изображения с низким разрешением и повышает чёткость с помощью моделей Real-ESRGAN. Всё считается на своём компьютере, файлы никуда не загружаются. Есть пакетная обработка.",
+      "useCases": [
+        "Подтянуть качество превью, иллюстраций и старых логотипов для сайтов",
+        "Пакетно увеличить исходники перед версткой обложек"
+      ],
+      "platforms": [
+        "Windows",
+        "macOS",
+        "Linux",
+        "GPU с поддержкой Vulkan"
+      ],
+      "license": {
+        "label": "AGPL-3.0",
+        "original": "AGPL-3.0",
+        "spdx": "AGPL-3.0",
+        "kind": "open-source",
+        "status": "editor-reviewed",
+        "requiresReview": false,
+        "evidence": [
+          {
+            "kind": "license",
+            "label": "Лицензия в репозитории",
+            "url": "https://github.com/upscayl/upscayl/blob/main/LICENSE"
+          },
+          {
+            "kind": "source",
+            "label": "Официальный репозиторий Upscayl",
+            "url": "https://github.com/upscayl/upscayl"
+          }
+        ]
+      },
+      "access": {
+        "cost": "free",
+        "signup": "none",
+        "runtime": "local"
+      },
+      "trust": "official",
+      "decision": "reference",
+      "riskLevel": "low",
+      "projects": [
+        "Eclipse Media"
+      ],
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://github.com/upscayl/upscayl"
+        },
+        {
+          "kind": "license",
+          "label": "Лицензия в репозитории",
+          "url": "https://github.com/upscayl/upscayl/blob/main/LICENSE"
         }
       ],
       "actions": {
