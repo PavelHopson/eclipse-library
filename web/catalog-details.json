@@ -488,21 +488,24 @@
   },
   {
     "id": "apple-design-skill",
-    "url": "https://github.com/emilkowalski/skills/blob/main/skills/apple-design/SKILL.md",
-    "simpleDescription": "Краткая практическая выжимка дизайн-паттернов Apple и WWDC для AI coding agents.",
+    "url": "https://github.com/emilkowalski/skills",
+    "simpleDescription": "Набор скиллов дизайн-инженера (Vaul, Sonner; Vercel, Linear) для coding-агентов: apple-design — выжимка принципов Apple/WWDC для веба; gestures — перетаскивание, свайпы и шторки, которые идут за пальцем 1:1, отпускаются с пружиной по скорости и перехватываются на лету; плюс animate, review-animations, mobile-native, break-ui и другие. Только текстовые правила, без скриптов.",
     "useCases": [
       "Проверить motion и feedback",
-      "Улучшить desktop/mobile polish"
+      "Улучшить desktop/mobile polish",
+      "Жесты: шторки, свайп-закрытие, drag-to-reorder (скилл gestures)",
+      "Мобильный веб «как приложение» (скилл mobile-native)"
     ],
     "platforms": [
       "Claude Code",
+      "Codex",
       "Cursor",
-      "CLI"
+      "CLI (npx skills)"
     ],
     "license": "MIT",
     "pricing": "Бесплатно",
     "trust": "community",
-    "trustReason": "Авторский open-source skill; это не официальный документ Apple.",
+    "trustReason": "Авторский open-source набор (57.6k звёзд, MIT); не официальный документ Apple. SKILL.md скилла gestures прочитан 17.11.2026 — правила и примеры, без скриптов и сетевых вызовов.",
     "projects": [
       "Eclipse Chat",
       "Hopson Sentinel",
@@ -512,9 +515,11 @@
     "riskLevel": "low",
     "risks": [
       "Может конфликтовать с существующим design system",
-      "Нужно сверять спорные правила с первичными материалами WWDC"
+      "Нужно сверять спорные правила с первичными материалами WWDC",
+      "Правила рассчитаны на React + Motion; для другого стека переносить вручную",
+      "npx skills — сторонний установщик: проверять, что он кладёт в папку скиллов"
     ],
-    "verifiedAt": "2026-07-24",
+    "verifiedAt": "2026-11-17",
     "access": {
       "cost": "free",
       "signup": "none",
