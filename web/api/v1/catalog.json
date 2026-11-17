@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "sourceHash": "a4952c4f2284fcbad397be3a5d7a689907294a786df3e926b72b81889c401250",
+  "sourceHash": "7c2cfa94341fab132dca54d706d534cbca75acee7dea393e309c722a2ba6a819",
   "policy": {
     "directInstallForbidden": true
   },
@@ -66290,20 +66290,23 @@
     },
     {
       "id": "apple-design-skill",
-      "url": "https://github.com/emilkowalski/skills/blob/main/skills/apple-design/SKILL.md",
-      "title": "Apple Design Skill",
+      "url": "https://github.com/emilkowalski/skills",
+      "title": "Emil Kowalski skills — скиллы для анимаций, жестов и UI (apple-design, gestures и др.)",
       "type": "skill",
       "category": "Подборка Eclipse",
       "subcategory": "Agent skills / coding workflow",
-      "simpleDescription": "Краткая практическая выжимка дизайн-паттернов Apple и WWDC для AI coding agents.",
+      "simpleDescription": "Набор скиллов дизайн-инженера (Vaul, Sonner; Vercel, Linear) для coding-агентов: apple-design — выжимка принципов Apple/WWDC для веба; gestures — перетаскивание, свайпы и шторки, которые идут за пальцем 1:1, отпускаются с пружиной по скорости и перехватываются на лету; плюс animate, review-animations, mobile-native, break-ui и другие. Только текстовые правила, без скриптов.",
       "useCases": [
         "Проверить motion и feedback",
-        "Улучшить desktop/mobile polish"
+        "Улучшить desktop/mobile polish",
+        "Жесты: шторки, свайп-закрытие, drag-to-reorder (скилл gestures)",
+        "Мобильный веб «как приложение» (скилл mobile-native)"
       ],
       "platforms": [
         "Claude Code",
+        "Codex",
         "Cursor",
-        "CLI"
+        "CLI (npx skills)"
       ],
       "license": "MIT",
       "pricing": "Бесплатно",
@@ -66313,7 +66316,7 @@
         "runtime": "local"
       },
       "trust": "community",
-      "trustReason": "Авторский open-source skill; это не официальный документ Apple.",
+      "trustReason": "Авторский open-source набор (57.6k звёзд, MIT); не официальный документ Apple. SKILL.md скилла gestures прочитан 17.11.2026 — правила и примеры, без скриптов и сетевых вызовов.",
       "projects": [
         "Eclipse Chat",
         "Hopson Sentinel",
@@ -66323,13 +66326,15 @@
       "riskLevel": "low",
       "risks": [
         "Может конфликтовать с существующим design system",
-        "Нужно сверять спорные правила с первичными материалами WWDC"
+        "Нужно сверять спорные правила с первичными материалами WWDC",
+        "Правила рассчитаны на React + Motion; для другого стека переносить вручную",
+        "npx skills — сторонний установщик: проверять, что он кладёт в папку скиллов"
       ],
-      "verifiedAt": "2026-07-24",
+      "verifiedAt": "2026-11-17",
       "quickStart": [
-        "Откройте официальный источник и проверьте владельца, лицензию и дату обновления.",
-        "Не передавайте secrets или рабочие данные; начните с пустого тестового проекта.",
-        "Сравните результат с текущим способом работы и только потом решайте об интеграции."
+        "Весь набор: npx skills@latest add emilkowalski/skills",
+        "Один скилл: npx skills@latest add emilkowalski/skills --skill gestures",
+        "Начать на тестовом проекте; для шторок сначала рассмотреть готовую библиотеку Vaul."
       ],
       "reviewStatus": "verified",
       "source": {
@@ -66343,6 +66348,18 @@
         }
       },
       "addedAt": "2026-07-15",
+      "licenseEvidence": [
+        {
+          "kind": "license",
+          "label": "Лицензия репозитория",
+          "url": "https://github.com/emilkowalski/skills/blob/main/LICENSE"
+        },
+        {
+          "kind": "source",
+          "label": "Каталог скиллов с примерами",
+          "url": "https://aiforui.dev/skills"
+        }
+      ],
       "catalogOrder": 2193,
       "licenseInfo": {
         "label": "MIT",
@@ -66356,6 +66373,16 @@
             "kind": "license",
             "label": "MIT license",
             "url": "https://api.github.com/repos/emilkowalski/skills/license"
+          },
+          {
+            "kind": "license",
+            "label": "Лицензия репозитория",
+            "url": "https://github.com/emilkowalski/skills/blob/main/LICENSE"
+          },
+          {
+            "kind": "source",
+            "label": "Каталог скиллов с примерами",
+            "url": "https://aiforui.dev/skills"
           }
         ]
       },
@@ -66363,12 +66390,22 @@
         {
           "kind": "official-source",
           "label": "Официальный источник",
-          "url": "https://github.com/emilkowalski/skills/blob/main/skills/apple-design/SKILL.md"
+          "url": "https://github.com/emilkowalski/skills"
         },
         {
           "kind": "license",
           "label": "MIT license",
           "url": "https://api.github.com/repos/emilkowalski/skills/license"
+        },
+        {
+          "kind": "license",
+          "label": "Лицензия репозитория",
+          "url": "https://github.com/emilkowalski/skills/blob/main/LICENSE"
+        },
+        {
+          "kind": "source",
+          "label": "Каталог скиллов с примерами",
+          "url": "https://aiforui.dev/skills"
         }
       ],
       "agentEligibility": {
