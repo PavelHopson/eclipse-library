@@ -48599,6 +48599,133 @@
         "category": "Медиа и дизайн",
         "subcategory": "2D-анимация и векторная графика"
       }
+    },
+    {
+      "id": "patch-gg",
+      "url": "https://patch.gg/",
+      "title": "Patch — платформа для сборки игр и модов агентами (CLI + MCP)",
+      "type": "tool",
+      "category": "GameDev",
+      "subcategory": "Игровые движки и ассеты для агентов",
+      "simpleDescription": "Windows-приложение и браузерные игры: сборка игр и модов, ремикс чужих проектов, библиотека около 50 000 открытых ассетов (модели, персонажи, текстуры, материалы, звуки) с лицензией и строкой авторства у каждого. Инструменты упакованы в CLI и MCP-сервер для coding-агента. Запуск — ноябрь 2026, стартап New Save Labs.",
+      "useCases": [
+        "Подбор открытых game-ready ассетов с указанной лицензией для прототипов",
+        "Прототип простой браузерной игры силами агента через MCP"
+      ],
+      "platforms": [
+        "Windows",
+        "Браузер",
+        "macOS (лист ожидания)",
+        "MCP / CLI"
+      ],
+      "license": "Сервис по условиям patch.gg/terms; у каждого ассета своя лицензия и строка авторства",
+      "licenseEvidence": [
+        {
+          "kind": "terms",
+          "label": "Условия использования Patch",
+          "url": "https://patch.gg/terms"
+        },
+        {
+          "kind": "source",
+          "label": "Документация: установка",
+          "url": "https://docs.patch.gg/get-started"
+        }
+      ],
+      "pricing": "Цены на сайте не указаны; вход через аккаунт.",
+      "access": {
+        "cost": "unknown",
+        "signup": "required",
+        "runtime": "hybrid"
+      },
+      "trust": "official",
+      "trustReason": "Проверены главная patch.gg и docs.patch.gg/get-started 17.11.2026. Установка не выполнялась. «GTA 7 до GTA 6» и «целые 3D-игры с нуля» из новостного канала не подтверждены.",
+      "projects": [
+        "Eclipse DnD Forge"
+      ],
+      "decision": "reference",
+      "riskLevel": "high",
+      "risks": [
+        "Установщик пока не имеет репутации у Windows; на части Windows 11 документация предлагает выключить Smart App Control — он выключается до переустановки Windows. Не делать на рабочих машинах.",
+        "Моды для чужих PC-игр могут нарушать их правила и задевать античиты.",
+        "Совсем новый сервис: условия, цены и судьба проектов могут меняться."
+      ],
+      "verifiedAt": "2026-11-17",
+      "addedAt": "2026-11-17",
+      "reviewStatus": "verified",
+      "quickStart": [
+        "Начать с браузерной версии на patch.gg — без установки.",
+        "Десктоп ставить только в отдельной виртуальной машине, не выключая защиту Windows на рабочем ПК.",
+        "Проверять лицензию и строку авторства каждого ассета перед использованием."
+      ],
+      "source": {
+        "file": "catalog/resources.json",
+        "key": "patch-gg",
+        "category": "GameDev",
+        "subcategory": "Игровые движки и ассеты для агентов"
+      }
+    },
+    {
+      "id": "cloudflare-kitesurf",
+      "url": "https://github.com/cloudflare/kitesurf",
+      "title": "Kitesurf — экспериментальный браузерный движок Cloudflare для агентов",
+      "type": "tool",
+      "category": "AI Agents",
+      "subcategory": "Браузеры и автоматизация для агентов",
+      "simpleDescription": "Браузерный движок без Chrome: разбирает HTML, применяет CSS, выполняет JavaScript страницы и делает скриншоты. Работает на Cloudflare Workers, говорит по Chrome DevTools Protocol — подключается через Puppeteer и другие CDP-клиенты. Экспериментальный.",
+      "useCases": [
+        "Лёгкие скриншоты и извлечение данных со страниц без контейнера с Chrome",
+        "Агентный парсинг страниц через CDP (Puppeteer)"
+      ],
+      "platforms": [
+        "Cloudflare Workers",
+        "Локально: wrangler dev (Node.js 22+, pnpm, Bazel)",
+        "Puppeteer / CDP"
+      ],
+      "license": "Apache-2.0",
+      "licenseEvidence": [
+        {
+          "kind": "license",
+          "label": "Лицензия в официальном репозитории",
+          "url": "https://github.com/cloudflare/kitesurf/blob/main/LICENSE"
+        },
+        {
+          "kind": "source",
+          "label": "Официальный репозиторий Kitesurf",
+          "url": "https://github.com/cloudflare/kitesurf"
+        }
+      ],
+      "pricing": "Код открыт и бесплатен; запуск в Cloudflare требует платного плана Workers Paid (Dynamic Workers). Локальный запуск через wrangler dev — без оплаты.",
+      "access": {
+        "cost": "freemium",
+        "signup": "optional",
+        "runtime": "hybrid"
+      },
+      "trust": "official",
+      "trustReason": "README официального репозитория Cloudflare проверен 17.11.2026 (2.2k звёзд, Apache-2.0). Не запускался. Цифры канала «в 7 раз меньше памяти, в 4 раза меньше CPU» и поддержка Playwright/MCP в README не найдены.",
+      "projects": [
+        "Eclipse AI Hub"
+      ],
+      "decision": "reference",
+      "riskLevel": "medium",
+      "risks": [
+        "Экспериментальный движок: реализован не весь CDP и не все функции Chrome, часть сайтов будет отображаться иначе.",
+        "В облаке нужен платный Workers Paid; оплата Cloudflare из РФ может быть затруднена.",
+        "Локально много параллельных страниц съедают гигабайты памяти без флага --expose-gc."
+      ],
+      "verifiedAt": "2026-11-17",
+      "addedAt": "2026-11-17",
+      "reviewStatus": "verified",
+      "quickStart": [
+        "git clone, pnpm install --frozen-lockfile, pnpm run dev — движок на 127.0.0.1:8787.",
+        "Проверить /health, затем puppeteer.connect к ws://127.0.0.1:8787/devtools/browser.",
+        "Сравнить скриншоты со своим Chromium на своих страницах до замены."
+      ],
+      "source": {
+        "file": "catalog/resources.json",
+        "key": "cloudflare-kitesurf",
+        "category": "AI Agents",
+        "subcategory": "Браузеры и автоматизация для агентов"
+      }
     }
   ]
 }

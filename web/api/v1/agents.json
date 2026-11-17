@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "consumer": "generic-agent",
-  "catalogVersion": "d186fba111b9599ad4b9ff71dc627de3feb1e2d9b227136a73dc8e97898bb70c",
+  "catalogVersion": "a4952c4f2284fcbad397be3a5d7a689907294a786df3e926b72b81889c401250",
   "generatedAt": null,
   "policy": {
     "greyResourcesExcluded": true,
@@ -9,7 +9,7 @@
     "externalMutationsRequireHumanApproval": true
   },
   "totals": {
-    "items": 710
+    "items": 712
   },
   "items": [
     {
@@ -25537,6 +25537,146 @@
           "kind": "license",
           "label": "Лицензии в официальном репозитории",
           "url": "https://github.com/storytold/anicraft/tree/main/licenses"
+        }
+      ],
+      "actions": {
+        "openOfficialSource": true,
+        "installFromCatalog": false,
+        "mutateExternalSystems": false
+      }
+    },
+    {
+      "id": "patch-gg",
+      "title": "Patch — платформа для сборки игр и модов агентами (CLI + MCP)",
+      "url": "https://patch.gg/",
+      "type": "tool",
+      "category": "GameDev",
+      "subcategory": "Игровые движки и ассеты для агентов",
+      "addedAt": "2026-11-17",
+      "description": "Windows-приложение и браузерные игры: сборка игр и модов, ремикс чужих проектов, библиотека около 50 000 открытых ассетов (модели, персонажи, текстуры, материалы, звуки) с лицензией и строкой авторства у каждого. Инструменты упакованы в CLI и MCP-сервер для coding-агента. Запуск — ноябрь 2026, стартап New Save Labs.",
+      "useCases": [
+        "Подбор открытых game-ready ассетов с указанной лицензией для прототипов",
+        "Прототип простой браузерной игры силами агента через MCP"
+      ],
+      "platforms": [
+        "Windows",
+        "Браузер",
+        "macOS (лист ожидания)",
+        "MCP / CLI"
+      ],
+      "license": {
+        "label": "Сервис по условиям patch.gg/terms; у каждого ассета своя лицензия и строка авторства",
+        "original": "Сервис по условиям patch.gg/terms; у каждого ассета своя лицензия и строка авторства",
+        "spdx": null,
+        "kind": "service-terms",
+        "status": "editor-reviewed",
+        "requiresReview": false,
+        "evidence": [
+          {
+            "kind": "terms",
+            "label": "Условия использования Patch",
+            "url": "https://patch.gg/terms"
+          },
+          {
+            "kind": "source",
+            "label": "Документация: установка",
+            "url": "https://docs.patch.gg/get-started"
+          }
+        ]
+      },
+      "access": {
+        "cost": "unknown",
+        "signup": "required",
+        "runtime": "hybrid"
+      },
+      "trust": "official",
+      "decision": "reference",
+      "riskLevel": "high",
+      "projects": [
+        "Eclipse DnD Forge"
+      ],
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://patch.gg/"
+        },
+        {
+          "kind": "terms",
+          "label": "Условия использования Patch",
+          "url": "https://patch.gg/terms"
+        },
+        {
+          "kind": "source",
+          "label": "Документация: установка",
+          "url": "https://docs.patch.gg/get-started"
+        }
+      ],
+      "actions": {
+        "openOfficialSource": true,
+        "installFromCatalog": false,
+        "mutateExternalSystems": false
+      }
+    },
+    {
+      "id": "cloudflare-kitesurf",
+      "title": "Kitesurf — экспериментальный браузерный движок Cloudflare для агентов",
+      "url": "https://github.com/cloudflare/kitesurf",
+      "type": "tool",
+      "category": "AI Agents",
+      "subcategory": "Браузеры и автоматизация для агентов",
+      "addedAt": "2026-11-17",
+      "description": "Браузерный движок без Chrome: разбирает HTML, применяет CSS, выполняет JavaScript страницы и делает скриншоты. Работает на Cloudflare Workers, говорит по Chrome DevTools Protocol — подключается через Puppeteer и другие CDP-клиенты. Экспериментальный.",
+      "useCases": [
+        "Лёгкие скриншоты и извлечение данных со страниц без контейнера с Chrome",
+        "Агентный парсинг страниц через CDP (Puppeteer)"
+      ],
+      "platforms": [
+        "Cloudflare Workers",
+        "Локально: wrangler dev (Node.js 22+, pnpm, Bazel)",
+        "Puppeteer / CDP"
+      ],
+      "license": {
+        "label": "Apache-2.0",
+        "original": "Apache-2.0",
+        "spdx": "Apache-2.0",
+        "kind": "open-source",
+        "status": "editor-reviewed",
+        "requiresReview": false,
+        "evidence": [
+          {
+            "kind": "license",
+            "label": "Лицензия в официальном репозитории",
+            "url": "https://github.com/cloudflare/kitesurf/blob/main/LICENSE"
+          },
+          {
+            "kind": "source",
+            "label": "Официальный репозиторий Kitesurf",
+            "url": "https://github.com/cloudflare/kitesurf"
+          }
+        ]
+      },
+      "access": {
+        "cost": "freemium",
+        "signup": "optional",
+        "runtime": "hybrid"
+      },
+      "trust": "official",
+      "decision": "reference",
+      "riskLevel": "medium",
+      "projects": [
+        "Eclipse AI Hub"
+      ],
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://github.com/cloudflare/kitesurf"
+        },
+        {
+          "kind": "license",
+          "label": "Лицензия в официальном репозитории",
+          "url": "https://github.com/cloudflare/kitesurf/blob/main/LICENSE"
         }
       ],
       "actions": {
