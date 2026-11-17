@@ -1,20 +1,20 @@
 {
   "schemaVersion": 2,
-  "sourceHash": "7c2cfa94341fab132dca54d706d534cbca75acee7dea393e309c722a2ba6a819",
+  "sourceHash": "6276a2b8274f157086480d0abee94df7acbd17fe8602e6a7ea87a322697df50b",
   "policy": {
     "canonicalSource": "catalog/resources.json",
     "directInstallForbidden": true,
     "greyResourcesExcludedFromAgentRecommendations": true
   },
   "totals": {
-    "all": 816,
-    "verified": 447,
+    "all": 817,
+    "verified": 448,
     "inferred": 369,
     "licenseReviewRequired": 217,
-    "agentSafe": 712,
+    "agentSafe": 713,
     "agentExcluded": 104,
     "grey": 89,
-    "withAddedAt": 537
+    "withAddedAt": 538
   },
   "items": [
     {
@@ -44249,6 +44249,108 @@
           "kind": "license",
           "label": "Лицензия в официальном репозитории",
           "url": "https://github.com/cloudflare/kitesurf/blob/main/LICENSE"
+        }
+      ],
+      "agentEligibility": {
+        "eligible": true,
+        "reasons": [],
+        "installAllowed": false
+      }
+    },
+    {
+      "id": "roomy-disk-cleaner",
+      "url": "https://github.com/krezio/roomy",
+      "title": "Roomy — очистка диска C: с объяснением, что можно удалять",
+      "type": "tool",
+      "category": "Инструменты",
+      "subcategory": "Очистка диска Windows",
+      "simpleDescription": "Бесплатная утилита для Windows: показывает, что занимает место, и простыми словами объясняет, безопасно ли удалять. Находит кэши программ и браузеров, кэши шейдеров видеокарты, хвосты обновлений Windows, старые установщики и давно не запускавшиеся Steam-игры; есть карта места по папкам. Работает офлайн, есть русский интерфейс.",
+      "useCases": [
+        "Найти, куда ушло место на системном диске",
+        "Безопасно почистить кэши npm/pip/браузеров и остатки обновлений Windows"
+      ],
+      "platforms": [
+        "Windows 10 (2004+)",
+        "Windows 11"
+      ],
+      "license": "MIT",
+      "licenseEvidence": [
+        {
+          "kind": "license",
+          "label": "Лицензия в репозитории",
+          "url": "https://github.com/krezio/roomy/blob/main/LICENSE"
+        },
+        {
+          "kind": "source",
+          "label": "Официальный репозиторий Roomy",
+          "url": "https://github.com/krezio/roomy"
+        }
+      ],
+      "pricing": "Бесплатно.",
+      "access": {
+        "cost": "free",
+        "signup": "none",
+        "runtime": "local"
+      },
+      "trust": "community",
+      "trustReason": "README и релизы проверены 17.11.2026: v0.1.4 от 17.11.2026, 349 звёзд, один основной автор. Сканирование только читает; папки пользователя, Windows и Program Files заблокированы в коде (FileOps.Guard); ссылки-junction не обходит; сетевых обращений нет. Подпись установщика в README не указана. Не запускалась.",
+      "projects": [],
+      "decision": "reference",
+      "riskLevel": "medium",
+      "risks": [
+        "Очень молодой проект — первые версии вышли в ноябре 2026.",
+        "По умолчанию удаляет файлы навсегда, мимо корзины; корзина включается в настройках только для «Загрузок».",
+        "Очистка остатков Windows требует прав администратора."
+      ],
+      "verifiedAt": "2026-11-17",
+      "addedAt": "2026-11-17",
+      "reviewStatus": "verified",
+      "quickStart": [
+        "Взять Roomy-portable.exe из релизов — без установки.",
+        "Сначала только сканирование, ничего не отмечать «Your call».",
+        "Перед очисткой включить корзину для «Загрузок» в настройках."
+      ],
+      "source": {
+        "file": "catalog/resources.json",
+        "key": "roomy-disk-cleaner",
+        "legacy": {
+          "file": "catalog/resources.json",
+          "key": "roomy-disk-cleaner",
+          "category": "Инструменты",
+          "subcategory": "Очистка диска Windows"
+        }
+      },
+      "catalogOrder": 817,
+      "licenseInfo": {
+        "label": "MIT",
+        "original": "MIT",
+        "spdx": "MIT",
+        "kind": "open-source",
+        "status": "editor-reviewed",
+        "requiresReview": false,
+        "evidence": [
+          {
+            "kind": "license",
+            "label": "Лицензия в репозитории",
+            "url": "https://github.com/krezio/roomy/blob/main/LICENSE"
+          },
+          {
+            "kind": "source",
+            "label": "Официальный репозиторий Roomy",
+            "url": "https://github.com/krezio/roomy"
+          }
+        ]
+      },
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://github.com/krezio/roomy"
+        },
+        {
+          "kind": "license",
+          "label": "Лицензия в репозитории",
+          "url": "https://github.com/krezio/roomy/blob/main/LICENSE"
         }
       ],
       "agentEligibility": {
