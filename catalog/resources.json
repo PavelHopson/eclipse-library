@@ -49268,6 +49268,63 @@
         "category": "UI / Design",
         "subcategory": "Референсы и галереи"
       }
+    },
+    {
+      "id": "deadboard",
+      "url": "https://github.com/tholtman1-del/deadboard",
+      "title": "DEADBOARD — браузерный тренажёр ремонта электронных плат",
+      "type": "tool",
+      "category": "Обучение",
+      "subcategory": "Электроника и ремонт плат",
+      "simpleDescription": "Симулятор мастерской в браузере: сломанная плата на столе, мультиметр, лабораторный блок питания с ограничением тока, осциллограф, тепловизор, паяльник и термофен. Ищете короткое замыкание и чините — пайка может не взяться, площадка оторваться, лишний припой закоротить линию. Есть учебные платы, реальные open-hardware платы (MNT Reform 2, Antmicro) и импорт своих плат из KiCad.",
+      "useCases": [
+        "Научиться диагностике плат без риска сжечь реальное железо",
+        "Потренировать поиск КЗ на линии питания на реальной схеме"
+      ],
+      "platforms": [
+        "Браузер"
+      ],
+      "license": "Apache-2.0 для кода; демо-платы — по лицензиям их исходных open-hardware проектов",
+      "licenseEvidence": [
+        {
+          "kind": "license",
+          "label": "Лицензия в репозитории",
+          "url": "https://github.com/tholtman1-del/deadboard/blob/main/LICENSE"
+        },
+        {
+          "kind": "source",
+          "label": "Играть в браузере",
+          "url": "https://tholtman1-del.github.io/deadboard/"
+        }
+      ],
+      "pricing": "Бесплатно.",
+      "access": {
+        "cost": "free",
+        "signup": "none",
+        "runtime": "cloud"
+      },
+      "trust": "community",
+      "trustReason": "README и репозиторий проверены 17.11.2026: Apache-2.0, создан 16.11.2026, 78 звёзд, один автор; страница игры открывается. Сам тренажёр не проходился.",
+      "projects": [],
+      "decision": "reference",
+      "riskLevel": "low",
+      "risks": [
+        "Совсем новый проект одного автора — возможны ошибки симуляции.",
+        "Симулятор не заменяет технику безопасности при работе с реальным питанием."
+      ],
+      "verifiedAt": "2026-11-17",
+      "addedAt": "2026-11-17",
+      "reviewStatus": "verified",
+      "quickStart": [
+        "Открыть игру в браузере и начать с учебных плат.",
+        "Затем демо MNT Reform 2: мёртвая линия 3,3 В, найти КЗ тепловизором."
+      ],
+      "source": {
+        "file": "catalog/resources.json",
+        "key": "deadboard",
+        "category": "Обучение",
+        "subcategory": "Электроника и ремонт плат"
+      }
     }
   ]
 }
