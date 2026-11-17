@@ -48927,6 +48927,347 @@
         "category": "Медиа и дизайн",
         "subcategory": "Увеличение и улучшение изображений"
       }
+    },
+    {
+      "id": "21st-dev",
+      "url": "https://21st.dev/",
+      "title": "21st.dev — маркетплейс React-компонентов и промптов для агентов",
+      "type": "service",
+      "category": "UI / Design",
+      "subcategory": "Библиотеки компонентов",
+      "simpleDescription": "Каталог 12 000+ React-компонентов, шаблонов и тем: код копируется в проект или забирается готовым промптом для coding-агента.",
+      "useCases": [
+        "Быстро найти готовый блок (hero, тарифы, форма) и адаптировать под дизайн-систему",
+        "Дать агенту конкретный компонент-референс вместо общих слов"
+      ],
+      "platforms": [
+        "Браузер",
+        "React",
+        "Tailwind"
+      ],
+      "license": "У каждого компонента свой автор и условия; проверять на странице компонента",
+      "licenseEvidence": [
+        {
+          "kind": "source",
+          "label": "Официальный источник",
+          "url": "https://21st.dev/"
+        }
+      ],
+      "pricing": "Каталог бесплатно; есть платные возможности.",
+      "access": {
+        "cost": "freemium",
+        "signup": "optional",
+        "runtime": "cloud"
+      },
+      "trust": "official",
+      "trustReason": "Сайт открыт 17.11.2026, заявлено 12 000+ компонентов. Отдельный skill 21st.dev уже есть в каталоге (21st-dev-agent-skill).",
+      "projects": [
+        "Eclipse Forge Landing"
+      ],
+      "decision": "reference",
+      "riskLevel": "low",
+      "risks": [
+        "Компоненты разных авторов — разный уровень качества и доступности.",
+        "Копирование без адаптации даёт тот же шаблонный вид, от которого уходили."
+      ],
+      "quickStart": [
+        "Искать по типу блока, сверять с токенами своей дизайн-системы.",
+        "Перед вставкой проверить клавиатуру, фокус и reduced-motion."
+      ],
+      "verifiedAt": "2026-11-17",
+      "addedAt": "2026-11-17",
+      "reviewStatus": "verified",
+      "source": {
+        "file": "catalog/resources.json",
+        "key": "21st-dev",
+        "category": "UI / Design",
+        "subcategory": "Библиотеки компонентов"
+      }
+    },
+    {
+      "id": "canvas-ui",
+      "url": "https://github.com/DavidHDev/canvas-ui",
+      "title": "Canvas UI — WebGL/WebGPU-эффекты поверх живой HTML-вёрстки",
+      "type": "library",
+      "category": "UI / Design",
+      "subcategory": "Анимации и WebGL-эффекты",
+      "simpleDescription": "Библиотека эффектов (стекло, лёд, частицы и др.), которые рисуются в canvas поверх обычной HTML-разметки и сохраняют её интерактивность. React, Solid, Preact, Vue, Svelte и чистый JS; сборки на WebGL2 и WebGPU. Автор React Bits.",
+      "useCases": [
+        "Один акцентный эффект на первом экране лендинга",
+        "Эксперименты с WebGL без ручных шейдеров"
+      ],
+      "platforms": [
+        "React",
+        "Vue",
+        "Svelte",
+        "Solid",
+        "Preact",
+        "Vanilla JS"
+      ],
+      "license": "MIT + Commons Clause (нельзя продавать саму библиотеку или сервис на её основе)",
+      "licenseEvidence": [
+        {
+          "kind": "license",
+          "label": "Лицензия",
+          "url": "https://github.com/DavidHDev/canvas-ui/blob/main/LICENSE.md"
+        },
+        {
+          "kind": "source",
+          "label": "Официальный источник",
+          "url": "https://canvasui.dev/"
+        }
+      ],
+      "pricing": "Бесплатно.",
+      "access": {
+        "cost": "free",
+        "signup": "none",
+        "runtime": "local"
+      },
+      "trust": "official",
+      "trustReason": "Репозиторий проверен 17.11.2026: 5.5k звёзд, активные коммиты. Лицензия MIT + Commons Clause — не полностью открытая, как пишут в новостях.",
+      "projects": [
+        "Eclipse Forge Landing"
+      ],
+      "decision": "reference",
+      "riskLevel": "low",
+      "risks": [
+        "Commons Clause: продавать библиотеку или сервис, ценность которого в ней, нельзя.",
+        "Тяжёлые эффекты нагружают GPU и батарею телефона; нужен вариант без эффекта для reduced-motion.",
+        "В Safari HTML-in-Canvas недоступен — часть эффектов деградирует."
+      ],
+      "quickStart": [
+        "Выбрать один эффект на canvasui.dev и поставить через их registry.",
+        "Проверить на телефоне и с prefers-reduced-motion."
+      ],
+      "verifiedAt": "2026-11-17",
+      "addedAt": "2026-11-17",
+      "reviewStatus": "verified",
+      "source": {
+        "file": "catalog/resources.json",
+        "key": "canvas-ui",
+        "category": "UI / Design",
+        "subcategory": "Анимации и WebGL-эффекты"
+      }
+    },
+    {
+      "id": "getdesign-md",
+      "url": "https://getdesign.md/",
+      "title": "getdesign.md — коллекция DESIGN.md популярных продуктов",
+      "type": "resource",
+      "category": "UI / Design",
+      "subcategory": "DESIGN.md и дизайн-системы для агентов",
+      "simpleDescription": "Разборы дизайн-систем сотен известных сайтов и продуктов в формате DESIGN.md: файл кладётся в проект как референс стиля для coding-агента. Основан на открытом репозитории VoltAgent/awesome-design-md.",
+      "useCases": [
+        "Дать агенту референс типографики, цвета и отступов вместо дефолтного стиля",
+        "Сравнить подходы разных продуктов к дизайн-токенам"
+      ],
+      "platforms": [
+        "Браузер",
+        "Любой coding-агент"
+      ],
+      "license": "MIT для репозитория-коллекции; бренды и дизайн принадлежат их владельцам",
+      "licenseEvidence": [
+        {
+          "kind": "license",
+          "label": "Лицензия",
+          "url": "https://github.com/VoltAgent/awesome-design-md/blob/main/LICENSE"
+        },
+        {
+          "kind": "source",
+          "label": "Официальный источник",
+          "url": "https://getdesign.md/"
+        }
+      ],
+      "pricing": "Бесплатно.",
+      "access": {
+        "cost": "free",
+        "signup": "none",
+        "runtime": "cloud"
+      },
+      "trust": "official",
+      "trustReason": "Сайт открыт 17.11.2026; связанный репозиторий VoltAgent/awesome-design-md — 128k звёзд, MIT.",
+      "projects": [
+        "Eclipse Forge Landing"
+      ],
+      "decision": "reference",
+      "riskLevel": "low",
+      "risks": [
+        "Это анализ, а не официальная дизайн-система бренда.",
+        "Копирование чужого стиля в клиентский сайт — риск подражания бренду; использовать как референс, а не как шаблон."
+      ],
+      "quickStart": [
+        "Взять 2–3 DESIGN.md близких по духу продуктов.",
+        "Свести их в свой DESIGN.md с токенами проекта и дать агенту."
+      ],
+      "verifiedAt": "2026-11-17",
+      "addedAt": "2026-11-17",
+      "reviewStatus": "verified",
+      "source": {
+        "file": "catalog/resources.json",
+        "key": "getdesign-md",
+        "category": "UI / Design",
+        "subcategory": "DESIGN.md и дизайн-системы для агентов"
+      }
+    },
+    {
+      "id": "designmd-supply",
+      "url": "https://designmd.supply/",
+      "title": "designmd.supply — DESIGN.md по адресу любого сайта",
+      "type": "tool",
+      "category": "UI / Design",
+      "subcategory": "DESIGN.md и дизайн-системы для агентов",
+      "simpleDescription": "Вставляете адрес сайта — получаете его DESIGN.md (цвета, шрифты, отступы, компоненты) для coding-агента. Открытый код: context-dot-dev/designmd-supply.",
+      "useCases": [
+        "Собрать DESIGN.md сайта клиента перед редизайном",
+        "Зафиксировать стиль существующего проекта для агента"
+      ],
+      "platforms": [
+        "Браузер"
+      ],
+      "license": "MIT",
+      "licenseEvidence": [
+        {
+          "kind": "license",
+          "label": "Лицензия",
+          "url": "https://github.com/context-dot-dev/designmd-supply/blob/main/LICENSE"
+        },
+        {
+          "kind": "source",
+          "label": "Официальный источник",
+          "url": "https://github.com/context-dot-dev/designmd-supply"
+        }
+      ],
+      "pricing": "Бесплатно.",
+      "access": {
+        "cost": "free",
+        "signup": "none",
+        "runtime": "cloud"
+      },
+      "trust": "official",
+      "trustReason": "Репозиторий проверен 17.11.2026: 325 звёзд, MIT. Сайт при проверке отдал страницу защиты Vercel (429) — сам интерфейс не просмотрен.",
+      "projects": [
+        "Eclipse Forge Landing"
+      ],
+      "decision": "reference",
+      "riskLevel": "low",
+      "risks": [
+        "Результат — автоматический разбор, нужна ручная сверка.",
+        "Использовать для своих и клиентских сайтов, а не для копирования чужих брендов."
+      ],
+      "quickStart": [
+        "Сначала прогнать свой сайт и сравнить с реальными токенами.",
+        "Править полученный DESIGN.md руками перед передачей агенту."
+      ],
+      "verifiedAt": "2026-11-17",
+      "addedAt": "2026-11-17",
+      "reviewStatus": "verified",
+      "source": {
+        "file": "catalog/resources.json",
+        "key": "designmd-supply",
+        "category": "UI / Design",
+        "subcategory": "DESIGN.md и дизайн-системы для агентов"
+      }
+    },
+    {
+      "id": "godly-website",
+      "url": "https://godly.website/",
+      "title": "Godly — галерея лучших сайтов с видео-превью",
+      "type": "resource",
+      "category": "UI / Design",
+      "subcategory": "Референсы и галереи",
+      "simpleDescription": "Ежедневно пополняемая галерея сайтов с сильным визуалом: видео-превью, фильтры, цветовая палитра каждого сайта.",
+      "useCases": [
+        "Подбор визуальных референсов перед дизайном лендинга",
+        "Насмотренность на анимации и типографику"
+      ],
+      "platforms": [
+        "Браузер"
+      ],
+      "license": "Галерея; права на сайты у их владельцев",
+      "licenseEvidence": [
+        {
+          "kind": "source",
+          "label": "Официальный источник",
+          "url": "https://godly.website/"
+        }
+      ],
+      "pricing": "Просмотр бесплатно.",
+      "access": {
+        "cost": "free",
+        "signup": "none",
+        "runtime": "cloud"
+      },
+      "trust": "official",
+      "trustReason": "Сайт открыт 17.11.2026: свежие работы, разделы вакансий и спонсоров.",
+      "projects": [
+        "Eclipse Forge Landing"
+      ],
+      "decision": "reference",
+      "riskLevel": "low",
+      "risks": [
+        "Референс, а не исходники: копировать чужой сайт нельзя."
+      ],
+      "quickStart": [
+        "Собрать 5–7 референсов под задачу и описать, что именно берём: ритм, типографику, движение."
+      ],
+      "verifiedAt": "2026-11-17",
+      "addedAt": "2026-11-17",
+      "reviewStatus": "verified",
+      "source": {
+        "file": "catalog/resources.json",
+        "key": "godly-website",
+        "category": "UI / Design",
+        "subcategory": "Референсы и галереи"
+      }
+    },
+    {
+      "id": "designeer",
+      "url": "https://designeer.xyz/",
+      "title": "Designeer — каталог дизайн-ресурсов, инструментов и портфолио",
+      "type": "resource",
+      "category": "UI / Design",
+      "subcategory": "Референсы и галереи",
+      "simpleDescription": "Каталог на сотни ресурсов: референсы, шрифты, иконки, инструменты и портфолио дизайнеров и разработчиков. Часть ресурсов платные.",
+      "useCases": [
+        "Найти инструмент или набор под конкретную задачу дизайна"
+      ],
+      "platforms": [
+        "Браузер"
+      ],
+      "license": "Каталог ссылок; условия у каждого ресурса свои",
+      "licenseEvidence": [
+        {
+          "kind": "source",
+          "label": "Официальный источник",
+          "url": "https://designeer.xyz/"
+        }
+      ],
+      "pricing": "Каталог бесплатно; многие ресурсы внутри платные.",
+      "access": {
+        "cost": "free",
+        "signup": "none",
+        "runtime": "cloud"
+      },
+      "trust": "community",
+      "trustReason": "Сайт открыт 17.11.2026; ресурсы внутри по отдельности не проверялись.",
+      "projects": [],
+      "decision": "reference",
+      "riskLevel": "low",
+      "risks": [
+        "Ресурсы внутри не проверены — лицензию и цену смотреть у каждого."
+      ],
+      "quickStart": [
+        "Использовать как поисковик; найденное проверять и добавлять отдельной карточкой."
+      ],
+      "verifiedAt": "2026-11-17",
+      "addedAt": "2026-11-17",
+      "reviewStatus": "verified",
+      "source": {
+        "file": "catalog/resources.json",
+        "key": "designeer",
+        "category": "UI / Design",
+        "subcategory": "Референсы и галереи"
+      }
     }
   ]
 }
