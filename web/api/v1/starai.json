@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "consumer": "Eclipse AI",
-  "catalogVersion": "6276a2b8274f157086480d0abee94df7acbd17fe8602e6a7ea87a322697df50b",
+  "catalogVersion": "a1920ead26c12e0c2d261da29af0ccdb630abf69d087059caa849a949870752d",
   "generatedAt": null,
   "policy": {
     "greyResourcesExcluded": true,
@@ -9,7 +9,7 @@
     "externalMutationsRequireHumanApproval": true
   },
   "totals": {
-    "items": 713
+    "items": 714
   },
   "items": [
     {
@@ -25741,6 +25741,70 @@
           "kind": "license",
           "label": "Лицензия в репозитории",
           "url": "https://github.com/krezio/roomy/blob/main/LICENSE"
+        }
+      ],
+      "actions": {
+        "openOfficialSource": true,
+        "installFromCatalog": false,
+        "mutateExternalSystems": false
+      }
+    },
+    {
+      "id": "apkstart",
+      "title": "APKStart — Android-приложения на Windows по двойному клику",
+      "url": "https://github.com/RoutineMiku/apkstart",
+      "type": "tool",
+      "category": "Инструменты",
+      "subcategory": "Android-приложения на Windows",
+      "addedAt": "2026-11-17",
+      "description": "Оболочка над официальным эмулятором Android от Google: двойной клик по APK ставит приложение, создаёт ярлыки на рабочем столе и в «Пуске» с родной иконкой, открывает его отдельным окном или на весь экран. Внутри Android 14 с Google Play, общая папка с Windows. Интерфейс и документация на китайском.",
+      "useCases": [
+        "Проверка своих Android-сборок на Windows без телефона",
+        "Запуск отдельных Android-приложений окном рядом с рабочими программами"
+      ],
+      "platforms": [
+        "Windows 10",
+        "Windows 11"
+      ],
+      "license": {
+        "label": "MIT",
+        "original": "MIT для оболочки; эмулятор и образ Android с Google Play — по условиям Google",
+        "spdx": "MIT",
+        "kind": "open-source",
+        "status": "editor-reviewed",
+        "requiresReview": false,
+        "evidence": [
+          {
+            "kind": "license",
+            "label": "Лицензия в репозитории",
+            "url": "https://github.com/RoutineMiku/apkstart/blob/main/LICENSE"
+          },
+          {
+            "kind": "source",
+            "label": "Официальный репозиторий APKStart",
+            "url": "https://github.com/RoutineMiku/apkstart"
+          }
+        ]
+      },
+      "access": {
+        "cost": "free",
+        "signup": "none",
+        "runtime": "local"
+      },
+      "trust": "community",
+      "decision": "reference",
+      "riskLevel": "medium",
+      "projects": [],
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://github.com/RoutineMiku/apkstart"
+        },
+        {
+          "kind": "license",
+          "label": "Лицензия в репозитории",
+          "url": "https://github.com/RoutineMiku/apkstart/blob/main/LICENSE"
         }
       ],
       "actions": {

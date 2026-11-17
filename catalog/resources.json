@@ -48803,6 +48803,66 @@
         "category": "Инструменты",
         "subcategory": "Очистка диска Windows"
       }
+    },
+    {
+      "id": "apkstart",
+      "url": "https://github.com/RoutineMiku/apkstart",
+      "title": "APKStart — Android-приложения на Windows по двойному клику",
+      "type": "tool",
+      "category": "Инструменты",
+      "subcategory": "Android-приложения на Windows",
+      "simpleDescription": "Оболочка над официальным эмулятором Android от Google: двойной клик по APK ставит приложение, создаёт ярлыки на рабочем столе и в «Пуске» с родной иконкой, открывает его отдельным окном или на весь экран. Внутри Android 14 с Google Play, общая папка с Windows. Интерфейс и документация на китайском.",
+      "useCases": [
+        "Проверка своих Android-сборок на Windows без телефона",
+        "Запуск отдельных Android-приложений окном рядом с рабочими программами"
+      ],
+      "platforms": [
+        "Windows 10",
+        "Windows 11"
+      ],
+      "license": "MIT для оболочки; эмулятор и образ Android с Google Play — по условиям Google",
+      "licenseEvidence": [
+        {
+          "kind": "license",
+          "label": "Лицензия в репозитории",
+          "url": "https://github.com/RoutineMiku/apkstart/blob/main/LICENSE"
+        },
+        {
+          "kind": "source",
+          "label": "Официальный репозиторий APKStart",
+          "url": "https://github.com/RoutineMiku/apkstart"
+        }
+      ],
+      "pricing": "Бесплатно.",
+      "access": {
+        "cost": "free",
+        "signup": "none",
+        "runtime": "local"
+      },
+      "trust": "community",
+      "trustReason": "README проверен 17.11.2026: 7.1k звёзд, MIT; эмулятор и образ качаются с dl.google.com. Автор прямо пишет, что это ранняя хобби-версия. Цифра «запуск за 3,5 секунды» в README не найдена. Не запускался.",
+      "projects": [],
+      "decision": "reference",
+      "riskLevel": "medium",
+      "risks": [
+        "По умолчанию автоматически выдаёт приложениям все запрошенные разрешения — не ставить банковские и личные приложения.",
+        "По умолчанию автозапуск с Windows и самообновление через PowerShell-скрипт и публичные зеркала; зеркала отключаются в настройках.",
+        "Полная версия около 1,3 ГБ; без аппаратной виртуализации работает медленно."
+      ],
+      "verifiedAt": "2026-11-17",
+      "addedAt": "2026-11-17",
+      "reviewStatus": "verified",
+      "quickStart": [
+        "Начать с лёгкой портативной версии (96 МБ), runtime докачается при первом запуске.",
+        "В настройках выключить автозапуск и публичные зеркала обновлений.",
+        "Ставить только свои или проверенные APK."
+      ],
+      "source": {
+        "file": "catalog/resources.json",
+        "key": "apkstart",
+        "category": "Инструменты",
+        "subcategory": "Android-приложения на Windows"
+      }
     }
   ]
 }
