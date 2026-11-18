@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "consumer": "Eclipse CRM",
-  "catalogVersion": "4bdbb0bcde657427ff3be849af08bf236de610c7497d6219e173c51d1a0974cd",
+  "catalogVersion": "ff034c9d5bb2a28a2938a0f09a6f93c9fdfb537dac00b6ff6e7f1da09b4545f8",
   "generatedAt": null,
   "policy": {
     "greyResourcesExcluded": true,
@@ -9,7 +9,7 @@
     "externalMutationsRequireHumanApproval": true
   },
   "totals": {
-    "items": 722
+    "items": 723
   },
   "items": [
     {
@@ -26150,61 +26150,6 @@
       }
     },
     {
-      "id": "godly-website",
-      "title": "Godly — галерея лучших сайтов с видео-превью",
-      "url": "https://godly.website/",
-      "type": "resource",
-      "category": "UI / Design",
-      "subcategory": "Референсы и галереи",
-      "addedAt": "2026-11-17",
-      "description": "Ежедневно пополняемая галерея сайтов с сильным визуалом: видео-превью, фильтры, цветовая палитра каждого сайта.",
-      "useCases": [
-        "Подбор визуальных референсов перед дизайном лендинга",
-        "Насмотренность на анимации и типографику"
-      ],
-      "platforms": [
-        "Браузер"
-      ],
-      "license": {
-        "label": "Галерея; права на сайты у их владельцев",
-        "original": "Галерея; права на сайты у их владельцев",
-        "spdx": null,
-        "kind": "custom",
-        "status": "editor-reviewed",
-        "requiresReview": false,
-        "evidence": [
-          {
-            "kind": "source",
-            "label": "Официальный источник",
-            "url": "https://godly.website/"
-          }
-        ]
-      },
-      "access": {
-        "cost": "free",
-        "signup": "none",
-        "runtime": "cloud"
-      },
-      "trust": "official",
-      "decision": "reference",
-      "riskLevel": "low",
-      "projects": [
-        "Eclipse Forge Landing"
-      ],
-      "evidence": [
-        {
-          "kind": "official-source",
-          "label": "Официальный источник",
-          "url": "https://godly.website/"
-        }
-      ],
-      "actions": {
-        "openOfficialSource": true,
-        "installFromCatalog": false,
-        "mutateExternalSystems": false
-      }
-    },
-    {
       "id": "designeer",
       "title": "Designeer — каталог дизайн-ресурсов, инструментов и портфолио",
       "url": "https://designeer.xyz/",
@@ -26316,6 +26261,114 @@
           "kind": "source",
           "label": "Играть в браузере",
           "url": "https://tholtman1-del.github.io/deadboard/"
+        }
+      ],
+      "actions": {
+        "openOfficialSource": true,
+        "installFromCatalog": false,
+        "mutateExternalSystems": false
+      }
+    },
+    {
+      "id": "motionsites-studio",
+      "title": "MotionSites Studio — ИИ-конструктор сайтов на дизайнах MotionSites",
+      "url": "https://studio.motionsites.ai/",
+      "type": "service",
+      "category": "UI / Design",
+      "subcategory": "ИИ-конструкторы сайтов",
+      "addedAt": "2026-11-18",
+      "description": "Описываете бизнес — сервис подбирает дизайн из библиотеки MotionSites, генерирует картинки и видео и собирает сайт. Платный, от создателей библиотеки motionsites.ai (она уже есть в каталоге).",
+      "useCases": [
+        "Быстрый черновик сайта-визитки для проверки идеи",
+        "Референс анимированных секций для своей вёрстки"
+      ],
+      "platforms": [
+        "Браузер"
+      ],
+      "license": {
+        "label": "Сервис по условиям MotionSites",
+        "original": "Сервис по условиям MotionSites",
+        "spdx": null,
+        "kind": "custom",
+        "status": "editor-reviewed",
+        "requiresReview": false,
+        "evidence": [
+          {
+            "kind": "source",
+            "label": "Официальный сайт",
+            "url": "https://studio.motionsites.ai/"
+          }
+        ]
+      },
+      "access": {
+        "cost": "paid",
+        "signup": "required",
+        "runtime": "cloud"
+      },
+      "trust": "official",
+      "decision": "reference",
+      "riskLevel": "low",
+      "projects": [],
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://studio.motionsites.ai/"
+        }
+      ],
+      "actions": {
+        "openOfficialSource": true,
+        "installFromCatalog": false,
+        "mutateExternalSystems": false
+      }
+    },
+    {
+      "id": "brandguidelines-net",
+      "title": "BrandGuidelines — галерея фирменных стилей и брендбуков",
+      "url": "https://brandguidelines.net/",
+      "type": "resource",
+      "category": "UI / Design",
+      "subcategory": "Референсы и галереи",
+      "addedAt": "2026-11-18",
+      "description": "Подборка брендбуков компаний со всего мира в форматах PDF, веб и Figma: логотипы, цвета, типографика, правила применения. Часть бесплатно, есть платная подписка.",
+      "useCases": [
+        "Посмотреть, как крупные бренды оформляют свои правила, перед созданием брендбука клиенту",
+        "Найти структуру разделов для своего DESIGN.md или брендбука"
+      ],
+      "platforms": [
+        "Браузер"
+      ],
+      "license": {
+        "label": "Брендбуки принадлежат их владельцам",
+        "original": "Брендбуки принадлежат их владельцам",
+        "spdx": null,
+        "kind": "custom",
+        "status": "editor-reviewed",
+        "requiresReview": false,
+        "evidence": [
+          {
+            "kind": "source",
+            "label": "Официальный сайт",
+            "url": "https://brandguidelines.net/"
+          }
+        ]
+      },
+      "access": {
+        "cost": "freemium",
+        "signup": "optional",
+        "runtime": "cloud"
+      },
+      "trust": "official",
+      "decision": "reference",
+      "riskLevel": "low",
+      "projects": [
+        "Eclipse Forge Landing"
+      ],
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://brandguidelines.net/"
         }
       ],
       "actions": {

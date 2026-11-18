@@ -49169,58 +49169,6 @@
       }
     },
     {
-      "id": "godly-website",
-      "url": "https://godly.website/",
-      "title": "Godly — галерея лучших сайтов с видео-превью",
-      "type": "resource",
-      "category": "UI / Design",
-      "subcategory": "Референсы и галереи",
-      "simpleDescription": "Ежедневно пополняемая галерея сайтов с сильным визуалом: видео-превью, фильтры, цветовая палитра каждого сайта.",
-      "useCases": [
-        "Подбор визуальных референсов перед дизайном лендинга",
-        "Насмотренность на анимации и типографику"
-      ],
-      "platforms": [
-        "Браузер"
-      ],
-      "license": "Галерея; права на сайты у их владельцев",
-      "licenseEvidence": [
-        {
-          "kind": "source",
-          "label": "Официальный источник",
-          "url": "https://godly.website/"
-        }
-      ],
-      "pricing": "Просмотр бесплатно.",
-      "access": {
-        "cost": "free",
-        "signup": "none",
-        "runtime": "cloud"
-      },
-      "trust": "official",
-      "trustReason": "Сайт открыт 17.11.2026: свежие работы, разделы вакансий и спонсоров.",
-      "projects": [
-        "Eclipse Forge Landing"
-      ],
-      "decision": "reference",
-      "riskLevel": "low",
-      "risks": [
-        "Референс, а не исходники: копировать чужой сайт нельзя."
-      ],
-      "quickStart": [
-        "Собрать 5–7 референсов под задачу и описать, что именно берём: ритм, типографику, движение."
-      ],
-      "verifiedAt": "2026-11-17",
-      "addedAt": "2026-11-17",
-      "reviewStatus": "verified",
-      "source": {
-        "file": "catalog/resources.json",
-        "key": "godly-website",
-        "category": "UI / Design",
-        "subcategory": "Референсы и галереи"
-      }
-    },
-    {
       "id": "designeer",
       "url": "https://designeer.xyz/",
       "title": "Designeer — каталог дизайн-ресурсов, инструментов и портфолио",
@@ -49324,6 +49272,109 @@
         "key": "deadboard",
         "category": "Обучение",
         "subcategory": "Электроника и ремонт плат"
+      }
+    },
+    {
+      "id": "motionsites-studio",
+      "url": "https://studio.motionsites.ai/",
+      "title": "MotionSites Studio — ИИ-конструктор сайтов на дизайнах MotionSites",
+      "type": "service",
+      "category": "UI / Design",
+      "subcategory": "ИИ-конструкторы сайтов",
+      "simpleDescription": "Описываете бизнес — сервис подбирает дизайн из библиотеки MotionSites, генерирует картинки и видео и собирает сайт. Платный, от создателей библиотеки motionsites.ai (она уже есть в каталоге).",
+      "useCases": [
+        "Быстрый черновик сайта-визитки для проверки идеи",
+        "Референс анимированных секций для своей вёрстки"
+      ],
+      "platforms": [
+        "Браузер"
+      ],
+      "license": "Сервис по условиям MotionSites",
+      "licenseEvidence": [
+        {
+          "kind": "source",
+          "label": "Официальный сайт",
+          "url": "https://studio.motionsites.ai/"
+        }
+      ],
+      "pricing": "Платно, тарифы на сайте.",
+      "access": {
+        "cost": "paid",
+        "signup": "required",
+        "runtime": "cloud"
+      },
+      "trust": "official",
+      "trustReason": "Сайт открыт 18.11.2026, описание и раздел Pricing есть. Сервис не испытывался.",
+      "projects": [],
+      "decision": "reference",
+      "riskLevel": "low",
+      "risks": [
+        "Сайт живёт на чужой платформе — проверить, можно ли забрать код и домен.",
+        "Шаблонная основа: для клиентских сайтов нужна своя дизайн-система."
+      ],
+      "quickStart": [
+        "Использовать как быстрый прототип, а не как итоговый сайт клиента."
+      ],
+      "verifiedAt": "2026-11-18",
+      "addedAt": "2026-11-18",
+      "reviewStatus": "verified",
+      "source": {
+        "file": "catalog/resources.json",
+        "key": "motionsites-studio",
+        "category": "UI / Design",
+        "subcategory": "ИИ-конструкторы сайтов"
+      }
+    },
+    {
+      "id": "brandguidelines-net",
+      "url": "https://brandguidelines.net/",
+      "title": "BrandGuidelines — галерея фирменных стилей и брендбуков",
+      "type": "resource",
+      "category": "UI / Design",
+      "subcategory": "Референсы и галереи",
+      "simpleDescription": "Подборка брендбуков компаний со всего мира в форматах PDF, веб и Figma: логотипы, цвета, типографика, правила применения. Часть бесплатно, есть платная подписка.",
+      "useCases": [
+        "Посмотреть, как крупные бренды оформляют свои правила, перед созданием брендбука клиенту",
+        "Найти структуру разделов для своего DESIGN.md или брендбука"
+      ],
+      "platforms": [
+        "Браузер"
+      ],
+      "license": "Брендбуки принадлежат их владельцам",
+      "licenseEvidence": [
+        {
+          "kind": "source",
+          "label": "Официальный сайт",
+          "url": "https://brandguidelines.net/"
+        }
+      ],
+      "pricing": "Часть бесплатно; есть подписка.",
+      "access": {
+        "cost": "freemium",
+        "signup": "optional",
+        "runtime": "cloud"
+      },
+      "trust": "official",
+      "trustReason": "Сайт открыт 18.11.2026; состав бесплатной и платной частей по отдельности не проверялся.",
+      "projects": [
+        "Eclipse Forge Landing"
+      ],
+      "decision": "reference",
+      "riskLevel": "low",
+      "risks": [
+        "Референс: чужие логотипы и стили не копировать в клиентские проекты."
+      ],
+      "quickStart": [
+        "Взять 2–3 брендбука из близкой ниши и выписать структуру разделов, а не визуал."
+      ],
+      "verifiedAt": "2026-11-18",
+      "addedAt": "2026-11-18",
+      "reviewStatus": "verified",
+      "source": {
+        "file": "catalog/resources.json",
+        "key": "brandguidelines-net",
+        "category": "UI / Design",
+        "subcategory": "Референсы и галереи"
       }
     }
   ]
