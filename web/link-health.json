@@ -1,14 +1,14 @@
 {
   "schemaVersion": 1,
-  "checkedAt": "2026-11-16T12:47:41.399Z",
+  "checkedAt": "2026-11-23T14:42:04.435Z",
   "totals": {
-    "extracted": 846,
-    "unique": 841,
-    "checked": 841,
-    "ok": 798,
-    "restricted": 33,
-    "broken": 4,
-    "unavailable": 0,
+    "extracted": 860,
+    "unique": 855,
+    "checked": 855,
+    "ok": 815,
+    "restricted": 30,
+    "broken": 3,
+    "unavailable": 1,
     "unknown": 6,
     "blocked": 0,
     "skipped": 0
@@ -56,8 +56,8 @@
     },
     {
       "url": "https://abhijayvuyyuru.substack.com/p/try-these-100-code-that-make-your",
-      "status": "ok",
-      "httpStatus": 200
+      "status": "restricted",
+      "httpStatus": 403
     },
     {
       "url": "https://github.com/Moh4696/100-free-open-source-github-repos",
@@ -250,7 +250,7 @@
       "httpStatus": 200
     },
     {
-      "url": "https://github.com/emilkowalski/skills/blob/main/skills/apple-design/SKILL.md",
+      "url": "https://github.com/emilkowalski/skills",
       "status": "ok",
       "httpStatus": 200
     },
@@ -661,13 +661,13 @@
     },
     {
       "url": "https://openai.com/form/codex-for-oss/",
-      "status": "restricted",
-      "httpStatus": 403
+      "status": "ok",
+      "httpStatus": 200
     },
     {
       "url": "https://openai.com/codex/",
-      "status": "restricted",
-      "httpStatus": 403
+      "status": "ok",
+      "httpStatus": 200
     },
     {
       "url": "https://dashboard.cohere.com/api-keys",
@@ -776,8 +776,8 @@
     },
     {
       "url": "https://deeplearning.ai/",
-      "status": "ok",
-      "httpStatus": 200
+      "status": "restricted",
+      "httpStatus": 403
     },
     {
       "url": "https://chat.deepseek.com/",
@@ -1276,8 +1276,8 @@
     },
     {
       "url": "https://ruben.substack.com/archive?sort=new",
-      "status": "ok",
-      "httpStatus": 200
+      "status": "restricted",
+      "httpStatus": 403
     },
     {
       "url": "https://huggingface.co/settings/tokens",
@@ -1831,8 +1831,8 @@
     },
     {
       "url": "https://platform.openai.com/",
-      "status": "restricted",
-      "httpStatus": 403
+      "status": "ok",
+      "httpStatus": 200
     },
     {
       "url": "https://developers.openai.com/codex/use-cases",
@@ -1846,8 +1846,8 @@
     },
     {
       "url": "https://openai.com/daybreak/",
-      "status": "restricted",
-      "httpStatus": 403
+      "status": "ok",
+      "httpStatus": 200
     },
     {
       "url": "https://developers.openai.com/api/docs/guides/latest-model",
@@ -2677,7 +2677,7 @@
     {
       "url": "https://youtu.be/QkyTCTH2kWY",
       "status": "ok",
-      "httpStatus": 204
+      "httpStatus": 200
     },
     {
       "url": "https://zcode.z.ai/en",
@@ -2686,8 +2686,8 @@
     },
     {
       "url": "https://github.com/PavelHopson/eclipse-library/blob/master/lists/web-utilities.md",
-      "status": "ok",
-      "httpStatus": 200
+      "status": "unavailable",
+      "httpStatus": 503
     },
     {
       "url": "https://habr.com/ru/articles/827474/",
@@ -2791,8 +2791,8 @@
     },
     {
       "url": "https://support.apple.com/en-us/120340",
-      "status": "broken",
-      "httpStatus": 404
+      "status": "ok",
+      "httpStatus": 200
     },
     {
       "url": "https://www.oo-software.com/en/shutup10",
@@ -2821,8 +2821,8 @@
     },
     {
       "url": "https://www.curseforge.com/minecraft/mc-mods/e4steam",
-      "status": "restricted",
-      "httpStatus": 403
+      "status": "ok",
+      "httpStatus": 200
     },
     {
       "url": "https://github.com/repowise-dev/repowise",
@@ -3306,13 +3306,13 @@
     },
     {
       "url": "https://www.instagram.com/prozavlly/",
-      "status": "restricted",
-      "httpStatus": 429
+      "status": "ok",
+      "httpStatus": 200
     },
     {
       "url": "https://www.instagram.com/frontendjoe/",
-      "status": "restricted",
-      "httpStatus": 429
+      "status": "ok",
+      "httpStatus": 200
     },
     {
       "url": "https://github.com/vercel-labs/agent-skills/tree/main/skills/web-design-guidelines",
@@ -3416,13 +3416,13 @@
     },
     {
       "url": "https://help.openai.com/en/articles/11084440",
-      "status": "restricted",
-      "httpStatus": 403
+      "status": "ok",
+      "httpStatus": 200
     },
     {
       "url": "https://www.youtube.com/watch?v=Uk7HHfF9n2Q",
       "status": "ok",
-      "httpStatus": 204
+      "httpStatus": 200
     },
     {
       "url": "https://abacus.ai/pricing",
@@ -3737,17 +3737,17 @@
     {
       "url": "https://www.youtube.com/watch?v=G_2XOHxOoiY",
       "status": "ok",
-      "httpStatus": 204
+      "httpStatus": 200
     },
     {
       "url": "https://www.youtube.com/watch?v=UPWlOvcFSEE",
       "status": "ok",
-      "httpStatus": 204
+      "httpStatus": 200
     },
     {
       "url": "https://www.youtube.com/watch?v=9VOXy8Rny8c",
       "status": "ok",
-      "httpStatus": 204
+      "httpStatus": 200
     },
     {
       "url": "https://github.com/Jackywine/Bella",
@@ -3957,7 +3957,7 @@
     {
       "url": "https://www.youtube.com/watch?v=dPHOl0fkkOA",
       "status": "ok",
-      "httpStatus": 204
+      "httpStatus": 200
     },
     {
       "url": "https://github.com/PavelHopson/eclipse-library/blob/master/guides/erida-character-bible-v1.md",
@@ -4076,6 +4076,76 @@
     },
     {
       "url": "https://www.ipfire.org/fireperf",
+      "status": "ok",
+      "httpStatus": 200
+    },
+    {
+      "url": "https://github.com/storytold/anicraft",
+      "status": "ok",
+      "httpStatus": 200
+    },
+    {
+      "url": "https://patch.gg/",
+      "status": "ok",
+      "httpStatus": 200
+    },
+    {
+      "url": "https://github.com/cloudflare/kitesurf",
+      "status": "ok",
+      "httpStatus": 200
+    },
+    {
+      "url": "https://github.com/krezio/roomy",
+      "status": "ok",
+      "httpStatus": 200
+    },
+    {
+      "url": "https://github.com/RoutineMiku/apkstart",
+      "status": "ok",
+      "httpStatus": 200
+    },
+    {
+      "url": "https://github.com/upscayl/upscayl",
+      "status": "ok",
+      "httpStatus": 200
+    },
+    {
+      "url": "https://21st.dev/",
+      "status": "ok",
+      "httpStatus": 200
+    },
+    {
+      "url": "https://github.com/DavidHDev/canvas-ui",
+      "status": "ok",
+      "httpStatus": 200
+    },
+    {
+      "url": "https://getdesign.md/",
+      "status": "ok",
+      "httpStatus": 200
+    },
+    {
+      "url": "https://designmd.supply/",
+      "status": "restricted",
+      "httpStatus": 429
+    },
+    {
+      "url": "https://designeer.xyz/",
+      "status": "restricted",
+      "httpStatus": 403
+    },
+    {
+      "url": "https://github.com/tholtman1-del/deadboard",
+      "status": "ok",
+      "httpStatus": 200
+    },
+    {
+      "url": "https://studio.motionsites.ai/",
+      "status": "ok",
+      "httpStatus": 200
+    },
+    {
+      "url": "https://brandguidelines.net/",
       "status": "ok",
       "httpStatus": 200
     },
