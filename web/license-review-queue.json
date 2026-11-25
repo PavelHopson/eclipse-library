@@ -1,22 +1,22 @@
 {
   "schemaVersion": 1,
-  "sourceHash": "c8e7a34c9dfd2052bbd00d6adc0f9156be3bcf8895bf70a7e9a62d6951385874",
+  "sourceHash": "8d2bae619b11081742dc987d01c6920d93a93f999ac36368d7aff3499e6f9e98",
   "policy": {
     "automaticApprovalForbidden": true,
     "directInstallForbidden": true,
     "missingLicenseMeansNoReusePermission": true
   },
   "totals": {
-    "reviewRequired": 217,
+    "reviewRequired": 218,
     "byPriority": {
       "P1": 1,
-      "P2": 179,
+      "P2": 180,
       "P3": 37
     },
     "byBucket": {
       "content-terms": 36,
       "grey-reference": 37,
-      "manual-other": 25,
+      "manual-other": 26,
       "repository-license-not-detected": 25,
       "service-terms": 94
     }
@@ -879,6 +879,27 @@
           "kind": "official-source",
           "label": "Официальный источник; точные условия ещё нужно сверить",
           "url": "https://www.adventuregen.ai/dashboard/upscaler"
+        }
+      ]
+    },
+    {
+      "id": "algo-lab-byte-sized-algorithms",
+      "title": "Algo Lab — алгоритмы и структуры данных в 3D (на русском)",
+      "type": "course",
+      "url": "https://byte-sized-algorithms.vercel.app/",
+      "decision": "reference",
+      "riskLevel": "low",
+      "currentLicense": "Нужно проверить в официальном источнике",
+      "reviewStatus": "verified",
+      "bucket": "manual-other",
+      "priority": "P2",
+      "reason": "The current official source does not provide enough normalized license evidence.",
+      "nextStep": "Open the official source and record the exact grant, restrictions, owner and evidence URL.",
+      "evidence": [
+        {
+          "kind": "source",
+          "label": "Сайт курса",
+          "url": "https://byte-sized-algorithms.vercel.app/"
         }
       ]
     },

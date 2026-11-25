@@ -1,20 +1,20 @@
 {
   "schemaVersion": 2,
-  "sourceHash": "c8e7a34c9dfd2052bbd00d6adc0f9156be3bcf8895bf70a7e9a62d6951385874",
+  "sourceHash": "8d2bae619b11081742dc987d01c6920d93a93f999ac36368d7aff3499e6f9e98",
   "policy": {
     "canonicalSource": "catalog/resources.json",
     "directInstallForbidden": true,
     "greyResourcesExcludedFromAgentRecommendations": true
   },
   "totals": {
-    "all": 832,
-    "verified": 463,
+    "all": 834,
+    "verified": 465,
     "inferred": 369,
-    "licenseReviewRequired": 217,
-    "agentSafe": 728,
+    "licenseReviewRequired": 218,
+    "agentSafe": 730,
     "agentExcluded": 104,
     "grey": 89,
-    "withAddedAt": 553
+    "withAddedAt": 555
   },
   "items": [
     {
@@ -45818,6 +45818,88 @@
       }
     },
     {
+      "id": "algo-lab-byte-sized-algorithms",
+      "url": "https://byte-sized-algorithms.vercel.app/",
+      "title": "Algo Lab — алгоритмы и структуры данных в 3D (на русском)",
+      "type": "course",
+      "category": "Обучение IT (бесплатно)",
+      "subcategory": "Обучение IT (бесплатно)",
+      "simpleDescription": "Бесплатный интерактивный курс по основам Computer Science: около 86 наглядных уроков с массивами, деревьями и графами в 3D, практические задания и отслеживание прогресса; переведён на русский.",
+      "useCases": [
+        "Обучение младших разработчиков основам алгоритмов",
+        "Наглядное объяснение структур данных"
+      ],
+      "platforms": [
+        "Браузер"
+      ],
+      "license": "Нужно проверить в официальном источнике",
+      "licenseEvidence": [
+        {
+          "kind": "source",
+          "label": "Сайт курса",
+          "url": "https://byte-sized-algorithms.vercel.app/"
+        }
+      ],
+      "pricing": "Бесплатно.",
+      "access": {
+        "cost": "free",
+        "signup": "none",
+        "runtime": "cloud"
+      },
+      "trust": "community",
+      "trustReason": "Сайт открыт 25.11.2026 (заголовок «Algo Lab»); автор и лицензия на сайте не найдены, количество уроков — по данным новости.",
+      "projects": [],
+      "decision": "reference",
+      "riskLevel": "low",
+      "risks": [
+        "Хостинг на бесплатном Vercel — может пропасть без предупреждения."
+      ],
+      "quickStart": [
+        "Пройти первый раздел (Big O) и решить, давать ли новичкам."
+      ],
+      "verifiedAt": "2026-11-25",
+      "addedAt": "2026-11-25",
+      "reviewStatus": "verified",
+      "source": {
+        "file": "catalog/resources.json",
+        "key": "algo-lab-byte-sized-algorithms",
+        "legacy": {
+          "file": "catalog/resources.json",
+          "key": "algo-lab-byte-sized-algorithms",
+          "category": "Обучение IT (бесплатно)",
+          "subcategory": "Обучение IT (бесплатно)"
+        }
+      },
+      "catalogOrder": 833,
+      "licenseInfo": {
+        "label": "Нужно проверить в официальном источнике",
+        "original": "Нужно проверить в официальном источнике",
+        "spdx": null,
+        "kind": "unknown",
+        "status": "unverified",
+        "requiresReview": true,
+        "evidence": [
+          {
+            "kind": "source",
+            "label": "Сайт курса",
+            "url": "https://byte-sized-algorithms.vercel.app/"
+          }
+        ]
+      },
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://byte-sized-algorithms.vercel.app/"
+        }
+      ],
+      "agentEligibility": {
+        "eligible": true,
+        "reasons": [],
+        "installAllowed": false
+      }
+    },
+    {
       "id": "wenware-wen-ware-com",
       "url": "https://wen-ware.com/",
       "title": "WenWare",
@@ -45886,6 +45968,88 @@
           "kind": "official-source",
           "label": "Официальный источник",
           "url": "https://wen-ware.com/"
+        }
+      ],
+      "agentEligibility": {
+        "eligible": true,
+        "reasons": [],
+        "installAllowed": false
+      }
+    },
+    {
+      "id": "pastvu",
+      "url": "https://pastvu.com/",
+      "title": "PastVu — старые фотографии городов с привязкой к карте",
+      "type": "service",
+      "category": "Подборка Eclipse",
+      "subcategory": "Browser / video / knowledge discovery",
+      "simpleDescription": "Бесплатная база исторических фотографий 1826–2000 годов с привязкой к улицам и местам, фильтры по городам, режим сравнения «тогда и сейчас», раскраска чёрно-белых снимков.",
+      "useCases": [
+        "Исторические кадры места для контента и презентаций (с соблюдением прав автора снимка)",
+        "Референсы эпохи для визуала"
+      ],
+      "platforms": [
+        "Браузер"
+      ],
+      "license": "Права на снимки — у их авторов и правообладателей",
+      "licenseEvidence": [
+        {
+          "kind": "source",
+          "label": "Официальный сайт",
+          "url": "https://pastvu.com/"
+        }
+      ],
+      "pricing": "Бесплатно, без регистрации для просмотра.",
+      "access": {
+        "cost": "free",
+        "signup": "optional",
+        "runtime": "cloud"
+      },
+      "trust": "official",
+      "trustReason": "Сайт открыт 25.11.2026 (HTTP 200). Условия использования отдельных снимков не проверялись.",
+      "projects": [],
+      "decision": "reference",
+      "riskLevel": "low",
+      "risks": [
+        "Снимки не свободны по умолчанию: перед публикацией проверять автора и условия конкретного фото."
+      ],
+      "quickStart": [
+        "Использовать для поиска и референсов, не для публикации без проверки прав."
+      ],
+      "verifiedAt": "2026-11-25",
+      "addedAt": "2026-11-25",
+      "reviewStatus": "verified",
+      "source": {
+        "file": "catalog/resources.json",
+        "key": "pastvu",
+        "legacy": {
+          "file": "catalog/resources.json",
+          "key": "pastvu",
+          "category": "Подборка Eclipse",
+          "subcategory": "Browser / video / knowledge discovery"
+        }
+      },
+      "catalogOrder": 834,
+      "licenseInfo": {
+        "label": "Права на снимки — у их авторов и правообладателей",
+        "original": "Права на снимки — у их авторов и правообладателей",
+        "spdx": null,
+        "kind": "custom",
+        "status": "editor-reviewed",
+        "requiresReview": false,
+        "evidence": [
+          {
+            "kind": "source",
+            "label": "Официальный сайт",
+            "url": "https://pastvu.com/"
+          }
+        ]
+      },
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://pastvu.com/"
         }
       ],
       "agentEligibility": {
