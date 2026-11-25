@@ -49376,6 +49376,266 @@
         "category": "UI / Design",
         "subcategory": "Референсы и галереи"
       }
+    },
+    {
+      "id": "openmotion",
+      "url": "https://github.com/nexu-io/openmotion",
+      "title": "OpenMotion — монтаж и моушн-графика силами ИИ-агентов",
+      "type": "tool",
+      "category": "AI & Claude Code",
+      "subcategory": "Видеопродакшн и VFX",
+      "simpleDescription": "Открытая видеостудия для агентов (Claude Code, Codex и др.): по ролику-образцу и бренд-киту пересобирает моушн-графику, есть 300+ гайдов MOTION.md и редактор для ручной доводки, экспорт MP4 под Shorts, Reels и TikTok.",
+      "useCases": [
+        "Шорты Eclipse Forge и рекламные ролики по своему бренд-киту",
+        "Сравнить с нашим Remotion-пайплайном на одном ролике"
+      ],
+      "platforms": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "license": "Apache-2.0",
+      "licenseEvidence": [
+        {
+          "kind": "source",
+          "label": "GitHub",
+          "url": "https://github.com/nexu-io/openmotion"
+        }
+      ],
+      "pricing": "Бесплатно; генерация картинок, видео и голоса — через платные сторонние сервисы по их тарифам.",
+      "access": {
+        "cost": "free",
+        "signup": "optional",
+        "runtime": "local"
+      },
+      "trust": "community",
+      "trustReason": "Репозиторий проверен 25.11.2026: Apache-2.0, около 16 тыс. звёзд, активные коммиты. В работе не испытывался.",
+      "projects": [
+        "Eclipse Forge Landing"
+      ],
+      "decision": "roadmap",
+      "riskLevel": "medium",
+      "risks": [
+        "Пересборка популярных видео: не копировать чужие ролики один в один, только приёмы.",
+        "Ключи сторонних генераторов хранить вне проекта."
+      ],
+      "quickStart": [
+        "Пилот на одном шорте EF рядом с Remotion: сравнить время, качество и ручную правку."
+      ],
+      "verifiedAt": "2026-11-25",
+      "addedAt": "2026-11-25",
+      "reviewStatus": "verified",
+      "source": {
+        "file": "catalog/resources.json",
+        "key": "openmotion",
+        "category": "AI & Claude Code",
+        "subcategory": "Видеопродакшн и VFX"
+      }
+    },
+    {
+      "id": "inworld-voice-isolator",
+      "url": "https://github.com/inworld-ai/voice-isolator",
+      "title": "Inworld Voice Isolator — очистка речи от шума и музыки",
+      "type": "model",
+      "category": "Подборка Eclipse",
+      "subcategory": "Media / voice / content",
+      "simpleDescription": "Открытая модель отделяет голос от фонового шума и музыки, сохраняя дыхание; работает в реальном времени на 48 кГц, запускается локально.",
+      "useCases": [
+        "Чистка голосовых записей перед монтажом роликов",
+        "Подготовка чистого голоса для озвучки и субтитров"
+      ],
+      "platforms": [
+        "Python",
+        "GPU/CPU"
+      ],
+      "license": "Apache-2.0",
+      "licenseEvidence": [
+        {
+          "kind": "source",
+          "label": "GitHub",
+          "url": "https://github.com/inworld-ai/voice-isolator"
+        }
+      ],
+      "pricing": "Бесплатно.",
+      "access": {
+        "cost": "free",
+        "signup": "none",
+        "runtime": "local"
+      },
+      "trust": "official",
+      "trustReason": "Официальный репозиторий Inworld AI, проверен 25.11.2026: Apache-2.0. Качество на наших записях не проверялось.",
+      "projects": [],
+      "decision": "roadmap",
+      "riskLevel": "low",
+      "risks": [
+        "Чужие голоса обрабатывать только с согласия владельца записи."
+      ],
+      "quickStart": [
+        "Прогнать одну шумную запись и сравнить на слух с исходником."
+      ],
+      "verifiedAt": "2026-11-25",
+      "addedAt": "2026-11-25",
+      "reviewStatus": "verified",
+      "source": {
+        "file": "catalog/resources.json",
+        "key": "inworld-voice-isolator",
+        "category": "Подборка Eclipse",
+        "subcategory": "Media / voice / content"
+      }
+    },
+    {
+      "id": "seomator-seo-audit-skill",
+      "url": "https://github.com/seo-skills/seo-audit-skill",
+      "title": "SEOmator — SEO-аудит сайта (скилл для Claude Code и CLI)",
+      "type": "skill",
+      "category": "SEO & Маркетинг",
+      "subcategory": "SEO & Маркетинг",
+      "simpleDescription": "Проверяет сайт по 330+ правилам в 20 категориях: скорость и Core Web Vitals, заголовки безопасности, ссылки, картинки, мобильная версия, микроразметка, доступность — и выдаёт отчёт с советами. Есть скилл для Claude Code и консольная версия.",
+      "useCases": [
+        "Аудит лендинга eclipse-forge.ru",
+        "Отчёт для клиента студии как часть услуги «сайт с заявками»"
+      ],
+      "platforms": [
+        "Claude Code",
+        "CLI"
+      ],
+      "license": "MIT",
+      "licenseEvidence": [
+        {
+          "kind": "source",
+          "label": "GitHub",
+          "url": "https://github.com/seo-skills/seo-audit-skill"
+        }
+      ],
+      "pricing": "Бесплатно.",
+      "access": {
+        "cost": "free",
+        "signup": "none",
+        "runtime": "local"
+      },
+      "trust": "community",
+      "trustReason": "Репозиторий проверен 25.11.2026: MIT, около 1 тыс. звёзд, обновлялся 19.11.2026. Отчёты на наших сайтах не сверялись.",
+      "projects": [
+        "Eclipse Forge Landing"
+      ],
+      "decision": "roadmap",
+      "riskLevel": "low",
+      "risks": [
+        "Советы инструмента — не гарантия позиций; проверять человеком перед отправкой клиенту."
+      ],
+      "quickStart": [
+        "Прогнать по лендингу EF и сравнить с нашим скиллом seo-audit."
+      ],
+      "verifiedAt": "2026-11-25",
+      "addedAt": "2026-11-25",
+      "reviewStatus": "verified",
+      "source": {
+        "file": "catalog/resources.json",
+        "key": "seomator-seo-audit-skill",
+        "category": "SEO & Маркетинг",
+        "subcategory": "SEO & Маркетинг"
+      }
+    },
+    {
+      "id": "tokendoctor",
+      "url": "https://github.com/localixai/tokendoctor",
+      "title": "Tokendoctor — где Claude Code тратит токены и как сэкономить",
+      "type": "tool",
+      "category": "AI & Claude Code",
+      "subcategory": "LLM роутинг и оптимизация",
+      "simpleDescription": "Прогоняет ваши прошлые сессии Claude Code, показывает, сколько сэкономила бы каждая настройка (автор обещает до 38%), и меняет только то, что вы выберете; изменения откатываются.",
+      "useCases": [
+        "Найти, на что уходит лимит в длинных сессиях",
+        "Проверить настройки перед массовыми задачами агентов"
+      ],
+      "platforms": [
+        "Claude Code"
+      ],
+      "license": "MIT",
+      "licenseEvidence": [
+        {
+          "kind": "source",
+          "label": "GitHub",
+          "url": "https://github.com/localixai/tokendoctor"
+        }
+      ],
+      "pricing": "Бесплатно.",
+      "access": {
+        "cost": "free",
+        "signup": "none",
+        "runtime": "local"
+      },
+      "trust": "community",
+      "trustReason": "Репозиторий проверен 25.11.2026: MIT, около 180 звёзд, молодой проект. Цифра 38% — заявление автора, не проверена.",
+      "projects": [],
+      "decision": "reference",
+      "riskLevel": "medium",
+      "risks": [
+        "Читает историю сессий и меняет настройки Claude Code — ставить только по решению владельца, сначала в режиме отчёта.",
+        "Экономия токенов не равна экономии денег (кэш), см. замеры Code Mode."
+      ],
+      "quickStart": [
+        "Запустить только анализ, ничего не применять; решение по изменениям — отдельно."
+      ],
+      "verifiedAt": "2026-11-25",
+      "addedAt": "2026-11-25",
+      "reviewStatus": "verified",
+      "source": {
+        "file": "catalog/resources.json",
+        "key": "tokendoctor",
+        "category": "AI & Claude Code",
+        "subcategory": "LLM роутинг и оптимизация"
+      }
+    },
+    {
+      "id": "claude-code-ultimate-guide",
+      "url": "https://github.com/FlorianBruniaux/claude-code-ultimate-guide",
+      "title": "Claude Code Ultimate Guide — большой справочник по Claude Code",
+      "type": "guide",
+      "category": "AI & Claude Code",
+      "subcategory": "Оркестрация и агенты",
+      "simpleDescription": "Подробный англоязычный справочник: агентные воркфлоу, хуки, скиллы, MCP-серверы, шаблоны для продакшена и квизы для самопроверки.",
+      "useCases": [
+        "Обучение команды работе с Claude Code",
+        "Сверка своих правил хуков, скиллов и MCP с практиками сообщества"
+      ],
+      "platforms": [
+        "Браузер"
+      ],
+      "license": "CC-BY-SA-4.0",
+      "licenseEvidence": [
+        {
+          "kind": "source",
+          "label": "GitHub",
+          "url": "https://github.com/FlorianBruniaux/claude-code-ultimate-guide"
+        }
+      ],
+      "pricing": "Бесплатно.",
+      "access": {
+        "cost": "free",
+        "signup": "none",
+        "runtime": "cloud"
+      },
+      "trust": "community",
+      "trustReason": "Репозиторий проверен 25.11.2026: CC-BY-SA-4.0, около 7,4 тыс. звёзд, обновляется ежедневно.",
+      "projects": [],
+      "decision": "reference",
+      "riskLevel": "low",
+      "risks": [
+        "CC-BY-SA: при переводе или переиспользовании текста указывать автора и ту же лицензию."
+      ],
+      "quickStart": [
+        "Читать разделы про хуки и скиллы; не копировать шаблоны без проверки."
+      ],
+      "verifiedAt": "2026-11-25",
+      "addedAt": "2026-11-25",
+      "reviewStatus": "verified",
+      "source": {
+        "file": "catalog/resources.json",
+        "key": "claude-code-ultimate-guide",
+        "category": "AI & Claude Code",
+        "subcategory": "Оркестрация и агенты"
+      }
     }
   ]
 }
