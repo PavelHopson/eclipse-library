@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "consumer": "Eclipse CRM",
-  "catalogVersion": "ff034c9d5bb2a28a2938a0f09a6f93c9fdfb537dac00b6ff6e7f1da09b4545f8",
+  "catalogVersion": "c8e7a34c9dfd2052bbd00d6adc0f9156be3bcf8895bf70a7e9a62d6951385874",
   "generatedAt": null,
   "policy": {
     "greyResourcesExcluded": true,
@@ -9,7 +9,7 @@
     "externalMutationsRequireHumanApproval": true
   },
   "totals": {
-    "items": 723
+    "items": 728
   },
   "items": [
     {
@@ -24259,7 +24259,7 @@
         "evidence": [
           {
             "kind": "license",
-            "label": "Apache-2.0 license",
+            "label": "MIT license",
             "url": "https://api.github.com/repos/microsoft/tokeneconomizer/license"
           },
           {
@@ -24296,7 +24296,7 @@
         },
         {
           "kind": "license",
-          "label": "Apache-2.0 license",
+          "label": "MIT license",
           "url": "https://api.github.com/repos/microsoft/tokeneconomizer/license"
         },
         {
@@ -25506,6 +25506,11 @@
         "evidence": [
           {
             "kind": "license",
+            "label": "Apache-2.0 license",
+            "url": "https://api.github.com/repos/storytold/anicraft/license"
+          },
+          {
+            "kind": "license",
             "label": "Лицензии в официальном репозитории",
             "url": "https://github.com/storytold/anicraft/tree/main/licenses"
           },
@@ -25532,6 +25537,11 @@
           "kind": "official-source",
           "label": "Официальный источник",
           "url": "https://github.com/storytold/anicraft"
+        },
+        {
+          "kind": "license",
+          "label": "Apache-2.0 license",
+          "url": "https://api.github.com/repos/storytold/anicraft/license"
         },
         {
           "kind": "license",
@@ -25641,9 +25651,14 @@
         "original": "Apache-2.0",
         "spdx": "Apache-2.0",
         "kind": "open-source",
-        "status": "editor-reviewed",
+        "status": "source-declared",
         "requiresReview": false,
         "evidence": [
+          {
+            "kind": "license",
+            "label": "Apache-2.0 license",
+            "url": "https://api.github.com/repos/cloudflare/kitesurf/license"
+          },
           {
             "kind": "license",
             "label": "Лицензия в официальном репозитории",
@@ -25672,6 +25687,11 @@
           "kind": "official-source",
           "label": "Официальный источник",
           "url": "https://github.com/cloudflare/kitesurf"
+        },
+        {
+          "kind": "license",
+          "label": "Apache-2.0 license",
+          "url": "https://api.github.com/repos/cloudflare/kitesurf/license"
         },
         {
           "kind": "license",
@@ -25707,9 +25727,14 @@
         "original": "MIT",
         "spdx": "MIT",
         "kind": "open-source",
-        "status": "editor-reviewed",
+        "status": "source-declared",
         "requiresReview": false,
         "evidence": [
+          {
+            "kind": "license",
+            "label": "MIT license",
+            "url": "https://api.github.com/repos/krezio/roomy/license"
+          },
           {
             "kind": "license",
             "label": "Лицензия в репозитории",
@@ -25736,6 +25761,11 @@
           "kind": "official-source",
           "label": "Официальный источник",
           "url": "https://github.com/krezio/roomy"
+        },
+        {
+          "kind": "license",
+          "label": "MIT license",
+          "url": "https://api.github.com/repos/krezio/roomy/license"
         },
         {
           "kind": "license",
@@ -25771,9 +25801,14 @@
         "original": "MIT для оболочки; эмулятор и образ Android с Google Play — по условиям Google",
         "spdx": "MIT",
         "kind": "open-source",
-        "status": "editor-reviewed",
+        "status": "source-declared",
         "requiresReview": false,
         "evidence": [
+          {
+            "kind": "license",
+            "label": "MIT license",
+            "url": "https://api.github.com/repos/routinemiku/apkstart/license"
+          },
           {
             "kind": "license",
             "label": "Лицензия в репозитории",
@@ -25800,6 +25835,11 @@
           "kind": "official-source",
           "label": "Официальный источник",
           "url": "https://github.com/RoutineMiku/apkstart"
+        },
+        {
+          "kind": "license",
+          "label": "MIT license",
+          "url": "https://api.github.com/repos/routinemiku/apkstart/license"
         },
         {
           "kind": "license",
@@ -25837,9 +25877,14 @@
         "original": "AGPL-3.0",
         "spdx": "AGPL-3.0",
         "kind": "open-source",
-        "status": "editor-reviewed",
+        "status": "source-declared",
         "requiresReview": false,
         "evidence": [
+          {
+            "kind": "license",
+            "label": "AGPL-3.0 license",
+            "url": "https://api.github.com/repos/upscayl/upscayl/license"
+          },
           {
             "kind": "license",
             "label": "Лицензия в репозитории",
@@ -25868,6 +25913,11 @@
           "kind": "official-source",
           "label": "Официальный источник",
           "url": "https://github.com/upscayl/upscayl"
+        },
+        {
+          "kind": "license",
+          "label": "AGPL-3.0 license",
+          "url": "https://api.github.com/repos/upscayl/upscayl/license"
         },
         {
           "kind": "license",
@@ -25969,6 +26019,11 @@
         "evidence": [
           {
             "kind": "license",
+            "label": "Other license",
+            "url": "https://api.github.com/repos/davidhdev/canvas-ui/license"
+          },
+          {
+            "kind": "license",
             "label": "Лицензия",
             "url": "https://github.com/DavidHDev/canvas-ui/blob/main/LICENSE.md"
           },
@@ -25995,6 +26050,11 @@
           "kind": "official-source",
           "label": "Официальный источник",
           "url": "https://github.com/DavidHDev/canvas-ui"
+        },
+        {
+          "kind": "license",
+          "label": "Other license",
+          "url": "https://api.github.com/repos/davidhdev/canvas-ui/license"
         },
         {
           "kind": "license",
@@ -26222,9 +26282,14 @@
         "original": "Apache-2.0 для кода; демо-платы — по лицензиям их исходных open-hardware проектов",
         "spdx": "Apache-2.0",
         "kind": "open-source",
-        "status": "editor-reviewed",
+        "status": "source-declared",
         "requiresReview": false,
         "evidence": [
+          {
+            "kind": "license",
+            "label": "Apache-2.0 license",
+            "url": "https://api.github.com/repos/tholtman1-del/deadboard/license"
+          },
           {
             "kind": "license",
             "label": "Лицензия в репозитории",
@@ -26251,6 +26316,11 @@
           "kind": "official-source",
           "label": "Официальный источник",
           "url": "https://github.com/tholtman1-del/deadboard"
+        },
+        {
+          "kind": "license",
+          "label": "Apache-2.0 license",
+          "url": "https://api.github.com/repos/tholtman1-del/deadboard/license"
         },
         {
           "kind": "license",
@@ -26369,6 +26439,279 @@
           "kind": "official-source",
           "label": "Официальный источник",
           "url": "https://brandguidelines.net/"
+        }
+      ],
+      "actions": {
+        "openOfficialSource": true,
+        "installFromCatalog": false,
+        "mutateExternalSystems": false
+      }
+    },
+    {
+      "id": "openmotion",
+      "title": "OpenMotion — монтаж и моушн-графика силами ИИ-агентов",
+      "url": "https://github.com/nexu-io/openmotion",
+      "type": "tool",
+      "category": "AI & Claude Code",
+      "subcategory": "Видеопродакшн и VFX",
+      "addedAt": "2026-11-25",
+      "description": "Открытая видеостудия для агентов (Claude Code, Codex и др.): по ролику-образцу и бренд-киту пересобирает моушн-графику, есть 300+ гайдов MOTION.md и редактор для ручной доводки, экспорт MP4 под Shorts, Reels и TikTok.",
+      "useCases": [
+        "Шорты Eclipse Forge и рекламные ролики по своему бренд-киту",
+        "Сравнить с нашим Remotion-пайплайном на одном ролике"
+      ],
+      "platforms": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "license": {
+        "label": "Apache-2.0",
+        "original": "Apache-2.0",
+        "spdx": "Apache-2.0",
+        "kind": "open-source",
+        "status": "editor-reviewed",
+        "requiresReview": false,
+        "evidence": [
+          {
+            "kind": "source",
+            "label": "GitHub",
+            "url": "https://github.com/nexu-io/openmotion"
+          }
+        ]
+      },
+      "access": {
+        "cost": "free",
+        "signup": "optional",
+        "runtime": "local"
+      },
+      "trust": "community",
+      "decision": "roadmap",
+      "riskLevel": "medium",
+      "projects": [
+        "Eclipse Forge Landing"
+      ],
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://github.com/nexu-io/openmotion"
+        }
+      ],
+      "actions": {
+        "openOfficialSource": true,
+        "installFromCatalog": false,
+        "mutateExternalSystems": false
+      }
+    },
+    {
+      "id": "inworld-voice-isolator",
+      "title": "Inworld Voice Isolator — очистка речи от шума и музыки",
+      "url": "https://github.com/inworld-ai/voice-isolator",
+      "type": "model",
+      "category": "Подборка Eclipse",
+      "subcategory": "Media / voice / content",
+      "addedAt": "2026-11-25",
+      "description": "Открытая модель отделяет голос от фонового шума и музыки, сохраняя дыхание; работает в реальном времени на 48 кГц, запускается локально.",
+      "useCases": [
+        "Чистка голосовых записей перед монтажом роликов",
+        "Подготовка чистого голоса для озвучки и субтитров"
+      ],
+      "platforms": [
+        "Python",
+        "GPU/CPU"
+      ],
+      "license": {
+        "label": "Apache-2.0",
+        "original": "Apache-2.0",
+        "spdx": "Apache-2.0",
+        "kind": "open-source",
+        "status": "editor-reviewed",
+        "requiresReview": false,
+        "evidence": [
+          {
+            "kind": "source",
+            "label": "GitHub",
+            "url": "https://github.com/inworld-ai/voice-isolator"
+          }
+        ]
+      },
+      "access": {
+        "cost": "free",
+        "signup": "none",
+        "runtime": "local"
+      },
+      "trust": "official",
+      "decision": "roadmap",
+      "riskLevel": "low",
+      "projects": [],
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://github.com/inworld-ai/voice-isolator"
+        }
+      ],
+      "actions": {
+        "openOfficialSource": true,
+        "installFromCatalog": false,
+        "mutateExternalSystems": false
+      }
+    },
+    {
+      "id": "seomator-seo-audit-skill",
+      "title": "SEOmator — SEO-аудит сайта (скилл для Claude Code и CLI)",
+      "url": "https://github.com/seo-skills/seo-audit-skill",
+      "type": "skill",
+      "category": "SEO & Маркетинг",
+      "subcategory": "SEO & Маркетинг",
+      "addedAt": "2026-11-25",
+      "description": "Проверяет сайт по 330+ правилам в 20 категориях: скорость и Core Web Vitals, заголовки безопасности, ссылки, картинки, мобильная версия, микроразметка, доступность — и выдаёт отчёт с советами. Есть скилл для Claude Code и консольная версия.",
+      "useCases": [
+        "Аудит лендинга eclipse-forge.ru",
+        "Отчёт для клиента студии как часть услуги «сайт с заявками»"
+      ],
+      "platforms": [
+        "Claude Code",
+        "CLI"
+      ],
+      "license": {
+        "label": "MIT",
+        "original": "MIT",
+        "spdx": "MIT",
+        "kind": "open-source",
+        "status": "editor-reviewed",
+        "requiresReview": false,
+        "evidence": [
+          {
+            "kind": "source",
+            "label": "GitHub",
+            "url": "https://github.com/seo-skills/seo-audit-skill"
+          }
+        ]
+      },
+      "access": {
+        "cost": "free",
+        "signup": "none",
+        "runtime": "local"
+      },
+      "trust": "community",
+      "decision": "roadmap",
+      "riskLevel": "low",
+      "projects": [
+        "Eclipse Forge Landing"
+      ],
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://github.com/seo-skills/seo-audit-skill"
+        }
+      ],
+      "actions": {
+        "openOfficialSource": true,
+        "installFromCatalog": false,
+        "mutateExternalSystems": false
+      }
+    },
+    {
+      "id": "tokendoctor",
+      "title": "Tokendoctor — где Claude Code тратит токены и как сэкономить",
+      "url": "https://github.com/localixai/tokendoctor",
+      "type": "tool",
+      "category": "AI & Claude Code",
+      "subcategory": "LLM роутинг и оптимизация",
+      "addedAt": "2026-11-25",
+      "description": "Прогоняет ваши прошлые сессии Claude Code, показывает, сколько сэкономила бы каждая настройка (автор обещает до 38%), и меняет только то, что вы выберете; изменения откатываются.",
+      "useCases": [
+        "Найти, на что уходит лимит в длинных сессиях",
+        "Проверить настройки перед массовыми задачами агентов"
+      ],
+      "platforms": [
+        "Claude Code"
+      ],
+      "license": {
+        "label": "MIT",
+        "original": "MIT",
+        "spdx": "MIT",
+        "kind": "open-source",
+        "status": "editor-reviewed",
+        "requiresReview": false,
+        "evidence": [
+          {
+            "kind": "source",
+            "label": "GitHub",
+            "url": "https://github.com/localixai/tokendoctor"
+          }
+        ]
+      },
+      "access": {
+        "cost": "free",
+        "signup": "none",
+        "runtime": "local"
+      },
+      "trust": "community",
+      "decision": "reference",
+      "riskLevel": "medium",
+      "projects": [],
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://github.com/localixai/tokendoctor"
+        }
+      ],
+      "actions": {
+        "openOfficialSource": true,
+        "installFromCatalog": false,
+        "mutateExternalSystems": false
+      }
+    },
+    {
+      "id": "claude-code-ultimate-guide",
+      "title": "Claude Code Ultimate Guide — большой справочник по Claude Code",
+      "url": "https://github.com/FlorianBruniaux/claude-code-ultimate-guide",
+      "type": "guide",
+      "category": "AI & Claude Code",
+      "subcategory": "Оркестрация и агенты",
+      "addedAt": "2026-11-25",
+      "description": "Подробный англоязычный справочник: агентные воркфлоу, хуки, скиллы, MCP-серверы, шаблоны для продакшена и квизы для самопроверки.",
+      "useCases": [
+        "Обучение команды работе с Claude Code",
+        "Сверка своих правил хуков, скиллов и MCP с практиками сообщества"
+      ],
+      "platforms": [
+        "Браузер"
+      ],
+      "license": {
+        "label": "CC-BY-SA-4.0",
+        "original": "CC-BY-SA-4.0",
+        "spdx": null,
+        "kind": "custom",
+        "status": "editor-reviewed",
+        "requiresReview": false,
+        "evidence": [
+          {
+            "kind": "source",
+            "label": "GitHub",
+            "url": "https://github.com/FlorianBruniaux/claude-code-ultimate-guide"
+          }
+        ]
+      },
+      "access": {
+        "cost": "free",
+        "signup": "none",
+        "runtime": "cloud"
+      },
+      "trust": "community",
+      "decision": "reference",
+      "riskLevel": "low",
+      "projects": [],
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://github.com/FlorianBruniaux/claude-code-ultimate-guide"
         }
       ],
       "actions": {
