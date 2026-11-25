@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "consumer": "Eclipse CRM",
-  "catalogVersion": "c8e7a34c9dfd2052bbd00d6adc0f9156be3bcf8895bf70a7e9a62d6951385874",
+  "catalogVersion": "8d2bae619b11081742dc987d01c6920d93a93f999ac36368d7aff3499e6f9e98",
   "generatedAt": null,
   "policy": {
     "greyResourcesExcluded": true,
@@ -9,7 +9,7 @@
     "externalMutationsRequireHumanApproval": true
   },
   "totals": {
-    "items": 728
+    "items": 730
   },
   "items": [
     {
@@ -26721,6 +26721,59 @@
       }
     },
     {
+      "id": "algo-lab-byte-sized-algorithms",
+      "title": "Algo Lab — алгоритмы и структуры данных в 3D (на русском)",
+      "url": "https://byte-sized-algorithms.vercel.app/",
+      "type": "course",
+      "category": "Обучение IT (бесплатно)",
+      "subcategory": "Обучение IT (бесплатно)",
+      "addedAt": "2026-11-25",
+      "description": "Бесплатный интерактивный курс по основам Computer Science: около 86 наглядных уроков с массивами, деревьями и графами в 3D, практические задания и отслеживание прогресса; переведён на русский.",
+      "useCases": [
+        "Обучение младших разработчиков основам алгоритмов",
+        "Наглядное объяснение структур данных"
+      ],
+      "platforms": [
+        "Браузер"
+      ],
+      "license": {
+        "label": "Нужно проверить в официальном источнике",
+        "original": "Нужно проверить в официальном источнике",
+        "spdx": null,
+        "kind": "unknown",
+        "status": "unverified",
+        "requiresReview": true,
+        "evidence": [
+          {
+            "kind": "source",
+            "label": "Сайт курса",
+            "url": "https://byte-sized-algorithms.vercel.app/"
+          }
+        ]
+      },
+      "access": {
+        "cost": "free",
+        "signup": "none",
+        "runtime": "cloud"
+      },
+      "trust": "community",
+      "decision": "reference",
+      "riskLevel": "low",
+      "projects": [],
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://byte-sized-algorithms.vercel.app/"
+        }
+      ],
+      "actions": {
+        "openOfficialSource": true,
+        "installFromCatalog": false,
+        "mutateExternalSystems": false
+      }
+    },
+    {
       "id": "wenware-wen-ware-com",
       "title": "WenWare",
       "url": "https://wen-ware.com/",
@@ -26765,6 +26818,59 @@
           "kind": "official-source",
           "label": "Официальный источник",
           "url": "https://wen-ware.com/"
+        }
+      ],
+      "actions": {
+        "openOfficialSource": true,
+        "installFromCatalog": false,
+        "mutateExternalSystems": false
+      }
+    },
+    {
+      "id": "pastvu",
+      "title": "PastVu — старые фотографии городов с привязкой к карте",
+      "url": "https://pastvu.com/",
+      "type": "service",
+      "category": "Подборка Eclipse",
+      "subcategory": "Browser / video / knowledge discovery",
+      "addedAt": "2026-11-25",
+      "description": "Бесплатная база исторических фотографий 1826–2000 годов с привязкой к улицам и местам, фильтры по городам, режим сравнения «тогда и сейчас», раскраска чёрно-белых снимков.",
+      "useCases": [
+        "Исторические кадры места для контента и презентаций (с соблюдением прав автора снимка)",
+        "Референсы эпохи для визуала"
+      ],
+      "platforms": [
+        "Браузер"
+      ],
+      "license": {
+        "label": "Права на снимки — у их авторов и правообладателей",
+        "original": "Права на снимки — у их авторов и правообладателей",
+        "spdx": null,
+        "kind": "custom",
+        "status": "editor-reviewed",
+        "requiresReview": false,
+        "evidence": [
+          {
+            "kind": "source",
+            "label": "Официальный сайт",
+            "url": "https://pastvu.com/"
+          }
+        ]
+      },
+      "access": {
+        "cost": "free",
+        "signup": "optional",
+        "runtime": "cloud"
+      },
+      "trust": "official",
+      "decision": "reference",
+      "riskLevel": "low",
+      "projects": [],
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://pastvu.com/"
         }
       ],
       "actions": {
