@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "consumer": "Eclipse CRM",
-  "catalogVersion": "8d2bae619b11081742dc987d01c6920d93a93f999ac36368d7aff3499e6f9e98",
+  "catalogVersion": "cc427bcafbc20356dbc6fd95423be95607a93ec803bee6e46603a1603b0e2916",
   "generatedAt": null,
   "policy": {
     "greyResourcesExcluded": true,
@@ -9,7 +9,7 @@
     "externalMutationsRequireHumanApproval": true
   },
   "totals": {
-    "items": 730
+    "items": 731
   },
   "items": [
     {
@@ -26977,6 +26977,62 @@
           "kind": "official-source",
           "label": "Официальный источник",
           "url": "https://javagames.cc/"
+        }
+      ],
+      "actions": {
+        "openOfficialSource": true,
+        "installFromCatalog": false,
+        "mutateExternalSystems": false
+      }
+    },
+    {
+      "id": "t3code",
+      "title": "T3 Code — управление Claude Code и Codex с телефона",
+      "url": "https://github.com/pingdotgg/t3code",
+      "type": "tool",
+      "category": "AI & Claude Code",
+      "subcategory": "AI Coding Agents",
+      "addedAt": "2026-11-25",
+      "description": "Открытый клиент для управления агентами Claude Code, Codex, Cursor и другими с любого компьютера или телефона: задачу запускаете на ПК, следующий шаг подтверждаете с телефона. Работает через вашу подписку, токены не перепродаёт.",
+      "useCases": [
+        "Подтверждать шаги агентов вдали от компьютера",
+        "Одно окно для агентов разных вендоров (Claude Code и Codex)"
+      ],
+      "platforms": [
+        "Windows",
+        "macOS",
+        "Linux",
+        "Браузер/телефон"
+      ],
+      "license": {
+        "label": "MIT",
+        "original": "MIT",
+        "spdx": "MIT",
+        "kind": "open-source",
+        "status": "editor-reviewed",
+        "requiresReview": false,
+        "evidence": [
+          {
+            "kind": "source",
+            "label": "GitHub",
+            "url": "https://github.com/pingdotgg/t3code"
+          }
+        ]
+      },
+      "access": {
+        "cost": "free",
+        "signup": "none",
+        "runtime": "local"
+      },
+      "trust": "community",
+      "decision": "reference",
+      "riskLevel": "medium",
+      "projects": [],
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://github.com/pingdotgg/t3code"
         }
       ],
       "actions": {

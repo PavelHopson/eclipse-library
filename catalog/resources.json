@@ -49736,6 +49736,60 @@
         "category": "Подборка Eclipse",
         "subcategory": "Browser / video / knowledge discovery"
       }
+    },
+    {
+      "id": "t3code",
+      "url": "https://github.com/pingdotgg/t3code",
+      "title": "T3 Code — управление Claude Code и Codex с телефона",
+      "type": "tool",
+      "category": "AI & Claude Code",
+      "subcategory": "AI Coding Agents",
+      "simpleDescription": "Открытый клиент для управления агентами Claude Code, Codex, Cursor и другими с любого компьютера или телефона: задачу запускаете на ПК, следующий шаг подтверждаете с телефона. Работает через вашу подписку, токены не перепродаёт.",
+      "useCases": [
+        "Подтверждать шаги агентов вдали от компьютера",
+        "Одно окно для агентов разных вендоров (Claude Code и Codex)"
+      ],
+      "platforms": [
+        "Windows",
+        "macOS",
+        "Linux",
+        "Браузер/телефон"
+      ],
+      "license": "MIT",
+      "licenseEvidence": [
+        {
+          "kind": "source",
+          "label": "GitHub",
+          "url": "https://github.com/pingdotgg/t3code"
+        }
+      ],
+      "pricing": "Бесплатно; агенты работают по вашим подпискам.",
+      "access": {
+        "cost": "free",
+        "signup": "none",
+        "runtime": "local"
+      },
+      "trust": "community",
+      "trustReason": "Репозиторий проверен 25.11.2026: MIT, около 79 тыс. звёзд, активные коммиты. У нас не испытывался.",
+      "projects": [],
+      "decision": "reference",
+      "riskLevel": "medium",
+      "risks": [
+        "Даёт удалённый доступ к терминалу и подпискам — перед использованием проверить, как открывается доступ извне и чем он защищён.",
+        "Для Claude Code уже есть встроенный Remote Control в Claude Desktop — сторонний клиент нужен только для Codex и других агентов."
+      ],
+      "quickStart": [
+        "Сначала проверить встроенный Remote Control; T3 Code — только если нужен Codex с телефона."
+      ],
+      "verifiedAt": "2026-11-25",
+      "addedAt": "2026-11-25",
+      "reviewStatus": "verified",
+      "source": {
+        "file": "catalog/resources.json",
+        "key": "t3code",
+        "category": "AI & Claude Code",
+        "subcategory": "AI Coding Agents"
+      }
     }
   ]
 }

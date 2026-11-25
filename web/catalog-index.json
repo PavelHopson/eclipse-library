@@ -1,20 +1,20 @@
 {
   "schemaVersion": 2,
-  "sourceHash": "8d2bae619b11081742dc987d01c6920d93a93f999ac36368d7aff3499e6f9e98",
+  "sourceHash": "cc427bcafbc20356dbc6fd95423be95607a93ec803bee6e46603a1603b0e2916",
   "policy": {
     "canonicalSource": "catalog/resources.json",
     "directInstallForbidden": true,
     "greyResourcesExcludedFromAgentRecommendations": true
   },
   "totals": {
-    "all": 834,
-    "verified": 465,
+    "all": 835,
+    "verified": 466,
     "inferred": 369,
     "licenseReviewRequired": 218,
-    "agentSafe": 730,
+    "agentSafe": 731,
     "agentExcluded": 104,
     "grey": 89,
-    "withAddedAt": 555
+    "withAddedAt": 556
   },
   "items": [
     {
@@ -46204,6 +46204,92 @@
           "kind": "official-source",
           "label": "Официальный источник",
           "url": "https://javagames.cc/"
+        }
+      ],
+      "agentEligibility": {
+        "eligible": true,
+        "reasons": [],
+        "installAllowed": false
+      }
+    },
+    {
+      "id": "t3code",
+      "url": "https://github.com/pingdotgg/t3code",
+      "title": "T3 Code — управление Claude Code и Codex с телефона",
+      "type": "tool",
+      "category": "AI & Claude Code",
+      "subcategory": "AI Coding Agents",
+      "simpleDescription": "Открытый клиент для управления агентами Claude Code, Codex, Cursor и другими с любого компьютера или телефона: задачу запускаете на ПК, следующий шаг подтверждаете с телефона. Работает через вашу подписку, токены не перепродаёт.",
+      "useCases": [
+        "Подтверждать шаги агентов вдали от компьютера",
+        "Одно окно для агентов разных вендоров (Claude Code и Codex)"
+      ],
+      "platforms": [
+        "Windows",
+        "macOS",
+        "Linux",
+        "Браузер/телефон"
+      ],
+      "license": "MIT",
+      "licenseEvidence": [
+        {
+          "kind": "source",
+          "label": "GitHub",
+          "url": "https://github.com/pingdotgg/t3code"
+        }
+      ],
+      "pricing": "Бесплатно; агенты работают по вашим подпискам.",
+      "access": {
+        "cost": "free",
+        "signup": "none",
+        "runtime": "local"
+      },
+      "trust": "community",
+      "trustReason": "Репозиторий проверен 25.11.2026: MIT, около 79 тыс. звёзд, активные коммиты. У нас не испытывался.",
+      "projects": [],
+      "decision": "reference",
+      "riskLevel": "medium",
+      "risks": [
+        "Даёт удалённый доступ к терминалу и подпискам — перед использованием проверить, как открывается доступ извне и чем он защищён.",
+        "Для Claude Code уже есть встроенный Remote Control в Claude Desktop — сторонний клиент нужен только для Codex и других агентов."
+      ],
+      "quickStart": [
+        "Сначала проверить встроенный Remote Control; T3 Code — только если нужен Codex с телефона."
+      ],
+      "verifiedAt": "2026-11-25",
+      "addedAt": "2026-11-25",
+      "reviewStatus": "verified",
+      "source": {
+        "file": "catalog/resources.json",
+        "key": "t3code",
+        "legacy": {
+          "file": "catalog/resources.json",
+          "key": "t3code",
+          "category": "AI & Claude Code",
+          "subcategory": "AI Coding Agents"
+        }
+      },
+      "catalogOrder": 835,
+      "licenseInfo": {
+        "label": "MIT",
+        "original": "MIT",
+        "spdx": "MIT",
+        "kind": "open-source",
+        "status": "editor-reviewed",
+        "requiresReview": false,
+        "evidence": [
+          {
+            "kind": "source",
+            "label": "GitHub",
+            "url": "https://github.com/pingdotgg/t3code"
+          }
+        ]
+      },
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://github.com/pingdotgg/t3code"
         }
       ],
       "agentEligibility": {
