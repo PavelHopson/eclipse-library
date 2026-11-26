@@ -49942,6 +49942,60 @@
         "category": "Подборка Eclipse",
         "subcategory": "Browser / video / knowledge discovery"
       }
+    },
+    {
+      "id": "alibaba-open-code-review",
+      "url": "https://github.com/alibaba/open-code-review",
+      "title": "Open Code Review (Alibaba) — ИИ-ревью кода по правилам",
+      "type": "tool",
+      "category": "AI & Claude Code",
+      "subcategory": "AI Coding Agents",
+      "simpleDescription": "Открытая утилита ревью кода от Alibaba: читает изменения в Git и оставляет построчные замечания по набору правил (NPE, потокобезопасность, XSS, SQL-инъекции). Работает с любой моделью, совместимой с OpenAI или Anthropic, подключается к Claude Code и Codex как навык. По данным авторов, тратит примерно в 9 раз меньше токенов, чем Claude Code, но находит меньше ошибок — ставка на точность.",
+      "useCases": [
+        "Дешёвый первый проход ревью PR на бесплатной модели",
+        "Построчные комментарии в CI"
+      ],
+      "platforms": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "license": "Apache-2.0",
+      "licenseEvidence": [
+        {
+          "kind": "source",
+          "label": "GitHub",
+          "url": "https://github.com/alibaba/open-code-review"
+        }
+      ],
+      "pricing": "Бесплатно; платите только за модель.",
+      "access": {
+        "cost": "free",
+        "signup": "none",
+        "runtime": "local"
+      },
+      "trust": "official",
+      "trustReason": "Репозиторий Alibaba проверен 26.11.2026: Apache-2.0, около 56 тыс. звёзд. Наш прогон 26.11 на PR с 5 известными замечаниями: локальные qwen2.5-coder:7b и qwen3:8b на star-ai не справились (не вызывают инструменты, 0 замечаний за 10 минут). Нужна модель уровня GPT/Claude/крупной открытой.",
+      "projects": [],
+      "decision": "roadmap",
+      "riskLevel": "medium",
+      "risks": [
+        "Маленькие локальные модели (7–8B) не работают: пайплайн требует вызова инструментов.",
+        "Код уходит выбранному провайдеру модели — для закрытых репозиториев выбирать провайдера осознанно.",
+        "Находит меньше ошибок, чем полноценный агент: не замена проверке рискованных изменений."
+      ],
+      "quickStart": [
+        "Повторить сравнение на сильной модели (вход через ChatGPT командой ocr auth или ключ OpenRouter) на эталонном PR с 5 известными замечаниями."
+      ],
+      "verifiedAt": "2026-11-26",
+      "addedAt": "2026-11-26",
+      "reviewStatus": "verified",
+      "source": {
+        "file": "catalog/resources.json",
+        "key": "alibaba-open-code-review",
+        "category": "AI & Claude Code",
+        "subcategory": "AI Coding Agents"
+      }
     }
   ]
 }
