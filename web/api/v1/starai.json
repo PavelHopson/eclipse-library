@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "consumer": "Eclipse AI",
-  "catalogVersion": "88201d961ebcdf17d2df75960b33511bcd77c1dfb6100f3d052a5f8737cc05d3",
+  "catalogVersion": "7ec51406157c3ec8672fc243b82b203a323ca7f51ddc4ed4cd48325c541de310",
   "generatedAt": null,
   "policy": {
     "greyResourcesExcluded": true,
@@ -9,7 +9,7 @@
     "externalMutationsRequireHumanApproval": true
   },
   "totals": {
-    "items": 734
+    "items": 735
   },
   "items": [
     {
@@ -27357,6 +27357,61 @@
           "kind": "official-source",
           "label": "Официальный источник",
           "url": "https://dos.zone/"
+        }
+      ],
+      "actions": {
+        "openOfficialSource": true,
+        "installFromCatalog": false,
+        "mutateExternalSystems": false
+      }
+    },
+    {
+      "id": "alibaba-open-code-review",
+      "title": "Open Code Review (Alibaba) — ИИ-ревью кода по правилам",
+      "url": "https://github.com/alibaba/open-code-review",
+      "type": "tool",
+      "category": "AI & Claude Code",
+      "subcategory": "AI Coding Agents",
+      "addedAt": "2026-11-26",
+      "description": "Открытая утилита ревью кода от Alibaba: читает изменения в Git и оставляет построчные замечания по набору правил (NPE, потокобезопасность, XSS, SQL-инъекции). Работает с любой моделью, совместимой с OpenAI или Anthropic, подключается к Claude Code и Codex как навык. По данным авторов, тратит примерно в 9 раз меньше токенов, чем Claude Code, но находит меньше ошибок — ставка на точность.",
+      "useCases": [
+        "Дешёвый первый проход ревью PR на бесплатной модели",
+        "Построчные комментарии в CI"
+      ],
+      "platforms": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "license": {
+        "label": "Apache-2.0",
+        "original": "Apache-2.0",
+        "spdx": "Apache-2.0",
+        "kind": "open-source",
+        "status": "editor-reviewed",
+        "requiresReview": false,
+        "evidence": [
+          {
+            "kind": "source",
+            "label": "GitHub",
+            "url": "https://github.com/alibaba/open-code-review"
+          }
+        ]
+      },
+      "access": {
+        "cost": "free",
+        "signup": "none",
+        "runtime": "local"
+      },
+      "trust": "official",
+      "decision": "roadmap",
+      "riskLevel": "medium",
+      "projects": [],
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://github.com/alibaba/open-code-review"
         }
       ],
       "actions": {
