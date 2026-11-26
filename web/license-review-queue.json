@@ -1,15 +1,15 @@
 {
   "schemaVersion": 1,
-  "sourceHash": "cc427bcafbc20356dbc6fd95423be95607a93ec803bee6e46603a1603b0e2916",
+  "sourceHash": "511f1b125d4abf85cc5167b898d8543cc376f9166ab2d5a67c5316032a7d3c45",
   "policy": {
     "automaticApprovalForbidden": true,
     "directInstallForbidden": true,
     "missingLicenseMeansNoReusePermission": true
   },
   "totals": {
-    "reviewRequired": 218,
+    "reviewRequired": 219,
     "byPriority": {
-      "P1": 1,
+      "P1": 2,
       "P2": 180,
       "P3": 37
     },
@@ -17,11 +17,33 @@
       "content-terms": 36,
       "grey-reference": 37,
       "manual-other": 26,
+      "model-or-dataset-terms": 1,
       "repository-license-not-detected": 25,
       "service-terms": 94
     }
   },
   "items": [
+    {
+      "id": "ocria-nano-1",
+      "title": "OCRia-nano-1 — локальное распознавание документов на CPU",
+      "type": "model",
+      "url": "https://huggingface.co/llamaindex/OCRia-nano-1",
+      "decision": "roadmap",
+      "riskLevel": "low",
+      "currentLicense": "Нужно проверить в официальном источнике (на Hugging Face указано «other»)",
+      "reviewStatus": "verified",
+      "bucket": "model-or-dataset-terms",
+      "priority": "P1",
+      "reason": "Model code, weights, training data and generated output can have different terms.",
+      "nextStep": "Review model card, repository license, acceptable-use policy, data provenance and commercial-output terms.",
+      "evidence": [
+        {
+          "kind": "source",
+          "label": "Hugging Face",
+          "url": "https://huggingface.co/llamaindex/OCRia-nano-1"
+        }
+      ]
+    },
     {
       "id": "blackbird-username-search",
       "title": "Blackbird — поиск цифрового следа по username",
