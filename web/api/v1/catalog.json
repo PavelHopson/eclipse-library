@@ -1,18 +1,18 @@
 {
   "schemaVersion": 2,
-  "sourceHash": "511f1b125d4abf85cc5167b898d8543cc376f9166ab2d5a67c5316032a7d3c45",
+  "sourceHash": "88201d961ebcdf17d2df75960b33511bcd77c1dfb6100f3d052a5f8737cc05d3",
   "policy": {
     "directInstallForbidden": true
   },
   "totals": {
-    "all": 837,
-    "verified": 468,
+    "all": 838,
+    "verified": 469,
     "inferred": 369,
     "licenseReviewRequired": 219,
-    "agentSafe": 733,
+    "agentSafe": 734,
     "agentExcluded": 104,
     "grey": 89,
-    "withAddedAt": 558
+    "withAddedAt": 559
   },
   "items": [
     {
@@ -8708,11 +8708,10 @@
       "type": "repo",
       "category": "AI и агенты",
       "subcategory": "Local model runtime",
-      "simpleDescription": "Apache-2.0 coding agent с встроенным local-model runtime. Профилирует hardware, предлагает подходящие модели и параметры и запускает их через Rust/llama.cpp stack. Полезен как reference для Hardware Doctor, но его прогноз скорости нужно проверять реальным benchmark.",
+      "simpleDescription": "Открытый движок для запуска больших открытых моделей на обычном ПК: раскладывает модель по видеопамяти, оперативной памяти и SSD и подгружает нужные части заранее. Работает на NVIDIA, AMD, Intel, Apple Silicon и CPU; есть настольное приложение, CLI и Docker. По заявлению авторов, MoE-модели на 100+ млрд параметров идут на видеокарте с 12 ГБ.",
       "useCases": [
-        "Hardware Doctor в Eclipse AI Hub",
-        "Local model benchmark в Sentinel",
-        "Подбор quantization до загрузки weights"
+        "Более крупные локальные модели на сервере star-ai вместо Ollama",
+        "Локальные генерации без облака"
       ],
       "platforms": [
         "macOS",
@@ -8728,7 +8727,7 @@
         "runtime": "local"
       },
       "trust": "community",
-      "trustReason": "Проверены официальный repository, Apache-2.0 license и README 21.08.2026. Hardware predictions не проверены на Eclipse machines.",
+      "trustReason": "Репозиторий перепроверен 26.11.2026: Apache-2.0, около 8,7 тыс. звёзд, коммиты в день проверки. Скорость — по данным авторов, на нашем железе не измерялась.",
       "projects": [
         "Eclipse AI Hub",
         "Hopson Sentinel"
@@ -8736,15 +8735,14 @@
       "decision": "roadmap",
       "riskLevel": "medium",
       "risks": [
-        "Automatic downloads introduce model supply-chain risk",
-        "Estimated tok/s may differ from real workload",
-        "Model license and disk/VRAM requirements vary"
+        "Модель постоянно читается с SSD: на star-ai — только после замены сбойного диска ADATA и на исправном NVMe.",
+        "Установка предлагается через curl | sh — ставить пакетом или Docker.",
+        "Автоматические загрузки моделей: фиксировать ревизию и лицензию модели.",
+        "Скорость на нашем железе может отличаться от заявленной."
       ],
-      "verifiedAt": "2026-08-21",
+      "verifiedAt": "2026-11-26",
       "quickStart": [
-        "Запустить read-only hardware profile в disposable environment",
-        "Сравнить prediction с three-model benchmark",
-        "Pin model revision and verify license/hash before download"
+        "После замены диска star-ai: поднять в Docker, сравнить с Ollama на одной задаче StarCRM (скорость, качество, память)."
       ],
       "reviewStatus": "verified",
       "source": {
@@ -46611,6 +46609,92 @@
           "kind": "official-source",
           "label": "Официальный источник",
           "url": "https://flashpointarchive.org/"
+        }
+      ],
+      "agentEligibility": {
+        "eligible": true,
+        "reasons": [],
+        "installAllowed": false
+      }
+    },
+    {
+      "id": "bencho-ui-sounds",
+      "url": "https://bencho.dev/sounds",
+      "title": "Bencho Sounds — звуки для интерфейсов",
+      "type": "media",
+      "category": "Подборка Eclipse",
+      "subcategory": "Browser / video / knowledge discovery",
+      "simpleDescription": "Библиотека из примерно 180 коротких звуков для интерфейсов: нажатия, переключения, уведомления. Звуки можно прослушать на сайте и скачать в WAV, есть MCP для подключения в проект.",
+      "useCases": [
+        "Звуки уведомлений и действий в Eclipse Chat или StarMarket"
+      ],
+      "platforms": [
+        "Браузер"
+      ],
+      "license": "Собственная лицензия Bencho — прочитать перед использованием",
+      "licenseEvidence": [
+        {
+          "kind": "source",
+          "label": "Лицензия",
+          "url": "https://bencho.dev/licence"
+        }
+      ],
+      "pricing": "Часть звуков бесплатно; Pro €99 в год (все звуки, MCP).",
+      "access": {
+        "cost": "freemium",
+        "signup": "optional",
+        "runtime": "cloud"
+      },
+      "trust": "community",
+      "trustReason": "Сайт открыт 26.11.2026, цены со страницы Pricing. Условия лицензии не разбирались.",
+      "projects": [],
+      "decision": "reference",
+      "riskLevel": "low",
+      "risks": [
+        "Не все звуки бесплатны; условия коммерческого использования — по лицензии Bencho."
+      ],
+      "quickStart": [
+        "При выборе звуков для продукта — сначала бесплатные, проверить лицензию."
+      ],
+      "verifiedAt": "2026-11-26",
+      "addedAt": "2026-11-26",
+      "reviewStatus": "verified",
+      "source": {
+        "file": "catalog/resources.json",
+        "key": "bencho-ui-sounds",
+        "legacy": {
+          "file": "catalog/resources.json",
+          "key": "bencho-ui-sounds",
+          "category": "Подборка Eclipse",
+          "subcategory": "Browser / video / knowledge discovery"
+        }
+      },
+      "catalogOrder": 838,
+      "licenseInfo": {
+        "label": "Собственная лицензия Bencho — прочитать перед использованием",
+        "original": "Собственная лицензия Bencho — прочитать перед использованием",
+        "spdx": null,
+        "kind": "custom",
+        "status": "editor-reviewed",
+        "requiresReview": false,
+        "evidence": [
+          {
+            "kind": "source",
+            "label": "Лицензия",
+            "url": "https://bencho.dev/licence"
+          }
+        ]
+      },
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://bencho.dev/sounds"
+        },
+        {
+          "kind": "source",
+          "label": "Лицензия",
+          "url": "https://bencho.dev/licence"
         }
       ],
       "agentEligibility": {
