@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "consumer": "Eclipse AI",
-  "catalogVersion": "cc427bcafbc20356dbc6fd95423be95607a93ec803bee6e46603a1603b0e2916",
+  "catalogVersion": "511f1b125d4abf85cc5167b898d8543cc376f9166ab2d5a67c5316032a7d3c45",
   "generatedAt": null,
   "policy": {
     "greyResourcesExcluded": true,
@@ -9,7 +9,7 @@
     "externalMutationsRequireHumanApproval": true
   },
   "totals": {
-    "items": 731
+    "items": 733
   },
   "items": [
     {
@@ -27042,6 +27042,62 @@
       }
     },
     {
+      "id": "ocria-nano-1",
+      "title": "OCRia-nano-1 — локальное распознавание документов на CPU",
+      "url": "https://huggingface.co/llamaindex/OCRia-nano-1",
+      "type": "model",
+      "category": "AI & Claude Code",
+      "subcategory": "AI Coding Agents",
+      "addedAt": "2026-11-26",
+      "description": "Крошечная модель от LlamaIndex (около 8 млн параметров) для разбора PDF и сканов в Markdown: текст, таблицы, графики, есть русский. Работает на обычном процессоре без видеокарты, около 0,4 секунды на страницу.",
+      "useCases": [
+        "Разбор накладных, сертификатов и документов продавцов StarMarket без отправки данных в облако",
+        "Подготовка PDF к поиску и RAG"
+      ],
+      "platforms": [
+        "Windows",
+        "macOS",
+        "Linux",
+        "Сервер (ONNX, CPU)"
+      ],
+      "license": {
+        "label": "Нужно проверить в официальном источнике (на Hugging Face указано «other»)",
+        "original": "Нужно проверить в официальном источнике (на Hugging Face указано «other»)",
+        "spdx": null,
+        "kind": "unknown",
+        "status": "unverified",
+        "requiresReview": true,
+        "evidence": [
+          {
+            "kind": "source",
+            "label": "Hugging Face",
+            "url": "https://huggingface.co/llamaindex/OCRia-nano-1"
+          }
+        ]
+      },
+      "access": {
+        "cost": "free",
+        "signup": "none",
+        "runtime": "local"
+      },
+      "trust": "official",
+      "decision": "roadmap",
+      "riskLevel": "low",
+      "projects": [],
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://huggingface.co/llamaindex/OCRia-nano-1"
+        }
+      ],
+      "actions": {
+        "openOfficialSource": true,
+        "installFromCatalog": false,
+        "mutateExternalSystems": false
+      }
+    },
+    {
       "id": "play-cs-com-play-cs-com",
       "title": "play-cs.com",
       "url": "https://play-cs.com/",
@@ -27086,6 +27142,59 @@
           "kind": "official-source",
           "label": "Официальный источник",
           "url": "https://play-cs.com/"
+        }
+      ],
+      "actions": {
+        "openOfficialSource": true,
+        "installFromCatalog": false,
+        "mutateExternalSystems": false
+      }
+    },
+    {
+      "id": "artex-security-agent",
+      "title": "ARTEX — ИИ-агент для поиска уязвимостей",
+      "url": "https://github.com/BaaRai/ARTEX",
+      "type": "tool",
+      "category": "AI & Claude Code",
+      "subcategory": "AI Coding Agents",
+      "addedAt": "2026-11-26",
+      "description": "Открытый агент для тестирования безопасности: ищет уязвимости в сайтах, приложениях и инфраструктуре с помощью ИИ.",
+      "useCases": [
+        "Проверка безопасности собственных сайтов (StarMarket, Eclipse Forge) перед релизом"
+      ],
+      "platforms": [
+        "Linux",
+        "Docker"
+      ],
+      "license": {
+        "label": "AGPL-3.0",
+        "original": "AGPL-3.0",
+        "spdx": "AGPL-3.0",
+        "kind": "open-source",
+        "status": "editor-reviewed",
+        "requiresReview": false,
+        "evidence": [
+          {
+            "kind": "source",
+            "label": "GitHub",
+            "url": "https://github.com/BaaRai/ARTEX"
+          }
+        ]
+      },
+      "access": {
+        "cost": "free",
+        "signup": "none",
+        "runtime": "local"
+      },
+      "trust": "community",
+      "decision": "reference",
+      "riskLevel": "high",
+      "projects": [],
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://github.com/BaaRai/ARTEX"
         }
       ],
       "actions": {

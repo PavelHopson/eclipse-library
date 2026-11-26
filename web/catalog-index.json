@@ -1,20 +1,20 @@
 {
   "schemaVersion": 2,
-  "sourceHash": "cc427bcafbc20356dbc6fd95423be95607a93ec803bee6e46603a1603b0e2916",
+  "sourceHash": "511f1b125d4abf85cc5167b898d8543cc376f9166ab2d5a67c5316032a7d3c45",
   "policy": {
     "canonicalSource": "catalog/resources.json",
     "directInstallForbidden": true,
     "greyResourcesExcludedFromAgentRecommendations": true
   },
   "totals": {
-    "all": 835,
-    "verified": 466,
+    "all": 837,
+    "verified": 468,
     "inferred": 369,
-    "licenseReviewRequired": 218,
-    "agentSafe": 731,
+    "licenseReviewRequired": 219,
+    "agentSafe": 733,
     "agentExcluded": 104,
     "grey": 89,
-    "withAddedAt": 556
+    "withAddedAt": 558
   },
   "items": [
     {
@@ -46299,6 +46299,92 @@
       }
     },
     {
+      "id": "ocria-nano-1",
+      "url": "https://huggingface.co/llamaindex/OCRia-nano-1",
+      "title": "OCRia-nano-1 — локальное распознавание документов на CPU",
+      "type": "model",
+      "category": "AI & Claude Code",
+      "subcategory": "AI Coding Agents",
+      "simpleDescription": "Крошечная модель от LlamaIndex (около 8 млн параметров) для разбора PDF и сканов в Markdown: текст, таблицы, графики, есть русский. Работает на обычном процессоре без видеокарты, около 0,4 секунды на страницу.",
+      "useCases": [
+        "Разбор накладных, сертификатов и документов продавцов StarMarket без отправки данных в облако",
+        "Подготовка PDF к поиску и RAG"
+      ],
+      "platforms": [
+        "Windows",
+        "macOS",
+        "Linux",
+        "Сервер (ONNX, CPU)"
+      ],
+      "license": "Нужно проверить в официальном источнике (на Hugging Face указано «other»)",
+      "licenseEvidence": [
+        {
+          "kind": "source",
+          "label": "Hugging Face",
+          "url": "https://huggingface.co/llamaindex/OCRia-nano-1"
+        }
+      ],
+      "pricing": "Бесплатно, запускается локально.",
+      "access": {
+        "cost": "free",
+        "signup": "none",
+        "runtime": "local"
+      },
+      "trust": "official",
+      "trustReason": "Страница модели открыта 26.11.2026: автор llamaindex, создана 03.11.2026, обновлена 24.11.2026. Скорость и точность — по заявлению авторов, у нас не испытывалась.",
+      "projects": [],
+      "decision": "roadmap",
+      "riskLevel": "low",
+      "risks": [
+        "Лицензия «other» — перед коммерческим использованием прочитать условия на странице модели.",
+        "Качество на русских сканах не проверено."
+      ],
+      "quickStart": [
+        "Прогнать 10 реальных документов продавцов на сервере star-ai и сравнить с текущим разбором."
+      ],
+      "verifiedAt": "2026-11-26",
+      "addedAt": "2026-11-26",
+      "reviewStatus": "verified",
+      "source": {
+        "file": "catalog/resources.json",
+        "key": "ocria-nano-1",
+        "legacy": {
+          "file": "catalog/resources.json",
+          "key": "ocria-nano-1",
+          "category": "AI & Claude Code",
+          "subcategory": "AI Coding Agents"
+        }
+      },
+      "catalogOrder": 836,
+      "licenseInfo": {
+        "label": "Нужно проверить в официальном источнике (на Hugging Face указано «other»)",
+        "original": "Нужно проверить в официальном источнике (на Hugging Face указано «other»)",
+        "spdx": null,
+        "kind": "unknown",
+        "status": "unverified",
+        "requiresReview": true,
+        "evidence": [
+          {
+            "kind": "source",
+            "label": "Hugging Face",
+            "url": "https://huggingface.co/llamaindex/OCRia-nano-1"
+          }
+        ]
+      },
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://huggingface.co/llamaindex/OCRia-nano-1"
+        }
+      ],
+      "agentEligibility": {
+        "eligible": true,
+        "reasons": [],
+        "installAllowed": false
+      }
+    },
+    {
       "id": "play-cs-com-play-cs-com",
       "url": "https://play-cs.com/",
       "title": "play-cs.com",
@@ -46367,6 +46453,89 @@
           "kind": "official-source",
           "label": "Официальный источник",
           "url": "https://play-cs.com/"
+        }
+      ],
+      "agentEligibility": {
+        "eligible": true,
+        "reasons": [],
+        "installAllowed": false
+      }
+    },
+    {
+      "id": "artex-security-agent",
+      "url": "https://github.com/BaaRai/ARTEX",
+      "title": "ARTEX — ИИ-агент для поиска уязвимостей",
+      "type": "tool",
+      "category": "AI & Claude Code",
+      "subcategory": "AI Coding Agents",
+      "simpleDescription": "Открытый агент для тестирования безопасности: ищет уязвимости в сайтах, приложениях и инфраструктуре с помощью ИИ.",
+      "useCases": [
+        "Проверка безопасности собственных сайтов (StarMarket, Eclipse Forge) перед релизом"
+      ],
+      "platforms": [
+        "Linux",
+        "Docker"
+      ],
+      "license": "AGPL-3.0",
+      "licenseEvidence": [
+        {
+          "kind": "source",
+          "label": "GitHub",
+          "url": "https://github.com/BaaRai/ARTEX"
+        }
+      ],
+      "pricing": "Бесплатно; нужны ключи к ИИ-моделям.",
+      "access": {
+        "cost": "free",
+        "signup": "none",
+        "runtime": "local"
+      },
+      "trust": "community",
+      "trustReason": "Репозиторий проверен 26.11.2026: AGPL-3.0, около 20 тыс. звёзд, создан 08.10.2026, активные коммиты. У нас не испытывался.",
+      "projects": [],
+      "decision": "reference",
+      "riskLevel": "high",
+      "risks": [
+        "Только для своих ресурсов или с письменного разрешения владельца: проверка чужих систем незаконна.",
+        "Запускать изолированно (VM или контейнер), не на рабочем ПК и не на проде."
+      ],
+      "quickStart": [
+        "Если понадобится — прогнать на тестовой копии своего сайта в отдельной VM."
+      ],
+      "verifiedAt": "2026-11-26",
+      "addedAt": "2026-11-26",
+      "reviewStatus": "verified",
+      "source": {
+        "file": "catalog/resources.json",
+        "key": "artex-security-agent",
+        "legacy": {
+          "file": "catalog/resources.json",
+          "key": "artex-security-agent",
+          "category": "AI & Claude Code",
+          "subcategory": "AI Coding Agents"
+        }
+      },
+      "catalogOrder": 837,
+      "licenseInfo": {
+        "label": "AGPL-3.0",
+        "original": "AGPL-3.0",
+        "spdx": "AGPL-3.0",
+        "kind": "open-source",
+        "status": "editor-reviewed",
+        "requiresReview": false,
+        "evidence": [
+          {
+            "kind": "source",
+            "label": "GitHub",
+            "url": "https://github.com/BaaRai/ARTEX"
+          }
+        ]
+      },
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://github.com/BaaRai/ARTEX"
         }
       ],
       "agentEligibility": {
