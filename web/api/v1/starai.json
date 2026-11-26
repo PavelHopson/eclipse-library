@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "consumer": "Eclipse AI",
-  "catalogVersion": "511f1b125d4abf85cc5167b898d8543cc376f9166ab2d5a67c5316032a7d3c45",
+  "catalogVersion": "88201d961ebcdf17d2df75960b33511bcd77c1dfb6100f3d052a5f8737cc05d3",
   "generatedAt": null,
   "policy": {
     "greyResourcesExcluded": true,
@@ -9,7 +9,7 @@
     "externalMutationsRequireHumanApproval": true
   },
   "totals": {
-    "items": 733
+    "items": 734
   },
   "items": [
     {
@@ -4443,11 +4443,10 @@
       "category": "AI и агенты",
       "subcategory": "Local model runtime",
       "addedAt": "2026-08-21",
-      "description": "Apache-2.0 coding agent с встроенным local-model runtime. Профилирует hardware, предлагает подходящие модели и параметры и запускает их через Rust/llama.cpp stack. Полезен как reference для Hardware Doctor, но его прогноз скорости нужно проверять реальным benchmark.",
+      "description": "Открытый движок для запуска больших открытых моделей на обычном ПК: раскладывает модель по видеопамяти, оперативной памяти и SSD и подгружает нужные части заранее. Работает на NVIDIA, AMD, Intel, Apple Silicon и CPU; есть настольное приложение, CLI и Docker. По заявлению авторов, MoE-модели на 100+ млрд параметров идут на видеокарте с 12 ГБ.",
       "useCases": [
-        "Hardware Doctor в Eclipse AI Hub",
-        "Local model benchmark в Sentinel",
-        "Подбор quantization до загрузки weights"
+        "Более крупные локальные модели на сервере star-ai вместо Ollama",
+        "Локальные генерации без облака"
       ],
       "platforms": [
         "macOS",
@@ -27248,6 +27247,63 @@
           "kind": "official-source",
           "label": "Официальный источник",
           "url": "https://flashpointarchive.org/"
+        }
+      ],
+      "actions": {
+        "openOfficialSource": true,
+        "installFromCatalog": false,
+        "mutateExternalSystems": false
+      }
+    },
+    {
+      "id": "bencho-ui-sounds",
+      "title": "Bencho Sounds — звуки для интерфейсов",
+      "url": "https://bencho.dev/sounds",
+      "type": "media",
+      "category": "Подборка Eclipse",
+      "subcategory": "Browser / video / knowledge discovery",
+      "addedAt": "2026-11-26",
+      "description": "Библиотека из примерно 180 коротких звуков для интерфейсов: нажатия, переключения, уведомления. Звуки можно прослушать на сайте и скачать в WAV, есть MCP для подключения в проект.",
+      "useCases": [
+        "Звуки уведомлений и действий в Eclipse Chat или StarMarket"
+      ],
+      "platforms": [
+        "Браузер"
+      ],
+      "license": {
+        "label": "Собственная лицензия Bencho — прочитать перед использованием",
+        "original": "Собственная лицензия Bencho — прочитать перед использованием",
+        "spdx": null,
+        "kind": "custom",
+        "status": "editor-reviewed",
+        "requiresReview": false,
+        "evidence": [
+          {
+            "kind": "source",
+            "label": "Лицензия",
+            "url": "https://bencho.dev/licence"
+          }
+        ]
+      },
+      "access": {
+        "cost": "freemium",
+        "signup": "optional",
+        "runtime": "cloud"
+      },
+      "trust": "community",
+      "decision": "reference",
+      "riskLevel": "low",
+      "projects": [],
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://bencho.dev/sounds"
+        },
+        {
+          "kind": "source",
+          "label": "Лицензия",
+          "url": "https://bencho.dev/licence"
         }
       ],
       "actions": {
