@@ -1,18 +1,18 @@
 {
   "schemaVersion": 2,
-  "sourceHash": "7ec51406157c3ec8672fc243b82b203a323ca7f51ddc4ed4cd48325c541de310",
+  "sourceHash": "b05eb66b10192d7610a7f70a01c957a7f7030abac9e3a319f84cfe7b9354d02a",
   "policy": {
     "directInstallForbidden": true
   },
   "totals": {
-    "all": 839,
-    "verified": 470,
+    "all": 843,
+    "verified": 474,
     "inferred": 369,
     "licenseReviewRequired": 219,
-    "agentSafe": 735,
-    "agentExcluded": 104,
-    "grey": 89,
-    "withAddedAt": 560
+    "agentSafe": 738,
+    "agentExcluded": 105,
+    "grey": 90,
+    "withAddedAt": 564
   },
   "items": [
     {
@@ -46940,6 +46940,482 @@
       "agentEligibility": {
         "eligible": true,
         "reasons": [],
+        "installAllowed": false
+      }
+    },
+    {
+      "id": "openvector",
+      "url": "https://github.com/Microck/openvector",
+      "title": "OpenVector — перевод картинки в вектор",
+      "type": "tool",
+      "category": "Медиа и дизайн",
+      "subcategory": "Векторная графика",
+      "simpleDescription": "Открытая программа, которая переводит PNG и JPEG в векторные контуры и сохраняет SVG, PDF, EPS или DXF. Собственный движок на Rust без нейросети; работает в браузере без установки, есть приложение для Windows, macOS и Linux, командная строка и пакет для Node.js. Рассчитана на логотипы, иконки и плоские иллюстрации: по словам автора, фотографии редко дают полезный вектор.",
+      "useCases": [
+        "Перевести логотип или иконку из растра в SVG",
+        "Убрать лишние области и сократить число цветов в готовом векторе",
+        "Пакетная конвертация из командной строки"
+      ],
+      "platforms": [
+        "Web",
+        "Windows",
+        "macOS",
+        "Linux",
+        "CLI",
+        "Node.js"
+      ],
+      "license": "MIT",
+      "licenseEvidence": [
+        {
+          "kind": "license",
+          "label": "Лицензия MIT",
+          "url": "https://github.com/Microck/openvector/blob/main/LICENSE"
+        },
+        {
+          "kind": "source",
+          "label": "Репозиторий и документация",
+          "url": "https://github.com/Microck/openvector"
+        },
+        {
+          "kind": "official-source",
+          "label": "Веб-редактор",
+          "url": "https://openvector.app/editor/"
+        }
+      ],
+      "pricing": "Бесплатно: без аккаунта, водяных знаков и ограничений на экспорт. На сайте есть реклама.",
+      "access": {
+        "cost": "free",
+        "signup": "none",
+        "runtime": "hybrid"
+      },
+      "trust": "community",
+      "trustReason": "Репозиторий, лицензия, документация и код проверены 27.11.2026: около 520 звёзд, первый выпуск 29.10.2026, последний v0.1.7 от 27.11.2026, автор один. Программа не запускалась; качество трассировки независимо не проверено.",
+      "projects": [],
+      "decision": "now",
+      "riskLevel": "medium",
+      "risks": [
+        "Сборки для Windows не подписаны; файл контрольных сумм лежит в том же выпуске и подмену всего выпуска не исключает.",
+        "Проекту около месяца, автор один, версия 0.1.x.",
+        "Происхождение движка спорное: воспроизведение платной Vector Magic без юридической оценки. Не встраивать в свои продукты и не распространять сборки без такой оценки.",
+        "На фотографиях результат обычно непригоден.",
+        "Удаление фона — ручное скрытие областей готового вектора, а не автоматическое вырезание объекта."
+      ],
+      "quickStart": [
+        "Для разовой задачи открыть веб-редактор: картинка обрабатывается в браузере и на сервер не отправляется (по документации и коду, сетевой трафик не замерялся).",
+        "Настольную версию брать только со страницы выпусков автора, в виде portable-архива, с проверкой SHA-256.",
+        "Результат проверить в редакторе: размеры в SVG записаны в пунктах."
+      ],
+      "verifiedAt": "2026-11-27",
+      "addedAt": "2026-11-27",
+      "reviewStatus": "verified",
+      "source": {
+        "file": "catalog/resources.json",
+        "key": "openvector",
+        "legacy": {
+          "file": "catalog/resources.json",
+          "key": "openvector",
+          "category": "Медиа и дизайн",
+          "subcategory": "Векторная графика"
+        }
+      },
+      "catalogOrder": 840,
+      "licenseInfo": {
+        "label": "MIT",
+        "original": "MIT для кода проекта. Автор сообщает, что движок воспроизводит поведение платной программы Vector Magic и юридическая очистка не проводилась.",
+        "spdx": "MIT",
+        "kind": "open-source",
+        "status": "editor-reviewed",
+        "requiresReview": false,
+        "evidence": [
+          {
+            "kind": "license",
+            "label": "Лицензия MIT",
+            "url": "https://github.com/Microck/openvector/blob/main/LICENSE"
+          },
+          {
+            "kind": "source",
+            "label": "Репозиторий и документация",
+            "url": "https://github.com/Microck/openvector"
+          },
+          {
+            "kind": "official-source",
+            "label": "Веб-редактор",
+            "url": "https://openvector.app/editor/"
+          }
+        ]
+      },
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://github.com/Microck/openvector"
+        },
+        {
+          "kind": "license",
+          "label": "Лицензия MIT",
+          "url": "https://github.com/Microck/openvector/blob/main/LICENSE"
+        },
+        {
+          "kind": "official-source",
+          "label": "Веб-редактор",
+          "url": "https://openvector.app/editor/"
+        }
+      ],
+      "agentEligibility": {
+        "eligible": true,
+        "reasons": [],
+        "installAllowed": false
+      }
+    },
+    {
+      "id": "global-digital-heritage",
+      "url": "https://gdh.org/",
+      "title": "Global Digital Heritage — 3D-сканы памятников и музейных предметов",
+      "type": "reference",
+      "category": "Медиа и дизайн",
+      "subcategory": "3D-модели и культурное наследие",
+      "simpleDescription": "Каталог трёхмерных сканов культурного наследия: предметы из музеев и раскопок, а также церкви, мосты, пещеры и петроглифы из 15 стран. На сайте около 9,4 тыс. записей; модели размещены на Sketchfab, их можно вращать в браузере. Описания неравномерны: у части объектов есть история и датировка, у части только страна, материал и эпоха.",
+      "useCases": [
+        "Наглядный материал для уроков истории и археологии",
+        "Референсы формы и фактуры для 3D и иллюстраций",
+        "3D-модели для роликов и сайтов — только с лицензией CC BY"
+      ],
+      "platforms": [
+        "Web"
+      ],
+      "license": "Единой лицензии нет: она указана у каждой модели на Sketchfab. В выборке большинство — CC BY-NC 4.0 (некоммерческое использование с указанием автора); 1392 модели — CC BY 4.0 (можно и в коммерческих работах с указанием автора); встречаются модели без открытой лицензии и без скачивания. Тексты, фото и PDF самого сайта — только для личного некоммерческого использования.",
+      "licenseEvidence": [
+        {
+          "kind": "official-source",
+          "label": "Сайт организации",
+          "url": "https://gdh.org/"
+        },
+        {
+          "kind": "source",
+          "label": "Аккаунт на Sketchfab с лицензией у каждой модели",
+          "url": "https://sketchfab.com/GlobalDigitalHeritage"
+        },
+        {
+          "kind": "license",
+          "label": "Текст CC BY-NC 4.0",
+          "url": "https://creativecommons.org/licenses/by-nc/4.0/"
+        },
+        {
+          "kind": "license",
+          "label": "Текст CC BY 4.0",
+          "url": "https://creativecommons.org/licenses/by/4.0/"
+        }
+      ],
+      "pricing": "Просмотр бесплатный, без регистрации. Скачивание моделей — через Sketchfab, нужен вход в аккаунт.",
+      "access": {
+        "cost": "free",
+        "signup": "optional",
+        "runtime": "cloud"
+      },
+      "trust": "official",
+      "trustReason": "Проверено 27.11.2026: оператор — некоммерческая организация Global Digital Heritage (США, Флорида, статус 501(c)(3) с 2017 года). Число записей взято из API сайта, лицензии — из API Sketchfab (выборка 10 моделей и полный обход фильтра CC BY).",
+      "projects": [],
+      "decision": "reference",
+      "riskLevel": "medium",
+      "risks": [
+        "На страницах gdh.org лицензия модели не показана — её нужно смотреть на Sketchfab.",
+        "Модели CC BY-NC нельзя использовать в роликах с монетизацией, рекламе и работах для клиентов без письменного разрешения.",
+        "Лицензия CC не снимает возможных прав музея или страны происхождения.",
+        "Описание и история происхождения есть не у каждого объекта.",
+        "Просмотр зависит от Sketchfab."
+      ],
+      "quickStart": [
+        "Найти объект на gdh.org, затем открыть ту же модель в аккаунте GlobalDigitalHeritage на Sketchfab и посмотреть лицензию.",
+        "Для коммерческой работы искать на Sketchfab с фильтром лицензии CC BY.",
+        "При использовании указать автора, лицензию и внесённые изменения."
+      ],
+      "verifiedAt": "2026-11-27",
+      "addedAt": "2026-11-27",
+      "reviewStatus": "verified",
+      "source": {
+        "file": "catalog/resources.json",
+        "key": "global-digital-heritage",
+        "legacy": {
+          "file": "catalog/resources.json",
+          "key": "global-digital-heritage",
+          "category": "Медиа и дизайн",
+          "subcategory": "3D-модели и культурное наследие"
+        }
+      },
+      "catalogOrder": 841,
+      "licenseInfo": {
+        "label": "Единой лицензии нет: она указана у каждой модели на Sketchfab. В выборке большинство — CC BY-NC 4.0 (некоммерческое использование с указанием автора); 1392 модели — CC BY 4.0 (можно и в коммерческих работах с указанием автора); встречаются модели без открытой лицензии и без скачивания. Тексты, фото и PDF самого сайта — только для личного некоммерческого использования.",
+        "original": "Единой лицензии нет: она указана у каждой модели на Sketchfab. В выборке большинство — CC BY-NC 4.0 (некоммерческое использование с указанием автора); 1392 модели — CC BY 4.0 (можно и в коммерческих работах с указанием автора); встречаются модели без открытой лицензии и без скачивания. Тексты, фото и PDF самого сайта — только для личного некоммерческого использования.",
+        "spdx": null,
+        "kind": "custom",
+        "status": "editor-reviewed",
+        "requiresReview": false,
+        "evidence": [
+          {
+            "kind": "official-source",
+            "label": "Сайт организации",
+            "url": "https://gdh.org/"
+          },
+          {
+            "kind": "source",
+            "label": "Аккаунт на Sketchfab с лицензией у каждой модели",
+            "url": "https://sketchfab.com/GlobalDigitalHeritage"
+          },
+          {
+            "kind": "license",
+            "label": "Текст CC BY-NC 4.0",
+            "url": "https://creativecommons.org/licenses/by-nc/4.0/"
+          },
+          {
+            "kind": "license",
+            "label": "Текст CC BY 4.0",
+            "url": "https://creativecommons.org/licenses/by/4.0/"
+          }
+        ]
+      },
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://gdh.org/"
+        },
+        {
+          "kind": "source",
+          "label": "Аккаунт на Sketchfab с лицензией у каждой модели",
+          "url": "https://sketchfab.com/GlobalDigitalHeritage"
+        },
+        {
+          "kind": "license",
+          "label": "Текст CC BY-NC 4.0",
+          "url": "https://creativecommons.org/licenses/by-nc/4.0/"
+        },
+        {
+          "kind": "license",
+          "label": "Текст CC BY 4.0",
+          "url": "https://creativecommons.org/licenses/by/4.0/"
+        }
+      ],
+      "agentEligibility": {
+        "eligible": true,
+        "reasons": [],
+        "installAllowed": false
+      }
+    },
+    {
+      "id": "video-explainer-skill",
+      "url": "https://github.com/petergyang/video-explainer",
+      "title": "Video Explainer — навык для минутных объясняющих роликов",
+      "type": "skill",
+      "category": "Медиа и дизайн",
+      "subcategory": "Программная анимация и видео",
+      "simpleDescription": "Навык для ИИ-агента с доступом к командной строке: по теме, документу или ссылке агент пишет сценарий и код сцен, а скрипты озвучивают, собирают и рендерят ролик на 60–75 секунд. Картинка рисуется кодом (HTML, Canvas, three.js) и снимается покадрово через HyperFrames — это не генерация видео нейросетью. Три стиля: анимация, рисованный, 3D. Рассчитан на macOS и Linux; локальный голос по умолчанию английский.",
+      "useCases": [
+        "Короткое объяснение темы или документа на английском",
+        "Образец устройства: привязка анимации к времени каждого слова диктора",
+        "Образец автоматической проверки готового ролика (размер, звук, синхрон, чёрные кадры)"
+      ],
+      "platforms": [
+        "macOS",
+        "Linux",
+        "Claude Code",
+        "Codex",
+        "Python",
+        "Node.js"
+      ],
+      "license": "MIT для навыка. У зависимостей свои условия: HyperFrames — Apache-2.0, GSAP — лицензия Webflow, модель Parakeet — CC BY 4.0; у картинок и клипов из сети — собственные лицензии.",
+      "licenseEvidence": [
+        {
+          "kind": "license",
+          "label": "Лицензия MIT",
+          "url": "https://github.com/petergyang/video-explainer/blob/main/LICENSE"
+        },
+        {
+          "kind": "source",
+          "label": "Репозиторий и документация",
+          "url": "https://github.com/petergyang/video-explainer"
+        }
+      ],
+      "pricing": "Навык бесплатный; оплачивается работа ИИ-агента. По документации рисованный стиль расходует примерно в 6 раз, а 3D — в 7 раз больше, чем анимация. Ключ Gemini для облачного голоса и музыки необязателен.",
+      "access": {
+        "cost": "free",
+        "signup": "none",
+        "runtime": "local"
+      },
+      "trust": "community",
+      "trustReason": "Репозиторий, лицензия, SKILL.md и скрипты прочитаны 27.11.2026 на коммите be2f729: вредоносного кода, хуков и посторонних указаний агенту не найдено. Около 565 звёзд, проекту 12 дней, автор один, релизов нет. Навык не устанавливался и не запускался.",
+      "projects": [],
+      "decision": "reference",
+      "riskLevel": "medium",
+      "risks": [
+        "На Windows напрямую не работает: скрипты на bash, в прежней версии README указан только WSL.",
+        "Русский текст по умолчанию озвучивается английским голосом; язык навык не определяет.",
+        "Версии зависимостей не закреплены (pip без версий, плавающие зависимости npm, скрипты с CDN), установка идёт с ветки main без релизов.",
+        "Агент ходит по произвольным сайтам и скачивает чужие медиа: риск внедрённых указаний и авторских прав; адреса localhost и file:// не ограничены.",
+        "Зависимости по умолчанию отправляют телеметрию."
+      ],
+      "quickStart": [
+        "Не ставить командой с --global --yes: скопировать папку навыка с проверенного коммита для одного агента.",
+        "Запускать в отдельной среде без рабочих репозиториев и ключей, с подтверждением команд у агента.",
+        "Перед запуском задать DO_NOT_TRACK=1 и HYPERFRAMES_NO_TELEMETRY=1."
+      ],
+      "verifiedAt": "2026-11-27",
+      "addedAt": "2026-11-27",
+      "reviewStatus": "verified",
+      "source": {
+        "file": "catalog/resources.json",
+        "key": "video-explainer-skill",
+        "legacy": {
+          "file": "catalog/resources.json",
+          "key": "video-explainer-skill",
+          "category": "Медиа и дизайн",
+          "subcategory": "Программная анимация и видео"
+        }
+      },
+      "catalogOrder": 842,
+      "licenseInfo": {
+        "label": "MIT для навыка. У зависимостей свои условия: HyperFrames — Apache-2.0, GSAP — лицензия Webflow, модель Parakeet — CC BY 4.0; у картинок и клипов из сети — собственные лицензии.",
+        "original": "MIT для навыка. У зависимостей свои условия: HyperFrames — Apache-2.0, GSAP — лицензия Webflow, модель Parakeet — CC BY 4.0; у картинок и клипов из сети — собственные лицензии.",
+        "spdx": null,
+        "kind": "custom",
+        "status": "editor-reviewed",
+        "requiresReview": false,
+        "evidence": [
+          {
+            "kind": "license",
+            "label": "Лицензия MIT",
+            "url": "https://github.com/petergyang/video-explainer/blob/main/LICENSE"
+          },
+          {
+            "kind": "source",
+            "label": "Репозиторий и документация",
+            "url": "https://github.com/petergyang/video-explainer"
+          }
+        ]
+      },
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://github.com/petergyang/video-explainer"
+        },
+        {
+          "kind": "license",
+          "label": "Лицензия MIT",
+          "url": "https://github.com/petergyang/video-explainer/blob/main/LICENSE"
+        }
+      ],
+      "agentEligibility": {
+        "eligible": true,
+        "reasons": [],
+        "installAllowed": false
+      }
+    },
+    {
+      "id": "net-merge",
+      "url": "https://github.com/net-merge/net-merge",
+      "title": "net-merge — несколько интернет-подключений сразу",
+      "type": "grey",
+      "category": "Подборка Eclipse",
+      "subcategory": "⚠️ Grey / дебанк — НЕ рекомендуется",
+      "simpleDescription": "Открытая программа, которая раскладывает сетевые соединения компьютера по нескольким подключениям: Wi-Fi, Ethernet, телефон в режиме модема. Это балансировка по соединениям, а не сложение каналов: одно соединение всегда идёт через один канал, поэтому видеозвонок, игра или одиночная загрузка не ускоряются. Прирост возможен только там, где программа открывает много соединений сразу. Заявленное в пересказах «ускорение в 3 раза» источниками не подтверждается: замер автора — 1,9–2,5 раза на трёх каналах.",
+      "useCases": [
+        "Справка: чем балансировка по соединениям отличается от объединения каналов",
+        "Проверка на отдельном компьютере или в виртуальной машине без VPN"
+      ],
+      "platforms": [
+        "Windows",
+        "macOS",
+        "Linux",
+        "Android"
+      ],
+      "license": "MIT",
+      "licenseEvidence": [
+        {
+          "kind": "license",
+          "label": "Лицензия MIT",
+          "url": "https://github.com/net-merge/net-merge/blob/main/LICENSE"
+        },
+        {
+          "kind": "source",
+          "label": "Репозиторий и документация",
+          "url": "https://github.com/net-merge/net-merge"
+        }
+      ],
+      "pricing": "Бесплатно, без аккаунта и внешнего сервера. Косвенный расход — мобильный трафик по тарифу оператора.",
+      "access": {
+        "cost": "free",
+        "signup": "none",
+        "runtime": "local"
+      },
+      "trust": "caution",
+      "trustReason": "Репозиторий, лицензия, код установщика и issue проверены 27.11.2026: около 4,1 тыс. звёзд, проекту полтора месяца, один сопровождающий, выпуск v0.4.0 вышел в день проверки. Программа не устанавливалась; независимых замеров скорости нет.",
+      "projects": [],
+      "decision": "no",
+      "riskLevel": "high",
+      "risks": [
+        "Работает с правами администратора, создаёт виртуальный сетевой адаптер и перекрывает маршрут по умолчанию; через процесс идёт весь исходящий трафик.",
+        "С VPN и оверлейными сетями на том же компьютере не совместима: по документации трафик может пойти мимо VPN. На 27.11.2026 открыт issue о зависании v0.4.0 на Windows 11 с установленным Tailscale.",
+        "Сборки не подписаны; команда установки из README скачивает и запускает последний выпуск без сверки контрольной суммы.",
+        "Меняет сетевые настройки адаптеров: на время работы перестают работать точка доступа и общий доступ к интернету.",
+        "У разных соединений разные внешние IP-адреса: сайты могут сбрасывать сессии; мобильный трафик расходуется незаметно."
+      ],
+      "quickStart": [
+        "Не ставить на рабочий компьютер с VPN, Tailscale или WireGuard.",
+        "Для проверки — отдельный компьютер или виртуальная машина; установщик конкретной версии скачать вручную и сверить SHA-256, не в день выхода выпуска.",
+        "Автозапуск не включать; перед удалением штатно выйти из программы, чтобы сетевые настройки вернулись."
+      ],
+      "verifiedAt": "2026-11-27",
+      "addedAt": "2026-11-27",
+      "reviewStatus": "verified",
+      "source": {
+        "file": "catalog/resources.json",
+        "key": "net-merge",
+        "legacy": {
+          "file": "catalog/resources.json",
+          "key": "net-merge",
+          "category": "Подборка Eclipse",
+          "subcategory": "⚠️ Grey / дебанк — НЕ рекомендуется"
+        }
+      },
+      "catalogOrder": 843,
+      "licenseInfo": {
+        "label": "MIT",
+        "original": "MIT. В поставку для Windows входит сторонний драйвер Wintun со своей лицензией.",
+        "spdx": "MIT",
+        "kind": "open-source",
+        "status": "editor-reviewed",
+        "requiresReview": false,
+        "evidence": [
+          {
+            "kind": "license",
+            "label": "Лицензия MIT",
+            "url": "https://github.com/net-merge/net-merge/blob/main/LICENSE"
+          },
+          {
+            "kind": "source",
+            "label": "Репозиторий и документация",
+            "url": "https://github.com/net-merge/net-merge"
+          }
+        ]
+      },
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://github.com/net-merge/net-merge"
+        },
+        {
+          "kind": "license",
+          "label": "Лицензия MIT",
+          "url": "https://github.com/net-merge/net-merge/blob/main/LICENSE"
+        }
+      ],
+      "agentEligibility": {
+        "eligible": false,
+        "reasons": [
+          "grey-resource",
+          "editorial-decision-no"
+        ],
         "installAllowed": false
       }
     },
