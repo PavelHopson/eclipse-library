@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "consumer": "Eclipse AI",
-  "catalogVersion": "7ec51406157c3ec8672fc243b82b203a323ca7f51ddc4ed4cd48325c541de310",
+  "catalogVersion": "b05eb66b10192d7610a7f70a01c957a7f7030abac9e3a319f84cfe7b9354d02a",
   "generatedAt": null,
   "policy": {
     "greyResourcesExcluded": true,
@@ -9,7 +9,7 @@
     "externalMutationsRequireHumanApproval": true
   },
   "totals": {
-    "items": 735
+    "items": 738
   },
   "items": [
     {
@@ -27465,6 +27465,238 @@
           "kind": "official-source",
           "label": "Официальный источник",
           "url": "https://segazona.ru/"
+        }
+      ],
+      "actions": {
+        "openOfficialSource": true,
+        "installFromCatalog": false,
+        "mutateExternalSystems": false
+      }
+    },
+    {
+      "id": "openvector",
+      "title": "OpenVector — перевод картинки в вектор",
+      "url": "https://github.com/Microck/openvector",
+      "type": "tool",
+      "category": "Медиа и дизайн",
+      "subcategory": "Векторная графика",
+      "addedAt": "2026-11-27",
+      "description": "Открытая программа, которая переводит PNG и JPEG в векторные контуры и сохраняет SVG, PDF, EPS или DXF. Собственный движок на Rust без нейросети; работает в браузере без установки, есть приложение для Windows, macOS и Linux, командная строка и пакет для Node.js. Рассчитана на логотипы, иконки и плоские иллюстрации: по словам автора, фотографии редко дают полезный вектор.",
+      "useCases": [
+        "Перевести логотип или иконку из растра в SVG",
+        "Убрать лишние области и сократить число цветов в готовом векторе",
+        "Пакетная конвертация из командной строки"
+      ],
+      "platforms": [
+        "Web",
+        "Windows",
+        "macOS",
+        "Linux",
+        "CLI",
+        "Node.js"
+      ],
+      "license": {
+        "label": "MIT",
+        "original": "MIT для кода проекта. Автор сообщает, что движок воспроизводит поведение платной программы Vector Magic и юридическая очистка не проводилась.",
+        "spdx": "MIT",
+        "kind": "open-source",
+        "status": "editor-reviewed",
+        "requiresReview": false,
+        "evidence": [
+          {
+            "kind": "license",
+            "label": "Лицензия MIT",
+            "url": "https://github.com/Microck/openvector/blob/main/LICENSE"
+          },
+          {
+            "kind": "source",
+            "label": "Репозиторий и документация",
+            "url": "https://github.com/Microck/openvector"
+          },
+          {
+            "kind": "official-source",
+            "label": "Веб-редактор",
+            "url": "https://openvector.app/editor/"
+          }
+        ]
+      },
+      "access": {
+        "cost": "free",
+        "signup": "none",
+        "runtime": "hybrid"
+      },
+      "trust": "community",
+      "decision": "now",
+      "riskLevel": "medium",
+      "projects": [],
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://github.com/Microck/openvector"
+        },
+        {
+          "kind": "license",
+          "label": "Лицензия MIT",
+          "url": "https://github.com/Microck/openvector/blob/main/LICENSE"
+        },
+        {
+          "kind": "official-source",
+          "label": "Веб-редактор",
+          "url": "https://openvector.app/editor/"
+        }
+      ],
+      "actions": {
+        "openOfficialSource": true,
+        "installFromCatalog": false,
+        "mutateExternalSystems": false
+      }
+    },
+    {
+      "id": "global-digital-heritage",
+      "title": "Global Digital Heritage — 3D-сканы памятников и музейных предметов",
+      "url": "https://gdh.org/",
+      "type": "reference",
+      "category": "Медиа и дизайн",
+      "subcategory": "3D-модели и культурное наследие",
+      "addedAt": "2026-11-27",
+      "description": "Каталог трёхмерных сканов культурного наследия: предметы из музеев и раскопок, а также церкви, мосты, пещеры и петроглифы из 15 стран. На сайте около 9,4 тыс. записей; модели размещены на Sketchfab, их можно вращать в браузере. Описания неравномерны: у части объектов есть история и датировка, у части только страна, материал и эпоха.",
+      "useCases": [
+        "Наглядный материал для уроков истории и археологии",
+        "Референсы формы и фактуры для 3D и иллюстраций",
+        "3D-модели для роликов и сайтов — только с лицензией CC BY"
+      ],
+      "platforms": [
+        "Web"
+      ],
+      "license": {
+        "label": "Единой лицензии нет: она указана у каждой модели на Sketchfab. В выборке большинство — CC BY-NC 4.0 (некоммерческое использование с указанием автора); 1392 модели — CC BY 4.0 (можно и в коммерческих работах с указанием автора); встречаются модели без открытой лицензии и без скачивания. Тексты, фото и PDF самого сайта — только для личного некоммерческого использования.",
+        "original": "Единой лицензии нет: она указана у каждой модели на Sketchfab. В выборке большинство — CC BY-NC 4.0 (некоммерческое использование с указанием автора); 1392 модели — CC BY 4.0 (можно и в коммерческих работах с указанием автора); встречаются модели без открытой лицензии и без скачивания. Тексты, фото и PDF самого сайта — только для личного некоммерческого использования.",
+        "spdx": null,
+        "kind": "custom",
+        "status": "editor-reviewed",
+        "requiresReview": false,
+        "evidence": [
+          {
+            "kind": "official-source",
+            "label": "Сайт организации",
+            "url": "https://gdh.org/"
+          },
+          {
+            "kind": "source",
+            "label": "Аккаунт на Sketchfab с лицензией у каждой модели",
+            "url": "https://sketchfab.com/GlobalDigitalHeritage"
+          },
+          {
+            "kind": "license",
+            "label": "Текст CC BY-NC 4.0",
+            "url": "https://creativecommons.org/licenses/by-nc/4.0/"
+          },
+          {
+            "kind": "license",
+            "label": "Текст CC BY 4.0",
+            "url": "https://creativecommons.org/licenses/by/4.0/"
+          }
+        ]
+      },
+      "access": {
+        "cost": "free",
+        "signup": "optional",
+        "runtime": "cloud"
+      },
+      "trust": "official",
+      "decision": "reference",
+      "riskLevel": "medium",
+      "projects": [],
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://gdh.org/"
+        },
+        {
+          "kind": "source",
+          "label": "Аккаунт на Sketchfab с лицензией у каждой модели",
+          "url": "https://sketchfab.com/GlobalDigitalHeritage"
+        },
+        {
+          "kind": "license",
+          "label": "Текст CC BY-NC 4.0",
+          "url": "https://creativecommons.org/licenses/by-nc/4.0/"
+        },
+        {
+          "kind": "license",
+          "label": "Текст CC BY 4.0",
+          "url": "https://creativecommons.org/licenses/by/4.0/"
+        }
+      ],
+      "actions": {
+        "openOfficialSource": true,
+        "installFromCatalog": false,
+        "mutateExternalSystems": false
+      }
+    },
+    {
+      "id": "video-explainer-skill",
+      "title": "Video Explainer — навык для минутных объясняющих роликов",
+      "url": "https://github.com/petergyang/video-explainer",
+      "type": "skill",
+      "category": "Медиа и дизайн",
+      "subcategory": "Программная анимация и видео",
+      "addedAt": "2026-11-27",
+      "description": "Навык для ИИ-агента с доступом к командной строке: по теме, документу или ссылке агент пишет сценарий и код сцен, а скрипты озвучивают, собирают и рендерят ролик на 60–75 секунд. Картинка рисуется кодом (HTML, Canvas, three.js) и снимается покадрово через HyperFrames — это не генерация видео нейросетью. Три стиля: анимация, рисованный, 3D. Рассчитан на macOS и Linux; локальный голос по умолчанию английский.",
+      "useCases": [
+        "Короткое объяснение темы или документа на английском",
+        "Образец устройства: привязка анимации к времени каждого слова диктора",
+        "Образец автоматической проверки готового ролика (размер, звук, синхрон, чёрные кадры)"
+      ],
+      "platforms": [
+        "macOS",
+        "Linux",
+        "Claude Code",
+        "Codex",
+        "Python",
+        "Node.js"
+      ],
+      "license": {
+        "label": "MIT для навыка. У зависимостей свои условия: HyperFrames — Apache-2.0, GSAP — лицензия Webflow, модель Parakeet — CC BY 4.0; у картинок и клипов из сети — собственные лицензии.",
+        "original": "MIT для навыка. У зависимостей свои условия: HyperFrames — Apache-2.0, GSAP — лицензия Webflow, модель Parakeet — CC BY 4.0; у картинок и клипов из сети — собственные лицензии.",
+        "spdx": null,
+        "kind": "custom",
+        "status": "editor-reviewed",
+        "requiresReview": false,
+        "evidence": [
+          {
+            "kind": "license",
+            "label": "Лицензия MIT",
+            "url": "https://github.com/petergyang/video-explainer/blob/main/LICENSE"
+          },
+          {
+            "kind": "source",
+            "label": "Репозиторий и документация",
+            "url": "https://github.com/petergyang/video-explainer"
+          }
+        ]
+      },
+      "access": {
+        "cost": "free",
+        "signup": "none",
+        "runtime": "local"
+      },
+      "trust": "community",
+      "decision": "reference",
+      "riskLevel": "medium",
+      "projects": [],
+      "evidence": [
+        {
+          "kind": "official-source",
+          "label": "Официальный источник",
+          "url": "https://github.com/petergyang/video-explainer"
+        },
+        {
+          "kind": "license",
+          "label": "Лицензия MIT",
+          "url": "https://github.com/petergyang/video-explainer/blob/main/LICENSE"
         }
       ],
       "actions": {
